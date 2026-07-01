@@ -24,7 +24,7 @@ func TestNew_authAndHeaders(t *testing.T) {
 	}))
 	defer srv.Close()
 
-	c, err := incident.New("secret-key", incident.WithEndpoint(srv.URL))
+	c, err := incident.New("secret-key", incident.WithBaseURL(srv.URL))
 	if err != nil {
 		t.Fatalf("New: %v", err)
 	}
@@ -59,7 +59,7 @@ func TestNew_customUserAgent(t *testing.T) {
 	defer srv.Close()
 
 	c, err := incident.New("k",
-		incident.WithEndpoint(srv.URL),
+		incident.WithBaseURL(srv.URL),
 		incident.WithUserAgent("my-app/1.2.3"),
 	)
 	if err != nil {

@@ -29,12 +29,12 @@ jobs:
           go-version: stable
 
       - name: Fetch latest public schema
-        run: curl -sfS https://api.incident.io/v1/openapiV3.json -o client/openapi3.json
+        run: curl -sfS https://api.incident.io/v1/openapiV3.json -o openapi3.json
 
       - name: Exit early if schema unchanged
         id: changed
         run: |
-          if git diff --quiet client/openapi3.json; then
+          if git diff --quiet openapi3.json; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "Schema unchanged; nothing to do."
           else
@@ -130,7 +130,7 @@ jobs:
           set -euo pipefail
           git config user.name "incident-io-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add client/openapi3.json client/client.gen.go
+          git add openapi3.json incident.gen.go
           git commit -m "Update to schema as of $(date -u +%Y-%m-%dT%H:%M:%SZ)
 
           Regenerated from https://api.incident.io/v1/openapiV3.json"

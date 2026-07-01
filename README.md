@@ -63,10 +63,10 @@ non-2xx status, and `resp.Body` holds the raw payload.
 
 ```go
 c, err := incident.New("my-api-key",
-	incident.WithEndpoint("https://api.incident.io"), // override the base URL
 	incident.WithUserAgent("my-app/1.0.0"),           // identify your integration
 	incident.WithRetries(),                           // opt in to automatic retries
-	incident.WithHTTPClient(myHTTPClient),            // bring your own *http.Client
+	incident.WithBaseURL("https://api.incident.io"),  // override the base URL
+	incident.WithHTTPClient(myHTTPClient),            // bring your own HTTP client
 )
 ```
 
@@ -77,8 +77,15 @@ retry. Pass `WithRetries()` to enable exponential backoff on transient failures
 (network errors, `429`s and `5xx`s); it honours the `Retry-After` header. Pass
 `WithRetries(n)` to cap the number of retries (default 4).
 
-If you supply your own client with `WithHTTPClient`, `WithRetries` is ignored —
-configure retrying on the client you pass in.
+`WithRetries` works by installing a retrying HTTP client, so passing it
+alongside your own `WithHTTPClient` is redundant — the later option wins.
+
+### Deprecated endpoints
+
+Endpoints that incident.io has deprecated (for example the `v1` incidents and
+custom fields endpoints, superseded by `v2`) remain available but are marked
+with `// Deprecated:` — your editor and `staticcheck` will flag any calls to
+them so you can migrate to the current version.
 
 ## Versioning
 
@@ -94,7 +101,7 @@ Found a bug or missing something? Please
 [open an issue](https://github.com/incident-io/sdk-go/issues). For questions
 about the API itself, see the [API docs](https://api-docs.incident.io/).
 
-Note that `client/client.gen.go` is generated — please don't send PRs editing it
+Note that `incident.gen.go` is generated — please don't send PRs editing it
 directly; changes there come from the upstream schema.
 
 ## License

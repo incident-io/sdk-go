@@ -12,3 +12,7 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 )
+
+// v1.0.0 exposed a separate client subpackage that was immediately reworked
+// into this single-package layout; nobody should depend on it.
+retract v1.0.0
