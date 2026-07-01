@@ -1,0 +1,36 @@
+name: test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - run: go build ./...
+      - run: go vet ./...
+      - run: go test ./...
+
+  # Fail if the committed generated client is out of date with the committed
+  # schema — i.e. someone changed openapi3.json without re-running the generator.
+  generate-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - run: make generate
+      - name: Check for drift
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Generated client is out of date. Run 'make generate' and commit the result."
+            git diff --stat
+            exit 1
+          fi

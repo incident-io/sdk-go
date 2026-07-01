@@ -1,0 +1,8 @@
+# Binaries
+*.exe
+*.out
+
+# Go workspace / local env
+go.work
+go.work.sum
+.env

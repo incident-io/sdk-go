@@ -1,0 +1,139 @@
+name: sync
+
+# Refreshes the OpenAPI schema from the live public API, regenerates the
+# client, and cuts a release if anything changed. Runs hourly; the job exits in
+# seconds when the schema is unchanged, so the cadence is cheap.
+on:
+  schedule:
+    - cron: "0 * * * *" # hourly
+  workflow_dispatch: {}
+
+permissions:
+  contents: write # commit + tag + create release
+  issues: write # open an issue when a breaking change is detected
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # need full history + tags for gorelease
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: Fetch latest public schema
+        run: curl -sfS https://api.incident.io/v1/openapiV3.json -o client/openapi3.json
+
+      - name: Exit early if schema unchanged
+        id: changed
+        run: |
+          if git diff --quiet client/openapi3.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Schema unchanged; nothing to do."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Regenerate and verify
+        if: steps.changed.outputs.changed == 'true'
+        run: |
+          make generate
+          go build ./...
+          go test ./...
+
+      - name: Decide next version
+        if: steps.changed.outputs.changed == 'true'
+        id: version
+        run: |
+          set -euo pipefail
+          BASE="$(git describe --tags --abbrev=0 2>/dev/null || true)"
+
+          if [ -z "$BASE" ]; then
+            echo "No existing tag; seeding first release."
+            echo "next=v1.0.0" >> "$GITHUB_OUTPUT"
+            echo "breaking=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Comparing API against $BASE with gorelease..."
+          report="$(go run golang.org/x/exp/cmd/gorelease@latest -base="$BASE" 2>&1 || true)"
+          echo "$report"
+
+          suggested="$(echo "$report" | grep -oiE 'suggested version: v[0-9]+\.[0-9]+\.[0-9]+' | head -1 | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || true)"
+          base_major="$(echo "$BASE" | sed -E 's/^v([0-9]+).*/\1/')"
+          sug_major="$(echo "${suggested:-}" | sed -E 's/^v([0-9]+).*/\1/')"
+
+          breaking=false
+          if echo "$report" | grep -qi "incompatible changes"; then breaking=true; fi
+          if [ -n "${sug_major:-}" ] && [ "$sug_major" -gt "$base_major" ]; then breaking=true; fi
+
+          if [ "$breaking" = "true" ]; then
+            echo "breaking=true" >> "$GITHUB_OUTPUT"
+            { echo "report<<EOF"; echo "$report"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # gorelease always suggests a version for a compatible change; fall
+          # back to a patch bump if we somehow failed to parse one.
+          if [ -z "$suggested" ]; then
+            suggested="$(echo "$BASE" | awk -F. '{printf "%s.%s.%d", $1, $2, $3+1}')"
+          fi
+          echo "next=$suggested" >> "$GITHUB_OUTPUT"
+          echo "breaking=false" >> "$GITHUB_OUTPUT"
+
+      - name: Halt on breaking change
+        if: steps.changed.outputs.changed == 'true' && steps.version.outputs.breaking == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT: ${{ steps.version.outputs.report }}
+        run: |
+          set -euo pipefail
+          body="$(cat <<EOF
+          The upstream OpenAPI schema changed in a way that is **not backwards-compatible** for Go consumers, so the automated release was halted to avoid publishing a breaking change as a patch/minor bump.
+
+          A human needs to decide how to proceed — most likely a new major version (which for a Go module means moving the module path to \`/v2\`, \`/v3\`, ...).
+
+          <details><summary>gorelease report</summary>
+
+          \`\`\`
+          $REPORT
+          \`\`\`
+
+          </details>
+
+          Triggered by run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+          EOF
+          )"
+          gh issue create \
+            --title "Breaking API change detected — manual release required" \
+            --body "$body" \
+            --label "breaking-change" || \
+          gh issue create \
+            --title "Breaking API change detected — manual release required" \
+            --body "$body"
+          echo "::error::Breaking change detected; opened an issue and stopped."
+          exit 1
+
+      - name: Commit, tag and release
+        if: steps.changed.outputs.changed == 'true' && steps.version.outputs.breaking == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NEXT: ${{ steps.version.outputs.next }}
+        run: |
+          set -euo pipefail
+          git config user.name "incident-io-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add client/openapi3.json client/client.gen.go
+          git commit -m "Update to schema as of $(date -u +%Y-%m-%dT%H:%M:%SZ)
+
+          Regenerated from https://api.incident.io/v1/openapiV3.json"
+          git tag "$NEXT"
+          git push origin HEAD --tags
+          gh release create "$NEXT" --generate-notes --title "$NEXT"
