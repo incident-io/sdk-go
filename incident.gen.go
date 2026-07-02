@@ -13406,6 +13406,9 @@ type ClientInterface interface {
 	// EscalationsV2Show request
 	EscalationsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// EscalationsV2CancelEscalation request
+	EscalationsV2CancelEscalation(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// FollowUpsV2List request
 	FollowUpsV2List(ctx context.Context, params *FollowUpsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -15668,6 +15671,18 @@ func (c *Client) EscalationsV2Create(ctx context.Context, body EscalationsV2Crea
 
 func (c *Client) EscalationsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newEscalationsV2ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) EscalationsV2CancelEscalation(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newEscalationsV2CancelEscalationRequest(c.Server, id)
 	if err != nil {
 		return nil, err
 	}
@@ -22059,6 +22074,40 @@ func newEscalationsV2ShowRequest(server string, id string) (*http.Request, error
 	return req, nil
 }
 
+// NewEscalationsV2CancelEscalationRequest generates requests for EscalationsV2CancelEscalation
+func newEscalationsV2CancelEscalationRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/escalations/%s/actions/cancel", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewFollowUpsV2ListRequest generates requests for FollowUpsV2List
 func newFollowUpsV2ListRequest(server string, params *FollowUpsV2ListParams) (*http.Request, error) {
 	var err error
@@ -26726,6 +26775,9 @@ type ClientWithResponsesInterface interface {
 	// EscalationsV2ShowWithResponse request
 	EscalationsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*EscalationsV2ShowResponse, error)
 
+	// EscalationsV2CancelEscalationWithResponse request
+	EscalationsV2CancelEscalationWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*EscalationsV2CancelEscalationResponse, error)
+
 	// FollowUpsV2ListWithResponse request
 	FollowUpsV2ListWithResponse(ctx context.Context, params *FollowUpsV2ListParams, reqEditors ...RequestEditorFn) (*FollowUpsV2ListResponse, error)
 
@@ -29522,6 +29574,27 @@ func (r EscalationsV2ShowResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r EscalationsV2ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type EscalationsV2CancelEscalationResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+}
+
+// Status returns HTTPResponse.Status
+func (r EscalationsV2CancelEscalationResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r EscalationsV2CancelEscalationResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -32813,6 +32886,15 @@ func (c *ClientWithResponses) EscalationsV2ShowWithResponse(ctx context.Context,
 		return nil, err
 	}
 	return parseEscalationsV2ShowResponse(rsp)
+}
+
+// EscalationsV2CancelEscalationWithResponse request returning *EscalationsV2CancelEscalationResponse
+func (c *ClientWithResponses) EscalationsV2CancelEscalationWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*EscalationsV2CancelEscalationResponse, error) {
+	rsp, err := c.EscalationsV2CancelEscalation(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseEscalationsV2CancelEscalationResponse(rsp)
 }
 
 // FollowUpsV2ListWithResponse request returning *FollowUpsV2ListResponse
@@ -36589,6 +36671,22 @@ func parseEscalationsV2ShowResponse(rsp *http.Response) (*EscalationsV2ShowRespo
 		}
 		response.JSON200 = &dest
 
+	}
+
+	return response, nil
+}
+
+// ParseEscalationsV2CancelEscalationResponse parses an HTTP response from a EscalationsV2CancelEscalationWithResponse call
+func parseEscalationsV2CancelEscalationResponse(rsp *http.Response) (*EscalationsV2CancelEscalationResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &EscalationsV2CancelEscalationResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
 	}
 
 	return response, nil

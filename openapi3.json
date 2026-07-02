@@ -73745,6 +73745,38 @@
         "x-docs-resource-type": "EscalationV2"
       }
     },
+    "/v2/escalations/{id}/actions/cancel": {
+      "post": {
+        "description": "Cancel an escalation.\n\nCancelling an escalation stops any further paging: notifications cease and the\nescalation will not advance to further levels or repeat. This works on escalations\nthat are still paging (for example to silence a page when an incident is resolved\nbefore anyone acknowledges it) as well as snoozed ones. Escalations that have already\nresolved or expired cannot be cancelled, and cancelling an already-cancelled\nescalation is a no-op.\n\nTo use this API, you will need an API key with the \"Create and manage escalations\" permission.",
+        "operationId": "Escalations V2#CancelEscalation",
+        "parameters": [
+          {
+            "description": "Unique ID of the escalation",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique ID of the escalation",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK response."
+          }
+        },
+        "summary": "CancelEscalation Escalations V2",
+        "tags": [
+          "Escalations V2"
+        ],
+        "x-docs-display-name": "Cancel",
+        "x-docs-group-name": "Escalations V2",
+        "x-docs-resource-type": "EscalationV2"
+      }
+    },
     "/v2/follow_ups": {
       "get": {
         "description": "List all follow-ups for an organisation.",
