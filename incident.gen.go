@@ -35,6 +35,7 @@ const (
 	APIKeyRoleV1NameManageSettings                APIKeyRoleV1Name = "manage_settings"
 	APIKeyRoleV1NameNotificationMethodsManage     APIKeyRoleV1Name = "notification_methods_manage"
 	APIKeyRoleV1NameOnCallEditor                  APIKeyRoleV1Name = "on_call_editor"
+	APIKeyRoleV1NameOnCallViewer                  APIKeyRoleV1Name = "on_call_viewer"
 	APIKeyRoleV1NamePostIncidentFlowOptOut        APIKeyRoleV1Name = "post_incident_flow_opt_out"
 	APIKeyRoleV1NamePostmortemsManage             APIKeyRoleV1Name = "postmortems_manage"
 	APIKeyRoleV1NamePrivateWorkflowsEditor        APIKeyRoleV1Name = "private_workflows_editor"
@@ -80,6 +81,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameNotificationMethodsManage:
 		return true
 	case APIKeyRoleV1NameOnCallEditor:
+		return true
+	case APIKeyRoleV1NameOnCallViewer:
 		return true
 	case APIKeyRoleV1NamePostIncidentFlowOptOut:
 		return true
@@ -155,6 +158,7 @@ const (
 	APIKeysCreatePayloadV1RoleNamesManageSettings                APIKeysCreatePayloadV1RoleNames = "manage_settings"
 	APIKeysCreatePayloadV1RoleNamesNotificationMethodsManage     APIKeysCreatePayloadV1RoleNames = "notification_methods_manage"
 	APIKeysCreatePayloadV1RoleNamesOnCallEditor                  APIKeysCreatePayloadV1RoleNames = "on_call_editor"
+	APIKeysCreatePayloadV1RoleNamesOnCallViewer                  APIKeysCreatePayloadV1RoleNames = "on_call_viewer"
 	APIKeysCreatePayloadV1RoleNamesPostIncidentFlowOptOut        APIKeysCreatePayloadV1RoleNames = "post_incident_flow_opt_out"
 	APIKeysCreatePayloadV1RoleNamesPostmortemsManage             APIKeysCreatePayloadV1RoleNames = "postmortems_manage"
 	APIKeysCreatePayloadV1RoleNamesPrivateWorkflowsEditor        APIKeysCreatePayloadV1RoleNames = "private_workflows_editor"
@@ -200,6 +204,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesNotificationMethodsManage:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesOnCallEditor:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesOnCallViewer:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesPostIncidentFlowOptOut:
 		return true
@@ -275,6 +281,7 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesManageSettings                APIKeysUpdatePayloadV1RoleNames = "manage_settings"
 	APIKeysUpdatePayloadV1RoleNamesNotificationMethodsManage     APIKeysUpdatePayloadV1RoleNames = "notification_methods_manage"
 	APIKeysUpdatePayloadV1RoleNamesOnCallEditor                  APIKeysUpdatePayloadV1RoleNames = "on_call_editor"
+	APIKeysUpdatePayloadV1RoleNamesOnCallViewer                  APIKeysUpdatePayloadV1RoleNames = "on_call_viewer"
 	APIKeysUpdatePayloadV1RoleNamesPostIncidentFlowOptOut        APIKeysUpdatePayloadV1RoleNames = "post_incident_flow_opt_out"
 	APIKeysUpdatePayloadV1RoleNamesPostmortemsManage             APIKeysUpdatePayloadV1RoleNames = "postmortems_manage"
 	APIKeysUpdatePayloadV1RoleNamesPrivateWorkflowsEditor        APIKeysUpdatePayloadV1RoleNames = "private_workflows_editor"
@@ -320,6 +327,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesNotificationMethodsManage:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesOnCallEditor:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesOnCallViewer:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesPostIncidentFlowOptOut:
 		return true
@@ -3068,6 +3077,7 @@ const (
 	IdentityV1RolesManageSettings                IdentityV1Roles = "manage_settings"
 	IdentityV1RolesNotificationMethodsManage     IdentityV1Roles = "notification_methods_manage"
 	IdentityV1RolesOnCallEditor                  IdentityV1Roles = "on_call_editor"
+	IdentityV1RolesOnCallViewer                  IdentityV1Roles = "on_call_viewer"
 	IdentityV1RolesPostIncidentFlowOptOut        IdentityV1Roles = "post_incident_flow_opt_out"
 	IdentityV1RolesPostmortemsManage             IdentityV1Roles = "postmortems_manage"
 	IdentityV1RolesPrivateWorkflowsEditor        IdentityV1Roles = "private_workflows_editor"
@@ -3113,6 +3123,8 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesNotificationMethodsManage:
 		return true
 	case IdentityV1RolesOnCallEditor:
+		return true
+	case IdentityV1RolesOnCallViewer:
 		return true
 	case IdentityV1RolesPostIncidentFlowOptOut:
 		return true
