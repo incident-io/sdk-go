@@ -37884,6 +37884,111 @@
         ],
         "type": "object"
       },
+      "FollowUpsConnectExternalIssuePayloadV2": {
+        "example": {
+          "provider": "linear",
+          "url": "https://linear.app/incident/issue/INC-123"
+        },
+        "properties": {
+          "provider": {
+            "description": "The issue tracker provider the issue belongs to",
+            "enum": [
+              "asana",
+              "azure_devops",
+              "click_up",
+              "linear",
+              "jira",
+              "jira_server",
+              "github",
+              "gitlab",
+              "service_now",
+              "shortcut"
+            ],
+            "example": "linear",
+            "type": "string"
+          },
+          "url": {
+            "description": "URL of the issue in the external provider",
+            "example": "https://linear.app/incident/issue/INC-123",
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider",
+          "url"
+        ],
+        "type": "object"
+      },
+      "FollowUpsConnectExternalIssueResultV2": {
+        "example": {
+          "follow_up": {
+            "assignee": {
+              "email": "lisa@incident.io",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Lisa Karlin Curtis",
+              "role": "owner",
+              "slack_user_id": "U02AYNF2XJM"
+            },
+            "assignee_team": {
+              "id": "abc123",
+              "name": "abc123"
+            },
+            "completed_at": "2021-08-17T13:28:57.801578Z",
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "creator": {
+              "alert": {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "title": "*errors.withMessage: PG::Error failed to connect"
+              },
+              "api_key": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My test API key"
+              },
+              "user": {
+                "email": "lisa@incident.io",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Lisa Karlin Curtis",
+                "role": "owner",
+                "slack_user_id": "U02AYNF2XJM"
+              },
+              "workflow": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My little workflow"
+              }
+            },
+            "description": "Call the fire brigade",
+            "external_issue_reference": {
+              "issue_name": "INC-123",
+              "issue_permalink": "https://linear.app/incident-io/issue/INC-1609/find-copywriter-to-write-up",
+              "provider": "asana"
+            },
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "labels": [
+              "bug",
+              "urgent"
+            ],
+            "priority": {
+              "description": "A follow-up that requires immediate attention.",
+              "id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
+              "name": "Urgent",
+              "rank": 10
+            },
+            "status": "outstanding",
+            "title": "Cat is stuck in the tree",
+            "updated_at": "2021-08-17T13:28:57.801578Z"
+          }
+        },
+        "properties": {
+          "follow_up": {
+            "$ref": "#/components/schemas/FollowUpV2"
+          }
+        },
+        "required": [
+          "follow_up"
+        ],
+        "type": "object"
+      },
       "FollowUpsCreatePayloadV2": {
         "example": {
           "assignee_id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -74257,6 +74362,118 @@
           "Follow-ups V2"
         ],
         "x-docs-display-name": "Update",
+        "x-docs-group-name": "Follow-ups V2",
+        "x-docs-resource-type": "FollowUpV2"
+      }
+    },
+    "/v2/follow_ups/{id}/actions/connect_external_issue": {
+      "post": {
+        "description": "Connect a follow-up to an existing issue in an issue tracker, using the URL of the issue.\n\nThis will not work if the follow-up is already connected to an external issue.\n",
+        "operationId": "Follow-ups V2#ConnectExternalIssue",
+        "parameters": [
+          {
+            "description": "Unique identifier for the follow-up",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for the follow-up",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "provider": "linear",
+                "url": "https://linear.app/incident/issue/INC-123"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/FollowUpsConnectExternalIssuePayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "follow_up": {
+                    "assignee": {
+                      "email": "lisa@incident.io",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Lisa Karlin Curtis",
+                      "role": "owner",
+                      "slack_user_id": "U02AYNF2XJM"
+                    },
+                    "assignee_team": {
+                      "id": "abc123",
+                      "name": "abc123"
+                    },
+                    "completed_at": "2021-08-17T13:28:57.801578Z",
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "creator": {
+                      "alert": {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "title": "*errors.withMessage: PG::Error failed to connect"
+                      },
+                      "api_key": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My test API key"
+                      },
+                      "user": {
+                        "email": "lisa@incident.io",
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "Lisa Karlin Curtis",
+                        "role": "owner",
+                        "slack_user_id": "U02AYNF2XJM"
+                      },
+                      "workflow": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My little workflow"
+                      }
+                    },
+                    "description": "Call the fire brigade",
+                    "external_issue_reference": {
+                      "issue_name": "INC-123",
+                      "issue_permalink": "https://linear.app/incident-io/issue/INC-1609/find-copywriter-to-write-up",
+                      "provider": "asana"
+                    },
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "labels": [
+                      "bug",
+                      "urgent"
+                    ],
+                    "priority": {
+                      "description": "A follow-up that requires immediate attention.",
+                      "id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
+                      "name": "Urgent",
+                      "rank": 10
+                    },
+                    "status": "outstanding",
+                    "title": "Cat is stuck in the tree",
+                    "updated_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/FollowUpsConnectExternalIssueResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "summary": "ConnectExternalIssue Follow-ups V2",
+        "tags": [
+          "Follow-ups V2"
+        ],
+        "x-docs-display-name": "Connect external issue",
         "x-docs-group-name": "Follow-ups V2",
         "x-docs-resource-type": "FollowUpV2"
       }

@@ -2985,6 +2985,48 @@ func (e FollowUpV2Status) Valid() bool {
 	}
 }
 
+// Defines values for FollowUpsConnectExternalIssuePayloadV2Provider.
+const (
+	FollowUpsConnectExternalIssuePayloadV2ProviderAsana       FollowUpsConnectExternalIssuePayloadV2Provider = "asana"
+	FollowUpsConnectExternalIssuePayloadV2ProviderAzureDevops FollowUpsConnectExternalIssuePayloadV2Provider = "azure_devops"
+	FollowUpsConnectExternalIssuePayloadV2ProviderClickUp     FollowUpsConnectExternalIssuePayloadV2Provider = "click_up"
+	FollowUpsConnectExternalIssuePayloadV2ProviderGithub      FollowUpsConnectExternalIssuePayloadV2Provider = "github"
+	FollowUpsConnectExternalIssuePayloadV2ProviderGitlab      FollowUpsConnectExternalIssuePayloadV2Provider = "gitlab"
+	FollowUpsConnectExternalIssuePayloadV2ProviderJira        FollowUpsConnectExternalIssuePayloadV2Provider = "jira"
+	FollowUpsConnectExternalIssuePayloadV2ProviderJiraServer  FollowUpsConnectExternalIssuePayloadV2Provider = "jira_server"
+	FollowUpsConnectExternalIssuePayloadV2ProviderLinear      FollowUpsConnectExternalIssuePayloadV2Provider = "linear"
+	FollowUpsConnectExternalIssuePayloadV2ProviderServiceNow  FollowUpsConnectExternalIssuePayloadV2Provider = "service_now"
+	FollowUpsConnectExternalIssuePayloadV2ProviderShortcut    FollowUpsConnectExternalIssuePayloadV2Provider = "shortcut"
+)
+
+// Valid indicates whether the value is a known member of the FollowUpsConnectExternalIssuePayloadV2Provider enum.
+func (e FollowUpsConnectExternalIssuePayloadV2Provider) Valid() bool {
+	switch e {
+	case FollowUpsConnectExternalIssuePayloadV2ProviderAsana:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV2ProviderAzureDevops:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV2ProviderClickUp:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV2ProviderGithub:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV2ProviderGitlab:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV2ProviderJira:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV2ProviderJiraServer:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV2ProviderLinear:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV2ProviderServiceNow:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV2ProviderShortcut:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for FollowUpsUpdatePayloadV2Status.
 const (
 	FollowUpsUpdatePayloadV2StatusCompleted   FollowUpsUpdatePayloadV2Status = "completed"
@@ -4571,22 +4613,22 @@ func (e UsersShowPagingProviderResultV2PreferredEscalationProvider) Valid() bool
 
 // Defines values for UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider.
 const (
-	UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderNative       UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "native"
-	UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderOpsgenie     UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "opsgenie"
-	UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderPagerduty    UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "pagerduty"
-	UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderSplunkOnCall UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "splunk_on_call"
+	Native       UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "native"
+	Opsgenie     UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "opsgenie"
+	Pagerduty    UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "pagerduty"
+	SplunkOnCall UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "splunk_on_call"
 )
 
 // Valid indicates whether the value is a known member of the UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider enum.
 func (e UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider) Valid() bool {
 	switch e {
-	case UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderNative:
+	case Native:
 		return true
-	case UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderOpsgenie:
+	case Opsgenie:
 		return true
-	case UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderPagerduty:
+	case Pagerduty:
 		return true
-	case UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderSplunkOnCall:
+	case SplunkOnCall:
 		return true
 	default:
 		return false
@@ -8508,6 +8550,23 @@ type FollowUpV2 struct {
 
 // FollowUpV2Status Status of the follow-up
 type FollowUpV2Status string
+
+// FollowUpsConnectExternalIssuePayloadV2 defines model for FollowUpsConnectExternalIssuePayloadV2.
+type FollowUpsConnectExternalIssuePayloadV2 struct {
+	// Provider The issue tracker provider the issue belongs to
+	Provider FollowUpsConnectExternalIssuePayloadV2Provider `json:"provider"`
+
+	// Url URL of the issue in the external provider
+	Url string `json:"url"`
+}
+
+// FollowUpsConnectExternalIssuePayloadV2Provider The issue tracker provider the issue belongs to
+type FollowUpsConnectExternalIssuePayloadV2Provider string
+
+// FollowUpsConnectExternalIssueResultV2 defines model for FollowUpsConnectExternalIssueResultV2.
+type FollowUpsConnectExternalIssueResultV2 struct {
+	FollowUp FollowUpV2 `json:"follow_up"`
+}
 
 // FollowUpsCreatePayloadV2 defines model for FollowUpsCreatePayloadV2.
 type FollowUpsCreatePayloadV2 struct {
@@ -12818,6 +12877,9 @@ type FollowUpsV2CreateJSONRequestBody = FollowUpsCreatePayloadV2
 // FollowUpsV2UpdateJSONRequestBody defines body for FollowUpsV2Update for application/json ContentType.
 type FollowUpsV2UpdateJSONRequestBody = FollowUpsUpdatePayloadV2
 
+// FollowUpsV2ConnectExternalIssueJSONRequestBody defines body for FollowUpsV2ConnectExternalIssue for application/json ContentType.
+type FollowUpsV2ConnectExternalIssueJSONRequestBody = FollowUpsConnectExternalIssuePayloadV2
+
 // IncidentRolesV2CreateJSONRequestBody defines body for IncidentRolesV2Create for application/json ContentType.
 type IncidentRolesV2CreateJSONRequestBody = IncidentRolesCreatePayloadV2
 
@@ -13427,6 +13489,11 @@ type ClientInterface interface {
 	FollowUpsV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	FollowUpsV2Update(ctx context.Context, id string, body FollowUpsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// FollowUpsV2ConnectExternalIssueWithBody request with any body
+	FollowUpsV2ConnectExternalIssueWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	FollowUpsV2ConnectExternalIssue(ctx context.Context, id string, body FollowUpsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// HeartbeatV2Ping1 request
 	HeartbeatV2Ping1(ctx context.Context, alertSourceConfigId string, params *HeartbeatV2Ping1Params, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -15767,6 +15834,30 @@ func (c *Client) FollowUpsV2UpdateWithBody(ctx context.Context, id string, conte
 
 func (c *Client) FollowUpsV2Update(ctx context.Context, id string, body FollowUpsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV2UpdateRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV2ConnectExternalIssueWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV2ConnectExternalIssueRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV2ConnectExternalIssue(ctx context.Context, id string, body FollowUpsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV2ConnectExternalIssueRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -22344,6 +22435,53 @@ func newFollowUpsV2UpdateRequestWithBody(server string, id string, contentType s
 	return req, nil
 }
 
+// NewFollowUpsV2ConnectExternalIssueRequest calls the generic FollowUpsV2ConnectExternalIssue builder with application/json body
+func newFollowUpsV2ConnectExternalIssueRequest(server string, id string, body FollowUpsV2ConnectExternalIssueJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newFollowUpsV2ConnectExternalIssueRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewFollowUpsV2ConnectExternalIssueRequestWithBody generates requests for FollowUpsV2ConnectExternalIssue with any type of body
+func newFollowUpsV2ConnectExternalIssueRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/follow_ups/%s/actions/connect_external_issue", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewHeartbeatV2Ping1Request generates requests for HeartbeatV2Ping1
 func newHeartbeatV2Ping1Request(server string, alertSourceConfigId string, params *HeartbeatV2Ping1Params) (*http.Request, error) {
 	var err error
@@ -26797,6 +26935,11 @@ type ClientWithResponsesInterface interface {
 
 	FollowUpsV2UpdateWithResponse(ctx context.Context, id string, body FollowUpsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV2UpdateResponse, error)
 
+	// FollowUpsV2ConnectExternalIssueWithBodyWithResponse request with any body
+	FollowUpsV2ConnectExternalIssueWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV2ConnectExternalIssueResponse, error)
+
+	FollowUpsV2ConnectExternalIssueWithResponse(ctx context.Context, id string, body FollowUpsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV2ConnectExternalIssueResponse, error)
+
 	// HeartbeatV2Ping1WithResponse request
 	HeartbeatV2Ping1WithResponse(ctx context.Context, alertSourceConfigId string, params *HeartbeatV2Ping1Params, reqEditors ...RequestEditorFn) (*HeartbeatV2Ping1Response, error)
 
@@ -29704,6 +29847,28 @@ func (r FollowUpsV2UpdateResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r FollowUpsV2UpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type FollowUpsV2ConnectExternalIssueResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *FollowUpsConnectExternalIssueResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r FollowUpsV2ConnectExternalIssueResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r FollowUpsV2ConnectExternalIssueResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -32956,6 +33121,23 @@ func (c *ClientWithResponses) FollowUpsV2UpdateWithResponse(ctx context.Context,
 		return nil, err
 	}
 	return parseFollowUpsV2UpdateResponse(rsp)
+}
+
+// FollowUpsV2ConnectExternalIssueWithBodyWithResponse request with arbitrary body returning *FollowUpsV2ConnectExternalIssueResponse
+func (c *ClientWithResponses) FollowUpsV2ConnectExternalIssueWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV2ConnectExternalIssueResponse, error) {
+	rsp, err := c.FollowUpsV2ConnectExternalIssueWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV2ConnectExternalIssueResponse(rsp)
+}
+
+func (c *ClientWithResponses) FollowUpsV2ConnectExternalIssueWithResponse(ctx context.Context, id string, body FollowUpsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV2ConnectExternalIssueResponse, error) {
+	rsp, err := c.FollowUpsV2ConnectExternalIssue(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV2ConnectExternalIssueResponse(rsp)
 }
 
 // HeartbeatV2Ping1WithResponse request returning *HeartbeatV2Ping1Response
@@ -36802,6 +36984,32 @@ func parseFollowUpsV2UpdateResponse(rsp *http.Response) (*FollowUpsV2UpdateRespo
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest FollowUpsUpdateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseFollowUpsV2ConnectExternalIssueResponse parses an HTTP response from a FollowUpsV2ConnectExternalIssueWithResponse call
+func parseFollowUpsV2ConnectExternalIssueResponse(rsp *http.Response) (*FollowUpsV2ConnectExternalIssueResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &FollowUpsV2ConnectExternalIssueResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest FollowUpsConnectExternalIssueResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
