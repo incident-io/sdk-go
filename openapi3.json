@@ -61019,7 +61019,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Actions V1",
-        "x-docs-resource-type": "ActionV1"
+        "x-docs-resource-type": "ActionV1",
+        "x-rbac-scopes": [
+          "actions.view"
+        ]
       }
     },
     "/v1/actions/{id}": {
@@ -61083,7 +61086,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Actions V1",
-        "x-docs-resource-type": "ActionV1"
+        "x-docs-resource-type": "ActionV1",
+        "x-rbac-scopes": [
+          "actions.view"
+        ]
       }
     },
     "/v1/alert_notes": {
@@ -61184,7 +61190,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Alert Notes V1",
-        "x-docs-resource-type": "AlertNoteV1"
+        "x-docs-resource-type": "AlertNoteV1",
+        "x-rbac-scopes": [
+          "alerts.view"
+        ]
       },
       "post": {
         "description": "Add a note to an alert.",
@@ -61249,7 +61258,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Alert Notes V1",
-        "x-docs-resource-type": "AlertNoteV1"
+        "x-docs-resource-type": "AlertNoteV1",
+        "x-rbac-scopes": [
+          "alerts.edit"
+        ]
       }
     },
     "/v1/alert_notes/{id}": {
@@ -61281,7 +61293,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Alert Notes V1",
-        "x-docs-resource-type": "AlertNoteV1"
+        "x-docs-resource-type": "AlertNoteV1",
+        "x-rbac-scopes": [
+          "alerts.edit"
+        ]
       },
       "get": {
         "description": "Get a single alert note.",
@@ -61346,7 +61361,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Alert Notes V1",
-        "x-docs-resource-type": "AlertNoteV1"
+        "x-docs-resource-type": "AlertNoteV1",
+        "x-rbac-scopes": [
+          "alerts.view"
+        ]
       },
       "put": {
         "description": "Replace the content of an alert note.",
@@ -61424,7 +61442,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Alert Notes V1",
-        "x-docs-resource-type": "AlertNoteV1"
+        "x-docs-resource-type": "AlertNoteV1",
+        "x-rbac-scopes": [
+          "alerts.edit"
+        ]
       }
     },
     "/v1/api_keys": {
@@ -61521,7 +61542,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "API Keys V1",
-        "x-docs-resource-type": "APIKeyV1"
+        "x-docs-resource-type": "APIKeyV1",
+        "x-rbac-scopes": [
+          "api_keys.view"
+        ]
       },
       "post": {
         "description": "Create a new API key. The calling API key can only assign roles whose scopes are a subset of its own. The `api_keys_manage` role cannot be assigned via the API. An organization can have a maximum of 5000 active API keys.\n\nThis endpoint requires a valid API key with the `api_keys_manage` role at either the account level or team level.",
@@ -61605,7 +61629,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "API Keys V1",
-        "x-docs-resource-type": "APIKeyV1"
+        "x-docs-resource-type": "APIKeyV1",
+        "x-rbac-scopes": [
+          "api_keys.create"
+        ]
       }
     },
     "/v1/api_keys/{id}": {
@@ -61637,7 +61664,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "API Keys V1",
-        "x-docs-resource-type": "APIKeyV1"
+        "x-docs-resource-type": "APIKeyV1",
+        "x-rbac-scopes": [
+          "api_keys.destroy"
+        ]
       },
       "get": {
         "description": "Show details of a specific API key, including its roles, team assignments and when its token was last issued.\n\nThis endpoint requires a valid API key with the `api_keys_manage` role at either the account level or team level.",
@@ -61711,7 +61741,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "API Keys V1",
-        "x-docs-resource-type": "APIKeyV1"
+        "x-docs-resource-type": "APIKeyV1",
+        "x-rbac-scopes": [
+          "api_keys.view"
+        ]
       },
       "put": {
         "description": "Update an existing API key's name, roles, or team assignments. All fields must be provided (PUT semantics). The calling API key can only assign roles whose scopes are a subset of its own. An API key cannot edit itself, and the `api_keys_manage` role cannot be assigned via the API.\n\nThis endpoint requires a valid API key with the `api_keys_manage` role at either the account level or team level.",
@@ -61808,7 +61841,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "API Keys V1",
-        "x-docs-resource-type": "APIKeyV1"
+        "x-docs-resource-type": "APIKeyV1",
+        "x-rbac-scopes": [
+          "api_keys.update"
+        ]
       }
     },
     "/v1/api_keys/{id}/actions/rotate": {
@@ -61898,7 +61934,10 @@
         ],
         "x-docs-display-name": "Rotate",
         "x-docs-group-name": "API Keys V1",
-        "x-docs-resource-type": "APIKeyV1"
+        "x-docs-resource-type": "APIKeyV1",
+        "x-rbac-scopes": [
+          "api_keys.rotate"
+        ]
       }
     },
     "/v1/custom_field_options": {
@@ -61984,7 +62023,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Custom Field Options V1",
-        "x-docs-resource-type": "CustomFieldOptionV1"
+        "x-docs-resource-type": "CustomFieldOptionV1",
+        "x-rbac-scopes": [
+          "custom_fields.view"
+        ]
       },
       "post": {
         "description": "Create a custom field option. If the sort key is not supplied, it'll default to 1000, so the option appears near the end of the list.",
@@ -62030,7 +62072,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Custom Field Options V1",
-        "x-docs-resource-type": "CustomFieldOptionV1"
+        "x-docs-resource-type": "CustomFieldOptionV1",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v1/custom_field_options/{id}": {
@@ -62062,7 +62107,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Custom Field Options V1",
-        "x-docs-resource-type": "CustomFieldOptionV1"
+        "x-docs-resource-type": "CustomFieldOptionV1",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       },
       "get": {
         "description": "Get a single custom field option",
@@ -62107,7 +62155,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Custom Field Options V1",
-        "x-docs-resource-type": "CustomFieldOptionV1"
+        "x-docs-resource-type": "CustomFieldOptionV1",
+        "x-rbac-scopes": [
+          "custom_fields.view"
+        ]
       },
       "put": {
         "description": "Update a custom field option",
@@ -62166,7 +62217,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Custom Field Options V1",
-        "x-docs-resource-type": "CustomFieldOptionV1"
+        "x-docs-resource-type": "CustomFieldOptionV1",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v1/custom_fields": {
@@ -62219,7 +62273,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Custom Fields V1",
-        "x-docs-resource-type": "CustomFieldV1"
+        "x-docs-resource-type": "CustomFieldV1",
+        "x-rbac-scopes": [
+          "custom_fields.view"
+        ]
       },
       "post": {
         "deprecated": true,
@@ -62289,7 +62346,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Custom Fields V1",
-        "x-docs-resource-type": "CustomFieldV1"
+        "x-docs-resource-type": "CustomFieldV1",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v1/custom_fields/{id}": {
@@ -62322,7 +62382,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Custom Fields V1",
-        "x-docs-resource-type": "CustomFieldV1"
+        "x-docs-resource-type": "CustomFieldV1",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       },
       "get": {
         "deprecated": true,
@@ -62385,7 +62448,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Custom Fields V1",
-        "x-docs-resource-type": "CustomFieldV1"
+        "x-docs-resource-type": "CustomFieldV1",
+        "x-rbac-scopes": [
+          "custom_fields.view"
+        ]
       },
       "put": {
         "deprecated": true,
@@ -62468,7 +62534,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Custom Fields V1",
-        "x-docs-resource-type": "CustomFieldV1"
+        "x-docs-resource-type": "CustomFieldV1",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v1/identity": {
@@ -62610,7 +62679,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Incident Attachments V1",
-        "x-docs-resource-type": "IncidentAttachmentV1"
+        "x-docs-resource-type": "IncidentAttachmentV1",
+        "x-rbac-scopes": [
+          "attachments.view"
+        ]
       },
       "post": {
         "description": "Attaches an external resource to an incident.\n\nYou must provide a resource with resource_type and either external_id or url, but not both.\n\nWhen providing a url, the server will create the attachment from that link for the given resource type if the integration is installed and the link is valid.",
@@ -62663,7 +62735,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Incident Attachments V1",
-        "x-docs-resource-type": "IncidentAttachmentV1"
+        "x-docs-resource-type": "IncidentAttachmentV1",
+        "x-rbac-scopes": [
+          "attachments.create"
+        ]
       }
     },
     "/v1/incident_attachments/{id}": {
@@ -62695,7 +62770,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Incident Attachments V1",
-        "x-docs-resource-type": "IncidentAttachmentV1"
+        "x-docs-resource-type": "IncidentAttachmentV1",
+        "x-rbac-scopes": [
+          "attachments.destroy"
+        ]
       }
     },
     "/v1/incident_memberships": {
@@ -62749,7 +62827,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Incident Memberships V1",
-        "x-docs-resource-type": "IncidentMembershipV1"
+        "x-docs-resource-type": "IncidentMembershipV1",
+        "x-rbac-scopes": [
+          "incident_memberships.grant"
+        ]
       }
     },
     "/v1/incident_memberships/actions/revoke": {
@@ -62781,7 +62862,10 @@
         ],
         "x-docs-display-name": "Revoke",
         "x-docs-group-name": "Incident Memberships V1",
-        "x-docs-resource-type": "IncidentMembershipV1"
+        "x-docs-resource-type": "IncidentMembershipV1",
+        "x-rbac-scopes": [
+          "incident_memberships.revoke"
+        ]
       }
     },
     "/v1/incident_relationships": {
@@ -62864,7 +62948,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Incident Relationships V1",
-        "x-docs-resource-type": "IncidentRelationshipV1"
+        "x-docs-resource-type": "IncidentRelationshipV1",
+        "x-rbac-scopes": [
+          "incidents.view"
+        ]
       }
     },
     "/v1/incident_roles": {
@@ -62905,7 +62992,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Incident Roles V1",
-        "x-docs-resource-type": "IncidentRoleV1"
+        "x-docs-resource-type": "IncidentRoleV1",
+        "x-rbac-scopes": [
+          "incident_roles.view"
+        ]
       },
       "post": {
         "deprecated": true,
@@ -62959,7 +63049,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Incident Roles V1",
-        "x-docs-resource-type": "IncidentRoleV1"
+        "x-docs-resource-type": "IncidentRoleV1",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v1/incident_roles/{id}": {
@@ -62992,7 +63085,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Incident Roles V1",
-        "x-docs-resource-type": "IncidentRoleV1"
+        "x-docs-resource-type": "IncidentRoleV1",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       },
       "get": {
         "deprecated": true,
@@ -63043,7 +63139,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Incident Roles V1",
-        "x-docs-resource-type": "IncidentRoleV1"
+        "x-docs-resource-type": "IncidentRoleV1",
+        "x-rbac-scopes": [
+          "incident_roles.view"
+        ]
       },
       "put": {
         "deprecated": true,
@@ -63111,7 +63210,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Incident Roles V1",
-        "x-docs-resource-type": "IncidentRoleV1"
+        "x-docs-resource-type": "IncidentRoleV1",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v1/incident_statuses": {
@@ -63149,7 +63251,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Incident Statuses V1",
-        "x-docs-resource-type": "IncidentStatusV1"
+        "x-docs-resource-type": "IncidentStatusV1",
+        "x-rbac-scopes": [
+          "incident_statuses.view"
+        ]
       },
       "post": {
         "description": "Create a new incident status",
@@ -63198,7 +63303,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Incident Statuses V1",
-        "x-docs-resource-type": "IncidentStatusV1"
+        "x-docs-resource-type": "IncidentStatusV1",
+        "x-rbac-scopes": [
+          "incident_lifecycles.update"
+        ]
       }
     },
     "/v1/incident_statuses/{id}": {
@@ -63230,7 +63338,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Incident Statuses V1",
-        "x-docs-resource-type": "IncidentStatusV1"
+        "x-docs-resource-type": "IncidentStatusV1",
+        "x-rbac-scopes": [
+          "incident_lifecycles.update"
+        ]
       },
       "get": {
         "description": "Get a single incident status.",
@@ -63278,7 +63389,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Incident Statuses V1",
-        "x-docs-resource-type": "IncidentStatusV1"
+        "x-docs-resource-type": "IncidentStatusV1",
+        "x-rbac-scopes": [
+          "incident_statuses.view"
+        ]
       },
       "put": {
         "description": "Update an existing incident status",
@@ -63340,7 +63454,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Incident Statuses V1",
-        "x-docs-resource-type": "IncidentStatusV1"
+        "x-docs-resource-type": "IncidentStatusV1",
+        "x-rbac-scopes": [
+          "incident_lifecycles.update"
+        ]
       }
     },
     "/v1/incident_types": {
@@ -63382,7 +63499,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Incident Types V1",
-        "x-docs-resource-type": "IncidentTypeV1"
+        "x-docs-resource-type": "IncidentTypeV1",
+        "x-rbac-scopes": [
+          "incident_types.view"
+        ]
       }
     },
     "/v1/incident_types/{id}": {
@@ -63436,7 +63556,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Incident Types V1",
-        "x-docs-resource-type": "IncidentTypeV1"
+        "x-docs-resource-type": "IncidentTypeV1",
+        "x-rbac-scopes": [
+          "incident_types.view"
+        ]
       }
     },
     "/v1/incidents": {
@@ -63644,7 +63767,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Incidents V1",
-        "x-docs-resource-type": "IncidentV1"
+        "x-docs-resource-type": "IncidentV1",
+        "x-rbac-scopes": [
+          "incidents.view"
+        ]
       },
       "post": {
         "deprecated": true,
@@ -63838,7 +63964,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Incidents V1",
-        "x-docs-resource-type": "IncidentV1"
+        "x-docs-resource-type": "IncidentV1",
+        "x-rbac-scopes": [
+          "incidents.create"
+        ]
       }
     },
     "/v1/incidents/{id}": {
@@ -63999,7 +64128,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Incidents V1",
-        "x-docs-resource-type": "IncidentV1"
+        "x-docs-resource-type": "IncidentV1",
+        "x-rbac-scopes": [
+          "incidents.view"
+        ]
       }
     },
     "/v1/ip_allowlists": {
@@ -64093,7 +64225,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "IPAllowlists V1",
-        "x-docs-resource-type": "IPAllowlistV1"
+        "x-docs-resource-type": "IPAllowlistV1",
+        "x-rbac-scopes": [
+          "security_settings.update"
+        ]
       }
     },
     "/v1/maintenance_windows": {
@@ -64287,7 +64422,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "MaintenanceWindows V1",
-        "x-docs-resource-type": "MaintenanceWindowV1"
+        "x-docs-resource-type": "MaintenanceWindowV1",
+        "x-rbac-scopes": [
+          "maintenance_windows.view"
+        ]
       },
       "post": {
         "description": "Create a new maintenance window.",
@@ -64507,7 +64645,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "MaintenanceWindows V1",
-        "x-docs-resource-type": "MaintenanceWindowV1"
+        "x-docs-resource-type": "MaintenanceWindowV1",
+        "x-rbac-scopes": [
+          "maintenance_window.create"
+        ]
       }
     },
     "/v1/maintenance_windows/{id}": {
@@ -64539,7 +64680,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "MaintenanceWindows V1",
-        "x-docs-resource-type": "MaintenanceWindowV1"
+        "x-docs-resource-type": "MaintenanceWindowV1",
+        "x-rbac-scopes": [
+          "maintenance_window.destroy"
+        ]
       },
       "get": {
         "description": "Show a particular maintenance window.",
@@ -64687,7 +64831,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "MaintenanceWindows V1",
-        "x-docs-resource-type": "MaintenanceWindowV1"
+        "x-docs-resource-type": "MaintenanceWindowV1",
+        "x-rbac-scopes": [
+          "maintenance_windows.view"
+        ]
       },
       "put": {
         "description": "Update an existing maintenance window.",
@@ -64926,7 +65073,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "MaintenanceWindows V1",
-        "x-docs-resource-type": "MaintenanceWindowV1"
+        "x-docs-resource-type": "MaintenanceWindowV1",
+        "x-rbac-scopes": [
+          "maintenance_window.update"
+        ]
       }
     },
     "/v1/openapi.json": {
@@ -65096,7 +65246,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "PostmortemDocuments V1",
-        "x-docs-resource-type": "PostmortemDocumentV1"
+        "x-docs-resource-type": "PostmortemDocumentV1",
+        "x-rbac-scopes": [
+          "incidents.view"
+        ]
       }
     },
     "/v1/postmortem_documents/actions/attach": {
@@ -65161,7 +65314,10 @@
         ],
         "x-docs-display-name": "Attach",
         "x-docs-group-name": "PostmortemDocuments V1",
-        "x-docs-resource-type": "PostmortemDocumentV1"
+        "x-docs-resource-type": "PostmortemDocumentV1",
+        "x-rbac-scopes": [
+          "external_postmortems.create"
+        ]
       }
     },
     "/v1/postmortem_documents/{id}": {
@@ -65225,7 +65381,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "PostmortemDocuments V1",
-        "x-docs-resource-type": "PostmortemDocumentV1"
+        "x-docs-resource-type": "PostmortemDocumentV1",
+        "x-rbac-scopes": [
+          "incidents.view"
+        ]
       },
       "put": {
         "description": "Update the status of a post-mortem document.",
@@ -65300,7 +65459,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "PostmortemDocuments V1",
-        "x-docs-resource-type": "PostmortemDocumentV1"
+        "x-docs-resource-type": "PostmortemDocumentV1",
+        "x-rbac-scopes": [
+          "in_app_postmortems.update_status"
+        ]
       }
     },
     "/v1/postmortem_documents/{id}/content": {
@@ -65342,7 +65504,10 @@
         ],
         "x-docs-display-name": "Show Content",
         "x-docs-group-name": "PostmortemDocuments V1",
-        "x-docs-resource-type": "PostmortemDocumentV1"
+        "x-docs-resource-type": "PostmortemDocumentV1",
+        "x-rbac-scopes": [
+          "in_app_postmortems.copy_as_markdown"
+        ]
       }
     },
     "/v1/severities": {
@@ -65379,7 +65544,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Severities V1",
-        "x-docs-resource-type": "SeverityV1"
+        "x-docs-resource-type": "SeverityV1",
+        "x-rbac-scopes": [
+          "severities.view"
+        ]
       },
       "post": {
         "description": "Create a new severity",
@@ -65427,7 +65595,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Severities V1",
-        "x-docs-resource-type": "SeverityV1"
+        "x-docs-resource-type": "SeverityV1",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v1/severities/{id}": {
@@ -65459,7 +65630,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Severities V1",
-        "x-docs-resource-type": "SeverityV1"
+        "x-docs-resource-type": "SeverityV1",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       },
       "get": {
         "description": "Get a single incident severity.",
@@ -65506,7 +65680,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Severities V1",
-        "x-docs-resource-type": "SeverityV1"
+        "x-docs-resource-type": "SeverityV1",
+        "x-rbac-scopes": [
+          "severities.view"
+        ]
       },
       "put": {
         "description": "Update an existing severity",
@@ -65568,7 +65745,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Severities V1",
-        "x-docs-resource-type": "SeverityV1"
+        "x-docs-resource-type": "SeverityV1",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v1/status-pages/{id}/incidents/{incident_id}/response-incidents": {
@@ -65732,7 +65912,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Actions V2",
-        "x-docs-resource-type": "ActionV2"
+        "x-docs-resource-type": "ActionV2",
+        "x-rbac-scopes": [
+          "actions.view"
+        ]
       },
       "post": {
         "description": "Create a new incident action.",
@@ -65809,7 +65992,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Actions V2",
-        "x-docs-resource-type": "ActionV2"
+        "x-docs-resource-type": "ActionV2",
+        "x-rbac-scopes": [
+          "actions.create"
+        ]
       }
     },
     "/v2/actions/{id}": {
@@ -65841,7 +66027,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Actions V2",
-        "x-docs-resource-type": "ActionV2"
+        "x-docs-resource-type": "ActionV2",
+        "x-rbac-scopes": [
+          "actions.destroy"
+        ]
       },
       "get": {
         "description": "Get a single incident action.",
@@ -65917,7 +66106,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Actions V2",
-        "x-docs-resource-type": "ActionV2"
+        "x-docs-resource-type": "ActionV2",
+        "x-rbac-scopes": [
+          "actions.view"
+        ]
       },
       "put": {
         "description": "Update an existing incident action.",
@@ -66008,7 +66200,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Actions V2",
-        "x-docs-resource-type": "ActionV2"
+        "x-docs-resource-type": "ActionV2",
+        "x-rbac-scopes": [
+          "actions.update"
+        ]
       }
     },
     "/v2/alert_attributes": {
@@ -66045,7 +66240,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Alert Attributes V2",
-        "x-docs-resource-type": "AlertAttributeV2"
+        "x-docs-resource-type": "AlertAttributeV2",
+        "x-rbac-scopes": [
+          "alert_schema.view"
+        ]
       },
       "post": {
         "description": "Create a new alert attribute.",
@@ -66095,7 +66293,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Alert Attributes V2",
-        "x-docs-resource-type": "AlertAttributeV2"
+        "x-docs-resource-type": "AlertAttributeV2",
+        "x-rbac-scopes": [
+          "alert_schema.update"
+        ]
       }
     },
     "/v2/alert_attributes/{id}": {
@@ -66127,7 +66328,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Alert Attributes V2",
-        "x-docs-resource-type": "AlertAttributeV2"
+        "x-docs-resource-type": "AlertAttributeV2",
+        "x-rbac-scopes": [
+          "alert_schema.update"
+        ]
       },
       "get": {
         "description": "Show an alert attribute.",
@@ -66174,7 +66378,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Alert Attributes V2",
-        "x-docs-resource-type": "AlertAttributeV2"
+        "x-docs-resource-type": "AlertAttributeV2",
+        "x-rbac-scopes": [
+          "alert_schema.view"
+        ]
       },
       "put": {
         "description": "Update an alert attribute.",
@@ -66238,7 +66445,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Alert Attributes V2",
-        "x-docs-resource-type": "AlertAttributeV2"
+        "x-docs-resource-type": "AlertAttributeV2",
+        "x-rbac-scopes": [
+          "alert_schema.update"
+        ]
       }
     },
     "/v2/alert_events/http/{alert_source_config_id}": {
@@ -66408,7 +66618,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Alert Routes V2",
-        "x-docs-resource-type": "AlertRouteV2"
+        "x-docs-resource-type": "AlertRouteV2",
+        "x-rbac-scopes": [
+          "alert_routes.view"
+        ]
       },
       "post": {
         "description": "Create a new alert route in your account.",
@@ -67399,7 +67612,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Alert Routes V2",
-        "x-docs-resource-type": "AlertRouteV2"
+        "x-docs-resource-type": "AlertRouteV2",
+        "x-rbac-scopes": [
+          "alert_route.create"
+        ]
       }
     },
     "/v2/alert_routes/{id}": {
@@ -67431,7 +67647,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Alert Routes V2",
-        "x-docs-resource-type": "AlertRouteV2"
+        "x-docs-resource-type": "AlertRouteV2",
+        "x-rbac-scopes": [
+          "alert_route.destroy"
+        ]
       },
       "get": {
         "description": "Load details about a specific alert route in your account.",
@@ -67988,7 +68207,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Alert Routes V2",
-        "x-docs-resource-type": "AlertRouteV2"
+        "x-docs-resource-type": "AlertRouteV2",
+        "x-rbac-scopes": [
+          "alert_routes.view"
+        ]
       },
       "put": {
         "description": "Update an existing alert route in your account.",
@@ -68999,7 +69221,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Alert Routes V2",
-        "x-docs-resource-type": "AlertRouteV2"
+        "x-docs-resource-type": "AlertRouteV2",
+        "x-rbac-scopes": [
+          "alert_route.update"
+        ]
       }
     },
     "/v2/alert_sources": {
@@ -69247,7 +69472,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Alert Sources V2",
-        "x-docs-resource-type": "AlertSourceV2"
+        "x-docs-resource-type": "AlertSourceV2",
+        "x-rbac-scopes": [
+          "alert_sources.view"
+        ]
       },
       "post": {
         "description": "Create a new alert source in your account.",
@@ -69689,7 +69917,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Alert Sources V2",
-        "x-docs-resource-type": "AlertSourceV2"
+        "x-docs-resource-type": "AlertSourceV2",
+        "x-rbac-scopes": [
+          "alert_source.create"
+        ]
       }
     },
     "/v2/alert_sources/{id}": {
@@ -69721,7 +69952,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Alert Sources V2",
-        "x-docs-resource-type": "AlertSourceV2"
+        "x-docs-resource-type": "AlertSourceV2",
+        "x-rbac-scopes": [
+          "alert_source.destroy"
+        ]
       },
       "get": {
         "description": "Load details about a specific alert source in your account.",
@@ -69979,7 +70213,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Alert Sources V2",
-        "x-docs-resource-type": "AlertSourceV2"
+        "x-docs-resource-type": "AlertSourceV2",
+        "x-rbac-scopes": [
+          "alert_sources.view"
+        ]
       },
       "put": {
         "description": "Update an existing alert source in your account.",
@@ -70435,7 +70672,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Alert Sources V2",
-        "x-docs-resource-type": "AlertSourceV2"
+        "x-docs-resource-type": "AlertSourceV2",
+        "x-rbac-scopes": [
+          "alert_source.update"
+        ]
       }
     },
     "/v2/alerts": {
@@ -70723,7 +70963,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Alerts V2",
-        "x-docs-resource-type": "AlertV2"
+        "x-docs-resource-type": "AlertV2",
+        "x-rbac-scopes": [
+          "alerts.view"
+        ]
       }
     },
     "/v2/alerts/{id}": {
@@ -70808,7 +71051,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Alerts V2",
-        "x-docs-resource-type": "AlertV2"
+        "x-docs-resource-type": "AlertV2",
+        "x-rbac-scopes": [
+          "alerts.view"
+        ]
       }
     },
     "/v2/alerts/{id}/actions/resolve": {
@@ -70893,7 +71139,10 @@
         ],
         "x-docs-display-name": "Resolve",
         "x-docs-group-name": "Alerts V2",
-        "x-docs-resource-type": "AlertV2"
+        "x-docs-resource-type": "AlertV2",
+        "x-rbac-scopes": [
+          "alerts.resolve"
+        ]
       }
     },
     "/v2/catalog_entries": {
@@ -71069,7 +71318,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Catalog Entries V2",
-        "x-docs-resource-type": "CatalogEntryV2"
+        "x-docs-resource-type": "CatalogEntryV2",
+        "x-rbac-scopes": [
+          "catalog_entries.view"
+        ]
       },
       "post": {
         "deprecated": true,
@@ -71183,7 +71435,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Catalog Entries V2",
-        "x-docs-resource-type": "CatalogEntryV2"
+        "x-docs-resource-type": "CatalogEntryV2",
+        "x-rbac-scopes": [
+          "catalog_entries.create"
+        ]
       }
     },
     "/v2/catalog_entries/{id}": {
@@ -71216,7 +71471,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Catalog Entries V2",
-        "x-docs-resource-type": "CatalogEntryV2"
+        "x-docs-resource-type": "CatalogEntryV2",
+        "x-rbac-scopes": [
+          "catalog_entries.destroy"
+        ]
       },
       "get": {
         "deprecated": true,
@@ -71356,7 +71614,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Catalog Entries V2",
-        "x-docs-resource-type": "CatalogEntryV2"
+        "x-docs-resource-type": "CatalogEntryV2",
+        "x-rbac-scopes": [
+          "catalog_entries.view"
+        ]
       },
       "put": {
         "deprecated": true,
@@ -71529,7 +71790,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Catalog Entries V2",
-        "x-docs-resource-type": "CatalogEntryV2"
+        "x-docs-resource-type": "CatalogEntryV2",
+        "x-rbac-scopes": [
+          "catalog_entries.edit"
+        ]
       }
     },
     "/v2/catalog_resources": {
@@ -71566,7 +71830,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Catalog Resources V2",
-        "x-docs-resource-type": "CatalogResourceV2"
+        "x-docs-resource-type": "CatalogResourceV2",
+        "x-rbac-scopes": [
+          "catalog_types.view"
+        ]
       }
     },
     "/v2/catalog_types": {
@@ -71642,7 +71909,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Catalog Types V2",
-        "x-docs-resource-type": "CatalogTypeV2"
+        "x-docs-resource-type": "CatalogTypeV2",
+        "x-rbac-scopes": [
+          "catalog_types.view"
+        ]
       },
       "post": {
         "deprecated": true,
@@ -71739,7 +72009,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Catalog Types V2",
-        "x-docs-resource-type": "CatalogTypeV2"
+        "x-docs-resource-type": "CatalogTypeV2",
+        "x-rbac-scopes": [
+          "catalog_types.create"
+        ]
       }
     },
     "/v2/catalog_types/{id}": {
@@ -71772,7 +72045,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Catalog Types V2",
-        "x-docs-resource-type": "CatalogTypeV2"
+        "x-docs-resource-type": "CatalogTypeV2",
+        "x-rbac-scopes": [
+          "catalog_types.destroy"
+        ]
       },
       "get": {
         "deprecated": true,
@@ -71858,7 +72134,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Catalog Types V2",
-        "x-docs-resource-type": "CatalogTypeV2"
+        "x-docs-resource-type": "CatalogTypeV2",
+        "x-rbac-scopes": [
+          "catalog_types.view"
+        ]
       },
       "put": {
         "deprecated": true,
@@ -71968,7 +72247,10 @@
         ],
         "x-docs-display-name": "Update Type",
         "x-docs-group-name": "Catalog Types V2",
-        "x-docs-resource-type": "CatalogTypeV2"
+        "x-docs-resource-type": "CatalogTypeV2",
+        "x-rbac-scopes": [
+          "catalog_types.edit"
+        ]
       }
     },
     "/v2/catalog_types/{id}/actions/update_schema": {
@@ -72084,7 +72366,10 @@
         ],
         "x-docs-display-name": "Update Type Schema",
         "x-docs-group-name": "Catalog Types V2",
-        "x-docs-resource-type": "CatalogTypeV2"
+        "x-docs-resource-type": "CatalogTypeV2",
+        "x-rbac-scopes": [
+          "catalog_types.edit"
+        ]
       }
     },
     "/v2/custom_fields": {
@@ -72135,7 +72420,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Custom Fields V2",
-        "x-docs-resource-type": "CustomFieldV2"
+        "x-docs-resource-type": "CustomFieldV2",
+        "x-rbac-scopes": [
+          "custom_fields.view"
+        ]
       },
       "post": {
         "description": "Create a new custom field",
@@ -72211,7 +72499,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Custom Fields V2",
-        "x-docs-resource-type": "CustomFieldV2"
+        "x-docs-resource-type": "CustomFieldV2",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v2/custom_fields/{id}": {
@@ -72243,7 +72534,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Custom Fields V2",
-        "x-docs-resource-type": "CustomFieldV2"
+        "x-docs-resource-type": "CustomFieldV2",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       },
       "get": {
         "description": "Get a single custom field.",
@@ -72304,7 +72598,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Custom Fields V2",
-        "x-docs-resource-type": "CustomFieldV2"
+        "x-docs-resource-type": "CustomFieldV2",
+        "x-rbac-scopes": [
+          "custom_fields.view"
+        ]
       },
       "put": {
         "description": "Update the details of a custom field",
@@ -72392,7 +72689,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Custom Fields V2",
-        "x-docs-resource-type": "CustomFieldV2"
+        "x-docs-resource-type": "CustomFieldV2",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v2/escalation_paths": {
@@ -72574,7 +72874,10 @@
         "x-display-name": "List",
         "x-docs-display-name": "List",
         "x-docs-group-name": "Escalation Paths V2",
-        "x-docs-resource-type": "EscalationPathV2"
+        "x-docs-resource-type": "EscalationPathV2",
+        "x-rbac-scopes": [
+          "escalation_paths.view"
+        ]
       },
       "post": {
         "description": "Create an escalation path.\n\nAn escalation path is a series of steps that describe how a page should be escalated,\nrepresented as graph, supporting conditional branches based on alert priority and working\nintervals.\n\nWe recommend you create escalation paths in the incident.io dashboard where our path\nbuilder makes it easy to use conditions and visualise the path.\n",
@@ -72828,7 +73131,10 @@
         "x-display-name": "Create",
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Escalation Paths V2",
-        "x-docs-resource-type": "EscalationPathV2"
+        "x-docs-resource-type": "EscalationPathV2",
+        "x-rbac-scopes": [
+          "escalation_paths.create"
+        ]
       }
     },
     "/v2/escalation_paths/{id}": {
@@ -72861,7 +73167,10 @@
         "x-display-name": "Destroy",
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Escalation Paths V2",
-        "x-docs-resource-type": "EscalationPathV2"
+        "x-docs-resource-type": "EscalationPathV2",
+        "x-rbac-scopes": [
+          "escalation_paths.destroy"
+        ]
       },
       "get": {
         "description": "Show an escalation path.\n\nWe recommend you create escalation paths in the incident.io dashboard where our path\nbuilder makes it easy to use conditions and visualise the path.\n",
@@ -73019,7 +73328,10 @@
         "x-display-name": "Show",
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Escalation Paths V2",
-        "x-docs-resource-type": "EscalationPathV2"
+        "x-docs-resource-type": "EscalationPathV2",
+        "x-rbac-scopes": [
+          "escalation_paths.view"
+        ]
       },
       "put": {
         "description": "Updates an escalation path.\n\nWe recommend you create escalation paths in the incident.io dashboard where our path\nbuilder makes it easy to use conditions and visualise the path.\n",
@@ -73287,7 +73599,10 @@
         "x-display-name": "Update",
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Escalation Paths V2",
-        "x-docs-resource-type": "EscalationPathV2"
+        "x-docs-resource-type": "EscalationPathV2",
+        "x-rbac-scopes": [
+          "escalation_paths.update"
+        ]
       }
     },
     "/v2/escalations": {
@@ -73608,7 +73923,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Escalations V2",
-        "x-docs-resource-type": "EscalationV2"
+        "x-docs-resource-type": "EscalationV2",
+        "x-rbac-scopes": [
+          "escalations.view"
+        ]
       },
       "post": {
         "description": "Create an escalation.\n\nAn escalation pages people, either according to an escalation path, or directly to\nspecific users. You must provide either an escalation_path_id OR user_ids, but not both.\n\nWhen escalating via an escalation path, the escalation will follow the configured path\nwith its levels and timeouts, using your default [alert\npriority](https://app.incident.io/~/settings/alerts/configuration/priorities).\n\nWhen escalating directly to users, they will receive a high-urgency\nnotification, based on their notification rules.\n\nThis endpoint is rate-limited to 60 requests per minute, since it is intended for\ninteractive use cases (for example someone clicking a \"escalate to team\" button\nin your internal developer platform). To escalate based on automated alerts, we\nrecommend sending events to an alert source instead.\n",
@@ -73732,7 +74050,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Escalations V2",
-        "x-docs-resource-type": "EscalationV2"
+        "x-docs-resource-type": "EscalationV2",
+        "x-rbac-scopes": [
+          "escalations.create"
+        ]
       }
     },
     "/v2/escalations/{id}": {
@@ -73851,7 +74172,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Escalations V2",
-        "x-docs-resource-type": "EscalationV2"
+        "x-docs-resource-type": "EscalationV2",
+        "x-rbac-scopes": [
+          "escalations.view"
+        ]
       }
     },
     "/v2/escalations/{id}/actions/cancel": {
@@ -73883,7 +74207,10 @@
         ],
         "x-docs-display-name": "Cancel",
         "x-docs-group-name": "Escalations V2",
-        "x-docs-resource-type": "EscalationV2"
+        "x-docs-resource-type": "EscalationV2",
+        "x-rbac-scopes": [
+          "escalations.cancel"
+        ]
       }
     },
     "/v2/follow_ups": {
@@ -74014,7 +74341,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Follow-ups V2",
-        "x-docs-resource-type": "FollowUpV2"
+        "x-docs-resource-type": "FollowUpV2",
+        "x-rbac-scopes": [
+          "actions.view"
+        ]
       },
       "post": {
         "description": "Create a new incident follow-up.",
@@ -74120,7 +74450,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Follow-ups V2",
-        "x-docs-resource-type": "FollowUpV2"
+        "x-docs-resource-type": "FollowUpV2",
+        "x-rbac-scopes": [
+          "follow_ups.create"
+        ]
       }
     },
     "/v2/follow_ups/{id}": {
@@ -74152,7 +74485,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Follow-ups V2",
-        "x-docs-resource-type": "FollowUpV2"
+        "x-docs-resource-type": "FollowUpV2",
+        "x-rbac-scopes": [
+          "follow_ups.destroy"
+        ]
       },
       "get": {
         "description": "Get a single incident follow-up.",
@@ -74248,7 +74584,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Follow-ups V2",
-        "x-docs-resource-type": "FollowUpV2"
+        "x-docs-resource-type": "FollowUpV2",
+        "x-rbac-scopes": [
+          "actions.view"
+        ]
       },
       "put": {
         "description": "Update an existing incident follow-up.",
@@ -74367,7 +74706,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Follow-ups V2",
-        "x-docs-resource-type": "FollowUpV2"
+        "x-docs-resource-type": "FollowUpV2",
+        "x-rbac-scopes": [
+          "follow_ups.update"
+        ]
       }
     },
     "/v2/follow_ups/{id}/actions/connect_external_issue": {
@@ -74479,7 +74821,10 @@
         ],
         "x-docs-display-name": "Connect external issue",
         "x-docs-group-name": "Follow-ups V2",
-        "x-docs-resource-type": "FollowUpV2"
+        "x-docs-resource-type": "FollowUpV2",
+        "x-rbac-scopes": [
+          "follow_ups.connect_external_issue"
+        ]
       }
     },
     "/v2/heartbeat/{alert_source_config_id}/ping": {
@@ -74696,7 +75041,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Incident Alerts V2",
-        "x-docs-resource-type": "IncidentAlertV2"
+        "x-docs-resource-type": "IncidentAlertV2",
+        "x-rbac-scopes": [
+          "alerts.view"
+        ]
       }
     },
     "/v2/incident_participant_workloads": {
@@ -74760,7 +75108,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Incident Participant Workloads V2",
-        "x-docs-resource-type": "IncidentParticipantWorkloadV2"
+        "x-docs-resource-type": "IncidentParticipantWorkloadV2",
+        "x-rbac-scopes": [
+          "incident_workloads.view"
+        ]
       }
     },
     "/v2/incident_participants": {
@@ -74828,7 +75179,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Incident Participants V2",
-        "x-docs-resource-type": "IncidentParticipantV2"
+        "x-docs-resource-type": "IncidentParticipantV2",
+        "x-rbac-scopes": [
+          "incidents.view"
+        ]
       }
     },
     "/v2/incident_roles": {
@@ -74867,7 +75221,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Incident Roles V2",
-        "x-docs-resource-type": "IncidentRoleV2"
+        "x-docs-resource-type": "IncidentRoleV2",
+        "x-rbac-scopes": [
+          "incident_roles.view"
+        ]
       },
       "post": {
         "description": "Create a new incident role",
@@ -74918,7 +75275,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Incident Roles V2",
-        "x-docs-resource-type": "IncidentRoleV2"
+        "x-docs-resource-type": "IncidentRoleV2",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v2/incident_roles/{id}": {
@@ -74950,7 +75310,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Incident Roles V2",
-        "x-docs-resource-type": "IncidentRoleV2"
+        "x-docs-resource-type": "IncidentRoleV2",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       },
       "get": {
         "description": "Get a single incident role.",
@@ -74999,7 +75362,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Incident Roles V2",
-        "x-docs-resource-type": "IncidentRoleV2"
+        "x-docs-resource-type": "IncidentRoleV2",
+        "x-rbac-scopes": [
+          "incident_roles.view"
+        ]
       },
       "put": {
         "description": "Update an existing incident role",
@@ -75064,7 +75430,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Incident Roles V2",
-        "x-docs-resource-type": "IncidentRoleV2"
+        "x-docs-resource-type": "IncidentRoleV2",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v2/incident_timestamps": {
@@ -75263,7 +75632,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Incident Updates V2",
-        "x-docs-resource-type": "IncidentUpdateV2"
+        "x-docs-resource-type": "IncidentUpdateV2",
+        "x-rbac-scopes": [
+          "incidents.view"
+        ]
       }
     },
     "/v2/incidents": {
@@ -75822,7 +76194,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Incidents V2",
-        "x-docs-resource-type": "IncidentV2"
+        "x-docs-resource-type": "IncidentV2",
+        "x-rbac-scopes": [
+          "incidents.view"
+        ]
       },
       "post": {
         "description": "Create a new incident.\n\nNote that if the incident mode is set to \"retrospective\" then the new incident\nwill not be announced in Slack.\n",
@@ -76066,7 +76441,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Incidents V2",
-        "x-docs-resource-type": "IncidentV2"
+        "x-docs-resource-type": "IncidentV2",
+        "x-rbac-scopes": [
+          "incidents.create"
+        ]
       }
     },
     "/v2/incidents/{id}": {
@@ -76267,7 +76645,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Incidents V2",
-        "x-docs-resource-type": "IncidentV2"
+        "x-docs-resource-type": "IncidentV2",
+        "x-rbac-scopes": [
+          "incidents.view"
+        ]
       }
     },
     "/v2/incidents/{id}/actions/edit": {
@@ -76610,7 +76991,10 @@
         ],
         "x-docs-display-name": "Import postmortem document",
         "x-docs-group-name": "Incidents V2",
-        "x-docs-resource-type": "IncidentV2"
+        "x-docs-resource-type": "IncidentV2",
+        "x-rbac-scopes": [
+          "in_app_postmortems.import"
+        ]
       }
     },
     "/v2/schedule_entries": {
@@ -76735,7 +77119,10 @@
         "x-display-name": "List",
         "x-docs-display-name": "List",
         "x-docs-group-name": "Schedule Entries V2",
-        "x-docs-resource-type": "ScheduleEntryV2"
+        "x-docs-resource-type": "ScheduleEntryV2",
+        "x-rbac-scopes": [
+          "schedules.view"
+        ]
       }
     },
     "/v2/schedule_overrides": {
@@ -76802,7 +77189,10 @@
         "x-display-name": "Create",
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Schedule Overrides V2",
-        "x-docs-resource-type": "ScheduleOverrideV2"
+        "x-docs-resource-type": "ScheduleOverrideV2",
+        "x-rbac-scopes": [
+          "schedule_overrides.create"
+        ]
       }
     },
     "/v2/schedule_sync_targets": {
@@ -76887,7 +77277,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Schedule Sync Targets V2",
-        "x-docs-resource-type": "ScheduleSyncTargetResourceV2"
+        "x-docs-resource-type": "ScheduleSyncTargetResourceV2",
+        "x-rbac-scopes": [
+          "schedules.view"
+        ]
       },
       "post": {
         "description": "Create a new schedule sync target for a Slack user group.",
@@ -76954,7 +77347,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Schedule Sync Targets V2",
-        "x-docs-resource-type": "ScheduleSyncTargetResourceV2"
+        "x-docs-resource-type": "ScheduleSyncTargetResourceV2",
+        "x-rbac-scopes": [
+          "schedule_sync_targets.create"
+        ]
       }
     },
     "/v2/schedule_sync_targets/{id}": {
@@ -76986,7 +77382,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Schedule Sync Targets V2",
-        "x-docs-resource-type": "ScheduleSyncTargetResourceV2"
+        "x-docs-resource-type": "ScheduleSyncTargetResourceV2",
+        "x-rbac-scopes": [
+          "schedule_sync_targets.destroy"
+        ]
       },
       "get": {
         "description": "Get a single schedule sync target.",
@@ -77042,7 +77441,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Schedule Sync Targets V2",
-        "x-docs-resource-type": "ScheduleSyncTargetResourceV2"
+        "x-docs-resource-type": "ScheduleSyncTargetResourceV2",
+        "x-rbac-scopes": [
+          "schedules.view"
+        ]
       },
       "put": {
         "description": "Update the add_bot_to_group flag on a sync target. The change propagates to every schedule with an active sync rule pointing at this target; the entire operation aborts if the caller lacks edit permission on any of those schedules.",
@@ -77114,7 +77516,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Schedule Sync Targets V2",
-        "x-docs-resource-type": "ScheduleSyncTargetResourceV2"
+        "x-docs-resource-type": "ScheduleSyncTargetResourceV2",
+        "x-rbac-scopes": [
+          "schedule_sync_targets.update"
+        ]
       }
     },
     "/v2/schedules": {
@@ -77281,7 +77686,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Schedules V2",
-        "x-docs-resource-type": "ScheduleV2"
+        "x-docs-resource-type": "ScheduleV2",
+        "x-rbac-scopes": [
+          "schedules.view"
+        ]
       },
       "post": {
         "description": "Create a new schedule.",
@@ -77476,7 +77884,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Schedules V2",
-        "x-docs-resource-type": "ScheduleV2"
+        "x-docs-resource-type": "ScheduleV2",
+        "x-rbac-scopes": [
+          "schedules.create"
+        ]
       }
     },
     "/v2/schedules/{id}": {
@@ -77508,7 +77919,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Schedules V2",
-        "x-docs-resource-type": "ScheduleV2"
+        "x-docs-resource-type": "ScheduleV2",
+        "x-rbac-scopes": [
+          "schedules.destroy"
+        ]
       },
       "get": {
         "description": "Get a single schedule.",
@@ -77646,7 +78060,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Schedules V2",
-        "x-docs-resource-type": "ScheduleV2"
+        "x-docs-resource-type": "ScheduleV2",
+        "x-rbac-scopes": [
+          "schedules.view"
+        ]
       },
       "put": {
         "description": "Update a schedule.\n\nUpdating a schedule replaces its entire configuration with the one you send,\nincluding any scheduled future versions of its rotations — fetch the schedule\nfirst and include every version you want to keep.\n\nTo change who's in a rotation from a future date without affecting shifts\nbefore then, keep the current version unchanged and add another version of the\nsame rotation with `effective_from` set to when the change should land —\nideally an upcoming handover, so nobody is swapped mid-shift. You can check the\neffect of any configuration before saving it with Preview schedule entries.",
@@ -77855,7 +78272,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Schedules V2",
-        "x-docs-resource-type": "ScheduleV2"
+        "x-docs-resource-type": "ScheduleV2",
+        "x-rbac-scopes": [
+          "schedules.update"
+        ]
       }
     },
     "/v2/schedules/{id}/actions/preview_entries": {
@@ -78022,7 +78442,10 @@
         ],
         "x-docs-display-name": "Preview",
         "x-docs-group-name": "Schedule Entries V2",
-        "x-docs-resource-type": "ScheduleEntryV2"
+        "x-docs-resource-type": "ScheduleEntryV2",
+        "x-rbac-scopes": [
+          "schedules.view"
+        ]
       }
     },
     "/v2/schedules/{schedule_id}/replicas": {
@@ -78090,7 +78513,10 @@
         "x-display-name": "List",
         "x-docs-display-name": "List",
         "x-docs-group-name": "Schedule Replicas V2",
-        "x-docs-resource-type": "ScheduleReplicaV2"
+        "x-docs-resource-type": "ScheduleReplicaV2",
+        "x-rbac-scopes": [
+          "schedules.view"
+        ]
       },
       "post": {
         "description": "Create a new schedule replica.",
@@ -78178,7 +78604,10 @@
         "x-display-name": "Create",
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Schedule Replicas V2",
-        "x-docs-resource-type": "ScheduleReplicaV2"
+        "x-docs-resource-type": "ScheduleReplicaV2",
+        "x-rbac-scopes": [
+          "schedules.update"
+        ]
       }
     },
     "/v2/schedules/{schedule_id}/replicas/{id}": {
@@ -78223,7 +78652,10 @@
         "x-display-name": "Destroy",
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Schedule Replicas V2",
-        "x-docs-resource-type": "ScheduleReplicaV2"
+        "x-docs-resource-type": "ScheduleReplicaV2",
+        "x-rbac-scopes": [
+          "schedules.update"
+        ]
       },
       "get": {
         "description": "Get a single schedule replica.",
@@ -78299,7 +78731,10 @@
         "x-display-name": "Show",
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Schedule Replicas V2",
-        "x-docs-resource-type": "ScheduleReplicaV2"
+        "x-docs-resource-type": "ScheduleReplicaV2",
+        "x-rbac-scopes": [
+          "schedules.view"
+        ]
       }
     },
     "/v2/schedules/{schedule_id}/sync_rules": {
@@ -78405,7 +78840,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Schedule Sync Rules V2",
-        "x-docs-resource-type": "ScheduleSyncRuleV2"
+        "x-docs-resource-type": "ScheduleSyncRuleV2",
+        "x-rbac-scopes": [
+          "schedules.view"
+        ]
       },
       "post": {
         "description": "Create a new sync rule linking a schedule to a sync target.",
@@ -78490,7 +78928,10 @@
         ],
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Schedule Sync Rules V2",
-        "x-docs-resource-type": "ScheduleSyncRuleV2"
+        "x-docs-resource-type": "ScheduleSyncRuleV2",
+        "x-rbac-scopes": [
+          "schedule_sync_rules.create"
+        ]
       }
     },
     "/v2/schedules/{schedule_id}/sync_rules/{id}": {
@@ -78534,7 +78975,10 @@
         ],
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Schedule Sync Rules V2",
-        "x-docs-resource-type": "ScheduleSyncRuleV2"
+        "x-docs-resource-type": "ScheduleSyncRuleV2",
+        "x-rbac-scopes": [
+          "schedule_sync_rules.destroy"
+        ]
       },
       "get": {
         "description": "Get a single sync rule for a schedule.",
@@ -78611,7 +79055,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Schedule Sync Rules V2",
-        "x-docs-resource-type": "ScheduleSyncRuleV2"
+        "x-docs-resource-type": "ScheduleSyncRuleV2",
+        "x-rbac-scopes": [
+          "schedules.view"
+        ]
       },
       "put": {
         "description": "Update a sync rule's sync_type in place. If the rule's sync target is shared with other schedules, the change propagates to every linked schedule and the entire operation aborts if the caller lacks edit permission on any of them.",
@@ -78704,7 +79151,10 @@
         ],
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Schedule Sync Rules V2",
-        "x-docs-resource-type": "ScheduleSyncRuleV2"
+        "x-docs-resource-type": "ScheduleSyncRuleV2",
+        "x-rbac-scopes": [
+          "schedule_sync_rules.update"
+        ]
       }
     },
     "/v2/status_page_incident_updates": {
@@ -78767,7 +79217,10 @@
         "x-display-name": "Create",
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Status Page Incident Updates V2",
-        "x-docs-resource-type": "StatusPageIncidentUpdateV2"
+        "x-docs-resource-type": "StatusPageIncidentUpdateV2",
+        "x-rbac-scopes": [
+          "status_pages.publish_updates"
+        ]
       }
     },
     "/v2/status_page_incidents": {
@@ -79015,7 +79468,10 @@
         "x-display-name": "Create",
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Status Page Incidents V2",
-        "x-docs-resource-type": "StatusPageIncidentV2"
+        "x-docs-resource-type": "StatusPageIncidentV2",
+        "x-rbac-scopes": [
+          "status_pages.publish_updates"
+        ]
       }
     },
     "/v2/status_page_incidents/{status_page_incident_id}": {
@@ -79170,7 +79626,10 @@
         "x-display-name": "Update",
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Status Page Incidents V2",
-        "x-docs-resource-type": "StatusPageIncidentV2"
+        "x-docs-resource-type": "StatusPageIncidentV2",
+        "x-rbac-scopes": [
+          "status_pages.publish_updates"
+        ]
       }
     },
     "/v2/status_page_maintenance_updates": {
@@ -79233,7 +79692,10 @@
         "x-display-name": "Create",
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Status Page Maintenance Updates V2",
-        "x-docs-resource-type": "StatusPageMaintenanceUpdateV2"
+        "x-docs-resource-type": "StatusPageMaintenanceUpdateV2",
+        "x-rbac-scopes": [
+          "status_pages.publish_updates"
+        ]
       }
     },
     "/v2/status_page_maintenances": {
@@ -79478,7 +79940,10 @@
         "x-display-name": "Create",
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Status Page Maintenances V2",
-        "x-docs-resource-type": "StatusPageMaintenanceV2"
+        "x-docs-resource-type": "StatusPageMaintenanceV2",
+        "x-rbac-scopes": [
+          "status_pages.publish_updates"
+        ]
       }
     },
     "/v2/status_page_maintenances/{status_page_maintenance_id}": {
@@ -79775,7 +80240,10 @@
         "x-display-name": "Update",
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Telemetry V2",
-        "x-docs-resource-type": "TelemetryDataSourceV2"
+        "x-docs-resource-type": "TelemetryDataSourceV2",
+        "x-rbac-scopes": [
+          "organisation_settings.update"
+        ]
       }
     },
     "/v2/users": {
@@ -79886,7 +80354,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Users V2",
-        "x-docs-resource-type": "UserWithRolesV2"
+        "x-docs-resource-type": "UserWithRolesV2",
+        "x-rbac-scopes": [
+          "users.view"
+        ]
       }
     },
     "/v2/users/{id}": {
@@ -79952,7 +80423,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Users V2",
-        "x-docs-resource-type": "UserWithRolesV2"
+        "x-docs-resource-type": "UserWithRolesV2",
+        "x-rbac-scopes": [
+          "users.view"
+        ]
       }
     },
     "/v2/users/{user_id}/notification_methods": {
@@ -80006,7 +80480,10 @@
         "x-display-name": "List",
         "x-docs-display-name": "List",
         "x-docs-group-name": "Notification Methods V2",
-        "x-docs-resource-type": "OnCallNotificationMethodPublicV2"
+        "x-docs-resource-type": "OnCallNotificationMethodPublicV2",
+        "x-rbac-scopes": [
+          "notification_methods.view"
+        ]
       }
     },
     "/v2/users/{user_id}/notification_rules": {
@@ -80069,7 +80546,10 @@
         "x-display-name": "List",
         "x-docs-display-name": "List",
         "x-docs-group-name": "Notification Rules V2",
-        "x-docs-resource-type": "OnCallNotificationRulePublicV2"
+        "x-docs-resource-type": "OnCallNotificationRulePublicV2",
+        "x-rbac-scopes": [
+          "notification_rules.view"
+        ]
       }
     },
     "/v2/users/{user_id}/paging_provider": {
@@ -80109,7 +80589,10 @@
         "tags": [
           "Users V2"
         ],
-        "x-docs-group-name": "Users V2"
+        "x-docs-group-name": "Users V2",
+        "x-rbac-scopes": [
+          "user_preferences.view"
+        ]
       },
       "post": {
         "description": "Update a user's preferred paging provider.",
@@ -80150,7 +80633,10 @@
         "tags": [
           "Users V2"
         ],
-        "x-docs-group-name": "Users V2"
+        "x-docs-group-name": "Users V2",
+        "x-rbac-scopes": [
+          "users.preferred_paging_provider.edit"
+        ]
       }
     },
     "/v2/workflows": {
@@ -80389,7 +80875,10 @@
         "x-display-name": "List",
         "x-docs-display-name": "List",
         "x-docs-group-name": "Workflows V2",
-        "x-docs-resource-type": "WorkflowV2"
+        "x-docs-resource-type": "WorkflowV2",
+        "x-rbac-scopes": [
+          "workflows.view"
+        ]
       },
       "post": {
         "description": "Create a new workflow",
@@ -80869,7 +81358,10 @@
         "x-display-name": "Create",
         "x-docs-display-name": "Create",
         "x-docs-group-name": "Workflows V2",
-        "x-docs-resource-type": "WorkflowV2"
+        "x-docs-resource-type": "WorkflowV2",
+        "x-rbac-scopes": [
+          "workflows.create"
+        ]
       }
     },
     "/v2/workflows/{id}": {
@@ -80902,7 +81394,10 @@
         "x-display-name": "Destroy",
         "x-docs-display-name": "Delete",
         "x-docs-group-name": "Workflows V2",
-        "x-docs-resource-type": "WorkflowV2"
+        "x-docs-resource-type": "WorkflowV2",
+        "x-rbac-scopes": [
+          "workflows.destroy"
+        ]
       },
       "get": {
         "description": "Show a workflow by ID",
@@ -81199,7 +81694,10 @@
         "x-display-name": "Show",
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Workflows V2",
-        "x-docs-resource-type": "WorkflowV2"
+        "x-docs-resource-type": "WorkflowV2",
+        "x-rbac-scopes": [
+          "workflows.view"
+        ]
       },
       "put": {
         "description": "Updates a workflow",
@@ -81698,7 +82196,10 @@
         "x-display-name": "Update",
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Workflows V2",
-        "x-docs-resource-type": "WorkflowV2"
+        "x-docs-resource-type": "WorkflowV2",
+        "x-rbac-scopes": [
+          "workflows.update"
+        ]
       }
     },
     "/v3/catalog_entries": {
@@ -81872,7 +82373,10 @@
         ],
         "x-docs-display-name": "List Entries",
         "x-docs-group-name": "Catalog Entries V3",
-        "x-docs-resource-type": "CatalogEntryV3"
+        "x-docs-resource-type": "CatalogEntryV3",
+        "x-rbac-scopes": [
+          "catalog_entries.view"
+        ]
       },
       "post": {
         "description": "Create an entry within the catalog. We support a maximum of 50,000 entries per type.\n\nIf you call this API with a payload where the external_id and catalog_type_id match an existing entry, the existing entry will be updated.",
@@ -81957,7 +82461,10 @@
         ],
         "x-docs-display-name": "Create Entry",
         "x-docs-group-name": "Catalog Entries V3",
-        "x-docs-resource-type": "CatalogEntryV3"
+        "x-docs-resource-type": "CatalogEntryV3",
+        "x-rbac-scopes": [
+          "catalog_entries.create"
+        ]
       }
     },
     "/v3/catalog_entries/actions/bulk_update": {
@@ -82036,7 +82543,10 @@
         ],
         "x-docs-display-name": "Bulk Update Entries",
         "x-docs-group-name": "Catalog Entries V3",
-        "x-docs-resource-type": "CatalogEntryV3"
+        "x-docs-resource-type": "CatalogEntryV3",
+        "x-rbac-scopes": [
+          "catalog_entries.edit"
+        ]
       }
     },
     "/v3/catalog_entries/{id}": {
@@ -82068,7 +82578,10 @@
         ],
         "x-docs-display-name": "Delete Entry",
         "x-docs-group-name": "Catalog Entries V3",
-        "x-docs-resource-type": "CatalogEntryV3"
+        "x-docs-resource-type": "CatalogEntryV3",
+        "x-rbac-scopes": [
+          "catalog_entries.destroy"
+        ]
       },
       "get": {
         "description": "Show a single catalog entry.",
@@ -82194,7 +82707,10 @@
         ],
         "x-docs-display-name": "Show Entry",
         "x-docs-group-name": "Catalog Entries V3",
-        "x-docs-resource-type": "CatalogEntryV3"
+        "x-docs-resource-type": "CatalogEntryV3",
+        "x-rbac-scopes": [
+          "catalog_entries.view"
+        ]
       },
       "put": {
         "description": "Updates an existing catalog entry.",
@@ -82342,7 +82858,10 @@
         ],
         "x-docs-display-name": "Update Entry",
         "x-docs-group-name": "Catalog Entries V3",
-        "x-docs-resource-type": "CatalogEntryV3"
+        "x-docs-resource-type": "CatalogEntryV3",
+        "x-rbac-scopes": [
+          "catalog_entries.edit"
+        ]
       }
     },
     "/v3/catalog_resources": {
@@ -82378,7 +82897,10 @@
         ],
         "x-docs-display-name": "List Resources",
         "x-docs-group-name": "Catalog Resources V3",
-        "x-docs-resource-type": "CatalogResourceV3"
+        "x-docs-resource-type": "CatalogResourceV3",
+        "x-rbac-scopes": [
+          "catalog_types.view"
+        ]
       }
     },
     "/v3/catalog_types": {
@@ -82454,7 +82976,10 @@
         ],
         "x-docs-display-name": "List Types",
         "x-docs-group-name": "Catalog Types V3",
-        "x-docs-resource-type": "CatalogTypeV3"
+        "x-docs-resource-type": "CatalogTypeV3",
+        "x-rbac-scopes": [
+          "catalog_types.view"
+        ]
       },
       "post": {
         "description": "Create a catalog type. The schema must be updated using the UpdateTypeSchema endpoint.",
@@ -82552,7 +83077,10 @@
         ],
         "x-docs-display-name": "Create Type",
         "x-docs-group-name": "Catalog Types V3",
-        "x-docs-resource-type": "CatalogTypeV3"
+        "x-docs-resource-type": "CatalogTypeV3",
+        "x-rbac-scopes": [
+          "catalog_types.create"
+        ]
       }
     },
     "/v3/catalog_types/{id}": {
@@ -82584,7 +83112,10 @@
         ],
         "x-docs-display-name": "Delete Type",
         "x-docs-group-name": "Catalog Types V3",
-        "x-docs-resource-type": "CatalogTypeV3"
+        "x-docs-resource-type": "CatalogTypeV3",
+        "x-rbac-scopes": [
+          "catalog_types.destroy"
+        ]
       },
       "get": {
         "description": "Show a single catalog type.",
@@ -82670,7 +83201,10 @@
         ],
         "x-docs-display-name": "Show Type",
         "x-docs-group-name": "Catalog Types V3",
-        "x-docs-resource-type": "CatalogTypeV3"
+        "x-docs-resource-type": "CatalogTypeV3",
+        "x-rbac-scopes": [
+          "catalog_types.view"
+        ]
       },
       "put": {
         "description": "Updates an existing catalog type. The schema must be updated using the UpdateTypeSchema endpoint.",
@@ -82781,7 +83315,10 @@
         ],
         "x-docs-display-name": "Update Type",
         "x-docs-group-name": "Catalog Types V3",
-        "x-docs-resource-type": "CatalogTypeV3"
+        "x-docs-resource-type": "CatalogTypeV3",
+        "x-rbac-scopes": [
+          "catalog_types.edit"
+        ]
       }
     },
     "/v3/catalog_types/{id}/actions/update_schema": {
@@ -82897,7 +83434,10 @@
         ],
         "x-docs-display-name": "Update Type Schema",
         "x-docs-group-name": "Catalog Types V3",
-        "x-docs-resource-type": "CatalogTypeV3"
+        "x-docs-resource-type": "CatalogTypeV3",
+        "x-rbac-scopes": [
+          "catalog_types.edit"
+        ]
       }
     },
     "/v3/teams": {
@@ -82976,7 +83516,10 @@
         ],
         "x-docs-display-name": "List",
         "x-docs-group-name": "Teams V3",
-        "x-docs-resource-type": "TeamV3"
+        "x-docs-resource-type": "TeamV3",
+        "x-rbac-scopes": [
+          "catalog_entries.view"
+        ]
       }
     },
     "/v3/teams/{id}": {
@@ -83034,7 +83577,10 @@
         ],
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Teams V3",
-        "x-docs-resource-type": "TeamV3"
+        "x-docs-resource-type": "TeamV3",
+        "x-rbac-scopes": [
+          "catalog_entries.view"
+        ]
       }
     }
   },
