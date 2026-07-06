@@ -12424,6 +12424,9 @@ type AlertsV2ListParams struct {
 	// CreatedAt Filter on alert created at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
 	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
 
+	// Attributes Filter on an alerts attributes. Alert attribute ID should be sent, followed by the operator and values. Accepted operator will depend on the attribute type.
+	Attributes *map[string]map[string][]string `form:"attributes,omitempty" json:"attributes,omitempty"`
+
 	// HasNotes Filter on whether an alert has notes. The accepted operator is 'is'.
 	HasNotes *map[string][]string `form:"has_notes,omitempty" json:"has_notes,omitempty"`
 
@@ -20928,6 +20931,22 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 		if params.CreatedAt != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Attributes != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "attributes", *params.Attributes, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
