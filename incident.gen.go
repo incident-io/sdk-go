@@ -486,6 +486,33 @@ func (e AlertEventsCreateHTTPPayloadV2Status) Valid() bool {
 	}
 }
 
+// Defines values for AlertRouteChannelTargetPayloadV3ChannelVisibility.
+const (
+	AlertRouteChannelTargetPayloadV3ChannelVisibilityAssistant AlertRouteChannelTargetPayloadV3ChannelVisibility = "assistant"
+	AlertRouteChannelTargetPayloadV3ChannelVisibilityDm        AlertRouteChannelTargetPayloadV3ChannelVisibility = "dm"
+	AlertRouteChannelTargetPayloadV3ChannelVisibilityGroupChat AlertRouteChannelTargetPayloadV3ChannelVisibility = "group_chat"
+	AlertRouteChannelTargetPayloadV3ChannelVisibilityPrivate   AlertRouteChannelTargetPayloadV3ChannelVisibility = "private"
+	AlertRouteChannelTargetPayloadV3ChannelVisibilityPublic    AlertRouteChannelTargetPayloadV3ChannelVisibility = "public"
+)
+
+// Valid indicates whether the value is a known member of the AlertRouteChannelTargetPayloadV3ChannelVisibility enum.
+func (e AlertRouteChannelTargetPayloadV3ChannelVisibility) Valid() bool {
+	switch e {
+	case AlertRouteChannelTargetPayloadV3ChannelVisibilityAssistant:
+		return true
+	case AlertRouteChannelTargetPayloadV3ChannelVisibilityDm:
+		return true
+	case AlertRouteChannelTargetPayloadV3ChannelVisibilityGroupChat:
+		return true
+	case AlertRouteChannelTargetPayloadV3ChannelVisibilityPrivate:
+		return true
+	case AlertRouteChannelTargetPayloadV3ChannelVisibilityPublic:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for AlertRouteCustomFieldBindingPayloadV2MergeStrategy.
 const (
 	AlertRouteCustomFieldBindingPayloadV2MergeStrategyAppend    AlertRouteCustomFieldBindingPayloadV2MergeStrategy = "append"
@@ -501,6 +528,27 @@ func (e AlertRouteCustomFieldBindingPayloadV2MergeStrategy) Valid() bool {
 	case AlertRouteCustomFieldBindingPayloadV2MergeStrategyFirstWins:
 		return true
 	case AlertRouteCustomFieldBindingPayloadV2MergeStrategyLastWins:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AlertRouteCustomFieldBindingPayloadV3MergeStrategy.
+const (
+	AlertRouteCustomFieldBindingPayloadV3MergeStrategyAppend    AlertRouteCustomFieldBindingPayloadV3MergeStrategy = "append"
+	AlertRouteCustomFieldBindingPayloadV3MergeStrategyFirstWins AlertRouteCustomFieldBindingPayloadV3MergeStrategy = "first-wins"
+	AlertRouteCustomFieldBindingPayloadV3MergeStrategyLastWins  AlertRouteCustomFieldBindingPayloadV3MergeStrategy = "last-wins"
+)
+
+// Valid indicates whether the value is a known member of the AlertRouteCustomFieldBindingPayloadV3MergeStrategy enum.
+func (e AlertRouteCustomFieldBindingPayloadV3MergeStrategy) Valid() bool {
+	switch e {
+	case AlertRouteCustomFieldBindingPayloadV3MergeStrategyAppend:
+		return true
+	case AlertRouteCustomFieldBindingPayloadV3MergeStrategyFirstWins:
+		return true
+	case AlertRouteCustomFieldBindingPayloadV3MergeStrategyLastWins:
 		return true
 	default:
 		return false
@@ -528,6 +576,27 @@ func (e AlertRouteCustomFieldBindingV2MergeStrategy) Valid() bool {
 	}
 }
 
+// Defines values for AlertRouteCustomFieldBindingV3MergeStrategy.
+const (
+	AlertRouteCustomFieldBindingV3MergeStrategyAppend    AlertRouteCustomFieldBindingV3MergeStrategy = "append"
+	AlertRouteCustomFieldBindingV3MergeStrategyFirstWins AlertRouteCustomFieldBindingV3MergeStrategy = "first-wins"
+	AlertRouteCustomFieldBindingV3MergeStrategyLastWins  AlertRouteCustomFieldBindingV3MergeStrategy = "last-wins"
+)
+
+// Valid indicates whether the value is a known member of the AlertRouteCustomFieldBindingV3MergeStrategy enum.
+func (e AlertRouteCustomFieldBindingV3MergeStrategy) Valid() bool {
+	switch e {
+	case AlertRouteCustomFieldBindingV3MergeStrategyAppend:
+		return true
+	case AlertRouteCustomFieldBindingV3MergeStrategyFirstWins:
+		return true
+	case AlertRouteCustomFieldBindingV3MergeStrategyLastWins:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for AlertRouteSeverityBindingPayloadV2MergeStrategy.
 const (
 	AlertRouteSeverityBindingPayloadV2MergeStrategyFirstWins AlertRouteSeverityBindingPayloadV2MergeStrategy = "first-wins"
@@ -546,6 +615,24 @@ func (e AlertRouteSeverityBindingPayloadV2MergeStrategy) Valid() bool {
 	}
 }
 
+// Defines values for AlertRouteSeverityBindingPayloadV3MergeStrategy.
+const (
+	AlertRouteSeverityBindingPayloadV3MergeStrategyFirstWins AlertRouteSeverityBindingPayloadV3MergeStrategy = "first-wins"
+	AlertRouteSeverityBindingPayloadV3MergeStrategyMax       AlertRouteSeverityBindingPayloadV3MergeStrategy = "max"
+)
+
+// Valid indicates whether the value is a known member of the AlertRouteSeverityBindingPayloadV3MergeStrategy enum.
+func (e AlertRouteSeverityBindingPayloadV3MergeStrategy) Valid() bool {
+	switch e {
+	case AlertRouteSeverityBindingPayloadV3MergeStrategyFirstWins:
+		return true
+	case AlertRouteSeverityBindingPayloadV3MergeStrategyMax:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for AlertRouteSeverityBindingV2MergeStrategy.
 const (
 	AlertRouteSeverityBindingV2MergeStrategyFirstWins AlertRouteSeverityBindingV2MergeStrategy = "first-wins"
@@ -558,6 +645,60 @@ func (e AlertRouteSeverityBindingV2MergeStrategy) Valid() bool {
 	case AlertRouteSeverityBindingV2MergeStrategyFirstWins:
 		return true
 	case AlertRouteSeverityBindingV2MergeStrategyMax:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AlertRouteSeverityBindingV3MergeStrategy.
+const (
+	AlertRouteSeverityBindingV3MergeStrategyFirstWins AlertRouteSeverityBindingV3MergeStrategy = "first-wins"
+	AlertRouteSeverityBindingV3MergeStrategyMax       AlertRouteSeverityBindingV3MergeStrategy = "max"
+)
+
+// Valid indicates whether the value is a known member of the AlertRouteSeverityBindingV3MergeStrategy enum.
+func (e AlertRouteSeverityBindingV3MergeStrategy) Valid() bool {
+	switch e {
+	case AlertRouteSeverityBindingV3MergeStrategyFirstWins:
+		return true
+	case AlertRouteSeverityBindingV3MergeStrategyMax:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AlertRouteWhenAlertJoinsGroupPayloadV3Mode.
+const (
+	AlertRouteWhenAlertJoinsGroupPayloadV3ModeOnEachNewAlert     AlertRouteWhenAlertJoinsGroupPayloadV3Mode = "on_each_new_alert"
+	AlertRouteWhenAlertJoinsGroupPayloadV3ModeOnPriorityIncrease AlertRouteWhenAlertJoinsGroupPayloadV3Mode = "on_priority_increase"
+)
+
+// Valid indicates whether the value is a known member of the AlertRouteWhenAlertJoinsGroupPayloadV3Mode enum.
+func (e AlertRouteWhenAlertJoinsGroupPayloadV3Mode) Valid() bool {
+	switch e {
+	case AlertRouteWhenAlertJoinsGroupPayloadV3ModeOnEachNewAlert:
+		return true
+	case AlertRouteWhenAlertJoinsGroupPayloadV3ModeOnPriorityIncrease:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AlertRouteWhenAlertJoinsGroupV3Mode.
+const (
+	AlertRouteWhenAlertJoinsGroupV3ModeOnEachNewAlert     AlertRouteWhenAlertJoinsGroupV3Mode = "on_each_new_alert"
+	AlertRouteWhenAlertJoinsGroupV3ModeOnPriorityIncrease AlertRouteWhenAlertJoinsGroupV3Mode = "on_priority_increase"
+)
+
+// Valid indicates whether the value is a known member of the AlertRouteWhenAlertJoinsGroupV3Mode enum.
+func (e AlertRouteWhenAlertJoinsGroupV3Mode) Valid() bool {
+	switch e {
+	case AlertRouteWhenAlertJoinsGroupV3ModeOnEachNewAlert:
+		return true
+	case AlertRouteWhenAlertJoinsGroupV3ModeOnPriorityIncrease:
 		return true
 	default:
 		return false
@@ -2787,24 +2928,120 @@ func (e ExpressionOperationPayloadV2OperationType) Valid() bool {
 	}
 }
 
+// Defines values for ExpressionOperationPayloadV3OperationType.
+const (
+	ExpressionOperationPayloadV3OperationTypeBranches    ExpressionOperationPayloadV3OperationType = "branches"
+	ExpressionOperationPayloadV3OperationTypeCast        ExpressionOperationPayloadV3OperationType = "cast"
+	ExpressionOperationPayloadV3OperationTypeConcatenate ExpressionOperationPayloadV3OperationType = "concatenate"
+	ExpressionOperationPayloadV3OperationTypeCount       ExpressionOperationPayloadV3OperationType = "count"
+	ExpressionOperationPayloadV3OperationTypeFilter      ExpressionOperationPayloadV3OperationType = "filter"
+	ExpressionOperationPayloadV3OperationTypeFirst       ExpressionOperationPayloadV3OperationType = "first"
+	ExpressionOperationPayloadV3OperationTypeMax         ExpressionOperationPayloadV3OperationType = "max"
+	ExpressionOperationPayloadV3OperationTypeMin         ExpressionOperationPayloadV3OperationType = "min"
+	ExpressionOperationPayloadV3OperationTypeNavigate    ExpressionOperationPayloadV3OperationType = "navigate"
+	ExpressionOperationPayloadV3OperationTypeParse       ExpressionOperationPayloadV3OperationType = "parse"
+	ExpressionOperationPayloadV3OperationTypeRandom      ExpressionOperationPayloadV3OperationType = "random"
+	ExpressionOperationPayloadV3OperationTypeSum         ExpressionOperationPayloadV3OperationType = "sum"
+)
+
+// Valid indicates whether the value is a known member of the ExpressionOperationPayloadV3OperationType enum.
+func (e ExpressionOperationPayloadV3OperationType) Valid() bool {
+	switch e {
+	case ExpressionOperationPayloadV3OperationTypeBranches:
+		return true
+	case ExpressionOperationPayloadV3OperationTypeCast:
+		return true
+	case ExpressionOperationPayloadV3OperationTypeConcatenate:
+		return true
+	case ExpressionOperationPayloadV3OperationTypeCount:
+		return true
+	case ExpressionOperationPayloadV3OperationTypeFilter:
+		return true
+	case ExpressionOperationPayloadV3OperationTypeFirst:
+		return true
+	case ExpressionOperationPayloadV3OperationTypeMax:
+		return true
+	case ExpressionOperationPayloadV3OperationTypeMin:
+		return true
+	case ExpressionOperationPayloadV3OperationTypeNavigate:
+		return true
+	case ExpressionOperationPayloadV3OperationTypeParse:
+		return true
+	case ExpressionOperationPayloadV3OperationTypeRandom:
+		return true
+	case ExpressionOperationPayloadV3OperationTypeSum:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ExpressionOperationV2OperationType.
 const (
-	Branches    ExpressionOperationV2OperationType = "branches"
-	Cast        ExpressionOperationV2OperationType = "cast"
-	Concatenate ExpressionOperationV2OperationType = "concatenate"
-	Count       ExpressionOperationV2OperationType = "count"
-	Filter      ExpressionOperationV2OperationType = "filter"
-	First       ExpressionOperationV2OperationType = "first"
-	Max         ExpressionOperationV2OperationType = "max"
-	Min         ExpressionOperationV2OperationType = "min"
-	Navigate    ExpressionOperationV2OperationType = "navigate"
-	Parse       ExpressionOperationV2OperationType = "parse"
-	Random      ExpressionOperationV2OperationType = "random"
-	Sum         ExpressionOperationV2OperationType = "sum"
+	ExpressionOperationV2OperationTypeBranches    ExpressionOperationV2OperationType = "branches"
+	ExpressionOperationV2OperationTypeCast        ExpressionOperationV2OperationType = "cast"
+	ExpressionOperationV2OperationTypeConcatenate ExpressionOperationV2OperationType = "concatenate"
+	ExpressionOperationV2OperationTypeCount       ExpressionOperationV2OperationType = "count"
+	ExpressionOperationV2OperationTypeFilter      ExpressionOperationV2OperationType = "filter"
+	ExpressionOperationV2OperationTypeFirst       ExpressionOperationV2OperationType = "first"
+	ExpressionOperationV2OperationTypeMax         ExpressionOperationV2OperationType = "max"
+	ExpressionOperationV2OperationTypeMin         ExpressionOperationV2OperationType = "min"
+	ExpressionOperationV2OperationTypeNavigate    ExpressionOperationV2OperationType = "navigate"
+	ExpressionOperationV2OperationTypeParse       ExpressionOperationV2OperationType = "parse"
+	ExpressionOperationV2OperationTypeRandom      ExpressionOperationV2OperationType = "random"
+	ExpressionOperationV2OperationTypeSum         ExpressionOperationV2OperationType = "sum"
 )
 
 // Valid indicates whether the value is a known member of the ExpressionOperationV2OperationType enum.
 func (e ExpressionOperationV2OperationType) Valid() bool {
+	switch e {
+	case ExpressionOperationV2OperationTypeBranches:
+		return true
+	case ExpressionOperationV2OperationTypeCast:
+		return true
+	case ExpressionOperationV2OperationTypeConcatenate:
+		return true
+	case ExpressionOperationV2OperationTypeCount:
+		return true
+	case ExpressionOperationV2OperationTypeFilter:
+		return true
+	case ExpressionOperationV2OperationTypeFirst:
+		return true
+	case ExpressionOperationV2OperationTypeMax:
+		return true
+	case ExpressionOperationV2OperationTypeMin:
+		return true
+	case ExpressionOperationV2OperationTypeNavigate:
+		return true
+	case ExpressionOperationV2OperationTypeParse:
+		return true
+	case ExpressionOperationV2OperationTypeRandom:
+		return true
+	case ExpressionOperationV2OperationTypeSum:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ExpressionOperationV3OperationType.
+const (
+	Branches    ExpressionOperationV3OperationType = "branches"
+	Cast        ExpressionOperationV3OperationType = "cast"
+	Concatenate ExpressionOperationV3OperationType = "concatenate"
+	Count       ExpressionOperationV3OperationType = "count"
+	Filter      ExpressionOperationV3OperationType = "filter"
+	First       ExpressionOperationV3OperationType = "first"
+	Max         ExpressionOperationV3OperationType = "max"
+	Min         ExpressionOperationV3OperationType = "min"
+	Navigate    ExpressionOperationV3OperationType = "navigate"
+	Parse       ExpressionOperationV3OperationType = "parse"
+	Random      ExpressionOperationV3OperationType = "random"
+	Sum         ExpressionOperationV3OperationType = "sum"
+)
+
+// Valid indicates whether the value is a known member of the ExpressionOperationV3OperationType enum.
+func (e ExpressionOperationV3OperationType) Valid() bool {
 	switch e {
 	case Branches:
 		return true
@@ -3063,6 +3300,24 @@ func (e FollowUpsUpdatePayloadV2Status) Valid() bool {
 	case FollowUpsUpdatePayloadV2StatusNotDoing:
 		return true
 	case FollowUpsUpdatePayloadV2StatusOutstanding:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GroupingSettingsV3WindowType.
+const (
+	Fixed   GroupingSettingsV3WindowType = "fixed"
+	Rolling GroupingSettingsV3WindowType = "rolling"
+)
+
+// Valid indicates whether the value is a known member of the GroupingSettingsV3WindowType enum.
+func (e GroupingSettingsV3WindowType) Valid() bool {
+	switch e {
+	case Fixed:
+		return true
+	case Rolling:
 		return true
 	default:
 		return false
@@ -3725,16 +3980,16 @@ func (e IncidentsCreatePayloadV2Mode) Valid() bool {
 
 // Defines values for IncidentsCreatePayloadV2Visibility.
 const (
-	Private IncidentsCreatePayloadV2Visibility = "private"
-	Public  IncidentsCreatePayloadV2Visibility = "public"
+	IncidentsCreatePayloadV2VisibilityPrivate IncidentsCreatePayloadV2Visibility = "private"
+	IncidentsCreatePayloadV2VisibilityPublic  IncidentsCreatePayloadV2Visibility = "public"
 )
 
 // Valid indicates whether the value is a known member of the IncidentsCreatePayloadV2Visibility enum.
 func (e IncidentsCreatePayloadV2Visibility) Valid() bool {
 	switch e {
-	case Private:
+	case IncidentsCreatePayloadV2VisibilityPrivate:
 		return true
-	case Public:
+	case IncidentsCreatePayloadV2VisibilityPublic:
 		return true
 	default:
 		return false
@@ -5602,6 +5857,41 @@ type AlertEventsCreateHTTPResultV2 struct {
 	Status string `json:"status"`
 }
 
+// AlertGroupingConfigV3 defines model for AlertGroupingConfigV3.
+type AlertGroupingConfigV3 struct {
+	Default GroupingSettingsV3 `json:"default"`
+}
+
+// AlertMessageConfigPayloadV3 defines model for AlertMessageConfigPayloadV3.
+type AlertMessageConfigPayloadV3 struct {
+	// Destinations The destinations (Slack/Teams channels) alert messages are sent to
+	Destinations []AlertMessageDestinationPayloadV3 `json:"destinations"`
+	Template     *EngineParamBindingPayloadV3       `json:"template,omitempty"`
+}
+
+// AlertMessageConfigV3 defines model for AlertMessageConfigV3.
+type AlertMessageConfigV3 struct {
+	// Destinations The destinations (Slack/Teams channels) alert messages are sent to
+	Destinations []AlertMessageDestinationV3 `json:"destinations"`
+	Template     *EngineParamBindingV3       `json:"template,omitempty"`
+}
+
+// AlertMessageDestinationPayloadV3 defines model for AlertMessageDestinationPayloadV3.
+type AlertMessageDestinationPayloadV3 struct {
+	// ConditionGroups The conditions that must be met for this channel config to be used
+	ConditionGroups []ConditionGroupPayloadV3         `json:"condition_groups"`
+	MsTeamsTargets  *AlertRouteChannelTargetPayloadV3 `json:"ms_teams_targets,omitempty"`
+	SlackTargets    *AlertRouteChannelTargetPayloadV3 `json:"slack_targets,omitempty"`
+}
+
+// AlertMessageDestinationV3 defines model for AlertMessageDestinationV3.
+type AlertMessageDestinationV3 struct {
+	// ConditionGroups The conditions that must be met for this channel config to be used
+	ConditionGroups []ConditionGroupV3         `json:"condition_groups"`
+	MsTeamsTargets  *AlertRouteChannelTargetV3 `json:"ms_teams_targets,omitempty"`
+	SlackTargets    *AlertRouteChannelTargetV3 `json:"slack_targets,omitempty"`
+}
+
 // AlertNoteV1 defines model for AlertNoteV1.
 type AlertNoteV1 struct {
 	// Content Markdown body of the note
@@ -5669,6 +5959,15 @@ type AlertRouteAlertSourcePayloadV2 struct {
 	ConditionGroups []ConditionGroupPayloadV2 `json:"condition_groups"`
 }
 
+// AlertRouteAlertSourcePayloadV3 defines model for AlertRouteAlertSourcePayloadV3.
+type AlertRouteAlertSourcePayloadV3 struct {
+	// AlertSourceId The alert source ID that will match for the route
+	AlertSourceId string `json:"alert_source_id"`
+
+	// ConditionGroups What conditions should alerts from this source meet to be included in this alert route?
+	ConditionGroups []ConditionGroupPayloadV3 `json:"condition_groups"`
+}
+
 // AlertRouteAlertSourceV2 defines model for AlertRouteAlertSourceV2.
 type AlertRouteAlertSourceV2 struct {
 	// AlertSourceId The alert source ID that will match for the route
@@ -5678,6 +5977,15 @@ type AlertRouteAlertSourceV2 struct {
 	ConditionGroups []ConditionGroupV2 `json:"condition_groups"`
 }
 
+// AlertRouteAlertSourceV3 defines model for AlertRouteAlertSourceV3.
+type AlertRouteAlertSourceV3 struct {
+	// AlertSourceId The alert source ID that will match for the route
+	AlertSourceId string `json:"alert_source_id"`
+
+	// ConditionGroups What conditions should alerts from this source meet to be included in this alert route?
+	ConditionGroups []ConditionGroupV3 `json:"condition_groups"`
+}
+
 // AlertRouteAutoGeneratedTemplateBindingPayloadV2 defines model for AlertRouteAutoGeneratedTemplateBindingPayloadV2.
 type AlertRouteAutoGeneratedTemplateBindingPayloadV2 struct {
 	// Autogenerated Whether this attribute is autogenerated using AI or not
@@ -5685,11 +5993,25 @@ type AlertRouteAutoGeneratedTemplateBindingPayloadV2 struct {
 	Binding       *EngineParamBindingPayloadV2 `json:"binding,omitempty"`
 }
 
+// AlertRouteAutoGeneratedTemplateBindingPayloadV3 defines model for AlertRouteAutoGeneratedTemplateBindingPayloadV3.
+type AlertRouteAutoGeneratedTemplateBindingPayloadV3 struct {
+	// Autogenerated Whether this attribute is autogenerated using AI or not
+	Autogenerated *bool                        `json:"autogenerated,omitempty"`
+	Binding       *EngineParamBindingPayloadV3 `json:"binding,omitempty"`
+}
+
 // AlertRouteAutoGeneratedTemplateBindingV2 defines model for AlertRouteAutoGeneratedTemplateBindingV2.
 type AlertRouteAutoGeneratedTemplateBindingV2 struct {
 	// Autogenerated Whether this attribute is autogenerated using AI or not
 	Autogenerated bool                  `json:"autogenerated"`
 	Binding       *EngineParamBindingV2 `json:"binding,omitempty"`
+}
+
+// AlertRouteAutoGeneratedTemplateBindingV3 defines model for AlertRouteAutoGeneratedTemplateBindingV3.
+type AlertRouteAutoGeneratedTemplateBindingV3 struct {
+	// Autogenerated Whether this attribute is autogenerated using AI or not
+	Autogenerated bool                  `json:"autogenerated"`
+	Binding       *EngineParamBindingV3 `json:"binding,omitempty"`
 }
 
 // AlertRouteChannelConfigPayloadV2 defines model for AlertRouteChannelConfigPayloadV2.
@@ -5716,9 +6038,28 @@ type AlertRouteChannelTargetPayloadV2 struct {
 	ChannelVisibility string `json:"channel_visibility"`
 }
 
+// AlertRouteChannelTargetPayloadV3 defines model for AlertRouteChannelTargetPayloadV3.
+type AlertRouteChannelTargetPayloadV3 struct {
+	Binding EngineParamBindingPayloadV3 `json:"binding"`
+
+	// ChannelVisibility The visibility of the channel
+	ChannelVisibility AlertRouteChannelTargetPayloadV3ChannelVisibility `json:"channel_visibility"`
+}
+
+// AlertRouteChannelTargetPayloadV3ChannelVisibility The visibility of the channel
+type AlertRouteChannelTargetPayloadV3ChannelVisibility string
+
 // AlertRouteChannelTargetV2 defines model for AlertRouteChannelTargetV2.
 type AlertRouteChannelTargetV2 struct {
 	Binding EngineParamBindingV2 `json:"binding"`
+
+	// ChannelVisibility The visibility of the channel
+	ChannelVisibility string `json:"channel_visibility"`
+}
+
+// AlertRouteChannelTargetV3 defines model for AlertRouteChannelTargetV3.
+type AlertRouteChannelTargetV3 struct {
+	Binding EngineParamBindingV3 `json:"binding"`
 
 	// ChannelVisibility The visibility of the channel
 	ChannelVisibility string `json:"channel_visibility"`
@@ -5738,6 +6079,20 @@ type AlertRouteCustomFieldBindingPayloadV2 struct {
 // AlertRouteCustomFieldBindingPayloadV2MergeStrategy The strategy to use when multiple alerts match this route
 type AlertRouteCustomFieldBindingPayloadV2MergeStrategy string
 
+// AlertRouteCustomFieldBindingPayloadV3 defines model for AlertRouteCustomFieldBindingPayloadV3.
+type AlertRouteCustomFieldBindingPayloadV3 struct {
+	Binding EngineParamBindingPayloadV3 `json:"binding"`
+
+	// CustomFieldId ID of the custom field
+	CustomFieldId string `json:"custom_field_id"`
+
+	// MergeStrategy The strategy to use when multiple alerts match this route
+	MergeStrategy AlertRouteCustomFieldBindingPayloadV3MergeStrategy `json:"merge_strategy"`
+}
+
+// AlertRouteCustomFieldBindingPayloadV3MergeStrategy The strategy to use when multiple alerts match this route
+type AlertRouteCustomFieldBindingPayloadV3MergeStrategy string
+
 // AlertRouteCustomFieldBindingV2 defines model for AlertRouteCustomFieldBindingV2.
 type AlertRouteCustomFieldBindingV2 struct {
 	Binding EngineParamBindingV2 `json:"binding"`
@@ -5752,6 +6107,20 @@ type AlertRouteCustomFieldBindingV2 struct {
 // AlertRouteCustomFieldBindingV2MergeStrategy The strategy to use when multiple alerts match this route
 type AlertRouteCustomFieldBindingV2MergeStrategy string
 
+// AlertRouteCustomFieldBindingV3 defines model for AlertRouteCustomFieldBindingV3.
+type AlertRouteCustomFieldBindingV3 struct {
+	Binding EngineParamBindingV3 `json:"binding"`
+
+	// CustomFieldId ID of the custom field
+	CustomFieldId string `json:"custom_field_id"`
+
+	// MergeStrategy The strategy to use when multiple alerts match this route
+	MergeStrategy AlertRouteCustomFieldBindingV3MergeStrategy `json:"merge_strategy"`
+}
+
+// AlertRouteCustomFieldBindingV3MergeStrategy The strategy to use when multiple alerts match this route
+type AlertRouteCustomFieldBindingV3MergeStrategy string
+
 // AlertRouteEscalationConfigPayloadV2 defines model for AlertRouteEscalationConfigPayloadV2.
 type AlertRouteEscalationConfigPayloadV2 struct {
 	// AutoCancelEscalations Should we auto cancel escalations when all alerts are resolved?
@@ -5759,6 +6128,16 @@ type AlertRouteEscalationConfigPayloadV2 struct {
 
 	// EscalationTargets Targets for escalation
 	EscalationTargets []AlertRouteEscalationTargetPayloadV2 `json:"escalation_targets"`
+}
+
+// AlertRouteEscalationConfigPayloadV3 defines model for AlertRouteEscalationConfigPayloadV3.
+type AlertRouteEscalationConfigPayloadV3 struct {
+	// AutoCancelEscalations Should we auto cancel escalations when all alerts are resolved?
+	AutoCancelEscalations bool `json:"auto_cancel_escalations"`
+
+	// EscalationTargets Targets for escalation
+	EscalationTargets   []AlertRouteEscalationTargetPayloadV3   `json:"escalation_targets"`
+	WhenAlertJoinsGroup *AlertRouteWhenAlertJoinsGroupPayloadV3 `json:"when_alert_joins_group,omitempty"`
 }
 
 // AlertRouteEscalationConfigV2 defines model for AlertRouteEscalationConfigV2.
@@ -5770,16 +6149,38 @@ type AlertRouteEscalationConfigV2 struct {
 	EscalationTargets []AlertRouteEscalationTargetV2 `json:"escalation_targets"`
 }
 
+// AlertRouteEscalationConfigV3 defines model for AlertRouteEscalationConfigV3.
+type AlertRouteEscalationConfigV3 struct {
+	// AutoCancelEscalations Should we auto cancel escalations when all alerts are resolved?
+	AutoCancelEscalations bool `json:"auto_cancel_escalations"`
+
+	// EscalationTargets Targets for escalation
+	EscalationTargets   []AlertRouteEscalationTargetV3   `json:"escalation_targets"`
+	WhenAlertJoinsGroup *AlertRouteWhenAlertJoinsGroupV3 `json:"when_alert_joins_group,omitempty"`
+}
+
 // AlertRouteEscalationTargetPayloadV2 defines model for AlertRouteEscalationTargetPayloadV2.
 type AlertRouteEscalationTargetPayloadV2 struct {
 	EscalationPaths *EngineParamBindingPayloadV2 `json:"escalation_paths,omitempty"`
 	Users           *EngineParamBindingPayloadV2 `json:"users,omitempty"`
 }
 
+// AlertRouteEscalationTargetPayloadV3 defines model for AlertRouteEscalationTargetPayloadV3.
+type AlertRouteEscalationTargetPayloadV3 struct {
+	EscalationPaths *EngineParamBindingPayloadV3 `json:"escalation_paths,omitempty"`
+	Users           *EngineParamBindingPayloadV3 `json:"users,omitempty"`
+}
+
 // AlertRouteEscalationTargetV2 defines model for AlertRouteEscalationTargetV2.
 type AlertRouteEscalationTargetV2 struct {
 	EscalationPaths *EngineParamBindingV2 `json:"escalation_paths,omitempty"`
 	Users           *EngineParamBindingV2 `json:"users,omitempty"`
+}
+
+// AlertRouteEscalationTargetV3 defines model for AlertRouteEscalationTargetV3.
+type AlertRouteEscalationTargetV3 struct {
+	EscalationPaths *EngineParamBindingV3 `json:"escalation_paths,omitempty"`
+	Users           *EngineParamBindingV3 `json:"users,omitempty"`
 }
 
 // AlertRouteIncidentConfigPayloadV2 defines model for AlertRouteIncidentConfigPayloadV2.
@@ -5806,6 +6207,19 @@ type AlertRouteIncidentConfigPayloadV2 struct {
 	GroupingWindowSeconds int32 `json:"grouping_window_seconds"`
 }
 
+// AlertRouteIncidentConfigPayloadV3 defines model for AlertRouteIncidentConfigPayloadV3.
+type AlertRouteIncidentConfigPayloadV3 struct {
+	// AutoDeclineEnabled Should triage incidents be declined when alerts are resolved? Required when incident creation is enabled, and must be unset otherwise.
+	AutoDeclineEnabled *bool `json:"auto_decline_enabled,omitempty"`
+
+	// ConditionGroups What condition groups must be true for this alert route to create an incident? Only set when incident creation is enabled.
+	ConditionGroups *[]ConditionGroupPayloadV3 `json:"condition_groups,omitempty"`
+
+	// Enabled Whether incident creation is enabled for this alert route
+	Enabled  bool                                 `json:"enabled"`
+	Template *AlertRouteIncidentTemplatePayloadV3 `json:"template,omitempty"`
+}
+
 // AlertRouteIncidentConfigV2 defines model for AlertRouteIncidentConfigV2.
 type AlertRouteIncidentConfigV2 struct {
 	// AutoDeclineEnabled Should triage incidents be declined when alerts are resolved?
@@ -5830,6 +6244,19 @@ type AlertRouteIncidentConfigV2 struct {
 	GroupingWindowSeconds int32 `json:"grouping_window_seconds"`
 }
 
+// AlertRouteIncidentConfigV3 defines model for AlertRouteIncidentConfigV3.
+type AlertRouteIncidentConfigV3 struct {
+	// AutoDeclineEnabled Should triage incidents be declined when alerts are resolved? Only set when incident creation is enabled.
+	AutoDeclineEnabled *bool `json:"auto_decline_enabled,omitempty"`
+
+	// ConditionGroups What condition groups must be true for this alert route to create an incident? Only set when incident creation is enabled.
+	ConditionGroups *[]ConditionGroupV3 `json:"condition_groups,omitempty"`
+
+	// Enabled Whether incident creation is enabled for this alert route
+	Enabled  bool                          `json:"enabled"`
+	Template *AlertRouteIncidentTemplateV3 `json:"template,omitempty"`
+}
+
 // AlertRouteIncidentTemplatePayloadV2 defines model for AlertRouteIncidentTemplatePayloadV2.
 type AlertRouteIncidentTemplatePayloadV2 struct {
 	// CustomFields Custom fields configuration
@@ -5841,6 +6268,18 @@ type AlertRouteIncidentTemplatePayloadV2 struct {
 	StartInTriage *AlertRouteTemplateBindingPayloadV2              `json:"start_in_triage,omitempty"`
 	Summary       *AlertRouteAutoGeneratedTemplateBindingPayloadV2 `json:"summary,omitempty"`
 	Workspace     *AlertRouteTemplateBindingPayloadV2              `json:"workspace,omitempty"`
+}
+
+// AlertRouteIncidentTemplatePayloadV3 defines model for AlertRouteIncidentTemplatePayloadV3.
+type AlertRouteIncidentTemplatePayloadV3 struct {
+	// CustomFields Custom fields configuration
+	CustomFields  *[]AlertRouteCustomFieldBindingPayloadV3         `json:"custom_fields,omitempty"`
+	IncidentMode  *AlertRouteTemplateBindingPayloadV3              `json:"incident_mode,omitempty"`
+	IncidentType  *AlertRouteTemplateBindingPayloadV3              `json:"incident_type,omitempty"`
+	Name          AlertRouteAutoGeneratedTemplateBindingPayloadV3  `json:"name"`
+	Severity      *AlertRouteSeverityBindingPayloadV3              `json:"severity,omitempty"`
+	StartInTriage *AlertRouteTemplateBindingPayloadV3              `json:"start_in_triage,omitempty"`
+	Summary       *AlertRouteAutoGeneratedTemplateBindingPayloadV3 `json:"summary,omitempty"`
 }
 
 // AlertRouteIncidentTemplateV2 defines model for AlertRouteIncidentTemplateV2.
@@ -5856,6 +6295,18 @@ type AlertRouteIncidentTemplateV2 struct {
 	Workspace     *AlertRouteTemplateBindingV2              `json:"workspace,omitempty"`
 }
 
+// AlertRouteIncidentTemplateV3 defines model for AlertRouteIncidentTemplateV3.
+type AlertRouteIncidentTemplateV3 struct {
+	// CustomFields Custom fields configuration
+	CustomFields  *[]AlertRouteCustomFieldBindingV3         `json:"custom_fields,omitempty"`
+	IncidentMode  *AlertRouteTemplateBindingV3              `json:"incident_mode,omitempty"`
+	IncidentType  *AlertRouteTemplateBindingV3              `json:"incident_type,omitempty"`
+	Name          AlertRouteAutoGeneratedTemplateBindingV3  `json:"name"`
+	Severity      *AlertRouteSeverityBindingV3              `json:"severity,omitempty"`
+	StartInTriage *AlertRouteTemplateBindingV3              `json:"start_in_triage,omitempty"`
+	Summary       *AlertRouteAutoGeneratedTemplateBindingV3 `json:"summary,omitempty"`
+}
+
 // AlertRouteSeverityBindingPayloadV2 defines model for AlertRouteSeverityBindingPayloadV2.
 type AlertRouteSeverityBindingPayloadV2 struct {
 	Binding *EngineParamBindingPayloadV2 `json:"binding,omitempty"`
@@ -5866,6 +6317,17 @@ type AlertRouteSeverityBindingPayloadV2 struct {
 
 // AlertRouteSeverityBindingPayloadV2MergeStrategy Strategy for merging severity when multiple alerts create/update the same incident
 type AlertRouteSeverityBindingPayloadV2MergeStrategy string
+
+// AlertRouteSeverityBindingPayloadV3 defines model for AlertRouteSeverityBindingPayloadV3.
+type AlertRouteSeverityBindingPayloadV3 struct {
+	Binding *EngineParamBindingPayloadV3 `json:"binding,omitempty"`
+
+	// MergeStrategy Strategy for merging severity when multiple alerts create/update the same incident
+	MergeStrategy AlertRouteSeverityBindingPayloadV3MergeStrategy `json:"merge_strategy"`
+}
+
+// AlertRouteSeverityBindingPayloadV3MergeStrategy Strategy for merging severity when multiple alerts create/update the same incident
+type AlertRouteSeverityBindingPayloadV3MergeStrategy string
 
 // AlertRouteSeverityBindingV2 defines model for AlertRouteSeverityBindingV2.
 type AlertRouteSeverityBindingV2 struct {
@@ -5878,8 +6340,31 @@ type AlertRouteSeverityBindingV2 struct {
 // AlertRouteSeverityBindingV2MergeStrategy Strategy for merging severity when multiple alerts create/update the same incident
 type AlertRouteSeverityBindingV2MergeStrategy string
 
+// AlertRouteSeverityBindingV3 defines model for AlertRouteSeverityBindingV3.
+type AlertRouteSeverityBindingV3 struct {
+	Binding *EngineParamBindingV3 `json:"binding,omitempty"`
+
+	// MergeStrategy Strategy for merging severity when multiple alerts create/update the same incident
+	MergeStrategy AlertRouteSeverityBindingV3MergeStrategy `json:"merge_strategy"`
+}
+
+// AlertRouteSeverityBindingV3MergeStrategy Strategy for merging severity when multiple alerts create/update the same incident
+type AlertRouteSeverityBindingV3MergeStrategy string
+
 // AlertRouteSlimV2 defines model for AlertRouteSlimV2.
 type AlertRouteSlimV2 struct {
+	// Enabled Whether this alert route is enabled or not
+	Enabled bool `json:"enabled"`
+
+	// Id Unique identifier for this alert route config
+	Id string `json:"id"`
+
+	// Name The name of this alert route config, for the user's reference
+	Name string `json:"name"`
+}
+
+// AlertRouteSlimV3 defines model for AlertRouteSlimV3.
+type AlertRouteSlimV3 struct {
 	// Enabled Whether this alert route is enabled or not
 	Enabled bool `json:"enabled"`
 
@@ -5895,9 +6380,19 @@ type AlertRouteTemplateBindingPayloadV2 struct {
 	Binding *EngineParamBindingPayloadV2 `json:"binding,omitempty"`
 }
 
+// AlertRouteTemplateBindingPayloadV3 defines model for AlertRouteTemplateBindingPayloadV3.
+type AlertRouteTemplateBindingPayloadV3 struct {
+	Binding *EngineParamBindingPayloadV3 `json:"binding,omitempty"`
+}
+
 // AlertRouteTemplateBindingV2 defines model for AlertRouteTemplateBindingV2.
 type AlertRouteTemplateBindingV2 struct {
 	Binding *EngineParamBindingV2 `json:"binding,omitempty"`
+}
+
+// AlertRouteTemplateBindingV3 defines model for AlertRouteTemplateBindingV3.
+type AlertRouteTemplateBindingV3 struct {
+	Binding *EngineParamBindingV3 `json:"binding,omitempty"`
 }
 
 // AlertRouteV2 defines model for AlertRouteV2.
@@ -5943,6 +6438,70 @@ type AlertRouteV2 struct {
 	Version int64 `json:"version"`
 }
 
+// AlertRouteV3 defines model for AlertRouteV3.
+type AlertRouteV3 struct {
+	// AlertSources Which alert sources this route matches
+	AlertSources []AlertRouteAlertSourceV3 `json:"alert_sources"`
+
+	// ConditionGroups Filter: the condition groups that must be true for this route to fire
+	ConditionGroups []ConditionGroupV3 `json:"condition_groups"`
+
+	// CreatedAt When this alert route was created
+	CreatedAt *time.Time `json:"created_at,omitempty"`
+
+	// Enabled Whether this alert route is enabled
+	Enabled          bool                         `json:"enabled"`
+	EscalationConfig AlertRouteEscalationConfigV3 `json:"escalation_config"`
+
+	// Expressions The expressions used by bindings in this route
+	Expressions    []ExpressionV3        `json:"expressions"`
+	GroupingConfig AlertGroupingConfigV3 `json:"grouping_config"`
+
+	// Id Unique identifier for this alert route
+	Id             string                     `json:"id"`
+	IncidentConfig AlertRouteIncidentConfigV3 `json:"incident_config"`
+
+	// IsPrivate Whether this alert route is private. Private alert routes only create private incidents from alerts.
+	IsPrivate     bool                 `json:"is_private"`
+	MessageConfig AlertMessageConfigV3 `json:"message_config"`
+
+	// Name The name of this alert route, for the user's reference
+	Name string `json:"name"`
+
+	// OwningTeamIds IDs of teams that own this alert route
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// UpdatedAt When this alert route was last updated
+	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+
+	// Version The version of this alert route
+	Version int64 `json:"version"`
+}
+
+// AlertRouteWhenAlertJoinsGroupPayloadV3 defines model for AlertRouteWhenAlertJoinsGroupPayloadV3.
+type AlertRouteWhenAlertJoinsGroupPayloadV3 struct {
+	// GracePeriodSeconds How long to wait before escalating once an alert joins the group, in seconds. Only applies when mode is 'on_each_new_alert', and must be unset when mode is 'on_priority_increase'. Must be between 0 and 3600 (1 hour).
+	GracePeriodSeconds *int32 `json:"grace_period_seconds,omitempty"`
+
+	// Mode When a subsequent alert joins an existing group, when should we escalate again?
+	Mode AlertRouteWhenAlertJoinsGroupPayloadV3Mode `json:"mode"`
+}
+
+// AlertRouteWhenAlertJoinsGroupPayloadV3Mode When a subsequent alert joins an existing group, when should we escalate again?
+type AlertRouteWhenAlertJoinsGroupPayloadV3Mode string
+
+// AlertRouteWhenAlertJoinsGroupV3 defines model for AlertRouteWhenAlertJoinsGroupV3.
+type AlertRouteWhenAlertJoinsGroupV3 struct {
+	// GracePeriodSeconds How long to wait before escalating once an alert joins the group, in seconds. Only applies when mode is 'on_each_new_alert'.
+	GracePeriodSeconds *int32 `json:"grace_period_seconds,omitempty"`
+
+	// Mode When a subsequent alert joins an existing group, when should we escalate again?
+	Mode AlertRouteWhenAlertJoinsGroupV3Mode `json:"mode"`
+}
+
+// AlertRouteWhenAlertJoinsGroupV3Mode When a subsequent alert joins an existing group, when should we escalate again?
+type AlertRouteWhenAlertJoinsGroupV3Mode string
+
 // AlertRoutesCreatePayloadV2 defines model for AlertRoutesCreatePayloadV2.
 type AlertRoutesCreatePayloadV2 struct {
 	// AlertSources Which alert sources should this alert route match?
@@ -5980,9 +6539,42 @@ type AlertRoutesCreatePayloadV2 struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
 
+// AlertRoutesCreatePayloadV3 defines model for AlertRoutesCreatePayloadV3.
+type AlertRoutesCreatePayloadV3 struct {
+	// AlertSources Which alert sources this route matches
+	AlertSources []AlertRouteAlertSourcePayloadV3 `json:"alert_sources"`
+
+	// ConditionGroups Filter: the condition groups that must be true for this route to fire
+	ConditionGroups []ConditionGroupPayloadV3 `json:"condition_groups"`
+
+	// Enabled Whether this alert route is enabled
+	Enabled          bool                                `json:"enabled"`
+	EscalationConfig AlertRouteEscalationConfigPayloadV3 `json:"escalation_config"`
+
+	// Expressions The expressions used by bindings in this route
+	Expressions    []ExpressionPayloadV3             `json:"expressions"`
+	GroupingConfig AlertGroupingConfigV3             `json:"grouping_config"`
+	IncidentConfig AlertRouteIncidentConfigPayloadV3 `json:"incident_config"`
+
+	// IsPrivate Whether this alert route is private. Private alert routes only create private incidents from alerts.
+	IsPrivate     bool                        `json:"is_private"`
+	MessageConfig AlertMessageConfigPayloadV3 `json:"message_config"`
+
+	// Name The name of this alert route, for the user's reference
+	Name string `json:"name"`
+
+	// OwningTeamIds IDs of teams that own this alert route
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+}
+
 // AlertRoutesCreateResultV2 defines model for AlertRoutesCreateResultV2.
 type AlertRoutesCreateResultV2 struct {
 	AlertRoute AlertRouteV2 `json:"alert_route"`
+}
+
+// AlertRoutesCreateResultV3 defines model for AlertRoutesCreateResultV3.
+type AlertRoutesCreateResultV3 struct {
+	AlertRoute AlertRouteV3 `json:"alert_route"`
 }
 
 // AlertRoutesListResultV2 defines model for AlertRoutesListResultV2.
@@ -5991,9 +6583,20 @@ type AlertRoutesListResultV2 struct {
 	PaginationMeta PaginationMetaResultV2 `json:"pagination_meta"`
 }
 
+// AlertRoutesListResultV3 defines model for AlertRoutesListResultV3.
+type AlertRoutesListResultV3 struct {
+	AlertRoutes    []AlertRouteSlimV3     `json:"alert_routes"`
+	PaginationMeta PaginationMetaResultV3 `json:"pagination_meta"`
+}
+
 // AlertRoutesShowResultV2 defines model for AlertRoutesShowResultV2.
 type AlertRoutesShowResultV2 struct {
 	AlertRoute AlertRouteV2 `json:"alert_route"`
+}
+
+// AlertRoutesShowResultV3 defines model for AlertRoutesShowResultV3.
+type AlertRoutesShowResultV3 struct {
+	AlertRoute AlertRouteV3 `json:"alert_route"`
 }
 
 // AlertRoutesUpdatePayloadV2 defines model for AlertRoutesUpdatePayloadV2.
@@ -6036,9 +6639,45 @@ type AlertRoutesUpdatePayloadV2 struct {
 	Version int64 `json:"version"`
 }
 
+// AlertRoutesUpdatePayloadV3 defines model for AlertRoutesUpdatePayloadV3.
+type AlertRoutesUpdatePayloadV3 struct {
+	// AlertSources Which alert sources this route matches
+	AlertSources []AlertRouteAlertSourcePayloadV3 `json:"alert_sources"`
+
+	// ConditionGroups Filter: the condition groups that must be true for this route to fire
+	ConditionGroups []ConditionGroupPayloadV3 `json:"condition_groups"`
+
+	// Enabled Whether this alert route is enabled
+	Enabled          bool                                `json:"enabled"`
+	EscalationConfig AlertRouteEscalationConfigPayloadV3 `json:"escalation_config"`
+
+	// Expressions The expressions used by bindings in this route
+	Expressions    []ExpressionPayloadV3             `json:"expressions"`
+	GroupingConfig AlertGroupingConfigV3             `json:"grouping_config"`
+	IncidentConfig AlertRouteIncidentConfigPayloadV3 `json:"incident_config"`
+
+	// IsPrivate Whether this alert route is private. Private alert routes only create private incidents from alerts.
+	IsPrivate     bool                        `json:"is_private"`
+	MessageConfig AlertMessageConfigPayloadV3 `json:"message_config"`
+
+	// Name The name of this alert route, for the user's reference
+	Name string `json:"name"`
+
+	// OwningTeamIds IDs of teams that own this alert route
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// Version The version this update will create. It must be one more than the route's latest version, otherwise the update is rejected - guarding against concurrent edits.
+	Version int64 `json:"version"`
+}
+
 // AlertRoutesUpdateResultV2 defines model for AlertRoutesUpdateResultV2.
 type AlertRoutesUpdateResultV2 struct {
 	AlertRoute AlertRouteV2 `json:"alert_route"`
+}
+
+// AlertRoutesUpdateResultV3 defines model for AlertRoutesUpdateResultV3.
+type AlertRoutesUpdateResultV3 struct {
+	AlertRoute AlertRouteV3 `json:"alert_route"`
 }
 
 // AlertSlimV2 defines model for AlertSlimV2.
@@ -7280,14 +7919,35 @@ type ConditionGroupPayloadV2 struct {
 	Conditions []ConditionPayloadV2 `json:"conditions"`
 }
 
+// ConditionGroupPayloadV3 defines model for ConditionGroupPayloadV3.
+type ConditionGroupPayloadV3 struct {
+	// Conditions All conditions in this list must be satisfied for the group to be satisfied
+	Conditions []ConditionPayloadV3 `json:"conditions"`
+}
+
 // ConditionGroupV2 defines model for ConditionGroupV2.
 type ConditionGroupV2 struct {
 	// Conditions All conditions in this list must be satisfied for the group to be satisfied
 	Conditions []ConditionV2 `json:"conditions"`
 }
 
+// ConditionGroupV3 defines model for ConditionGroupV3.
+type ConditionGroupV3 struct {
+	// Conditions All conditions in this list must be satisfied for the group to be satisfied
+	Conditions []ConditionV3 `json:"conditions"`
+}
+
 // ConditionOperationV2 defines model for ConditionOperationV2.
 type ConditionOperationV2 struct {
+	// Label Human readable label to be displayed for user to select
+	Label string `json:"label"`
+
+	// Value Unique identifier for this option
+	Value string `json:"value"`
+}
+
+// ConditionOperationV3 defines model for ConditionOperationV3.
+type ConditionOperationV3 struct {
 	// Label Human readable label to be displayed for user to select
 	Label string `json:"label"`
 
@@ -7307,8 +7967,29 @@ type ConditionPayloadV2 struct {
 	Subject string `json:"subject"`
 }
 
+// ConditionPayloadV3 defines model for ConditionPayloadV3.
+type ConditionPayloadV3 struct {
+	// Operation The name of the operation on the subject
+	Operation string `json:"operation"`
+
+	// ParamBindings List of parameter bindings
+	ParamBindings []EngineParamBindingPayloadV3 `json:"param_bindings"`
+
+	// Subject The reference of the subject in the trigger scope
+	Subject string `json:"subject"`
+}
+
 // ConditionSubjectV2 defines model for ConditionSubjectV2.
 type ConditionSubjectV2 struct {
+	// Label Human readable identifier for the subject
+	Label string `json:"label"`
+
+	// Reference Reference into the scope for the value of the subject
+	Reference string `json:"reference"`
+}
+
+// ConditionSubjectV3 defines model for ConditionSubjectV3.
+type ConditionSubjectV3 struct {
 	// Label Human readable identifier for the subject
 	Label string `json:"label"`
 
@@ -7323,6 +8004,15 @@ type ConditionV2 struct {
 	// ParamBindings Bindings for the operation parameters
 	ParamBindings []EngineParamBindingV2 `json:"param_bindings"`
 	Subject       ConditionSubjectV2     `json:"subject"`
+}
+
+// ConditionV3 defines model for ConditionV3.
+type ConditionV3 struct {
+	Operation ConditionOperationV3 `json:"operation"`
+
+	// ParamBindings Bindings for the operation parameters
+	ParamBindings []EngineParamBindingV3 `json:"param_bindings"`
+	Subject       ConditionSubjectV3     `json:"subject"`
 }
 
 // CustomFieldEntryPayloadV1 defines model for CustomFieldEntryPayloadV1.
@@ -7885,6 +8575,13 @@ type EngineParamBindingPayloadV2 struct {
 	Value      *EngineParamBindingValuePayloadV2   `json:"value,omitempty"`
 }
 
+// EngineParamBindingPayloadV3 defines model for EngineParamBindingPayloadV3.
+type EngineParamBindingPayloadV3 struct {
+	// ArrayValue If set, this is the array value of the step parameter
+	ArrayValue *[]EngineParamBindingValuePayloadV3 `json:"array_value,omitempty"`
+	Value      *EngineParamBindingValuePayloadV3   `json:"value,omitempty"`
+}
+
 // EngineParamBindingV2 defines model for EngineParamBindingV2.
 type EngineParamBindingV2 struct {
 	// ArrayValue If array_value is set, this helps render the values
@@ -7892,8 +8589,24 @@ type EngineParamBindingV2 struct {
 	Value      *EngineParamBindingValueV2   `json:"value,omitempty"`
 }
 
+// EngineParamBindingV3 defines model for EngineParamBindingV3.
+type EngineParamBindingV3 struct {
+	// ArrayValue If array_value is set, this helps render the values
+	ArrayValue *[]EngineParamBindingValueV3 `json:"array_value,omitempty"`
+	Value      *EngineParamBindingValueV3   `json:"value,omitempty"`
+}
+
 // EngineParamBindingValuePayloadV2 defines model for EngineParamBindingValuePayloadV2.
 type EngineParamBindingValuePayloadV2 struct {
+	// Literal If set, this is the literal value of the step parameter
+	Literal *string `json:"literal,omitempty"`
+
+	// Reference If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `json:"reference,omitempty"`
+}
+
+// EngineParamBindingValuePayloadV3 defines model for EngineParamBindingValuePayloadV3.
+type EngineParamBindingValuePayloadV3 struct {
 	// Literal If set, this is the literal value of the step parameter
 	Literal *string `json:"literal,omitempty"`
 
@@ -7906,6 +8619,15 @@ type EngineParamBindingValueV2 struct {
 	// Label Human readable label to be displayed for user to select
 	Label string `json:"label"`
 
+	// Literal If set, this is the literal value of the step parameter
+	Literal *string `json:"literal,omitempty"`
+
+	// Reference If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `json:"reference,omitempty"`
+}
+
+// EngineParamBindingValueV3 defines model for EngineParamBindingValueV3.
+type EngineParamBindingValueV3 struct {
 	// Literal If set, this is the literal value of the step parameter
 	Literal *string `json:"literal,omitempty"`
 
@@ -8326,11 +9048,25 @@ type ExpressionBranchPayloadV2 struct {
 	Result          EngineParamBindingPayloadV2 `json:"result"`
 }
 
+// ExpressionBranchPayloadV3 defines model for ExpressionBranchPayloadV3.
+type ExpressionBranchPayloadV3 struct {
+	// ConditionGroups When one of these condition groups are satisfied, this branch will be evaluated
+	ConditionGroups []ConditionGroupPayloadV3   `json:"condition_groups"`
+	Result          EngineParamBindingPayloadV3 `json:"result"`
+}
+
 // ExpressionBranchV2 defines model for ExpressionBranchV2.
 type ExpressionBranchV2 struct {
 	// ConditionGroups When one of these condition groups are satisfied, this branch will be evaluated
 	ConditionGroups []ConditionGroupV2   `json:"condition_groups"`
 	Result          EngineParamBindingV2 `json:"result"`
+}
+
+// ExpressionBranchV3 defines model for ExpressionBranchV3.
+type ExpressionBranchV3 struct {
+	// ConditionGroups When one of these condition groups are satisfied, this branch will be evaluated
+	ConditionGroups []ConditionGroupV3   `json:"condition_groups"`
+	Result          EngineParamBindingV3 `json:"result"`
 }
 
 // ExpressionBranchesOptsPayloadV2 defines model for ExpressionBranchesOptsPayloadV2.
@@ -8340,6 +9076,13 @@ type ExpressionBranchesOptsPayloadV2 struct {
 	Returns  ReturnsMetaV2               `json:"returns"`
 }
 
+// ExpressionBranchesOptsPayloadV3 defines model for ExpressionBranchesOptsPayloadV3.
+type ExpressionBranchesOptsPayloadV3 struct {
+	// Branches The branches to apply for this operation
+	Branches []ExpressionBranchPayloadV3 `json:"branches"`
+	Returns  ReturnsMetaV3               `json:"returns"`
+}
+
 // ExpressionBranchesOptsV2 defines model for ExpressionBranchesOptsV2.
 type ExpressionBranchesOptsV2 struct {
 	// Branches The branches to apply for this operation
@@ -8347,13 +9090,31 @@ type ExpressionBranchesOptsV2 struct {
 	Returns  ReturnsMetaV2        `json:"returns"`
 }
 
+// ExpressionBranchesOptsV3 defines model for ExpressionBranchesOptsV3.
+type ExpressionBranchesOptsV3 struct {
+	// Branches The branches to apply for this operation
+	Branches []ExpressionBranchV3 `json:"branches"`
+	Returns  ReturnsMetaV3        `json:"returns"`
+}
+
 // ExpressionCastOptsPayloadV2 defines model for ExpressionCastOptsPayloadV2.
 type ExpressionCastOptsPayloadV2 struct {
 	Returns ReturnsMetaV2 `json:"returns"`
 }
 
+// ExpressionCastOptsPayloadV3 defines model for ExpressionCastOptsPayloadV3.
+type ExpressionCastOptsPayloadV3 struct {
+	Returns ReturnsMetaV3 `json:"returns"`
+}
+
 // ExpressionConcatenateOptsPayloadV2 defines model for ExpressionConcatenateOptsPayloadV2.
 type ExpressionConcatenateOptsPayloadV2 struct {
+	// Reference The reference that you want to concatenate with
+	Reference string `json:"reference"`
+}
+
+// ExpressionConcatenateOptsPayloadV3 defines model for ExpressionConcatenateOptsPayloadV3.
+type ExpressionConcatenateOptsPayloadV3 struct {
 	// Reference The reference that you want to concatenate with
 	Reference string `json:"reference"`
 }
@@ -8363,9 +9124,19 @@ type ExpressionElseBranchPayloadV2 struct {
 	Result EngineParamBindingPayloadV2 `json:"result"`
 }
 
+// ExpressionElseBranchPayloadV3 defines model for ExpressionElseBranchPayloadV3.
+type ExpressionElseBranchPayloadV3 struct {
+	Result EngineParamBindingPayloadV3 `json:"result"`
+}
+
 // ExpressionElseBranchV2 defines model for ExpressionElseBranchV2.
 type ExpressionElseBranchV2 struct {
 	Result EngineParamBindingV2 `json:"result"`
+}
+
+// ExpressionElseBranchV3 defines model for ExpressionElseBranchV3.
+type ExpressionElseBranchV3 struct {
+	Result EngineParamBindingV3 `json:"result"`
 }
 
 // ExpressionFilterOptsPayloadV2 defines model for ExpressionFilterOptsPayloadV2.
@@ -8374,10 +9145,22 @@ type ExpressionFilterOptsPayloadV2 struct {
 	ConditionGroups []ConditionGroupPayloadV2 `json:"condition_groups"`
 }
 
+// ExpressionFilterOptsPayloadV3 defines model for ExpressionFilterOptsPayloadV3.
+type ExpressionFilterOptsPayloadV3 struct {
+	// ConditionGroups The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+	ConditionGroups []ConditionGroupPayloadV3 `json:"condition_groups"`
+}
+
 // ExpressionFilterOptsV2 defines model for ExpressionFilterOptsV2.
 type ExpressionFilterOptsV2 struct {
 	// ConditionGroups The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
 	ConditionGroups []ConditionGroupV2 `json:"condition_groups"`
+}
+
+// ExpressionFilterOptsV3 defines model for ExpressionFilterOptsV3.
+type ExpressionFilterOptsV3 struct {
+	// ConditionGroups The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+	ConditionGroups []ConditionGroupV3 `json:"condition_groups"`
 }
 
 // ExpressionNavigateOptsPayloadV2 defines model for ExpressionNavigateOptsPayloadV2.
@@ -8386,8 +9169,23 @@ type ExpressionNavigateOptsPayloadV2 struct {
 	Reference string `json:"reference"`
 }
 
+// ExpressionNavigateOptsPayloadV3 defines model for ExpressionNavigateOptsPayloadV3.
+type ExpressionNavigateOptsPayloadV3 struct {
+	// Reference The reference that you want to navigate to
+	Reference string `json:"reference"`
+}
+
 // ExpressionNavigateOptsV2 defines model for ExpressionNavigateOptsV2.
 type ExpressionNavigateOptsV2 struct {
+	// Reference The reference within the scope to navigate to
+	Reference string `json:"reference"`
+
+	// ReferenceLabel The name of the reference to navigate to
+	ReferenceLabel string `json:"reference_label"`
+}
+
+// ExpressionNavigateOptsV3 defines model for ExpressionNavigateOptsV3.
+type ExpressionNavigateOptsV3 struct {
 	// Reference The reference within the scope to navigate to
 	Reference string `json:"reference"`
 
@@ -8411,6 +9209,22 @@ type ExpressionOperationPayloadV2 struct {
 // ExpressionOperationPayloadV2OperationType The type of the operation
 type ExpressionOperationPayloadV2OperationType string
 
+// ExpressionOperationPayloadV3 defines model for ExpressionOperationPayloadV3.
+type ExpressionOperationPayloadV3 struct {
+	Branches    *ExpressionBranchesOptsPayloadV3    `json:"branches,omitempty"`
+	Cast        *ExpressionCastOptsPayloadV3        `json:"cast,omitempty"`
+	Concatenate *ExpressionConcatenateOptsPayloadV3 `json:"concatenate,omitempty"`
+	Filter      *ExpressionFilterOptsPayloadV3      `json:"filter,omitempty"`
+	Navigate    *ExpressionNavigateOptsPayloadV3    `json:"navigate,omitempty"`
+
+	// OperationType The type of the operation
+	OperationType ExpressionOperationPayloadV3OperationType `json:"operation_type"`
+	Parse         *ExpressionParseOptsPayloadV3             `json:"parse,omitempty"`
+}
+
+// ExpressionOperationPayloadV3OperationType The type of the operation
+type ExpressionOperationPayloadV3OperationType string
+
 // ExpressionOperationV2 defines model for ExpressionOperationV2.
 type ExpressionOperationV2 struct {
 	Branches *ExpressionBranchesOptsV2 `json:"branches,omitempty"`
@@ -8426,6 +9240,21 @@ type ExpressionOperationV2 struct {
 // ExpressionOperationV2OperationType The type of the operation
 type ExpressionOperationV2OperationType string
 
+// ExpressionOperationV3 defines model for ExpressionOperationV3.
+type ExpressionOperationV3 struct {
+	Branches *ExpressionBranchesOptsV3 `json:"branches,omitempty"`
+	Filter   *ExpressionFilterOptsV3   `json:"filter,omitempty"`
+	Navigate *ExpressionNavigateOptsV3 `json:"navigate,omitempty"`
+
+	// OperationType The type of the operation
+	OperationType ExpressionOperationV3OperationType `json:"operation_type"`
+	Parse         *ExpressionParseOptsV3             `json:"parse,omitempty"`
+	Returns       ReturnsMetaV3                      `json:"returns"`
+}
+
+// ExpressionOperationV3OperationType The type of the operation
+type ExpressionOperationV3OperationType string
+
 // ExpressionParseOptsPayloadV2 defines model for ExpressionParseOptsPayloadV2.
 type ExpressionParseOptsPayloadV2 struct {
 	Returns ReturnsMetaV2 `json:"returns"`
@@ -8434,9 +9263,25 @@ type ExpressionParseOptsPayloadV2 struct {
 	Source string `json:"source"`
 }
 
+// ExpressionParseOptsPayloadV3 defines model for ExpressionParseOptsPayloadV3.
+type ExpressionParseOptsPayloadV3 struct {
+	Returns ReturnsMetaV3 `json:"returns"`
+
+	// Source Source expression that is evaluated to a result
+	Source string `json:"source"`
+}
+
 // ExpressionParseOptsV2 defines model for ExpressionParseOptsV2.
 type ExpressionParseOptsV2 struct {
 	Returns ReturnsMetaV2 `json:"returns"`
+
+	// Source Source expression that is evaluated to a result
+	Source string `json:"source"`
+}
+
+// ExpressionParseOptsV3 defines model for ExpressionParseOptsV3.
+type ExpressionParseOptsV3 struct {
+	Returns ReturnsMetaV3 `json:"returns"`
 
 	// Source Source expression that is evaluated to a result
 	Source string `json:"source"`
@@ -8457,6 +9302,21 @@ type ExpressionPayloadV2 struct {
 	RootReference string `json:"root_reference"`
 }
 
+// ExpressionPayloadV3 defines model for ExpressionPayloadV3.
+type ExpressionPayloadV3 struct {
+	ElseBranch *ExpressionElseBranchPayloadV3 `json:"else_branch,omitempty"`
+
+	// Label The human readable label of the expression
+	Label      string                         `json:"label"`
+	Operations []ExpressionOperationPayloadV3 `json:"operations"`
+
+	// Reference A short ID that can be used to reference the expression
+	Reference string `json:"reference"`
+
+	// RootReference The root reference for this expression (i.e. where the expression starts)
+	RootReference string `json:"root_reference"`
+}
+
 // ExpressionV2 defines model for ExpressionV2.
 type ExpressionV2 struct {
 	ElseBranch *ExpressionElseBranchV2 `json:"else_branch,omitempty"`
@@ -8468,6 +9328,22 @@ type ExpressionV2 struct {
 	// Reference A short ID that can be used to reference the expression
 	Reference string        `json:"reference"`
 	Returns   ReturnsMetaV2 `json:"returns"`
+
+	// RootReference The root reference for this expression (i.e. where the expression starts)
+	RootReference string `json:"root_reference"`
+}
+
+// ExpressionV3 defines model for ExpressionV3.
+type ExpressionV3 struct {
+	ElseBranch *ExpressionElseBranchV3 `json:"else_branch,omitempty"`
+
+	// Label The human readable label of the expression
+	Label      string                  `json:"label"`
+	Operations []ExpressionOperationV3 `json:"operations"`
+
+	// Reference A short ID that can be used to reference the expression
+	Reference string        `json:"reference"`
+	Returns   ReturnsMetaV3 `json:"returns"`
 
 	// RootReference The root reference for this expression (i.e. where the expression starts)
 	RootReference string `json:"root_reference"`
@@ -8677,6 +9553,30 @@ type GroupingKeyV2 struct {
 	// Reference A reference to a property of the alert to group on
 	Reference string `json:"reference"`
 }
+
+// GroupingKeyV3 defines model for GroupingKeyV3.
+type GroupingKeyV3 struct {
+	// Reference A reference to a property of the alert to group on
+	Reference string `json:"reference"`
+}
+
+// GroupingSettingsV3 defines model for GroupingSettingsV3.
+type GroupingSettingsV3 struct {
+	// Enabled Whether grouping is enabled
+	Enabled bool `json:"enabled"`
+
+	// GroupingKeys Which attributes should this alert route use to group alerts? Only set when grouping is enabled.
+	GroupingKeys *[]GroupingKeyV3 `json:"grouping_keys,omitempty"`
+
+	// WindowSeconds How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+	WindowSeconds *int32 `json:"window_seconds,omitempty"`
+
+	// WindowType Controls how the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later, regardless of any subsequent alerts. Only set when grouping is enabled.
+	WindowType *GroupingSettingsV3WindowType `json:"window_type,omitempty"`
+}
+
+// GroupingSettingsV3WindowType Controls how the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later, regardless of any subsequent alerts. Only set when grouping is enabled.
+type GroupingSettingsV3WindowType string
 
 // IPAllowlistItemV1 defines model for IPAllowlistItemV1.
 type IPAllowlistItemV1 struct {
@@ -10300,6 +11200,15 @@ type RetrospectiveIncidentOptionsV2 struct {
 
 // ReturnsMetaV2 defines model for ReturnsMetaV2.
 type ReturnsMetaV2 struct {
+	// Array Whether the return value should be single or multi-value
+	Array bool `json:"array"`
+
+	// Type Expected return type of this expression (what to try casting the result to)
+	Type string `json:"type"`
+}
+
+// ReturnsMetaV3 defines model for ReturnsMetaV3.
+type ReturnsMetaV3 struct {
 	// Array Whether the return value should be single or multi-value
 	Array bool `json:"array"`
 
@@ -12737,6 +13646,15 @@ type WorkflowsV2ShowWorkflowParams struct {
 	SkipStepUpgrades *bool `form:"skip_step_upgrades,omitempty" json:"skip_step_upgrades,omitempty"`
 }
 
+// AlertRoutesV3ListParams defines parameters for AlertRoutesV3List.
+type AlertRoutesV3ListParams struct {
+	// PageSize Number of alert routes to return per page
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After The ID of the last alert route on the previous page
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+}
+
 // CatalogV3ListEntriesParams defines parameters for CatalogV3ListEntries.
 type CatalogV3ListEntriesParams struct {
 	// CatalogTypeId ID of this catalog type
@@ -12975,6 +13893,12 @@ type WorkflowsV2CreateWorkflowJSONRequestBody = WorkflowsCreateWorkflowPayloadV2
 
 // WorkflowsV2UpdateWorkflowJSONRequestBody defines body for WorkflowsV2UpdateWorkflow for application/json ContentType.
 type WorkflowsV2UpdateWorkflowJSONRequestBody = WorkflowsUpdateWorkflowPayloadV2
+
+// AlertRoutesV3CreateJSONRequestBody defines body for AlertRoutesV3Create for application/json ContentType.
+type AlertRoutesV3CreateJSONRequestBody = AlertRoutesCreatePayloadV3
+
+// AlertRoutesV3UpdateJSONRequestBody defines body for AlertRoutesV3Update for application/json ContentType.
+type AlertRoutesV3UpdateJSONRequestBody = AlertRoutesUpdatePayloadV3
 
 // CatalogV3CreateEntryJSONRequestBody defines body for CatalogV3CreateEntry for application/json ContentType.
 type CatalogV3CreateEntryJSONRequestBody = CatalogCreateEntryPayloadV3
@@ -13756,6 +14680,25 @@ type ClientInterface interface {
 	WorkflowsV2UpdateWorkflowWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	WorkflowsV2UpdateWorkflow(ctx context.Context, id string, body WorkflowsV2UpdateWorkflowJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertRoutesV3List request
+	AlertRoutesV3List(ctx context.Context, params *AlertRoutesV3ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertRoutesV3CreateWithBody request with any body
+	AlertRoutesV3CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AlertRoutesV3Create(ctx context.Context, body AlertRoutesV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertRoutesV3Delete request
+	AlertRoutesV3Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertRoutesV3Show request
+	AlertRoutesV3Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertRoutesV3UpdateWithBody request with any body
+	AlertRoutesV3UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AlertRoutesV3Update(ctx context.Context, id string, body AlertRoutesV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CatalogV3ListEntries request
 	CatalogV3ListEntries(ctx context.Context, params *CatalogV3ListEntriesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -16917,6 +17860,90 @@ func (c *Client) WorkflowsV2UpdateWorkflowWithBody(ctx context.Context, id strin
 
 func (c *Client) WorkflowsV2UpdateWorkflow(ctx context.Context, id string, body WorkflowsV2UpdateWorkflowJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newWorkflowsV2UpdateWorkflowRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertRoutesV3List(ctx context.Context, params *AlertRoutesV3ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertRoutesV3ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertRoutesV3CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertRoutesV3CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertRoutesV3Create(ctx context.Context, body AlertRoutesV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertRoutesV3CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertRoutesV3Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertRoutesV3DeleteRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertRoutesV3Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertRoutesV3ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertRoutesV3UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertRoutesV3UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertRoutesV3Update(ctx context.Context, id string, body AlertRoutesV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertRoutesV3UpdateRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -25824,6 +26851,226 @@ func newWorkflowsV2UpdateWorkflowRequestWithBody(server string, id string, conte
 	return req, nil
 }
 
+// NewAlertRoutesV3ListRequest generates requests for AlertRoutesV3List
+func newAlertRoutesV3ListRequest(server string, params *AlertRoutesV3ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/alert_routes")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewAlertRoutesV3CreateRequest calls the generic AlertRoutesV3Create builder with application/json body
+func newAlertRoutesV3CreateRequest(server string, body AlertRoutesV3CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAlertRoutesV3CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewAlertRoutesV3CreateRequestWithBody generates requests for AlertRoutesV3Create with any type of body
+func newAlertRoutesV3CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/alert_routes")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewAlertRoutesV3DeleteRequest generates requests for AlertRoutesV3Delete
+func newAlertRoutesV3DeleteRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/alert_routes/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewAlertRoutesV3ShowRequest generates requests for AlertRoutesV3Show
+func newAlertRoutesV3ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/alert_routes/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewAlertRoutesV3UpdateRequest calls the generic AlertRoutesV3Update builder with application/json body
+func newAlertRoutesV3UpdateRequest(server string, id string, body AlertRoutesV3UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAlertRoutesV3UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewAlertRoutesV3UpdateRequestWithBody generates requests for AlertRoutesV3Update with any type of body
+func newAlertRoutesV3UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/alert_routes/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewCatalogV3ListEntriesRequest generates requests for CatalogV3ListEntries
 func newCatalogV3ListEntriesRequest(server string, params *CatalogV3ListEntriesParams) (*http.Request, error) {
 	var err error
@@ -27217,6 +28464,25 @@ type ClientWithResponsesInterface interface {
 	WorkflowsV2UpdateWorkflowWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*WorkflowsV2UpdateWorkflowResponse, error)
 
 	WorkflowsV2UpdateWorkflowWithResponse(ctx context.Context, id string, body WorkflowsV2UpdateWorkflowJSONRequestBody, reqEditors ...RequestEditorFn) (*WorkflowsV2UpdateWorkflowResponse, error)
+
+	// AlertRoutesV3ListWithResponse request
+	AlertRoutesV3ListWithResponse(ctx context.Context, params *AlertRoutesV3ListParams, reqEditors ...RequestEditorFn) (*AlertRoutesV3ListResponse, error)
+
+	// AlertRoutesV3CreateWithBodyWithResponse request with any body
+	AlertRoutesV3CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertRoutesV3CreateResponse, error)
+
+	AlertRoutesV3CreateWithResponse(ctx context.Context, body AlertRoutesV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertRoutesV3CreateResponse, error)
+
+	// AlertRoutesV3DeleteWithResponse request
+	AlertRoutesV3DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertRoutesV3DeleteResponse, error)
+
+	// AlertRoutesV3ShowWithResponse request
+	AlertRoutesV3ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertRoutesV3ShowResponse, error)
+
+	// AlertRoutesV3UpdateWithBodyWithResponse request with any body
+	AlertRoutesV3UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertRoutesV3UpdateResponse, error)
+
+	AlertRoutesV3UpdateWithResponse(ctx context.Context, id string, body AlertRoutesV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertRoutesV3UpdateResponse, error)
 
 	// CatalogV3ListEntriesWithResponse request
 	CatalogV3ListEntriesWithResponse(ctx context.Context, params *CatalogV3ListEntriesParams, reqEditors ...RequestEditorFn) (*CatalogV3ListEntriesResponse, error)
@@ -31295,6 +32561,115 @@ func (r WorkflowsV2UpdateWorkflowResponse) StatusCode() int {
 	return 0
 }
 
+type AlertRoutesV3ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AlertRoutesListResultV3
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertRoutesV3ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertRoutesV3ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AlertRoutesV3CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *AlertRoutesCreateResultV3
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertRoutesV3CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertRoutesV3CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AlertRoutesV3DeleteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertRoutesV3DeleteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertRoutesV3DeleteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AlertRoutesV3ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AlertRoutesShowResultV3
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertRoutesV3ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertRoutesV3ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AlertRoutesV3UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AlertRoutesUpdateResultV3
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertRoutesV3UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertRoutesV3UpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type CatalogV3ListEntriesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -33932,6 +35307,67 @@ func (c *ClientWithResponses) WorkflowsV2UpdateWorkflowWithResponse(ctx context.
 		return nil, err
 	}
 	return parseWorkflowsV2UpdateWorkflowResponse(rsp)
+}
+
+// AlertRoutesV3ListWithResponse request returning *AlertRoutesV3ListResponse
+func (c *ClientWithResponses) AlertRoutesV3ListWithResponse(ctx context.Context, params *AlertRoutesV3ListParams, reqEditors ...RequestEditorFn) (*AlertRoutesV3ListResponse, error) {
+	rsp, err := c.AlertRoutesV3List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertRoutesV3ListResponse(rsp)
+}
+
+// AlertRoutesV3CreateWithBodyWithResponse request with arbitrary body returning *AlertRoutesV3CreateResponse
+func (c *ClientWithResponses) AlertRoutesV3CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertRoutesV3CreateResponse, error) {
+	rsp, err := c.AlertRoutesV3CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertRoutesV3CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) AlertRoutesV3CreateWithResponse(ctx context.Context, body AlertRoutesV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertRoutesV3CreateResponse, error) {
+	rsp, err := c.AlertRoutesV3Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertRoutesV3CreateResponse(rsp)
+}
+
+// AlertRoutesV3DeleteWithResponse request returning *AlertRoutesV3DeleteResponse
+func (c *ClientWithResponses) AlertRoutesV3DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertRoutesV3DeleteResponse, error) {
+	rsp, err := c.AlertRoutesV3Delete(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertRoutesV3DeleteResponse(rsp)
+}
+
+// AlertRoutesV3ShowWithResponse request returning *AlertRoutesV3ShowResponse
+func (c *ClientWithResponses) AlertRoutesV3ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertRoutesV3ShowResponse, error) {
+	rsp, err := c.AlertRoutesV3Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertRoutesV3ShowResponse(rsp)
+}
+
+// AlertRoutesV3UpdateWithBodyWithResponse request with arbitrary body returning *AlertRoutesV3UpdateResponse
+func (c *ClientWithResponses) AlertRoutesV3UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertRoutesV3UpdateResponse, error) {
+	rsp, err := c.AlertRoutesV3UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertRoutesV3UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) AlertRoutesV3UpdateWithResponse(ctx context.Context, id string, body AlertRoutesV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertRoutesV3UpdateResponse, error) {
+	rsp, err := c.AlertRoutesV3Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertRoutesV3UpdateResponse(rsp)
 }
 
 // CatalogV3ListEntriesWithResponse request returning *CatalogV3ListEntriesResponse
@@ -38601,6 +40037,126 @@ func parseWorkflowsV2UpdateWorkflowResponse(rsp *http.Response) (*WorkflowsV2Upd
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest WorkflowsUpdateWorkflowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAlertRoutesV3ListResponse parses an HTTP response from a AlertRoutesV3ListWithResponse call
+func parseAlertRoutesV3ListResponse(rsp *http.Response) (*AlertRoutesV3ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertRoutesV3ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AlertRoutesListResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAlertRoutesV3CreateResponse parses an HTTP response from a AlertRoutesV3CreateWithResponse call
+func parseAlertRoutesV3CreateResponse(rsp *http.Response) (*AlertRoutesV3CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertRoutesV3CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest AlertRoutesCreateResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAlertRoutesV3DeleteResponse parses an HTTP response from a AlertRoutesV3DeleteWithResponse call
+func parseAlertRoutesV3DeleteResponse(rsp *http.Response) (*AlertRoutesV3DeleteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertRoutesV3DeleteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	return response, nil
+}
+
+// ParseAlertRoutesV3ShowResponse parses an HTTP response from a AlertRoutesV3ShowWithResponse call
+func parseAlertRoutesV3ShowResponse(rsp *http.Response) (*AlertRoutesV3ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertRoutesV3ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AlertRoutesShowResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAlertRoutesV3UpdateResponse parses an HTTP response from a AlertRoutesV3UpdateWithResponse call
+func parseAlertRoutesV3UpdateResponse(rsp *http.Response) (*AlertRoutesV3UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertRoutesV3UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AlertRoutesUpdateResultV3
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
