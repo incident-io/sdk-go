@@ -20,33 +20,34 @@ import (
 
 // Defines values for APIKeyRoleV1Name.
 const (
-	APIKeyRoleV1NameActOnBehalfOfUsers            APIKeyRoleV1Name = "act_on_behalf_of_users"
-	APIKeyRoleV1NameApiKeysManage                 APIKeyRoleV1Name = "api_keys_manage"
-	APIKeyRoleV1NameCatalogEditor                 APIKeyRoleV1Name = "catalog_editor"
-	APIKeyRoleV1NameCatalogViewer                 APIKeyRoleV1Name = "catalog_viewer"
-	APIKeyRoleV1NameEscalationCreator             APIKeyRoleV1Name = "escalation_creator"
-	APIKeyRoleV1NameGlobalAccess                  APIKeyRoleV1Name = "global_access"
-	APIKeyRoleV1NameIncidentCreator               APIKeyRoleV1Name = "incident_creator"
-	APIKeyRoleV1NameIncidentEditor                APIKeyRoleV1Name = "incident_editor"
-	APIKeyRoleV1NameIncidentMembershipsEditor     APIKeyRoleV1Name = "incident_memberships_editor"
-	APIKeyRoleV1NameIncidentWorkloadPrivateViewer APIKeyRoleV1Name = "incident_workload_private_viewer"
-	APIKeyRoleV1NameIncidentWorkloadViewer        APIKeyRoleV1Name = "incident_workload_viewer"
-	APIKeyRoleV1NameInvestigationDownload         APIKeyRoleV1Name = "investigation_download"
-	APIKeyRoleV1NameManageSettings                APIKeyRoleV1Name = "manage_settings"
-	APIKeyRoleV1NameNotificationMethodsManage     APIKeyRoleV1Name = "notification_methods_manage"
-	APIKeyRoleV1NameOnCallEditor                  APIKeyRoleV1Name = "on_call_editor"
-	APIKeyRoleV1NameOnCallViewer                  APIKeyRoleV1Name = "on_call_viewer"
-	APIKeyRoleV1NamePostIncidentFlowOptOut        APIKeyRoleV1Name = "post_incident_flow_opt_out"
-	APIKeyRoleV1NamePostmortemsManage             APIKeyRoleV1Name = "postmortems_manage"
-	APIKeyRoleV1NamePrivateWorkflowsEditor        APIKeyRoleV1Name = "private_workflows_editor"
-	APIKeyRoleV1NameScheduleOverridesEditor       APIKeyRoleV1Name = "schedule_overrides_editor"
-	APIKeyRoleV1NameSchedulesEditor               APIKeyRoleV1Name = "schedules_editor"
-	APIKeyRoleV1NameSchedulesReader               APIKeyRoleV1Name = "schedules_reader"
-	APIKeyRoleV1NameSecuritySettingsEditor        APIKeyRoleV1Name = "security_settings_editor"
-	APIKeyRoleV1NameStatusPagePublisher           APIKeyRoleV1Name = "status_page_publisher"
-	APIKeyRoleV1NameTeamMembershipsManage         APIKeyRoleV1Name = "team_memberships_manage"
-	APIKeyRoleV1NameViewer                        APIKeyRoleV1Name = "viewer"
-	APIKeyRoleV1NameWorkflowsEditor               APIKeyRoleV1Name = "workflows_editor"
+	APIKeyRoleV1NameActOnBehalfOfUsers                  APIKeyRoleV1Name = "act_on_behalf_of_users"
+	APIKeyRoleV1NameApiKeysManage                       APIKeyRoleV1Name = "api_keys_manage"
+	APIKeyRoleV1NameCatalogEditor                       APIKeyRoleV1Name = "catalog_editor"
+	APIKeyRoleV1NameCatalogViewer                       APIKeyRoleV1Name = "catalog_viewer"
+	APIKeyRoleV1NameEscalationCreator                   APIKeyRoleV1Name = "escalation_creator"
+	APIKeyRoleV1NameGlobalAccess                        APIKeyRoleV1Name = "global_access"
+	APIKeyRoleV1NameIncidentCreator                     APIKeyRoleV1Name = "incident_creator"
+	APIKeyRoleV1NameIncidentEditor                      APIKeyRoleV1Name = "incident_editor"
+	APIKeyRoleV1NameIncidentMembershipsEditor           APIKeyRoleV1Name = "incident_memberships_editor"
+	APIKeyRoleV1NameIncidentWorkloadPrivateViewer       APIKeyRoleV1Name = "incident_workload_private_viewer"
+	APIKeyRoleV1NameIncidentWorkloadViewer              APIKeyRoleV1Name = "incident_workload_viewer"
+	APIKeyRoleV1NameInvestigationDownload               APIKeyRoleV1Name = "investigation_download"
+	APIKeyRoleV1NameManageSettings                      APIKeyRoleV1Name = "manage_settings"
+	APIKeyRoleV1NameNotificationMethodsManage           APIKeyRoleV1Name = "notification_methods_manage"
+	APIKeyRoleV1NameNotificationMethodsUnredactedViewer APIKeyRoleV1Name = "notification_methods_unredacted_viewer"
+	APIKeyRoleV1NameOnCallEditor                        APIKeyRoleV1Name = "on_call_editor"
+	APIKeyRoleV1NameOnCallViewer                        APIKeyRoleV1Name = "on_call_viewer"
+	APIKeyRoleV1NamePostIncidentFlowOptOut              APIKeyRoleV1Name = "post_incident_flow_opt_out"
+	APIKeyRoleV1NamePostmortemsManage                   APIKeyRoleV1Name = "postmortems_manage"
+	APIKeyRoleV1NamePrivateWorkflowsEditor              APIKeyRoleV1Name = "private_workflows_editor"
+	APIKeyRoleV1NameScheduleOverridesEditor             APIKeyRoleV1Name = "schedule_overrides_editor"
+	APIKeyRoleV1NameSchedulesEditor                     APIKeyRoleV1Name = "schedules_editor"
+	APIKeyRoleV1NameSchedulesReader                     APIKeyRoleV1Name = "schedules_reader"
+	APIKeyRoleV1NameSecuritySettingsEditor              APIKeyRoleV1Name = "security_settings_editor"
+	APIKeyRoleV1NameStatusPagePublisher                 APIKeyRoleV1Name = "status_page_publisher"
+	APIKeyRoleV1NameTeamMembershipsManage               APIKeyRoleV1Name = "team_memberships_manage"
+	APIKeyRoleV1NameViewer                              APIKeyRoleV1Name = "viewer"
+	APIKeyRoleV1NameWorkflowsEditor                     APIKeyRoleV1Name = "workflows_editor"
 )
 
 // Valid indicates whether the value is a known member of the APIKeyRoleV1Name enum.
@@ -79,6 +80,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameManageSettings:
 		return true
 	case APIKeyRoleV1NameNotificationMethodsManage:
+		return true
+	case APIKeyRoleV1NameNotificationMethodsUnredactedViewer:
 		return true
 	case APIKeyRoleV1NameOnCallEditor:
 		return true
@@ -143,33 +146,34 @@ func (e APIKeyTeamRoleV1Name) Valid() bool {
 
 // Defines values for APIKeysCreatePayloadV1RoleNames.
 const (
-	APIKeysCreatePayloadV1RoleNamesActOnBehalfOfUsers            APIKeysCreatePayloadV1RoleNames = "act_on_behalf_of_users"
-	APIKeysCreatePayloadV1RoleNamesApiKeysManage                 APIKeysCreatePayloadV1RoleNames = "api_keys_manage"
-	APIKeysCreatePayloadV1RoleNamesCatalogEditor                 APIKeysCreatePayloadV1RoleNames = "catalog_editor"
-	APIKeysCreatePayloadV1RoleNamesCatalogViewer                 APIKeysCreatePayloadV1RoleNames = "catalog_viewer"
-	APIKeysCreatePayloadV1RoleNamesEscalationCreator             APIKeysCreatePayloadV1RoleNames = "escalation_creator"
-	APIKeysCreatePayloadV1RoleNamesGlobalAccess                  APIKeysCreatePayloadV1RoleNames = "global_access"
-	APIKeysCreatePayloadV1RoleNamesIncidentCreator               APIKeysCreatePayloadV1RoleNames = "incident_creator"
-	APIKeysCreatePayloadV1RoleNamesIncidentEditor                APIKeysCreatePayloadV1RoleNames = "incident_editor"
-	APIKeysCreatePayloadV1RoleNamesIncidentMembershipsEditor     APIKeysCreatePayloadV1RoleNames = "incident_memberships_editor"
-	APIKeysCreatePayloadV1RoleNamesIncidentWorkloadPrivateViewer APIKeysCreatePayloadV1RoleNames = "incident_workload_private_viewer"
-	APIKeysCreatePayloadV1RoleNamesIncidentWorkloadViewer        APIKeysCreatePayloadV1RoleNames = "incident_workload_viewer"
-	APIKeysCreatePayloadV1RoleNamesInvestigationDownload         APIKeysCreatePayloadV1RoleNames = "investigation_download"
-	APIKeysCreatePayloadV1RoleNamesManageSettings                APIKeysCreatePayloadV1RoleNames = "manage_settings"
-	APIKeysCreatePayloadV1RoleNamesNotificationMethodsManage     APIKeysCreatePayloadV1RoleNames = "notification_methods_manage"
-	APIKeysCreatePayloadV1RoleNamesOnCallEditor                  APIKeysCreatePayloadV1RoleNames = "on_call_editor"
-	APIKeysCreatePayloadV1RoleNamesOnCallViewer                  APIKeysCreatePayloadV1RoleNames = "on_call_viewer"
-	APIKeysCreatePayloadV1RoleNamesPostIncidentFlowOptOut        APIKeysCreatePayloadV1RoleNames = "post_incident_flow_opt_out"
-	APIKeysCreatePayloadV1RoleNamesPostmortemsManage             APIKeysCreatePayloadV1RoleNames = "postmortems_manage"
-	APIKeysCreatePayloadV1RoleNamesPrivateWorkflowsEditor        APIKeysCreatePayloadV1RoleNames = "private_workflows_editor"
-	APIKeysCreatePayloadV1RoleNamesScheduleOverridesEditor       APIKeysCreatePayloadV1RoleNames = "schedule_overrides_editor"
-	APIKeysCreatePayloadV1RoleNamesSchedulesEditor               APIKeysCreatePayloadV1RoleNames = "schedules_editor"
-	APIKeysCreatePayloadV1RoleNamesSchedulesReader               APIKeysCreatePayloadV1RoleNames = "schedules_reader"
-	APIKeysCreatePayloadV1RoleNamesSecuritySettingsEditor        APIKeysCreatePayloadV1RoleNames = "security_settings_editor"
-	APIKeysCreatePayloadV1RoleNamesStatusPagePublisher           APIKeysCreatePayloadV1RoleNames = "status_page_publisher"
-	APIKeysCreatePayloadV1RoleNamesTeamMembershipsManage         APIKeysCreatePayloadV1RoleNames = "team_memberships_manage"
-	APIKeysCreatePayloadV1RoleNamesViewer                        APIKeysCreatePayloadV1RoleNames = "viewer"
-	APIKeysCreatePayloadV1RoleNamesWorkflowsEditor               APIKeysCreatePayloadV1RoleNames = "workflows_editor"
+	APIKeysCreatePayloadV1RoleNamesActOnBehalfOfUsers                  APIKeysCreatePayloadV1RoleNames = "act_on_behalf_of_users"
+	APIKeysCreatePayloadV1RoleNamesApiKeysManage                       APIKeysCreatePayloadV1RoleNames = "api_keys_manage"
+	APIKeysCreatePayloadV1RoleNamesCatalogEditor                       APIKeysCreatePayloadV1RoleNames = "catalog_editor"
+	APIKeysCreatePayloadV1RoleNamesCatalogViewer                       APIKeysCreatePayloadV1RoleNames = "catalog_viewer"
+	APIKeysCreatePayloadV1RoleNamesEscalationCreator                   APIKeysCreatePayloadV1RoleNames = "escalation_creator"
+	APIKeysCreatePayloadV1RoleNamesGlobalAccess                        APIKeysCreatePayloadV1RoleNames = "global_access"
+	APIKeysCreatePayloadV1RoleNamesIncidentCreator                     APIKeysCreatePayloadV1RoleNames = "incident_creator"
+	APIKeysCreatePayloadV1RoleNamesIncidentEditor                      APIKeysCreatePayloadV1RoleNames = "incident_editor"
+	APIKeysCreatePayloadV1RoleNamesIncidentMembershipsEditor           APIKeysCreatePayloadV1RoleNames = "incident_memberships_editor"
+	APIKeysCreatePayloadV1RoleNamesIncidentWorkloadPrivateViewer       APIKeysCreatePayloadV1RoleNames = "incident_workload_private_viewer"
+	APIKeysCreatePayloadV1RoleNamesIncidentWorkloadViewer              APIKeysCreatePayloadV1RoleNames = "incident_workload_viewer"
+	APIKeysCreatePayloadV1RoleNamesInvestigationDownload               APIKeysCreatePayloadV1RoleNames = "investigation_download"
+	APIKeysCreatePayloadV1RoleNamesManageSettings                      APIKeysCreatePayloadV1RoleNames = "manage_settings"
+	APIKeysCreatePayloadV1RoleNamesNotificationMethodsManage           APIKeysCreatePayloadV1RoleNames = "notification_methods_manage"
+	APIKeysCreatePayloadV1RoleNamesNotificationMethodsUnredactedViewer APIKeysCreatePayloadV1RoleNames = "notification_methods_unredacted_viewer"
+	APIKeysCreatePayloadV1RoleNamesOnCallEditor                        APIKeysCreatePayloadV1RoleNames = "on_call_editor"
+	APIKeysCreatePayloadV1RoleNamesOnCallViewer                        APIKeysCreatePayloadV1RoleNames = "on_call_viewer"
+	APIKeysCreatePayloadV1RoleNamesPostIncidentFlowOptOut              APIKeysCreatePayloadV1RoleNames = "post_incident_flow_opt_out"
+	APIKeysCreatePayloadV1RoleNamesPostmortemsManage                   APIKeysCreatePayloadV1RoleNames = "postmortems_manage"
+	APIKeysCreatePayloadV1RoleNamesPrivateWorkflowsEditor              APIKeysCreatePayloadV1RoleNames = "private_workflows_editor"
+	APIKeysCreatePayloadV1RoleNamesScheduleOverridesEditor             APIKeysCreatePayloadV1RoleNames = "schedule_overrides_editor"
+	APIKeysCreatePayloadV1RoleNamesSchedulesEditor                     APIKeysCreatePayloadV1RoleNames = "schedules_editor"
+	APIKeysCreatePayloadV1RoleNamesSchedulesReader                     APIKeysCreatePayloadV1RoleNames = "schedules_reader"
+	APIKeysCreatePayloadV1RoleNamesSecuritySettingsEditor              APIKeysCreatePayloadV1RoleNames = "security_settings_editor"
+	APIKeysCreatePayloadV1RoleNamesStatusPagePublisher                 APIKeysCreatePayloadV1RoleNames = "status_page_publisher"
+	APIKeysCreatePayloadV1RoleNamesTeamMembershipsManage               APIKeysCreatePayloadV1RoleNames = "team_memberships_manage"
+	APIKeysCreatePayloadV1RoleNamesViewer                              APIKeysCreatePayloadV1RoleNames = "viewer"
+	APIKeysCreatePayloadV1RoleNamesWorkflowsEditor                     APIKeysCreatePayloadV1RoleNames = "workflows_editor"
 )
 
 // Valid indicates whether the value is a known member of the APIKeysCreatePayloadV1RoleNames enum.
@@ -202,6 +206,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesManageSettings:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesNotificationMethodsManage:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesNotificationMethodsUnredactedViewer:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesOnCallEditor:
 		return true
@@ -266,33 +272,34 @@ func (e APIKeysCreatePayloadV1TeamRoleNames) Valid() bool {
 
 // Defines values for APIKeysUpdatePayloadV1RoleNames.
 const (
-	APIKeysUpdatePayloadV1RoleNamesActOnBehalfOfUsers            APIKeysUpdatePayloadV1RoleNames = "act_on_behalf_of_users"
-	APIKeysUpdatePayloadV1RoleNamesApiKeysManage                 APIKeysUpdatePayloadV1RoleNames = "api_keys_manage"
-	APIKeysUpdatePayloadV1RoleNamesCatalogEditor                 APIKeysUpdatePayloadV1RoleNames = "catalog_editor"
-	APIKeysUpdatePayloadV1RoleNamesCatalogViewer                 APIKeysUpdatePayloadV1RoleNames = "catalog_viewer"
-	APIKeysUpdatePayloadV1RoleNamesEscalationCreator             APIKeysUpdatePayloadV1RoleNames = "escalation_creator"
-	APIKeysUpdatePayloadV1RoleNamesGlobalAccess                  APIKeysUpdatePayloadV1RoleNames = "global_access"
-	APIKeysUpdatePayloadV1RoleNamesIncidentCreator               APIKeysUpdatePayloadV1RoleNames = "incident_creator"
-	APIKeysUpdatePayloadV1RoleNamesIncidentEditor                APIKeysUpdatePayloadV1RoleNames = "incident_editor"
-	APIKeysUpdatePayloadV1RoleNamesIncidentMembershipsEditor     APIKeysUpdatePayloadV1RoleNames = "incident_memberships_editor"
-	APIKeysUpdatePayloadV1RoleNamesIncidentWorkloadPrivateViewer APIKeysUpdatePayloadV1RoleNames = "incident_workload_private_viewer"
-	APIKeysUpdatePayloadV1RoleNamesIncidentWorkloadViewer        APIKeysUpdatePayloadV1RoleNames = "incident_workload_viewer"
-	APIKeysUpdatePayloadV1RoleNamesInvestigationDownload         APIKeysUpdatePayloadV1RoleNames = "investigation_download"
-	APIKeysUpdatePayloadV1RoleNamesManageSettings                APIKeysUpdatePayloadV1RoleNames = "manage_settings"
-	APIKeysUpdatePayloadV1RoleNamesNotificationMethodsManage     APIKeysUpdatePayloadV1RoleNames = "notification_methods_manage"
-	APIKeysUpdatePayloadV1RoleNamesOnCallEditor                  APIKeysUpdatePayloadV1RoleNames = "on_call_editor"
-	APIKeysUpdatePayloadV1RoleNamesOnCallViewer                  APIKeysUpdatePayloadV1RoleNames = "on_call_viewer"
-	APIKeysUpdatePayloadV1RoleNamesPostIncidentFlowOptOut        APIKeysUpdatePayloadV1RoleNames = "post_incident_flow_opt_out"
-	APIKeysUpdatePayloadV1RoleNamesPostmortemsManage             APIKeysUpdatePayloadV1RoleNames = "postmortems_manage"
-	APIKeysUpdatePayloadV1RoleNamesPrivateWorkflowsEditor        APIKeysUpdatePayloadV1RoleNames = "private_workflows_editor"
-	APIKeysUpdatePayloadV1RoleNamesScheduleOverridesEditor       APIKeysUpdatePayloadV1RoleNames = "schedule_overrides_editor"
-	APIKeysUpdatePayloadV1RoleNamesSchedulesEditor               APIKeysUpdatePayloadV1RoleNames = "schedules_editor"
-	APIKeysUpdatePayloadV1RoleNamesSchedulesReader               APIKeysUpdatePayloadV1RoleNames = "schedules_reader"
-	APIKeysUpdatePayloadV1RoleNamesSecuritySettingsEditor        APIKeysUpdatePayloadV1RoleNames = "security_settings_editor"
-	APIKeysUpdatePayloadV1RoleNamesStatusPagePublisher           APIKeysUpdatePayloadV1RoleNames = "status_page_publisher"
-	APIKeysUpdatePayloadV1RoleNamesTeamMembershipsManage         APIKeysUpdatePayloadV1RoleNames = "team_memberships_manage"
-	APIKeysUpdatePayloadV1RoleNamesViewer                        APIKeysUpdatePayloadV1RoleNames = "viewer"
-	APIKeysUpdatePayloadV1RoleNamesWorkflowsEditor               APIKeysUpdatePayloadV1RoleNames = "workflows_editor"
+	APIKeysUpdatePayloadV1RoleNamesActOnBehalfOfUsers                  APIKeysUpdatePayloadV1RoleNames = "act_on_behalf_of_users"
+	APIKeysUpdatePayloadV1RoleNamesApiKeysManage                       APIKeysUpdatePayloadV1RoleNames = "api_keys_manage"
+	APIKeysUpdatePayloadV1RoleNamesCatalogEditor                       APIKeysUpdatePayloadV1RoleNames = "catalog_editor"
+	APIKeysUpdatePayloadV1RoleNamesCatalogViewer                       APIKeysUpdatePayloadV1RoleNames = "catalog_viewer"
+	APIKeysUpdatePayloadV1RoleNamesEscalationCreator                   APIKeysUpdatePayloadV1RoleNames = "escalation_creator"
+	APIKeysUpdatePayloadV1RoleNamesGlobalAccess                        APIKeysUpdatePayloadV1RoleNames = "global_access"
+	APIKeysUpdatePayloadV1RoleNamesIncidentCreator                     APIKeysUpdatePayloadV1RoleNames = "incident_creator"
+	APIKeysUpdatePayloadV1RoleNamesIncidentEditor                      APIKeysUpdatePayloadV1RoleNames = "incident_editor"
+	APIKeysUpdatePayloadV1RoleNamesIncidentMembershipsEditor           APIKeysUpdatePayloadV1RoleNames = "incident_memberships_editor"
+	APIKeysUpdatePayloadV1RoleNamesIncidentWorkloadPrivateViewer       APIKeysUpdatePayloadV1RoleNames = "incident_workload_private_viewer"
+	APIKeysUpdatePayloadV1RoleNamesIncidentWorkloadViewer              APIKeysUpdatePayloadV1RoleNames = "incident_workload_viewer"
+	APIKeysUpdatePayloadV1RoleNamesInvestigationDownload               APIKeysUpdatePayloadV1RoleNames = "investigation_download"
+	APIKeysUpdatePayloadV1RoleNamesManageSettings                      APIKeysUpdatePayloadV1RoleNames = "manage_settings"
+	APIKeysUpdatePayloadV1RoleNamesNotificationMethodsManage           APIKeysUpdatePayloadV1RoleNames = "notification_methods_manage"
+	APIKeysUpdatePayloadV1RoleNamesNotificationMethodsUnredactedViewer APIKeysUpdatePayloadV1RoleNames = "notification_methods_unredacted_viewer"
+	APIKeysUpdatePayloadV1RoleNamesOnCallEditor                        APIKeysUpdatePayloadV1RoleNames = "on_call_editor"
+	APIKeysUpdatePayloadV1RoleNamesOnCallViewer                        APIKeysUpdatePayloadV1RoleNames = "on_call_viewer"
+	APIKeysUpdatePayloadV1RoleNamesPostIncidentFlowOptOut              APIKeysUpdatePayloadV1RoleNames = "post_incident_flow_opt_out"
+	APIKeysUpdatePayloadV1RoleNamesPostmortemsManage                   APIKeysUpdatePayloadV1RoleNames = "postmortems_manage"
+	APIKeysUpdatePayloadV1RoleNamesPrivateWorkflowsEditor              APIKeysUpdatePayloadV1RoleNames = "private_workflows_editor"
+	APIKeysUpdatePayloadV1RoleNamesScheduleOverridesEditor             APIKeysUpdatePayloadV1RoleNames = "schedule_overrides_editor"
+	APIKeysUpdatePayloadV1RoleNamesSchedulesEditor                     APIKeysUpdatePayloadV1RoleNames = "schedules_editor"
+	APIKeysUpdatePayloadV1RoleNamesSchedulesReader                     APIKeysUpdatePayloadV1RoleNames = "schedules_reader"
+	APIKeysUpdatePayloadV1RoleNamesSecuritySettingsEditor              APIKeysUpdatePayloadV1RoleNames = "security_settings_editor"
+	APIKeysUpdatePayloadV1RoleNamesStatusPagePublisher                 APIKeysUpdatePayloadV1RoleNames = "status_page_publisher"
+	APIKeysUpdatePayloadV1RoleNamesTeamMembershipsManage               APIKeysUpdatePayloadV1RoleNames = "team_memberships_manage"
+	APIKeysUpdatePayloadV1RoleNamesViewer                              APIKeysUpdatePayloadV1RoleNames = "viewer"
+	APIKeysUpdatePayloadV1RoleNamesWorkflowsEditor                     APIKeysUpdatePayloadV1RoleNames = "workflows_editor"
 )
 
 // Valid indicates whether the value is a known member of the APIKeysUpdatePayloadV1RoleNames enum.
@@ -325,6 +332,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesManageSettings:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesNotificationMethodsManage:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesNotificationMethodsUnredactedViewer:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesOnCallEditor:
 		return true
@@ -3062,33 +3071,34 @@ func (e FollowUpsUpdatePayloadV2Status) Valid() bool {
 
 // Defines values for IdentityV1Roles.
 const (
-	IdentityV1RolesActOnBehalfOfUsers            IdentityV1Roles = "act_on_behalf_of_users"
-	IdentityV1RolesApiKeysManage                 IdentityV1Roles = "api_keys_manage"
-	IdentityV1RolesCatalogEditor                 IdentityV1Roles = "catalog_editor"
-	IdentityV1RolesCatalogViewer                 IdentityV1Roles = "catalog_viewer"
-	IdentityV1RolesEscalationCreator             IdentityV1Roles = "escalation_creator"
-	IdentityV1RolesGlobalAccess                  IdentityV1Roles = "global_access"
-	IdentityV1RolesIncidentCreator               IdentityV1Roles = "incident_creator"
-	IdentityV1RolesIncidentEditor                IdentityV1Roles = "incident_editor"
-	IdentityV1RolesIncidentMembershipsEditor     IdentityV1Roles = "incident_memberships_editor"
-	IdentityV1RolesIncidentWorkloadPrivateViewer IdentityV1Roles = "incident_workload_private_viewer"
-	IdentityV1RolesIncidentWorkloadViewer        IdentityV1Roles = "incident_workload_viewer"
-	IdentityV1RolesInvestigationDownload         IdentityV1Roles = "investigation_download"
-	IdentityV1RolesManageSettings                IdentityV1Roles = "manage_settings"
-	IdentityV1RolesNotificationMethodsManage     IdentityV1Roles = "notification_methods_manage"
-	IdentityV1RolesOnCallEditor                  IdentityV1Roles = "on_call_editor"
-	IdentityV1RolesOnCallViewer                  IdentityV1Roles = "on_call_viewer"
-	IdentityV1RolesPostIncidentFlowOptOut        IdentityV1Roles = "post_incident_flow_opt_out"
-	IdentityV1RolesPostmortemsManage             IdentityV1Roles = "postmortems_manage"
-	IdentityV1RolesPrivateWorkflowsEditor        IdentityV1Roles = "private_workflows_editor"
-	IdentityV1RolesScheduleOverridesEditor       IdentityV1Roles = "schedule_overrides_editor"
-	IdentityV1RolesSchedulesEditor               IdentityV1Roles = "schedules_editor"
-	IdentityV1RolesSchedulesReader               IdentityV1Roles = "schedules_reader"
-	IdentityV1RolesSecuritySettingsEditor        IdentityV1Roles = "security_settings_editor"
-	IdentityV1RolesStatusPagePublisher           IdentityV1Roles = "status_page_publisher"
-	IdentityV1RolesTeamMembershipsManage         IdentityV1Roles = "team_memberships_manage"
-	IdentityV1RolesViewer                        IdentityV1Roles = "viewer"
-	IdentityV1RolesWorkflowsEditor               IdentityV1Roles = "workflows_editor"
+	IdentityV1RolesActOnBehalfOfUsers                  IdentityV1Roles = "act_on_behalf_of_users"
+	IdentityV1RolesApiKeysManage                       IdentityV1Roles = "api_keys_manage"
+	IdentityV1RolesCatalogEditor                       IdentityV1Roles = "catalog_editor"
+	IdentityV1RolesCatalogViewer                       IdentityV1Roles = "catalog_viewer"
+	IdentityV1RolesEscalationCreator                   IdentityV1Roles = "escalation_creator"
+	IdentityV1RolesGlobalAccess                        IdentityV1Roles = "global_access"
+	IdentityV1RolesIncidentCreator                     IdentityV1Roles = "incident_creator"
+	IdentityV1RolesIncidentEditor                      IdentityV1Roles = "incident_editor"
+	IdentityV1RolesIncidentMembershipsEditor           IdentityV1Roles = "incident_memberships_editor"
+	IdentityV1RolesIncidentWorkloadPrivateViewer       IdentityV1Roles = "incident_workload_private_viewer"
+	IdentityV1RolesIncidentWorkloadViewer              IdentityV1Roles = "incident_workload_viewer"
+	IdentityV1RolesInvestigationDownload               IdentityV1Roles = "investigation_download"
+	IdentityV1RolesManageSettings                      IdentityV1Roles = "manage_settings"
+	IdentityV1RolesNotificationMethodsManage           IdentityV1Roles = "notification_methods_manage"
+	IdentityV1RolesNotificationMethodsUnredactedViewer IdentityV1Roles = "notification_methods_unredacted_viewer"
+	IdentityV1RolesOnCallEditor                        IdentityV1Roles = "on_call_editor"
+	IdentityV1RolesOnCallViewer                        IdentityV1Roles = "on_call_viewer"
+	IdentityV1RolesPostIncidentFlowOptOut              IdentityV1Roles = "post_incident_flow_opt_out"
+	IdentityV1RolesPostmortemsManage                   IdentityV1Roles = "postmortems_manage"
+	IdentityV1RolesPrivateWorkflowsEditor              IdentityV1Roles = "private_workflows_editor"
+	IdentityV1RolesScheduleOverridesEditor             IdentityV1Roles = "schedule_overrides_editor"
+	IdentityV1RolesSchedulesEditor                     IdentityV1Roles = "schedules_editor"
+	IdentityV1RolesSchedulesReader                     IdentityV1Roles = "schedules_reader"
+	IdentityV1RolesSecuritySettingsEditor              IdentityV1Roles = "security_settings_editor"
+	IdentityV1RolesStatusPagePublisher                 IdentityV1Roles = "status_page_publisher"
+	IdentityV1RolesTeamMembershipsManage               IdentityV1Roles = "team_memberships_manage"
+	IdentityV1RolesViewer                              IdentityV1Roles = "viewer"
+	IdentityV1RolesWorkflowsEditor                     IdentityV1Roles = "workflows_editor"
 )
 
 // Valid indicates whether the value is a known member of the IdentityV1Roles enum.
@@ -3121,6 +3131,8 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesManageSettings:
 		return true
 	case IdentityV1RolesNotificationMethodsManage:
+		return true
+	case IdentityV1RolesNotificationMethodsUnredactedViewer:
 		return true
 	case IdentityV1RolesOnCallEditor:
 		return true

@@ -85,6 +85,7 @@
               "postmortems_manage",
               "api_keys_manage",
               "notification_methods_manage",
+              "notification_methods_unredacted_viewer",
               "incident_workload_viewer",
               "incident_workload_private_viewer",
               "act_on_behalf_of_users"
@@ -304,6 +305,7 @@
                 "postmortems_manage",
                 "api_keys_manage",
                 "notification_methods_manage",
+                "notification_methods_unredacted_viewer",
                 "incident_workload_viewer",
                 "incident_workload_private_viewer",
                 "act_on_behalf_of_users"
@@ -682,6 +684,7 @@
                 "postmortems_manage",
                 "api_keys_manage",
                 "notification_methods_manage",
+                "notification_methods_unredacted_viewer",
                 "incident_workload_viewer",
                 "incident_workload_private_viewer",
                 "act_on_behalf_of_users"
@@ -38750,6 +38753,7 @@
                 "postmortems_manage",
                 "api_keys_manage",
                 "notification_methods_manage",
+                "notification_methods_unredacted_viewer",
                 "incident_workload_viewer",
                 "incident_workload_private_viewer",
                 "act_on_behalf_of_users"
@@ -80949,7 +80953,7 @@
     },
     "/v2/users/{user_id}/notification_methods": {
       "get": {
-        "description": "List notification methods for a user. Phone numbers are always partially redacted.",
+        "description": "List notification methods for a user. Phone numbers are partially redacted unless the API key holds the notification_methods.view_unredacted scope.",
         "operationId": "Users V2#ListNotificationMethods",
         "parameters": [
           {
