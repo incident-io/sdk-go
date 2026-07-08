@@ -120,7 +120,8 @@
               "schedule_overrides_editor",
               "on_call_editor",
               "escalation_creator",
-              "api_keys_manage"
+              "api_keys_manage",
+              "workflows_editor"
             ],
             "example": "schedules_editor",
             "type": "string",
@@ -338,7 +339,8 @@
                 "schedule_overrides_editor",
                 "on_call_editor",
                 "escalation_creator",
-                "api_keys_manage"
+                "api_keys_manage",
+                "workflows_editor"
               ],
               "example": "schedules_editor",
               "type": "string"
@@ -717,7 +719,8 @@
                 "schedule_overrides_editor",
                 "on_call_editor",
                 "escalation_creator",
-                "api_keys_manage"
+                "api_keys_manage",
+                "workflows_editor"
               ],
               "example": "schedules_editor",
               "type": "string"
@@ -46442,7 +46445,8 @@
                 "schedule_overrides_editor",
                 "on_call_editor",
                 "escalation_creator",
-                "api_keys_manage"
+                "api_keys_manage",
+                "workflows_editor"
               ],
               "example": "schedules_editor",
               "type": "string",
@@ -65349,6 +65353,9 @@
               "type": "IncidentSeverity"
             }
           ],
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
           "runs_from": "2021-08-17T13:28:57.801578Z",
           "runs_on_incident_modes": [
             "standard",
@@ -65599,6 +65606,17 @@
             ],
             "items": {
               "$ref": "#/components/schemas/EngineReferenceV2"
+            },
+            "type": "array"
+          },
+          "owning_team_ids": {
+            "description": "IDs of the teams that own this workflow",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
             },
             "type": "array"
           },
@@ -65894,6 +65912,9 @@
               "type": "IncidentSeverity"
             }
           ],
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
           "runs_from": "2021-08-17T13:28:57.801578Z",
           "runs_on_incident_modes": [
             "standard",
@@ -66183,6 +66204,17 @@
             },
             "type": "array"
           },
+          "owning_team_ids": {
+            "description": "IDs of the teams that own this workflow",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
+          },
           "runs_from": {
             "description": "The time from which this workflow will run on incidents",
             "example": "2021-08-17T13:28:57.801578Z",
@@ -66462,6 +66494,9 @@
           "once_for": [
             "incident.url"
           ],
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
           "runs_on_incident_modes": [
             "standard",
             "test",
@@ -66710,6 +66745,17 @@
             "description": "This workflow will run 'once for' a list of references",
             "example": [
               "incident.url"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "owning_team_ids": {
+            "description": "IDs of the teams that own this workflow",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
             ],
             "items": {
               "example": "abc123",
@@ -67016,6 +67062,9 @@
                 "type": "IncidentSeverity"
               }
             ],
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "runs_from": "2021-08-17T13:28:57.801578Z",
             "runs_on_incident_modes": [
               "standard",
@@ -67261,6 +67310,9 @@
                   "type": "IncidentSeverity"
                 }
               ],
+              "owning_team_ids": [
+                "01G0J1EXE7AXZ2C93K61WBPYEH"
+              ],
               "runs_from": "2021-08-17T13:28:57.801578Z",
               "runs_on_incident_modes": [
                 "standard",
@@ -67474,6 +67526,9 @@
                     "label": "Incident -\u003e Affected Team",
                     "type": "IncidentSeverity"
                   }
+                ],
+                "owning_team_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
                 ],
                 "runs_from": "2021-08-17T13:28:57.801578Z",
                 "runs_on_incident_modes": [
@@ -67716,6 +67771,9 @@
                 "type": "IncidentSeverity"
               }
             ],
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "runs_from": "2021-08-17T13:28:57.801578Z",
             "runs_on_incident_modes": [
               "standard",
@@ -67938,6 +67996,9 @@
           "name": "My little workflow",
           "once_for": [
             "incident.url"
+          ],
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
           ],
           "runs_on_incident_modes": [
             "standard",
@@ -68187,6 +68248,17 @@
             "description": "This workflow will run 'once for' a list of references",
             "example": [
               "incident.url"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "owning_team_ids": {
+            "description": "IDs of the teams that own this workflow",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
             ],
             "items": {
               "example": "abc123",
@@ -68491,6 +68563,9 @@
                 "label": "Incident -\u003e Affected Team",
                 "type": "IncidentSeverity"
               }
+            ],
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
             ],
             "runs_from": "2021-08-17T13:28:57.801578Z",
             "runs_on_incident_modes": [
@@ -89059,6 +89134,9 @@
                           "type": "IncidentSeverity"
                         }
                       ],
+                      "owning_team_ids": [
+                        "01G0J1EXE7AXZ2C93K61WBPYEH"
+                      ],
                       "runs_from": "2021-08-17T13:28:57.801578Z",
                       "runs_on_incident_modes": [
                         "standard",
@@ -89278,6 +89356,9 @@
                 "name": "My little workflow",
                 "once_for": [
                   "incident.url"
+                ],
+                "owning_team_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
                 ],
                 "runs_on_incident_modes": [
                   "standard",
@@ -89527,6 +89608,9 @@
                         "label": "Incident -\u003e Affected Team",
                         "type": "IncidentSeverity"
                       }
+                    ],
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
                     ],
                     "runs_from": "2021-08-17T13:28:57.801578Z",
                     "runs_on_incident_modes": [
@@ -89870,6 +89954,9 @@
                         "type": "IncidentSeverity"
                       }
                     ],
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "runs_from": "2021-08-17T13:28:57.801578Z",
                     "runs_on_incident_modes": [
                       "standard",
@@ -90126,6 +90213,9 @@
                 "once_for": [
                   "incident.url"
                 ],
+                "owning_team_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ],
                 "runs_on_incident_modes": [
                   "standard",
                   "test",
@@ -90374,6 +90464,9 @@
                         "label": "Incident -\u003e Affected Team",
                         "type": "IncidentSeverity"
                       }
+                    ],
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
                     ],
                     "runs_from": "2021-08-17T13:28:57.801578Z",
                     "runs_on_incident_modes": [

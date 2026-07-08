@@ -122,6 +122,7 @@ const (
 	APIKeyTeamRoleV1NameScheduleOverridesEditor APIKeyTeamRoleV1Name = "schedule_overrides_editor"
 	APIKeyTeamRoleV1NameSchedulesEditor         APIKeyTeamRoleV1Name = "schedules_editor"
 	APIKeyTeamRoleV1NameSchedulesReader         APIKeyTeamRoleV1Name = "schedules_reader"
+	APIKeyTeamRoleV1NameWorkflowsEditor         APIKeyTeamRoleV1Name = "workflows_editor"
 )
 
 // Valid indicates whether the value is a known member of the APIKeyTeamRoleV1Name enum.
@@ -138,6 +139,8 @@ func (e APIKeyTeamRoleV1Name) Valid() bool {
 	case APIKeyTeamRoleV1NameSchedulesEditor:
 		return true
 	case APIKeyTeamRoleV1NameSchedulesReader:
+		return true
+	case APIKeyTeamRoleV1NameWorkflowsEditor:
 		return true
 	default:
 		return false
@@ -248,6 +251,7 @@ const (
 	APIKeysCreatePayloadV1TeamRoleNamesScheduleOverridesEditor APIKeysCreatePayloadV1TeamRoleNames = "schedule_overrides_editor"
 	APIKeysCreatePayloadV1TeamRoleNamesSchedulesEditor         APIKeysCreatePayloadV1TeamRoleNames = "schedules_editor"
 	APIKeysCreatePayloadV1TeamRoleNamesSchedulesReader         APIKeysCreatePayloadV1TeamRoleNames = "schedules_reader"
+	APIKeysCreatePayloadV1TeamRoleNamesWorkflowsEditor         APIKeysCreatePayloadV1TeamRoleNames = "workflows_editor"
 )
 
 // Valid indicates whether the value is a known member of the APIKeysCreatePayloadV1TeamRoleNames enum.
@@ -264,6 +268,8 @@ func (e APIKeysCreatePayloadV1TeamRoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1TeamRoleNamesSchedulesEditor:
 		return true
 	case APIKeysCreatePayloadV1TeamRoleNamesSchedulesReader:
+		return true
+	case APIKeysCreatePayloadV1TeamRoleNamesWorkflowsEditor:
 		return true
 	default:
 		return false
@@ -374,6 +380,7 @@ const (
 	APIKeysUpdatePayloadV1TeamRoleNamesScheduleOverridesEditor APIKeysUpdatePayloadV1TeamRoleNames = "schedule_overrides_editor"
 	APIKeysUpdatePayloadV1TeamRoleNamesSchedulesEditor         APIKeysUpdatePayloadV1TeamRoleNames = "schedules_editor"
 	APIKeysUpdatePayloadV1TeamRoleNamesSchedulesReader         APIKeysUpdatePayloadV1TeamRoleNames = "schedules_reader"
+	APIKeysUpdatePayloadV1TeamRoleNamesWorkflowsEditor         APIKeysUpdatePayloadV1TeamRoleNames = "workflows_editor"
 )
 
 // Valid indicates whether the value is a known member of the APIKeysUpdatePayloadV1TeamRoleNames enum.
@@ -390,6 +397,8 @@ func (e APIKeysUpdatePayloadV1TeamRoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1TeamRoleNamesSchedulesEditor:
 		return true
 	case APIKeysUpdatePayloadV1TeamRoleNamesSchedulesReader:
+		return true
+	case APIKeysUpdatePayloadV1TeamRoleNamesWorkflowsEditor:
 		return true
 	default:
 		return false
@@ -3428,6 +3437,7 @@ const (
 	IdentityV1TeamRolesScheduleOverridesEditor IdentityV1TeamRoles = "schedule_overrides_editor"
 	IdentityV1TeamRolesSchedulesEditor         IdentityV1TeamRoles = "schedules_editor"
 	IdentityV1TeamRolesSchedulesReader         IdentityV1TeamRoles = "schedules_reader"
+	IdentityV1TeamRolesWorkflowsEditor         IdentityV1TeamRoles = "workflows_editor"
 )
 
 // Valid indicates whether the value is a known member of the IdentityV1TeamRoles enum.
@@ -3444,6 +3454,8 @@ func (e IdentityV1TeamRoles) Valid() bool {
 	case IdentityV1TeamRolesSchedulesEditor:
 		return true
 	case IdentityV1TeamRolesSchedulesReader:
+		return true
+	case IdentityV1TeamRolesWorkflowsEditor:
 		return true
 	default:
 		return false
@@ -12912,6 +12924,9 @@ type WorkflowSlimV2 struct {
 	// OnceFor This workflow will run 'once for' a list of references
 	OnceFor []EngineReferenceV2 `json:"once_for"`
 
+	// OwningTeamIds IDs of the teams that own this workflow
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
 	// RunsFrom The time from which this workflow will run on incidents
 	RunsFrom *time.Time `json:"runs_from,omitempty"`
 
@@ -12977,6 +12992,9 @@ type WorkflowV2 struct {
 	// OnceFor This workflow will run 'once for' a list of references
 	OnceFor []EngineReferenceV2 `json:"once_for"`
 
+	// OwningTeamIds IDs of the teams that own this workflow
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
 	// RunsFrom The time from which this workflow will run on incidents
 	RunsFrom *time.Time `json:"runs_from,omitempty"`
 
@@ -13041,6 +13059,9 @@ type WorkflowsCreateWorkflowPayloadV2 struct {
 
 	// OnceFor This workflow will run 'once for' a list of references
 	OnceFor []string `json:"once_for"`
+
+	// OwningTeamIds IDs of the teams that own this workflow
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
 
 	// RunsOnIncidentModes Which incident modes should this workflow run on? By default, workflows only run on standard incidents, but can also be configured to run on test and retrospective incidents.
 	RunsOnIncidentModes []WorkflowsCreateWorkflowPayloadV2RunsOnIncidentModes `json:"runs_on_incident_modes"`
@@ -13119,6 +13140,9 @@ type WorkflowsUpdateWorkflowPayloadV2 struct {
 
 	// OnceFor This workflow will run 'once for' a list of references
 	OnceFor []string `json:"once_for"`
+
+	// OwningTeamIds IDs of the teams that own this workflow
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
 
 	// RunsOnIncidentModes Which incident modes should this workflow run on? By default, workflows only run on standard incidents, but can also be configured to run on test and retrospective incidents.
 	RunsOnIncidentModes []WorkflowsUpdateWorkflowPayloadV2RunsOnIncidentModes `json:"runs_on_incident_modes"`
