@@ -5906,6 +5906,12 @@ type AlertMessageDestinationV3 struct {
 
 // AlertNoteV1 defines model for AlertNoteV1.
 type AlertNoteV1 struct {
+	// AlertGroupId ID of the alert group this note is attached to. Exactly one of alert_id or alert_group_id is set; the other is null.
+	AlertGroupId *string `json:"alert_group_id,omitempty"`
+
+	// AlertId ID of the alert this note is attached to. Exactly one of alert_id or alert_group_id is set; the other is null.
+	AlertId *string `json:"alert_id,omitempty"`
+
 	// Content Markdown body of the note
 	Content string `json:"content"`
 
@@ -5928,8 +5934,11 @@ type AlertNoteV1 struct {
 
 // AlertNotesCreatePayloadV1 defines model for AlertNotesCreatePayloadV1.
 type AlertNotesCreatePayloadV1 struct {
-	// AlertId ID of the alert to add the note to
-	AlertId string `json:"alert_id"`
+	// AlertGroupId ID of the alert group to add the note to. Provide exactly one of alert_id or alert_group_id.
+	AlertGroupId *string `json:"alert_group_id,omitempty"`
+
+	// AlertId ID of the alert to add the note to. Provide exactly one of alert_id or alert_group_id.
+	AlertId *string `json:"alert_id,omitempty"`
 
 	// Content Markdown body of the note
 	Content string `json:"content"`
@@ -6694,6 +6703,9 @@ type AlertRoutesUpdateResultV3 struct {
 
 // AlertSlimV2 defines model for AlertSlimV2.
 type AlertSlimV2 struct {
+	// AlertGroupIds The IDs of every alert group this alert belongs to. Empty when the alert is not part of any group.
+	AlertGroupIds *[]string `json:"alert_group_ids,omitempty"`
+
 	// AlertSourceId The ID of the alert source this alert fired on
 	AlertSourceId string `json:"alert_source_id"`
 
@@ -6975,6 +6987,9 @@ type AlertTemplateV2 struct {
 
 // AlertV2 defines model for AlertV2.
 type AlertV2 struct {
+	// AlertGroupIds The IDs of every alert group this alert belongs to. Empty when the alert is not part of any group.
+	AlertGroupIds *[]string `json:"alert_group_ids,omitempty"`
+
 	// AlertSourceId The ID of the alert source this alert fired on
 	AlertSourceId string `json:"alert_source_id"`
 
@@ -13216,8 +13231,11 @@ type ActionsV1ListParamsIncidentMode string
 
 // AlertNotesV1ListParams defines parameters for AlertNotesV1List.
 type AlertNotesV1ListParams struct {
-	// AlertId ID of the alert to list notes for
-	AlertId string `form:"alert_id" json:"alert_id"`
+	// AlertId ID of the alert to list notes for. Provide exactly one of alert_id or alert_group_id.
+	AlertId *string `form:"alert_id,omitempty" json:"alert_id,omitempty"`
+
+	// AlertGroupId ID of the alert group to list notes for. Provide exactly one of alert_id or alert_group_id.
+	AlertGroupId *string `form:"alert_group_id,omitempty" json:"alert_group_id,omitempty"`
 
 	// PageSize Integer number of records to return
 	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
@@ -18367,16 +18385,36 @@ func newAlertNotesV1ListRequest(server string, params *AlertNotesV1ListParams) (
 	if params != nil {
 		queryValues := queryURL.Query()
 
-		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "alert_id", params.AlertId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
-			return nil, err
-		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-			return nil, err
-		} else {
-			for k, v := range parsed {
-				for _, v2 := range v {
-					queryValues.Add(k, v2)
+		if params.AlertId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "alert_id", *params.AlertId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
 				}
 			}
+
+		}
+
+		if params.AlertGroupId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "alert_group_id", *params.AlertGroupId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
 		}
 
 		if params.PageSize != nil {

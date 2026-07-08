@@ -2481,6 +2481,8 @@
       },
       "AlertNoteV1": {
         "example": {
+          "alert_group_id": "01HB9Z8WANK6P870EA6S7TK1DS",
+          "alert_id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "content": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n",
           "created_at": "2026-05-28T15:30:00Z",
           "creator": {
@@ -2507,6 +2509,16 @@
           "updated_at": "2026-05-28T15:35:00Z"
         },
         "properties": {
+          "alert_group_id": {
+            "description": "ID of the alert group this note is attached to. Exactly one of alert_id or alert_group_id is set; the other is null.",
+            "example": "01HB9Z8WANK6P870EA6S7TK1DS",
+            "type": "string"
+          },
+          "alert_id": {
+            "description": "ID of the alert this note is attached to. Exactly one of alert_id or alert_group_id is set; the other is null.",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
           "content": {
             "description": "Markdown body of the note",
             "example": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n",
@@ -2564,12 +2576,18 @@
       },
       "AlertNotesCreatePayloadV1": {
         "example": {
+          "alert_group_id": "01HB9Z8WANK6P870EA6S7TK1DS",
           "alert_id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "content": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n"
         },
         "properties": {
+          "alert_group_id": {
+            "description": "ID of the alert group to add the note to. Provide exactly one of alert_id or alert_group_id.",
+            "example": "01HB9Z8WANK6P870EA6S7TK1DS",
+            "type": "string"
+          },
           "alert_id": {
-            "description": "ID of the alert to add the note to",
+            "description": "ID of the alert to add the note to. Provide exactly one of alert_id or alert_group_id.",
             "example": "01FCNDV6P870EA6S7TK1DSYDG0",
             "type": "string"
           },
@@ -2580,7 +2598,6 @@
           }
         },
         "required": [
-          "alert_id",
           "content"
         ],
         "type": "object"
@@ -2588,6 +2605,8 @@
       "AlertNotesCreateResultV1": {
         "example": {
           "alert_note": {
+            "alert_group_id": "01HB9Z8WANK6P870EA6S7TK1DS",
+            "alert_id": "01FCNDV6P870EA6S7TK1DSYDG0",
             "content": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n",
             "created_at": "2026-05-28T15:30:00Z",
             "creator": {
@@ -2628,6 +2647,8 @@
         "example": {
           "alert_notes": [
             {
+              "alert_group_id": "01HB9Z8WANK6P870EA6S7TK1DS",
+              "alert_id": "01FCNDV6P870EA6S7TK1DSYDG0",
               "content": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n",
               "created_at": "2026-05-28T15:30:00Z",
               "creator": {
@@ -2663,6 +2684,8 @@
           "alert_notes": {
             "example": [
               {
+                "alert_group_id": "01HB9Z8WANK6P870EA6S7TK1DS",
+                "alert_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "content": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n",
                 "created_at": "2026-05-28T15:30:00Z",
                 "creator": {
@@ -2707,6 +2730,8 @@
       "AlertNotesShowResultV1": {
         "example": {
           "alert_note": {
+            "alert_group_id": "01HB9Z8WANK6P870EA6S7TK1DS",
+            "alert_id": "01FCNDV6P870EA6S7TK1DSYDG0",
             "content": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n",
             "created_at": "2026-05-28T15:30:00Z",
             "creator": {
@@ -2762,6 +2787,8 @@
       "AlertNotesUpdateResultV1": {
         "example": {
           "alert_note": {
+            "alert_group_id": "01HB9Z8WANK6P870EA6S7TK1DS",
+            "alert_id": "01FCNDV6P870EA6S7TK1DSYDG0",
             "content": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n",
             "created_at": "2026-05-28T15:30:00Z",
             "creator": {
@@ -13627,6 +13654,9 @@
       },
       "AlertSlimV2": {
         "example": {
+          "alert_group_ids": [
+            "01GW2G3V0S59R238FAHPDS1R66"
+          ],
           "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
           "created_at": "2021-08-17T13:28:57.801578Z",
           "deduplication_key": "4293868629",
@@ -13639,6 +13669,17 @@
           "updated_at": "2021-08-17T13:28:57.801578Z"
         },
         "properties": {
+          "alert_group_ids": {
+            "description": "The IDs of every alert group this alert belongs to. Empty when the alert is not part of any group.",
+            "example": [
+              "01GW2G3V0S59R238FAHPDS1R66"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
+          },
           "alert_source_id": {
             "description": "The ID of the alert source this alert fired on",
             "example": "01GW2G3V0S59R238FAHPDS1R66",
@@ -16822,6 +16863,9 @@
       },
       "AlertV2": {
         "example": {
+          "alert_group_ids": [
+            "01GW2G3V0S59R238FAHPDS1R66"
+          ],
           "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
           "attributes": [
             {
@@ -16866,6 +16910,17 @@
           "updated_at": "2021-08-17T13:28:57.801578Z"
         },
         "properties": {
+          "alert_group_ids": {
+            "description": "The IDs of every alert group this alert belongs to. Empty when the alert is not part of any group.",
+            "example": [
+              "01GW2G3V0S59R238FAHPDS1R66"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
+          },
           "alert_source_id": {
             "description": "The ID of the alert source this alert fired on",
             "example": "01GW2G3V0S59R238FAHPDS1R66",
@@ -16981,6 +17036,9 @@
           "incident_alerts": [
             {
               "alert": {
+                "alert_group_ids": [
+                  "01GW2G3V0S59R238FAHPDS1R66"
+                ],
                 "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                 "created_at": "2021-08-17T13:28:57.801578Z",
                 "deduplication_key": "4293868629",
@@ -17015,6 +17073,9 @@
             "example": [
               {
                 "alert": {
+                  "alert_group_ids": [
+                    "01GW2G3V0S59R238FAHPDS1R66"
+                  ],
                   "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                   "created_at": "2021-08-17T13:28:57.801578Z",
                   "deduplication_key": "4293868629",
@@ -17058,6 +17119,9 @@
         "example": {
           "alerts": [
             {
+              "alert_group_ids": [
+                "01GW2G3V0S59R238FAHPDS1R66"
+              ],
               "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
               "attributes": [
                 {
@@ -17111,6 +17175,9 @@
           "alerts": {
             "example": [
               {
+                "alert_group_ids": [
+                  "01GW2G3V0S59R238FAHPDS1R66"
+                ],
                 "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                 "attributes": [
                   {
@@ -17173,6 +17240,9 @@
       "AlertsResolveResultV2": {
         "example": {
           "alert": {
+            "alert_group_ids": [
+              "01GW2G3V0S59R238FAHPDS1R66"
+            ],
             "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
             "attributes": [
               {
@@ -17230,6 +17300,9 @@
       "AlertsShowResultV2": {
         "example": {
           "alert": {
+            "alert_group_ids": [
+              "01GW2G3V0S59R238FAHPDS1R66"
+            ],
             "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
             "attributes": [
               {
@@ -40559,6 +40632,9 @@
           },
           "related_alerts": [
             {
+              "alert_group_ids": [
+                "01GW2G3V0S59R238FAHPDS1R66"
+              ],
               "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
               "created_at": "2021-08-17T13:28:57.801578Z",
               "deduplication_key": "4293868629",
@@ -40645,6 +40721,9 @@
             "description": "Alerts related to this escalation",
             "example": [
               {
+                "alert_group_ids": [
+                  "01GW2G3V0S59R238FAHPDS1R66"
+                ],
                 "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                 "created_at": "2021-08-17T13:28:57.801578Z",
                 "deduplication_key": "4293868629",
@@ -40796,6 +40875,9 @@
             },
             "related_alerts": [
               {
+                "alert_group_ids": [
+                  "01GW2G3V0S59R238FAHPDS1R66"
+                ],
                 "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                 "created_at": "2021-08-17T13:28:57.801578Z",
                 "deduplication_key": "4293868629",
@@ -41345,6 +41427,9 @@
             },
             "related_alerts": [
               {
+                "alert_group_ids": [
+                  "01GW2G3V0S59R238FAHPDS1R66"
+                ],
                 "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                 "created_at": "2021-08-17T13:28:57.801578Z",
                 "deduplication_key": "4293868629",
@@ -41701,6 +41786,9 @@
               },
               "related_alerts": [
                 {
+                  "alert_group_ids": [
+                    "01GW2G3V0S59R238FAHPDS1R66"
+                  ],
                   "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                   "created_at": "2021-08-17T13:28:57.801578Z",
                   "deduplication_key": "4293868629",
@@ -41788,6 +41876,9 @@
                 },
                 "related_alerts": [
                   {
+                    "alert_group_ids": [
+                      "01GW2G3V0S59R238FAHPDS1R66"
+                    ],
                     "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "deduplication_key": "4293868629",
@@ -42015,6 +42106,9 @@
             },
             "related_alerts": [
               {
+                "alert_group_ids": [
+                  "01GW2G3V0S59R238FAHPDS1R66"
+                ],
                 "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                 "created_at": "2021-08-17T13:28:57.801578Z",
                 "deduplication_key": "4293868629",
@@ -46804,6 +46898,9 @@
       "IncidentAlertV2": {
         "example": {
           "alert": {
+            "alert_group_ids": [
+              "01GW2G3V0S59R238FAHPDS1R66"
+            ],
             "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
             "created_at": "2021-08-17T13:28:57.801578Z",
             "deduplication_key": "4293868629",
@@ -63162,6 +63259,9 @@
         "example": {
           "event_type": "public_alert.alert_created_v1",
           "public_alert.alert_created_v1": {
+            "alert_group_ids": [
+              "01GW2G3V0S59R238FAHPDS1R66"
+            ],
             "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
             "attributes": [
               {
@@ -63261,6 +63361,9 @@
         "example": {
           "event_type": "public_alert.alert_resolved_v1",
           "public_alert.alert_resolved_v1": {
+            "alert_group_ids": [
+              "01GW2G3V0S59R238FAHPDS1R66"
+            ],
             "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
             "attributes": [
               {
@@ -63410,6 +63513,9 @@
             },
             "related_alerts": [
               {
+                "alert_group_ids": [
+                  "01GW2G3V0S59R238FAHPDS1R66"
+                ],
                 "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                 "created_at": "2021-08-17T13:28:57.801578Z",
                 "deduplication_key": "4293868629",
@@ -63565,6 +63671,9 @@
               },
               "related_alerts": [
                 {
+                  "alert_group_ids": [
+                    "01GW2G3V0S59R238FAHPDS1R66"
+                  ],
                   "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                   "created_at": "2021-08-17T13:28:57.801578Z",
                   "deduplication_key": "4293868629",
@@ -69173,14 +69282,25 @@
         "parameters": [
           {
             "allowEmptyValue": true,
-            "description": "ID of the alert to list notes for",
+            "description": "ID of the alert to list notes for. Provide exactly one of alert_id or alert_group_id.",
             "example": "01FCNDV6P870EA6S7TK1DSYDG0",
             "in": "query",
             "name": "alert_id",
-            "required": true,
             "schema": {
-              "description": "ID of the alert to list notes for",
+              "description": "ID of the alert to list notes for. Provide exactly one of alert_id or alert_group_id.",
               "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "ID of the alert group to list notes for. Provide exactly one of alert_id or alert_group_id.",
+            "example": "01HB9Z8WANK6P870EA6S7TK1DS",
+            "in": "query",
+            "name": "alert_group_id",
+            "schema": {
+              "description": "ID of the alert group to list notes for. Provide exactly one of alert_id or alert_group_id.",
+              "example": "01HB9Z8WANK6P870EA6S7TK1DS",
               "type": "string"
             }
           },
@@ -69219,6 +69339,8 @@
                 "example": {
                   "alert_notes": [
                     {
+                      "alert_group_id": "01HB9Z8WANK6P870EA6S7TK1DS",
+                      "alert_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                       "content": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n",
                       "created_at": "2026-05-28T15:30:00Z",
                       "creator": {
@@ -69279,6 +69401,7 @@
           "content": {
             "application/json": {
               "example": {
+                "alert_group_id": "01HB9Z8WANK6P870EA6S7TK1DS",
                 "alert_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "content": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n"
               },
@@ -69295,6 +69418,8 @@
               "application/json": {
                 "example": {
                   "alert_note": {
+                    "alert_group_id": "01HB9Z8WANK6P870EA6S7TK1DS",
+                    "alert_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                     "content": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n",
                     "created_at": "2026-05-28T15:30:00Z",
                     "creator": {
@@ -69404,6 +69529,8 @@
               "application/json": {
                 "example": {
                   "alert_note": {
+                    "alert_group_id": "01HB9Z8WANK6P870EA6S7TK1DS",
+                    "alert_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                     "content": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n",
                     "created_at": "2026-05-28T15:30:00Z",
                     "creator": {
@@ -69488,6 +69615,8 @@
               "application/json": {
                 "example": {
                   "alert_note": {
+                    "alert_group_id": "01HB9Z8WANK6P870EA6S7TK1DS",
+                    "alert_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                     "content": "Customer reports **checkout 500s** starting ~14:32 UTC. Investigating `payments-api`.\n\n- Error rate: ~12% on `/checkout`\n- Region: `eu-west-1`\n- See [dashboard](https://grafana.example.com/d/abc)\n",
                     "created_at": "2026-05-28T15:30:00Z",
                     "creator": {
@@ -79252,6 +79381,9 @@
                 "example": {
                   "alerts": [
                     {
+                      "alert_group_ids": [
+                        "01GW2G3V0S59R238FAHPDS1R66"
+                      ],
                       "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                       "attributes": [
                         {
@@ -79348,6 +79480,9 @@
               "application/json": {
                 "example": {
                   "alert": {
+                    "alert_group_ids": [
+                      "01GW2G3V0S59R238FAHPDS1R66"
+                    ],
                     "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                     "attributes": [
                       {
@@ -79439,6 +79574,9 @@
               "application/json": {
                 "example": {
                   "alert": {
+                    "alert_group_ids": [
+                      "01GW2G3V0S59R238FAHPDS1R66"
+                    ],
                     "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                     "attributes": [
                       {
@@ -82303,6 +82441,9 @@
                       },
                       "related_alerts": [
                         {
+                          "alert_group_ids": [
+                            "01GW2G3V0S59R238FAHPDS1R66"
+                          ],
                           "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                           "created_at": "2021-08-17T13:28:57.801578Z",
                           "deduplication_key": "4293868629",
@@ -82438,6 +82579,9 @@
                     },
                     "related_alerts": [
                       {
+                        "alert_group_ids": [
+                          "01GW2G3V0S59R238FAHPDS1R66"
+                        ],
                         "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                         "created_at": "2021-08-17T13:28:57.801578Z",
                         "deduplication_key": "4293868629",
@@ -82563,6 +82707,9 @@
                     },
                     "related_alerts": [
                       {
+                        "alert_group_ids": [
+                          "01GW2G3V0S59R238FAHPDS1R66"
+                        ],
                         "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                         "created_at": "2021-08-17T13:28:57.801578Z",
                         "deduplication_key": "4293868629",
@@ -83455,6 +83602,9 @@
                   "incident_alerts": [
                     {
                       "alert": {
+                        "alert_group_ids": [
+                          "01GW2G3V0S59R238FAHPDS1R66"
+                        ],
                         "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                         "created_at": "2021-08-17T13:28:57.801578Z",
                         "deduplication_key": "4293868629",
@@ -103693,6 +103843,9 @@
                 "example": {
                   "event_type": "public_alert.alert_created_v1",
                   "public_alert.alert_created_v1": {
+                    "alert_group_ids": [
+                      "01GW2G3V0S59R238FAHPDS1R66"
+                    ],
                     "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                     "attributes": [
                       {
@@ -103761,6 +103914,9 @@
                 "example": {
                   "event_type": "public_alert.alert_resolved_v1",
                   "public_alert.alert_resolved_v1": {
+                    "alert_group_ids": [
+                      "01GW2G3V0S59R238FAHPDS1R66"
+                    ],
                     "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                     "attributes": [
                       {
@@ -103879,6 +104035,9 @@
                     },
                     "related_alerts": [
                       {
+                        "alert_group_ids": [
+                          "01GW2G3V0S59R238FAHPDS1R66"
+                        ],
                         "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                         "created_at": "2021-08-17T13:28:57.801578Z",
                         "deduplication_key": "4293868629",
@@ -104003,6 +104162,9 @@
                       },
                       "related_alerts": [
                         {
+                          "alert_group_ids": [
+                            "01GW2G3V0S59R238FAHPDS1R66"
+                          ],
                           "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
                           "created_at": "2021-08-17T13:28:57.801578Z",
                           "deduplication_key": "4293868629",
