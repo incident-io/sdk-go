@@ -814,6 +814,7 @@ const (
 	AlertSourceV2SourceTypeRunscope          AlertSourceV2SourceType = "runscope"
 	AlertSourceV2SourceTypeSentry            AlertSourceV2SourceType = "sentry"
 	AlertSourceV2SourceTypeSentryMetric      AlertSourceV2SourceType = "sentry_metric"
+	AlertSourceV2SourceTypeServiceNow        AlertSourceV2SourceType = "service_now"
 	AlertSourceV2SourceTypeSns               AlertSourceV2SourceType = "sns"
 	AlertSourceV2SourceTypeSplunk            AlertSourceV2SourceType = "splunk"
 	AlertSourceV2SourceTypeStatusCake        AlertSourceV2SourceType = "status_cake"
@@ -903,6 +904,8 @@ func (e AlertSourceV2SourceType) Valid() bool {
 		return true
 	case AlertSourceV2SourceTypeSentryMetric:
 		return true
+	case AlertSourceV2SourceTypeServiceNow:
+		return true
 	case AlertSourceV2SourceTypeSns:
 		return true
 	case AlertSourceV2SourceTypeSplunk:
@@ -964,6 +967,7 @@ const (
 	AlertSourcesCreatePayloadV2SourceTypeRunscope          AlertSourcesCreatePayloadV2SourceType = "runscope"
 	AlertSourcesCreatePayloadV2SourceTypeSentry            AlertSourcesCreatePayloadV2SourceType = "sentry"
 	AlertSourcesCreatePayloadV2SourceTypeSentryMetric      AlertSourcesCreatePayloadV2SourceType = "sentry_metric"
+	AlertSourcesCreatePayloadV2SourceTypeServiceNow        AlertSourcesCreatePayloadV2SourceType = "service_now"
 	AlertSourcesCreatePayloadV2SourceTypeSns               AlertSourcesCreatePayloadV2SourceType = "sns"
 	AlertSourcesCreatePayloadV2SourceTypeSplunk            AlertSourcesCreatePayloadV2SourceType = "splunk"
 	AlertSourcesCreatePayloadV2SourceTypeStatusCake        AlertSourcesCreatePayloadV2SourceType = "status_cake"
@@ -1052,6 +1056,8 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesCreatePayloadV2SourceTypeSentry:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeSentryMetric:
+		return true
+	case AlertSourcesCreatePayloadV2SourceTypeServiceNow:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeSns:
 		return true
