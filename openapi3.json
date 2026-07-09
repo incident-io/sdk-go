@@ -74,6 +74,7 @@
               "schedule_overrides_editor",
               "workflows_editor",
               "private_workflows_editor",
+              "private_escalation_workflows_editor",
               "on_call_editor",
               "on_call_viewer",
               "escalation_creator",
@@ -121,7 +122,8 @@
               "on_call_editor",
               "escalation_creator",
               "api_keys_manage",
-              "workflows_editor"
+              "workflows_editor",
+              "private_workflows_editor"
             ],
             "example": "schedules_editor",
             "type": "string",
@@ -295,6 +297,7 @@
                 "schedule_overrides_editor",
                 "workflows_editor",
                 "private_workflows_editor",
+                "private_escalation_workflows_editor",
                 "on_call_editor",
                 "on_call_viewer",
                 "escalation_creator",
@@ -340,7 +343,8 @@
                 "on_call_editor",
                 "escalation_creator",
                 "api_keys_manage",
-                "workflows_editor"
+                "workflows_editor",
+                "private_workflows_editor"
               ],
               "example": "schedules_editor",
               "type": "string"
@@ -675,6 +679,7 @@
                 "schedule_overrides_editor",
                 "workflows_editor",
                 "private_workflows_editor",
+                "private_escalation_workflows_editor",
                 "on_call_editor",
                 "on_call_viewer",
                 "escalation_creator",
@@ -720,7 +725,8 @@
                 "on_call_editor",
                 "escalation_creator",
                 "api_keys_manage",
-                "workflows_editor"
+                "workflows_editor",
+                "private_workflows_editor"
               ],
               "example": "schedules_editor",
               "type": "string"
@@ -46807,6 +46813,7 @@
                 "schedule_overrides_editor",
                 "workflows_editor",
                 "private_workflows_editor",
+                "private_escalation_workflows_editor",
                 "on_call_editor",
                 "on_call_viewer",
                 "escalation_creator",
@@ -46843,7 +46850,8 @@
                 "on_call_editor",
                 "escalation_creator",
                 "api_keys_manage",
-                "workflows_editor"
+                "workflows_editor",
+                "private_workflows_editor"
               ],
               "example": "schedules_editor",
               "type": "string",
@@ -79119,7 +79127,7 @@
     },
     "/v2/alerts": {
       "get": {
-        "description": "List all alerts for your account.\n\t\t\nThis endpoint supports a number of filters, which can help find alerts matching certain\ncriteria. These filters work similarly to the filters on the incidents endpoint, where \na field is specified alongside a comparison operator in the query string.\n\nNote that:\n- Filters may be used together, and the result will be alerts that match all filters.\n- All query parameters must be URI encoded.\n\n### By deduplication_key\n\nFind all alerts with deduplication_key ABC:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'deduplication_key[is]=ABC'\n\n### By status\n\nFind all alerts in a firing state:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'status[one_of]=firing'\n\n### By alert_source\n\nFind all alerts from a specific alert source (by alert source ID):\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_source[one_of]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\nFind all alerts not from a specific alert source:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_source[not_in]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\n### By created_at\nFind all alerts that follow specified date parameters for created_at field.\nPossible values are \"gte\" (greater than or equal to), \"lte\" (less than or equal to), and \n\"date_range\" (between two dates). The following example finds all alerts created after \n2025-01-01:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'created_at[gte]=2025-01-01'\n\nTo find alerts created within a specific date range, use the date_range option with \ntilde-separated dates:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'created_at[date_range]=2024-12-02~2024-12-08'\n\n### By has_notes\n\nFind all alerts that have notes attached:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'has_notes[is]=true'\n\nFind all alerts that have no notes attached:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'has_notes[is]=false'\n\n### By attributes\n\nAlerts can be filtered by their attribute values. Each filter is keyed by the alert\nattribute ID, followed by an operator and the values to match. The accepted operators\ndepend on the attribute's type.\n\nFind all alerts where attribute 01GBSQF3FHF7FWZQNWGHAVQ804 is one of two catalog entries:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'attributes[01GBSQF3FHF7FWZQNWGHAVQ804][one_of]=01GBSQF3FHF7FWZQNWGHAVQ804' \\\n\t\t\t--data 'attributes[01GBSQF3FHF7FWZQNWGHAVQ804][one_of]=01ET65M7ZARSFZ6TFDFVQDN9AA'\n\nYou can filter on multiple attributes at once, and the result will be alerts that match\nall of them.\n\n### Maintenance windows\nBy default, all alerts are returned including those held by a maintenance window.\nTo exclude alerts that are held by a maintenance window:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'include_maintenance_window[is]=false'\n\t\t",
+        "description": "List all alerts for your account.\n\t\t\nThis endpoint supports a number of filters, which can help find alerts matching certain\ncriteria. These filters work similarly to the filters on the incidents endpoint, where \na field is specified alongside a comparison operator in the query string.\n\nNote that:\n- Filters may be used together, and the result will be alerts that match all filters.\n- All query parameters must be URI encoded.\n\n### By deduplication_key\n\nFind all alerts with deduplication_key ABC:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'deduplication_key[is]=ABC'\n\n### By status\n\nFind all alerts in a firing state:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'status[one_of]=firing'\n\n### By alert_source\n\nFind all alerts from a specific alert source (by alert source ID):\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_source[one_of]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\nFind all alerts not from a specific alert source:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_source[not_in]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\n### By alert_group_id\n\nFind all alerts in a specific alert group:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_group_id[one_of]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\n### By created_at\nFind all alerts that follow specified date parameters for created_at field.\nPossible values are \"gte\" (greater than or equal to), \"lte\" (less than or equal to), and \n\"date_range\" (between two dates). The following example finds all alerts created after \n2025-01-01:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'created_at[gte]=2025-01-01'\n\nTo find alerts created within a specific date range, use the date_range option with \ntilde-separated dates:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'created_at[date_range]=2024-12-02~2024-12-08'\n\n### By has_notes\n\nFind all alerts that have notes attached:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'has_notes[is]=true'\n\nFind all alerts that have no notes attached:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'has_notes[is]=false'\n\n### By attributes\n\nAlerts can be filtered by their attribute values. Each filter is keyed by the alert\nattribute ID, followed by an operator and the values to match. The accepted operators\ndepend on the attribute's type.\n\nFind all alerts where attribute 01GBSQF3FHF7FWZQNWGHAVQ804 is one of two catalog entries:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'attributes[01GBSQF3FHF7FWZQNWGHAVQ804][one_of]=01GBSQF3FHF7FWZQNWGHAVQ804' \\\n\t\t\t--data 'attributes[01GBSQF3FHF7FWZQNWGHAVQ804][one_of]=01ET65M7ZARSFZ6TFDFVQDN9AA'\n\nYou can filter on multiple attributes at once, and the result will be alerts that match\nall of them.\n\n### Maintenance windows\nBy default, all alerts are returned including those held by a maintenance window.\nTo exclude alerts that are held by a maintenance window:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'include_maintenance_window[is]=false'\n\t\t",
         "operationId": "Alerts V2#List",
         "parameters": [
           {
@@ -79233,6 +79241,36 @@
                 "type": "array"
               },
               "description": "Filter on alert source by ID. The accepted operators are 'one_of', or 'not_in'.",
+              "example": {
+                "one_of": [
+                  "01GBSQF3FHF7FWZQNWGHAVQ804"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Filter on alert group ID. Returns alerts that belong to any of the specified groups. The accepted operator is 'one_of'.",
+            "example": {
+              "one_of": [
+                "01GBSQF3FHF7FWZQNWGHAVQ804"
+              ]
+            },
+            "in": "query",
+            "name": "alert_group_id",
+            "schema": {
+              "additionalProperties": {
+                "example": [
+                  "some_value"
+                ],
+                "items": {
+                  "example": "some_value",
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "description": "Filter on alert group ID. Returns alerts that belong to any of the specified groups. The accepted operator is 'one_of'.",
               "example": {
                 "one_of": [
                   "01GBSQF3FHF7FWZQNWGHAVQ804"

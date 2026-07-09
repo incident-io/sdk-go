@@ -39,6 +39,7 @@ const (
 	APIKeyRoleV1NameOnCallViewer                        APIKeyRoleV1Name = "on_call_viewer"
 	APIKeyRoleV1NamePostIncidentFlowOptOut              APIKeyRoleV1Name = "post_incident_flow_opt_out"
 	APIKeyRoleV1NamePostmortemsManage                   APIKeyRoleV1Name = "postmortems_manage"
+	APIKeyRoleV1NamePrivateEscalationWorkflowsEditor    APIKeyRoleV1Name = "private_escalation_workflows_editor"
 	APIKeyRoleV1NamePrivateWorkflowsEditor              APIKeyRoleV1Name = "private_workflows_editor"
 	APIKeyRoleV1NameScheduleOverridesEditor             APIKeyRoleV1Name = "schedule_overrides_editor"
 	APIKeyRoleV1NameSchedulesEditor                     APIKeyRoleV1Name = "schedules_editor"
@@ -91,6 +92,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 		return true
 	case APIKeyRoleV1NamePostmortemsManage:
 		return true
+	case APIKeyRoleV1NamePrivateEscalationWorkflowsEditor:
+		return true
 	case APIKeyRoleV1NamePrivateWorkflowsEditor:
 		return true
 	case APIKeyRoleV1NameScheduleOverridesEditor:
@@ -119,6 +122,7 @@ const (
 	APIKeyTeamRoleV1NameApiKeysManage           APIKeyTeamRoleV1Name = "api_keys_manage"
 	APIKeyTeamRoleV1NameEscalationCreator       APIKeyTeamRoleV1Name = "escalation_creator"
 	APIKeyTeamRoleV1NameOnCallEditor            APIKeyTeamRoleV1Name = "on_call_editor"
+	APIKeyTeamRoleV1NamePrivateWorkflowsEditor  APIKeyTeamRoleV1Name = "private_workflows_editor"
 	APIKeyTeamRoleV1NameScheduleOverridesEditor APIKeyTeamRoleV1Name = "schedule_overrides_editor"
 	APIKeyTeamRoleV1NameSchedulesEditor         APIKeyTeamRoleV1Name = "schedules_editor"
 	APIKeyTeamRoleV1NameSchedulesReader         APIKeyTeamRoleV1Name = "schedules_reader"
@@ -133,6 +137,8 @@ func (e APIKeyTeamRoleV1Name) Valid() bool {
 	case APIKeyTeamRoleV1NameEscalationCreator:
 		return true
 	case APIKeyTeamRoleV1NameOnCallEditor:
+		return true
+	case APIKeyTeamRoleV1NamePrivateWorkflowsEditor:
 		return true
 	case APIKeyTeamRoleV1NameScheduleOverridesEditor:
 		return true
@@ -168,6 +174,7 @@ const (
 	APIKeysCreatePayloadV1RoleNamesOnCallViewer                        APIKeysCreatePayloadV1RoleNames = "on_call_viewer"
 	APIKeysCreatePayloadV1RoleNamesPostIncidentFlowOptOut              APIKeysCreatePayloadV1RoleNames = "post_incident_flow_opt_out"
 	APIKeysCreatePayloadV1RoleNamesPostmortemsManage                   APIKeysCreatePayloadV1RoleNames = "postmortems_manage"
+	APIKeysCreatePayloadV1RoleNamesPrivateEscalationWorkflowsEditor    APIKeysCreatePayloadV1RoleNames = "private_escalation_workflows_editor"
 	APIKeysCreatePayloadV1RoleNamesPrivateWorkflowsEditor              APIKeysCreatePayloadV1RoleNames = "private_workflows_editor"
 	APIKeysCreatePayloadV1RoleNamesScheduleOverridesEditor             APIKeysCreatePayloadV1RoleNames = "schedule_overrides_editor"
 	APIKeysCreatePayloadV1RoleNamesSchedulesEditor                     APIKeysCreatePayloadV1RoleNames = "schedules_editor"
@@ -220,6 +227,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 		return true
 	case APIKeysCreatePayloadV1RoleNamesPostmortemsManage:
 		return true
+	case APIKeysCreatePayloadV1RoleNamesPrivateEscalationWorkflowsEditor:
+		return true
 	case APIKeysCreatePayloadV1RoleNamesPrivateWorkflowsEditor:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesScheduleOverridesEditor:
@@ -248,6 +257,7 @@ const (
 	APIKeysCreatePayloadV1TeamRoleNamesApiKeysManage           APIKeysCreatePayloadV1TeamRoleNames = "api_keys_manage"
 	APIKeysCreatePayloadV1TeamRoleNamesEscalationCreator       APIKeysCreatePayloadV1TeamRoleNames = "escalation_creator"
 	APIKeysCreatePayloadV1TeamRoleNamesOnCallEditor            APIKeysCreatePayloadV1TeamRoleNames = "on_call_editor"
+	APIKeysCreatePayloadV1TeamRoleNamesPrivateWorkflowsEditor  APIKeysCreatePayloadV1TeamRoleNames = "private_workflows_editor"
 	APIKeysCreatePayloadV1TeamRoleNamesScheduleOverridesEditor APIKeysCreatePayloadV1TeamRoleNames = "schedule_overrides_editor"
 	APIKeysCreatePayloadV1TeamRoleNamesSchedulesEditor         APIKeysCreatePayloadV1TeamRoleNames = "schedules_editor"
 	APIKeysCreatePayloadV1TeamRoleNamesSchedulesReader         APIKeysCreatePayloadV1TeamRoleNames = "schedules_reader"
@@ -262,6 +272,8 @@ func (e APIKeysCreatePayloadV1TeamRoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1TeamRoleNamesEscalationCreator:
 		return true
 	case APIKeysCreatePayloadV1TeamRoleNamesOnCallEditor:
+		return true
+	case APIKeysCreatePayloadV1TeamRoleNamesPrivateWorkflowsEditor:
 		return true
 	case APIKeysCreatePayloadV1TeamRoleNamesScheduleOverridesEditor:
 		return true
@@ -297,6 +309,7 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesOnCallViewer                        APIKeysUpdatePayloadV1RoleNames = "on_call_viewer"
 	APIKeysUpdatePayloadV1RoleNamesPostIncidentFlowOptOut              APIKeysUpdatePayloadV1RoleNames = "post_incident_flow_opt_out"
 	APIKeysUpdatePayloadV1RoleNamesPostmortemsManage                   APIKeysUpdatePayloadV1RoleNames = "postmortems_manage"
+	APIKeysUpdatePayloadV1RoleNamesPrivateEscalationWorkflowsEditor    APIKeysUpdatePayloadV1RoleNames = "private_escalation_workflows_editor"
 	APIKeysUpdatePayloadV1RoleNamesPrivateWorkflowsEditor              APIKeysUpdatePayloadV1RoleNames = "private_workflows_editor"
 	APIKeysUpdatePayloadV1RoleNamesScheduleOverridesEditor             APIKeysUpdatePayloadV1RoleNames = "schedule_overrides_editor"
 	APIKeysUpdatePayloadV1RoleNamesSchedulesEditor                     APIKeysUpdatePayloadV1RoleNames = "schedules_editor"
@@ -349,6 +362,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesPostmortemsManage:
 		return true
+	case APIKeysUpdatePayloadV1RoleNamesPrivateEscalationWorkflowsEditor:
+		return true
 	case APIKeysUpdatePayloadV1RoleNamesPrivateWorkflowsEditor:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesScheduleOverridesEditor:
@@ -377,6 +392,7 @@ const (
 	APIKeysUpdatePayloadV1TeamRoleNamesApiKeysManage           APIKeysUpdatePayloadV1TeamRoleNames = "api_keys_manage"
 	APIKeysUpdatePayloadV1TeamRoleNamesEscalationCreator       APIKeysUpdatePayloadV1TeamRoleNames = "escalation_creator"
 	APIKeysUpdatePayloadV1TeamRoleNamesOnCallEditor            APIKeysUpdatePayloadV1TeamRoleNames = "on_call_editor"
+	APIKeysUpdatePayloadV1TeamRoleNamesPrivateWorkflowsEditor  APIKeysUpdatePayloadV1TeamRoleNames = "private_workflows_editor"
 	APIKeysUpdatePayloadV1TeamRoleNamesScheduleOverridesEditor APIKeysUpdatePayloadV1TeamRoleNames = "schedule_overrides_editor"
 	APIKeysUpdatePayloadV1TeamRoleNamesSchedulesEditor         APIKeysUpdatePayloadV1TeamRoleNames = "schedules_editor"
 	APIKeysUpdatePayloadV1TeamRoleNamesSchedulesReader         APIKeysUpdatePayloadV1TeamRoleNames = "schedules_reader"
@@ -391,6 +407,8 @@ func (e APIKeysUpdatePayloadV1TeamRoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1TeamRoleNamesEscalationCreator:
 		return true
 	case APIKeysUpdatePayloadV1TeamRoleNamesOnCallEditor:
+		return true
+	case APIKeysUpdatePayloadV1TeamRoleNamesPrivateWorkflowsEditor:
 		return true
 	case APIKeysUpdatePayloadV1TeamRoleNamesScheduleOverridesEditor:
 		return true
@@ -3360,6 +3378,7 @@ const (
 	IdentityV1RolesOnCallViewer                        IdentityV1Roles = "on_call_viewer"
 	IdentityV1RolesPostIncidentFlowOptOut              IdentityV1Roles = "post_incident_flow_opt_out"
 	IdentityV1RolesPostmortemsManage                   IdentityV1Roles = "postmortems_manage"
+	IdentityV1RolesPrivateEscalationWorkflowsEditor    IdentityV1Roles = "private_escalation_workflows_editor"
 	IdentityV1RolesPrivateWorkflowsEditor              IdentityV1Roles = "private_workflows_editor"
 	IdentityV1RolesScheduleOverridesEditor             IdentityV1Roles = "schedule_overrides_editor"
 	IdentityV1RolesSchedulesEditor                     IdentityV1Roles = "schedules_editor"
@@ -3412,6 +3431,8 @@ func (e IdentityV1Roles) Valid() bool {
 		return true
 	case IdentityV1RolesPostmortemsManage:
 		return true
+	case IdentityV1RolesPrivateEscalationWorkflowsEditor:
+		return true
 	case IdentityV1RolesPrivateWorkflowsEditor:
 		return true
 	case IdentityV1RolesScheduleOverridesEditor:
@@ -3440,6 +3461,7 @@ const (
 	IdentityV1TeamRolesApiKeysManage           IdentityV1TeamRoles = "api_keys_manage"
 	IdentityV1TeamRolesEscalationCreator       IdentityV1TeamRoles = "escalation_creator"
 	IdentityV1TeamRolesOnCallEditor            IdentityV1TeamRoles = "on_call_editor"
+	IdentityV1TeamRolesPrivateWorkflowsEditor  IdentityV1TeamRoles = "private_workflows_editor"
 	IdentityV1TeamRolesScheduleOverridesEditor IdentityV1TeamRoles = "schedule_overrides_editor"
 	IdentityV1TeamRolesSchedulesEditor         IdentityV1TeamRoles = "schedules_editor"
 	IdentityV1TeamRolesSchedulesReader         IdentityV1TeamRoles = "schedules_reader"
@@ -3454,6 +3476,8 @@ func (e IdentityV1TeamRoles) Valid() bool {
 	case IdentityV1TeamRolesEscalationCreator:
 		return true
 	case IdentityV1TeamRolesOnCallEditor:
+		return true
+	case IdentityV1TeamRolesPrivateWorkflowsEditor:
 		return true
 	case IdentityV1TeamRolesScheduleOverridesEditor:
 		return true
@@ -13390,6 +13414,9 @@ type AlertsV2ListParams struct {
 	// AlertSource Filter on alert source by ID. The accepted operators are 'one_of', or 'not_in'.
 	AlertSource *map[string][]string `form:"alert_source,omitempty" json:"alert_source,omitempty"`
 
+	// AlertGroupId Filter on alert group ID. Returns alerts that belong to any of the specified groups. The accepted operator is 'one_of'.
+	AlertGroupId *map[string][]string `form:"alert_group_id,omitempty" json:"alert_group_id,omitempty"`
+
 	// CreatedAt Filter on alert created at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
 	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
 
@@ -22022,6 +22049,22 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 		if params.AlertSource != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "alert_source", *params.AlertSource, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.AlertGroupId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "alert_group_id", *params.AlertGroupId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
