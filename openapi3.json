@@ -17729,6 +17729,19 @@
         },
         "type": "object"
       },
+      "AuditLogPolicyMetadataV2": {
+        "example": {
+          "run_on_private_incidents": "true"
+        },
+        "properties": {
+          "run_on_private_incidents": {
+            "description": "Whether the policy evaluates private incidents",
+            "example": "true",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "AuditLogPrivateAlertAccessAttemptedMetadataV2": {
         "example": {
           "outcome": "granted"
@@ -25741,6 +25754,88 @@
         ],
         "type": "object"
       },
+      "AuditLogsPolicyCreatedV2": {
+        "example": {
+          "action": "policy.created",
+          "actor": {
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "metadata": {
+              "user_base_role_slug": "admin",
+              "user_custom_role_slugs": "engineering,security"
+            },
+            "name": "John Doe",
+            "type": "user"
+          },
+          "context": {
+            "location": "1.2.3.4",
+            "user_agent": "Chrome/91.0.4472.114"
+          },
+          "metadata": {
+            "run_on_private_incidents": "true"
+          },
+          "occurred_at": "2021-08-17T13:28:57.801578Z",
+          "targets": [
+            {
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Follow-ups must be closed within 3 weeks",
+              "type": "policy"
+            }
+          ],
+          "version": 2
+        },
+        "properties": {
+          "action": {
+            "description": "The type of log entry that this is",
+            "example": "policy.created",
+            "type": "string"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/AuditLogActorV2"
+          },
+          "context": {
+            "$ref": "#/components/schemas/AuditLogEntryContextV2"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/AuditLogPolicyMetadataV2"
+          },
+          "occurred_at": {
+            "description": "When the entry occurred",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "targets": {
+            "description": "The custom field that was created",
+            "example": [
+              {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Follow-ups must be closed within 3 weeks",
+                "type": "policy"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/AuditLogTargetV2"
+            },
+            "type": "array"
+          },
+          "version": {
+            "description": "Which version the event is",
+            "example": 2,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "action",
+          "occurred_at",
+          "version",
+          "actor",
+          "targets",
+          "context",
+          "metadata"
+        ],
+        "type": "object"
+      },
       "AuditLogsPolicyDeletedV1": {
         "example": {
           "action": "policy.deleted",
@@ -25888,6 +25983,88 @@
           "actor",
           "targets",
           "context"
+        ],
+        "type": "object"
+      },
+      "AuditLogsPolicyUpdatedV2": {
+        "example": {
+          "action": "policy.updated",
+          "actor": {
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "metadata": {
+              "user_base_role_slug": "admin",
+              "user_custom_role_slugs": "engineering,security"
+            },
+            "name": "John Doe",
+            "type": "user"
+          },
+          "context": {
+            "location": "1.2.3.4",
+            "user_agent": "Chrome/91.0.4472.114"
+          },
+          "metadata": {
+            "run_on_private_incidents": "true"
+          },
+          "occurred_at": "2021-08-17T13:28:57.801578Z",
+          "targets": [
+            {
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Follow-ups must be closed within 3 weeks",
+              "type": "policy"
+            }
+          ],
+          "version": 2
+        },
+        "properties": {
+          "action": {
+            "description": "The type of log entry that this is",
+            "example": "policy.updated",
+            "type": "string"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/AuditLogActorV2"
+          },
+          "context": {
+            "$ref": "#/components/schemas/AuditLogEntryContextV2"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/AuditLogPolicyMetadataV2"
+          },
+          "occurred_at": {
+            "description": "When the entry occurred",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "targets": {
+            "description": "The custom field that was created",
+            "example": [
+              {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Follow-ups must be closed within 3 weeks",
+                "type": "policy"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/AuditLogTargetV2"
+            },
+            "type": "array"
+          },
+          "version": {
+            "description": "Which version the event is",
+            "example": 2,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "action",
+          "occurred_at",
+          "version",
+          "actor",
+          "targets",
+          "context",
+          "metadata"
         ],
         "type": "object"
       },
@@ -100337,6 +100514,55 @@
         ]
       }
     },
+    "/x-audit-logs/policy.created.2": {
+      "get": {
+        "description": "This entry is created whenever a policy is created",
+        "operationId": "PolicyCreatedV2",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "action": "policy.created",
+                  "actor": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "metadata": {
+                      "user_base_role_slug": "admin",
+                      "user_custom_role_slugs": "engineering,security"
+                    },
+                    "name": "John Doe",
+                    "type": "user"
+                  },
+                  "context": {
+                    "location": "1.2.3.4",
+                    "user_agent": "Chrome/91.0.4472.114"
+                  },
+                  "metadata": {
+                    "run_on_private_incidents": "true"
+                  },
+                  "occurred_at": "2021-08-17T13:28:57.801578Z",
+                  "targets": [
+                    {
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Follow-ups must be closed within 3 weeks",
+                      "type": "policy"
+                    }
+                  ],
+                  "version": 2
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AuditLogsPolicyCreatedV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "tags": [
+          "Audit logs"
+        ]
+      }
+    },
     "/x-audit-logs/policy.deleted.1": {
       "get": {
         "description": "This entry is created whenever a policy is deleted",
@@ -100418,6 +100644,55 @@
                 },
                 "schema": {
                   "$ref": "#/components/schemas/AuditLogsPolicyUpdatedV1"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "tags": [
+          "Audit logs"
+        ]
+      }
+    },
+    "/x-audit-logs/policy.updated.2": {
+      "get": {
+        "description": "This entry is created whenever a policy is updated",
+        "operationId": "PolicyUpdatedV2",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "action": "policy.updated",
+                  "actor": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "metadata": {
+                      "user_base_role_slug": "admin",
+                      "user_custom_role_slugs": "engineering,security"
+                    },
+                    "name": "John Doe",
+                    "type": "user"
+                  },
+                  "context": {
+                    "location": "1.2.3.4",
+                    "user_agent": "Chrome/91.0.4472.114"
+                  },
+                  "metadata": {
+                    "run_on_private_incidents": "true"
+                  },
+                  "occurred_at": "2021-08-17T13:28:57.801578Z",
+                  "targets": [
+                    {
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Follow-ups must be closed within 3 weeks",
+                      "type": "policy"
+                    }
+                  ],
+                  "version": 2
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AuditLogsPolicyUpdatedV2"
                 }
               }
             },
