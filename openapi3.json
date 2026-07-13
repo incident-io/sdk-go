@@ -17445,6 +17445,29 @@
         ],
         "type": "object"
       },
+      "AuditLogAnnouncementPostTemplateOwningTeamsMetadataV2": {
+        "example": {
+          "after_owning_team_ids": "01FCNDV6P870EA6S7TK1DSYDG0,01FCNDV6P870EA6S7TK1DSYDG2",
+          "before_owning_team_ids": "01FCNDV6P870EA6S7TK1DSYDG0,01FCNDV6P870EA6S7TK1DSYDG1"
+        },
+        "properties": {
+          "after_owning_team_ids": {
+            "description": "Catalog entry IDs of the owning teams after the change, comma separated",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0,01FCNDV6P870EA6S7TK1DSYDG2",
+            "type": "string"
+          },
+          "before_owning_team_ids": {
+            "description": "Catalog entry IDs of the owning teams before the change, comma separated",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0,01FCNDV6P870EA6S7TK1DSYDG1",
+            "type": "string"
+          }
+        },
+        "required": [
+          "before_owning_team_ids",
+          "after_owning_team_ids"
+        ],
+        "type": "object"
+      },
       "AuditLogCatalogAttributeUpdatedMetadataV2": {
         "example": {
           "after_values": [
@@ -19664,6 +19687,89 @@
         ],
         "type": "object"
       },
+      "AuditLogsAnnouncementPostTemplateCreatedV2": {
+        "example": {
+          "action": "announcement_post_template.created",
+          "actor": {
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "metadata": {
+              "user_base_role_slug": "admin",
+              "user_custom_role_slugs": "engineering,security"
+            },
+            "name": "John Doe",
+            "type": "user"
+          },
+          "context": {
+            "location": "1.2.3.4",
+            "user_agent": "Chrome/91.0.4472.114"
+          },
+          "metadata": {
+            "after_owning_team_ids": "01FCNDV6P870EA6S7TK1DSYDG0,01FCNDV6P870EA6S7TK1DSYDG2",
+            "before_owning_team_ids": "01FCNDV6P870EA6S7TK1DSYDG0,01FCNDV6P870EA6S7TK1DSYDG1"
+          },
+          "occurred_at": "2021-08-17T13:28:57.801578Z",
+          "targets": [
+            {
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Major incident",
+              "type": "announcement_post_template"
+            }
+          ],
+          "version": 2
+        },
+        "properties": {
+          "action": {
+            "description": "The type of log entry that this is",
+            "example": "announcement_post_template.created",
+            "type": "string"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/AuditLogActorV2"
+          },
+          "context": {
+            "$ref": "#/components/schemas/AuditLogEntryContextV2"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/AuditLogAnnouncementPostTemplateOwningTeamsMetadataV2"
+          },
+          "occurred_at": {
+            "description": "When the entry occurred",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "targets": {
+            "description": "The custom field that was created",
+            "example": [
+              {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Major incident",
+                "type": "announcement_post_template"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/AuditLogTargetV2"
+            },
+            "type": "array"
+          },
+          "version": {
+            "description": "Which version the event is",
+            "example": 2,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "action",
+          "occurred_at",
+          "version",
+          "actor",
+          "targets",
+          "context",
+          "metadata"
+        ],
+        "type": "object"
+      },
       "AuditLogsAnnouncementPostTemplateDeletedV1": {
         "example": {
           "action": "announcement_post_template.deleted",
@@ -19886,6 +19992,89 @@
           "actor",
           "targets",
           "context"
+        ],
+        "type": "object"
+      },
+      "AuditLogsAnnouncementPostTemplateUpdatedV2": {
+        "example": {
+          "action": "announcement_post_template.updated",
+          "actor": {
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "metadata": {
+              "user_base_role_slug": "admin",
+              "user_custom_role_slugs": "engineering,security"
+            },
+            "name": "John Doe",
+            "type": "user"
+          },
+          "context": {
+            "location": "1.2.3.4",
+            "user_agent": "Chrome/91.0.4472.114"
+          },
+          "metadata": {
+            "after_owning_team_ids": "01FCNDV6P870EA6S7TK1DSYDG0,01FCNDV6P870EA6S7TK1DSYDG2",
+            "before_owning_team_ids": "01FCNDV6P870EA6S7TK1DSYDG0,01FCNDV6P870EA6S7TK1DSYDG1"
+          },
+          "occurred_at": "2021-08-17T13:28:57.801578Z",
+          "targets": [
+            {
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Major incident",
+              "type": "announcement_post_template"
+            }
+          ],
+          "version": 2
+        },
+        "properties": {
+          "action": {
+            "description": "The type of log entry that this is",
+            "example": "announcement_post_template.updated",
+            "type": "string"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/AuditLogActorV2"
+          },
+          "context": {
+            "$ref": "#/components/schemas/AuditLogEntryContextV2"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/AuditLogAnnouncementPostTemplateOwningTeamsMetadataV2"
+          },
+          "occurred_at": {
+            "description": "When the entry occurred",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "targets": {
+            "description": "The custom field that was created",
+            "example": [
+              {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Major incident",
+                "type": "announcement_post_template"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/AuditLogTargetV2"
+            },
+            "type": "array"
+          },
+          "version": {
+            "description": "Which version the event is",
+            "example": 2,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "action",
+          "occurred_at",
+          "version",
+          "actor",
+          "targets",
+          "context",
+          "metadata"
         ],
         "type": "object"
       },
@@ -95958,6 +96147,56 @@
         ]
       }
     },
+    "/x-audit-logs/announcement_post_template.created.2": {
+      "get": {
+        "description": "This entry is created whenever an announcement post template is created",
+        "operationId": "AnnouncementPostTemplateCreatedV2",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "action": "announcement_post_template.created",
+                  "actor": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "metadata": {
+                      "user_base_role_slug": "admin",
+                      "user_custom_role_slugs": "engineering,security"
+                    },
+                    "name": "John Doe",
+                    "type": "user"
+                  },
+                  "context": {
+                    "location": "1.2.3.4",
+                    "user_agent": "Chrome/91.0.4472.114"
+                  },
+                  "metadata": {
+                    "after_owning_team_ids": "01FCNDV6P870EA6S7TK1DSYDG0,01FCNDV6P870EA6S7TK1DSYDG2",
+                    "before_owning_team_ids": "01FCNDV6P870EA6S7TK1DSYDG0,01FCNDV6P870EA6S7TK1DSYDG1"
+                  },
+                  "occurred_at": "2021-08-17T13:28:57.801578Z",
+                  "targets": [
+                    {
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Major incident",
+                      "type": "announcement_post_template"
+                    }
+                  ],
+                  "version": 2
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AuditLogsAnnouncementPostTemplateCreatedV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "tags": [
+          "Audit logs"
+        ]
+      }
+    },
     "/x-audit-logs/announcement_post_template.deleted.1": {
       "get": {
         "description": "This entry is created whenever an announcement post template is deleted",
@@ -96085,6 +96324,56 @@
                 },
                 "schema": {
                   "$ref": "#/components/schemas/AuditLogsAnnouncementPostTemplateUpdatedV1"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "tags": [
+          "Audit logs"
+        ]
+      }
+    },
+    "/x-audit-logs/announcement_post_template.updated.2": {
+      "get": {
+        "description": "This entry is created whenever an announcement post template is updated",
+        "operationId": "AnnouncementPostTemplateUpdatedV2",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "action": "announcement_post_template.updated",
+                  "actor": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "metadata": {
+                      "user_base_role_slug": "admin",
+                      "user_custom_role_slugs": "engineering,security"
+                    },
+                    "name": "John Doe",
+                    "type": "user"
+                  },
+                  "context": {
+                    "location": "1.2.3.4",
+                    "user_agent": "Chrome/91.0.4472.114"
+                  },
+                  "metadata": {
+                    "after_owning_team_ids": "01FCNDV6P870EA6S7TK1DSYDG0,01FCNDV6P870EA6S7TK1DSYDG2",
+                    "before_owning_team_ids": "01FCNDV6P870EA6S7TK1DSYDG0,01FCNDV6P870EA6S7TK1DSYDG1"
+                  },
+                  "occurred_at": "2021-08-17T13:28:57.801578Z",
+                  "targets": [
+                    {
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Major incident",
+                      "type": "announcement_post_template"
+                    }
+                  ],
+                  "version": 2
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AuditLogsAnnouncementPostTemplateUpdatedV2"
                 }
               }
             },
