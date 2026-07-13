@@ -4695,6 +4695,30 @@ func (e StatusPageMaintenanceV2MaintenanceStatus) Valid() bool {
 	}
 }
 
+// Defines values for StatusPageRetrospectiveIncidentUpdateV2IncidentStatus.
+const (
+	StatusPageRetrospectiveIncidentUpdateV2IncidentStatusIdentified    StatusPageRetrospectiveIncidentUpdateV2IncidentStatus = "identified"
+	StatusPageRetrospectiveIncidentUpdateV2IncidentStatusInvestigating StatusPageRetrospectiveIncidentUpdateV2IncidentStatus = "investigating"
+	StatusPageRetrospectiveIncidentUpdateV2IncidentStatusMonitoring    StatusPageRetrospectiveIncidentUpdateV2IncidentStatus = "monitoring"
+	StatusPageRetrospectiveIncidentUpdateV2IncidentStatusResolved      StatusPageRetrospectiveIncidentUpdateV2IncidentStatus = "resolved"
+)
+
+// Valid indicates whether the value is a known member of the StatusPageRetrospectiveIncidentUpdateV2IncidentStatus enum.
+func (e StatusPageRetrospectiveIncidentUpdateV2IncidentStatus) Valid() bool {
+	switch e {
+	case StatusPageRetrospectiveIncidentUpdateV2IncidentStatusIdentified:
+		return true
+	case StatusPageRetrospectiveIncidentUpdateV2IncidentStatusInvestigating:
+		return true
+	case StatusPageRetrospectiveIncidentUpdateV2IncidentStatusMonitoring:
+		return true
+	case StatusPageRetrospectiveIncidentUpdateV2IncidentStatusResolved:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for StatusPagesCreateStatusPageIncidentPayloadV2IncidentStatus.
 const (
 	StatusPagesCreateStatusPageIncidentPayloadV2IncidentStatusIdentified    StatusPagesCreateStatusPageIncidentPayloadV2IncidentStatus = "identified"
@@ -4721,22 +4745,22 @@ func (e StatusPagesCreateStatusPageIncidentPayloadV2IncidentStatus) Valid() bool
 
 // Defines values for StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus.
 const (
-	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusIdentified    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "identified"
-	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusInvestigating StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "investigating"
-	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusMonitoring    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "monitoring"
-	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusResolved      StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "resolved"
+	Identified    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "identified"
+	Investigating StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "investigating"
+	Monitoring    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "monitoring"
+	Resolved      StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "resolved"
 )
 
 // Valid indicates whether the value is a known member of the StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus enum.
 func (e StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus) Valid() bool {
 	switch e {
-	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusIdentified:
+	case Identified:
 		return true
-	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusInvestigating:
+	case Investigating:
 		return true
-	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusMonitoring:
+	case Monitoring:
 		return true
-	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusResolved:
+	case Resolved:
 		return true
 	default:
 		return false
@@ -4989,6 +5013,27 @@ func (e WeekdayIntervalV2Weekday) Valid() bool {
 	}
 }
 
+// Defines values for WorkflowSlimV2PrivateIncidentScope.
+const (
+	WorkflowSlimV2PrivateIncidentScopeAll         WorkflowSlimV2PrivateIncidentScope = "all"
+	WorkflowSlimV2PrivateIncidentScopeNone        WorkflowSlimV2PrivateIncidentScope = "none"
+	WorkflowSlimV2PrivateIncidentScopeOwningTeams WorkflowSlimV2PrivateIncidentScope = "owning_teams"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowSlimV2PrivateIncidentScope enum.
+func (e WorkflowSlimV2PrivateIncidentScope) Valid() bool {
+	switch e {
+	case WorkflowSlimV2PrivateIncidentScopeAll:
+		return true
+	case WorkflowSlimV2PrivateIncidentScopeNone:
+		return true
+	case WorkflowSlimV2PrivateIncidentScopeOwningTeams:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for WorkflowSlimV2RunsOnIncidentModes.
 const (
 	WorkflowSlimV2RunsOnIncidentModesRetrospective WorkflowSlimV2RunsOnIncidentModes = "retrospective"
@@ -5046,6 +5091,27 @@ func (e WorkflowSlimV2State) Valid() bool {
 	case WorkflowSlimV2StateDraft:
 		return true
 	case WorkflowSlimV2StateError:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WorkflowV2PrivateIncidentScope.
+const (
+	WorkflowV2PrivateIncidentScopeAll         WorkflowV2PrivateIncidentScope = "all"
+	WorkflowV2PrivateIncidentScopeNone        WorkflowV2PrivateIncidentScope = "none"
+	WorkflowV2PrivateIncidentScopeOwningTeams WorkflowV2PrivateIncidentScope = "owning_teams"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowV2PrivateIncidentScope enum.
+func (e WorkflowV2PrivateIncidentScope) Valid() bool {
+	switch e {
+	case WorkflowV2PrivateIncidentScopeAll:
+		return true
+	case WorkflowV2PrivateIncidentScopeNone:
+		return true
+	case WorkflowV2PrivateIncidentScopeOwningTeams:
 		return true
 	default:
 		return false
@@ -5115,6 +5181,27 @@ func (e WorkflowV2State) Valid() bool {
 	}
 }
 
+// Defines values for WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope.
+const (
+	WorkflowsCreateWorkflowPayloadV2PrivateIncidentScopeAll         WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope = "all"
+	WorkflowsCreateWorkflowPayloadV2PrivateIncidentScopeNone        WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope = "none"
+	WorkflowsCreateWorkflowPayloadV2PrivateIncidentScopeOwningTeams WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope = "owning_teams"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope enum.
+func (e WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope) Valid() bool {
+	switch e {
+	case WorkflowsCreateWorkflowPayloadV2PrivateIncidentScopeAll:
+		return true
+	case WorkflowsCreateWorkflowPayloadV2PrivateIncidentScopeNone:
+		return true
+	case WorkflowsCreateWorkflowPayloadV2PrivateIncidentScopeOwningTeams:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for WorkflowsCreateWorkflowPayloadV2RunsOnIncidentModes.
 const (
 	WorkflowsCreateWorkflowPayloadV2RunsOnIncidentModesRetrospective WorkflowsCreateWorkflowPayloadV2RunsOnIncidentModes = "retrospective"
@@ -5172,6 +5259,27 @@ func (e WorkflowsCreateWorkflowPayloadV2State) Valid() bool {
 	case WorkflowsCreateWorkflowPayloadV2StateDraft:
 		return true
 	case WorkflowsCreateWorkflowPayloadV2StateError:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope.
+const (
+	WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScopeAll         WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope = "all"
+	WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScopeNone        WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope = "none"
+	WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScopeOwningTeams WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope = "owning_teams"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope enum.
+func (e WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope) Valid() bool {
+	switch e {
+	case WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScopeAll:
+		return true
+	case WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScopeNone:
+		return true
+	case WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScopeOwningTeams:
 		return true
 	default:
 		return false
@@ -12294,6 +12402,24 @@ type StatusPageMaintenanceV2 struct {
 // StatusPageMaintenanceV2MaintenanceStatus Current status for this maintenance window
 type StatusPageMaintenanceV2MaintenanceStatus string
 
+// StatusPageRetrospectiveIncidentUpdateV2 A single update in the reconstructed timeline of a retrospective status page incident.
+type StatusPageRetrospectiveIncidentUpdateV2 struct {
+	// ComponentStatuses An array of mappings from component ID to component status at the time this update was published
+	ComponentStatuses *[]StatusPageIncidentAffectedComponentV2 `json:"component_statuses,omitempty"`
+
+	// IncidentStatus Current status for this incident
+	IncidentStatus StatusPageRetrospectiveIncidentUpdateV2IncidentStatus `json:"incident_status"`
+
+	// Message Markdown update on what's changed about this status page incident
+	Message string `json:"message"`
+
+	// PublishedAt When this update was published. Must be in the past.
+	PublishedAt time.Time `json:"published_at"`
+}
+
+// StatusPageRetrospectiveIncidentUpdateV2IncidentStatus Current status for this incident
+type StatusPageRetrospectiveIncidentUpdateV2IncidentStatus string
+
 // StatusPageStructureComponentV2 defines model for StatusPageStructureComponentV2.
 type StatusPageStructureComponentV2 struct {
 	// ComponentId The ID of the affected component. This may be found by calling the ShowStatusPageStructure endpoint.
@@ -12481,6 +12607,26 @@ type StatusPagesCreateStatusPageMaintenanceUpdatePayloadV2MaintenanceStatus stri
 // StatusPagesCreateStatusPageMaintenanceUpdateResultV2 defines model for StatusPagesCreateStatusPageMaintenanceUpdateResultV2.
 type StatusPagesCreateStatusPageMaintenanceUpdateResultV2 struct {
 	StatusPageMaintenanceUpdate *StatusPageMaintenanceUpdateV2 `json:"status_page_maintenance_update,omitempty"`
+}
+
+// StatusPagesCreateStatusPageRetrospectiveIncidentPayloadV2 defines model for StatusPagesCreateStatusPageRetrospectiveIncidentPayloadV2.
+type StatusPagesCreateStatusPageRetrospectiveIncidentPayloadV2 struct {
+	// IdempotencyKey A unique key to de-duplicate requests. If you send a request with an idempotency_key that was already used, the original response will be returned.
+	IdempotencyKey string `json:"idempotency_key"`
+
+	// Name A title for the incident
+	Name string `json:"name"`
+
+	// StatusPageId ID of the status page. You can find this by calling the ListStatusPages endpoint.
+	StatusPageId string `json:"status_page_id"`
+
+	// Updates The reconstructed timeline of updates for this incident, ordered chronologically (earliest first). The final update must set incident_status to "resolved".
+	Updates []StatusPageRetrospectiveIncidentUpdateV2 `json:"updates"`
+}
+
+// StatusPagesCreateStatusPageRetrospectiveIncidentResultV2 defines model for StatusPagesCreateStatusPageRetrospectiveIncidentResultV2.
+type StatusPagesCreateStatusPageRetrospectiveIncidentResultV2 struct {
+	StatusPageIncident *StatusPageIncidentV2 `json:"status_page_incident,omitempty"`
 }
 
 // StatusPagesListResponseIncidentsResultV1 defines model for StatusPagesListResponseIncidentsResultV1.
@@ -12960,7 +13106,7 @@ type WorkflowSlimV2 struct {
 	// IncludePrivateEscalations Whether to include private escalations
 	IncludePrivateEscalations bool `json:"include_private_escalations"`
 
-	// IncludePrivateIncidents Whether to include private incidents
+	// IncludePrivateIncidents DEPRECATED: use `private_incident_scope` instead. `true` when the workflow runs on private incidents (a `private_incident_scope` of `all` or `owning_teams`), `false` when the scope is `none`.
 	IncludePrivateIncidents bool `json:"include_private_incidents"`
 
 	// Name Name provided by the user when creating the workflow
@@ -12971,6 +13117,9 @@ type WorkflowSlimV2 struct {
 
 	// OwningTeamIds IDs of the teams that own this workflow
 	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// PrivateIncidentScope Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none
+	PrivateIncidentScope WorkflowSlimV2PrivateIncidentScope `json:"private_incident_scope"`
 
 	// RunsFrom The time from which this workflow will run on incidents
 	RunsFrom *time.Time `json:"runs_from,omitempty"`
@@ -12994,6 +13143,9 @@ type WorkflowSlimV2 struct {
 	// Version Revision of the workflow, uniquely identifying it's version
 	Version int64 `json:"version"`
 }
+
+// WorkflowSlimV2PrivateIncidentScope Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none
+type WorkflowSlimV2PrivateIncidentScope string
 
 // WorkflowSlimV2RunsOnIncidentModes Incident mode that workflows can run on
 type WorkflowSlimV2RunsOnIncidentModes string
@@ -13028,7 +13180,7 @@ type WorkflowV2 struct {
 	// IncludePrivateEscalations Whether to include private escalations
 	IncludePrivateEscalations bool `json:"include_private_escalations"`
 
-	// IncludePrivateIncidents Whether to include private incidents
+	// IncludePrivateIncidents DEPRECATED: use `private_incident_scope` instead. `true` when the workflow runs on private incidents (a `private_incident_scope` of `all` or `owning_teams`), `false` when the scope is `none`.
 	IncludePrivateIncidents bool `json:"include_private_incidents"`
 
 	// Name Name provided by the user when creating the workflow
@@ -13039,6 +13191,9 @@ type WorkflowV2 struct {
 
 	// OwningTeamIds IDs of the teams that own this workflow
 	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// PrivateIncidentScope Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none
+	PrivateIncidentScope WorkflowV2PrivateIncidentScope `json:"private_incident_scope"`
 
 	// RunsFrom The time from which this workflow will run on incidents
 	RunsFrom *time.Time `json:"runs_from,omitempty"`
@@ -13062,6 +13217,9 @@ type WorkflowV2 struct {
 	// Version Revision of the workflow, uniquely identifying it's version
 	Version int64 `json:"version"`
 }
+
+// WorkflowV2PrivateIncidentScope Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none
+type WorkflowV2PrivateIncidentScope string
 
 // WorkflowV2RunsOnIncidentModes Incident mode that workflows can run on
 type WorkflowV2RunsOnIncidentModes string
@@ -13096,8 +13254,8 @@ type WorkflowsCreateWorkflowPayloadV2 struct {
 	// IncludePrivateEscalations Whether to include private escalations
 	IncludePrivateEscalations *bool `json:"include_private_escalations,omitempty"`
 
-	// IncludePrivateIncidents Whether to include private incidents
-	IncludePrivateIncidents bool `json:"include_private_incidents"`
+	// IncludePrivateIncidents DEPRECATED: use `private_incident_scope` instead. May be sent alongside `private_incident_scope` only if they agree; contradictory values return a validation error.
+	IncludePrivateIncidents *bool `json:"include_private_incidents,omitempty"`
 
 	// Name Name provided by the user when creating the workflow
 	Name string `json:"name"`
@@ -13107,6 +13265,9 @@ type WorkflowsCreateWorkflowPayloadV2 struct {
 
 	// OwningTeamIds IDs of the teams that own this workflow
 	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// PrivateIncidentScope Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none
+	PrivateIncidentScope *WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope `json:"private_incident_scope,omitempty"`
 
 	// RunsOnIncidentModes Which incident modes should this workflow run on? By default, workflows only run on standard incidents, but can also be configured to run on test and retrospective incidents.
 	RunsOnIncidentModes []WorkflowsCreateWorkflowPayloadV2RunsOnIncidentModes `json:"runs_on_incident_modes"`
@@ -13126,6 +13287,9 @@ type WorkflowsCreateWorkflowPayloadV2 struct {
 	// Trigger Trigger to set on the workflow
 	Trigger string `json:"trigger"`
 }
+
+// WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none
+type WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope string
 
 // WorkflowsCreateWorkflowPayloadV2RunsOnIncidentModes defines model for WorkflowsCreateWorkflowPayloadV2.RunsOnIncidentModes.
 type WorkflowsCreateWorkflowPayloadV2RunsOnIncidentModes string
@@ -13177,8 +13341,8 @@ type WorkflowsUpdateWorkflowPayloadV2 struct {
 	// IncludePrivateEscalations Whether to include private escalations
 	IncludePrivateEscalations *bool `json:"include_private_escalations,omitempty"`
 
-	// IncludePrivateIncidents Whether to include private incidents
-	IncludePrivateIncidents bool `json:"include_private_incidents"`
+	// IncludePrivateIncidents DEPRECATED: use `private_incident_scope` instead. May be sent alongside `private_incident_scope` only if they agree; contradictory values return a validation error.
+	IncludePrivateIncidents *bool `json:"include_private_incidents,omitempty"`
 
 	// Name Name provided by the user when creating the workflow
 	Name string `json:"name"`
@@ -13188,6 +13352,9 @@ type WorkflowsUpdateWorkflowPayloadV2 struct {
 
 	// OwningTeamIds IDs of the teams that own this workflow
 	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// PrivateIncidentScope Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none
+	PrivateIncidentScope *WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope `json:"private_incident_scope,omitempty"`
 
 	// RunsOnIncidentModes Which incident modes should this workflow run on? By default, workflows only run on standard incidents, but can also be configured to run on test and retrospective incidents.
 	RunsOnIncidentModes []WorkflowsUpdateWorkflowPayloadV2RunsOnIncidentModes `json:"runs_on_incident_modes"`
@@ -13207,6 +13374,9 @@ type WorkflowsUpdateWorkflowPayloadV2 struct {
 	// Steps Steps that are executed as part of the workflow
 	Steps []StepConfigPayloadV2 `json:"steps"`
 }
+
+// WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none
+type WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope string
 
 // WorkflowsUpdateWorkflowPayloadV2RunsOnIncidentModes defines model for WorkflowsUpdateWorkflowPayloadV2.RunsOnIncidentModes.
 type WorkflowsUpdateWorkflowPayloadV2RunsOnIncidentModes string
@@ -13957,6 +14127,9 @@ type StatusPagesV2CreateStatusPageMaintenanceUpdateJSONRequestBody = StatusPages
 // StatusPagesV2CreateStatusPageMaintenanceJSONRequestBody defines body for StatusPagesV2CreateStatusPageMaintenance for application/json ContentType.
 type StatusPagesV2CreateStatusPageMaintenanceJSONRequestBody = StatusPagesCreateStatusPageMaintenancePayloadV2
 
+// StatusPagesV2CreateStatusPageRetrospectiveIncidentJSONRequestBody defines body for StatusPagesV2CreateStatusPageRetrospectiveIncident for application/json ContentType.
+type StatusPagesV2CreateStatusPageRetrospectiveIncidentJSONRequestBody = StatusPagesCreateStatusPageRetrospectiveIncidentPayloadV2
+
 // TelemetryV2UpdateDataSourceJSONRequestBody defines body for TelemetryV2UpdateDataSource for application/json ContentType.
 type TelemetryV2UpdateDataSourceJSONRequestBody = TelemetryUpdateDataSourcePayloadV2
 
@@ -14705,6 +14878,11 @@ type ClientInterface interface {
 
 	// StatusPagesV2ShowStatusPageMaintenance request
 	StatusPagesV2ShowStatusPageMaintenance(ctx context.Context, statusPageMaintenanceId string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBody request with any body
+	StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	StatusPagesV2CreateStatusPageRetrospectiveIncident(ctx context.Context, body StatusPagesV2CreateStatusPageRetrospectiveIncidentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// StatusPagesV2ShowStatusPageStructure request
 	StatusPagesV2ShowStatusPageStructure(ctx context.Context, statusPageId string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -17719,6 +17897,30 @@ func (c *Client) StatusPagesV2CreateStatusPageMaintenance(ctx context.Context, b
 
 func (c *Client) StatusPagesV2ShowStatusPageMaintenance(ctx context.Context, statusPageMaintenanceId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newStatusPagesV2ShowStatusPageMaintenanceRequest(c.Server, statusPageMaintenanceId)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newStatusPagesV2CreateStatusPageRetrospectiveIncidentRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) StatusPagesV2CreateStatusPageRetrospectiveIncident(ctx context.Context, body StatusPagesV2CreateStatusPageRetrospectiveIncidentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newStatusPagesV2CreateStatusPageRetrospectiveIncidentRequest(c.Server, body)
 	if err != nil {
 		return nil, err
 	}
@@ -26332,6 +26534,46 @@ func newStatusPagesV2ShowStatusPageMaintenanceRequest(server string, statusPageM
 	return req, nil
 }
 
+// NewStatusPagesV2CreateStatusPageRetrospectiveIncidentRequest calls the generic StatusPagesV2CreateStatusPageRetrospectiveIncident builder with application/json body
+func newStatusPagesV2CreateStatusPageRetrospectiveIncidentRequest(server string, body StatusPagesV2CreateStatusPageRetrospectiveIncidentJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newStatusPagesV2CreateStatusPageRetrospectiveIncidentRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewStatusPagesV2CreateStatusPageRetrospectiveIncidentRequestWithBody generates requests for StatusPagesV2CreateStatusPageRetrospectiveIncident with any type of body
+func newStatusPagesV2CreateStatusPageRetrospectiveIncidentRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/status_page_retrospective_incidents")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewStatusPagesV2ShowStatusPageStructureRequest generates requests for StatusPagesV2ShowStatusPageStructure
 func newStatusPagesV2ShowStatusPageStructureRequest(server string, statusPageId string) (*http.Request, error) {
 	var err error
@@ -28525,6 +28767,11 @@ type ClientWithResponsesInterface interface {
 
 	// StatusPagesV2ShowStatusPageMaintenanceWithResponse request
 	StatusPagesV2ShowStatusPageMaintenanceWithResponse(ctx context.Context, statusPageMaintenanceId string, reqEditors ...RequestEditorFn) (*StatusPagesV2ShowStatusPageMaintenanceResponse, error)
+
+	// StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBodyWithResponse request with any body
+	StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*StatusPagesV2CreateStatusPageRetrospectiveIncidentResponse, error)
+
+	StatusPagesV2CreateStatusPageRetrospectiveIncidentWithResponse(ctx context.Context, body StatusPagesV2CreateStatusPageRetrospectiveIncidentJSONRequestBody, reqEditors ...RequestEditorFn) (*StatusPagesV2CreateStatusPageRetrospectiveIncidentResponse, error)
 
 	// StatusPagesV2ShowStatusPageStructureWithResponse request
 	StatusPagesV2ShowStatusPageStructureWithResponse(ctx context.Context, statusPageId string, reqEditors ...RequestEditorFn) (*StatusPagesV2ShowStatusPageStructureResponse, error)
@@ -32366,6 +32613,28 @@ func (r StatusPagesV2ShowStatusPageMaintenanceResponse) StatusCode() int {
 	return 0
 }
 
+type StatusPagesV2CreateStatusPageRetrospectiveIncidentResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *StatusPagesCreateStatusPageRetrospectiveIncidentResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r StatusPagesV2CreateStatusPageRetrospectiveIncidentResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r StatusPagesV2CreateStatusPageRetrospectiveIncidentResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type StatusPagesV2ShowStatusPageStructureResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -35260,6 +35529,23 @@ func (c *ClientWithResponses) StatusPagesV2ShowStatusPageMaintenanceWithResponse
 		return nil, err
 	}
 	return parseStatusPagesV2ShowStatusPageMaintenanceResponse(rsp)
+}
+
+// StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBodyWithResponse request with arbitrary body returning *StatusPagesV2CreateStatusPageRetrospectiveIncidentResponse
+func (c *ClientWithResponses) StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*StatusPagesV2CreateStatusPageRetrospectiveIncidentResponse, error) {
+	rsp, err := c.StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseStatusPagesV2CreateStatusPageRetrospectiveIncidentResponse(rsp)
+}
+
+func (c *ClientWithResponses) StatusPagesV2CreateStatusPageRetrospectiveIncidentWithResponse(ctx context.Context, body StatusPagesV2CreateStatusPageRetrospectiveIncidentJSONRequestBody, reqEditors ...RequestEditorFn) (*StatusPagesV2CreateStatusPageRetrospectiveIncidentResponse, error) {
+	rsp, err := c.StatusPagesV2CreateStatusPageRetrospectiveIncident(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseStatusPagesV2CreateStatusPageRetrospectiveIncidentResponse(rsp)
 }
 
 // StatusPagesV2ShowStatusPageStructureWithResponse request returning *StatusPagesV2ShowStatusPageStructureResponse
@@ -39808,6 +40094,32 @@ func parseStatusPagesV2ShowStatusPageMaintenanceResponse(rsp *http.Response) (*S
 			return nil, err
 		}
 		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseStatusPagesV2CreateStatusPageRetrospectiveIncidentResponse parses an HTTP response from a StatusPagesV2CreateStatusPageRetrospectiveIncidentWithResponse call
+func parseStatusPagesV2CreateStatusPageRetrospectiveIncidentResponse(rsp *http.Response) (*StatusPagesV2CreateStatusPageRetrospectiveIncidentResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &StatusPagesV2CreateStatusPageRetrospectiveIncidentResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest StatusPagesCreateStatusPageRetrospectiveIncidentResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
 
 	}
 

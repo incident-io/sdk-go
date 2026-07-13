@@ -59790,6 +59790,65 @@
         ],
         "type": "object"
       },
+      "StatusPageRetrospectiveIncidentUpdateV2": {
+        "description": "A single update in the reconstructed timeline of a retrospective status page incident.",
+        "example": {
+          "component_statuses": [
+            {
+              "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+              "component_status": "operational"
+            }
+          ],
+          "incident_status": "investigating",
+          "message": "We are currently investigating reports of elevated error rates affecting our API.",
+          "published_at": "2021-08-17T13:28:57.801578Z"
+        },
+        "properties": {
+          "component_statuses": {
+            "description": "An array of mappings from component ID to component status at the time this update was published",
+            "example": [
+              {
+                "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                "component_status": "operational"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/StatusPageIncidentAffectedComponentV2"
+            },
+            "type": "array"
+          },
+          "incident_status": {
+            "description": "Current status for this incident",
+            "enum": [
+              "investigating",
+              "identified",
+              "monitoring",
+              "resolved"
+            ],
+            "example": "investigating",
+            "type": "string",
+            "x-public-api-version": "v2"
+          },
+          "message": {
+            "description": "Markdown update on what's changed about this status page incident",
+            "example": "We are currently investigating reports of elevated error rates affecting our API.",
+            "maxLength": 4096,
+            "type": "string"
+          },
+          "published_at": {
+            "description": "When this update was published. Must be in the past.",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "incident_status",
+          "message",
+          "published_at"
+        ],
+        "type": "object"
+      },
       "StatusPageStructureComponentV2": {
         "example": {
           "component_id": "01FCNDV6P870EA6S7TK1DSYDG1",
@@ -60545,6 +60604,111 @@
         "properties": {
           "status_page_maintenance_update": {
             "$ref": "#/components/schemas/StatusPageMaintenanceUpdateV2"
+          }
+        },
+        "type": "object"
+      },
+      "StatusPagesCreateStatusPageRetrospectiveIncidentPayloadV2": {
+        "example": {
+          "idempotency_key": "historical-incident-2021-08-17",
+          "name": "Elevated API latency",
+          "status_page_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "updates": [
+            {
+              "component_statuses": [
+                {
+                  "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                  "component_status": "operational"
+                }
+              ],
+              "incident_status": "investigating",
+              "message": "We are currently investigating reports of elevated error rates affecting our API.",
+              "published_at": "2021-08-17T13:28:57.801578Z"
+            }
+          ]
+        },
+        "properties": {
+          "idempotency_key": {
+            "description": "A unique key to de-duplicate requests. If you send a request with an idempotency_key that was already used, the original response will be returned.",
+            "example": "historical-incident-2021-08-17",
+            "type": "string"
+          },
+          "name": {
+            "description": "A title for the incident",
+            "example": "Elevated API latency",
+            "maxLength": 200,
+            "type": "string"
+          },
+          "status_page_id": {
+            "description": "ID of the status page. You can find this by calling the ListStatusPages endpoint.",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "updates": {
+            "description": "The reconstructed timeline of updates for this incident, ordered chronologically (earliest first). The final update must set incident_status to \"resolved\".",
+            "example": [
+              {
+                "component_statuses": [
+                  {
+                    "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                    "component_status": "operational"
+                  }
+                ],
+                "incident_status": "investigating",
+                "message": "We are currently investigating reports of elevated error rates affecting our API.",
+                "published_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/StatusPageRetrospectiveIncidentUpdateV2"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "status_page_id",
+          "name",
+          "idempotency_key",
+          "updates"
+        ],
+        "type": "object"
+      },
+      "StatusPagesCreateStatusPageRetrospectiveIncidentResultV2": {
+        "example": {
+          "status_page_incident": {
+            "component_impacts": [
+              {
+                "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
+                "component_status": "degraded_performance",
+                "end_at": "2021-08-17T13:28:57.801578Z",
+                "start_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_status": "investigating",
+            "name": "Elevated API latency",
+            "published_at": "2021-08-17T13:28:57.801578Z",
+            "status_page_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "updates": [
+              {
+                "component_statuses": [
+                  {
+                    "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                    "component_status": "operational"
+                  }
+                ],
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "incident_status": "investigating",
+                "message": "abc123",
+                "published_at": "2021-08-17T13:28:57.801578Z",
+                "status_page_incident_id": "01FCNDV6P870EA6S7TK1DSYDG1"
+              }
+            ]
+          }
+        },
+        "properties": {
+          "status_page_incident": {
+            "$ref": "#/components/schemas/StatusPageIncidentV2"
           }
         },
         "type": "object"
@@ -65965,6 +66129,7 @@
           "owning_team_ids": [
             "01G0J1EXE7AXZ2C93K61WBPYEH"
           ],
+          "private_incident_scope": "owning_teams",
           "runs_from": "2021-08-17T13:28:57.801578Z",
           "runs_on_incident_modes": [
             "standard",
@@ -66194,7 +66359,7 @@
             "type": "boolean"
           },
           "include_private_incidents": {
-            "description": "Whether to include private incidents",
+            "description": "DEPRECATED: use `private_incident_scope` instead. `true` when the workflow runs on private incidents (a `private_incident_scope` of `all` or `owning_teams`), `false` when the scope is `none`.",
             "example": true,
             "type": "boolean"
           },
@@ -66228,6 +66393,16 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "private_incident_scope": {
+            "description": "Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none",
+            "enum": [
+              "all",
+              "owning_teams",
+              "none"
+            ],
+            "example": "owning_teams",
+            "type": "string"
           },
           "runs_from": {
             "description": "The time from which this workflow will run on incidents",
@@ -66313,6 +66488,7 @@
           "condition_groups",
           "steps",
           "include_private_incidents",
+          "private_incident_scope",
           "include_private_escalations",
           "runs_on_incident_modes",
           "continue_on_step_error",
@@ -66524,6 +66700,7 @@
           "owning_team_ids": [
             "01G0J1EXE7AXZ2C93K61WBPYEH"
           ],
+          "private_incident_scope": "owning_teams",
           "runs_from": "2021-08-17T13:28:57.801578Z",
           "runs_on_incident_modes": [
             "standard",
@@ -66789,7 +66966,7 @@
             "type": "boolean"
           },
           "include_private_incidents": {
-            "description": "Whether to include private incidents",
+            "description": "DEPRECATED: use `private_incident_scope` instead. `true` when the workflow runs on private incidents (a `private_incident_scope` of `all` or `owning_teams`), `false` when the scope is `none`.",
             "example": true,
             "type": "boolean"
           },
@@ -66823,6 +67000,16 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "private_incident_scope": {
+            "description": "Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none",
+            "enum": [
+              "all",
+              "owning_teams",
+              "none"
+            ],
+            "example": "owning_teams",
+            "type": "string"
           },
           "runs_from": {
             "description": "The time from which this workflow will run on incidents",
@@ -66926,6 +67113,7 @@
           "condition_groups",
           "steps",
           "include_private_incidents",
+          "private_incident_scope",
           "include_private_escalations",
           "runs_on_incident_modes",
           "continue_on_step_error",
@@ -67106,6 +67294,7 @@
           "owning_team_ids": [
             "01G0J1EXE7AXZ2C93K61WBPYEH"
           ],
+          "private_incident_scope": "owning_teams",
           "runs_on_incident_modes": [
             "standard",
             "test",
@@ -67341,7 +67530,7 @@
             "type": "boolean"
           },
           "include_private_incidents": {
-            "description": "Whether to include private incidents",
+            "description": "DEPRECATED: use `private_incident_scope` instead. May be sent alongside `private_incident_scope` only if they agree; contradictory values return a validation error.",
             "example": true,
             "type": "boolean"
           },
@@ -67371,6 +67560,16 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "private_incident_scope": {
+            "description": "Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none",
+            "enum": [
+              "all",
+              "owning_teams",
+              "none"
+            ],
+            "example": "owning_teams",
+            "type": "string"
           },
           "runs_on_incident_modes": {
             "description": "Which incident modes should this workflow run on? By default, workflows only run on standard incidents, but can also be configured to run on test and retrospective incidents.",
@@ -67456,7 +67655,6 @@
           "condition_groups",
           "steps",
           "expressions",
-          "include_private_incidents",
           "runs_on_incident_modes",
           "continue_on_step_error",
           "runs_on_incidents"
@@ -67674,6 +67872,7 @@
             "owning_team_ids": [
               "01G0J1EXE7AXZ2C93K61WBPYEH"
             ],
+            "private_incident_scope": "owning_teams",
             "runs_from": "2021-08-17T13:28:57.801578Z",
             "runs_on_incident_modes": [
               "standard",
@@ -67922,6 +68121,7 @@
               "owning_team_ids": [
                 "01G0J1EXE7AXZ2C93K61WBPYEH"
               ],
+              "private_incident_scope": "owning_teams",
               "runs_from": "2021-08-17T13:28:57.801578Z",
               "runs_on_incident_modes": [
                 "standard",
@@ -68139,6 +68339,7 @@
                 "owning_team_ids": [
                   "01G0J1EXE7AXZ2C93K61WBPYEH"
                 ],
+                "private_incident_scope": "owning_teams",
                 "runs_from": "2021-08-17T13:28:57.801578Z",
                 "runs_on_incident_modes": [
                   "standard",
@@ -68383,6 +68584,7 @@
             "owning_team_ids": [
               "01G0J1EXE7AXZ2C93K61WBPYEH"
             ],
+            "private_incident_scope": "owning_teams",
             "runs_from": "2021-08-17T13:28:57.801578Z",
             "runs_on_incident_modes": [
               "standard",
@@ -68609,6 +68811,7 @@
           "owning_team_ids": [
             "01G0J1EXE7AXZ2C93K61WBPYEH"
           ],
+          "private_incident_scope": "owning_teams",
           "runs_on_incident_modes": [
             "standard",
             "test",
@@ -68844,7 +69047,7 @@
             "type": "boolean"
           },
           "include_private_incidents": {
-            "description": "Whether to include private incidents",
+            "description": "DEPRECATED: use `private_incident_scope` instead. May be sent alongside `private_incident_scope` only if they agree; contradictory values return a validation error.",
             "example": true,
             "type": "boolean"
           },
@@ -68874,6 +69077,16 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "private_incident_scope": {
+            "description": "Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none",
+            "enum": [
+              "all",
+              "owning_teams",
+              "none"
+            ],
+            "example": "owning_teams",
+            "type": "string"
           },
           "runs_on_incident_modes": {
             "description": "Which incident modes should this workflow run on? By default, workflows only run on standard incidents, but can also be configured to run on test and retrospective incidents.",
@@ -68958,7 +69171,6 @@
           "condition_groups",
           "steps",
           "expressions",
-          "include_private_incidents",
           "runs_on_incident_modes",
           "continue_on_step_error",
           "runs_on_incidents"
@@ -69176,6 +69388,7 @@
             "owning_team_ids": [
               "01G0J1EXE7AXZ2C93K61WBPYEH"
             ],
+            "private_incident_scope": "owning_teams",
             "runs_from": "2021-08-17T13:28:57.801578Z",
             "runs_on_incident_modes": [
               "standard",
@@ -88973,6 +89186,98 @@
         "x-docs-resource-type": "StatusPageMaintenanceV2"
       }
     },
+    "/v2/status_page_retrospective_incidents": {
+      "post": {
+        "description": "Create a retrospective (historical) status page incident.\n\nUse this to backfill a completed incident with a reconstructed timeline of past updates, for example when migrating from another status page provider. Every update's published_at must be in the past, the updates must be ordered chronologically (earliest first), and the final update must set incident_status to \"resolved\".\n\nRetrospective incidents never notify subscribers.\n\nAs this endpoint is intended for bulk historical backfill, it has a dedicated rate limit of 5 requests per second (with a burst allowance of 300 requests) per API key. If you exceed it you'll receive a 429 response with a Retry-After header; back off and retry to resume your backfill.\n\nThis endpoint requires an API key with the \"Create status page incidents, status page maintenance windows, and publish status page updates\" scope.",
+        "operationId": "Status Pages V2#CreateStatusPageRetrospectiveIncident",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "idempotency_key": "historical-incident-2021-08-17",
+                "name": "Elevated API latency",
+                "status_page_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "updates": [
+                  {
+                    "component_statuses": [
+                      {
+                        "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                        "component_status": "operational"
+                      }
+                    ],
+                    "incident_status": "investigating",
+                    "message": "We are currently investigating reports of elevated error rates affecting our API.",
+                    "published_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                ]
+              },
+              "schema": {
+                "$ref": "#/components/schemas/StatusPagesCreateStatusPageRetrospectiveIncidentPayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "status_page_incident": {
+                    "component_impacts": [
+                      {
+                        "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
+                        "component_status": "degraded_performance",
+                        "end_at": "2021-08-17T13:28:57.801578Z",
+                        "start_at": "2021-08-17T13:28:57.801578Z"
+                      }
+                    ],
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "incident_status": "investigating",
+                    "name": "Elevated API latency",
+                    "published_at": "2021-08-17T13:28:57.801578Z",
+                    "status_page_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "updates": [
+                      {
+                        "component_statuses": [
+                          {
+                            "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                            "component_status": "operational"
+                          }
+                        ],
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "incident_status": "investigating",
+                        "message": "abc123",
+                        "published_at": "2021-08-17T13:28:57.801578Z",
+                        "status_page_incident_id": "01FCNDV6P870EA6S7TK1DSYDG1"
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/StatusPagesCreateStatusPageRetrospectiveIncidentResultV2"
+                }
+              }
+            },
+            "description": "Created response."
+          }
+        },
+        "summary": "CreateStatusPageRetrospectiveIncident Status Pages V2",
+        "tags": [
+          "Status Pages V2"
+        ],
+        "x-display-name": "Create retrospective",
+        "x-docs-display-name": "Create retrospective",
+        "x-docs-group-name": "Status Page Incidents V2",
+        "x-docs-resource-type": "StatusPageIncidentV2",
+        "x-mint": {
+          "content": "🔑 Requires the `status_pages.publish_updates` scope."
+        },
+        "x-rbac-scopes": [
+          "status_pages.publish_updates"
+        ]
+      }
+    },
     "/v2/status_page_structures/{status_page_id}": {
       "get": {
         "description": "Show the structure of a status page.\n\nThis endpoint requires a valid API key but no specific scopes. Returns the components and component groups configured on a status page. Use this to find component IDs when specifying affected components for incidents or maintenance windows.",
@@ -89817,6 +90122,7 @@
                       "owning_team_ids": [
                         "01G0J1EXE7AXZ2C93K61WBPYEH"
                       ],
+                      "private_incident_scope": "owning_teams",
                       "runs_from": "2021-08-17T13:28:57.801578Z",
                       "runs_on_incident_modes": [
                         "standard",
@@ -90040,6 +90346,7 @@
                 "owning_team_ids": [
                   "01G0J1EXE7AXZ2C93K61WBPYEH"
                 ],
+                "private_incident_scope": "owning_teams",
                 "runs_on_incident_modes": [
                   "standard",
                   "test",
@@ -90292,6 +90599,7 @@
                     "owning_team_ids": [
                       "01G0J1EXE7AXZ2C93K61WBPYEH"
                     ],
+                    "private_incident_scope": "owning_teams",
                     "runs_from": "2021-08-17T13:28:57.801578Z",
                     "runs_on_incident_modes": [
                       "standard",
@@ -90637,6 +90945,7 @@
                     "owning_team_ids": [
                       "01G0J1EXE7AXZ2C93K61WBPYEH"
                     ],
+                    "private_incident_scope": "owning_teams",
                     "runs_from": "2021-08-17T13:28:57.801578Z",
                     "runs_on_incident_modes": [
                       "standard",
@@ -90896,6 +91205,7 @@
                 "owning_team_ids": [
                   "01G0J1EXE7AXZ2C93K61WBPYEH"
                 ],
+                "private_incident_scope": "owning_teams",
                 "runs_on_incident_modes": [
                   "standard",
                   "test",
@@ -91148,6 +91458,7 @@
                     "owning_team_ids": [
                       "01G0J1EXE7AXZ2C93K61WBPYEH"
                     ],
+                    "private_incident_scope": "owning_teams",
                     "runs_from": "2021-08-17T13:28:57.801578Z",
                     "runs_on_incident_modes": [
                       "standard",
