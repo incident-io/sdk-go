@@ -3191,6 +3191,7 @@ func (e ExternalIssueReferenceV2Provider) Valid() bool {
 
 // Defines values for ExternalResourceV1ResourceType.
 const (
+	ExternalResourceV1ResourceTypeArbitraryUrl                ExternalResourceV1ResourceType = "arbitrary_url"
 	ExternalResourceV1ResourceTypeAtlassianStatuspageIncident ExternalResourceV1ResourceType = "atlassian_statuspage_incident"
 	ExternalResourceV1ResourceTypeDatadogMonitorAlert         ExternalResourceV1ResourceType = "datadog_monitor_alert"
 	ExternalResourceV1ResourceTypeGithubPullRequest           ExternalResourceV1ResourceType = "github_pull_request"
@@ -3212,6 +3213,8 @@ const (
 // Valid indicates whether the value is a known member of the ExternalResourceV1ResourceType enum.
 func (e ExternalResourceV1ResourceType) Valid() bool {
 	switch e {
+	case ExternalResourceV1ResourceTypeArbitraryUrl:
+		return true
 	case ExternalResourceV1ResourceTypeAtlassianStatuspageIncident:
 		return true
 	case ExternalResourceV1ResourceTypeDatadogMonitorAlert:
@@ -3494,6 +3497,7 @@ func (e IdentityV1TeamRoles) Valid() bool {
 
 // Defines values for IncidentAttachmentsCreatePayloadV1ResourceResourceType.
 const (
+	IncidentAttachmentsCreatePayloadV1ResourceResourceTypeArbitraryUrl                IncidentAttachmentsCreatePayloadV1ResourceResourceType = "arbitrary_url"
 	IncidentAttachmentsCreatePayloadV1ResourceResourceTypeAtlassianStatuspageIncident IncidentAttachmentsCreatePayloadV1ResourceResourceType = "atlassian_statuspage_incident"
 	IncidentAttachmentsCreatePayloadV1ResourceResourceTypeDatadogMonitorAlert         IncidentAttachmentsCreatePayloadV1ResourceResourceType = "datadog_monitor_alert"
 	IncidentAttachmentsCreatePayloadV1ResourceResourceTypeGithubPullRequest           IncidentAttachmentsCreatePayloadV1ResourceResourceType = "github_pull_request"
@@ -3515,6 +3519,8 @@ const (
 // Valid indicates whether the value is a known member of the IncidentAttachmentsCreatePayloadV1ResourceResourceType enum.
 func (e IncidentAttachmentsCreatePayloadV1ResourceResourceType) Valid() bool {
 	switch e {
+	case IncidentAttachmentsCreatePayloadV1ResourceResourceTypeArbitraryUrl:
+		return true
 	case IncidentAttachmentsCreatePayloadV1ResourceResourceTypeAtlassianStatuspageIncident:
 		return true
 	case IncidentAttachmentsCreatePayloadV1ResourceResourceTypeDatadogMonitorAlert:
@@ -5372,6 +5378,7 @@ func (e ActionsV1ListParamsIncidentMode) Valid() bool {
 
 // Defines values for IncidentAttachmentsV1ListParamsResourceType.
 const (
+	ArbitraryUrl                IncidentAttachmentsV1ListParamsResourceType = "arbitrary_url"
 	AtlassianStatuspageIncident IncidentAttachmentsV1ListParamsResourceType = "atlassian_statuspage_incident"
 	DatadogMonitorAlert         IncidentAttachmentsV1ListParamsResourceType = "datadog_monitor_alert"
 	GithubPullRequest           IncidentAttachmentsV1ListParamsResourceType = "github_pull_request"
@@ -5393,6 +5400,8 @@ const (
 // Valid indicates whether the value is a known member of the IncidentAttachmentsV1ListParamsResourceType enum.
 func (e IncidentAttachmentsV1ListParamsResourceType) Valid() bool {
 	switch e {
+	case ArbitraryUrl:
+		return true
 	case AtlassianStatuspageIncident:
 		return true
 	case DatadogMonitorAlert:
