@@ -17778,9 +17778,21 @@
       },
       "AuditLogPrivateIncidentAccessAttemptedMetadataV2": {
         "example": {
-          "outcome": "granted"
+          "access_type": "global_access",
+          "outcome": "granted",
+          "team_id": "01G0J1EXE7AXZ2C93K61WBPYEH"
         },
         "properties": {
+          "access_type": {
+            "description": "How the user was granted access to the private incident, when access was granted",
+            "enum": [
+              "global_access",
+              "direct_membership",
+              "team_membership"
+            ],
+            "example": "global_access",
+            "type": "string"
+          },
           "outcome": {
             "description": "Whether or not the user was able to access the private incident",
             "enum": [
@@ -17788,6 +17800,11 @@
               "denied"
             ],
             "example": "granted",
+            "type": "string"
+          },
+          "team_id": {
+            "description": "The ID of the team through which access was granted, when access_type is team_membership",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "type": "string"
           }
         },
@@ -27374,7 +27391,9 @@
             "user_agent": "Chrome/91.0.4472.114"
           },
           "metadata": {
-            "outcome": "granted"
+            "access_type": "global_access",
+            "outcome": "granted",
+            "team_id": "01G0J1EXE7AXZ2C93K61WBPYEH"
           },
           "occurred_at": "2021-08-17T13:28:57.801578Z",
           "targets": [
@@ -101516,7 +101535,9 @@
                     "user_agent": "Chrome/91.0.4472.114"
                   },
                   "metadata": {
-                    "outcome": "granted"
+                    "access_type": "global_access",
+                    "outcome": "granted",
+                    "team_id": "01G0J1EXE7AXZ2C93K61WBPYEH"
                   },
                   "occurred_at": "2021-08-17T13:28:57.801578Z",
                   "targets": [
