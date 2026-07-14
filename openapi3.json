@@ -105,7 +105,7 @@
       "APIKeyTeamRoleV1": {
         "example": {
           "description": "can view data, like public incidents and organization settings",
-          "name": "schedules_editor"
+          "name": "catalog_editor"
         },
         "properties": {
           "description": {
@@ -116,6 +116,7 @@
           "name": {
             "description": "API key role name that may be granted for team-scoped access",
             "enum": [
+              "catalog_editor",
               "schedules_editor",
               "schedules_reader",
               "schedule_overrides_editor",
@@ -125,7 +126,7 @@
               "workflows_editor",
               "private_workflows_editor"
             ],
-            "example": "schedules_editor",
+            "example": "catalog_editor",
             "type": "string",
             "x-public-api-version": "v1"
           }
@@ -167,7 +168,7 @@
           "team_roles": [
             {
               "description": "can view data, like public incidents and organization settings",
-              "name": "schedules_editor"
+              "name": "catalog_editor"
             }
           ],
           "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
@@ -227,7 +228,7 @@
             "example": [
               {
                 "description": "can view data, like public incidents and organization settings",
-                "name": "schedules_editor"
+                "name": "catalog_editor"
               }
             ],
             "items": {
@@ -337,6 +338,7 @@
             ],
             "items": {
               "enum": [
+                "catalog_editor",
                 "schedules_editor",
                 "schedules_reader",
                 "schedule_overrides_editor",
@@ -346,7 +348,7 @@
                 "workflows_editor",
                 "private_workflows_editor"
               ],
-              "example": "schedules_editor",
+              "example": "catalog_editor",
               "type": "string"
             },
             "type": "array"
@@ -392,7 +394,7 @@
             "team_roles": [
               {
                 "description": "can view data, like public incidents and organization settings",
-                "name": "schedules_editor"
+                "name": "catalog_editor"
               }
             ],
             "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
@@ -448,7 +450,7 @@
               "team_roles": [
                 {
                   "description": "can view data, like public incidents and organization settings",
-                  "name": "schedules_editor"
+                  "name": "catalog_editor"
                 }
               ],
               "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
@@ -492,7 +494,7 @@
                 "team_roles": [
                   {
                     "description": "can view data, like public incidents and organization settings",
-                    "name": "schedules_editor"
+                    "name": "catalog_editor"
                   }
                 ],
                 "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
@@ -565,7 +567,7 @@
             "team_roles": [
               {
                 "description": "can view data, like public incidents and organization settings",
-                "name": "schedules_editor"
+                "name": "catalog_editor"
               }
             ],
             "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
@@ -620,7 +622,7 @@
             "team_roles": [
               {
                 "description": "can view data, like public incidents and organization settings",
-                "name": "schedules_editor"
+                "name": "catalog_editor"
               }
             ],
             "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
@@ -719,6 +721,7 @@
             ],
             "items": {
               "enum": [
+                "catalog_editor",
                 "schedules_editor",
                 "schedules_reader",
                 "schedule_overrides_editor",
@@ -728,7 +731,7 @@
                 "workflows_editor",
                 "private_workflows_editor"
               ],
-              "example": "schedules_editor",
+              "example": "catalog_editor",
               "type": "string"
             },
             "type": "array"
@@ -774,7 +777,7 @@
             "team_roles": [
               {
                 "description": "can view data, like public incidents and organization settings",
-                "name": "schedules_editor"
+                "name": "catalog_editor"
               }
             ],
             "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
@@ -47658,7 +47661,7 @@
             "viewer"
           ],
           "team_roles": [
-            "schedules_editor"
+            "catalog_editor"
           ],
           "teams": [
             {
@@ -47725,11 +47728,12 @@
           "team_roles": {
             "description": "If set, these roles apply to requests that operate on resources owned by any of the teams in the 'teams' array. These are in addition to any 'roles' which are applied on all requests.",
             "example": [
-              "schedules_editor"
+              "catalog_editor"
             ],
             "items": {
               "description": "API key team roles",
               "enum": [
+                "catalog_editor",
                 "schedules_editor",
                 "schedules_reader",
                 "schedule_overrides_editor",
@@ -47739,7 +47743,7 @@
                 "workflows_editor",
                 "private_workflows_editor"
               ],
-              "example": "schedules_editor",
+              "example": "catalog_editor",
               "type": "string",
               "x-public-api-version": "v1"
             },
@@ -62929,7 +62933,7 @@
               "viewer"
             ],
             "team_roles": [
-              "schedules_editor"
+              "catalog_editor"
             ],
             "teams": [
               {
@@ -67177,6 +67181,7 @@
           }
         },
         "required": [
+          "include_private_incidents",
           "id",
           "name",
           "trigger",
@@ -67185,7 +67190,6 @@
           "expressions",
           "condition_groups",
           "steps",
-          "include_private_incidents",
           "private_incident_scope",
           "include_private_escalations",
           "runs_on_incident_modes",
@@ -67802,6 +67806,7 @@
           }
         },
         "required": [
+          "include_private_incidents",
           "id",
           "name",
           "trigger",
@@ -67810,7 +67815,6 @@
           "expressions",
           "condition_groups",
           "steps",
-          "include_private_incidents",
           "private_incident_scope",
           "include_private_escalations",
           "runs_on_incident_modes",
@@ -70845,7 +70849,7 @@
                       "team_roles": [
                         {
                           "description": "can view data, like public incidents and organization settings",
-                          "name": "schedules_editor"
+                          "name": "catalog_editor"
                         }
                       ],
                       "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
@@ -70939,7 +70943,7 @@
                     "team_roles": [
                       {
                         "description": "can view data, like public incidents and organization settings",
-                        "name": "schedules_editor"
+                        "name": "catalog_editor"
                       }
                     ],
                     "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
@@ -71058,7 +71062,7 @@
                     "team_roles": [
                       {
                         "description": "can view data, like public incidents and organization settings",
-                        "name": "schedules_editor"
+                        "name": "catalog_editor"
                       }
                     ],
                     "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
@@ -71161,7 +71165,7 @@
                     "team_roles": [
                       {
                         "description": "can view data, like public incidents and organization settings",
-                        "name": "schedules_editor"
+                        "name": "catalog_editor"
                       }
                     ],
                     "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
@@ -71256,7 +71260,7 @@
                     "team_roles": [
                       {
                         "description": "can view data, like public incidents and organization settings",
-                        "name": "schedules_editor"
+                        "name": "catalog_editor"
                       }
                     ],
                     "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
@@ -71932,7 +71936,7 @@
                       "viewer"
                     ],
                     "team_roles": [
-                      "schedules_editor"
+                      "catalog_editor"
                     ],
                     "teams": [
                       {

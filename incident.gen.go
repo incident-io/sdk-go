@@ -120,6 +120,7 @@ func (e APIKeyRoleV1Name) Valid() bool {
 // Defines values for APIKeyTeamRoleV1Name.
 const (
 	APIKeyTeamRoleV1NameApiKeysManage           APIKeyTeamRoleV1Name = "api_keys_manage"
+	APIKeyTeamRoleV1NameCatalogEditor           APIKeyTeamRoleV1Name = "catalog_editor"
 	APIKeyTeamRoleV1NameEscalationCreator       APIKeyTeamRoleV1Name = "escalation_creator"
 	APIKeyTeamRoleV1NameOnCallEditor            APIKeyTeamRoleV1Name = "on_call_editor"
 	APIKeyTeamRoleV1NamePrivateWorkflowsEditor  APIKeyTeamRoleV1Name = "private_workflows_editor"
@@ -133,6 +134,8 @@ const (
 func (e APIKeyTeamRoleV1Name) Valid() bool {
 	switch e {
 	case APIKeyTeamRoleV1NameApiKeysManage:
+		return true
+	case APIKeyTeamRoleV1NameCatalogEditor:
 		return true
 	case APIKeyTeamRoleV1NameEscalationCreator:
 		return true
@@ -255,6 +258,7 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 // Defines values for APIKeysCreatePayloadV1TeamRoleNames.
 const (
 	APIKeysCreatePayloadV1TeamRoleNamesApiKeysManage           APIKeysCreatePayloadV1TeamRoleNames = "api_keys_manage"
+	APIKeysCreatePayloadV1TeamRoleNamesCatalogEditor           APIKeysCreatePayloadV1TeamRoleNames = "catalog_editor"
 	APIKeysCreatePayloadV1TeamRoleNamesEscalationCreator       APIKeysCreatePayloadV1TeamRoleNames = "escalation_creator"
 	APIKeysCreatePayloadV1TeamRoleNamesOnCallEditor            APIKeysCreatePayloadV1TeamRoleNames = "on_call_editor"
 	APIKeysCreatePayloadV1TeamRoleNamesPrivateWorkflowsEditor  APIKeysCreatePayloadV1TeamRoleNames = "private_workflows_editor"
@@ -268,6 +272,8 @@ const (
 func (e APIKeysCreatePayloadV1TeamRoleNames) Valid() bool {
 	switch e {
 	case APIKeysCreatePayloadV1TeamRoleNamesApiKeysManage:
+		return true
+	case APIKeysCreatePayloadV1TeamRoleNamesCatalogEditor:
 		return true
 	case APIKeysCreatePayloadV1TeamRoleNamesEscalationCreator:
 		return true
@@ -390,6 +396,7 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 // Defines values for APIKeysUpdatePayloadV1TeamRoleNames.
 const (
 	APIKeysUpdatePayloadV1TeamRoleNamesApiKeysManage           APIKeysUpdatePayloadV1TeamRoleNames = "api_keys_manage"
+	APIKeysUpdatePayloadV1TeamRoleNamesCatalogEditor           APIKeysUpdatePayloadV1TeamRoleNames = "catalog_editor"
 	APIKeysUpdatePayloadV1TeamRoleNamesEscalationCreator       APIKeysUpdatePayloadV1TeamRoleNames = "escalation_creator"
 	APIKeysUpdatePayloadV1TeamRoleNamesOnCallEditor            APIKeysUpdatePayloadV1TeamRoleNames = "on_call_editor"
 	APIKeysUpdatePayloadV1TeamRoleNamesPrivateWorkflowsEditor  APIKeysUpdatePayloadV1TeamRoleNames = "private_workflows_editor"
@@ -403,6 +410,8 @@ const (
 func (e APIKeysUpdatePayloadV1TeamRoleNames) Valid() bool {
 	switch e {
 	case APIKeysUpdatePayloadV1TeamRoleNamesApiKeysManage:
+		return true
+	case APIKeysUpdatePayloadV1TeamRoleNamesCatalogEditor:
 		return true
 	case APIKeysUpdatePayloadV1TeamRoleNamesEscalationCreator:
 		return true
@@ -3462,6 +3471,7 @@ func (e IdentityV1Roles) Valid() bool {
 // Defines values for IdentityV1TeamRoles.
 const (
 	IdentityV1TeamRolesApiKeysManage           IdentityV1TeamRoles = "api_keys_manage"
+	IdentityV1TeamRolesCatalogEditor           IdentityV1TeamRoles = "catalog_editor"
 	IdentityV1TeamRolesEscalationCreator       IdentityV1TeamRoles = "escalation_creator"
 	IdentityV1TeamRolesOnCallEditor            IdentityV1TeamRoles = "on_call_editor"
 	IdentityV1TeamRolesPrivateWorkflowsEditor  IdentityV1TeamRoles = "private_workflows_editor"
@@ -3475,6 +3485,8 @@ const (
 func (e IdentityV1TeamRoles) Valid() bool {
 	switch e {
 	case IdentityV1TeamRolesApiKeysManage:
+		return true
+	case IdentityV1TeamRolesCatalogEditor:
 		return true
 	case IdentityV1TeamRolesEscalationCreator:
 		return true
