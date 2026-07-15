@@ -139,6 +139,7 @@
       },
       "APIKeyV1": {
         "example": {
+          "comments": "Requested in https://example.slack.com/archives/C123/p456",
           "created_at": "2021-08-17T13:28:57.801578Z",
           "creator": {
             "api_key": {
@@ -174,6 +175,13 @@
           "token_last_issued_at": "2021-08-17T13:28:57.801578Z"
         },
         "properties": {
+          "comments": {
+            "description": "Freeform notes about this API key",
+            "example": "Requested in https://example.slack.com/archives/C123/p456",
+            "maxLength": 5000,
+            "pattern": "^[^\u0000]*$",
+            "type": "string"
+          },
           "created_at": {
             "description": "When the API key was created",
             "example": "2021-08-17T13:28:57.801578Z",
@@ -257,6 +265,7 @@
       },
       "APIKeysCreatePayloadV1": {
         "example": {
+          "comments": "Requested in https://example.slack.com/archives/C123/p456",
           "name": "My test API key",
           "role_names": [
             "viewer",
@@ -270,6 +279,13 @@
           ]
         },
         "properties": {
+          "comments": {
+            "description": "Freeform notes about the API key",
+            "example": "Requested in https://example.slack.com/archives/C123/p456",
+            "maxLength": 5000,
+            "pattern": "^[^\u0000]*$",
+            "type": "string"
+          },
           "name": {
             "description": "Human-readable name for the new API key",
             "example": "My test API key",
@@ -365,6 +381,7 @@
       "APIKeysCreateResultV1": {
         "example": {
           "api_key": {
+            "comments": "Requested in https://example.slack.com/archives/C123/p456",
             "created_at": "2021-08-17T13:28:57.801578Z",
             "creator": {
               "api_key": {
@@ -421,6 +438,7 @@
         "example": {
           "api_keys": [
             {
+              "comments": "Requested in https://example.slack.com/archives/C123/p456",
               "created_at": "2021-08-17T13:28:57.801578Z",
               "creator": {
                 "api_key": {
@@ -465,6 +483,7 @@
           "api_keys": {
             "example": [
               {
+                "comments": "Requested in https://example.slack.com/archives/C123/p456",
                 "created_at": "2021-08-17T13:28:57.801578Z",
                 "creator": {
                   "api_key": {
@@ -538,6 +557,7 @@
       "APIKeysRotateResultV1": {
         "example": {
           "api_key": {
+            "comments": "Requested in https://example.slack.com/archives/C123/p456",
             "created_at": "2021-08-17T13:28:57.801578Z",
             "creator": {
               "api_key": {
@@ -593,6 +613,7 @@
       "APIKeysShowResultV1": {
         "example": {
           "api_key": {
+            "comments": "Requested in https://example.slack.com/archives/C123/p456",
             "created_at": "2021-08-17T13:28:57.801578Z",
             "creator": {
               "api_key": {
@@ -640,6 +661,7 @@
       },
       "APIKeysUpdatePayloadV1": {
         "example": {
+          "comments": "Requested in https://example.slack.com/archives/C123/p456",
           "name": "My test API key",
           "role_names": [
             "viewer",
@@ -653,6 +675,13 @@
           ]
         },
         "properties": {
+          "comments": {
+            "description": "Freeform notes about the API key",
+            "example": "Requested in https://example.slack.com/archives/C123/p456",
+            "maxLength": 5000,
+            "pattern": "^[^\u0000]*$",
+            "type": "string"
+          },
           "name": {
             "description": "Human-readable name for the API key",
             "example": "My test API key",
@@ -748,6 +777,7 @@
       "APIKeysUpdateResultV1": {
         "example": {
           "api_key": {
+            "comments": "Requested in https://example.slack.com/archives/C123/p456",
             "created_at": "2021-08-17T13:28:57.801578Z",
             "creator": {
               "api_key": {
@@ -71135,6 +71165,7 @@
                 "example": {
                   "api_keys": [
                     {
+                      "comments": "Requested in https://example.slack.com/archives/C123/p456",
                       "created_at": "2021-08-17T13:28:57.801578Z",
                       "creator": {
                         "api_key": {
@@ -71204,6 +71235,7 @@
           "content": {
             "application/json": {
               "example": {
+                "comments": "Requested in https://example.slack.com/archives/C123/p456",
                 "name": "My test API key",
                 "role_names": [
                   "viewer",
@@ -71229,6 +71261,7 @@
               "application/json": {
                 "example": {
                   "api_key": {
+                    "comments": "Requested in https://example.slack.com/archives/C123/p456",
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "creator": {
                       "api_key": {
@@ -71348,6 +71381,7 @@
               "application/json": {
                 "example": {
                   "api_key": {
+                    "comments": "Requested in https://example.slack.com/archives/C123/p456",
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "creator": {
                       "api_key": {
@@ -71426,6 +71460,7 @@
           "content": {
             "application/json": {
               "example": {
+                "comments": "Requested in https://example.slack.com/archives/C123/p456",
                 "name": "My test API key",
                 "role_names": [
                   "viewer",
@@ -71451,6 +71486,7 @@
               "application/json": {
                 "example": {
                   "api_key": {
+                    "comments": "Requested in https://example.slack.com/archives/C123/p456",
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "creator": {
                       "api_key": {
@@ -71546,6 +71582,7 @@
               "application/json": {
                 "example": {
                   "api_key": {
+                    "comments": "Requested in https://example.slack.com/archives/C123/p456",
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "creator": {
                       "api_key": {

@@ -5624,6 +5624,9 @@ type APIKeyTeamRoleV1Name string
 
 // APIKeyV1 defines model for APIKeyV1.
 type APIKeyV1 struct {
+	// Comments Freeform notes about this API key
+	Comments *string `json:"comments,omitempty"`
+
 	// CreatedAt When the API key was created
 	CreatedAt time.Time `json:"created_at"`
 	Creator   ActorV1   `json:"creator"`
@@ -5652,6 +5655,9 @@ type APIKeyV1 struct {
 
 // APIKeysCreatePayloadV1 defines model for APIKeysCreatePayloadV1.
 type APIKeysCreatePayloadV1 struct {
+	// Comments Freeform notes about the API key
+	Comments *string `json:"comments,omitempty"`
+
 	// Name Human-readable name for the new API key
 	Name string `json:"name"`
 
@@ -5706,6 +5712,9 @@ type APIKeysShowResultV1 struct {
 
 // APIKeysUpdatePayloadV1 defines model for APIKeysUpdatePayloadV1.
 type APIKeysUpdatePayloadV1 struct {
+	// Comments Freeform notes about the API key
+	Comments *string `json:"comments,omitempty"`
+
 	// Name Human-readable name for the API key
 	Name string `json:"name"`
 
