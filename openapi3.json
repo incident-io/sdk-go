@@ -47886,8 +47886,10 @@
         "example": {
           "incident_id": "01FDAG4SAP5TYPT98WGR2N7W91",
           "resource": {
+            "emoji": "rocket",
             "external_id": "123",
             "resource_type": "pager_duty_incident",
+            "title": "Impact tracking spreadsheet",
             "url": "https://github.com/company/repo/pull/123"
           }
         },
@@ -47899,11 +47901,18 @@
           },
           "resource": {
             "example": {
+              "emoji": "rocket",
               "external_id": "123",
               "resource_type": "pager_duty_incident",
+              "title": "Impact tracking spreadsheet",
               "url": "https://github.com/company/repo/pull/123"
             },
             "properties": {
+              "emoji": {
+                "description": "Emoji shortcode representing the link, without surrounding colons. Only supported for the arbitrary_url resource type.",
+                "example": "rocket",
+                "type": "string"
+              },
               "external_id": {
                 "description": "ID of the resource in the external system",
                 "example": "123",
@@ -47931,6 +47940,11 @@
                   "statuspage_incident"
                 ],
                 "example": "pager_duty_incident",
+                "type": "string"
+              },
+              "title": {
+                "description": "Human readable title for the link. Only supported for the arbitrary_url resource type.",
+                "example": "Impact tracking spreadsheet",
                 "type": "string"
               },
               "url": {
@@ -72069,7 +72083,7 @@
         ]
       },
       "post": {
-        "description": "Attaches an external resource to an incident.\n\nYou must provide a resource with resource_type and either external_id or url, but not both.\n\nWhen providing a url, the server will create the attachment from that link for the given resource type if the integration is installed and the link is valid.",
+        "description": "Attaches an external resource to an incident.\n\nYou must provide a resource with resource_type and either external_id or url, but not both.\n\nWhen providing a url, the server will create the attachment from that link for the given resource type if the integration is installed and the link is valid.\n\nTo attach an arbitrary link that isn't backed by an integration, use the arbitrary_url resource type with a url, and optionally a title and emoji.",
         "operationId": "Incident Attachments V1#Create",
         "requestBody": {
           "content": {
@@ -72077,8 +72091,10 @@
               "example": {
                 "incident_id": "01FDAG4SAP5TYPT98WGR2N7W91",
                 "resource": {
+                  "emoji": "rocket",
                   "external_id": "123",
                   "resource_type": "pager_duty_incident",
+                  "title": "Impact tracking spreadsheet",
                   "url": "https://github.com/company/repo/pull/123"
                 }
               },

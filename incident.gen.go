@@ -9885,11 +9885,17 @@ type IncidentAttachmentsCreatePayloadV1 struct {
 	// IncidentId ID of the incident to add an attachment to
 	IncidentId string `json:"incident_id"`
 	Resource   struct {
+		// Emoji Emoji shortcode representing the link, without surrounding colons. Only supported for the arbitrary_url resource type.
+		Emoji *string `json:"emoji,omitempty"`
+
 		// ExternalId ID of the resource in the external system
 		ExternalId *string `json:"external_id,omitempty"`
 
 		// ResourceType E.g. PagerDuty: the external system that holds the resource
 		ResourceType IncidentAttachmentsCreatePayloadV1ResourceResourceType `json:"resource_type"`
+
+		// Title Human readable title for the link. Only supported for the arbitrary_url resource type.
+		Title *string `json:"title,omitempty"`
 
 		// Url URL of the external resource to attach for the given resource type.
 		Url *string `json:"url,omitempty"`
