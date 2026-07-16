@@ -18085,19 +18085,37 @@
       },
       "AuditLogPrivateIncidentAccessAttemptedMetadataV2": {
         "example": {
-          "access_type": "global_access",
+          "outcome": "granted"
+        },
+        "properties": {
+          "outcome": {
+            "description": "Whether or not the user was able to access the private incident",
+            "enum": [
+              "granted",
+              "denied"
+            ],
+            "example": "granted",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "AuditLogPrivateIncidentAccessAttemptedMetadataV2V2": {
+        "example": {
+          "access_type": "N/A",
           "outcome": "granted",
           "team_id": "01G0J1EXE7AXZ2C93K61WBPYEH"
         },
         "properties": {
           "access_type": {
-            "description": "How the user was granted access to the private incident, when access was granted",
+            "description": "How the user was granted access to the private incident, or N/A when access was denied",
             "enum": [
+              "N/A",
               "global_access",
               "direct_membership",
               "team_membership"
             ],
-            "example": "global_access",
+            "example": "N/A",
             "type": "string"
           },
           "outcome": {
@@ -18110,11 +18128,16 @@
             "type": "string"
           },
           "team_id": {
-            "description": "The ID of the team through which access was granted, when access_type is team_membership",
+            "description": "The ID of the team through which access was granted, or N/A when access_type is not team_membership",
             "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "type": "string"
           }
         },
+        "required": [
+          "outcome",
+          "access_type",
+          "team_id"
+        ],
         "type": "object"
       },
       "AuditLogPrivateInsightsExportedMetadataV2": {
@@ -27925,9 +27948,7 @@
             "user_agent": "Chrome/91.0.4472.114"
           },
           "metadata": {
-            "access_type": "global_access",
-            "outcome": "granted",
-            "team_id": "01G0J1EXE7AXZ2C93K61WBPYEH"
+            "outcome": "granted"
           },
           "occurred_at": "2021-08-17T13:28:57.801578Z",
           "targets": [
@@ -27977,6 +27998,90 @@
           "version": {
             "description": "Which version the event is",
             "example": 1,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "action",
+          "occurred_at",
+          "version",
+          "actor",
+          "targets",
+          "context",
+          "metadata"
+        ],
+        "type": "object"
+      },
+      "AuditLogsPrivateIncidentAccessAttemptedV2": {
+        "example": {
+          "action": "private_incident.access_attempted",
+          "actor": {
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "metadata": {
+              "user_base_role_slug": "admin",
+              "user_custom_role_slugs": "engineering,security"
+            },
+            "name": "John Doe",
+            "type": "user"
+          },
+          "context": {
+            "location": "1.2.3.4",
+            "user_agent": "Chrome/91.0.4472.114"
+          },
+          "metadata": {
+            "access_type": "N/A",
+            "outcome": "granted",
+            "team_id": "01G0J1EXE7AXZ2C93K61WBPYEH"
+          },
+          "occurred_at": "2021-08-17T13:28:57.801578Z",
+          "targets": [
+            {
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "#INC-123 The website is slow",
+              "type": "incident"
+            }
+          ],
+          "version": 2
+        },
+        "properties": {
+          "action": {
+            "description": "The type of log entry that this is",
+            "example": "private_incident.access_attempted",
+            "type": "string"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/AuditLogActorV2"
+          },
+          "context": {
+            "$ref": "#/components/schemas/AuditLogEntryContextV2"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/AuditLogPrivateIncidentAccessAttemptedMetadataV2V2"
+          },
+          "occurred_at": {
+            "description": "When the entry occurred",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "targets": {
+            "description": "The custom field that was created",
+            "example": [
+              {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "#INC-123 The website is slow",
+                "type": "incident"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/AuditLogTargetV2"
+            },
+            "type": "array"
+          },
+          "version": {
+            "description": "Which version the event is",
+            "example": 2,
             "format": "int64",
             "type": "integer"
           }
@@ -102680,9 +102785,7 @@
                     "user_agent": "Chrome/91.0.4472.114"
                   },
                   "metadata": {
-                    "access_type": "global_access",
-                    "outcome": "granted",
-                    "team_id": "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    "outcome": "granted"
                   },
                   "occurred_at": "2021-08-17T13:28:57.801578Z",
                   "targets": [
@@ -102696,6 +102799,57 @@
                 },
                 "schema": {
                   "$ref": "#/components/schemas/AuditLogsPrivateIncidentAccessAttemptedV1"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "tags": [
+          "Audit logs"
+        ]
+      }
+    },
+    "/x-audit-logs/private_incident.access_attempted.2": {
+      "get": {
+        "description": "This entry is created whenever someone attempts to access a private incident.",
+        "operationId": "PrivateIncidentAccessAttemptedV2",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "action": "private_incident.access_attempted",
+                  "actor": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "metadata": {
+                      "user_base_role_slug": "admin",
+                      "user_custom_role_slugs": "engineering,security"
+                    },
+                    "name": "John Doe",
+                    "type": "user"
+                  },
+                  "context": {
+                    "location": "1.2.3.4",
+                    "user_agent": "Chrome/91.0.4472.114"
+                  },
+                  "metadata": {
+                    "access_type": "N/A",
+                    "outcome": "granted",
+                    "team_id": "01G0J1EXE7AXZ2C93K61WBPYEH"
+                  },
+                  "occurred_at": "2021-08-17T13:28:57.801578Z",
+                  "targets": [
+                    {
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "#INC-123 The website is slow",
+                      "type": "incident"
+                    }
+                  ],
+                  "version": 2
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AuditLogsPrivateIncidentAccessAttemptedV2"
                 }
               }
             },
