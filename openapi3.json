@@ -33524,6 +33524,9 @@
           "description": "Represents Kubernetes clusters that we run inside of GKE.",
           "icon": "alert",
           "name": "Kubernetes Cluster",
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
           "ranked": true,
           "source_repo_url": "https://github.com/my-company/incident-io-catalog",
           "type_name": "Custom[\"BackstageGroup\"]",
@@ -33618,6 +33621,17 @@
             "description": "Name is the human readable name of this type",
             "example": "Kubernetes Cluster",
             "type": "string"
+          },
+          "owning_team_ids": {
+            "description": "IDs of the teams that own this catalog type",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
           },
           "ranked": {
             "description": "If this type should be ranked",
@@ -33725,6 +33739,9 @@
             "is_team_type": false,
             "last_synced_at": "2021-08-17T13:28:57.801578Z",
             "name": "Kubernetes Cluster",
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "ranked": true,
             "registry_type": "PagerDutyService",
             "required_integrations": [
@@ -34603,6 +34620,9 @@
             "is_team_type": false,
             "last_synced_at": "2021-08-17T13:28:57.801578Z",
             "name": "Kubernetes Cluster",
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "ranked": true,
             "registry_type": "PagerDutyService",
             "required_integrations": [
@@ -34890,6 +34910,9 @@
               "is_team_type": false,
               "last_synced_at": "2021-08-17T13:28:57.801578Z",
               "name": "Kubernetes Cluster",
+              "owning_team_ids": [
+                "01G0J1EXE7AXZ2C93K61WBPYEH"
+              ],
               "ranked": true,
               "registry_type": "PagerDutyService",
               "required_integrations": [
@@ -34942,6 +34965,9 @@
                 "is_team_type": false,
                 "last_synced_at": "2021-08-17T13:28:57.801578Z",
                 "name": "Kubernetes Cluster",
+                "owning_team_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ],
                 "ranked": true,
                 "registry_type": "PagerDutyService",
                 "required_integrations": [
@@ -35246,6 +35272,9 @@
             "is_team_type": false,
             "last_synced_at": "2021-08-17T13:28:57.801578Z",
             "name": "Kubernetes Cluster",
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "ranked": true,
             "registry_type": "PagerDutyService",
             "required_integrations": [
@@ -35369,6 +35398,9 @@
             "is_team_type": false,
             "last_synced_at": "2021-08-17T13:28:57.801578Z",
             "name": "Kubernetes Cluster",
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "ranked": true,
             "registry_type": "PagerDutyService",
             "required_integrations": [
@@ -36166,6 +36198,9 @@
           "is_team_type": false,
           "last_synced_at": "2021-08-17T13:28:57.801578Z",
           "name": "Kubernetes Cluster",
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
           "ranked": true,
           "registry_type": "PagerDutyService",
           "required_integrations": [
@@ -36323,6 +36358,17 @@
             "description": "Name is the human readable name of this type",
             "example": "Kubernetes Cluster",
             "type": "string"
+          },
+          "owning_team_ids": {
+            "description": "IDs of the teams that own this catalog type",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
           },
           "ranked": {
             "description": "If this type should be ranked",
@@ -36725,6 +36771,9 @@
             "is_team_type": false,
             "last_synced_at": "2021-08-17T13:28:57.801578Z",
             "name": "Kubernetes Cluster",
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "ranked": true,
             "registry_type": "PagerDutyService",
             "required_integrations": [
@@ -36903,6 +36952,9 @@
           "description": "Represents Kubernetes clusters that we run inside of GKE.",
           "icon": "alert",
           "name": "Kubernetes Cluster",
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
           "ranked": true,
           "source_repo_url": "https://github.com/my-company/incident-io-catalog",
           "use_name_as_identifier": true
@@ -36996,6 +37048,17 @@
             "description": "Name is the human readable name of this type",
             "example": "Kubernetes Cluster",
             "type": "string"
+          },
+          "owning_team_ids": {
+            "description": "IDs of the teams that own this catalog type",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
           },
           "ranked": {
             "description": "If this type should be ranked",
@@ -37098,6 +37161,9 @@
             "is_team_type": false,
             "last_synced_at": "2021-08-17T13:28:57.801578Z",
             "name": "Kubernetes Cluster",
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "ranked": true,
             "registry_type": "PagerDutyService",
             "required_integrations": [
@@ -37323,6 +37389,9 @@
             "is_team_type": false,
             "last_synced_at": "2021-08-17T13:28:57.801578Z",
             "name": "Kubernetes Cluster",
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "ranked": true,
             "registry_type": "PagerDutyService",
             "required_integrations": [
@@ -95487,6 +95556,9 @@
                     "is_team_type": false,
                     "last_synced_at": "2021-08-17T13:28:57.801578Z",
                     "name": "Kubernetes Cluster",
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "ranked": true,
                     "registry_type": "PagerDutyService",
                     "required_integrations": [
@@ -95838,6 +95910,9 @@
                     "is_team_type": false,
                     "last_synced_at": "2021-08-17T13:28:57.801578Z",
                     "name": "Kubernetes Cluster",
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "ranked": true,
                     "registry_type": "PagerDutyService",
                     "required_integrations": [
@@ -95992,6 +96067,9 @@
                     "is_team_type": false,
                     "last_synced_at": "2021-08-17T13:28:57.801578Z",
                     "name": "Kubernetes Cluster",
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "ranked": true,
                     "registry_type": "PagerDutyService",
                     "required_integrations": [
@@ -96115,6 +96193,9 @@
                       "is_team_type": false,
                       "last_synced_at": "2021-08-17T13:28:57.801578Z",
                       "name": "Kubernetes Cluster",
+                      "owning_team_ids": [
+                        "01G0J1EXE7AXZ2C93K61WBPYEH"
+                      ],
                       "ranked": true,
                       "registry_type": "PagerDutyService",
                       "required_integrations": [
@@ -96185,6 +96266,9 @@
                 "description": "Represents Kubernetes clusters that we run inside of GKE.",
                 "icon": "alert",
                 "name": "Kubernetes Cluster",
+                "owning_team_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ],
                 "ranked": true,
                 "source_repo_url": "https://github.com/my-company/incident-io-catalog",
                 "type_name": "Custom[\"BackstageGroup\"]",
@@ -96220,6 +96304,9 @@
                     "is_team_type": false,
                     "last_synced_at": "2021-08-17T13:28:57.801578Z",
                     "name": "Kubernetes Cluster",
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "ranked": true,
                     "registry_type": "PagerDutyService",
                     "required_integrations": [
@@ -96350,6 +96437,9 @@
                     "is_team_type": false,
                     "last_synced_at": "2021-08-17T13:28:57.801578Z",
                     "name": "Kubernetes Cluster",
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "ranked": true,
                     "registry_type": "PagerDutyService",
                     "required_integrations": [
@@ -96433,6 +96523,9 @@
                 "description": "Represents Kubernetes clusters that we run inside of GKE.",
                 "icon": "alert",
                 "name": "Kubernetes Cluster",
+                "owning_team_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ],
                 "ranked": true,
                 "source_repo_url": "https://github.com/my-company/incident-io-catalog",
                 "use_name_as_identifier": true
@@ -96467,6 +96560,9 @@
                     "is_team_type": false,
                     "last_synced_at": "2021-08-17T13:28:57.801578Z",
                     "name": "Kubernetes Cluster",
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "ranked": true,
                     "registry_type": "PagerDutyService",
                     "required_integrations": [
@@ -96589,6 +96685,9 @@
                     "is_team_type": false,
                     "last_synced_at": "2021-08-17T13:28:57.801578Z",
                     "name": "Kubernetes Cluster",
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "ranked": true,
                     "registry_type": "PagerDutyService",
                     "required_integrations": [

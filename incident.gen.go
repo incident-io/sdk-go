@@ -7346,6 +7346,9 @@ type CatalogCreateTypePayloadV3 struct {
 	// Name Name is the human readable name of this type
 	Name string `json:"name"`
 
+	// OwningTeamIds IDs of the teams that own this catalog type
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
 	// Ranked If this type should be ranked
 	Ranked *bool `json:"ranked,omitempty"`
 
@@ -7906,6 +7909,9 @@ type CatalogTypeV3 struct {
 	// Name Name is the human readable name of this type
 	Name string `json:"name"`
 
+	// OwningTeamIds IDs of the teams that own this catalog type
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
 	// Ranked If this type should be ranked
 	Ranked bool `json:"ranked"`
 
@@ -8045,6 +8051,9 @@ type CatalogUpdateTypePayloadV3 struct {
 
 	// Name Name is the human readable name of this type
 	Name string `json:"name"`
+
+	// OwningTeamIds IDs of the teams that own this catalog type
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
 
 	// Ranked If this type should be ranked
 	Ranked *bool `json:"ranked,omitempty"`
