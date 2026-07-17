@@ -13603,6 +13603,9 @@ type AlertEventsV2CreateHTTPParams struct {
 	// Token Token used to authenticate the request, generated when configuring the alert source. Will be consumed via a URL query string parameter
 	Token *string `form:"token,omitempty" json:"token,omitempty"`
 
+	// Query Query parameters
+	Query *map[string]interface{} `json:"query,omitempty"`
+
 	// Authorization Whatever is provided in the Authorization header. We support either Basic or Bearer authorization with the secret provided on the alert source.
 	Authorization *string `json:"authorization,omitempty"`
 }
@@ -21776,6 +21779,22 @@ func newAlertEventsV2CreateHTTPRequestWithBody(server string, alertSourceConfigI
 		if params.Token != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "token", *params.Token, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Query != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("deepObject", true, "query", *params.Query, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
