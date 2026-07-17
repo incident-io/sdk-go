@@ -815,6 +815,7 @@ const (
 	AlertSourceV2SourceTypeCoralogix         AlertSourceV2SourceType = "coralogix"
 	AlertSourceV2SourceTypeCronitor          AlertSourceV2SourceType = "cronitor"
 	AlertSourceV2SourceTypeCrowdstrikeFalcon AlertSourceV2SourceType = "crowdstrike_falcon"
+	AlertSourceV2SourceTypeDash0             AlertSourceV2SourceType = "dash0"
 	AlertSourceV2SourceTypeDatadog           AlertSourceV2SourceType = "datadog"
 	AlertSourceV2SourceTypeDynatrace         AlertSourceV2SourceType = "dynatrace"
 	AlertSourceV2SourceTypeElasticsearch     AlertSourceV2SourceType = "elasticsearch"
@@ -878,6 +879,8 @@ func (e AlertSourceV2SourceType) Valid() bool {
 	case AlertSourceV2SourceTypeCronitor:
 		return true
 	case AlertSourceV2SourceTypeCrowdstrikeFalcon:
+		return true
+	case AlertSourceV2SourceTypeDash0:
 		return true
 	case AlertSourceV2SourceTypeDatadog:
 		return true
@@ -968,6 +971,7 @@ const (
 	AlertSourcesCreatePayloadV2SourceTypeCoralogix         AlertSourcesCreatePayloadV2SourceType = "coralogix"
 	AlertSourcesCreatePayloadV2SourceTypeCronitor          AlertSourcesCreatePayloadV2SourceType = "cronitor"
 	AlertSourcesCreatePayloadV2SourceTypeCrowdstrikeFalcon AlertSourcesCreatePayloadV2SourceType = "crowdstrike_falcon"
+	AlertSourcesCreatePayloadV2SourceTypeDash0             AlertSourcesCreatePayloadV2SourceType = "dash0"
 	AlertSourcesCreatePayloadV2SourceTypeDatadog           AlertSourcesCreatePayloadV2SourceType = "datadog"
 	AlertSourcesCreatePayloadV2SourceTypeDynatrace         AlertSourcesCreatePayloadV2SourceType = "dynatrace"
 	AlertSourcesCreatePayloadV2SourceTypeElasticsearch     AlertSourcesCreatePayloadV2SourceType = "elasticsearch"
@@ -1031,6 +1035,8 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesCreatePayloadV2SourceTypeCronitor:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeCrowdstrikeFalcon:
+		return true
+	case AlertSourcesCreatePayloadV2SourceTypeDash0:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeDatadog:
 		return true
