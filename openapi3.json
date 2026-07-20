@@ -89,7 +89,9 @@
               "notification_methods_unredacted_viewer",
               "incident_workload_viewer",
               "incident_workload_private_viewer",
-              "act_on_behalf_of_users"
+              "act_on_behalf_of_users",
+              "secrets_manage",
+              "secrets_use"
             ],
             "example": "viewer",
             "type": "string",
@@ -124,7 +126,9 @@
               "escalation_creator",
               "api_keys_manage",
               "workflows_editor",
-              "private_workflows_editor"
+              "private_workflows_editor",
+              "secrets_manage",
+              "secrets_use"
             ],
             "example": "catalog_editor",
             "type": "string",
@@ -329,7 +333,9 @@
                 "notification_methods_unredacted_viewer",
                 "incident_workload_viewer",
                 "incident_workload_private_viewer",
-                "act_on_behalf_of_users"
+                "act_on_behalf_of_users",
+                "secrets_manage",
+                "secrets_use"
               ],
               "example": "viewer",
               "type": "string"
@@ -362,7 +368,9 @@
                 "escalation_creator",
                 "api_keys_manage",
                 "workflows_editor",
-                "private_workflows_editor"
+                "private_workflows_editor",
+                "secrets_manage",
+                "secrets_use"
               ],
               "example": "catalog_editor",
               "type": "string"
@@ -725,7 +733,9 @@
                 "notification_methods_unredacted_viewer",
                 "incident_workload_viewer",
                 "incident_workload_private_viewer",
-                "act_on_behalf_of_users"
+                "act_on_behalf_of_users",
+                "secrets_manage",
+                "secrets_use"
               ],
               "example": "viewer",
               "type": "string"
@@ -758,7 +768,9 @@
                 "escalation_creator",
                 "api_keys_manage",
                 "workflows_editor",
-                "private_workflows_editor"
+                "private_workflows_editor",
+                "secrets_manage",
+                "secrets_use"
               ],
               "example": "catalog_editor",
               "type": "string"
@@ -48224,7 +48236,9 @@
                 "notification_methods_unredacted_viewer",
                 "incident_workload_viewer",
                 "incident_workload_private_viewer",
-                "act_on_behalf_of_users"
+                "act_on_behalf_of_users",
+                "secrets_manage",
+                "secrets_use"
               ],
               "example": "viewer",
               "type": "string",
@@ -48248,7 +48262,9 @@
                 "escalation_creator",
                 "api_keys_manage",
                 "workflows_editor",
-                "private_workflows_editor"
+                "private_workflows_editor",
+                "secrets_manage",
+                "secrets_use"
               ],
               "example": "catalog_editor",
               "type": "string",
@@ -60214,6 +60230,444 @@
         },
         "required": [
           "schedule_sync_rule"
+        ],
+        "type": "object"
+      },
+      "SecretV2": {
+        "description": "A secret is a named credential that workflows can reference, for example\nan auth token for an outgoing webhook.\n\nIts value can be set and rotated but never read back: the API stores it\nencrypted and only ever returns masked metadata (the last four characters of\nthe current value). Update the value with the rotate action, which appends a\nnew version and retires the previous one.",
+        "example": {
+          "created_at": "2021-08-17T13:28:57.801578Z",
+          "description": "Auth token for the PagerDuty outgoing webhook",
+          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "last_four_chars": "c123",
+          "name": "PagerDuty webhook token",
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
+          "updated_at": "2021-08-17T13:28:57.801578Z",
+          "version": 3
+        },
+        "properties": {
+          "created_at": {
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "description": {
+            "description": "Optional description of what this secret is for",
+            "example": "Auth token for the PagerDuty outgoing webhook",
+            "type": "string"
+          },
+          "id": {
+            "description": "Unique identifier for this secret",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "last_four_chars": {
+            "description": "The last four characters of the current value, for masked display. Absent when the value is four characters or shorter.",
+            "example": "c123",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human-readable name, unique within the organisation amongst unarchived secrets",
+            "example": "PagerDuty webhook token",
+            "type": "string"
+          },
+          "owning_team_ids": {
+            "description": "IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "updated_at": {
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "version": {
+            "description": "The current version number, incremented on each rotation",
+            "example": 3,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "version",
+          "owning_team_ids",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object"
+      },
+      "SecretVersionV2": {
+        "description": "A single version of a secret's value. Only metadata is exposed; the value itself is never returned.",
+        "example": {
+          "created_at": "2021-08-17T13:28:57.801578Z",
+          "created_by": {
+            "alert": {
+              "id": "01GW2G3V0S59R238FAHPDS1R66",
+              "title": "*errors.withMessage: PG::Error failed to connect"
+            },
+            "api_key": {
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "My test API key"
+            },
+            "user": {
+              "email": "lisa@incident.io",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Lisa Karlin Curtis",
+              "role": "owner",
+              "slack_user_id": "U02AYNF2XJM"
+            },
+            "workflow": {
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "My little workflow"
+            }
+          },
+          "last_four_chars": "c123",
+          "version": 3
+        },
+        "properties": {
+          "created_at": {
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "created_by": {
+            "$ref": "#/components/schemas/ActorV2"
+          },
+          "last_four_chars": {
+            "description": "The last four characters of this version's value, for masked display. Absent when the value was four characters or shorter.",
+            "example": "c123",
+            "type": "string"
+          },
+          "version": {
+            "description": "The version number, incremented on each rotation",
+            "example": 3,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "version",
+          "created_at"
+        ],
+        "type": "object"
+      },
+      "SecretsCreatePayloadV2": {
+        "example": {
+          "description": "Auth token for the PagerDuty outgoing webhook",
+          "name": "PagerDuty webhook token",
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
+          "value": "sk_live_abc123"
+        },
+        "properties": {
+          "description": {
+            "description": "Optional description of what this secret is for",
+            "example": "Auth token for the PagerDuty outgoing webhook",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human-readable name, unique within the organisation amongst unarchived secrets",
+            "example": "PagerDuty webhook token",
+            "type": "string"
+          },
+          "owning_team_ids": {
+            "description": "IDs of the teams that own this secret. When empty or omitted, the secret is owned by the whole organisation.",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "value": {
+            "description": "The secret's plaintext value. It's stored encrypted and never returned by the API.",
+            "example": "sk_live_abc123",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object"
+      },
+      "SecretsCreateResultV2": {
+        "example": {
+          "secret": {
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "description": "Auth token for the PagerDuty outgoing webhook",
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "last_four_chars": "c123",
+            "name": "PagerDuty webhook token",
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "updated_at": "2021-08-17T13:28:57.801578Z",
+            "version": 3
+          }
+        },
+        "properties": {
+          "secret": {
+            "$ref": "#/components/schemas/SecretV2"
+          }
+        },
+        "required": [
+          "secret"
+        ],
+        "type": "object"
+      },
+      "SecretsListResultV2": {
+        "example": {
+          "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25
+          },
+          "secrets": [
+            {
+              "created_at": "2021-08-17T13:28:57.801578Z",
+              "description": "Auth token for the PagerDuty outgoing webhook",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "last_four_chars": "c123",
+              "name": "PagerDuty webhook token",
+              "owning_team_ids": [
+                "01G0J1EXE7AXZ2C93K61WBPYEH"
+              ],
+              "updated_at": "2021-08-17T13:28:57.801578Z",
+              "version": 3
+            }
+          ]
+        },
+        "properties": {
+          "pagination_meta": {
+            "$ref": "#/components/schemas/PaginationMetaResultV2"
+          },
+          "secrets": {
+            "example": [
+              {
+                "created_at": "2021-08-17T13:28:57.801578Z",
+                "description": "Auth token for the PagerDuty outgoing webhook",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "last_four_chars": "c123",
+                "name": "PagerDuty webhook token",
+                "owning_team_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ],
+                "updated_at": "2021-08-17T13:28:57.801578Z",
+                "version": 3
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/SecretV2"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "secrets"
+        ],
+        "type": "object"
+      },
+      "SecretsRotatePayloadV2": {
+        "example": {
+          "value": "sk_live_def456"
+        },
+        "properties": {
+          "value": {
+            "description": "The secret's new plaintext value. It's stored encrypted and never returned by the API.",
+            "example": "sk_live_def456",
+            "type": "string"
+          }
+        },
+        "required": [
+          "value"
+        ],
+        "type": "object"
+      },
+      "SecretsRotateResultV2": {
+        "example": {
+          "secret": {
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "description": "Auth token for the PagerDuty outgoing webhook",
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "last_four_chars": "c123",
+            "name": "PagerDuty webhook token",
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "updated_at": "2021-08-17T13:28:57.801578Z",
+            "version": 3
+          }
+        },
+        "properties": {
+          "secret": {
+            "$ref": "#/components/schemas/SecretV2"
+          }
+        },
+        "required": [
+          "secret"
+        ],
+        "type": "object"
+      },
+      "SecretsShowResultV2": {
+        "example": {
+          "secret": {
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "description": "Auth token for the PagerDuty outgoing webhook",
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "last_four_chars": "c123",
+            "name": "PagerDuty webhook token",
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "updated_at": "2021-08-17T13:28:57.801578Z",
+            "version": 3
+          },
+          "versions": [
+            {
+              "created_at": "2021-08-17T13:28:57.801578Z",
+              "created_by": {
+                "alert": {
+                  "id": "01GW2G3V0S59R238FAHPDS1R66",
+                  "title": "*errors.withMessage: PG::Error failed to connect"
+                },
+                "api_key": {
+                  "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                  "name": "My test API key"
+                },
+                "user": {
+                  "email": "lisa@incident.io",
+                  "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                  "name": "Lisa Karlin Curtis",
+                  "role": "owner",
+                  "slack_user_id": "U02AYNF2XJM"
+                },
+                "workflow": {
+                  "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                  "name": "My little workflow"
+                }
+              },
+              "last_four_chars": "c123",
+              "version": 3
+            }
+          ]
+        },
+        "properties": {
+          "secret": {
+            "$ref": "#/components/schemas/SecretV2"
+          },
+          "versions": {
+            "description": "The secret's versions, newest first",
+            "example": [
+              {
+                "created_at": "2021-08-17T13:28:57.801578Z",
+                "created_by": {
+                  "alert": {
+                    "id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "title": "*errors.withMessage: PG::Error failed to connect"
+                  },
+                  "api_key": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "My test API key"
+                  },
+                  "user": {
+                    "email": "lisa@incident.io",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "Lisa Karlin Curtis",
+                    "role": "owner",
+                    "slack_user_id": "U02AYNF2XJM"
+                  },
+                  "workflow": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "My little workflow"
+                  }
+                },
+                "last_four_chars": "c123",
+                "version": 3
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/SecretVersionV2"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "secret",
+          "versions"
+        ],
+        "type": "object"
+      },
+      "SecretsUpdatePayloadV2": {
+        "example": {
+          "description": "Auth token for the PagerDuty outgoing webhook",
+          "name": "PagerDuty webhook token",
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ]
+        },
+        "properties": {
+          "description": {
+            "description": "Optional description of what this secret is for",
+            "example": "Auth token for the PagerDuty outgoing webhook",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human-readable name, unique within the organisation amongst unarchived secrets",
+            "example": "PagerDuty webhook token",
+            "type": "string"
+          },
+          "owning_team_ids": {
+            "description": "IDs of the teams that own this secret. When omitted, the existing owning teams are left unchanged.",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
+      "SecretsUpdateResultV2": {
+        "example": {
+          "secret": {
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "description": "Auth token for the PagerDuty outgoing webhook",
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "last_four_chars": "c123",
+            "name": "PagerDuty webhook token",
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "updated_at": "2021-08-17T13:28:57.801578Z",
+            "version": 3
+          }
+        },
+        "properties": {
+          "secret": {
+            "$ref": "#/components/schemas/SecretV2"
+          }
+        },
+        "required": [
+          "secret"
         ],
         "type": "object"
       },
@@ -89630,6 +90084,442 @@
         ]
       }
     },
+    "/v2/secrets": {
+      "get": {
+        "description": "List all secrets for this organisation. Returns metadata only, never values.",
+        "operationId": "Secrets V2#List",
+        "parameters": [
+          {
+            "allowEmptyValue": true,
+            "description": "Integer number of records to return",
+            "example": 25,
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "default": 25,
+              "description": "Integer number of records to return",
+              "example": 25,
+              "format": "int64",
+              "maximum": 250,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "A secret's ID. This endpoint will return a list of secrets after this ID in relation to the API response order.",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "description": "A secret's ID. This endpoint will return a list of secrets after this ID in relation to the API response order.",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Filter to secrets owned by any of these teams",
+            "example": [
+              "abc123"
+            ],
+            "in": "query",
+            "name": "team_ids",
+            "schema": {
+              "description": "Filter to secrets owned by any of these teams",
+              "example": [
+                "abc123"
+              ],
+              "items": {
+                "example": "abc123",
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "pagination_meta": {
+                    "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "page_size": 25
+                  },
+                  "secrets": [
+                    {
+                      "created_at": "2021-08-17T13:28:57.801578Z",
+                      "description": "Auth token for the PagerDuty outgoing webhook",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "last_four_chars": "c123",
+                      "name": "PagerDuty webhook token",
+                      "owning_team_ids": [
+                        "01G0J1EXE7AXZ2C93K61WBPYEH"
+                      ],
+                      "updated_at": "2021-08-17T13:28:57.801578Z",
+                      "version": 3
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/SecretsListResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "summary": "List Secrets V2",
+        "tags": [
+          "Secrets V2"
+        ],
+        "x-docs-display-name": "List",
+        "x-docs-group-name": "Secrets V2",
+        "x-docs-resource-type": "SecretV2",
+        "x-mint": {
+          "content": "🔑 Requires the `secrets.view_metadata` scope."
+        },
+        "x-rbac-scopes": [
+          "secrets.view_metadata"
+        ]
+      },
+      "post": {
+        "description": "Create a new secret with its initial value.",
+        "operationId": "Secrets V2#Create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "description": "Auth token for the PagerDuty outgoing webhook",
+                "name": "PagerDuty webhook token",
+                "owning_team_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ],
+                "value": "sk_live_abc123"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/SecretsCreatePayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "secret": {
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "description": "Auth token for the PagerDuty outgoing webhook",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "last_four_chars": "c123",
+                    "name": "PagerDuty webhook token",
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
+                    "updated_at": "2021-08-17T13:28:57.801578Z",
+                    "version": 3
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/SecretsCreateResultV2"
+                }
+              }
+            },
+            "description": "Created response."
+          }
+        },
+        "summary": "Create Secrets V2",
+        "tags": [
+          "Secrets V2"
+        ],
+        "x-docs-display-name": "Create",
+        "x-docs-group-name": "Secrets V2",
+        "x-docs-resource-type": "SecretV2",
+        "x-mint": {
+          "content": "🔑 Requires the `secrets.create` scope."
+        },
+        "x-rbac-scopes": [
+          "secrets.create"
+        ]
+      }
+    },
+    "/v2/secrets/{id}": {
+      "delete": {
+        "description": "Delete a secret, permanently removing its value. Fails if the secret is still referenced by a workflow.",
+        "operationId": "Secrets V2#Destroy",
+        "parameters": [
+          {
+            "description": "The secret's ID",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "The secret's ID",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content response."
+          }
+        },
+        "summary": "Destroy Secrets V2",
+        "tags": [
+          "Secrets V2"
+        ],
+        "x-docs-display-name": "Delete",
+        "x-docs-group-name": "Secrets V2",
+        "x-docs-resource-type": "SecretV2",
+        "x-mint": {
+          "content": "🔑 Requires the `secrets.delete` scope."
+        },
+        "x-rbac-scopes": [
+          "secrets.delete"
+        ]
+      },
+      "get": {
+        "description": "Show a single secret's metadata, including its version history. Never returns values.",
+        "operationId": "Secrets V2#Show",
+        "parameters": [
+          {
+            "description": "The secret's ID",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "The secret's ID",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "secret": {
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "description": "Auth token for the PagerDuty outgoing webhook",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "last_four_chars": "c123",
+                    "name": "PagerDuty webhook token",
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
+                    "updated_at": "2021-08-17T13:28:57.801578Z",
+                    "version": 3
+                  },
+                  "versions": [
+                    {
+                      "created_at": "2021-08-17T13:28:57.801578Z",
+                      "created_by": {
+                        "alert": {
+                          "id": "01GW2G3V0S59R238FAHPDS1R66",
+                          "title": "*errors.withMessage: PG::Error failed to connect"
+                        },
+                        "api_key": {
+                          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                          "name": "My test API key"
+                        },
+                        "user": {
+                          "email": "lisa@incident.io",
+                          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                          "name": "Lisa Karlin Curtis",
+                          "role": "owner",
+                          "slack_user_id": "U02AYNF2XJM"
+                        },
+                        "workflow": {
+                          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                          "name": "My little workflow"
+                        }
+                      },
+                      "last_four_chars": "c123",
+                      "version": 3
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/SecretsShowResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "summary": "Show Secrets V2",
+        "tags": [
+          "Secrets V2"
+        ],
+        "x-docs-display-name": "Show",
+        "x-docs-group-name": "Secrets V2",
+        "x-docs-resource-type": "SecretV2",
+        "x-mint": {
+          "content": "🔑 Requires the `secrets.view_metadata` scope."
+        },
+        "x-rbac-scopes": [
+          "secrets.view_metadata"
+        ]
+      },
+      "put": {
+        "description": "Update a secret's metadata. Does not change the value: use the rotate action for that.",
+        "operationId": "Secrets V2#Update",
+        "parameters": [
+          {
+            "description": "The secret's ID",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "The secret's ID",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "description": "Auth token for the PagerDuty outgoing webhook",
+                "name": "PagerDuty webhook token",
+                "owning_team_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ]
+              },
+              "schema": {
+                "$ref": "#/components/schemas/SecretsUpdatePayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "secret": {
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "description": "Auth token for the PagerDuty outgoing webhook",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "last_four_chars": "c123",
+                    "name": "PagerDuty webhook token",
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
+                    "updated_at": "2021-08-17T13:28:57.801578Z",
+                    "version": 3
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/SecretsUpdateResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "summary": "Update Secrets V2",
+        "tags": [
+          "Secrets V2"
+        ],
+        "x-docs-display-name": "Update",
+        "x-docs-group-name": "Secrets V2",
+        "x-docs-resource-type": "SecretV2",
+        "x-mint": {
+          "content": "🔑 Requires the `secrets.update` scope."
+        },
+        "x-rbac-scopes": [
+          "secrets.update"
+        ]
+      }
+    },
+    "/v2/secrets/{id}/actions/rotate": {
+      "post": {
+        "description": "Rotate a secret's value, replacing the current value with a new one. The previous value is retired and can no longer be read.",
+        "operationId": "Secrets V2#Rotate",
+        "parameters": [
+          {
+            "description": "The secret's ID",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "The secret's ID",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "value": "sk_live_def456"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/SecretsRotatePayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "secret": {
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "description": "Auth token for the PagerDuty outgoing webhook",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "last_four_chars": "c123",
+                    "name": "PagerDuty webhook token",
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
+                    "updated_at": "2021-08-17T13:28:57.801578Z",
+                    "version": 3
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/SecretsRotateResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "summary": "Rotate Secrets V2",
+        "tags": [
+          "Secrets V2"
+        ],
+        "x-docs-display-name": "Rotate",
+        "x-docs-group-name": "Secrets V2",
+        "x-docs-resource-type": "SecretV2",
+        "x-mint": {
+          "content": "🔑 Requires the `secrets.update` scope."
+        },
+        "x-rbac-scopes": [
+          "secrets.update"
+        ]
+      }
+    },
     "/v2/status_page_incident_updates": {
       "post": {
         "description": "Post an update on a Status Page incident.\n\nThis is the endpoint to use when resolving an incident - set incident_status to \"resolved\" to end the incident. There is a limit of 100 updates per incident.\n\nThis endpoint requires an API key with the \"Create status page incidents, status page maintenance windows, and publish status page updates\" scope.",
@@ -97052,6 +97942,10 @@
     {
       "description": "View and manage schedules.\nManage your full schedule of on-call rotations, including the users and rotation configuration.\n",
       "name": "Schedules V2"
+    },
+    {
+      "description": "Manage secrets: named credentials that workflows can reference. A secret's value can be set and rotated but is never returned by the API.",
+      "name": "Secrets V2"
     },
     {
       "description": "Manage incident severities.\n\nEach incident has a severity, picked from one of the severities configured in your\norganisations settings.\n\nSeverities help categorise incidents, and communicate urgency/impact. You can use\nseverities when filtering incidents in the dashboard, and in workflows and announcement\nrules.\n",

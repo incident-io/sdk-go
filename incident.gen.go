@@ -44,6 +44,8 @@ const (
 	APIKeyRoleV1NameScheduleOverridesEditor             APIKeyRoleV1Name = "schedule_overrides_editor"
 	APIKeyRoleV1NameSchedulesEditor                     APIKeyRoleV1Name = "schedules_editor"
 	APIKeyRoleV1NameSchedulesReader                     APIKeyRoleV1Name = "schedules_reader"
+	APIKeyRoleV1NameSecretsManage                       APIKeyRoleV1Name = "secrets_manage"
+	APIKeyRoleV1NameSecretsUse                          APIKeyRoleV1Name = "secrets_use"
 	APIKeyRoleV1NameSecuritySettingsEditor              APIKeyRoleV1Name = "security_settings_editor"
 	APIKeyRoleV1NameStatusPagePublisher                 APIKeyRoleV1Name = "status_page_publisher"
 	APIKeyRoleV1NameTeamMembershipsManage               APIKeyRoleV1Name = "team_memberships_manage"
@@ -102,6 +104,10 @@ func (e APIKeyRoleV1Name) Valid() bool {
 		return true
 	case APIKeyRoleV1NameSchedulesReader:
 		return true
+	case APIKeyRoleV1NameSecretsManage:
+		return true
+	case APIKeyRoleV1NameSecretsUse:
+		return true
 	case APIKeyRoleV1NameSecuritySettingsEditor:
 		return true
 	case APIKeyRoleV1NameStatusPagePublisher:
@@ -127,6 +133,8 @@ const (
 	APIKeyTeamRoleV1NameScheduleOverridesEditor APIKeyTeamRoleV1Name = "schedule_overrides_editor"
 	APIKeyTeamRoleV1NameSchedulesEditor         APIKeyTeamRoleV1Name = "schedules_editor"
 	APIKeyTeamRoleV1NameSchedulesReader         APIKeyTeamRoleV1Name = "schedules_reader"
+	APIKeyTeamRoleV1NameSecretsManage           APIKeyTeamRoleV1Name = "secrets_manage"
+	APIKeyTeamRoleV1NameSecretsUse              APIKeyTeamRoleV1Name = "secrets_use"
 	APIKeyTeamRoleV1NameWorkflowsEditor         APIKeyTeamRoleV1Name = "workflows_editor"
 )
 
@@ -148,6 +156,10 @@ func (e APIKeyTeamRoleV1Name) Valid() bool {
 	case APIKeyTeamRoleV1NameSchedulesEditor:
 		return true
 	case APIKeyTeamRoleV1NameSchedulesReader:
+		return true
+	case APIKeyTeamRoleV1NameSecretsManage:
+		return true
+	case APIKeyTeamRoleV1NameSecretsUse:
 		return true
 	case APIKeyTeamRoleV1NameWorkflowsEditor:
 		return true
@@ -182,6 +194,8 @@ const (
 	APIKeysCreatePayloadV1RoleNamesScheduleOverridesEditor             APIKeysCreatePayloadV1RoleNames = "schedule_overrides_editor"
 	APIKeysCreatePayloadV1RoleNamesSchedulesEditor                     APIKeysCreatePayloadV1RoleNames = "schedules_editor"
 	APIKeysCreatePayloadV1RoleNamesSchedulesReader                     APIKeysCreatePayloadV1RoleNames = "schedules_reader"
+	APIKeysCreatePayloadV1RoleNamesSecretsManage                       APIKeysCreatePayloadV1RoleNames = "secrets_manage"
+	APIKeysCreatePayloadV1RoleNamesSecretsUse                          APIKeysCreatePayloadV1RoleNames = "secrets_use"
 	APIKeysCreatePayloadV1RoleNamesSecuritySettingsEditor              APIKeysCreatePayloadV1RoleNames = "security_settings_editor"
 	APIKeysCreatePayloadV1RoleNamesStatusPagePublisher                 APIKeysCreatePayloadV1RoleNames = "status_page_publisher"
 	APIKeysCreatePayloadV1RoleNamesTeamMembershipsManage               APIKeysCreatePayloadV1RoleNames = "team_memberships_manage"
@@ -240,6 +254,10 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 		return true
 	case APIKeysCreatePayloadV1RoleNamesSchedulesReader:
 		return true
+	case APIKeysCreatePayloadV1RoleNamesSecretsManage:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesSecretsUse:
+		return true
 	case APIKeysCreatePayloadV1RoleNamesSecuritySettingsEditor:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesStatusPagePublisher:
@@ -265,6 +283,8 @@ const (
 	APIKeysCreatePayloadV1TeamRoleNamesScheduleOverridesEditor APIKeysCreatePayloadV1TeamRoleNames = "schedule_overrides_editor"
 	APIKeysCreatePayloadV1TeamRoleNamesSchedulesEditor         APIKeysCreatePayloadV1TeamRoleNames = "schedules_editor"
 	APIKeysCreatePayloadV1TeamRoleNamesSchedulesReader         APIKeysCreatePayloadV1TeamRoleNames = "schedules_reader"
+	APIKeysCreatePayloadV1TeamRoleNamesSecretsManage           APIKeysCreatePayloadV1TeamRoleNames = "secrets_manage"
+	APIKeysCreatePayloadV1TeamRoleNamesSecretsUse              APIKeysCreatePayloadV1TeamRoleNames = "secrets_use"
 	APIKeysCreatePayloadV1TeamRoleNamesWorkflowsEditor         APIKeysCreatePayloadV1TeamRoleNames = "workflows_editor"
 )
 
@@ -286,6 +306,10 @@ func (e APIKeysCreatePayloadV1TeamRoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1TeamRoleNamesSchedulesEditor:
 		return true
 	case APIKeysCreatePayloadV1TeamRoleNamesSchedulesReader:
+		return true
+	case APIKeysCreatePayloadV1TeamRoleNamesSecretsManage:
+		return true
+	case APIKeysCreatePayloadV1TeamRoleNamesSecretsUse:
 		return true
 	case APIKeysCreatePayloadV1TeamRoleNamesWorkflowsEditor:
 		return true
@@ -320,6 +344,8 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesScheduleOverridesEditor             APIKeysUpdatePayloadV1RoleNames = "schedule_overrides_editor"
 	APIKeysUpdatePayloadV1RoleNamesSchedulesEditor                     APIKeysUpdatePayloadV1RoleNames = "schedules_editor"
 	APIKeysUpdatePayloadV1RoleNamesSchedulesReader                     APIKeysUpdatePayloadV1RoleNames = "schedules_reader"
+	APIKeysUpdatePayloadV1RoleNamesSecretsManage                       APIKeysUpdatePayloadV1RoleNames = "secrets_manage"
+	APIKeysUpdatePayloadV1RoleNamesSecretsUse                          APIKeysUpdatePayloadV1RoleNames = "secrets_use"
 	APIKeysUpdatePayloadV1RoleNamesSecuritySettingsEditor              APIKeysUpdatePayloadV1RoleNames = "security_settings_editor"
 	APIKeysUpdatePayloadV1RoleNamesStatusPagePublisher                 APIKeysUpdatePayloadV1RoleNames = "status_page_publisher"
 	APIKeysUpdatePayloadV1RoleNamesTeamMembershipsManage               APIKeysUpdatePayloadV1RoleNames = "team_memberships_manage"
@@ -378,6 +404,10 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesSchedulesReader:
 		return true
+	case APIKeysUpdatePayloadV1RoleNamesSecretsManage:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesSecretsUse:
+		return true
 	case APIKeysUpdatePayloadV1RoleNamesSecuritySettingsEditor:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesStatusPagePublisher:
@@ -403,6 +433,8 @@ const (
 	APIKeysUpdatePayloadV1TeamRoleNamesScheduleOverridesEditor APIKeysUpdatePayloadV1TeamRoleNames = "schedule_overrides_editor"
 	APIKeysUpdatePayloadV1TeamRoleNamesSchedulesEditor         APIKeysUpdatePayloadV1TeamRoleNames = "schedules_editor"
 	APIKeysUpdatePayloadV1TeamRoleNamesSchedulesReader         APIKeysUpdatePayloadV1TeamRoleNames = "schedules_reader"
+	APIKeysUpdatePayloadV1TeamRoleNamesSecretsManage           APIKeysUpdatePayloadV1TeamRoleNames = "secrets_manage"
+	APIKeysUpdatePayloadV1TeamRoleNamesSecretsUse              APIKeysUpdatePayloadV1TeamRoleNames = "secrets_use"
 	APIKeysUpdatePayloadV1TeamRoleNamesWorkflowsEditor         APIKeysUpdatePayloadV1TeamRoleNames = "workflows_editor"
 )
 
@@ -424,6 +456,10 @@ func (e APIKeysUpdatePayloadV1TeamRoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1TeamRoleNamesSchedulesEditor:
 		return true
 	case APIKeysUpdatePayloadV1TeamRoleNamesSchedulesReader:
+		return true
+	case APIKeysUpdatePayloadV1TeamRoleNamesSecretsManage:
+		return true
+	case APIKeysUpdatePayloadV1TeamRoleNamesSecretsUse:
 		return true
 	case APIKeysUpdatePayloadV1TeamRoleNamesWorkflowsEditor:
 		return true
@@ -3401,6 +3437,8 @@ const (
 	IdentityV1RolesScheduleOverridesEditor             IdentityV1Roles = "schedule_overrides_editor"
 	IdentityV1RolesSchedulesEditor                     IdentityV1Roles = "schedules_editor"
 	IdentityV1RolesSchedulesReader                     IdentityV1Roles = "schedules_reader"
+	IdentityV1RolesSecretsManage                       IdentityV1Roles = "secrets_manage"
+	IdentityV1RolesSecretsUse                          IdentityV1Roles = "secrets_use"
 	IdentityV1RolesSecuritySettingsEditor              IdentityV1Roles = "security_settings_editor"
 	IdentityV1RolesStatusPagePublisher                 IdentityV1Roles = "status_page_publisher"
 	IdentityV1RolesTeamMembershipsManage               IdentityV1Roles = "team_memberships_manage"
@@ -3459,6 +3497,10 @@ func (e IdentityV1Roles) Valid() bool {
 		return true
 	case IdentityV1RolesSchedulesReader:
 		return true
+	case IdentityV1RolesSecretsManage:
+		return true
+	case IdentityV1RolesSecretsUse:
+		return true
 	case IdentityV1RolesSecuritySettingsEditor:
 		return true
 	case IdentityV1RolesStatusPagePublisher:
@@ -3484,6 +3526,8 @@ const (
 	IdentityV1TeamRolesScheduleOverridesEditor IdentityV1TeamRoles = "schedule_overrides_editor"
 	IdentityV1TeamRolesSchedulesEditor         IdentityV1TeamRoles = "schedules_editor"
 	IdentityV1TeamRolesSchedulesReader         IdentityV1TeamRoles = "schedules_reader"
+	IdentityV1TeamRolesSecretsManage           IdentityV1TeamRoles = "secrets_manage"
+	IdentityV1TeamRolesSecretsUse              IdentityV1TeamRoles = "secrets_use"
 	IdentityV1TeamRolesWorkflowsEditor         IdentityV1TeamRoles = "workflows_editor"
 )
 
@@ -3505,6 +3549,10 @@ func (e IdentityV1TeamRoles) Valid() bool {
 	case IdentityV1TeamRolesSchedulesEditor:
 		return true
 	case IdentityV1TeamRolesSchedulesReader:
+		return true
+	case IdentityV1TeamRolesSecretsManage:
+		return true
+	case IdentityV1TeamRolesSecretsUse:
 		return true
 	case IdentityV1TeamRolesWorkflowsEditor:
 		return true
@@ -12206,6 +12254,138 @@ type SchedulesUpdateScheduleSyncRuleResultV2 struct {
 	ScheduleSyncRule ScheduleSyncRuleV2 `json:"schedule_sync_rule"`
 }
 
+// SecretV2 A secret is a named credential that workflows can reference, for example
+// an auth token for an outgoing webhook.
+//
+// Its value can be set and rotated but never read back: the API stores it
+// encrypted and only ever returns masked metadata (the last four characters of
+// the current value). Update the value with the rotate action, which appends a
+// new version and retires the previous one.
+type SecretV2 struct {
+	CreatedAt time.Time `json:"created_at"`
+
+	// Description Optional description of what this secret is for
+	Description *string `json:"description,omitempty"`
+
+	// Id Unique identifier for this secret
+	Id string `json:"id"`
+
+	// LastFourChars The last four characters of the current value, for masked display. Absent when the value is four characters or shorter.
+	LastFourChars *string `json:"last_four_chars,omitempty"`
+
+	// Name Human-readable name, unique within the organisation amongst unarchived secrets
+	Name string `json:"name"`
+
+	// OwningTeamIds IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.
+	OwningTeamIds []string  `json:"owning_team_ids"`
+	UpdatedAt     time.Time `json:"updated_at"`
+
+	// Version The current version number, incremented on each rotation
+	Version int64 `json:"version"`
+}
+
+// SecretVersionV2 A single version of a secret's value. Only metadata is exposed; the value itself is never returned.
+type SecretVersionV2 struct {
+	CreatedAt time.Time `json:"created_at"`
+	CreatedBy *ActorV2  `json:"created_by,omitempty"`
+
+	// LastFourChars The last four characters of this version's value, for masked display. Absent when the value was four characters or shorter.
+	LastFourChars *string `json:"last_four_chars,omitempty"`
+
+	// Version The version number, incremented on each rotation
+	Version int64 `json:"version"`
+}
+
+// SecretsCreatePayloadV2 defines model for SecretsCreatePayloadV2.
+type SecretsCreatePayloadV2 struct {
+	// Description Optional description of what this secret is for
+	Description *string `json:"description,omitempty"`
+
+	// Name Human-readable name, unique within the organisation amongst unarchived secrets
+	Name string `json:"name"`
+
+	// OwningTeamIds IDs of the teams that own this secret. When empty or omitted, the secret is owned by the whole organisation.
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// Value The secret's plaintext value. It's stored encrypted and never returned by the API.
+	Value string `json:"value"`
+}
+
+// SecretsCreateResultV2 defines model for SecretsCreateResultV2.
+type SecretsCreateResultV2 struct {
+	// Secret A secret is a named credential that workflows can reference, for example
+	// an auth token for an outgoing webhook.
+	//
+	// Its value can be set and rotated but never read back: the API stores it
+	// encrypted and only ever returns masked metadata (the last four characters of
+	// the current value). Update the value with the rotate action, which appends a
+	// new version and retires the previous one.
+	Secret SecretV2 `json:"secret"`
+}
+
+// SecretsListResultV2 defines model for SecretsListResultV2.
+type SecretsListResultV2 struct {
+	PaginationMeta *PaginationMetaResultV2 `json:"pagination_meta,omitempty"`
+	Secrets        []SecretV2              `json:"secrets"`
+}
+
+// SecretsRotatePayloadV2 defines model for SecretsRotatePayloadV2.
+type SecretsRotatePayloadV2 struct {
+	// Value The secret's new plaintext value. It's stored encrypted and never returned by the API.
+	Value string `json:"value"`
+}
+
+// SecretsRotateResultV2 defines model for SecretsRotateResultV2.
+type SecretsRotateResultV2 struct {
+	// Secret A secret is a named credential that workflows can reference, for example
+	// an auth token for an outgoing webhook.
+	//
+	// Its value can be set and rotated but never read back: the API stores it
+	// encrypted and only ever returns masked metadata (the last four characters of
+	// the current value). Update the value with the rotate action, which appends a
+	// new version and retires the previous one.
+	Secret SecretV2 `json:"secret"`
+}
+
+// SecretsShowResultV2 defines model for SecretsShowResultV2.
+type SecretsShowResultV2 struct {
+	// Secret A secret is a named credential that workflows can reference, for example
+	// an auth token for an outgoing webhook.
+	//
+	// Its value can be set and rotated but never read back: the API stores it
+	// encrypted and only ever returns masked metadata (the last four characters of
+	// the current value). Update the value with the rotate action, which appends a
+	// new version and retires the previous one.
+	Secret SecretV2 `json:"secret"`
+
+	// Versions The secret's versions, newest first
+	Versions []SecretVersionV2 `json:"versions"`
+}
+
+// SecretsUpdatePayloadV2 defines model for SecretsUpdatePayloadV2.
+type SecretsUpdatePayloadV2 struct {
+	// Description Optional description of what this secret is for
+	Description *string `json:"description,omitempty"`
+
+	// Name Human-readable name, unique within the organisation amongst unarchived secrets
+	Name string `json:"name"`
+
+	// OwningTeamIds IDs of the teams that own this secret. When omitted, the existing owning teams are left unchanged.
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+}
+
+// SecretsUpdateResultV2 defines model for SecretsUpdateResultV2.
+type SecretsUpdateResultV2 struct {
+	// Secret A secret is a named credential that workflows can reference, for example
+	// an auth token for an outgoing webhook.
+	//
+	// Its value can be set and rotated but never read back: the API stores it
+	// encrypted and only ever returns masked metadata (the last four characters of
+	// the current value). Update the value with the rotate action, which appends a
+	// new version and retires the previous one.
+	Secret SecretV2 `json:"secret"`
+}
+
 // SeveritiesCreatePayloadV1 defines model for SeveritiesCreatePayloadV1.
 type SeveritiesCreatePayloadV1 struct {
 	// Description Description of the severity
@@ -13865,6 +14045,18 @@ type SchedulesV2ListScheduleSyncRulesParams struct {
 	After *string `form:"after,omitempty" json:"after,omitempty"`
 }
 
+// SecretsV2ListParams defines parameters for SecretsV2List.
+type SecretsV2ListParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After A secret's ID. This endpoint will return a list of secrets after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+
+	// TeamIds Filter to secrets owned by any of these teams
+	TeamIds *[]string `form:"team_ids,omitempty" json:"team_ids,omitempty"`
+}
+
 // StatusPagesV2ListStatusPageIncidentsParams defines parameters for StatusPagesV2ListStatusPageIncidents.
 type StatusPagesV2ListStatusPageIncidentsParams struct {
 	// StatusPageId ID of the status page. You can find this by calling the ListStatusPages endpoint.
@@ -14169,6 +14361,15 @@ type SchedulesV2CreateScheduleSyncRuleJSONRequestBody = SchedulesCreateScheduleS
 
 // SchedulesV2UpdateScheduleSyncRuleJSONRequestBody defines body for SchedulesV2UpdateScheduleSyncRule for application/json ContentType.
 type SchedulesV2UpdateScheduleSyncRuleJSONRequestBody = SchedulesUpdateScheduleSyncRulePayloadV2
+
+// SecretsV2CreateJSONRequestBody defines body for SecretsV2Create for application/json ContentType.
+type SecretsV2CreateJSONRequestBody = SecretsCreatePayloadV2
+
+// SecretsV2UpdateJSONRequestBody defines body for SecretsV2Update for application/json ContentType.
+type SecretsV2UpdateJSONRequestBody = SecretsUpdatePayloadV2
+
+// SecretsV2RotateJSONRequestBody defines body for SecretsV2Rotate for application/json ContentType.
+type SecretsV2RotateJSONRequestBody = SecretsRotatePayloadV2
 
 // StatusPagesV2CreateStatusPageIncidentUpdateJSONRequestBody defines body for StatusPagesV2CreateStatusPageIncidentUpdate for application/json ContentType.
 type StatusPagesV2CreateStatusPageIncidentUpdateJSONRequestBody = StatusPagesCreateStatusPageIncidentUpdatePayloadV2
@@ -14899,6 +15100,30 @@ type ClientInterface interface {
 	SchedulesV2UpdateScheduleSyncRuleWithBody(ctx context.Context, scheduleId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	SchedulesV2UpdateScheduleSyncRule(ctx context.Context, scheduleId string, id string, body SchedulesV2UpdateScheduleSyncRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SecretsV2List request
+	SecretsV2List(ctx context.Context, params *SecretsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SecretsV2CreateWithBody request with any body
+	SecretsV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	SecretsV2Create(ctx context.Context, body SecretsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SecretsV2Destroy request
+	SecretsV2Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SecretsV2Show request
+	SecretsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SecretsV2UpdateWithBody request with any body
+	SecretsV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	SecretsV2Update(ctx context.Context, id string, body SecretsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SecretsV2RotateWithBody request with any body
+	SecretsV2RotateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	SecretsV2Rotate(ctx context.Context, id string, body SecretsV2RotateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// StatusPagesV2CreateStatusPageIncidentUpdateWithBody request with any body
 	StatusPagesV2CreateStatusPageIncidentUpdateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -17787,6 +18012,114 @@ func (c *Client) SchedulesV2UpdateScheduleSyncRuleWithBody(ctx context.Context, 
 
 func (c *Client) SchedulesV2UpdateScheduleSyncRule(ctx context.Context, scheduleId string, id string, body SchedulesV2UpdateScheduleSyncRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newSchedulesV2UpdateScheduleSyncRuleRequest(c.Server, scheduleId, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SecretsV2List(ctx context.Context, params *SecretsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSecretsV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SecretsV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSecretsV2CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SecretsV2Create(ctx context.Context, body SecretsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSecretsV2CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SecretsV2Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSecretsV2DestroyRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SecretsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSecretsV2ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SecretsV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSecretsV2UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SecretsV2Update(ctx context.Context, id string, body SecretsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSecretsV2UpdateRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SecretsV2RotateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSecretsV2RotateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SecretsV2Rotate(ctx context.Context, id string, body SecretsV2RotateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSecretsV2RotateRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -26019,6 +26352,289 @@ func newSchedulesV2UpdateScheduleSyncRuleRequestWithBody(server string, schedule
 	return req, nil
 }
 
+// NewSecretsV2ListRequest generates requests for SecretsV2List
+func newSecretsV2ListRequest(server string, params *SecretsV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/secrets")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TeamIds != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "team_ids", *params.TeamIds, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "array", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewSecretsV2CreateRequest calls the generic SecretsV2Create builder with application/json body
+func newSecretsV2CreateRequest(server string, body SecretsV2CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newSecretsV2CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewSecretsV2CreateRequestWithBody generates requests for SecretsV2Create with any type of body
+func newSecretsV2CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/secrets")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewSecretsV2DestroyRequest generates requests for SecretsV2Destroy
+func newSecretsV2DestroyRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/secrets/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewSecretsV2ShowRequest generates requests for SecretsV2Show
+func newSecretsV2ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/secrets/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewSecretsV2UpdateRequest calls the generic SecretsV2Update builder with application/json body
+func newSecretsV2UpdateRequest(server string, id string, body SecretsV2UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newSecretsV2UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewSecretsV2UpdateRequestWithBody generates requests for SecretsV2Update with any type of body
+func newSecretsV2UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/secrets/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewSecretsV2RotateRequest calls the generic SecretsV2Rotate builder with application/json body
+func newSecretsV2RotateRequest(server string, id string, body SecretsV2RotateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newSecretsV2RotateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewSecretsV2RotateRequestWithBody generates requests for SecretsV2Rotate with any type of body
+func newSecretsV2RotateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/secrets/%s/actions/rotate", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewStatusPagesV2CreateStatusPageIncidentUpdateRequest calls the generic StatusPagesV2CreateStatusPageIncidentUpdate builder with application/json body
 func newStatusPagesV2CreateStatusPageIncidentUpdateRequest(server string, body StatusPagesV2CreateStatusPageIncidentUpdateJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -28804,6 +29420,30 @@ type ClientWithResponsesInterface interface {
 	SchedulesV2UpdateScheduleSyncRuleWithBodyWithResponse(ctx context.Context, scheduleId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SchedulesV2UpdateScheduleSyncRuleResponse, error)
 
 	SchedulesV2UpdateScheduleSyncRuleWithResponse(ctx context.Context, scheduleId string, id string, body SchedulesV2UpdateScheduleSyncRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*SchedulesV2UpdateScheduleSyncRuleResponse, error)
+
+	// SecretsV2ListWithResponse request
+	SecretsV2ListWithResponse(ctx context.Context, params *SecretsV2ListParams, reqEditors ...RequestEditorFn) (*SecretsV2ListResponse, error)
+
+	// SecretsV2CreateWithBodyWithResponse request with any body
+	SecretsV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SecretsV2CreateResponse, error)
+
+	SecretsV2CreateWithResponse(ctx context.Context, body SecretsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*SecretsV2CreateResponse, error)
+
+	// SecretsV2DestroyWithResponse request
+	SecretsV2DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*SecretsV2DestroyResponse, error)
+
+	// SecretsV2ShowWithResponse request
+	SecretsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*SecretsV2ShowResponse, error)
+
+	// SecretsV2UpdateWithBodyWithResponse request with any body
+	SecretsV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SecretsV2UpdateResponse, error)
+
+	SecretsV2UpdateWithResponse(ctx context.Context, id string, body SecretsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*SecretsV2UpdateResponse, error)
+
+	// SecretsV2RotateWithBodyWithResponse request with any body
+	SecretsV2RotateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SecretsV2RotateResponse, error)
+
+	SecretsV2RotateWithResponse(ctx context.Context, id string, body SecretsV2RotateJSONRequestBody, reqEditors ...RequestEditorFn) (*SecretsV2RotateResponse, error)
 
 	// StatusPagesV2CreateStatusPageIncidentUpdateWithBodyWithResponse request with any body
 	StatusPagesV2CreateStatusPageIncidentUpdateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*StatusPagesV2CreateStatusPageIncidentUpdateResponse, error)
@@ -32489,6 +33129,137 @@ func (r SchedulesV2UpdateScheduleSyncRuleResponse) StatusCode() int {
 	return 0
 }
 
+type SecretsV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *SecretsListResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r SecretsV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SecretsV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type SecretsV2CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *SecretsCreateResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r SecretsV2CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SecretsV2CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type SecretsV2DestroyResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+}
+
+// Status returns HTTPResponse.Status
+func (r SecretsV2DestroyResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SecretsV2DestroyResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type SecretsV2ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *SecretsShowResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r SecretsV2ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SecretsV2ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type SecretsV2UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *SecretsUpdateResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r SecretsV2UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SecretsV2UpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type SecretsV2RotateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *SecretsRotateResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r SecretsV2RotateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SecretsV2RotateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type StatusPagesV2CreateStatusPageIncidentUpdateResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -35482,6 +36253,84 @@ func (c *ClientWithResponses) SchedulesV2UpdateScheduleSyncRuleWithResponse(ctx 
 		return nil, err
 	}
 	return parseSchedulesV2UpdateScheduleSyncRuleResponse(rsp)
+}
+
+// SecretsV2ListWithResponse request returning *SecretsV2ListResponse
+func (c *ClientWithResponses) SecretsV2ListWithResponse(ctx context.Context, params *SecretsV2ListParams, reqEditors ...RequestEditorFn) (*SecretsV2ListResponse, error) {
+	rsp, err := c.SecretsV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSecretsV2ListResponse(rsp)
+}
+
+// SecretsV2CreateWithBodyWithResponse request with arbitrary body returning *SecretsV2CreateResponse
+func (c *ClientWithResponses) SecretsV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SecretsV2CreateResponse, error) {
+	rsp, err := c.SecretsV2CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSecretsV2CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) SecretsV2CreateWithResponse(ctx context.Context, body SecretsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*SecretsV2CreateResponse, error) {
+	rsp, err := c.SecretsV2Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSecretsV2CreateResponse(rsp)
+}
+
+// SecretsV2DestroyWithResponse request returning *SecretsV2DestroyResponse
+func (c *ClientWithResponses) SecretsV2DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*SecretsV2DestroyResponse, error) {
+	rsp, err := c.SecretsV2Destroy(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSecretsV2DestroyResponse(rsp)
+}
+
+// SecretsV2ShowWithResponse request returning *SecretsV2ShowResponse
+func (c *ClientWithResponses) SecretsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*SecretsV2ShowResponse, error) {
+	rsp, err := c.SecretsV2Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSecretsV2ShowResponse(rsp)
+}
+
+// SecretsV2UpdateWithBodyWithResponse request with arbitrary body returning *SecretsV2UpdateResponse
+func (c *ClientWithResponses) SecretsV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SecretsV2UpdateResponse, error) {
+	rsp, err := c.SecretsV2UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSecretsV2UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) SecretsV2UpdateWithResponse(ctx context.Context, id string, body SecretsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*SecretsV2UpdateResponse, error) {
+	rsp, err := c.SecretsV2Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSecretsV2UpdateResponse(rsp)
+}
+
+// SecretsV2RotateWithBodyWithResponse request with arbitrary body returning *SecretsV2RotateResponse
+func (c *ClientWithResponses) SecretsV2RotateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SecretsV2RotateResponse, error) {
+	rsp, err := c.SecretsV2RotateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSecretsV2RotateResponse(rsp)
+}
+
+func (c *ClientWithResponses) SecretsV2RotateWithResponse(ctx context.Context, id string, body SecretsV2RotateJSONRequestBody, reqEditors ...RequestEditorFn) (*SecretsV2RotateResponse, error) {
+	rsp, err := c.SecretsV2Rotate(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSecretsV2RotateResponse(rsp)
 }
 
 // StatusPagesV2CreateStatusPageIncidentUpdateWithBodyWithResponse request with arbitrary body returning *StatusPagesV2CreateStatusPageIncidentUpdateResponse
@@ -39930,6 +40779,152 @@ func parseSchedulesV2UpdateScheduleSyncRuleResponse(rsp *http.Response) (*Schedu
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest SchedulesUpdateScheduleSyncRuleResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSecretsV2ListResponse parses an HTTP response from a SecretsV2ListWithResponse call
+func parseSecretsV2ListResponse(rsp *http.Response) (*SecretsV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SecretsV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SecretsListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSecretsV2CreateResponse parses an HTTP response from a SecretsV2CreateWithResponse call
+func parseSecretsV2CreateResponse(rsp *http.Response) (*SecretsV2CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SecretsV2CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest SecretsCreateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSecretsV2DestroyResponse parses an HTTP response from a SecretsV2DestroyWithResponse call
+func parseSecretsV2DestroyResponse(rsp *http.Response) (*SecretsV2DestroyResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SecretsV2DestroyResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	return response, nil
+}
+
+// ParseSecretsV2ShowResponse parses an HTTP response from a SecretsV2ShowWithResponse call
+func parseSecretsV2ShowResponse(rsp *http.Response) (*SecretsV2ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SecretsV2ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SecretsShowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSecretsV2UpdateResponse parses an HTTP response from a SecretsV2UpdateWithResponse call
+func parseSecretsV2UpdateResponse(rsp *http.Response) (*SecretsV2UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SecretsV2UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SecretsUpdateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSecretsV2RotateResponse parses an HTTP response from a SecretsV2RotateWithResponse call
+func parseSecretsV2RotateResponse(rsp *http.Response) (*SecretsV2RotateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SecretsV2RotateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SecretsRotateResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
