@@ -59056,6 +59056,7 @@
               }
             }
           ],
+          "permalink": "https://app.incident.io/acme/on-call/schedules/01G0J1EXE7AXZ2C93K61WBPYEH",
           "team_ids": [
             "01JPQA75EPNEES4479P16P4XAB"
           ],
@@ -59143,6 +59144,11 @@
             },
             "type": "array"
           },
+          "permalink": {
+            "description": "A permanent link to this schedule in the incident.io dashboard",
+            "example": "https://app.incident.io/acme/on-call/schedules/01G0J1EXE7AXZ2C93K61WBPYEH",
+            "type": "string"
+          },
           "team_ids": {
             "description": "IDs of teams that own this schedule",
             "example": [
@@ -59170,6 +59176,7 @@
           "name",
           "timezone",
           "team_ids",
+          "permalink",
           "created_at",
           "updated_at",
           "annotations"
@@ -59428,6 +59435,7 @@
                 }
               }
             ],
+            "permalink": "https://app.incident.io/acme/on-call/schedules/01G0J1EXE7AXZ2C93K61WBPYEH",
             "team_ids": [
               "01JPQA75EPNEES4479P16P4XAB"
             ],
@@ -59668,6 +59676,7 @@
                   }
                 }
               ],
+              "permalink": "https://app.incident.io/acme/on-call/schedules/01G0J1EXE7AXZ2C93K61WBPYEH",
               "team_ids": [
                 "01JPQA75EPNEES4479P16P4XAB"
               ],
@@ -59775,6 +59784,7 @@
                     }
                   }
                 ],
+                "permalink": "https://app.incident.io/acme/on-call/schedules/01G0J1EXE7AXZ2C93K61WBPYEH",
                 "team_ids": [
                   "01JPQA75EPNEES4479P16P4XAB"
                 ],
@@ -60260,6 +60270,7 @@
                 }
               }
             ],
+            "permalink": "https://app.incident.io/acme/on-call/schedules/01G0J1EXE7AXZ2C93K61WBPYEH",
             "team_ids": [
               "01JPQA75EPNEES4479P16P4XAB"
             ],
@@ -60520,6 +60531,7 @@
                 }
               }
             ],
+            "permalink": "https://app.incident.io/acme/on-call/schedules/01G0J1EXE7AXZ2C93K61WBPYEH",
             "team_ids": [
               "01JPQA75EPNEES4479P16P4XAB"
             ],
@@ -88923,6 +88935,7 @@
                           }
                         }
                       ],
+                      "permalink": "https://app.incident.io/acme/on-call/schedules/01G0J1EXE7AXZ2C93K61WBPYEH",
                       "team_ids": [
                         "01JPQA75EPNEES4479P16P4XAB"
                       ],
@@ -89125,6 +89138,7 @@
                         }
                       }
                     ],
+                    "permalink": "https://app.incident.io/acme/on-call/schedules/01G0J1EXE7AXZ2C93K61WBPYEH",
                     "team_ids": [
                       "01JPQA75EPNEES4479P16P4XAB"
                     ],
@@ -89307,6 +89321,7 @@
                         }
                       }
                     ],
+                    "permalink": "https://app.incident.io/acme/on-call/schedules/01G0J1EXE7AXZ2C93K61WBPYEH",
                     "team_ids": [
                       "01JPQA75EPNEES4479P16P4XAB"
                     ],
@@ -89522,6 +89537,7 @@
                         }
                       }
                     ],
+                    "permalink": "https://app.incident.io/acme/on-call/schedules/01G0J1EXE7AXZ2C93K61WBPYEH",
                     "team_ids": [
                       "01JPQA75EPNEES4479P16P4XAB"
                     ],

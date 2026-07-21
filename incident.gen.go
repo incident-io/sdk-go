@@ -12073,6 +12073,9 @@ type ScheduleV2 struct {
 	// NextShifts The shifts after the next changeover. Note that on the list schedules endpoint, this will always be empty if the page size requested is greater than 25.
 	NextShifts *[]ScheduleEntryV2 `json:"next_shifts,omitempty"`
 
+	// Permalink A permanent link to this schedule in the incident.io dashboard
+	Permalink string `json:"permalink"`
+
 	// TeamIds IDs of teams that own this schedule
 	TeamIds []string `json:"team_ids"`
 
