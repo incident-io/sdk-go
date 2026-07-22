@@ -14603,6 +14603,7 @@
               "sumo_logic",
               "uptime",
               "vercel",
+              "wiz",
               "zendesk"
             ],
             "example": "alertmanager",
@@ -14900,6 +14901,7 @@
               "sumo_logic",
               "uptime",
               "vercel",
+              "wiz",
               "zendesk"
             ],
             "example": "alertmanager",

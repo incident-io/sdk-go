@@ -886,6 +886,7 @@ const (
 	AlertSourceV2SourceTypeSumoLogic         AlertSourceV2SourceType = "sumo_logic"
 	AlertSourceV2SourceTypeUptime            AlertSourceV2SourceType = "uptime"
 	AlertSourceV2SourceTypeVercel            AlertSourceV2SourceType = "vercel"
+	AlertSourceV2SourceTypeWiz               AlertSourceV2SourceType = "wiz"
 	AlertSourceV2SourceTypeZendesk           AlertSourceV2SourceType = "zendesk"
 )
 
@@ -986,6 +987,8 @@ func (e AlertSourceV2SourceType) Valid() bool {
 		return true
 	case AlertSourceV2SourceTypeVercel:
 		return true
+	case AlertSourceV2SourceTypeWiz:
+		return true
 	case AlertSourceV2SourceTypeZendesk:
 		return true
 	default:
@@ -1042,6 +1045,7 @@ const (
 	AlertSourcesCreatePayloadV2SourceTypeSumoLogic         AlertSourcesCreatePayloadV2SourceType = "sumo_logic"
 	AlertSourcesCreatePayloadV2SourceTypeUptime            AlertSourcesCreatePayloadV2SourceType = "uptime"
 	AlertSourcesCreatePayloadV2SourceTypeVercel            AlertSourcesCreatePayloadV2SourceType = "vercel"
+	AlertSourcesCreatePayloadV2SourceTypeWiz               AlertSourcesCreatePayloadV2SourceType = "wiz"
 	AlertSourcesCreatePayloadV2SourceTypeZendesk           AlertSourcesCreatePayloadV2SourceType = "zendesk"
 )
 
@@ -1141,6 +1145,8 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesCreatePayloadV2SourceTypeUptime:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeVercel:
+		return true
+	case AlertSourcesCreatePayloadV2SourceTypeWiz:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeZendesk:
 		return true
