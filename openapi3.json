@@ -2049,7 +2049,8 @@
                     "reference": "incident.severity"
                   }
                 },
-                "channel_visibility": "public"
+                "channel_visibility": "public",
+                "group_alerts_summary": false
               },
               "slack_targets": {
                 "binding": {
@@ -2064,7 +2065,8 @@
                     "reference": "incident.severity"
                   }
                 },
-                "channel_visibility": "public"
+                "channel_visibility": "public",
+                "group_alerts_summary": false
               }
             }
           ],
@@ -2123,7 +2125,8 @@
                       "reference": "incident.severity"
                     }
                   },
-                  "channel_visibility": "public"
+                  "channel_visibility": "public",
+                  "group_alerts_summary": false
                 },
                 "slack_targets": {
                   "binding": {
@@ -2138,7 +2141,8 @@
                       "reference": "incident.severity"
                     }
                   },
-                  "channel_visibility": "public"
+                  "channel_visibility": "public",
+                  "group_alerts_summary": false
                 }
               }
             ],
@@ -2203,7 +2207,8 @@
                     "reference": "incident.severity"
                   }
                 },
-                "channel_visibility": "abc123"
+                "channel_visibility": "abc123",
+                "group_alerts_summary": false
               },
               "slack_targets": {
                 "binding": {
@@ -2218,7 +2223,8 @@
                     "reference": "incident.severity"
                   }
                 },
-                "channel_visibility": "abc123"
+                "channel_visibility": "abc123",
+                "group_alerts_summary": false
               }
             }
           ],
@@ -2283,7 +2289,8 @@
                       "reference": "incident.severity"
                     }
                   },
-                  "channel_visibility": "abc123"
+                  "channel_visibility": "abc123",
+                  "group_alerts_summary": false
                 },
                 "slack_targets": {
                   "binding": {
@@ -2298,7 +2305,8 @@
                       "reference": "incident.severity"
                     }
                   },
-                  "channel_visibility": "abc123"
+                  "channel_visibility": "abc123",
+                  "group_alerts_summary": false
                 }
               }
             ],
@@ -2355,7 +2363,8 @@
                 "reference": "incident.severity"
               }
             },
-            "channel_visibility": "public"
+            "channel_visibility": "public",
+            "group_alerts_summary": false
           },
           "slack_targets": {
             "binding": {
@@ -2370,7 +2379,8 @@
                 "reference": "incident.severity"
               }
             },
-            "channel_visibility": "public"
+            "channel_visibility": "public",
+            "group_alerts_summary": false
           }
         },
         "properties": {
@@ -2462,7 +2472,8 @@
                 "reference": "incident.severity"
               }
             },
-            "channel_visibility": "abc123"
+            "channel_visibility": "abc123",
+            "group_alerts_summary": false
           },
           "slack_targets": {
             "binding": {
@@ -2477,7 +2488,8 @@
                 "reference": "incident.severity"
               }
             },
-            "channel_visibility": "abc123"
+            "channel_visibility": "abc123",
+            "group_alerts_summary": false
           }
         },
         "properties": {
@@ -3580,7 +3592,8 @@
               "reference": "incident.severity"
             }
           },
-          "channel_visibility": "public"
+          "channel_visibility": "public",
+          "group_alerts_summary": false
         },
         "properties": {
           "binding": {
@@ -3597,6 +3610,11 @@
             ],
             "example": "public",
             "type": "string"
+          },
+          "group_alerts_summary": {
+            "description": "Whether grouped alerts should render as a single group-summary message per channel",
+            "example": false,
+            "type": "boolean"
           }
         },
         "required": [
@@ -3653,7 +3671,8 @@
               "reference": "incident.severity"
             }
           },
-          "channel_visibility": "abc123"
+          "channel_visibility": "abc123",
+          "group_alerts_summary": false
         },
         "properties": {
           "binding": {
@@ -3663,6 +3682,11 @@
             "description": "The visibility of the channel",
             "example": "abc123",
             "type": "string"
+          },
+          "group_alerts_summary": {
+            "description": "Whether grouped alerts should render as a single group-summary message per channel",
+            "example": false,
+            "type": "boolean"
           }
         },
         "required": [
@@ -7424,7 +7448,8 @@
                       "reference": "incident.severity"
                     }
                   },
-                  "channel_visibility": "abc123"
+                  "channel_visibility": "abc123",
+                  "group_alerts_summary": false
                 },
                 "slack_targets": {
                   "binding": {
@@ -7439,7 +7464,8 @@
                       "reference": "incident.severity"
                     }
                   },
-                  "channel_visibility": "abc123"
+                  "channel_visibility": "abc123",
+                  "group_alerts_summary": false
                 }
               }
             ],
@@ -8998,7 +9024,8 @@
                       "reference": "incident.severity"
                     }
                   },
-                  "channel_visibility": "public"
+                  "channel_visibility": "public",
+                  "group_alerts_summary": false
                 },
                 "slack_targets": {
                   "binding": {
@@ -9013,7 +9040,8 @@
                       "reference": "incident.severity"
                     }
                   },
-                  "channel_visibility": "public"
+                  "channel_visibility": "public",
+                  "group_alerts_summary": false
                 }
               }
             ],
@@ -10276,7 +10304,8 @@
                         "reference": "incident.severity"
                       }
                     },
-                    "channel_visibility": "abc123"
+                    "channel_visibility": "abc123",
+                    "group_alerts_summary": false
                   },
                   "slack_targets": {
                     "binding": {
@@ -10291,7 +10320,8 @@
                         "reference": "incident.severity"
                       }
                     },
-                    "channel_visibility": "abc123"
+                    "channel_visibility": "abc123",
+                    "group_alerts_summary": false
                   }
                 }
               ],
@@ -11398,7 +11428,8 @@
                         "reference": "incident.severity"
                       }
                     },
-                    "channel_visibility": "abc123"
+                    "channel_visibility": "abc123",
+                    "group_alerts_summary": false
                   },
                   "slack_targets": {
                     "binding": {
@@ -11413,7 +11444,8 @@
                         "reference": "incident.severity"
                       }
                     },
-                    "channel_visibility": "abc123"
+                    "channel_visibility": "abc123",
+                    "group_alerts_summary": false
                   }
                 }
               ],
@@ -12641,7 +12673,8 @@
                       "reference": "incident.severity"
                     }
                   },
-                  "channel_visibility": "public"
+                  "channel_visibility": "public",
+                  "group_alerts_summary": false
                 },
                 "slack_targets": {
                   "binding": {
@@ -12656,7 +12689,8 @@
                       "reference": "incident.severity"
                     }
                   },
-                  "channel_visibility": "public"
+                  "channel_visibility": "public",
+                  "group_alerts_summary": false
                 }
               }
             ],
@@ -13927,7 +13961,8 @@
                         "reference": "incident.severity"
                       }
                     },
-                    "channel_visibility": "abc123"
+                    "channel_visibility": "abc123",
+                    "group_alerts_summary": false
                   },
                   "slack_targets": {
                     "binding": {
@@ -13942,7 +13977,8 @@
                         "reference": "incident.severity"
                       }
                     },
-                    "channel_visibility": "abc123"
+                    "channel_visibility": "abc123",
+                    "group_alerts_summary": false
                   }
                 }
               ],
@@ -94795,7 +94831,8 @@
                             "reference": "incident.severity"
                           }
                         },
-                        "channel_visibility": "public"
+                        "channel_visibility": "public",
+                        "group_alerts_summary": false
                       },
                       "slack_targets": {
                         "binding": {
@@ -94810,7 +94847,8 @@
                             "reference": "incident.severity"
                           }
                         },
-                        "channel_visibility": "public"
+                        "channel_visibility": "public",
+                        "group_alerts_summary": false
                       }
                     }
                   ],
@@ -95291,7 +95329,8 @@
                                 "reference": "incident.severity"
                               }
                             },
-                            "channel_visibility": "abc123"
+                            "channel_visibility": "abc123",
+                            "group_alerts_summary": false
                           },
                           "slack_targets": {
                             "binding": {
@@ -95306,7 +95345,8 @@
                                 "reference": "incident.severity"
                               }
                             },
-                            "channel_visibility": "abc123"
+                            "channel_visibility": "abc123",
+                            "group_alerts_summary": false
                           }
                         }
                       ],
@@ -95860,7 +95900,8 @@
                                 "reference": "incident.severity"
                               }
                             },
-                            "channel_visibility": "abc123"
+                            "channel_visibility": "abc123",
+                            "group_alerts_summary": false
                           },
                           "slack_targets": {
                             "binding": {
@@ -95875,7 +95916,8 @@
                                 "reference": "incident.severity"
                               }
                             },
-                            "channel_visibility": "abc123"
+                            "channel_visibility": "abc123",
+                            "group_alerts_summary": false
                           }
                         }
                       ],
@@ -96351,7 +96393,8 @@
                             "reference": "incident.severity"
                           }
                         },
-                        "channel_visibility": "public"
+                        "channel_visibility": "public",
+                        "group_alerts_summary": false
                       },
                       "slack_targets": {
                         "binding": {
@@ -96366,7 +96409,8 @@
                             "reference": "incident.severity"
                           }
                         },
-                        "channel_visibility": "public"
+                        "channel_visibility": "public",
+                        "group_alerts_summary": false
                       }
                     }
                   ],
@@ -96848,7 +96892,8 @@
                                 "reference": "incident.severity"
                               }
                             },
-                            "channel_visibility": "abc123"
+                            "channel_visibility": "abc123",
+                            "group_alerts_summary": false
                           },
                           "slack_targets": {
                             "binding": {
@@ -96863,7 +96908,8 @@
                                 "reference": "incident.severity"
                               }
                             },
-                            "channel_visibility": "abc123"
+                            "channel_visibility": "abc123",
+                            "group_alerts_summary": false
                           }
                         }
                       ],

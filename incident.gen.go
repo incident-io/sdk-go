@@ -6293,6 +6293,9 @@ type AlertRouteChannelTargetPayloadV3 struct {
 
 	// ChannelVisibility The visibility of the channel
 	ChannelVisibility AlertRouteChannelTargetPayloadV3ChannelVisibility `json:"channel_visibility"`
+
+	// GroupAlertsSummary Whether grouped alerts should render as a single group-summary message per channel
+	GroupAlertsSummary *bool `json:"group_alerts_summary,omitempty"`
 }
 
 // AlertRouteChannelTargetPayloadV3ChannelVisibility The visibility of the channel
@@ -6312,6 +6315,9 @@ type AlertRouteChannelTargetV3 struct {
 
 	// ChannelVisibility The visibility of the channel
 	ChannelVisibility string `json:"channel_visibility"`
+
+	// GroupAlertsSummary Whether grouped alerts should render as a single group-summary message per channel
+	GroupAlertsSummary *bool `json:"group_alerts_summary,omitempty"`
 }
 
 // AlertRouteCustomFieldBindingPayloadV2 defines model for AlertRouteCustomFieldBindingPayloadV2.
