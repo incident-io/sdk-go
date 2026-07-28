@@ -59793,6 +59793,67 @@
         ],
         "type": "object"
       },
+      "SchedulesListOverridesResultV2": {
+        "example": {
+          "overrides": [
+            {
+              "created_at": "2021-08-17T13:28:57.801578Z",
+              "end_at": "2021-08-17T13:28:57.801578Z",
+              "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "layer_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "schedule_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "start_at": "2021-08-17T13:28:57.801578Z",
+              "updated_at": "2021-08-17T13:28:57.801578Z",
+              "user": {
+                "email": "lisa@incident.io",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Lisa Karlin Curtis",
+                "role": "owner",
+                "slack_user_id": "U02AYNF2XJM"
+              }
+            }
+          ],
+          "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25
+          }
+        },
+        "properties": {
+          "overrides": {
+            "example": [
+              {
+                "created_at": "2021-08-17T13:28:57.801578Z",
+                "end_at": "2021-08-17T13:28:57.801578Z",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "schedule_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "start_at": "2021-08-17T13:28:57.801578Z",
+                "updated_at": "2021-08-17T13:28:57.801578Z",
+                "user": {
+                  "email": "lisa@incident.io",
+                  "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                  "name": "Lisa Karlin Curtis",
+                  "role": "owner",
+                  "slack_user_id": "U02AYNF2XJM"
+                }
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ScheduleOverrideV2"
+            },
+            "type": "array"
+          },
+          "pagination_meta": {
+            "$ref": "#/components/schemas/PaginationMetaResultV2"
+          }
+        },
+        "required": [
+          "overrides"
+        ],
+        "type": "object"
+      },
       "SchedulesListResultV2": {
         "example": {
           "pagination_meta": {
@@ -88597,6 +88658,133 @@
       }
     },
     "/v2/schedule_overrides": {
+      "get": {
+        "description": "List the overrides on a schedule.\n\nOverrides are one-off changes layered on top of the rotations, such as someone\ncovering a colleague's shift. This returns the overrides themselves: to see the\neffective schedule with overrides already merged in, use the schedule entries\nendpoint instead.\n\nOverrides belong to a specific layer of a specific rotation, so you can narrow the\nresults with `rotation_id` and `layer_id`.\n\nArchived overrides are not returned.",
+        "operationId": "Schedules V2#ListOverrides",
+        "parameters": [
+          {
+            "allowEmptyValue": true,
+            "description": "The ID of the schedule to get overrides for.",
+            "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+            "in": "query",
+            "name": "schedule_id",
+            "required": true,
+            "schema": {
+              "description": "The ID of the schedule to get overrides for.",
+              "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "If set, only return overrides on this rotation.",
+            "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+            "in": "query",
+            "name": "rotation_id",
+            "schema": {
+              "description": "If set, only return overrides on this rotation.",
+              "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "If set, only return overrides on this layer.",
+            "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+            "in": "query",
+            "name": "layer_id",
+            "schema": {
+              "description": "If set, only return overrides on this layer.",
+              "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Integer number of records to return",
+            "example": 25,
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "default": 25,
+              "description": "Integer number of records to return",
+              "example": 25,
+              "format": "int64",
+              "maximum": 250,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "An override's ID. This endpoint will return a list of overrides after this ID in relation to the API response order.",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FDAG4SAP5TYPT98WGR2N7W91"
+              }
+            },
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "description": "An override's ID. This endpoint will return a list of overrides after this ID in relation to the API response order.",
+              "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "overrides": [
+                    {
+                      "created_at": "2021-08-17T13:28:57.801578Z",
+                      "end_at": "2021-08-17T13:28:57.801578Z",
+                      "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                      "layer_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                      "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                      "schedule_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                      "start_at": "2021-08-17T13:28:57.801578Z",
+                      "updated_at": "2021-08-17T13:28:57.801578Z",
+                      "user": {
+                        "email": "lisa@incident.io",
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "Lisa Karlin Curtis",
+                        "role": "owner",
+                        "slack_user_id": "U02AYNF2XJM"
+                      }
+                    }
+                  ],
+                  "pagination_meta": {
+                    "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "page_size": 25
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/SchedulesListOverridesResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "summary": "ListOverrides Schedules V2",
+        "tags": [
+          "Schedules V2"
+        ],
+        "x-display-name": "List",
+        "x-docs-display-name": "List",
+        "x-docs-group-name": "Schedule Overrides V2",
+        "x-docs-resource-type": "ScheduleOverrideV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedules.view` scope."
+        },
+        "x-rbac-scopes": [
+          "schedules.view"
+        ]
+      },
       "post": {
         "description": "Create a new schedule override.",
         "operationId": "Schedules V2#CreateOverride",

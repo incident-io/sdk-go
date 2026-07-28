@@ -12158,6 +12158,12 @@ type SchedulesCreateScheduleSyncRuleResultV2 struct {
 	ScheduleSyncRule ScheduleSyncRuleV2 `json:"schedule_sync_rule"`
 }
 
+// SchedulesListOverridesResultV2 defines model for SchedulesListOverridesResultV2.
+type SchedulesListOverridesResultV2 struct {
+	Overrides      []ScheduleOverrideV2    `json:"overrides"`
+	PaginationMeta *PaginationMetaResultV2 `json:"pagination_meta,omitempty"`
+}
+
 // SchedulesListResultV2 defines model for SchedulesListResultV2.
 type SchedulesListResultV2 struct {
 	PaginationMeta *PaginationMetaResultWithTotalV2 `json:"pagination_meta,omitempty"`
@@ -14033,6 +14039,24 @@ type SchedulesV2ListScheduleEntriesParams struct {
 	EntryWindowEnd *time.Time `form:"entry_window_end,omitempty" json:"entry_window_end,omitempty"`
 }
 
+// SchedulesV2ListOverridesParams defines parameters for SchedulesV2ListOverrides.
+type SchedulesV2ListOverridesParams struct {
+	// ScheduleId The ID of the schedule to get overrides for.
+	ScheduleId string `form:"schedule_id" json:"schedule_id"`
+
+	// RotationId If set, only return overrides on this rotation.
+	RotationId *string `form:"rotation_id,omitempty" json:"rotation_id,omitempty"`
+
+	// LayerId If set, only return overrides on this layer.
+	LayerId *string `form:"layer_id,omitempty" json:"layer_id,omitempty"`
+
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After An override's ID. This endpoint will return a list of overrides after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+}
+
 // ScheduleSyncTargetsV2ListParams defines parameters for ScheduleSyncTargetsV2List.
 type ScheduleSyncTargetsV2ListParams struct {
 	// PageSize Integer number of records to return
@@ -15034,6 +15058,9 @@ type ClientInterface interface {
 
 	// SchedulesV2ListScheduleEntries request
 	SchedulesV2ListScheduleEntries(ctx context.Context, params *SchedulesV2ListScheduleEntriesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SchedulesV2ListOverrides request
+	SchedulesV2ListOverrides(ctx context.Context, params *SchedulesV2ListOverridesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// SchedulesV2CreateOverrideWithBody request with any body
 	SchedulesV2CreateOverrideWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -17667,6 +17694,18 @@ func (c *Client) IncidentsV2ImportPostmortemDocument(ctx context.Context, id str
 
 func (c *Client) SchedulesV2ListScheduleEntries(ctx context.Context, params *SchedulesV2ListScheduleEntriesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newSchedulesV2ListScheduleEntriesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SchedulesV2ListOverrides(ctx context.Context, params *SchedulesV2ListOverridesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSchedulesV2ListOverridesRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -25422,6 +25461,115 @@ func newSchedulesV2ListScheduleEntriesRequest(server string, params *SchedulesV2
 	return req, nil
 }
 
+// NewSchedulesV2ListOverridesRequest generates requests for SchedulesV2ListOverrides
+func newSchedulesV2ListOverridesRequest(server string, params *SchedulesV2ListOverridesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/schedule_overrides")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "schedule_id", params.ScheduleId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+			return nil, err
+		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+			return nil, err
+		} else {
+			for k, v := range parsed {
+				for _, v2 := range v {
+					queryValues.Add(k, v2)
+				}
+			}
+		}
+
+		if params.RotationId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "rotation_id", *params.RotationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.LayerId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "layer_id", *params.LayerId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewSchedulesV2CreateOverrideRequest calls the generic SchedulesV2CreateOverride builder with application/json body
 func newSchedulesV2CreateOverrideRequest(server string, body SchedulesV2CreateOverrideJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -29355,6 +29503,9 @@ type ClientWithResponsesInterface interface {
 	// SchedulesV2ListScheduleEntriesWithResponse request
 	SchedulesV2ListScheduleEntriesWithResponse(ctx context.Context, params *SchedulesV2ListScheduleEntriesParams, reqEditors ...RequestEditorFn) (*SchedulesV2ListScheduleEntriesResponse, error)
 
+	// SchedulesV2ListOverridesWithResponse request
+	SchedulesV2ListOverridesWithResponse(ctx context.Context, params *SchedulesV2ListOverridesParams, reqEditors ...RequestEditorFn) (*SchedulesV2ListOverridesResponse, error)
+
 	// SchedulesV2CreateOverrideWithBodyWithResponse request with any body
 	SchedulesV2CreateOverrideWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SchedulesV2CreateOverrideResponse, error)
 
@@ -32686,6 +32837,28 @@ func (r SchedulesV2ListScheduleEntriesResponse) StatusCode() int {
 	return 0
 }
 
+type SchedulesV2ListOverridesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *SchedulesListOverridesResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r SchedulesV2ListOverridesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SchedulesV2ListOverridesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type SchedulesV2CreateOverrideResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -36007,6 +36180,15 @@ func (c *ClientWithResponses) SchedulesV2ListScheduleEntriesWithResponse(ctx con
 		return nil, err
 	}
 	return parseSchedulesV2ListScheduleEntriesResponse(rsp)
+}
+
+// SchedulesV2ListOverridesWithResponse request returning *SchedulesV2ListOverridesResponse
+func (c *ClientWithResponses) SchedulesV2ListOverridesWithResponse(ctx context.Context, params *SchedulesV2ListOverridesParams, reqEditors ...RequestEditorFn) (*SchedulesV2ListOverridesResponse, error) {
+	rsp, err := c.SchedulesV2ListOverrides(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSchedulesV2ListOverridesResponse(rsp)
 }
 
 // SchedulesV2CreateOverrideWithBodyWithResponse request with arbitrary body returning *SchedulesV2CreateOverrideResponse
@@ -40288,6 +40470,32 @@ func parseSchedulesV2ListScheduleEntriesResponse(rsp *http.Response) (*Schedules
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest SchedulesListScheduleEntriesResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSchedulesV2ListOverridesResponse parses an HTTP response from a SchedulesV2ListOverridesWithResponse call
+func parseSchedulesV2ListOverridesResponse(rsp *http.Response) (*SchedulesV2ListOverridesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SchedulesV2ListOverridesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SchedulesListOverridesResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
