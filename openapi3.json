@@ -64240,6 +64240,7 @@
           ],
           "email": "lisa@incident.io",
           "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "is_active": true,
           "name": "Lisa Karlin Curtis",
           "role": "owner",
           "seats": {
@@ -64276,6 +64277,11 @@
             "example": "01FCNDV6P870EA6S7TK1DSYDG0",
             "type": "string"
           },
+          "is_active": {
+            "description": "Whether the user is active. False if the user has been deactivated (e.g. offboarded) or is not yet active.",
+            "example": true,
+            "type": "boolean"
+          },
           "name": {
             "description": "Name of the user",
             "example": "Lisa Karlin Curtis",
@@ -64306,6 +64312,7 @@
           "base_role",
           "custom_roles",
           "seats",
+          "is_active",
           "role",
           "id",
           "name"
@@ -64434,6 +64441,7 @@
               ],
               "email": "lisa@incident.io",
               "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "is_active": true,
               "name": "Lisa Karlin Curtis",
               "role": "owner",
               "seats": {
@@ -64467,6 +64475,7 @@
                 ],
                 "email": "lisa@incident.io",
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "is_active": true,
                 "name": "Lisa Karlin Curtis",
                 "role": "owner",
                 "seats": {
@@ -64526,6 +64535,7 @@
             ],
             "email": "lisa@incident.io",
             "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "is_active": true,
             "name": "Lisa Karlin Curtis",
             "role": "owner",
             "seats": {
@@ -92549,6 +92559,18 @@
           },
           {
             "allowEmptyValue": true,
+            "description": "Include deactivated or not-yet-active users (defaults to false). Useful for resolving users who have since been offboarded.",
+            "example": true,
+            "in": "query",
+            "name": "include_inactive",
+            "schema": {
+              "description": "Include deactivated or not-yet-active users (defaults to false). Useful for resolving users who have since been offboarded.",
+              "example": true,
+              "type": "boolean"
+            }
+          },
+          {
+            "allowEmptyValue": true,
             "description": "Integer number of records to return",
             "example": 25,
             "in": "query",
@@ -92602,6 +92624,7 @@
                       ],
                       "email": "lisa@incident.io",
                       "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "is_active": true,
                       "name": "Lisa Karlin Curtis",
                       "role": "owner",
                       "seats": {
@@ -92675,6 +92698,7 @@
                     ],
                     "email": "lisa@incident.io",
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "is_active": true,
                     "name": "Lisa Karlin Curtis",
                     "role": "owner",
                     "seats": {

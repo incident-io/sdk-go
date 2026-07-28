@@ -13189,6 +13189,9 @@ type UserWithRolesV2 struct {
 	// Id Unique identifier of the user
 	Id string `json:"id"`
 
+	// IsActive Whether the user is active. False if the user has been deactivated (e.g. offboarded) or is not yet active.
+	IsActive bool `json:"is_active"`
+
 	// Name Name of the user
 	Name string `json:"name"`
 
@@ -14166,6 +14169,9 @@ type UsersV2ListParams struct {
 
 	// SlackUserId Filter by Slack user ID
 	SlackUserId *string `form:"slack_user_id,omitempty" json:"slack_user_id,omitempty"`
+
+	// IncludeInactive Include deactivated or not-yet-active users (defaults to false). Useful for resolving users who have since been offboarded.
+	IncludeInactive *bool `form:"include_inactive,omitempty" json:"include_inactive,omitempty"`
 
 	// PageSize Integer number of records to return
 	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
@@ -27614,6 +27620,22 @@ func newUsersV2ListRequest(server string, params *UsersV2ListParams) (*http.Requ
 		if params.SlackUserId != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "slack_user_id", *params.SlackUserId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IncludeInactive != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_inactive", *params.IncludeInactive, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
