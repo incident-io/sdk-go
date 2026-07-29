@@ -14739,9 +14739,6 @@ type ClientInterface interface {
 
 	MaintenanceWindowsV1Update(ctx context.Context, id string, body MaintenanceWindowsV1UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// UtilitiesV1OpenAPI request
-	UtilitiesV1OpenAPI(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
-
 	// UtilitiesV1OpenAPIV3 request
 	UtilitiesV1OpenAPIV3(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -16236,20 +16233,6 @@ func (c *Client) MaintenanceWindowsV1UpdateWithBody(ctx context.Context, id stri
 
 func (c *Client) MaintenanceWindowsV1Update(ctx context.Context, id string, body MaintenanceWindowsV1UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newMaintenanceWindowsV1UpdateRequest(c.Server, id, body)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-// Deprecated: this endpoint is deprecated in the incident.io API. See
-// https://api-docs.incident.io/ for the recommended replacement.
-func (c *Client) UtilitiesV1OpenAPI(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := newUtilitiesV1OpenAPIRequest(c.Server)
 	if err != nil {
 		return nil, err
 	}
@@ -21200,33 +21183,6 @@ func newMaintenanceWindowsV1UpdateRequestWithBody(server string, id string, cont
 	}
 
 	req.Header.Add("Content-Type", contentType)
-
-	return req, nil
-}
-
-// NewUtilitiesV1OpenAPIRequest generates requests for UtilitiesV1OpenAPI
-func newUtilitiesV1OpenAPIRequest(server string) (*http.Request, error) {
-	var err error
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/v1/openapi.json")
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
 
 	return req, nil
 }
@@ -29199,9 +29155,6 @@ type ClientWithResponsesInterface interface {
 
 	MaintenanceWindowsV1UpdateWithResponse(ctx context.Context, id string, body MaintenanceWindowsV1UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*MaintenanceWindowsV1UpdateResponse, error)
 
-	// UtilitiesV1OpenAPIWithResponse request
-	UtilitiesV1OpenAPIWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*UtilitiesV1OpenAPIResponse, error)
-
 	// UtilitiesV1OpenAPIV3WithResponse request
 	UtilitiesV1OpenAPIV3WithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*UtilitiesV1OpenAPIV3Response, error)
 
@@ -30931,28 +30884,6 @@ func (r MaintenanceWindowsV1UpdateResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r MaintenanceWindowsV1UpdateResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-type UtilitiesV1OpenAPIResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *openapi_types.File
-}
-
-// Status returns HTTPResponse.Status
-func (r UtilitiesV1OpenAPIResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r UtilitiesV1OpenAPIResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -35115,18 +35046,6 @@ func (c *ClientWithResponses) MaintenanceWindowsV1UpdateWithResponse(ctx context
 	return parseMaintenanceWindowsV1UpdateResponse(rsp)
 }
 
-// UtilitiesV1OpenAPIWithResponse request returning *UtilitiesV1OpenAPIResponse
-//
-// Deprecated: this endpoint is deprecated in the incident.io API. See
-// https://api-docs.incident.io/ for the recommended replacement.
-func (c *ClientWithResponses) UtilitiesV1OpenAPIWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*UtilitiesV1OpenAPIResponse, error) {
-	rsp, err := c.UtilitiesV1OpenAPI(ctx, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return parseUtilitiesV1OpenAPIResponse(rsp)
-}
-
 // UtilitiesV1OpenAPIV3WithResponse request returning *UtilitiesV1OpenAPIV3Response
 func (c *ClientWithResponses) UtilitiesV1OpenAPIV3WithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*UtilitiesV1OpenAPIV3Response, error) {
 	rsp, err := c.UtilitiesV1OpenAPIV3(ctx, reqEditors...)
@@ -38344,32 +38263,6 @@ func parseMaintenanceWindowsV1UpdateResponse(rsp *http.Response) (*MaintenanceWi
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest MaintenanceWindowsUpdateResultV1
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseUtilitiesV1OpenAPIResponse parses an HTTP response from a UtilitiesV1OpenAPIWithResponse call
-func parseUtilitiesV1OpenAPIResponse(rsp *http.Response) (*UtilitiesV1OpenAPIResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &UtilitiesV1OpenAPIResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest openapi_types.File
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
