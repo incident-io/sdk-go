@@ -58623,6 +58623,9 @@
           "annotations": {
             "incident.io/terraform/version": "3.0.0"
           },
+          "permanent_member_user_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
           "rotation_id": "01JXYZ000000000000000000RT",
           "schedule_sync_target_id": "01JXYZ000000000000000000AB",
           "sync_type": "on_call"
@@ -58638,6 +58641,17 @@
               "incident.io/terraform/version": "3.0.0"
             },
             "type": "object"
+          },
+          "permanent_member_user_ids": {
+            "description": "IDs of users to always keep in the Slack user group, regardless of who is on call. Each must be an active user in your organisation. Defaults to none.",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
           },
           "rotation_id": {
             "description": "If set, scopes the rule to a single rotation on the schedule. When unset, all rotations are synced.",
@@ -58666,10 +58680,13 @@
         "type": "object"
       },
       "ScheduleSyncRuleV2": {
-        "description": "A sync rule links a schedule to a sync target, telling us which of the\nschedule's members should flow into the target's Slack user group.\n\nsync_type decides who is synced: on_call syncs only the people currently on\ncall, while all_users syncs everyone on the schedule. By default every\nrotation on the schedule is included; set rotation_id to scope the rule to a\nsingle rotation. As the schedule's shifts change hands, we keep the target's\nSlack user group membership in step with the rule.",
+        "description": "A sync rule links a schedule to a sync target, telling us which of the\nschedule's members should flow into the target's Slack user group.\n\nsync_type decides who is synced: on_call syncs only the people currently on\ncall, while all_users syncs everyone on the schedule. By default every\nrotation on the schedule is included; set rotation_id to scope the rule to a\nsingle rotation. As the schedule's shifts change hands, we keep the target's\nSlack user group membership in step with the rule.\n\npermanent_member_user_ids names users who stay in the group whichever way the\nshifts fall, on top of whoever sync_type selects.",
         "example": {
           "created_at": "2021-08-17T13:28:57.801578Z",
           "id": "01JXYZ000000000000000000CD",
+          "permanent_member_user_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
           "rotation_id": "01JXYZ000000000000000000RT",
           "schedule_id": "01JXYZ000000000000000000EF",
           "schedule_sync_target": {
@@ -58703,6 +58720,17 @@
             "description": "Unique identifier of the sync rule",
             "example": "01JXYZ000000000000000000CD",
             "type": "string"
+          },
+          "permanent_member_user_ids": {
+            "description": "IDs of users always kept in the Slack user group, regardless of who is on call. Useful for keeping e.g. a manager in the group so they see mentions without being paged. Scoped to this rule: when several rules feed the same group, we sync the union of their permanent members.",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
           },
           "rotation_id": {
             "description": "If set, only members of this rotation sync to the user group. When unset, all rotations on the schedule are synced.",
@@ -58743,6 +58771,7 @@
           "schedule_sync_target_id",
           "schedule_sync_target",
           "sync_type",
+          "permanent_member_user_ids",
           "created_at",
           "updated_at"
         ],
@@ -59739,6 +59768,9 @@
             "annotations": {
               "incident.io/terraform/version": "3.0.0"
             },
+            "permanent_member_user_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "rotation_id": "01JXYZ000000000000000000RT",
             "schedule_sync_target_id": "01JXYZ000000000000000000AB",
             "sync_type": "on_call"
@@ -59759,6 +59791,9 @@
           "schedule_sync_rule": {
             "created_at": "2021-08-17T13:28:57.801578Z",
             "id": "01JXYZ000000000000000000CD",
+            "permanent_member_user_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "rotation_id": "01JXYZ000000000000000000RT",
             "schedule_id": "01JXYZ000000000000000000EF",
             "schedule_sync_target": {
@@ -60233,6 +60268,9 @@
             {
               "created_at": "2021-08-17T13:28:57.801578Z",
               "id": "01JXYZ000000000000000000CD",
+              "permanent_member_user_ids": [
+                "01G0J1EXE7AXZ2C93K61WBPYEH"
+              ],
               "rotation_id": "01JXYZ000000000000000000RT",
               "schedule_id": "01JXYZ000000000000000000EF",
               "schedule_sync_target": {
@@ -60267,6 +60305,9 @@
               {
                 "created_at": "2021-08-17T13:28:57.801578Z",
                 "id": "01JXYZ000000000000000000CD",
+                "permanent_member_user_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ],
                 "rotation_id": "01JXYZ000000000000000000RT",
                 "schedule_id": "01JXYZ000000000000000000EF",
                 "schedule_sync_target": {
@@ -60609,6 +60650,9 @@
           "schedule_sync_rule": {
             "created_at": "2021-08-17T13:28:57.801578Z",
             "id": "01JXYZ000000000000000000CD",
+            "permanent_member_user_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "rotation_id": "01JXYZ000000000000000000RT",
             "schedule_id": "01JXYZ000000000000000000EF",
             "schedule_sync_target": {
@@ -60833,6 +60877,9 @@
           "annotations": {
             "incident.io/terraform/version": "3.0.0"
           },
+          "permanent_member_user_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
           "sync_type": "on_call"
         },
         "properties": {
@@ -60846,6 +60893,17 @@
               "incident.io/terraform/version": "3.0.0"
             },
             "type": "object"
+          },
+          "permanent_member_user_ids": {
+            "description": "IDs of users to always keep in the Slack user group, regardless of who is on call. Each must be an active user in your organisation. Replaces the rule's current permanent members: pass an empty array to remove them all, or omit the field to leave them unchanged.",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
           },
           "sync_type": {
             "description": "Which schedule members sync to the user group",
@@ -60867,6 +60925,9 @@
           "schedule_sync_rule": {
             "created_at": "2021-08-17T13:28:57.801578Z",
             "id": "01JXYZ000000000000000000CD",
+            "permanent_member_user_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "rotation_id": "01JXYZ000000000000000000RT",
             "schedule_id": "01JXYZ000000000000000000EF",
             "schedule_sync_target": {
@@ -90496,6 +90557,9 @@
                     {
                       "created_at": "2021-08-17T13:28:57.801578Z",
                       "id": "01JXYZ000000000000000000CD",
+                      "permanent_member_user_ids": [
+                        "01G0J1EXE7AXZ2C93K61WBPYEH"
+                      ],
                       "rotation_id": "01JXYZ000000000000000000RT",
                       "schedule_id": "01JXYZ000000000000000000EF",
                       "schedule_sync_target": {
@@ -90568,6 +90632,9 @@
                   "annotations": {
                     "incident.io/terraform/version": "3.0.0"
                   },
+                  "permanent_member_user_ids": [
+                    "01G0J1EXE7AXZ2C93K61WBPYEH"
+                  ],
                   "rotation_id": "01JXYZ000000000000000000RT",
                   "schedule_sync_target_id": "01JXYZ000000000000000000AB",
                   "sync_type": "on_call"
@@ -90588,6 +90655,9 @@
                   "schedule_sync_rule": {
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "id": "01JXYZ000000000000000000CD",
+                    "permanent_member_user_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "rotation_id": "01JXYZ000000000000000000RT",
                     "schedule_id": "01JXYZ000000000000000000EF",
                     "schedule_sync_target": {
@@ -90721,6 +90791,9 @@
                   "schedule_sync_rule": {
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "id": "01JXYZ000000000000000000CD",
+                    "permanent_member_user_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "rotation_id": "01JXYZ000000000000000000RT",
                     "schedule_id": "01JXYZ000000000000000000EF",
                     "schedule_sync_target": {
@@ -90768,7 +90841,7 @@
         ]
       },
       "put": {
-        "description": "Update a sync rule's sync_type in place. If the rule's sync target is shared with other schedules, the change propagates to every linked schedule and the entire operation aborts if the caller lacks edit permission on any of them.",
+        "description": "Update a sync rule's sync_type and permanent members in place. If the rule's sync target is shared with other schedules, a sync_type change propagates to every linked schedule and the entire operation aborts if the caller lacks edit permission on any of them. Permanent members are scoped to this rule and never propagate.",
         "operationId": "Schedules V2#UpdateScheduleSyncRule",
         "parameters": [
           {
@@ -90803,6 +90876,9 @@
                 "annotations": {
                   "incident.io/terraform/version": "3.0.0"
                 },
+                "permanent_member_user_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ],
                 "sync_type": "on_call"
               },
               "schema": {
@@ -90820,6 +90896,9 @@
                   "schedule_sync_rule": {
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "id": "01JXYZ000000000000000000CD",
+                    "permanent_member_user_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "rotation_id": "01JXYZ000000000000000000RT",
                     "schedule_id": "01JXYZ000000000000000000EF",
                     "schedule_sync_target": {

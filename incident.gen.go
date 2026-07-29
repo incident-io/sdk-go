@@ -11875,6 +11875,9 @@ type ScheduleSyncRuleCreatePayloadV2 struct {
 	// Annotations Annotations that track metadata about this resource
 	Annotations *map[string]string `json:"annotations,omitempty"`
 
+	// PermanentMemberUserIds IDs of users to always keep in the Slack user group, regardless of who is on call. Each must be an active user in your organisation. Defaults to none.
+	PermanentMemberUserIds *[]string `json:"permanent_member_user_ids,omitempty"`
+
 	// RotationId If set, scopes the rule to a single rotation on the schedule. When unset, all rotations are synced.
 	RotationId *string `json:"rotation_id,omitempty"`
 
@@ -11896,11 +11899,17 @@ type ScheduleSyncRuleCreatePayloadV2SyncType string
 // rotation on the schedule is included; set rotation_id to scope the rule to a
 // single rotation. As the schedule's shifts change hands, we keep the target's
 // Slack user group membership in step with the rule.
+//
+// permanent_member_user_ids names users who stay in the group whichever way the
+// shifts fall, on top of whoever sync_type selects.
 type ScheduleSyncRuleV2 struct {
 	CreatedAt time.Time `json:"created_at"`
 
 	// Id Unique identifier of the sync rule
 	Id string `json:"id"`
+
+	// PermanentMemberUserIds IDs of users always kept in the Slack user group, regardless of who is on call. Useful for keeping e.g. a manager in the group so they see mentions without being paged. Scoped to this rule: when several rules feed the same group, we sync the union of their permanent members.
+	PermanentMemberUserIds []string `json:"permanent_member_user_ids"`
 
 	// RotationId If set, only members of this rotation sync to the user group. When unset, all rotations on the schedule are synced.
 	RotationId *string `json:"rotation_id,omitempty"`
@@ -12155,6 +12164,9 @@ type SchedulesCreateScheduleSyncRuleResultV2 struct {
 	// rotation on the schedule is included; set rotation_id to scope the rule to a
 	// single rotation. As the schedule's shifts change hands, we keep the target's
 	// Slack user group membership in step with the rule.
+	//
+	// permanent_member_user_ids names users who stay in the group whichever way the
+	// shifts fall, on top of whoever sync_type selects.
 	ScheduleSyncRule ScheduleSyncRuleV2 `json:"schedule_sync_rule"`
 }
 
@@ -12237,6 +12249,9 @@ type SchedulesShowScheduleSyncRuleResultV2 struct {
 	// rotation on the schedule is included; set rotation_id to scope the rule to a
 	// single rotation. As the schedule's shifts change hands, we keep the target's
 	// Slack user group membership in step with the rule.
+	//
+	// permanent_member_user_ids names users who stay in the group whichever way the
+	// shifts fall, on top of whoever sync_type selects.
 	ScheduleSyncRule ScheduleSyncRuleV2 `json:"schedule_sync_rule"`
 }
 
@@ -12255,6 +12270,9 @@ type SchedulesUpdateScheduleSyncRulePayloadV2 struct {
 	// Annotations Annotations that track metadata about this resource
 	Annotations *map[string]string `json:"annotations,omitempty"`
 
+	// PermanentMemberUserIds IDs of users to always keep in the Slack user group, regardless of who is on call. Each must be an active user in your organisation. Replaces the rule's current permanent members: pass an empty array to remove them all, or omit the field to leave them unchanged.
+	PermanentMemberUserIds *[]string `json:"permanent_member_user_ids,omitempty"`
+
 	// SyncType Which schedule members sync to the user group
 	SyncType SchedulesUpdateScheduleSyncRulePayloadV2SyncType `json:"sync_type"`
 }
@@ -12272,6 +12290,9 @@ type SchedulesUpdateScheduleSyncRuleResultV2 struct {
 	// rotation on the schedule is included; set rotation_id to scope the rule to a
 	// single rotation. As the schedule's shifts change hands, we keep the target's
 	// Slack user group membership in step with the rule.
+	//
+	// permanent_member_user_ids names users who stay in the group whichever way the
+	// shifts fall, on top of whoever sync_type selects.
 	ScheduleSyncRule ScheduleSyncRuleV2 `json:"schedule_sync_rule"`
 }
 
