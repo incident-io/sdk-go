@@ -11474,7 +11474,7 @@ type RetrospectiveIncidentOptionsV2 struct {
 	// PostmortemDocumentUrl The URL of the postmortem, if there is one
 	PostmortemDocumentUrl *string `json:"postmortem_document_url,omitempty"`
 
-	// SlackChannelId Pass the ID of a Slack channel to attach the incident to an existing channel, rather than creating a new one
+	// SlackChannelId Pass the ID of a Slack channel to attach the incident to an existing channel. If not provided, no Slack channel will be created for this retrospective incident.
 	SlackChannelId *string `json:"slack_channel_id,omitempty"`
 }
 
