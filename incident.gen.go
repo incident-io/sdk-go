@@ -51,6 +51,7 @@ const (
 	APIKeyRoleV1NameTeamMembershipsManage               APIKeyRoleV1Name = "team_memberships_manage"
 	APIKeyRoleV1NameViewer                              APIKeyRoleV1Name = "viewer"
 	APIKeyRoleV1NameWorkflowsEditor                     APIKeyRoleV1Name = "workflows_editor"
+	APIKeyRoleV1NameWorkflowsViewer                     APIKeyRoleV1Name = "workflows_viewer"
 )
 
 // Valid indicates whether the value is a known member of the APIKeyRoleV1Name enum.
@@ -117,6 +118,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameViewer:
 		return true
 	case APIKeyRoleV1NameWorkflowsEditor:
+		return true
+	case APIKeyRoleV1NameWorkflowsViewer:
 		return true
 	default:
 		return false
@@ -201,6 +204,7 @@ const (
 	APIKeysCreatePayloadV1RoleNamesTeamMembershipsManage               APIKeysCreatePayloadV1RoleNames = "team_memberships_manage"
 	APIKeysCreatePayloadV1RoleNamesViewer                              APIKeysCreatePayloadV1RoleNames = "viewer"
 	APIKeysCreatePayloadV1RoleNamesWorkflowsEditor                     APIKeysCreatePayloadV1RoleNames = "workflows_editor"
+	APIKeysCreatePayloadV1RoleNamesWorkflowsViewer                     APIKeysCreatePayloadV1RoleNames = "workflows_viewer"
 )
 
 // Valid indicates whether the value is a known member of the APIKeysCreatePayloadV1RoleNames enum.
@@ -267,6 +271,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesViewer:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesWorkflowsEditor:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesWorkflowsViewer:
 		return true
 	default:
 		return false
@@ -351,6 +357,7 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesTeamMembershipsManage               APIKeysUpdatePayloadV1RoleNames = "team_memberships_manage"
 	APIKeysUpdatePayloadV1RoleNamesViewer                              APIKeysUpdatePayloadV1RoleNames = "viewer"
 	APIKeysUpdatePayloadV1RoleNamesWorkflowsEditor                     APIKeysUpdatePayloadV1RoleNames = "workflows_editor"
+	APIKeysUpdatePayloadV1RoleNamesWorkflowsViewer                     APIKeysUpdatePayloadV1RoleNames = "workflows_viewer"
 )
 
 // Valid indicates whether the value is a known member of the APIKeysUpdatePayloadV1RoleNames enum.
@@ -417,6 +424,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesViewer:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesWorkflowsEditor:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesWorkflowsViewer:
 		return true
 	default:
 		return false
@@ -3450,6 +3459,7 @@ const (
 	IdentityV1RolesTeamMembershipsManage               IdentityV1Roles = "team_memberships_manage"
 	IdentityV1RolesViewer                              IdentityV1Roles = "viewer"
 	IdentityV1RolesWorkflowsEditor                     IdentityV1Roles = "workflows_editor"
+	IdentityV1RolesWorkflowsViewer                     IdentityV1Roles = "workflows_viewer"
 )
 
 // Valid indicates whether the value is a known member of the IdentityV1Roles enum.
@@ -3516,6 +3526,8 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesViewer:
 		return true
 	case IdentityV1RolesWorkflowsEditor:
+		return true
+	case IdentityV1RolesWorkflowsViewer:
 		return true
 	default:
 		return false
