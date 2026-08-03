@@ -4899,6 +4899,90 @@ func (e StatusPagesCreateStatusPageMaintenanceUpdatePayloadV2MaintenanceStatus) 
 	}
 }
 
+// Defines values for StepProgressSlimV2Status.
+const (
+	StepProgressSlimV2StatusComplete StepProgressSlimV2Status = "complete"
+	StepProgressSlimV2StatusError    StepProgressSlimV2Status = "error"
+	StepProgressSlimV2StatusPending  StepProgressSlimV2Status = "pending"
+)
+
+// Valid indicates whether the value is a known member of the StepProgressSlimV2Status enum.
+func (e StepProgressSlimV2Status) Valid() bool {
+	switch e {
+	case StepProgressSlimV2StatusComplete:
+		return true
+	case StepProgressSlimV2StatusError:
+		return true
+	case StepProgressSlimV2StatusPending:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for StepProgressSlimV2WebhookDeliveryState.
+const (
+	StepProgressSlimV2WebhookDeliveryStateAvailable   StepProgressSlimV2WebhookDeliveryState = "available"
+	StepProgressSlimV2WebhookDeliveryStateExpired     StepProgressSlimV2WebhookDeliveryState = "expired"
+	StepProgressSlimV2WebhookDeliveryStateUnavailable StepProgressSlimV2WebhookDeliveryState = "unavailable"
+)
+
+// Valid indicates whether the value is a known member of the StepProgressSlimV2WebhookDeliveryState enum.
+func (e StepProgressSlimV2WebhookDeliveryState) Valid() bool {
+	switch e {
+	case StepProgressSlimV2WebhookDeliveryStateAvailable:
+		return true
+	case StepProgressSlimV2WebhookDeliveryStateExpired:
+		return true
+	case StepProgressSlimV2WebhookDeliveryStateUnavailable:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for StepProgressV2Status.
+const (
+	StepProgressV2StatusComplete StepProgressV2Status = "complete"
+	StepProgressV2StatusError    StepProgressV2Status = "error"
+	StepProgressV2StatusPending  StepProgressV2Status = "pending"
+)
+
+// Valid indicates whether the value is a known member of the StepProgressV2Status enum.
+func (e StepProgressV2Status) Valid() bool {
+	switch e {
+	case StepProgressV2StatusComplete:
+		return true
+	case StepProgressV2StatusError:
+		return true
+	case StepProgressV2StatusPending:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for StepProgressV2WebhookDeliveryState.
+const (
+	StepProgressV2WebhookDeliveryStateAvailable   StepProgressV2WebhookDeliveryState = "available"
+	StepProgressV2WebhookDeliveryStateExpired     StepProgressV2WebhookDeliveryState = "expired"
+	StepProgressV2WebhookDeliveryStateUnavailable StepProgressV2WebhookDeliveryState = "unavailable"
+)
+
+// Valid indicates whether the value is a known member of the StepProgressV2WebhookDeliveryState enum.
+func (e StepProgressV2WebhookDeliveryState) Valid() bool {
+	switch e {
+	case StepProgressV2WebhookDeliveryStateAvailable:
+		return true
+	case StepProgressV2WebhookDeliveryStateExpired:
+		return true
+	case StepProgressV2WebhookDeliveryStateUnavailable:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for UserSeatsV2OnCall.
 const (
 	UserSeatsV2OnCallFullAccess UserSeatsV2OnCall = "full_access"
@@ -5064,6 +5148,66 @@ func (e UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider) Valid() b
 	case Pagerduty:
 		return true
 	case SplunkOnCall:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WebhookDeliverySlimV2Outcome.
+const (
+	WebhookDeliverySlimV2OutcomeNetworkError WebhookDeliverySlimV2Outcome = "network_error"
+	WebhookDeliverySlimV2OutcomeNon2xx       WebhookDeliverySlimV2Outcome = "non_2xx"
+	WebhookDeliverySlimV2OutcomeSuccess      WebhookDeliverySlimV2Outcome = "success"
+	WebhookDeliverySlimV2OutcomeTimeout      WebhookDeliverySlimV2Outcome = "timeout"
+	WebhookDeliverySlimV2OutcomeTlsError     WebhookDeliverySlimV2Outcome = "tls_error"
+	WebhookDeliverySlimV2OutcomeUnreachable  WebhookDeliverySlimV2Outcome = "unreachable"
+)
+
+// Valid indicates whether the value is a known member of the WebhookDeliverySlimV2Outcome enum.
+func (e WebhookDeliverySlimV2Outcome) Valid() bool {
+	switch e {
+	case WebhookDeliverySlimV2OutcomeNetworkError:
+		return true
+	case WebhookDeliverySlimV2OutcomeNon2xx:
+		return true
+	case WebhookDeliverySlimV2OutcomeSuccess:
+		return true
+	case WebhookDeliverySlimV2OutcomeTimeout:
+		return true
+	case WebhookDeliverySlimV2OutcomeTlsError:
+		return true
+	case WebhookDeliverySlimV2OutcomeUnreachable:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WebhookDeliveryV2Outcome.
+const (
+	WebhookDeliveryV2OutcomeNetworkError WebhookDeliveryV2Outcome = "network_error"
+	WebhookDeliveryV2OutcomeNon2xx       WebhookDeliveryV2Outcome = "non_2xx"
+	WebhookDeliveryV2OutcomeSuccess      WebhookDeliveryV2Outcome = "success"
+	WebhookDeliveryV2OutcomeTimeout      WebhookDeliveryV2Outcome = "timeout"
+	WebhookDeliveryV2OutcomeTlsError     WebhookDeliveryV2Outcome = "tls_error"
+	WebhookDeliveryV2OutcomeUnreachable  WebhookDeliveryV2Outcome = "unreachable"
+)
+
+// Valid indicates whether the value is a known member of the WebhookDeliveryV2Outcome enum.
+func (e WebhookDeliveryV2Outcome) Valid() bool {
+	switch e {
+	case WebhookDeliveryV2OutcomeNetworkError:
+		return true
+	case WebhookDeliveryV2OutcomeNon2xx:
+		return true
+	case WebhookDeliveryV2OutcomeSuccess:
+		return true
+	case WebhookDeliveryV2OutcomeTimeout:
+		return true
+	case WebhookDeliveryV2OutcomeTlsError:
+		return true
+	case WebhookDeliveryV2OutcomeUnreachable:
 		return true
 	default:
 		return false
@@ -13009,6 +13153,68 @@ type StepConfigV2 struct {
 	ParamBindings []EngineParamBindingV2 `json:"param_bindings"`
 }
 
+// StepProgressSlimV2 defines model for StepProgressSlimV2.
+type StepProgressSlimV2 struct {
+	// CompletedAt Status of the step
+	CompletedAt *time.Time `json:"completed_at,omitempty"`
+
+	// Error The cause of an errored step
+	Error *string `json:"error,omitempty"`
+
+	// IncidentId If this step ran for a specific incident (e.g. in a loop), the incident ID
+	IncidentId *string `json:"incident_id,omitempty"`
+
+	// IncidentReference If this step ran for a specific incident (e.g. in a loop), the incident reference
+	IncidentReference *string `json:"incident_reference,omitempty"`
+
+	// Status Status of the step
+	Status StepProgressSlimV2Status `json:"status"`
+
+	// Step Name of the step
+	Step            string                 `json:"step"`
+	WebhookDelivery *WebhookDeliverySlimV2 `json:"webhook_delivery,omitempty"`
+
+	// WebhookDeliveryState Whether this step's delivery can be shown, for a webhook.send step. Absent for all other step types
+	WebhookDeliveryState *StepProgressSlimV2WebhookDeliveryState `json:"webhook_delivery_state,omitempty"`
+}
+
+// StepProgressSlimV2Status Status of the step
+type StepProgressSlimV2Status string
+
+// StepProgressSlimV2WebhookDeliveryState Whether this step's delivery can be shown, for a webhook.send step. Absent for all other step types
+type StepProgressSlimV2WebhookDeliveryState string
+
+// StepProgressV2 defines model for StepProgressV2.
+type StepProgressV2 struct {
+	// CompletedAt Status of the step
+	CompletedAt *time.Time `json:"completed_at,omitempty"`
+
+	// Error The cause of an errored step
+	Error *string `json:"error,omitempty"`
+
+	// IncidentId If this step ran for a specific incident (e.g. in a loop), the incident ID
+	IncidentId *string `json:"incident_id,omitempty"`
+
+	// IncidentReference If this step ran for a specific incident (e.g. in a loop), the incident reference
+	IncidentReference *string `json:"incident_reference,omitempty"`
+
+	// Status Status of the step
+	Status StepProgressV2Status `json:"status"`
+
+	// Step Name of the step
+	Step            string             `json:"step"`
+	WebhookDelivery *WebhookDeliveryV2 `json:"webhook_delivery,omitempty"`
+
+	// WebhookDeliveryState Whether this step's delivery can be shown, for a webhook.send step. Absent for all other step types
+	WebhookDeliveryState *StepProgressV2WebhookDeliveryState `json:"webhook_delivery_state,omitempty"`
+}
+
+// StepProgressV2Status Status of the step
+type StepProgressV2Status string
+
+// StepProgressV2WebhookDeliveryState Whether this step's delivery can be shown, for a webhook.send step. Absent for all other step types
+type StepProgressV2WebhookDeliveryState string
+
 // TeamSlimV2 defines model for TeamSlimV2.
 type TeamSlimV2 struct {
 	// Id Unique ID of the team
@@ -13283,6 +13489,74 @@ type UtilitiesIdentityResultV1 struct {
 	Identity IdentityV1 `json:"identity"`
 }
 
+// WebhookDeliveryRequestV2 defines model for WebhookDeliveryRequestV2.
+type WebhookDeliveryRequestV2 struct {
+	// Body The interpolated request body
+	Body *string `json:"body,omitempty"`
+
+	// BodyTruncated Whether the body was truncated, in which case it may not be valid JSON
+	BodyTruncated bool `json:"body_truncated"`
+
+	// Headers Headers sent with the request, including those added automatically. Values interpolated from a secret are replaced with [secret], and the signature header is always redacted
+	Headers map[string]string `json:"headers"`
+}
+
+// WebhookDeliveryResponseV2 defines model for WebhookDeliveryResponseV2.
+type WebhookDeliveryResponseV2 struct {
+	// Body The response body returned by the endpoint
+	Body *string `json:"body,omitempty"`
+
+	// BodyTruncated Whether the body was truncated, in which case it may not be valid JSON
+	BodyTruncated bool `json:"body_truncated"`
+
+	// Headers Headers returned by the endpoint, excluding any whose name resembles a credential
+	Headers map[string]string `json:"headers"`
+}
+
+// WebhookDeliverySlimV2 defines model for WebhookDeliverySlimV2.
+type WebhookDeliverySlimV2 struct {
+	// DurationMs Time taken by the request, in milliseconds
+	DurationMs *int64 `json:"duration_ms,omitempty"`
+
+	// Endpoint The interpolated URL the request was sent to. Redirects are followed, so this is the URL requested rather than the URL that ultimately served it
+	Endpoint string `json:"endpoint"`
+
+	// Method HTTP method used for the request
+	Method string `json:"method"`
+
+	// Outcome The result of the delivery attempt. Only success and non_2xx have a response
+	Outcome WebhookDeliverySlimV2Outcome `json:"outcome"`
+
+	// StatusCode HTTP status code returned by the endpoint. Absent when no response was received
+	StatusCode *int64 `json:"status_code,omitempty"`
+}
+
+// WebhookDeliverySlimV2Outcome The result of the delivery attempt. Only success and non_2xx have a response
+type WebhookDeliverySlimV2Outcome string
+
+// WebhookDeliveryV2 defines model for WebhookDeliveryV2.
+type WebhookDeliveryV2 struct {
+	// DurationMs Time taken by the request, in milliseconds
+	DurationMs *int64 `json:"duration_ms,omitempty"`
+
+	// Endpoint The interpolated URL the request was sent to. Redirects are followed, so this is the URL requested rather than the URL that ultimately served it
+	Endpoint string `json:"endpoint"`
+
+	// Method HTTP method used for the request
+	Method string `json:"method"`
+
+	// Outcome The result of the delivery attempt. Only success and non_2xx have a response
+	Outcome  WebhookDeliveryV2Outcome   `json:"outcome"`
+	Request  WebhookDeliveryRequestV2   `json:"request"`
+	Response *WebhookDeliveryResponseV2 `json:"response,omitempty"`
+
+	// StatusCode HTTP status code returned by the endpoint. Absent when no response was received
+	StatusCode *int64 `json:"status_code,omitempty"`
+}
+
+// WebhookDeliveryV2Outcome The result of the delivery attempt. Only success and non_2xx have a response
+type WebhookDeliveryV2Outcome string
+
 // WeekdayIntervalConfigV2 defines model for WeekdayIntervalConfigV2.
 type WeekdayIntervalConfigV2 struct {
 	// Id The unique identifier for this set of working intervals
@@ -13375,6 +13649,107 @@ type WorkflowFormFieldV2 struct {
 
 	// Type The engine resource type of this field
 	Type string `json:"type"`
+}
+
+// WorkflowRunSlimV2 defines model for WorkflowRunSlimV2.
+type WorkflowRunSlimV2 struct {
+	// CancelledAt If the run was cancelled, this is when
+	CancelledAt *time.Time `json:"cancelled_at,omitempty"`
+
+	// CreatedAt When the resource was created
+	CreatedAt time.Time `json:"created_at"`
+
+	// EnqueuedAt When the run was enqueued for execution
+	EnqueuedAt *time.Time `json:"enqueued_at,omitempty"`
+
+	// Error Error produced by the workflow, if it failed
+	Error *string `json:"error,omitempty"`
+
+	// Id Unique identifier for the workflow run
+	Id string `json:"id"`
+
+	// IncidentId If this run was against a specific incident, this is the ID of that incident
+	IncidentId *string `json:"incident_id,omitempty"`
+
+	// IncidentReference If this run was against a specific incident, this is the reference of that incident
+	IncidentReference *string `json:"incident_reference,omitempty"`
+
+	// Progress Status of each step as it is worked
+	Progress []StepProgressSlimV2 `json:"progress"`
+
+	// ScheduledAt When the run was scheduled for
+	ScheduledAt time.Time `json:"scheduled_at"`
+
+	// UpdatedAt When the resource was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+
+	// WorkflowId Unique identifier for the underlying workflow
+	WorkflowId string `json:"workflow_id"`
+
+	// WorkflowName Name of the underlying workflow
+	WorkflowName *string `json:"workflow_name,omitempty"`
+
+	// WorkflowVersionId Unique identifier of the workflow version
+	WorkflowVersionId string `json:"workflow_version_id"`
+
+	// WorkflowVersionNumber Monotonically incrementing version number for the version that ran
+	WorkflowVersionNumber int64 `json:"workflow_version_number"`
+}
+
+// WorkflowRunV2 defines model for WorkflowRunV2.
+type WorkflowRunV2 struct {
+	// CancelledAt If the run was cancelled, this is when
+	CancelledAt *time.Time `json:"cancelled_at,omitempty"`
+
+	// CreatedAt When the resource was created
+	CreatedAt time.Time `json:"created_at"`
+
+	// EnqueuedAt When the run was enqueued for execution
+	EnqueuedAt *time.Time `json:"enqueued_at,omitempty"`
+
+	// Error Error produced by the workflow, if it failed
+	Error *string `json:"error,omitempty"`
+
+	// Id Unique identifier for the workflow run
+	Id string `json:"id"`
+
+	// IncidentId If this run was against a specific incident, this is the ID of that incident
+	IncidentId *string `json:"incident_id,omitempty"`
+
+	// IncidentReference If this run was against a specific incident, this is the reference of that incident
+	IncidentReference *string `json:"incident_reference,omitempty"`
+
+	// Progress Status of each step as it is worked
+	Progress []StepProgressV2 `json:"progress"`
+
+	// ScheduledAt When the run was scheduled for
+	ScheduledAt time.Time `json:"scheduled_at"`
+
+	// UpdatedAt When the resource was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+
+	// WorkflowId Unique identifier for the underlying workflow
+	WorkflowId string `json:"workflow_id"`
+
+	// WorkflowName Name of the underlying workflow
+	WorkflowName *string `json:"workflow_name,omitempty"`
+
+	// WorkflowVersionId Unique identifier of the workflow version
+	WorkflowVersionId string `json:"workflow_version_id"`
+
+	// WorkflowVersionNumber Monotonically incrementing version number for the version that ran
+	WorkflowVersionNumber int64 `json:"workflow_version_number"`
+}
+
+// WorkflowRunsListResultV2 defines model for WorkflowRunsListResultV2.
+type WorkflowRunsListResultV2 struct {
+	PaginationMeta *PaginationMetaResultWithTotalV2 `json:"pagination_meta,omitempty"`
+	WorkflowRuns   []WorkflowRunSlimV2              `json:"workflow_runs"`
+}
+
+// WorkflowRunsShowResultV2 defines model for WorkflowRunsShowResultV2.
+type WorkflowRunsShowResultV2 struct {
+	WorkflowRun WorkflowRunV2 `json:"workflow_run"`
 }
 
 // WorkflowSlimV2 defines model for WorkflowSlimV2.
@@ -14210,6 +14585,24 @@ type UsersV2ListParams struct {
 	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
 
 	// After An record's ID. This endpoint will return a list of records after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+}
+
+// WorkflowRunsV2ListParams defines parameters for WorkflowRunsV2List.
+type WorkflowRunsV2ListParams struct {
+	// WorkflowId Unique identifier for the workflow to filter by
+	WorkflowId *string `form:"workflow_id,omitempty" json:"workflow_id,omitempty"`
+
+	// IncidentId Unique identifier for the incident to filter by
+	IncidentId *string `form:"incident_id,omitempty" json:"incident_id,omitempty"`
+
+	// CreatedAt Filter on workflow run created at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.
+	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
+
+	// PageSize Number of workflow runs to return per page
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After A workflow run's ID. This endpoint will return a list of workflow runs after this ID in relation to the API response order.
 	After *string `form:"after,omitempty" json:"after,omitempty"`
 }
 
@@ -15275,6 +15668,12 @@ type ClientInterface interface {
 	UsersV2UpdatePagingProviderWithBody(ctx context.Context, userId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	UsersV2UpdatePagingProvider(ctx context.Context, userId string, body UsersV2UpdatePagingProviderJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// WorkflowRunsV2List request
+	WorkflowRunsV2List(ctx context.Context, params *WorkflowRunsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// WorkflowRunsV2Show request
+	WorkflowRunsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// WorkflowsV2ListWorkflows request
 	WorkflowsV2ListWorkflows(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -18520,6 +18919,30 @@ func (c *Client) UsersV2UpdatePagingProviderWithBody(ctx context.Context, userId
 
 func (c *Client) UsersV2UpdatePagingProvider(ctx context.Context, userId string, body UsersV2UpdatePagingProviderJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newUsersV2UpdatePagingProviderRequest(c.Server, userId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) WorkflowRunsV2List(ctx context.Context, params *WorkflowRunsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newWorkflowRunsV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) WorkflowRunsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newWorkflowRunsV2ShowRequest(c.Server, id)
 	if err != nil {
 		return nil, err
 	}
@@ -27864,6 +28287,153 @@ func newUsersV2UpdatePagingProviderRequestWithBody(server string, userId string,
 	return req, nil
 }
 
+// NewWorkflowRunsV2ListRequest generates requests for WorkflowRunsV2List
+func newWorkflowRunsV2ListRequest(server string, params *WorkflowRunsV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/workflow_runs")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.WorkflowId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "workflow_id", *params.WorkflowId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IncidentId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident_id", *params.IncidentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CreatedAt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewWorkflowRunsV2ShowRequest generates requests for WorkflowRunsV2Show
+func newWorkflowRunsV2ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/workflow_runs/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewWorkflowsV2ListWorkflowsRequest generates requests for WorkflowsV2ListWorkflows
 func newWorkflowsV2ListWorkflowsRequest(server string) (*http.Request, error) {
 	var err error
@@ -29691,6 +30261,12 @@ type ClientWithResponsesInterface interface {
 	UsersV2UpdatePagingProviderWithBodyWithResponse(ctx context.Context, userId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UsersV2UpdatePagingProviderResponse, error)
 
 	UsersV2UpdatePagingProviderWithResponse(ctx context.Context, userId string, body UsersV2UpdatePagingProviderJSONRequestBody, reqEditors ...RequestEditorFn) (*UsersV2UpdatePagingProviderResponse, error)
+
+	// WorkflowRunsV2ListWithResponse request
+	WorkflowRunsV2ListWithResponse(ctx context.Context, params *WorkflowRunsV2ListParams, reqEditors ...RequestEditorFn) (*WorkflowRunsV2ListResponse, error)
+
+	// WorkflowRunsV2ShowWithResponse request
+	WorkflowRunsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*WorkflowRunsV2ShowResponse, error)
 
 	// WorkflowsV2ListWorkflowsWithResponse request
 	WorkflowsV2ListWorkflowsWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*WorkflowsV2ListWorkflowsResponse, error)
@@ -33851,6 +34427,50 @@ func (r UsersV2UpdatePagingProviderResponse) StatusCode() int {
 	return 0
 }
 
+type WorkflowRunsV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *WorkflowRunsListResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r WorkflowRunsV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r WorkflowRunsV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type WorkflowRunsV2ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *WorkflowRunsShowResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r WorkflowRunsV2ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r WorkflowRunsV2ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type WorkflowsV2ListWorkflowsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -36737,6 +37357,24 @@ func (c *ClientWithResponses) UsersV2UpdatePagingProviderWithResponse(ctx contex
 		return nil, err
 	}
 	return parseUsersV2UpdatePagingProviderResponse(rsp)
+}
+
+// WorkflowRunsV2ListWithResponse request returning *WorkflowRunsV2ListResponse
+func (c *ClientWithResponses) WorkflowRunsV2ListWithResponse(ctx context.Context, params *WorkflowRunsV2ListParams, reqEditors ...RequestEditorFn) (*WorkflowRunsV2ListResponse, error) {
+	rsp, err := c.WorkflowRunsV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseWorkflowRunsV2ListResponse(rsp)
+}
+
+// WorkflowRunsV2ShowWithResponse request returning *WorkflowRunsV2ShowResponse
+func (c *ClientWithResponses) WorkflowRunsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*WorkflowRunsV2ShowResponse, error) {
+	rsp, err := c.WorkflowRunsV2Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseWorkflowRunsV2ShowResponse(rsp)
 }
 
 // WorkflowsV2ListWorkflowsWithResponse request returning *WorkflowsV2ListWorkflowsResponse
@@ -41585,6 +42223,58 @@ func parseUsersV2UpdatePagingProviderResponse(rsp *http.Response) (*UsersV2Updat
 	response := &UsersV2UpdatePagingProviderResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
+	}
+
+	return response, nil
+}
+
+// ParseWorkflowRunsV2ListResponse parses an HTTP response from a WorkflowRunsV2ListWithResponse call
+func parseWorkflowRunsV2ListResponse(rsp *http.Response) (*WorkflowRunsV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &WorkflowRunsV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest WorkflowRunsListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseWorkflowRunsV2ShowResponse parses an HTTP response from a WorkflowRunsV2ShowWithResponse call
+func parseWorkflowRunsV2ShowResponse(rsp *http.Response) (*WorkflowRunsV2ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &WorkflowRunsV2ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest WorkflowRunsShowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
 	}
 
 	return response, nil

@@ -63720,6 +63720,168 @@
         ],
         "type": "object"
       },
+      "StepProgressSlimV2": {
+        "example": {
+          "completed_at": "2021-08-17T13:28:57.801578Z",
+          "error": "Something went wrong and our engineers have been notified.",
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "incident_reference": "INC-123",
+          "status": "complete",
+          "step": "slack.post_message",
+          "webhook_delivery": {
+            "duration_ms": 412,
+            "endpoint": "https://example.com/hooks/incident",
+            "method": "POST",
+            "outcome": "non_2xx",
+            "status_code": 500
+          },
+          "webhook_delivery_state": "expired"
+        },
+        "properties": {
+          "completed_at": {
+            "description": "Status of the step",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "error": {
+            "description": "The cause of an errored step",
+            "example": "Something went wrong and our engineers have been notified.",
+            "type": "string"
+          },
+          "incident_id": {
+            "description": "If this step ran for a specific incident (e.g. in a loop), the incident ID",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "incident_reference": {
+            "description": "If this step ran for a specific incident (e.g. in a loop), the incident reference",
+            "example": "INC-123",
+            "type": "string"
+          },
+          "status": {
+            "description": "Status of the step",
+            "enum": [
+              "complete",
+              "pending",
+              "error"
+            ],
+            "example": "complete",
+            "type": "string"
+          },
+          "step": {
+            "description": "Name of the step",
+            "example": "slack.post_message",
+            "type": "string"
+          },
+          "webhook_delivery": {
+            "$ref": "#/components/schemas/WebhookDeliverySlimV2"
+          },
+          "webhook_delivery_state": {
+            "description": "Whether this step's delivery can be shown, for a webhook.send step. Absent for all other step types",
+            "enum": [
+              "available",
+              "expired",
+              "unavailable"
+            ],
+            "example": "expired",
+            "type": "string"
+          }
+        },
+        "required": [
+          "step",
+          "status"
+        ],
+        "type": "object"
+      },
+      "StepProgressV2": {
+        "example": {
+          "completed_at": "2021-08-17T13:28:57.801578Z",
+          "error": "Something went wrong and our engineers have been notified.",
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "incident_reference": "INC-123",
+          "status": "complete",
+          "step": "slack.post_message",
+          "webhook_delivery": {
+            "duration_ms": 412,
+            "endpoint": "https://example.com/hooks/incident",
+            "method": "POST",
+            "outcome": "non_2xx",
+            "request": {
+              "body": "{\"incident_id\":\"01FCNDV6P870EA6S7TK1DSYDG0\"}",
+              "body_truncated": false,
+              "headers": {
+                "Content-Type": "application/json"
+              }
+            },
+            "response": {
+              "body": "{\"error\":\"unprocessable\"}",
+              "body_truncated": false,
+              "headers": {
+                "Content-Type": "application/json"
+              }
+            },
+            "status_code": 500
+          },
+          "webhook_delivery_state": "expired"
+        },
+        "properties": {
+          "completed_at": {
+            "description": "Status of the step",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "error": {
+            "description": "The cause of an errored step",
+            "example": "Something went wrong and our engineers have been notified.",
+            "type": "string"
+          },
+          "incident_id": {
+            "description": "If this step ran for a specific incident (e.g. in a loop), the incident ID",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "incident_reference": {
+            "description": "If this step ran for a specific incident (e.g. in a loop), the incident reference",
+            "example": "INC-123",
+            "type": "string"
+          },
+          "status": {
+            "description": "Status of the step",
+            "enum": [
+              "complete",
+              "pending",
+              "error"
+            ],
+            "example": "complete",
+            "type": "string"
+          },
+          "step": {
+            "description": "Name of the step",
+            "example": "slack.post_message",
+            "type": "string"
+          },
+          "webhook_delivery": {
+            "$ref": "#/components/schemas/WebhookDeliveryV2"
+          },
+          "webhook_delivery_state": {
+            "description": "Whether this step's delivery can be shown, for a webhook.send step. Absent for all other step types",
+            "enum": [
+              "available",
+              "expired",
+              "unavailable"
+            ],
+            "example": "expired",
+            "type": "string"
+          }
+        },
+        "required": [
+          "step",
+          "status"
+        ],
+        "type": "object"
+      },
       "TeamSlimV2": {
         "example": {
           "id": "abc123",
@@ -64668,6 +64830,205 @@
         },
         "required": [
           "identity"
+        ],
+        "type": "object"
+      },
+      "WebhookDeliveryRequestV2": {
+        "example": {
+          "body": "{\"incident_id\":\"01FCNDV6P870EA6S7TK1DSYDG0\"}",
+          "body_truncated": false,
+          "headers": {
+            "Content-Type": "application/json"
+          }
+        },
+        "properties": {
+          "body": {
+            "description": "The interpolated request body",
+            "example": "{\"incident_id\":\"01FCNDV6P870EA6S7TK1DSYDG0\"}",
+            "type": "string"
+          },
+          "body_truncated": {
+            "description": "Whether the body was truncated, in which case it may not be valid JSON",
+            "example": false,
+            "type": "boolean"
+          },
+          "headers": {
+            "additionalProperties": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "description": "Headers sent with the request, including those added automatically. Values interpolated from a secret are replaced with [secret], and the signature header is always redacted",
+            "example": {
+              "Content-Type": "application/json"
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "headers",
+          "body_truncated"
+        ],
+        "type": "object"
+      },
+      "WebhookDeliveryResponseV2": {
+        "example": {
+          "body": "{\"error\":\"unprocessable\"}",
+          "body_truncated": false,
+          "headers": {
+            "Content-Type": "application/json"
+          }
+        },
+        "properties": {
+          "body": {
+            "description": "The response body returned by the endpoint",
+            "example": "{\"error\":\"unprocessable\"}",
+            "type": "string"
+          },
+          "body_truncated": {
+            "description": "Whether the body was truncated, in which case it may not be valid JSON",
+            "example": false,
+            "type": "boolean"
+          },
+          "headers": {
+            "additionalProperties": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "description": "Headers returned by the endpoint, excluding any whose name resembles a credential",
+            "example": {
+              "Content-Type": "application/json"
+            },
+            "type": "object"
+          }
+        },
+        "required": [
+          "headers",
+          "body_truncated"
+        ],
+        "type": "object"
+      },
+      "WebhookDeliverySlimV2": {
+        "example": {
+          "duration_ms": 412,
+          "endpoint": "https://example.com/hooks/incident",
+          "method": "POST",
+          "outcome": "non_2xx",
+          "status_code": 500
+        },
+        "properties": {
+          "duration_ms": {
+            "description": "Time taken by the request, in milliseconds",
+            "example": 412,
+            "format": "int64",
+            "type": "integer"
+          },
+          "endpoint": {
+            "description": "The interpolated URL the request was sent to. Redirects are followed, so this is the URL requested rather than the URL that ultimately served it",
+            "example": "https://example.com/hooks/incident",
+            "type": "string"
+          },
+          "method": {
+            "description": "HTTP method used for the request",
+            "example": "POST",
+            "type": "string"
+          },
+          "outcome": {
+            "description": "The result of the delivery attempt. Only success and non_2xx have a response",
+            "enum": [
+              "success",
+              "non_2xx",
+              "timeout",
+              "unreachable",
+              "network_error",
+              "tls_error"
+            ],
+            "example": "non_2xx",
+            "type": "string"
+          },
+          "status_code": {
+            "description": "HTTP status code returned by the endpoint. Absent when no response was received",
+            "example": 500,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "outcome",
+          "method",
+          "endpoint"
+        ],
+        "type": "object"
+      },
+      "WebhookDeliveryV2": {
+        "example": {
+          "duration_ms": 412,
+          "endpoint": "https://example.com/hooks/incident",
+          "method": "POST",
+          "outcome": "non_2xx",
+          "request": {
+            "body": "{\"incident_id\":\"01FCNDV6P870EA6S7TK1DSYDG0\"}",
+            "body_truncated": false,
+            "headers": {
+              "Content-Type": "application/json"
+            }
+          },
+          "response": {
+            "body": "{\"error\":\"unprocessable\"}",
+            "body_truncated": false,
+            "headers": {
+              "Content-Type": "application/json"
+            }
+          },
+          "status_code": 500
+        },
+        "properties": {
+          "duration_ms": {
+            "description": "Time taken by the request, in milliseconds",
+            "example": 412,
+            "format": "int64",
+            "type": "integer"
+          },
+          "endpoint": {
+            "description": "The interpolated URL the request was sent to. Redirects are followed, so this is the URL requested rather than the URL that ultimately served it",
+            "example": "https://example.com/hooks/incident",
+            "type": "string"
+          },
+          "method": {
+            "description": "HTTP method used for the request",
+            "example": "POST",
+            "type": "string"
+          },
+          "outcome": {
+            "description": "The result of the delivery attempt. Only success and non_2xx have a response",
+            "enum": [
+              "success",
+              "non_2xx",
+              "timeout",
+              "unreachable",
+              "network_error",
+              "tls_error"
+            ],
+            "example": "non_2xx",
+            "type": "string"
+          },
+          "request": {
+            "$ref": "#/components/schemas/WebhookDeliveryRequestV2"
+          },
+          "response": {
+            "$ref": "#/components/schemas/WebhookDeliveryResponseV2"
+          },
+          "status_code": {
+            "description": "HTTP status code returned by the endpoint. Absent when no response was received",
+            "example": 500,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "outcome",
+          "method",
+          "endpoint",
+          "request"
         ],
         "type": "object"
       },
@@ -68354,6 +68715,476 @@
           "type",
           "array",
           "required"
+        ],
+        "type": "object"
+      },
+      "WorkflowRunSlimV2": {
+        "example": {
+          "cancelled_at": "2021-08-17T13:28:57.801578Z",
+          "created_at": "2021-08-17T13:28:57.801578Z",
+          "enqueued_at": "2021-08-17T13:28:57.801578Z",
+          "error": "Something went wrong and our engineers have been notified.",
+          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "incident_reference": "INC-123",
+          "progress": [
+            {
+              "completed_at": "2021-08-17T13:28:57.801578Z",
+              "error": "Something went wrong and our engineers have been notified.",
+              "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "incident_reference": "INC-123",
+              "status": "complete",
+              "step": "slack.post_message",
+              "webhook_delivery": {
+                "duration_ms": 412,
+                "endpoint": "https://example.com/hooks/incident",
+                "method": "POST",
+                "outcome": "non_2xx",
+                "status_code": 500
+              },
+              "webhook_delivery_state": "expired"
+            }
+          ],
+          "scheduled_at": "2021-08-17T13:28:57.801578Z",
+          "updated_at": "2021-08-17T13:28:57.801578Z",
+          "workflow_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "workflow_name": "Announce incident updates",
+          "workflow_version_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "workflow_version_number": 3
+        },
+        "properties": {
+          "cancelled_at": {
+            "description": "If the run was cancelled, this is when",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "created_at": {
+            "description": "When the resource was created",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "enqueued_at": {
+            "description": "When the run was enqueued for execution",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "error": {
+            "description": "Error produced by the workflow, if it failed",
+            "example": "Something went wrong and our engineers have been notified.",
+            "type": "string"
+          },
+          "id": {
+            "description": "Unique identifier for the workflow run",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "incident_id": {
+            "description": "If this run was against a specific incident, this is the ID of that incident",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "incident_reference": {
+            "description": "If this run was against a specific incident, this is the reference of that incident",
+            "example": "INC-123",
+            "type": "string"
+          },
+          "progress": {
+            "description": "Status of each step as it is worked",
+            "example": [
+              {
+                "completed_at": "2021-08-17T13:28:57.801578Z",
+                "error": "Something went wrong and our engineers have been notified.",
+                "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "incident_reference": "INC-123",
+                "status": "complete",
+                "step": "slack.post_message",
+                "webhook_delivery": {
+                  "duration_ms": 412,
+                  "endpoint": "https://example.com/hooks/incident",
+                  "method": "POST",
+                  "outcome": "non_2xx",
+                  "status_code": 500
+                },
+                "webhook_delivery_state": "expired"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/StepProgressSlimV2"
+            },
+            "type": "array"
+          },
+          "scheduled_at": {
+            "description": "When the run was scheduled for",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "updated_at": {
+            "description": "When the resource was last updated",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "workflow_id": {
+            "description": "Unique identifier for the underlying workflow",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "workflow_name": {
+            "description": "Name of the underlying workflow",
+            "example": "Announce incident updates",
+            "type": "string"
+          },
+          "workflow_version_id": {
+            "description": "Unique identifier of the workflow version",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "workflow_version_number": {
+            "description": "Monotonically incrementing version number for the version that ran",
+            "example": 3,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "workflow_id",
+          "workflow_version_id",
+          "workflow_version_number",
+          "progress",
+          "scheduled_at",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object"
+      },
+      "WorkflowRunV2": {
+        "example": {
+          "cancelled_at": "2021-08-17T13:28:57.801578Z",
+          "created_at": "2021-08-17T13:28:57.801578Z",
+          "enqueued_at": "2021-08-17T13:28:57.801578Z",
+          "error": "Something went wrong and our engineers have been notified.",
+          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "incident_reference": "INC-123",
+          "progress": [
+            {
+              "completed_at": "2021-08-17T13:28:57.801578Z",
+              "error": "Something went wrong and our engineers have been notified.",
+              "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "incident_reference": "INC-123",
+              "status": "complete",
+              "step": "slack.post_message",
+              "webhook_delivery": {
+                "duration_ms": 412,
+                "endpoint": "https://example.com/hooks/incident",
+                "method": "POST",
+                "outcome": "non_2xx",
+                "request": {
+                  "body": "{\"incident_id\":\"01FCNDV6P870EA6S7TK1DSYDG0\"}",
+                  "body_truncated": false,
+                  "headers": {
+                    "Content-Type": "application/json"
+                  }
+                },
+                "response": {
+                  "body": "{\"error\":\"unprocessable\"}",
+                  "body_truncated": false,
+                  "headers": {
+                    "Content-Type": "application/json"
+                  }
+                },
+                "status_code": 500
+              },
+              "webhook_delivery_state": "expired"
+            }
+          ],
+          "scheduled_at": "2021-08-17T13:28:57.801578Z",
+          "updated_at": "2021-08-17T13:28:57.801578Z",
+          "workflow_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "workflow_name": "Announce incident updates",
+          "workflow_version_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "workflow_version_number": 3
+        },
+        "properties": {
+          "cancelled_at": {
+            "description": "If the run was cancelled, this is when",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "created_at": {
+            "description": "When the resource was created",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "enqueued_at": {
+            "description": "When the run was enqueued for execution",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "error": {
+            "description": "Error produced by the workflow, if it failed",
+            "example": "Something went wrong and our engineers have been notified.",
+            "type": "string"
+          },
+          "id": {
+            "description": "Unique identifier for the workflow run",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "incident_id": {
+            "description": "If this run was against a specific incident, this is the ID of that incident",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "incident_reference": {
+            "description": "If this run was against a specific incident, this is the reference of that incident",
+            "example": "INC-123",
+            "type": "string"
+          },
+          "progress": {
+            "description": "Status of each step as it is worked",
+            "example": [
+              {
+                "completed_at": "2021-08-17T13:28:57.801578Z",
+                "error": "Something went wrong and our engineers have been notified.",
+                "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "incident_reference": "INC-123",
+                "status": "complete",
+                "step": "slack.post_message",
+                "webhook_delivery": {
+                  "duration_ms": 412,
+                  "endpoint": "https://example.com/hooks/incident",
+                  "method": "POST",
+                  "outcome": "non_2xx",
+                  "request": {
+                    "body": "{\"incident_id\":\"01FCNDV6P870EA6S7TK1DSYDG0\"}",
+                    "body_truncated": false,
+                    "headers": {
+                      "Content-Type": "application/json"
+                    }
+                  },
+                  "response": {
+                    "body": "{\"error\":\"unprocessable\"}",
+                    "body_truncated": false,
+                    "headers": {
+                      "Content-Type": "application/json"
+                    }
+                  },
+                  "status_code": 500
+                },
+                "webhook_delivery_state": "expired"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/StepProgressV2"
+            },
+            "type": "array"
+          },
+          "scheduled_at": {
+            "description": "When the run was scheduled for",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "updated_at": {
+            "description": "When the resource was last updated",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "workflow_id": {
+            "description": "Unique identifier for the underlying workflow",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "workflow_name": {
+            "description": "Name of the underlying workflow",
+            "example": "Announce incident updates",
+            "type": "string"
+          },
+          "workflow_version_id": {
+            "description": "Unique identifier of the workflow version",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "workflow_version_number": {
+            "description": "Monotonically incrementing version number for the version that ran",
+            "example": 3,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "workflow_id",
+          "workflow_version_id",
+          "workflow_version_number",
+          "progress",
+          "scheduled_at",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object"
+      },
+      "WorkflowRunsListResultV2": {
+        "example": {
+          "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25,
+            "total_record_count": 238
+          },
+          "workflow_runs": [
+            {
+              "cancelled_at": "2021-08-17T13:28:57.801578Z",
+              "created_at": "2021-08-17T13:28:57.801578Z",
+              "enqueued_at": "2021-08-17T13:28:57.801578Z",
+              "error": "Something went wrong and our engineers have been notified.",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "incident_reference": "INC-123",
+              "progress": [
+                {
+                  "completed_at": "2021-08-17T13:28:57.801578Z",
+                  "error": "Something went wrong and our engineers have been notified.",
+                  "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                  "incident_reference": "INC-123",
+                  "status": "complete",
+                  "step": "slack.post_message",
+                  "webhook_delivery": {
+                    "duration_ms": 412,
+                    "endpoint": "https://example.com/hooks/incident",
+                    "method": "POST",
+                    "outcome": "non_2xx",
+                    "status_code": 500
+                  },
+                  "webhook_delivery_state": "expired"
+                }
+              ],
+              "scheduled_at": "2021-08-17T13:28:57.801578Z",
+              "updated_at": "2021-08-17T13:28:57.801578Z",
+              "workflow_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "workflow_name": "Announce incident updates",
+              "workflow_version_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "workflow_version_number": 3
+            }
+          ]
+        },
+        "properties": {
+          "pagination_meta": {
+            "$ref": "#/components/schemas/PaginationMetaResultWithTotalV2"
+          },
+          "workflow_runs": {
+            "example": [
+              {
+                "cancelled_at": "2021-08-17T13:28:57.801578Z",
+                "created_at": "2021-08-17T13:28:57.801578Z",
+                "enqueued_at": "2021-08-17T13:28:57.801578Z",
+                "error": "Something went wrong and our engineers have been notified.",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "incident_reference": "INC-123",
+                "progress": [
+                  {
+                    "completed_at": "2021-08-17T13:28:57.801578Z",
+                    "error": "Something went wrong and our engineers have been notified.",
+                    "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "incident_reference": "INC-123",
+                    "status": "complete",
+                    "step": "slack.post_message",
+                    "webhook_delivery": {
+                      "duration_ms": 412,
+                      "endpoint": "https://example.com/hooks/incident",
+                      "method": "POST",
+                      "outcome": "non_2xx",
+                      "status_code": 500
+                    },
+                    "webhook_delivery_state": "expired"
+                  }
+                ],
+                "scheduled_at": "2021-08-17T13:28:57.801578Z",
+                "updated_at": "2021-08-17T13:28:57.801578Z",
+                "workflow_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "workflow_name": "Announce incident updates",
+                "workflow_version_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "workflow_version_number": 3
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/WorkflowRunSlimV2"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "workflow_runs"
+        ],
+        "type": "object"
+      },
+      "WorkflowRunsShowResultV2": {
+        "example": {
+          "workflow_run": {
+            "cancelled_at": "2021-08-17T13:28:57.801578Z",
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "enqueued_at": "2021-08-17T13:28:57.801578Z",
+            "error": "Something went wrong and our engineers have been notified.",
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_reference": "INC-123",
+            "progress": [
+              {
+                "completed_at": "2021-08-17T13:28:57.801578Z",
+                "error": "Something went wrong and our engineers have been notified.",
+                "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "incident_reference": "INC-123",
+                "status": "complete",
+                "step": "slack.post_message",
+                "webhook_delivery": {
+                  "duration_ms": 412,
+                  "endpoint": "https://example.com/hooks/incident",
+                  "method": "POST",
+                  "outcome": "non_2xx",
+                  "request": {
+                    "body": "{\"incident_id\":\"01FCNDV6P870EA6S7TK1DSYDG0\"}",
+                    "body_truncated": false,
+                    "headers": {
+                      "Content-Type": "application/json"
+                    }
+                  },
+                  "response": {
+                    "body": "{\"error\":\"unprocessable\"}",
+                    "body_truncated": false,
+                    "headers": {
+                      "Content-Type": "application/json"
+                    }
+                  },
+                  "status_code": 500
+                },
+                "webhook_delivery_state": "expired"
+              }
+            ],
+            "scheduled_at": "2021-08-17T13:28:57.801578Z",
+            "updated_at": "2021-08-17T13:28:57.801578Z",
+            "workflow_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "workflow_name": "Announce incident updates",
+            "workflow_version_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "workflow_version_number": 3
+          }
+        },
+        "properties": {
+          "workflow_run": {
+            "$ref": "#/components/schemas/WorkflowRunV2"
+          }
+        },
+        "required": [
+          "workflow_run"
         ],
         "type": "object"
       },
@@ -93010,6 +93841,262 @@
         ]
       }
     },
+    "/v2/workflow_runs": {
+      "get": {
+        "description": "List workflow runs, newest first. Cancelled runs are never returned.\n\nThe webhook delivery on each step omits the headers and bodies. Fetch a single run to see them.\n\nYou can filter on when a run was created:\n\n```\n# Runs created on or after a date\ncurl 'https://api.incident.io/v2/workflow_runs?created_at[gte]=2026-07-01'\n\n# Runs created on or before a date\ncurl 'https://api.incident.io/v2/workflow_runs?created_at[lte]=2026-07-31'\n\n# Runs created between two dates\ncurl 'https://api.incident.io/v2/workflow_runs?created_at[date_range]=2026-07-01~2026-07-31'\n```\n\nPaginate by passing the last run's ID as `after`. The response's\n`pagination_meta.after` carries the value to send next, and is absent on the last page.\nAn `after` that isn't a run in your organisation returns 404.",
+        "operationId": "WorkflowRuns V2#List",
+        "parameters": [
+          {
+            "allowEmptyValue": true,
+            "description": "Unique identifier for the workflow to filter by",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "in": "query",
+            "name": "workflow_id",
+            "schema": {
+              "description": "Unique identifier for the workflow to filter by",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Unique identifier for the incident to filter by",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "in": "query",
+            "name": "incident_id",
+            "schema": {
+              "description": "Unique identifier for the incident to filter by",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Filter on workflow run created at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.",
+            "example": {
+              "date_range": [
+                "2026-07-01~2026-07-31"
+              ]
+            },
+            "in": "query",
+            "name": "created_at",
+            "schema": {
+              "additionalProperties": {
+                "example": [
+                  "some_value"
+                ],
+                "items": {
+                  "example": "some_value",
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "description": "Filter on workflow run created at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.",
+              "example": {
+                "date_range": [
+                  "2026-07-01~2026-07-31"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Number of workflow runs to return per page",
+            "example": 25,
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "default": 25,
+              "description": "Number of workflow runs to return per page",
+              "example": 25,
+              "format": "int64",
+              "maximum": 50,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "A workflow run's ID. This endpoint will return a list of workflow runs after this ID in relation to the API response order.",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "description": "A workflow run's ID. This endpoint will return a list of workflow runs after this ID in relation to the API response order.",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "pagination_meta": {
+                    "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "page_size": 25,
+                    "total_record_count": 238
+                  },
+                  "workflow_runs": [
+                    {
+                      "cancelled_at": "2021-08-17T13:28:57.801578Z",
+                      "created_at": "2021-08-17T13:28:57.801578Z",
+                      "enqueued_at": "2021-08-17T13:28:57.801578Z",
+                      "error": "Something went wrong and our engineers have been notified.",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "incident_reference": "INC-123",
+                      "progress": [
+                        {
+                          "completed_at": "2021-08-17T13:28:57.801578Z",
+                          "error": "Something went wrong and our engineers have been notified.",
+                          "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                          "incident_reference": "INC-123",
+                          "status": "complete",
+                          "step": "slack.post_message",
+                          "webhook_delivery": {
+                            "duration_ms": 412,
+                            "endpoint": "https://example.com/hooks/incident",
+                            "method": "POST",
+                            "outcome": "non_2xx",
+                            "status_code": 500
+                          },
+                          "webhook_delivery_state": "expired"
+                        }
+                      ],
+                      "scheduled_at": "2021-08-17T13:28:57.801578Z",
+                      "updated_at": "2021-08-17T13:28:57.801578Z",
+                      "workflow_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "workflow_name": "Announce incident updates",
+                      "workflow_version_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "workflow_version_number": 3
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/WorkflowRunsListResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "summary": "List WorkflowRuns V2",
+        "tags": [
+          "WorkflowRuns V2"
+        ],
+        "x-docs-display-name": "List",
+        "x-docs-group-name": "Workflow Runs V2",
+        "x-docs-resource-type": "WorkflowRunV2",
+        "x-mint": {
+          "content": "🔑 Requires the `workflows.view` scope."
+        },
+        "x-rbac-scopes": [
+          "workflows.view"
+        ]
+      }
+    },
+    "/v2/workflow_runs/{id}": {
+      "get": {
+        "description": "Show a single workflow run, including the full webhook delivery for any step that sent one.\n\nA delivery is kept for 7 days. After that `webhook_delivery_state` becomes\n`expired` and the delivery itself is absent: the step still ran and may well have\nsucceeded, so an expired delivery must not be read as a failure.\n\nThis may return a cancelled run, in which case `cancelled_at` is set.",
+        "operationId": "WorkflowRuns V2#Show",
+        "parameters": [
+          {
+            "description": "Unique identifier for the workflow run",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for the workflow run",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "workflow_run": {
+                    "cancelled_at": "2021-08-17T13:28:57.801578Z",
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "enqueued_at": "2021-08-17T13:28:57.801578Z",
+                    "error": "Something went wrong and our engineers have been notified.",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "incident_reference": "INC-123",
+                    "progress": [
+                      {
+                        "completed_at": "2021-08-17T13:28:57.801578Z",
+                        "error": "Something went wrong and our engineers have been notified.",
+                        "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "incident_reference": "INC-123",
+                        "status": "complete",
+                        "step": "slack.post_message",
+                        "webhook_delivery": {
+                          "duration_ms": 412,
+                          "endpoint": "https://example.com/hooks/incident",
+                          "method": "POST",
+                          "outcome": "non_2xx",
+                          "request": {
+                            "body": "{\"incident_id\":\"01FCNDV6P870EA6S7TK1DSYDG0\"}",
+                            "body_truncated": false,
+                            "headers": {
+                              "Content-Type": "application/json"
+                            }
+                          },
+                          "response": {
+                            "body": "{\"error\":\"unprocessable\"}",
+                            "body_truncated": false,
+                            "headers": {
+                              "Content-Type": "application/json"
+                            }
+                          },
+                          "status_code": 500
+                        },
+                        "webhook_delivery_state": "expired"
+                      }
+                    ],
+                    "scheduled_at": "2021-08-17T13:28:57.801578Z",
+                    "updated_at": "2021-08-17T13:28:57.801578Z",
+                    "workflow_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "workflow_name": "Announce incident updates",
+                    "workflow_version_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "workflow_version_number": 3
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/WorkflowRunsShowResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "summary": "Show WorkflowRuns V2",
+        "tags": [
+          "WorkflowRuns V2"
+        ],
+        "x-docs-display-name": "Show",
+        "x-docs-group-name": "Workflow Runs V2",
+        "x-docs-resource-type": "WorkflowRunV2",
+        "x-mint": {
+          "content": "🔑 Requires the `workflows.view` scope."
+        },
+        "x-rbac-scopes": [
+          "workflows.view"
+        ]
+      }
+    },
     "/v2/workflows": {
       "get": {
         "description": "List all workflows",
@@ -98864,6 +99951,10 @@
     {
       "description": "Miscelaneous utility endpoints.\n\nCollection of utility functions that can help build integrations against this API.\n",
       "name": "Utilities V1"
+    },
+    {
+      "description": "Read the history of your workflow runs.\n\nA workflow run is one execution of a workflow, carrying the progress of every step it ran. Where\na step sent a webhook, that progress also carries the delivery: its outcome, the status code, and\nhow long the request took. Fetch a single run to additionally see the request and response\nheaders and bodies.\n\nRuns on private incidents are returned only to an API key with global incident access.",
+      "name": "WorkflowRuns V2"
     },
     {
       "description": "Manage workflows.\n\nWorkflows allow you to automate certain actions and behaviors based on specific triggers.",
