@@ -4604,14 +4604,17 @@ func (e ScheduleRotationWorkingIntervalV2Weekday) Valid() bool {
 
 // Defines values for ScheduleSyncRuleCreatePayloadV2SyncType.
 const (
-	ScheduleSyncRuleCreatePayloadV2SyncTypeAllUsers ScheduleSyncRuleCreatePayloadV2SyncType = "all_users"
-	ScheduleSyncRuleCreatePayloadV2SyncTypeOnCall   ScheduleSyncRuleCreatePayloadV2SyncType = "on_call"
+	ScheduleSyncRuleCreatePayloadV2SyncTypeAllUsers   ScheduleSyncRuleCreatePayloadV2SyncType = "all_users"
+	ScheduleSyncRuleCreatePayloadV2SyncTypeNextOnCall ScheduleSyncRuleCreatePayloadV2SyncType = "next_on_call"
+	ScheduleSyncRuleCreatePayloadV2SyncTypeOnCall     ScheduleSyncRuleCreatePayloadV2SyncType = "on_call"
 )
 
 // Valid indicates whether the value is a known member of the ScheduleSyncRuleCreatePayloadV2SyncType enum.
 func (e ScheduleSyncRuleCreatePayloadV2SyncType) Valid() bool {
 	switch e {
 	case ScheduleSyncRuleCreatePayloadV2SyncTypeAllUsers:
+		return true
+	case ScheduleSyncRuleCreatePayloadV2SyncTypeNextOnCall:
 		return true
 	case ScheduleSyncRuleCreatePayloadV2SyncTypeOnCall:
 		return true
@@ -4622,14 +4625,17 @@ func (e ScheduleSyncRuleCreatePayloadV2SyncType) Valid() bool {
 
 // Defines values for ScheduleSyncRuleV2SyncType.
 const (
-	ScheduleSyncRuleV2SyncTypeAllUsers ScheduleSyncRuleV2SyncType = "all_users"
-	ScheduleSyncRuleV2SyncTypeOnCall   ScheduleSyncRuleV2SyncType = "on_call"
+	ScheduleSyncRuleV2SyncTypeAllUsers   ScheduleSyncRuleV2SyncType = "all_users"
+	ScheduleSyncRuleV2SyncTypeNextOnCall ScheduleSyncRuleV2SyncType = "next_on_call"
+	ScheduleSyncRuleV2SyncTypeOnCall     ScheduleSyncRuleV2SyncType = "on_call"
 )
 
 // Valid indicates whether the value is a known member of the ScheduleSyncRuleV2SyncType enum.
 func (e ScheduleSyncRuleV2SyncType) Valid() bool {
 	switch e {
 	case ScheduleSyncRuleV2SyncTypeAllUsers:
+		return true
+	case ScheduleSyncRuleV2SyncTypeNextOnCall:
 		return true
 	case ScheduleSyncRuleV2SyncTypeOnCall:
 		return true
@@ -4640,14 +4646,17 @@ func (e ScheduleSyncRuleV2SyncType) Valid() bool {
 
 // Defines values for SchedulesUpdateScheduleSyncRulePayloadV2SyncType.
 const (
-	AllUsers SchedulesUpdateScheduleSyncRulePayloadV2SyncType = "all_users"
-	OnCall   SchedulesUpdateScheduleSyncRulePayloadV2SyncType = "on_call"
+	AllUsers   SchedulesUpdateScheduleSyncRulePayloadV2SyncType = "all_users"
+	NextOnCall SchedulesUpdateScheduleSyncRulePayloadV2SyncType = "next_on_call"
+	OnCall     SchedulesUpdateScheduleSyncRulePayloadV2SyncType = "on_call"
 )
 
 // Valid indicates whether the value is a known member of the SchedulesUpdateScheduleSyncRulePayloadV2SyncType enum.
 func (e SchedulesUpdateScheduleSyncRulePayloadV2SyncType) Valid() bool {
 	switch e {
 	case AllUsers:
+		return true
+	case NextOnCall:
 		return true
 	case OnCall:
 		return true
@@ -12087,10 +12096,11 @@ type ScheduleSyncRuleCreatePayloadV2SyncType string
 // schedule's members should flow into the target's Slack user group.
 //
 // sync_type decides who is synced: on_call syncs only the people currently on
-// call, while all_users syncs everyone on the schedule. By default every
-// rotation on the schedule is included; set rotation_id to scope the rule to a
-// single rotation. As the schedule's shifts change hands, we keep the target's
-// Slack user group membership in step with the rule.
+// call, next_on_call syncs the people on the next upcoming shift, and all_users
+// syncs everyone on the schedule. By default every rotation on the schedule is
+// included; set rotation_id to scope the rule to a single rotation. As the
+// schedule's shifts change hands, we keep the target's Slack user group
+// membership in step with the rule.
 //
 // permanent_member_user_ids names users who stay in the group whichever way the
 // shifts fall, on top of whoever sync_type selects.
@@ -12352,10 +12362,11 @@ type SchedulesCreateScheduleSyncRuleResultV2 struct {
 	// schedule's members should flow into the target's Slack user group.
 	//
 	// sync_type decides who is synced: on_call syncs only the people currently on
-	// call, while all_users syncs everyone on the schedule. By default every
-	// rotation on the schedule is included; set rotation_id to scope the rule to a
-	// single rotation. As the schedule's shifts change hands, we keep the target's
-	// Slack user group membership in step with the rule.
+	// call, next_on_call syncs the people on the next upcoming shift, and all_users
+	// syncs everyone on the schedule. By default every rotation on the schedule is
+	// included; set rotation_id to scope the rule to a single rotation. As the
+	// schedule's shifts change hands, we keep the target's Slack user group
+	// membership in step with the rule.
 	//
 	// permanent_member_user_ids names users who stay in the group whichever way the
 	// shifts fall, on top of whoever sync_type selects.
@@ -12437,10 +12448,11 @@ type SchedulesShowScheduleSyncRuleResultV2 struct {
 	// schedule's members should flow into the target's Slack user group.
 	//
 	// sync_type decides who is synced: on_call syncs only the people currently on
-	// call, while all_users syncs everyone on the schedule. By default every
-	// rotation on the schedule is included; set rotation_id to scope the rule to a
-	// single rotation. As the schedule's shifts change hands, we keep the target's
-	// Slack user group membership in step with the rule.
+	// call, next_on_call syncs the people on the next upcoming shift, and all_users
+	// syncs everyone on the schedule. By default every rotation on the schedule is
+	// included; set rotation_id to scope the rule to a single rotation. As the
+	// schedule's shifts change hands, we keep the target's Slack user group
+	// membership in step with the rule.
 	//
 	// permanent_member_user_ids names users who stay in the group whichever way the
 	// shifts fall, on top of whoever sync_type selects.
@@ -12478,10 +12490,11 @@ type SchedulesUpdateScheduleSyncRuleResultV2 struct {
 	// schedule's members should flow into the target's Slack user group.
 	//
 	// sync_type decides who is synced: on_call syncs only the people currently on
-	// call, while all_users syncs everyone on the schedule. By default every
-	// rotation on the schedule is included; set rotation_id to scope the rule to a
-	// single rotation. As the schedule's shifts change hands, we keep the target's
-	// Slack user group membership in step with the rule.
+	// call, next_on_call syncs the people on the next upcoming shift, and all_users
+	// syncs everyone on the schedule. By default every rotation on the schedule is
+	// included; set rotation_id to scope the rule to a single rotation. As the
+	// schedule's shifts change hands, we keep the target's Slack user group
+	// membership in step with the rule.
 	//
 	// permanent_member_user_ids names users who stay in the group whichever way the
 	// shifts fall, on top of whoever sync_type selects.

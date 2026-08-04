@@ -58717,7 +58717,8 @@
             "description": "Which schedule members sync to the user group",
             "enum": [
               "on_call",
-              "all_users"
+              "all_users",
+              "next_on_call"
             ],
             "example": "on_call",
             "type": "string"
@@ -58730,7 +58731,7 @@
         "type": "object"
       },
       "ScheduleSyncRuleV2": {
-        "description": "A sync rule links a schedule to a sync target, telling us which of the\nschedule's members should flow into the target's Slack user group.\n\nsync_type decides who is synced: on_call syncs only the people currently on\ncall, while all_users syncs everyone on the schedule. By default every\nrotation on the schedule is included; set rotation_id to scope the rule to a\nsingle rotation. As the schedule's shifts change hands, we keep the target's\nSlack user group membership in step with the rule.\n\npermanent_member_user_ids names users who stay in the group whichever way the\nshifts fall, on top of whoever sync_type selects.",
+        "description": "A sync rule links a schedule to a sync target, telling us which of the\nschedule's members should flow into the target's Slack user group.\n\nsync_type decides who is synced: on_call syncs only the people currently on\ncall, next_on_call syncs the people on the next upcoming shift, and all_users\nsyncs everyone on the schedule. By default every rotation on the schedule is\nincluded; set rotation_id to scope the rule to a single rotation. As the\nschedule's shifts change hands, we keep the target's Slack user group\nmembership in step with the rule.\n\npermanent_member_user_ids names users who stay in the group whichever way the\nshifts fall, on top of whoever sync_type selects.",
         "example": {
           "created_at": "2021-08-17T13:28:57.801578Z",
           "id": "01JXYZ000000000000000000CD",
@@ -58804,7 +58805,8 @@
             "description": "Which schedule members sync to the user group",
             "enum": [
               "on_call",
-              "all_users"
+              "all_users",
+              "next_on_call"
             ],
             "example": "on_call",
             "type": "string"
@@ -60959,7 +60961,8 @@
             "description": "Which schedule members sync to the user group",
             "enum": [
               "on_call",
-              "all_users"
+              "all_users",
+              "next_on_call"
             ],
             "example": "on_call",
             "type": "string"
