@@ -3642,6 +3642,30 @@ func (e IncidentAttachmentsCreatePayloadV1ResourceResourceType) Valid() bool {
 	}
 }
 
+// Defines values for IncidentDurationMetricWithValueV2Status.
+const (
+	IncidentDurationMetricWithValueV2StatusCalculating       IncidentDurationMetricWithValueV2Status = "calculating"
+	IncidentDurationMetricWithValueV2StatusInvalidTimestamps IncidentDurationMetricWithValueV2Status = "invalid_timestamps"
+	IncidentDurationMetricWithValueV2StatusSuccess           IncidentDurationMetricWithValueV2Status = "success"
+	IncidentDurationMetricWithValueV2StatusTimestampsMissing IncidentDurationMetricWithValueV2Status = "timestamps_missing"
+)
+
+// Valid indicates whether the value is a known member of the IncidentDurationMetricWithValueV2Status enum.
+func (e IncidentDurationMetricWithValueV2Status) Valid() bool {
+	switch e {
+	case IncidentDurationMetricWithValueV2StatusCalculating:
+		return true
+	case IncidentDurationMetricWithValueV2StatusInvalidTimestamps:
+		return true
+	case IncidentDurationMetricWithValueV2StatusSuccess:
+		return true
+	case IncidentDurationMetricWithValueV2StatusTimestampsMissing:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for IncidentParticipantV2ParticipantType.
 const (
 	IncidentParticipantV2ParticipantTypeCollaborator IncidentParticipantV2ParticipantType = "collaborator"
@@ -5186,28 +5210,28 @@ func (e WebhookDeliverySlimV2Outcome) Valid() bool {
 
 // Defines values for WebhookDeliveryV2Outcome.
 const (
-	WebhookDeliveryV2OutcomeNetworkError WebhookDeliveryV2Outcome = "network_error"
-	WebhookDeliveryV2OutcomeNon2xx       WebhookDeliveryV2Outcome = "non_2xx"
-	WebhookDeliveryV2OutcomeSuccess      WebhookDeliveryV2Outcome = "success"
-	WebhookDeliveryV2OutcomeTimeout      WebhookDeliveryV2Outcome = "timeout"
-	WebhookDeliveryV2OutcomeTlsError     WebhookDeliveryV2Outcome = "tls_error"
-	WebhookDeliveryV2OutcomeUnreachable  WebhookDeliveryV2Outcome = "unreachable"
+	NetworkError WebhookDeliveryV2Outcome = "network_error"
+	Non2xx       WebhookDeliveryV2Outcome = "non_2xx"
+	Success      WebhookDeliveryV2Outcome = "success"
+	Timeout      WebhookDeliveryV2Outcome = "timeout"
+	TlsError     WebhookDeliveryV2Outcome = "tls_error"
+	Unreachable  WebhookDeliveryV2Outcome = "unreachable"
 )
 
 // Valid indicates whether the value is a known member of the WebhookDeliveryV2Outcome enum.
 func (e WebhookDeliveryV2Outcome) Valid() bool {
 	switch e {
-	case WebhookDeliveryV2OutcomeNetworkError:
+	case NetworkError:
 		return true
-	case WebhookDeliveryV2OutcomeNon2xx:
+	case Non2xx:
 		return true
-	case WebhookDeliveryV2OutcomeSuccess:
+	case Success:
 		return true
-	case WebhookDeliveryV2OutcomeTimeout:
+	case Timeout:
 		return true
-	case WebhookDeliveryV2OutcomeTlsError:
+	case TlsError:
 		return true
-	case WebhookDeliveryV2OutcomeUnreachable:
+	case Unreachable:
 		return true
 	default:
 		return false
@@ -7811,7 +7835,7 @@ type CatalogResourceV2 struct {
 	// Label Label for this catalog resource type
 	Label string `json:"label"`
 
-	// Type Catalog type name for this resource
+	// Type Catalog type name for this resource, as used when setting the type of a catalog type attribute
 	Type string `json:"type"`
 
 	// ValueDocstring Documentation for the literal string value of this resource
@@ -7829,10 +7853,13 @@ type CatalogResourceV3 struct {
 	// Description Human readable description for this resource
 	Description string `json:"description"`
 
+	// EngineResourceType The way this resource type is referenced in the engine, as used when setting the type of an alert attribute
+	EngineResourceType string `json:"engine_resource_type"`
+
 	// Label Label for this catalog resource type
 	Label string `json:"label"`
 
-	// Type Catalog type name for this resource
+	// Type Catalog type name for this resource, as used when setting the type of a catalog type attribute
 	Type string `json:"type"`
 
 	// ValueDocstring Documentation for the literal string value of this resource
@@ -8109,6 +8136,9 @@ type CatalogTypeV3 struct {
 
 	// DynamicResourceParameter If this is a dynamic catalog type, this will be the unique parameter for identitfying this resource externally.
 	DynamicResourceParameter *string `json:"dynamic_resource_parameter,omitempty"`
+
+	// EngineResourceType The way this resource type is referenced in the engine, as used when setting the type of an alert attribute
+	EngineResourceType string `json:"engine_resource_type"`
 
 	// EstimatedCount If populated, gives an estimated count of entries for this type
 	EstimatedCount *int64 `json:"estimated_count,omitempty"`
@@ -10168,9 +10198,15 @@ type IncidentDurationMetricV2 struct {
 type IncidentDurationMetricWithValueV2 struct {
 	DurationMetric IncidentDurationMetricV2 `json:"duration_metric"`
 
+	// Status Whether value_seconds matches this incident's current timestamps ('success'), or why it doesn't
+	Status IncidentDurationMetricWithValueV2Status `json:"status"`
+
 	// ValueSeconds The calculated durations for this metric
 	ValueSeconds *int64 `json:"value_seconds,omitempty"`
 }
+
+// IncidentDurationMetricWithValueV2Status Whether value_seconds matches this incident's current timestamps ('success'), or why it doesn't
+type IncidentDurationMetricWithValueV2Status string
 
 // IncidentEditPayloadV2 defines model for IncidentEditPayloadV2.
 type IncidentEditPayloadV2 struct {

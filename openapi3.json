@@ -34344,6 +34344,7 @@
             "created_at": "2021-08-17T13:28:57.801578Z",
             "description": "Represents Kubernetes clusters that we run inside of GKE.",
             "dynamic_resource_parameter": "abc123",
+            "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
             "estimated_count": 7,
             "icon": "alert",
             "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -35225,6 +35226,7 @@
             "created_at": "2021-08-17T13:28:57.801578Z",
             "description": "Represents Kubernetes clusters that we run inside of GKE.",
             "dynamic_resource_parameter": "abc123",
+            "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
             "estimated_count": 7,
             "icon": "alert",
             "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -35328,7 +35330,7 @@
               "category": "custom",
               "description": "Boolean true or false value",
               "label": "GitHub Repository",
-              "type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
+              "type": "Custom[\"Team\"]",
               "value_docstring": "Either the GraphQL node ID of the repository or a string of \u003cowner\u003e/\u003crepo\u003e, e.g. incident-io/website"
             }
           ]
@@ -35340,7 +35342,7 @@
                 "category": "custom",
                 "description": "Boolean true or false value",
                 "label": "GitHub Repository",
-                "type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
+                "type": "Custom[\"Team\"]",
                 "value_docstring": "Either the GraphQL node ID of the repository or a string of \u003cowner\u003e/\u003crepo\u003e, e.g. incident-io/website"
               }
             ],
@@ -35361,8 +35363,9 @@
             {
               "category": "custom",
               "description": "Boolean true or false value",
+              "engine_resource_type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
               "label": "GitHub Repository",
-              "type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
+              "type": "Custom[\"Team\"]",
               "value_docstring": "Either the GraphQL node ID of the repository or a string of \u003cowner\u003e/\u003crepo\u003e, e.g. incident-io/website"
             }
           ]
@@ -35373,8 +35376,9 @@
               {
                 "category": "custom",
                 "description": "Boolean true or false value",
+                "engine_resource_type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
                 "label": "GitHub Repository",
-                "type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
+                "type": "Custom[\"Team\"]",
                 "value_docstring": "Either the GraphQL node ID of the repository or a string of \u003cowner\u003e/\u003crepo\u003e, e.g. incident-io/website"
               }
             ],
@@ -35515,6 +35519,7 @@
               "created_at": "2021-08-17T13:28:57.801578Z",
               "description": "Represents Kubernetes clusters that we run inside of GKE.",
               "dynamic_resource_parameter": "abc123",
+              "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
               "estimated_count": 7,
               "icon": "alert",
               "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -35570,6 +35575,7 @@
                 "created_at": "2021-08-17T13:28:57.801578Z",
                 "description": "Represents Kubernetes clusters that we run inside of GKE.",
                 "dynamic_resource_parameter": "abc123",
+                "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
                 "estimated_count": 7,
                 "icon": "alert",
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -35626,7 +35632,7 @@
           "category": "custom",
           "description": "Boolean true or false value",
           "label": "GitHub Repository",
-          "type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
+          "type": "Custom[\"Team\"]",
           "value_docstring": "Either the GraphQL node ID of the repository or a string of \u003cowner\u003e/\u003crepo\u003e, e.g. incident-io/website"
         },
         "properties": {
@@ -35651,8 +35657,8 @@
             "type": "string"
           },
           "type": {
-            "description": "Catalog type name for this resource",
-            "example": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
+            "description": "Catalog type name for this resource, as used when setting the type of a catalog type attribute",
+            "example": "Custom[\"Team\"]",
             "type": "string"
           },
           "value_docstring": {
@@ -35674,8 +35680,9 @@
         "example": {
           "category": "custom",
           "description": "Boolean true or false value",
+          "engine_resource_type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
           "label": "GitHub Repository",
-          "type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
+          "type": "Custom[\"Team\"]",
           "value_docstring": "Either the GraphQL node ID of the repository or a string of \u003cowner\u003e/\u003crepo\u003e, e.g. incident-io/website"
         },
         "properties": {
@@ -35694,14 +35701,19 @@
             "example": "Boolean true or false value",
             "type": "string"
           },
+          "engine_resource_type": {
+            "description": "The way this resource type is referenced in the engine, as used when setting the type of an alert attribute",
+            "example": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
+            "type": "string"
+          },
           "label": {
             "description": "Label for this catalog resource type",
             "example": "GitHub Repository",
             "type": "string"
           },
           "type": {
-            "description": "Catalog type name for this resource",
-            "example": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
+            "description": "Catalog type name for this resource, as used when setting the type of a catalog type attribute",
+            "example": "Custom[\"Team\"]",
             "type": "string"
           },
           "value_docstring": {
@@ -35712,6 +35724,7 @@
         },
         "required": [
           "type",
+          "engine_resource_type",
           "label",
           "description",
           "value_docstring",
@@ -35877,6 +35890,7 @@
             "created_at": "2021-08-17T13:28:57.801578Z",
             "description": "Represents Kubernetes clusters that we run inside of GKE.",
             "dynamic_resource_parameter": "abc123",
+            "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
             "estimated_count": 7,
             "icon": "alert",
             "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -36003,6 +36017,7 @@
             "created_at": "2021-08-17T13:28:57.801578Z",
             "description": "Represents Kubernetes clusters that we run inside of GKE.",
             "dynamic_resource_parameter": "abc123",
+            "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
             "estimated_count": 7,
             "icon": "alert",
             "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -36803,6 +36818,7 @@
           "created_at": "2021-08-17T13:28:57.801578Z",
           "description": "Represents Kubernetes clusters that we run inside of GKE.",
           "dynamic_resource_parameter": "abc123",
+          "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
           "estimated_count": 7,
           "icon": "alert",
           "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -36903,6 +36919,11 @@
           "dynamic_resource_parameter": {
             "description": "If this is a dynamic catalog type, this will be the unique parameter for identitfying this resource externally.",
             "example": "abc123",
+            "type": "string"
+          },
+          "engine_resource_type": {
+            "description": "The way this resource type is referenced in the engine, as used when setting the type of an alert attribute",
+            "example": "CatalogEntry[\"PagerDutyService\"]",
             "type": "string"
           },
           "estimated_count": {
@@ -37033,6 +37054,7 @@
           "name",
           "description",
           "type_name",
+          "engine_resource_type",
           "ranked",
           "schema",
           "icon",
@@ -37376,6 +37398,7 @@
             "created_at": "2021-08-17T13:28:57.801578Z",
             "description": "Represents Kubernetes clusters that we run inside of GKE.",
             "dynamic_resource_parameter": "abc123",
+            "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
             "estimated_count": 7,
             "icon": "alert",
             "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -37766,6 +37789,7 @@
             "created_at": "2021-08-17T13:28:57.801578Z",
             "description": "Represents Kubernetes clusters that we run inside of GKE.",
             "dynamic_resource_parameter": "abc123",
+            "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
             "estimated_count": 7,
             "icon": "alert",
             "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -37994,6 +38018,7 @@
             "created_at": "2021-08-17T13:28:57.801578Z",
             "description": "Represents Kubernetes clusters that we run inside of GKE.",
             "dynamic_resource_parameter": "abc123",
+            "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
             "estimated_count": 7,
             "icon": "alert",
             "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -49179,11 +49204,23 @@
             "id": "01FCNDV6P870EA6S7TK1DSYD5H",
             "name": "Lasted"
           },
+          "status": "success",
           "value_seconds": 10800
         },
         "properties": {
           "duration_metric": {
             "$ref": "#/components/schemas/IncidentDurationMetricV2"
+          },
+          "status": {
+            "description": "Whether value_seconds matches this incident's current timestamps ('success'), or why it doesn't",
+            "enum": [
+              "success",
+              "timestamps_missing",
+              "calculating",
+              "invalid_timestamps"
+            ],
+            "example": "success",
+            "type": "string"
           },
           "value_seconds": {
             "description": "The calculated durations for this metric",
@@ -49193,7 +49230,8 @@
           }
         },
         "required": [
-          "duration_metric"
+          "duration_metric",
+          "status"
         ],
         "type": "object"
       },
@@ -51834,6 +51872,7 @@
                 "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                 "name": "Lasted"
               },
+              "status": "success",
               "value_seconds": 10800
             }
           ],
@@ -51994,6 +52033,7 @@
                   "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                   "name": "Lasted"
                 },
+                "status": "success",
                 "value_seconds": 10800
               }
             ],
@@ -52263,6 +52303,7 @@
                   "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                   "name": "Lasted"
                 },
+                "status": "success",
                 "value_seconds": 10800
               }
             ],
@@ -52933,6 +52974,7 @@
                   "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                   "name": "Lasted"
                 },
+                "status": "success",
                 "value_seconds": 10800
               }
             ],
@@ -53166,6 +53208,7 @@
                   "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                   "name": "Lasted"
                 },
+                "status": "success",
                 "value_seconds": 10800
               }
             ],
@@ -53665,6 +53708,7 @@
                     "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                     "name": "Lasted"
                   },
+                  "status": "success",
                   "value_seconds": 10800
                 }
               ],
@@ -53835,6 +53879,7 @@
                       "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                       "name": "Lasted"
                     },
+                    "status": "success",
                     "value_seconds": 10800
                   }
                 ],
@@ -54144,6 +54189,7 @@
                   "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                   "name": "Lasted"
                 },
+                "status": "success",
                 "value_seconds": 10800
               }
             ],
@@ -65132,6 +65178,7 @@
                 "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                 "name": "Lasted"
               },
+              "status": "success",
               "value_seconds": 10800
             }
           ],
@@ -65296,6 +65343,7 @@
                   "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                   "name": "Lasted"
                 },
+                "status": "success",
                 "value_seconds": 10800
               }
             ],
@@ -67505,6 +67553,7 @@
                   "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                   "name": "Lasted"
                 },
+                "status": "success",
                 "value_seconds": 10800
               }
             ],
@@ -67725,6 +67774,7 @@
                     "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                     "name": "Lasted"
                   },
+                  "status": "success",
                   "value_seconds": 10800
                 }
               ],
@@ -67960,6 +68010,7 @@
                   "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                   "name": "Lasted"
                 },
+                "status": "success",
                 "value_seconds": 10800
               }
             ],
@@ -84088,7 +84139,7 @@
                       "category": "custom",
                       "description": "Boolean true or false value",
                       "label": "GitHub Repository",
-                      "type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
+                      "type": "Custom[\"Team\"]",
                       "value_docstring": "Either the GraphQL node ID of the repository or a string of \u003cowner\u003e/\u003crepo\u003e, e.g. incident-io/website"
                     }
                   ]
@@ -88480,6 +88531,7 @@
                             "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                             "name": "Lasted"
                           },
+                          "status": "success",
                           "value_seconds": 10800
                         }
                       ],
@@ -88736,6 +88788,7 @@
                           "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                           "name": "Lasted"
                         },
+                        "status": "success",
                         "value_seconds": 10800
                       }
                     ],
@@ -88943,6 +88996,7 @@
                           "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                           "name": "Lasted"
                         },
+                        "status": "success",
                         "value_seconds": 10800
                       }
                     ],
@@ -89203,6 +89257,7 @@
                           "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                           "name": "Lasted"
                         },
+                        "status": "success",
                         "value_seconds": 10800
                       }
                     ],
@@ -98428,6 +98483,7 @@
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "description": "Represents Kubernetes clusters that we run inside of GKE.",
                     "dynamic_resource_parameter": "abc123",
+                    "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
                     "estimated_count": 7,
                     "icon": "alert",
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -98782,6 +98838,7 @@
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "description": "Represents Kubernetes clusters that we run inside of GKE.",
                     "dynamic_resource_parameter": "abc123",
+                    "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
                     "estimated_count": 7,
                     "icon": "alert",
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -98939,6 +98996,7 @@
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "description": "Represents Kubernetes clusters that we run inside of GKE.",
                     "dynamic_resource_parameter": "abc123",
+                    "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
                     "estimated_count": 7,
                     "icon": "alert",
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -99015,8 +99073,9 @@
                     {
                       "category": "custom",
                       "description": "Boolean true or false value",
+                      "engine_resource_type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
                       "label": "GitHub Repository",
-                      "type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
+                      "type": "Custom[\"Team\"]",
                       "value_docstring": "Either the GraphQL node ID of the repository or a string of \u003cowner\u003e/\u003crepo\u003e, e.g. incident-io/website"
                     }
                   ]
@@ -99065,6 +99124,7 @@
                       "created_at": "2021-08-17T13:28:57.801578Z",
                       "description": "Represents Kubernetes clusters that we run inside of GKE.",
                       "dynamic_resource_parameter": "abc123",
+                      "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
                       "estimated_count": 7,
                       "icon": "alert",
                       "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -99176,6 +99236,7 @@
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "description": "Represents Kubernetes clusters that we run inside of GKE.",
                     "dynamic_resource_parameter": "abc123",
+                    "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
                     "estimated_count": 7,
                     "icon": "alert",
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -99309,6 +99370,7 @@
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "description": "Represents Kubernetes clusters that we run inside of GKE.",
                     "dynamic_resource_parameter": "abc123",
+                    "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
                     "estimated_count": 7,
                     "icon": "alert",
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -99432,6 +99494,7 @@
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "description": "Represents Kubernetes clusters that we run inside of GKE.",
                     "dynamic_resource_parameter": "abc123",
+                    "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
                     "estimated_count": 7,
                     "icon": "alert",
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -99557,6 +99620,7 @@
                     "created_at": "2021-08-17T13:28:57.801578Z",
                     "description": "Represents Kubernetes clusters that we run inside of GKE.",
                     "dynamic_resource_parameter": "abc123",
+                    "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
                     "estimated_count": 7,
                     "icon": "alert",
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -110344,6 +110408,7 @@
                           "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                           "name": "Lasted"
                         },
+                        "status": "success",
                         "value_seconds": 10800
                       }
                     ],
@@ -110533,6 +110598,7 @@
                             "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                             "name": "Lasted"
                           },
+                          "status": "success",
                           "value_seconds": 10800
                         }
                       ],
@@ -110737,6 +110803,7 @@
                           "id": "01FCNDV6P870EA6S7TK1DSYD5H",
                           "name": "Lasted"
                         },
+                        "status": "success",
                         "value_seconds": 10800
                       }
                     ],
