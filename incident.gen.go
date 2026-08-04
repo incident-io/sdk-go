@@ -10201,7 +10201,7 @@ type IncidentDurationMetricWithValueV2 struct {
 	// Status Whether value_seconds matches this incident's current timestamps ('success'), or why it doesn't
 	Status IncidentDurationMetricWithValueV2Status `json:"status"`
 
-	// ValueSeconds The calculated durations for this metric
+	// ValueSeconds The duration we last calculated for this metric, omitted if we've never calculated one. If status isn't 'success', this incident's timestamps have changed since and no longer match this value
 	ValueSeconds *int64 `json:"value_seconds,omitempty"`
 }
 
