@@ -42292,6 +42292,8 @@
             "description": "The total number of times we page this level, counting the initial page. For example, 3 means three notifications in total. Must be between 2 and 10.",
             "example": 3,
             "format": "int64",
+            "maximum": 10,
+            "minimum": 2,
             "type": "integer"
           },
           "interval_seconds": {
