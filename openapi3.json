@@ -41070,6 +41070,10 @@
               },
               "level": {
                 "ack_mode": "all",
+                "retry_config": {
+                  "attempts": 3,
+                  "interval_seconds": 300
+                },
                 "round_robin_config": {
                   "enabled": false,
                   "rotate_after_seconds": 120
@@ -41146,6 +41150,10 @@
               },
               "level": {
                 "ack_mode": "all",
+                "retry_config": {
+                  "attempts": 3,
+                  "interval_seconds": 300
+                },
                 "round_robin_config": {
                   "enabled": false,
                   "rotate_after_seconds": 120
@@ -41253,6 +41261,10 @@
                 },
                 "level": {
                   "ack_mode": "all",
+                  "retry_config": {
+                    "attempts": 3,
+                    "interval_seconds": 300
+                  },
                   "round_robin_config": {
                     "enabled": false,
                     "rotate_after_seconds": 120
@@ -41336,6 +41348,10 @@
                 },
                 "level": {
                   "ack_mode": "all",
+                  "retry_config": {
+                    "attempts": 3,
+                    "interval_seconds": 300
+                  },
                   "round_robin_config": {
                     "enabled": false,
                     "rotate_after_seconds": 120
@@ -41462,6 +41478,10 @@
               },
               "level": {
                 "ack_mode": "all",
+                "retry_config": {
+                  "attempts": 3,
+                  "interval_seconds": 300
+                },
                 "round_robin_config": {
                   "enabled": false,
                   "rotate_after_seconds": 120
@@ -41546,6 +41566,10 @@
               },
               "level": {
                 "ack_mode": "all",
+                "retry_config": {
+                  "attempts": 3,
+                  "interval_seconds": 300
+                },
                 "round_robin_config": {
                   "enabled": false,
                   "rotate_after_seconds": 120
@@ -41669,6 +41693,10 @@
                 },
                 "level": {
                   "ack_mode": "all",
+                  "retry_config": {
+                    "attempts": 3,
+                    "interval_seconds": 300
+                  },
                   "round_robin_config": {
                     "enabled": false,
                     "rotate_after_seconds": 120
@@ -41760,6 +41788,10 @@
                 },
                 "level": {
                   "ack_mode": "all",
+                  "retry_config": {
+                    "attempts": 3,
+                    "interval_seconds": 300
+                  },
                   "round_robin_config": {
                     "enabled": false,
                     "rotate_after_seconds": 120
@@ -41814,6 +41846,10 @@
       "EscalationPathNodeLevelV2": {
         "example": {
           "ack_mode": "all",
+          "retry_config": {
+            "attempts": 3,
+            "interval_seconds": 300
+          },
           "round_robin_config": {
             "enabled": false,
             "rotate_after_seconds": 120
@@ -41840,6 +41876,9 @@
             ],
             "example": "all",
             "type": "string"
+          },
+          "retry_config": {
+            "$ref": "#/components/schemas/EscalationPathRetryConfigV2"
           },
           "round_robin_config": {
             "$ref": "#/components/schemas/EscalationPathRoundRobinConfigV2"
@@ -41982,6 +42021,10 @@
           },
           "level": {
             "ack_mode": "all",
+            "retry_config": {
+              "attempts": 3,
+              "interval_seconds": 300
+            },
             "round_robin_config": {
               "enabled": false,
               "rotate_after_seconds": 120
@@ -42130,6 +42173,10 @@
           },
           "level": {
             "ack_mode": "all",
+            "retry_config": {
+              "attempts": 3,
+              "interval_seconds": 300
+            },
             "round_robin_config": {
               "enabled": false,
               "rotate_after_seconds": 120
@@ -42232,6 +42279,31 @@
         "required": [
           "repeat_after_seconds",
           "delay_repeat_on_activity"
+        ],
+        "type": "object"
+      },
+      "EscalationPathRetryConfigV2": {
+        "example": {
+          "attempts": 3,
+          "interval_seconds": 300
+        },
+        "properties": {
+          "attempts": {
+            "description": "The total number of times we page this level, counting the initial page. For example, 3 means three notifications in total. Must be between 2 and 10.",
+            "example": 3,
+            "format": "int64",
+            "type": "integer"
+          },
+          "interval_seconds": {
+            "description": "How long we wait between attempts at this level, in seconds. Must be a whole number of minutes (divisible by 60).",
+            "example": 300,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "attempts",
+          "interval_seconds"
         ],
         "type": "object"
       },
@@ -42379,6 +42451,10 @@
               },
               "level": {
                 "ack_mode": "all",
+                "retry_config": {
+                  "attempts": 3,
+                  "interval_seconds": 300
+                },
                 "round_robin_config": {
                   "enabled": false,
                   "rotate_after_seconds": 120
@@ -42514,6 +42590,10 @@
                 },
                 "level": {
                   "ack_mode": "all",
+                  "retry_config": {
+                    "attempts": 3,
+                    "interval_seconds": 300
+                  },
                   "round_robin_config": {
                     "enabled": false,
                     "rotate_after_seconds": 120
@@ -43033,6 +43113,10 @@
               },
               "level": {
                 "ack_mode": "all",
+                "retry_config": {
+                  "attempts": 3,
+                  "interval_seconds": 300
+                },
                 "round_robin_config": {
                   "enabled": false,
                   "rotate_after_seconds": 120
@@ -43139,6 +43223,10 @@
                 },
                 "level": {
                   "ack_mode": "all",
+                  "retry_config": {
+                    "attempts": 3,
+                    "interval_seconds": 300
+                  },
                   "round_robin_config": {
                     "enabled": false,
                     "rotate_after_seconds": 120
@@ -43284,6 +43372,10 @@
                 },
                 "level": {
                   "ack_mode": "all",
+                  "retry_config": {
+                    "attempts": 3,
+                    "interval_seconds": 300
+                  },
                   "round_robin_config": {
                     "enabled": false,
                     "rotate_after_seconds": 120
@@ -43567,6 +43659,10 @@
                   },
                   "level": {
                     "ack_mode": "all",
+                    "retry_config": {
+                      "attempts": 3,
+                      "interval_seconds": 300
+                    },
                     "round_robin_config": {
                       "enabled": false,
                       "rotate_after_seconds": 120
@@ -43694,6 +43790,10 @@
                     },
                     "level": {
                       "ack_mode": "all",
+                      "retry_config": {
+                        "attempts": 3,
+                        "interval_seconds": 300
+                      },
                       "round_robin_config": {
                         "enabled": false,
                         "rotate_after_seconds": 120
@@ -44020,6 +44120,10 @@
                 },
                 "level": {
                   "ack_mode": "all",
+                  "retry_config": {
+                    "attempts": 3,
+                    "interval_seconds": 300
+                  },
                   "round_robin_config": {
                     "enabled": false,
                     "rotate_after_seconds": 120
@@ -44226,6 +44330,10 @@
               },
               "level": {
                 "ack_mode": "all",
+                "retry_config": {
+                  "attempts": 3,
+                  "interval_seconds": 300
+                },
                 "round_robin_config": {
                   "enabled": false,
                   "rotate_after_seconds": 120
@@ -44332,6 +44440,10 @@
                 },
                 "level": {
                   "ack_mode": "all",
+                  "retry_config": {
+                    "attempts": 3,
+                    "interval_seconds": 300
+                  },
                   "round_robin_config": {
                     "enabled": false,
                     "rotate_after_seconds": 120
@@ -44477,6 +44589,10 @@
                 },
                 "level": {
                   "ack_mode": "all",
+                  "retry_config": {
+                    "attempts": 3,
+                    "interval_seconds": 300
+                  },
                   "round_robin_config": {
                     "enabled": false,
                     "rotate_after_seconds": 120
@@ -85160,6 +85276,10 @@
                           },
                           "level": {
                             "ack_mode": "all",
+                            "retry_config": {
+                              "attempts": 3,
+                              "interval_seconds": 300
+                            },
                             "round_robin_config": {
                               "enabled": false,
                               "rotate_after_seconds": 120
@@ -85295,6 +85415,10 @@
                     },
                     "level": {
                       "ack_mode": "all",
+                      "retry_config": {
+                        "attempts": 3,
+                        "interval_seconds": 300
+                      },
                       "round_robin_config": {
                         "enabled": false,
                         "rotate_after_seconds": 120
@@ -85425,6 +85549,10 @@
                         },
                         "level": {
                           "ack_mode": "all",
+                          "retry_config": {
+                            "attempts": 3,
+                            "interval_seconds": 300
+                          },
                           "round_robin_config": {
                             "enabled": false,
                             "rotate_after_seconds": 120
@@ -85628,6 +85756,10 @@
                         },
                         "level": {
                           "ack_mode": "all",
+                          "retry_config": {
+                            "attempts": 3,
+                            "interval_seconds": 300
+                          },
                           "round_robin_config": {
                             "enabled": false,
                             "rotate_after_seconds": 120
@@ -85772,6 +85904,10 @@
                     },
                     "level": {
                       "ack_mode": "all",
+                      "retry_config": {
+                        "attempts": 3,
+                        "interval_seconds": 300
+                      },
                       "round_robin_config": {
                         "enabled": false,
                         "rotate_after_seconds": 120
@@ -85902,6 +86038,10 @@
                         },
                         "level": {
                           "ack_mode": "all",
+                          "retry_config": {
+                            "attempts": 3,
+                            "interval_seconds": 300
+                          },
                           "round_robin_config": {
                             "enabled": false,
                             "rotate_after_seconds": 120

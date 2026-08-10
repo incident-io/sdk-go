@@ -9196,6 +9196,7 @@ type EscalationPathNodeIfElseV2 struct {
 type EscalationPathNodeLevelV2 struct {
 	// AckMode Controls the behaviour of acknowledgements for this level, with 'first' cancelling all other escalations on the same level when someone acks
 	AckMode          *EscalationPathNodeLevelV2AckMode `json:"ack_mode,omitempty"`
+	RetryConfig      *EscalationPathRetryConfigV2      `json:"retry_config,omitempty"`
 	RoundRobinConfig *EscalationPathRoundRobinConfigV2 `json:"round_robin_config,omitempty"`
 
 	// Targets The targets (users or schedules) for this level
@@ -9315,6 +9316,15 @@ type EscalationPathRepeatConfigV2 struct {
 
 	// RepeatAfterSeconds Number of seconds we'll wait before repeating an escalation.
 	RepeatAfterSeconds int32 `json:"repeat_after_seconds"`
+}
+
+// EscalationPathRetryConfigV2 defines model for EscalationPathRetryConfigV2.
+type EscalationPathRetryConfigV2 struct {
+	// Attempts The total number of times we page this level, counting the initial page. For example, 3 means three notifications in total. Must be between 2 and 10.
+	Attempts int64 `json:"attempts"`
+
+	// IntervalSeconds How long we wait between attempts at this level, in seconds. Must be a whole number of minutes (divisible by 60).
+	IntervalSeconds int64 `json:"interval_seconds"`
 }
 
 // EscalationPathRoundRobinConfigV2 defines model for EscalationPathRoundRobinConfigV2.
