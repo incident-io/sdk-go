@@ -92,7 +92,8 @@
               "incident_workload_private_viewer",
               "act_on_behalf_of_users",
               "secrets_manage",
-              "secrets_use"
+              "secrets_use",
+              "call_transcripts_viewer"
             ],
             "example": "viewer",
             "type": "string",
@@ -337,7 +338,8 @@
                 "incident_workload_private_viewer",
                 "act_on_behalf_of_users",
                 "secrets_manage",
-                "secrets_use"
+                "secrets_use",
+                "call_transcripts_viewer"
               ],
               "example": "viewer",
               "type": "string"
@@ -738,7 +740,8 @@
                 "incident_workload_private_viewer",
                 "act_on_behalf_of_users",
                 "secrets_manage",
-                "secrets_use"
+                "secrets_use",
+                "call_transcripts_viewer"
               ],
               "example": "viewer",
               "type": "string"
@@ -33586,6 +33589,175 @@
         ],
         "type": "object"
       },
+      "CallSessionV2": {
+        "description": "A call session is a single occurrence of a call that Scribe attended,\nfor example one Zoom or Google Meet meeting. Several call sessions can exist for\nthe same context: one for each time a call was started.\n\nUse the Call Transcript Entries endpoint to page through what Scribe transcribed\nduring a session.",
+        "example": {
+          "ended_at": "2021-08-17T14:28:57.801578Z",
+          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "incident_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+          "started_at": "2021-08-17T13:28:57.801578Z"
+        },
+        "properties": {
+          "ended_at": {
+            "description": "When the call session ended. Absent while the call is still in progress.",
+            "example": "2021-08-17T14:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "description": "Unique identifier for this call session",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "incident_id": {
+            "description": "The incident this call session belongs to",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "type": "string"
+          },
+          "started_at": {
+            "description": "When the call session started",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "incident_id",
+          "started_at"
+        ],
+        "type": "object"
+      },
+      "CallSessionsListResultV2": {
+        "example": {
+          "call_sessions": [
+            {
+              "ended_at": "2021-08-17T14:28:57.801578Z",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "incident_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "started_at": "2021-08-17T13:28:57.801578Z"
+            }
+          ],
+          "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25
+          }
+        },
+        "properties": {
+          "call_sessions": {
+            "example": [
+              {
+                "ended_at": "2021-08-17T14:28:57.801578Z",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "incident_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "started_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/CallSessionV2"
+            },
+            "type": "array"
+          },
+          "pagination_meta": {
+            "$ref": "#/components/schemas/PaginationMetaResultV2"
+          }
+        },
+        "required": [
+          "call_sessions"
+        ],
+        "type": "object"
+      },
+      "CallTranscriptEntriesListResultV2": {
+        "example": {
+          "call_transcript_entries": [
+            {
+              "content": "I think we should roll back the deploy.",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "medium": "spoken",
+              "participant_name": "Alice Smith",
+              "timestamp": "2021-08-17T13:28:57.801578Z"
+            }
+          ],
+          "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25
+          }
+        },
+        "properties": {
+          "call_transcript_entries": {
+            "example": [
+              {
+                "content": "I think we should roll back the deploy.",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "medium": "spoken",
+                "participant_name": "Alice Smith",
+                "timestamp": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/CallTranscriptEntryV2"
+            },
+            "type": "array"
+          },
+          "pagination_meta": {
+            "$ref": "#/components/schemas/PaginationMetaResultV2"
+          }
+        },
+        "required": [
+          "call_transcript_entries"
+        ],
+        "type": "object"
+      },
+      "CallTranscriptEntryV2": {
+        "description": "A single entry of a Scribe call transcript: one contiguous run of\nspeech, or one in-call chat message, from one participant.",
+        "example": {
+          "content": "I think we should roll back the deploy.",
+          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "medium": "spoken",
+          "participant_name": "Alice Smith",
+          "timestamp": "2021-08-17T13:28:57.801578Z"
+        },
+        "properties": {
+          "content": {
+            "description": "What was said",
+            "example": "I think we should roll back the deploy.",
+            "type": "string"
+          },
+          "id": {
+            "description": "Unique identifier for this transcript entry",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "medium": {
+            "description": "Whether this entry was spoken aloud or sent as an in-call chat message",
+            "enum": [
+              "spoken",
+              "call_chat"
+            ],
+            "example": "spoken",
+            "type": "string"
+          },
+          "participant_name": {
+            "description": "Name of the participant who spoke or sent the message, as reported by the call provider",
+            "example": "Alice Smith",
+            "type": "string"
+          },
+          "timestamp": {
+            "description": "When the participant started speaking",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "participant_name",
+          "timestamp",
+          "content",
+          "medium"
+        ],
+        "type": "object"
+      },
       "CatalogBulkUpdateEntriesPayloadV3": {
         "example": {
           "catalog_type_id": "01GW2G3V0S59R238FAHPDS1R66",
@@ -48980,7 +49152,8 @@
                 "incident_workload_private_viewer",
                 "act_on_behalf_of_users",
                 "secrets_manage",
-                "secrets_use"
+                "secrets_use",
+                "call_transcripts_viewer"
               ],
               "example": "viewer",
               "type": "string",
@@ -83579,6 +83752,193 @@
         ]
       }
     },
+    "/v2/call_sessions": {
+      "get": {
+        "description": "List Scribe call sessions, newest first, filtered by incident.",
+        "operationId": "Call Sessions V2#List",
+        "parameters": [
+          {
+            "allowEmptyValue": true,
+            "description": "Integer number of records to return",
+            "example": 25,
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "default": 25,
+              "description": "Integer number of records to return",
+              "example": 25,
+              "format": "int64",
+              "maximum": 250,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "A call session's ID. This endpoint will return a list of call sessions after this ID in relation to the API response order.",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "description": "A call session's ID. This endpoint will return a list of call sessions after this ID in relation to the API response order.",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Incident whose call sessions you want to list",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "query",
+            "name": "incident_id",
+            "required": true,
+            "schema": {
+              "description": "Incident whose call sessions you want to list",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "call_sessions": [
+                    {
+                      "ended_at": "2021-08-17T14:28:57.801578Z",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "incident_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                      "started_at": "2021-08-17T13:28:57.801578Z"
+                    }
+                  ],
+                  "pagination_meta": {
+                    "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "page_size": 25
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CallSessionsListResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "summary": "List Call Sessions V2",
+        "tags": [
+          "Call Sessions V2"
+        ],
+        "x-docs-display-name": "List",
+        "x-docs-group-name": "Call Sessions V2",
+        "x-docs-resource-type": "CallSessionV2",
+        "x-mint": {
+          "content": "🔑 Requires the `call_transcripts.view` scope."
+        },
+        "x-rbac-scopes": [
+          "call_transcripts.view"
+        ]
+      }
+    },
+    "/v2/call_transcript_entries": {
+      "get": {
+        "description": "List transcript entries for a call session, oldest first.\n\nReturns an empty list if your organisation has disabled viewing transcripts.",
+        "operationId": "Call Transcript Entries V2#List",
+        "parameters": [
+          {
+            "allowEmptyValue": true,
+            "description": "Integer number of records to return",
+            "example": 25,
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "default": 25,
+              "description": "Integer number of records to return",
+              "example": 25,
+              "format": "int64",
+              "maximum": 250,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "A transcript entry's ID. This endpoint will return a list of entries after this ID in relation to the API response order.",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "description": "A transcript entry's ID. This endpoint will return a list of entries after this ID in relation to the API response order.",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Call session whose transcript entries you want to list",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "in": "query",
+            "name": "call_session_id",
+            "required": true,
+            "schema": {
+              "description": "Call session whose transcript entries you want to list",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "call_transcript_entries": [
+                    {
+                      "content": "I think we should roll back the deploy.",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "medium": "spoken",
+                      "participant_name": "Alice Smith",
+                      "timestamp": "2021-08-17T13:28:57.801578Z"
+                    }
+                  ],
+                  "pagination_meta": {
+                    "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "page_size": 25
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CallTranscriptEntriesListResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "summary": "List Call Transcript Entries V2",
+        "tags": [
+          "Call Transcript Entries V2"
+        ],
+        "x-docs-display-name": "List",
+        "x-docs-group-name": "Call Transcript Entries V2",
+        "x-docs-resource-type": "CallTranscriptEntryV2",
+        "x-mint": {
+          "content": "🔑 Requires the `call_transcripts.view` scope."
+        },
+        "x-rbac-scopes": [
+          "call_transcripts.view"
+        ]
+      }
+    },
     "/v2/catalog_entries": {
       "get": {
         "deprecated": true,
@@ -100024,6 +100384,14 @@
     {
       "description": "Read your alerts in incident.io.\n\nAlerts are events ingested from third parties by alert sources. They can trigger incidents and escalations, as configured in alert routes.\nTo view your alerts, you can list all alerts, or show a single alert. \nIf you'd like to view only alerts that are currently firing, you can filter by status. \nTo view the alert that was created for an event in your external system, filter by deduplication key. \n\nIf you'd like to view alerts connected to a particular incident, you can list incident alerts. You can filter by incident_id to find all alerts attached to a particular incident, or by alert_id to find the incident that a particular alert triggered.  \n",
       "name": "Alerts V2"
+    },
+    {
+      "description": "List Scribe call sessions.\n\nCall sessions are the individual meetings Scribe attended: several can accumulate\nover time. Use this endpoint together with Call Transcript Entries to export what\nScribe transcribed during each session.",
+      "name": "Call Sessions V2"
+    },
+    {
+      "description": "List the transcript entries Scribe captured during a call session.\n\nEntries are returned oldest first, ordered by when each participant started\nspeaking. To export a full transcript, page through with 'page_size' and 'after'\nuntil the response no longer includes a 'pagination_meta.after' value.",
+      "name": "Call Transcript Entries V2"
     },
     {
       "description": "Manage and browse catalog resources.\n\nThese endpoints have been deprecated in favour of CatalogV3. The only breaking change is\nthat the 'manual' attribute mode is now split into 'api' and 'dashboard'. We also removed\nthe usage of some types that were deprecated in the V2 API. \n\nUse the incident.io catalog to track services, teams, product features and anything\nelse that helps build a map of your organisation. These different categories of thing\nbecome catalog types, and each instance (like a particular service or team) is a\ncatalog entry.\n\nEach type is made up of a series of attributes, and each attribute has a type. Types\ncan even have attributes that refer to other catalog types.\n\nWe automatically create catalog types when you connect an integration, such as GitHub\nrepositories or PagerDuty services and teams. You can use this API to create custom\ntypes, that are specifically tailored to your organisation.\n\nExamples might be a 'Service' type with an 'Alert channel' which you can point at a\nSlack channel, or 'Team' which specifies its 'Manager' and 'Technical Lead' as Slack\nusers. You can then use these types to create powerful new workflows.\n\nConsider using our official [catalog importer](https://github.com/incident-io/catalog-importer).\nIt can be used to sync catalog data from sources like local files or GitHub and push\nthem into the incident.io catalog without having to directly interact with our public API.\n",

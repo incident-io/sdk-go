@@ -22,6 +22,7 @@ import (
 const (
 	APIKeyRoleV1NameActOnBehalfOfUsers                  APIKeyRoleV1Name = "act_on_behalf_of_users"
 	APIKeyRoleV1NameApiKeysManage                       APIKeyRoleV1Name = "api_keys_manage"
+	APIKeyRoleV1NameCallTranscriptsViewer               APIKeyRoleV1Name = "call_transcripts_viewer"
 	APIKeyRoleV1NameCatalogEditor                       APIKeyRoleV1Name = "catalog_editor"
 	APIKeyRoleV1NameCatalogViewer                       APIKeyRoleV1Name = "catalog_viewer"
 	APIKeyRoleV1NameEscalationCreator                   APIKeyRoleV1Name = "escalation_creator"
@@ -60,6 +61,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameActOnBehalfOfUsers:
 		return true
 	case APIKeyRoleV1NameApiKeysManage:
+		return true
+	case APIKeyRoleV1NameCallTranscriptsViewer:
 		return true
 	case APIKeyRoleV1NameCatalogEditor:
 		return true
@@ -175,6 +178,7 @@ func (e APIKeyTeamRoleV1Name) Valid() bool {
 const (
 	APIKeysCreatePayloadV1RoleNamesActOnBehalfOfUsers                  APIKeysCreatePayloadV1RoleNames = "act_on_behalf_of_users"
 	APIKeysCreatePayloadV1RoleNamesApiKeysManage                       APIKeysCreatePayloadV1RoleNames = "api_keys_manage"
+	APIKeysCreatePayloadV1RoleNamesCallTranscriptsViewer               APIKeysCreatePayloadV1RoleNames = "call_transcripts_viewer"
 	APIKeysCreatePayloadV1RoleNamesCatalogEditor                       APIKeysCreatePayloadV1RoleNames = "catalog_editor"
 	APIKeysCreatePayloadV1RoleNamesCatalogViewer                       APIKeysCreatePayloadV1RoleNames = "catalog_viewer"
 	APIKeysCreatePayloadV1RoleNamesEscalationCreator                   APIKeysCreatePayloadV1RoleNames = "escalation_creator"
@@ -213,6 +217,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesActOnBehalfOfUsers:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesApiKeysManage:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesCallTranscriptsViewer:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesCatalogEditor:
 		return true
@@ -328,6 +334,7 @@ func (e APIKeysCreatePayloadV1TeamRoleNames) Valid() bool {
 const (
 	APIKeysUpdatePayloadV1RoleNamesActOnBehalfOfUsers                  APIKeysUpdatePayloadV1RoleNames = "act_on_behalf_of_users"
 	APIKeysUpdatePayloadV1RoleNamesApiKeysManage                       APIKeysUpdatePayloadV1RoleNames = "api_keys_manage"
+	APIKeysUpdatePayloadV1RoleNamesCallTranscriptsViewer               APIKeysUpdatePayloadV1RoleNames = "call_transcripts_viewer"
 	APIKeysUpdatePayloadV1RoleNamesCatalogEditor                       APIKeysUpdatePayloadV1RoleNames = "catalog_editor"
 	APIKeysUpdatePayloadV1RoleNamesCatalogViewer                       APIKeysUpdatePayloadV1RoleNames = "catalog_viewer"
 	APIKeysUpdatePayloadV1RoleNamesEscalationCreator                   APIKeysUpdatePayloadV1RoleNames = "escalation_creator"
@@ -366,6 +373,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesActOnBehalfOfUsers:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesApiKeysManage:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesCallTranscriptsViewer:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesCatalogEditor:
 		return true
@@ -1230,6 +1239,24 @@ func (e AlertV2Status) Valid() bool {
 	case AlertV2StatusFiring:
 		return true
 	case AlertV2StatusResolved:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallTranscriptEntryV2Medium.
+const (
+	CallChat CallTranscriptEntryV2Medium = "call_chat"
+	Spoken   CallTranscriptEntryV2Medium = "spoken"
+)
+
+// Valid indicates whether the value is a known member of the CallTranscriptEntryV2Medium enum.
+func (e CallTranscriptEntryV2Medium) Valid() bool {
+	switch e {
+	case CallChat:
+		return true
+	case Spoken:
 		return true
 	default:
 		return false
@@ -3430,6 +3457,7 @@ func (e GroupingSettingsV3WindowType) Valid() bool {
 const (
 	IdentityV1RolesActOnBehalfOfUsers                  IdentityV1Roles = "act_on_behalf_of_users"
 	IdentityV1RolesApiKeysManage                       IdentityV1Roles = "api_keys_manage"
+	IdentityV1RolesCallTranscriptsViewer               IdentityV1Roles = "call_transcripts_viewer"
 	IdentityV1RolesCatalogEditor                       IdentityV1Roles = "catalog_editor"
 	IdentityV1RolesCatalogViewer                       IdentityV1Roles = "catalog_viewer"
 	IdentityV1RolesEscalationCreator                   IdentityV1Roles = "escalation_creator"
@@ -3468,6 +3496,8 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesActOnBehalfOfUsers:
 		return true
 	case IdentityV1RolesApiKeysManage:
+		return true
+	case IdentityV1RolesCallTranscriptsViewer:
 		return true
 	case IdentityV1RolesCatalogEditor:
 		return true
@@ -7477,6 +7507,60 @@ type AlertsResolveResultV2 struct {
 type AlertsShowResultV2 struct {
 	Alert AlertV2 `json:"alert"`
 }
+
+// CallSessionV2 A call session is a single occurrence of a call that Scribe attended,
+// for example one Zoom or Google Meet meeting. Several call sessions can exist for
+// the same context: one for each time a call was started.
+//
+// Use the Call Transcript Entries endpoint to page through what Scribe transcribed
+// during a session.
+type CallSessionV2 struct {
+	// EndedAt When the call session ended. Absent while the call is still in progress.
+	EndedAt *time.Time `json:"ended_at,omitempty"`
+
+	// Id Unique identifier for this call session
+	Id string `json:"id"`
+
+	// IncidentId The incident this call session belongs to
+	IncidentId string `json:"incident_id"`
+
+	// StartedAt When the call session started
+	StartedAt time.Time `json:"started_at"`
+}
+
+// CallSessionsListResultV2 defines model for CallSessionsListResultV2.
+type CallSessionsListResultV2 struct {
+	CallSessions   []CallSessionV2         `json:"call_sessions"`
+	PaginationMeta *PaginationMetaResultV2 `json:"pagination_meta,omitempty"`
+}
+
+// CallTranscriptEntriesListResultV2 defines model for CallTranscriptEntriesListResultV2.
+type CallTranscriptEntriesListResultV2 struct {
+	CallTranscriptEntries []CallTranscriptEntryV2 `json:"call_transcript_entries"`
+	PaginationMeta        *PaginationMetaResultV2 `json:"pagination_meta,omitempty"`
+}
+
+// CallTranscriptEntryV2 A single entry of a Scribe call transcript: one contiguous run of
+// speech, or one in-call chat message, from one participant.
+type CallTranscriptEntryV2 struct {
+	// Content What was said
+	Content string `json:"content"`
+
+	// Id Unique identifier for this transcript entry
+	Id string `json:"id"`
+
+	// Medium Whether this entry was spoken aloud or sent as an in-call chat message
+	Medium CallTranscriptEntryV2Medium `json:"medium"`
+
+	// ParticipantName Name of the participant who spoke or sent the message, as reported by the call provider
+	ParticipantName string `json:"participant_name"`
+
+	// Timestamp When the participant started speaking
+	Timestamp time.Time `json:"timestamp"`
+}
+
+// CallTranscriptEntryV2Medium Whether this entry was spoken aloud or sent as an in-call chat message
+type CallTranscriptEntryV2Medium string
 
 // CatalogBulkUpdateEntriesPayloadV3 defines model for CatalogBulkUpdateEntriesPayloadV3.
 type CatalogBulkUpdateEntriesPayloadV3 struct {
@@ -14329,6 +14413,30 @@ type AlertsV2ListParams struct {
 	IncludeMaintenanceWindow *map[string][]string `form:"include_maintenance_window,omitempty" json:"include_maintenance_window,omitempty"`
 }
 
+// CallSessionsV2ListParams defines parameters for CallSessionsV2List.
+type CallSessionsV2ListParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After A call session's ID. This endpoint will return a list of call sessions after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+
+	// IncidentId Incident whose call sessions you want to list
+	IncidentId string `form:"incident_id" json:"incident_id"`
+}
+
+// CallTranscriptEntriesV2ListParams defines parameters for CallTranscriptEntriesV2List.
+type CallTranscriptEntriesV2ListParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After A transcript entry's ID. This endpoint will return a list of entries after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+
+	// CallSessionId Call session whose transcript entries you want to list
+	CallSessionId string `form:"call_session_id" json:"call_session_id"`
+}
+
 // CatalogV2ListEntriesParams defines parameters for CatalogV2ListEntries.
 type CatalogV2ListEntriesParams struct {
 	// CatalogTypeId ID of this catalog type
@@ -15357,6 +15465,12 @@ type ClientInterface interface {
 
 	// AlertsV2Resolve request
 	AlertsV2Resolve(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallSessionsV2List request
+	CallSessionsV2List(ctx context.Context, params *CallSessionsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallTranscriptEntriesV2List request
+	CallTranscriptEntriesV2List(ctx context.Context, params *CallTranscriptEntriesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CatalogV2ListEntries request
 	CatalogV2ListEntries(ctx context.Context, params *CatalogV2ListEntriesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -17312,6 +17426,30 @@ func (c *Client) AlertsV2Show(ctx context.Context, id string, reqEditors ...Requ
 
 func (c *Client) AlertsV2Resolve(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newAlertsV2ResolveRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallSessionsV2List(ctx context.Context, params *CallSessionsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallSessionsV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallTranscriptEntriesV2List(ctx context.Context, params *CallTranscriptEntriesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallTranscriptEntriesV2ListRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -23354,6 +23492,160 @@ func newAlertsV2ResolveRequest(server string, id string) (*http.Request, error) 
 	}
 
 	req, err := http.NewRequest("POST", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCallSessionsV2ListRequest generates requests for CallSessionsV2List
+func newCallSessionsV2ListRequest(server string, params *CallSessionsV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_sessions")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident_id", params.IncidentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+			return nil, err
+		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+			return nil, err
+		} else {
+			for k, v := range parsed {
+				for _, v2 := range v {
+					queryValues.Add(k, v2)
+				}
+			}
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCallTranscriptEntriesV2ListRequest generates requests for CallTranscriptEntriesV2List
+func newCallTranscriptEntriesV2ListRequest(server string, params *CallTranscriptEntriesV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_transcript_entries")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "call_session_id", params.CallSessionId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+			return nil, err
+		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+			return nil, err
+		} else {
+			for k, v := range parsed {
+				for _, v2 := range v {
+					queryValues.Add(k, v2)
+				}
+			}
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -29951,6 +30243,12 @@ type ClientWithResponsesInterface interface {
 	// AlertsV2ResolveWithResponse request
 	AlertsV2ResolveWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertsV2ResolveResponse, error)
 
+	// CallSessionsV2ListWithResponse request
+	CallSessionsV2ListWithResponse(ctx context.Context, params *CallSessionsV2ListParams, reqEditors ...RequestEditorFn) (*CallSessionsV2ListResponse, error)
+
+	// CallTranscriptEntriesV2ListWithResponse request
+	CallTranscriptEntriesV2ListWithResponse(ctx context.Context, params *CallTranscriptEntriesV2ListParams, reqEditors ...RequestEditorFn) (*CallTranscriptEntriesV2ListResponse, error)
+
 	// CatalogV2ListEntriesWithResponse request
 	CatalogV2ListEntriesWithResponse(ctx context.Context, params *CatalogV2ListEntriesParams, reqEditors ...RequestEditorFn) (*CatalogV2ListEntriesResponse, error)
 
@@ -32339,6 +32637,50 @@ func (r AlertsV2ResolveResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r AlertsV2ResolveResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallSessionsV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CallSessionsListResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r CallSessionsV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallSessionsV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallTranscriptEntriesV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CallTranscriptEntriesListResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r CallTranscriptEntriesV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallTranscriptEntriesV2ListResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -36186,6 +36528,24 @@ func (c *ClientWithResponses) AlertsV2ResolveWithResponse(ctx context.Context, i
 	return parseAlertsV2ResolveResponse(rsp)
 }
 
+// CallSessionsV2ListWithResponse request returning *CallSessionsV2ListResponse
+func (c *ClientWithResponses) CallSessionsV2ListWithResponse(ctx context.Context, params *CallSessionsV2ListParams, reqEditors ...RequestEditorFn) (*CallSessionsV2ListResponse, error) {
+	rsp, err := c.CallSessionsV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallSessionsV2ListResponse(rsp)
+}
+
+// CallTranscriptEntriesV2ListWithResponse request returning *CallTranscriptEntriesV2ListResponse
+func (c *ClientWithResponses) CallTranscriptEntriesV2ListWithResponse(ctx context.Context, params *CallTranscriptEntriesV2ListParams, reqEditors ...RequestEditorFn) (*CallTranscriptEntriesV2ListResponse, error) {
+	rsp, err := c.CallTranscriptEntriesV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallTranscriptEntriesV2ListResponse(rsp)
+}
+
 // CatalogV2ListEntriesWithResponse request returning *CatalogV2ListEntriesResponse
 //
 // Deprecated: this endpoint is deprecated in the incident.io API. See
@@ -39879,6 +40239,58 @@ func parseAlertsV2ResolveResponse(rsp *http.Response) (*AlertsV2ResolveResponse,
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest AlertsResolveResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallSessionsV2ListResponse parses an HTTP response from a CallSessionsV2ListWithResponse call
+func parseCallSessionsV2ListResponse(rsp *http.Response) (*CallSessionsV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallSessionsV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CallSessionsListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallTranscriptEntriesV2ListResponse parses an HTTP response from a CallTranscriptEntriesV2ListWithResponse call
+func parseCallTranscriptEntriesV2ListResponse(rsp *http.Response) (*CallTranscriptEntriesV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallTranscriptEntriesV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CallTranscriptEntriesListResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
