@@ -1173,6 +1173,165 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 	}
 }
 
+// Defines values for AlertSourcesValidatePayloadV2SourceType.
+const (
+	AlertSourcesValidatePayloadV2SourceTypeAlertmanager      AlertSourcesValidatePayloadV2SourceType = "alertmanager"
+	AlertSourcesValidatePayloadV2SourceTypeAppOptics         AlertSourcesValidatePayloadV2SourceType = "app_optics"
+	AlertSourcesValidatePayloadV2SourceTypeAzureMonitor      AlertSourcesValidatePayloadV2SourceType = "azure_monitor"
+	AlertSourcesValidatePayloadV2SourceTypeBigPanda          AlertSourcesValidatePayloadV2SourceType = "big_panda"
+	AlertSourcesValidatePayloadV2SourceTypeBugsnag           AlertSourcesValidatePayloadV2SourceType = "bugsnag"
+	AlertSourcesValidatePayloadV2SourceTypeCheckly           AlertSourcesValidatePayloadV2SourceType = "checkly"
+	AlertSourcesValidatePayloadV2SourceTypeChronosphere      AlertSourcesValidatePayloadV2SourceType = "chronosphere"
+	AlertSourcesValidatePayloadV2SourceTypeCloudflare        AlertSourcesValidatePayloadV2SourceType = "cloudflare"
+	AlertSourcesValidatePayloadV2SourceTypeCloudwatch        AlertSourcesValidatePayloadV2SourceType = "cloudwatch"
+	AlertSourcesValidatePayloadV2SourceTypeCoralogix         AlertSourcesValidatePayloadV2SourceType = "coralogix"
+	AlertSourcesValidatePayloadV2SourceTypeCronitor          AlertSourcesValidatePayloadV2SourceType = "cronitor"
+	AlertSourcesValidatePayloadV2SourceTypeCrowdstrikeFalcon AlertSourcesValidatePayloadV2SourceType = "crowdstrike_falcon"
+	AlertSourcesValidatePayloadV2SourceTypeDash0             AlertSourcesValidatePayloadV2SourceType = "dash0"
+	AlertSourcesValidatePayloadV2SourceTypeDatadog           AlertSourcesValidatePayloadV2SourceType = "datadog"
+	AlertSourcesValidatePayloadV2SourceTypeDynatrace         AlertSourcesValidatePayloadV2SourceType = "dynatrace"
+	AlertSourcesValidatePayloadV2SourceTypeElasticsearch     AlertSourcesValidatePayloadV2SourceType = "elasticsearch"
+	AlertSourcesValidatePayloadV2SourceTypeEmail             AlertSourcesValidatePayloadV2SourceType = "email"
+	AlertSourcesValidatePayloadV2SourceTypeExpel             AlertSourcesValidatePayloadV2SourceType = "expel"
+	AlertSourcesValidatePayloadV2SourceTypeGithubIssue       AlertSourcesValidatePayloadV2SourceType = "github_issue"
+	AlertSourcesValidatePayloadV2SourceTypeGoogleCloud       AlertSourcesValidatePayloadV2SourceType = "google_cloud"
+	AlertSourcesValidatePayloadV2SourceTypeGrafana           AlertSourcesValidatePayloadV2SourceType = "grafana"
+	AlertSourcesValidatePayloadV2SourceTypeHeartbeat         AlertSourcesValidatePayloadV2SourceType = "heartbeat"
+	AlertSourcesValidatePayloadV2SourceTypeHoneycomb         AlertSourcesValidatePayloadV2SourceType = "honeycomb"
+	AlertSourcesValidatePayloadV2SourceTypeHttp              AlertSourcesValidatePayloadV2SourceType = "http"
+	AlertSourcesValidatePayloadV2SourceTypeHttpCustom        AlertSourcesValidatePayloadV2SourceType = "http_custom"
+	AlertSourcesValidatePayloadV2SourceTypeIncomingCalls     AlertSourcesValidatePayloadV2SourceType = "incoming_calls"
+	AlertSourcesValidatePayloadV2SourceTypeJira              AlertSourcesValidatePayloadV2SourceType = "jira"
+	AlertSourcesValidatePayloadV2SourceTypeJsm               AlertSourcesValidatePayloadV2SourceType = "jsm"
+	AlertSourcesValidatePayloadV2SourceTypeMonteCarlo        AlertSourcesValidatePayloadV2SourceType = "monte_carlo"
+	AlertSourcesValidatePayloadV2SourceTypeNagios            AlertSourcesValidatePayloadV2SourceType = "nagios"
+	AlertSourcesValidatePayloadV2SourceTypeNewRelic          AlertSourcesValidatePayloadV2SourceType = "new_relic"
+	AlertSourcesValidatePayloadV2SourceTypeOpsgenie          AlertSourcesValidatePayloadV2SourceType = "opsgenie"
+	AlertSourcesValidatePayloadV2SourceTypePagerDuty         AlertSourcesValidatePayloadV2SourceType = "pager_duty"
+	AlertSourcesValidatePayloadV2SourceTypePanther           AlertSourcesValidatePayloadV2SourceType = "panther"
+	AlertSourcesValidatePayloadV2SourceTypePingdom           AlertSourcesValidatePayloadV2SourceType = "pingdom"
+	AlertSourcesValidatePayloadV2SourceTypePrtg              AlertSourcesValidatePayloadV2SourceType = "prtg"
+	AlertSourcesValidatePayloadV2SourceTypeRunscope          AlertSourcesValidatePayloadV2SourceType = "runscope"
+	AlertSourcesValidatePayloadV2SourceTypeSentry            AlertSourcesValidatePayloadV2SourceType = "sentry"
+	AlertSourcesValidatePayloadV2SourceTypeSentryMetric      AlertSourcesValidatePayloadV2SourceType = "sentry_metric"
+	AlertSourcesValidatePayloadV2SourceTypeServiceNow        AlertSourcesValidatePayloadV2SourceType = "service_now"
+	AlertSourcesValidatePayloadV2SourceTypeSns               AlertSourcesValidatePayloadV2SourceType = "sns"
+	AlertSourcesValidatePayloadV2SourceTypeSplunk            AlertSourcesValidatePayloadV2SourceType = "splunk"
+	AlertSourcesValidatePayloadV2SourceTypeStatusCake        AlertSourcesValidatePayloadV2SourceType = "status_cake"
+	AlertSourcesValidatePayloadV2SourceTypeStatusPageViews   AlertSourcesValidatePayloadV2SourceType = "status_page_views"
+	AlertSourcesValidatePayloadV2SourceTypeSumoLogic         AlertSourcesValidatePayloadV2SourceType = "sumo_logic"
+	AlertSourcesValidatePayloadV2SourceTypeUptime            AlertSourcesValidatePayloadV2SourceType = "uptime"
+	AlertSourcesValidatePayloadV2SourceTypeVercel            AlertSourcesValidatePayloadV2SourceType = "vercel"
+	AlertSourcesValidatePayloadV2SourceTypeWiz               AlertSourcesValidatePayloadV2SourceType = "wiz"
+	AlertSourcesValidatePayloadV2SourceTypeZendesk           AlertSourcesValidatePayloadV2SourceType = "zendesk"
+)
+
+// Valid indicates whether the value is a known member of the AlertSourcesValidatePayloadV2SourceType enum.
+func (e AlertSourcesValidatePayloadV2SourceType) Valid() bool {
+	switch e {
+	case AlertSourcesValidatePayloadV2SourceTypeAlertmanager:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeAppOptics:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeAzureMonitor:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeBigPanda:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeBugsnag:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeCheckly:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeChronosphere:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeCloudflare:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeCloudwatch:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeCoralogix:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeCronitor:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeCrowdstrikeFalcon:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeDash0:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeDatadog:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeDynatrace:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeElasticsearch:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeEmail:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeExpel:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeGithubIssue:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeGoogleCloud:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeGrafana:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeHeartbeat:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeHoneycomb:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeHttp:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeHttpCustom:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeIncomingCalls:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeJira:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeJsm:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeMonteCarlo:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeNagios:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeNewRelic:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeOpsgenie:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypePagerDuty:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypePanther:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypePingdom:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypePrtg:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeRunscope:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeSentry:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeSentryMetric:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeServiceNow:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeSns:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeSplunk:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeStatusCake:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeStatusPageViews:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeSumoLogic:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeUptime:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeVercel:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeWiz:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeZendesk:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for AlertTemplateAttributeBindingPayloadV2MergeStrategy.
 const (
 	AlertTemplateAttributeBindingPayloadV2MergeStrategyAppend    AlertTemplateAttributeBindingPayloadV2MergeStrategy = "append"
@@ -2927,22 +3086,22 @@ func (e EscalationPathTargetV2ScheduleMode) Valid() bool {
 
 // Defines values for EscalationPathTargetV2Type.
 const (
-	MsteamsChannel EscalationPathTargetV2Type = "msteams_channel"
-	Schedule       EscalationPathTargetV2Type = "schedule"
-	SlackChannel   EscalationPathTargetV2Type = "slack_channel"
-	User           EscalationPathTargetV2Type = "user"
+	EscalationPathTargetV2TypeMsteamsChannel EscalationPathTargetV2Type = "msteams_channel"
+	EscalationPathTargetV2TypeSchedule       EscalationPathTargetV2Type = "schedule"
+	EscalationPathTargetV2TypeSlackChannel   EscalationPathTargetV2Type = "slack_channel"
+	EscalationPathTargetV2TypeUser           EscalationPathTargetV2Type = "user"
 )
 
 // Valid indicates whether the value is a known member of the EscalationPathTargetV2Type enum.
 func (e EscalationPathTargetV2Type) Valid() bool {
 	switch e {
-	case MsteamsChannel:
+	case EscalationPathTargetV2TypeMsteamsChannel:
 		return true
-	case Schedule:
+	case EscalationPathTargetV2TypeSchedule:
 		return true
-	case SlackChannel:
+	case EscalationPathTargetV2TypeSlackChannel:
 		return true
-	case User:
+	case EscalationPathTargetV2TypeUser:
 		return true
 	default:
 		return false
@@ -7371,6 +7530,19 @@ type AlertSourcesUpdatePayloadV2 struct {
 type AlertSourcesUpdateResultV2 struct {
 	AlertSource AlertSourceV2 `json:"alert_source"`
 }
+
+// AlertSourcesValidatePayloadV2 defines model for AlertSourcesValidatePayloadV2.
+type AlertSourcesValidatePayloadV2 struct {
+	// OwningTeamIds IDs of teams that own this alert source
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// SourceType Type of alert source
+	SourceType AlertSourcesValidatePayloadV2SourceType `json:"source_type"`
+	Template   AlertTemplatePayloadV2                  `json:"template"`
+}
+
+// AlertSourcesValidatePayloadV2SourceType Type of alert source
+type AlertSourcesValidatePayloadV2SourceType string
 
 // AlertTemplateAttributeBindingPayloadV2 defines model for AlertTemplateAttributeBindingPayloadV2.
 type AlertTemplateAttributeBindingPayloadV2 struct {
@@ -14916,6 +15088,9 @@ type AlertRoutesV2UpdateJSONRequestBody = AlertRoutesUpdatePayloadV2
 // AlertSourcesV2CreateJSONRequestBody defines body for AlertSourcesV2Create for application/json ContentType.
 type AlertSourcesV2CreateJSONRequestBody = AlertSourcesCreatePayloadV2
 
+// AlertSourcesV2ValidateJSONRequestBody defines body for AlertSourcesV2Validate for application/json ContentType.
+type AlertSourcesV2ValidateJSONRequestBody = AlertSourcesValidatePayloadV2
+
 // AlertSourcesV2UpdateJSONRequestBody defines body for AlertSourcesV2Update for application/json ContentType.
 type AlertSourcesV2UpdateJSONRequestBody = AlertSourcesUpdatePayloadV2
 
@@ -15445,6 +15620,11 @@ type ClientInterface interface {
 	AlertSourcesV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	AlertSourcesV2Create(ctx context.Context, body AlertSourcesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertSourcesV2ValidateWithBody request with any body
+	AlertSourcesV2ValidateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AlertSourcesV2Validate(ctx context.Context, body AlertSourcesV2ValidateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// AlertSourcesV2Delete request
 	AlertSourcesV2Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -17342,6 +17522,30 @@ func (c *Client) AlertSourcesV2CreateWithBody(ctx context.Context, contentType s
 
 func (c *Client) AlertSourcesV2Create(ctx context.Context, body AlertSourcesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newAlertSourcesV2CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertSourcesV2ValidateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertSourcesV2ValidateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertSourcesV2Validate(ctx context.Context, body AlertSourcesV2ValidateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertSourcesV2ValidateRequest(c.Server, body)
 	if err != nil {
 		return nil, err
 	}
@@ -23108,6 +23312,46 @@ func newAlertSourcesV2CreateRequestWithBody(server string, contentType string, b
 	}
 
 	operationPath := fmt.Sprintf("/v2/alert_sources")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewAlertSourcesV2ValidateRequest calls the generic AlertSourcesV2Validate builder with application/json body
+func newAlertSourcesV2ValidateRequest(server string, body AlertSourcesV2ValidateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAlertSourcesV2ValidateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewAlertSourcesV2ValidateRequestWithBody generates requests for AlertSourcesV2Validate with any type of body
+func newAlertSourcesV2ValidateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/alert_sources/actions/validate")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -30223,6 +30467,11 @@ type ClientWithResponsesInterface interface {
 
 	AlertSourcesV2CreateWithResponse(ctx context.Context, body AlertSourcesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertSourcesV2CreateResponse, error)
 
+	// AlertSourcesV2ValidateWithBodyWithResponse request with any body
+	AlertSourcesV2ValidateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertSourcesV2ValidateResponse, error)
+
+	AlertSourcesV2ValidateWithResponse(ctx context.Context, body AlertSourcesV2ValidateJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertSourcesV2ValidateResponse, error)
+
 	// AlertSourcesV2DeleteWithResponse request
 	AlertSourcesV2DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertSourcesV2DeleteResponse, error)
 
@@ -32506,6 +32755,27 @@ func (r AlertSourcesV2CreateResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r AlertSourcesV2CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AlertSourcesV2ValidateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertSourcesV2ValidateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertSourcesV2ValidateResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -36466,6 +36736,23 @@ func (c *ClientWithResponses) AlertSourcesV2CreateWithResponse(ctx context.Conte
 	return parseAlertSourcesV2CreateResponse(rsp)
 }
 
+// AlertSourcesV2ValidateWithBodyWithResponse request with arbitrary body returning *AlertSourcesV2ValidateResponse
+func (c *ClientWithResponses) AlertSourcesV2ValidateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertSourcesV2ValidateResponse, error) {
+	rsp, err := c.AlertSourcesV2ValidateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertSourcesV2ValidateResponse(rsp)
+}
+
+func (c *ClientWithResponses) AlertSourcesV2ValidateWithResponse(ctx context.Context, body AlertSourcesV2ValidateJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertSourcesV2ValidateResponse, error) {
+	rsp, err := c.AlertSourcesV2Validate(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertSourcesV2ValidateResponse(rsp)
+}
+
 // AlertSourcesV2DeleteWithResponse request returning *AlertSourcesV2DeleteResponse
 func (c *ClientWithResponses) AlertSourcesV2DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertSourcesV2DeleteResponse, error) {
 	rsp, err := c.AlertSourcesV2Delete(ctx, id, reqEditors...)
@@ -40098,6 +40385,22 @@ func parseAlertSourcesV2CreateResponse(rsp *http.Response) (*AlertSourcesV2Creat
 		}
 		response.JSON200 = &dest
 
+	}
+
+	return response, nil
+}
+
+// ParseAlertSourcesV2ValidateResponse parses an HTTP response from a AlertSourcesV2ValidateWithResponse call
+func parseAlertSourcesV2ValidateResponse(rsp *http.Response) (*AlertSourcesV2ValidateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertSourcesV2ValidateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
 	}
 
 	return response, nil
