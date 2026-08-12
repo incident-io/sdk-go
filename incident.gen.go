@@ -4605,6 +4605,7 @@ func (e PostmortemDocumentsUpdateStatusPayloadV1Status) Valid() bool {
 // Defines values for ScheduleReplicaCreatePayloadV2ReplicaProvider.
 const (
 	ScheduleReplicaCreatePayloadV2ReplicaProviderJira      ScheduleReplicaCreatePayloadV2ReplicaProvider = "jira"
+	ScheduleReplicaCreatePayloadV2ReplicaProviderJsm       ScheduleReplicaCreatePayloadV2ReplicaProvider = "jsm"
 	ScheduleReplicaCreatePayloadV2ReplicaProviderNative    ScheduleReplicaCreatePayloadV2ReplicaProvider = "native"
 	ScheduleReplicaCreatePayloadV2ReplicaProviderOpsgenie  ScheduleReplicaCreatePayloadV2ReplicaProvider = "opsgenie"
 	ScheduleReplicaCreatePayloadV2ReplicaProviderPagerduty ScheduleReplicaCreatePayloadV2ReplicaProvider = "pagerduty"
@@ -4614,6 +4615,8 @@ const (
 func (e ScheduleReplicaCreatePayloadV2ReplicaProvider) Valid() bool {
 	switch e {
 	case ScheduleReplicaCreatePayloadV2ReplicaProviderJira:
+		return true
+	case ScheduleReplicaCreatePayloadV2ReplicaProviderJsm:
 		return true
 	case ScheduleReplicaCreatePayloadV2ReplicaProviderNative:
 		return true
@@ -4629,6 +4632,7 @@ func (e ScheduleReplicaCreatePayloadV2ReplicaProvider) Valid() bool {
 // Defines values for ScheduleReplicaV2ReplicaProvider.
 const (
 	ScheduleReplicaV2ReplicaProviderJira      ScheduleReplicaV2ReplicaProvider = "jira"
+	ScheduleReplicaV2ReplicaProviderJsm       ScheduleReplicaV2ReplicaProvider = "jsm"
 	ScheduleReplicaV2ReplicaProviderNative    ScheduleReplicaV2ReplicaProvider = "native"
 	ScheduleReplicaV2ReplicaProviderOpsgenie  ScheduleReplicaV2ReplicaProvider = "opsgenie"
 	ScheduleReplicaV2ReplicaProviderPagerduty ScheduleReplicaV2ReplicaProvider = "pagerduty"
@@ -4638,6 +4642,8 @@ const (
 func (e ScheduleReplicaV2ReplicaProvider) Valid() bool {
 	switch e {
 	case ScheduleReplicaV2ReplicaProviderJira:
+		return true
+	case ScheduleReplicaV2ReplicaProviderJsm:
 		return true
 	case ScheduleReplicaV2ReplicaProviderNative:
 		return true
