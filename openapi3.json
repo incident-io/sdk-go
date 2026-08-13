@@ -1036,7 +1036,7 @@
         "example": {
           "assignee_id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "description": "Call the fire brigade",
-          "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H"
         },
         "properties": {
           "assignee_id": {
@@ -1051,7 +1051,7 @@
           },
           "incident_id": {
             "description": "Unique identifier of the incident the action belongs to",
-            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "example": "01FCNDV6P870EA6S7TK1DSYD5H",
             "type": "string"
           }
         },
@@ -48570,7 +48570,7 @@
           "external_issue_reference_id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "follow_up_category_id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
           "follow_up_priority_option_id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
-          "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H",
           "labels": [
             "bug",
             "urgent"
@@ -48610,7 +48610,7 @@
           },
           "incident_id": {
             "description": "Unique identifier of the incident the follow-up belongs to",
-            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "example": "01FCNDV6P870EA6S7TK1DSYD5H",
             "type": "string"
           },
           "labels": {
@@ -49565,7 +49565,7 @@
       },
       "IncidentAttachmentsCreatePayloadV1": {
         "example": {
-          "incident_id": "01FDAG4SAP5TYPT98WGR2N7W91",
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H",
           "resource": {
             "emoji": "rocket",
             "external_id": "123",
@@ -49577,7 +49577,7 @@
         "properties": {
           "incident_id": {
             "description": "ID of the incident to add an attachment to",
-            "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+            "example": "01FCNDV6P870EA6S7TK1DSYD5H",
             "type": "string"
           },
           "resource": {
@@ -73366,8 +73366,7 @@
             "in": "query",
             "name": "incident_id",
             "schema": {
-              "description": "Find actions related to this incident",
-              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           },
@@ -73467,13 +73466,17 @@
         "parameters": [
           {
             "description": "Unique identifier for the action",
-            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
             "in": "path",
             "name": "id",
             "required": true,
             "schema": {
-              "description": "Unique identifier for the action",
-              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           }
@@ -75121,8 +75124,7 @@
             "in": "query",
             "name": "incident_id",
             "schema": {
-              "description": "Incident that this attachment is against",
-              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           },
@@ -75222,7 +75224,7 @@
           "content": {
             "application/json": {
               "example": {
-                "incident_id": "01FDAG4SAP5TYPT98WGR2N7W91",
+                "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H",
                 "resource": {
                   "emoji": "rocket",
                   "external_id": "123",
@@ -75284,12 +75286,16 @@
         "parameters": [
           {
             "description": "Unique identifier of this incident membership",
-            "example": "01FCNDV6P870EA6S7TK1DSYD5H",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYD5H"
+              }
+            },
             "in": "path",
             "name": "id",
             "required": true,
             "schema": {
-              "description": "Unique identifier of this incident membership",
               "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
@@ -78435,8 +78441,7 @@
             "in": "query",
             "name": "incident_id",
             "schema": {
-              "description": "Find actions related to this incident",
-              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           },
@@ -78541,7 +78546,7 @@
               "example": {
                 "assignee_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "description": "Call the fire brigade",
-                "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H"
               },
               "schema": {
                 "$ref": "#/components/schemas/ActionsCreatePayloadV2"
@@ -78623,13 +78628,17 @@
         "parameters": [
           {
             "description": "Unique identifier for the action",
-            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
             "in": "path",
             "name": "id",
             "required": true,
             "schema": {
-              "description": "Unique identifier for the action",
-              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           }
@@ -78659,13 +78668,17 @@
         "parameters": [
           {
             "description": "Unique identifier for the action",
-            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
             "in": "path",
             "name": "id",
             "required": true,
             "schema": {
-              "description": "Unique identifier for the action",
-              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           }
@@ -78741,13 +78754,17 @@
         "parameters": [
           {
             "description": "Unique identifier for the action",
-            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
             "in": "path",
             "name": "id",
             "required": true,
             "schema": {
-              "description": "Unique identifier for the action",
-              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           }
@@ -87571,8 +87588,7 @@
             "in": "query",
             "name": "incident_id",
             "schema": {
-              "description": "Find follow-ups related to this incident",
-              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           },
@@ -87708,7 +87724,7 @@
                 "external_issue_reference_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "follow_up_category_id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
                 "follow_up_priority_option_id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
-                "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H",
                 "labels": [
                   "bug",
                   "urgent"
@@ -87815,13 +87831,17 @@
         "parameters": [
           {
             "description": "Unique identifier for the follow-up",
-            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
             "in": "path",
             "name": "id",
             "required": true,
             "schema": {
-              "description": "Unique identifier for the follow-up",
-              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           }
@@ -87851,13 +87871,17 @@
         "parameters": [
           {
             "description": "Unique identifier for the follow-up",
-            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
             "in": "path",
             "name": "id",
             "required": true,
             "schema": {
-              "description": "Unique identifier for the follow-up",
-              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           }
@@ -87958,8 +87982,7 @@
             "name": "id",
             "required": true,
             "schema": {
-              "description": "Unique identifier for the follow-up",
-              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           }
@@ -88080,13 +88103,17 @@
         "parameters": [
           {
             "description": "Unique identifier for the follow-up",
-            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
             "in": "path",
             "name": "id",
             "required": true,
             "schema": {
-              "description": "Unique identifier for the follow-up",
-              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           }
@@ -88919,8 +88946,7 @@
             "in": "query",
             "name": "incident_id",
             "schema": {
-              "description": "Incident whose updates you want to list",
-              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
               "type": "string"
             }
           },
