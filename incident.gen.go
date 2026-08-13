@@ -10547,6 +10547,7 @@ type IncidentMembershipV1 struct {
 
 // IncidentMembershipsCreatePayloadV1 defines model for IncidentMembershipsCreatePayloadV1.
 type IncidentMembershipsCreatePayloadV1 struct {
+	// IncidentId The incident to make the user a member of
 	IncidentId string `json:"incident_id"`
 	UserId     string `json:"user_id"`
 }

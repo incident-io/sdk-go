@@ -49949,12 +49949,13 @@
       },
       "IncidentMembershipsCreatePayloadV1": {
         "example": {
-          "incident_id": "01ET65M7ZADYFCKD4K1AE2QNMC",
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H",
           "user_id": "01FCQSP07Z74QMMYPDDGQB9FTG"
         },
         "properties": {
           "incident_id": {
-            "example": "01ET65M7ZADYFCKD4K1AE2QNMC",
+            "description": "The incident to make the user a member of",
+            "example": "01FCNDV6P870EA6S7TK1DSYD5H",
             "type": "string"
           },
           "user_id": {
@@ -75322,7 +75323,7 @@
           "content": {
             "application/json": {
               "example": {
-                "incident_id": "01ET65M7ZADYFCKD4K1AE2QNMC",
+                "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H",
                 "user_id": "01FCQSP07Z74QMMYPDDGQB9FTG"
               },
               "schema": {
