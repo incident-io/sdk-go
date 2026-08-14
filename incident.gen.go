@@ -3530,40 +3530,40 @@ func (e FollowUpV2Status) Valid() bool {
 
 // Defines values for FollowUpsConnectExternalIssuePayloadV2Provider.
 const (
-	FollowUpsConnectExternalIssuePayloadV2ProviderAsana       FollowUpsConnectExternalIssuePayloadV2Provider = "asana"
-	FollowUpsConnectExternalIssuePayloadV2ProviderAzureDevops FollowUpsConnectExternalIssuePayloadV2Provider = "azure_devops"
-	FollowUpsConnectExternalIssuePayloadV2ProviderClickUp     FollowUpsConnectExternalIssuePayloadV2Provider = "click_up"
-	FollowUpsConnectExternalIssuePayloadV2ProviderGithub      FollowUpsConnectExternalIssuePayloadV2Provider = "github"
-	FollowUpsConnectExternalIssuePayloadV2ProviderGitlab      FollowUpsConnectExternalIssuePayloadV2Provider = "gitlab"
-	FollowUpsConnectExternalIssuePayloadV2ProviderJira        FollowUpsConnectExternalIssuePayloadV2Provider = "jira"
-	FollowUpsConnectExternalIssuePayloadV2ProviderJiraServer  FollowUpsConnectExternalIssuePayloadV2Provider = "jira_server"
-	FollowUpsConnectExternalIssuePayloadV2ProviderLinear      FollowUpsConnectExternalIssuePayloadV2Provider = "linear"
-	FollowUpsConnectExternalIssuePayloadV2ProviderServiceNow  FollowUpsConnectExternalIssuePayloadV2Provider = "service_now"
-	FollowUpsConnectExternalIssuePayloadV2ProviderShortcut    FollowUpsConnectExternalIssuePayloadV2Provider = "shortcut"
+	Asana       FollowUpsConnectExternalIssuePayloadV2Provider = "asana"
+	AzureDevops FollowUpsConnectExternalIssuePayloadV2Provider = "azure_devops"
+	ClickUp     FollowUpsConnectExternalIssuePayloadV2Provider = "click_up"
+	Github      FollowUpsConnectExternalIssuePayloadV2Provider = "github"
+	Gitlab      FollowUpsConnectExternalIssuePayloadV2Provider = "gitlab"
+	Jira        FollowUpsConnectExternalIssuePayloadV2Provider = "jira"
+	JiraServer  FollowUpsConnectExternalIssuePayloadV2Provider = "jira_server"
+	Linear      FollowUpsConnectExternalIssuePayloadV2Provider = "linear"
+	ServiceNow  FollowUpsConnectExternalIssuePayloadV2Provider = "service_now"
+	Shortcut    FollowUpsConnectExternalIssuePayloadV2Provider = "shortcut"
 )
 
 // Valid indicates whether the value is a known member of the FollowUpsConnectExternalIssuePayloadV2Provider enum.
 func (e FollowUpsConnectExternalIssuePayloadV2Provider) Valid() bool {
 	switch e {
-	case FollowUpsConnectExternalIssuePayloadV2ProviderAsana:
+	case Asana:
 		return true
-	case FollowUpsConnectExternalIssuePayloadV2ProviderAzureDevops:
+	case AzureDevops:
 		return true
-	case FollowUpsConnectExternalIssuePayloadV2ProviderClickUp:
+	case ClickUp:
 		return true
-	case FollowUpsConnectExternalIssuePayloadV2ProviderGithub:
+	case Github:
 		return true
-	case FollowUpsConnectExternalIssuePayloadV2ProviderGitlab:
+	case Gitlab:
 		return true
-	case FollowUpsConnectExternalIssuePayloadV2ProviderJira:
+	case Jira:
 		return true
-	case FollowUpsConnectExternalIssuePayloadV2ProviderJiraServer:
+	case JiraServer:
 		return true
-	case FollowUpsConnectExternalIssuePayloadV2ProviderLinear:
+	case Linear:
 		return true
-	case FollowUpsConnectExternalIssuePayloadV2ProviderServiceNow:
+	case ServiceNow:
 		return true
-	case FollowUpsConnectExternalIssuePayloadV2ProviderShortcut:
+	case Shortcut:
 		return true
 	default:
 		return false
@@ -4604,7 +4604,6 @@ func (e PostmortemDocumentsUpdateStatusPayloadV1Status) Valid() bool {
 
 // Defines values for ScheduleReplicaCreatePayloadV2ReplicaProvider.
 const (
-	ScheduleReplicaCreatePayloadV2ReplicaProviderJira      ScheduleReplicaCreatePayloadV2ReplicaProvider = "jira"
 	ScheduleReplicaCreatePayloadV2ReplicaProviderJsm       ScheduleReplicaCreatePayloadV2ReplicaProvider = "jsm"
 	ScheduleReplicaCreatePayloadV2ReplicaProviderNative    ScheduleReplicaCreatePayloadV2ReplicaProvider = "native"
 	ScheduleReplicaCreatePayloadV2ReplicaProviderOpsgenie  ScheduleReplicaCreatePayloadV2ReplicaProvider = "opsgenie"
@@ -4614,8 +4613,6 @@ const (
 // Valid indicates whether the value is a known member of the ScheduleReplicaCreatePayloadV2ReplicaProvider enum.
 func (e ScheduleReplicaCreatePayloadV2ReplicaProvider) Valid() bool {
 	switch e {
-	case ScheduleReplicaCreatePayloadV2ReplicaProviderJira:
-		return true
 	case ScheduleReplicaCreatePayloadV2ReplicaProviderJsm:
 		return true
 	case ScheduleReplicaCreatePayloadV2ReplicaProviderNative:
@@ -4631,7 +4628,6 @@ func (e ScheduleReplicaCreatePayloadV2ReplicaProvider) Valid() bool {
 
 // Defines values for ScheduleReplicaV2ReplicaProvider.
 const (
-	ScheduleReplicaV2ReplicaProviderJira      ScheduleReplicaV2ReplicaProvider = "jira"
 	ScheduleReplicaV2ReplicaProviderJsm       ScheduleReplicaV2ReplicaProvider = "jsm"
 	ScheduleReplicaV2ReplicaProviderNative    ScheduleReplicaV2ReplicaProvider = "native"
 	ScheduleReplicaV2ReplicaProviderOpsgenie  ScheduleReplicaV2ReplicaProvider = "opsgenie"
@@ -4641,8 +4637,6 @@ const (
 // Valid indicates whether the value is a known member of the ScheduleReplicaV2ReplicaProvider enum.
 func (e ScheduleReplicaV2ReplicaProvider) Valid() bool {
 	switch e {
-	case ScheduleReplicaV2ReplicaProviderJira:
-		return true
 	case ScheduleReplicaV2ReplicaProviderJsm:
 		return true
 	case ScheduleReplicaV2ReplicaProviderNative:
@@ -5360,22 +5354,22 @@ func (e UsersShowPagingProviderResultV2PreferredEscalationProvider) Valid() bool
 
 // Defines values for UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider.
 const (
-	Native       UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "native"
-	Opsgenie     UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "opsgenie"
-	Pagerduty    UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "pagerduty"
-	SplunkOnCall UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "splunk_on_call"
+	UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderNative       UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "native"
+	UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderOpsgenie     UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "opsgenie"
+	UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderPagerduty    UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "pagerduty"
+	UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderSplunkOnCall UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider = "splunk_on_call"
 )
 
 // Valid indicates whether the value is a known member of the UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider enum.
 func (e UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider) Valid() bool {
 	switch e {
-	case Native:
+	case UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderNative:
 		return true
-	case Opsgenie:
+	case UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderOpsgenie:
 		return true
-	case Pagerduty:
+	case UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderPagerduty:
 		return true
-	case SplunkOnCall:
+	case UsersUpdatePagingProviderPayloadV2PreferredEscalationProviderSplunkOnCall:
 		return true
 	default:
 		return false

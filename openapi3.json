@@ -58312,8 +58312,7 @@
               "native",
               "pagerduty",
               "opsgenie",
-              "jsm",
-              "jira"
+              "jsm"
             ],
             "example": "pagerduty",
             "type": "string"
@@ -58457,8 +58456,7 @@
               "native",
               "pagerduty",
               "opsgenie",
-              "jsm",
-              "jira"
+              "jsm"
             ],
             "example": "pagerduty",
             "type": "string"
