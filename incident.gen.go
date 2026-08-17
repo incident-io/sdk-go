@@ -3367,6 +3367,7 @@ const (
 	ExternalIssueReferenceV1ProviderJira        ExternalIssueReferenceV1Provider = "jira"
 	ExternalIssueReferenceV1ProviderJiraServer  ExternalIssueReferenceV1Provider = "jira_server"
 	ExternalIssueReferenceV1ProviderLinear      ExternalIssueReferenceV1Provider = "linear"
+	ExternalIssueReferenceV1ProviderNotion      ExternalIssueReferenceV1Provider = "notion"
 	ExternalIssueReferenceV1ProviderServiceNow  ExternalIssueReferenceV1Provider = "service_now"
 	ExternalIssueReferenceV1ProviderShortcut    ExternalIssueReferenceV1Provider = "shortcut"
 )
@@ -3390,6 +3391,8 @@ func (e ExternalIssueReferenceV1Provider) Valid() bool {
 		return true
 	case ExternalIssueReferenceV1ProviderLinear:
 		return true
+	case ExternalIssueReferenceV1ProviderNotion:
+		return true
 	case ExternalIssueReferenceV1ProviderServiceNow:
 		return true
 	case ExternalIssueReferenceV1ProviderShortcut:
@@ -3409,6 +3412,7 @@ const (
 	ExternalIssueReferenceV2ProviderJira        ExternalIssueReferenceV2Provider = "jira"
 	ExternalIssueReferenceV2ProviderJiraServer  ExternalIssueReferenceV2Provider = "jira_server"
 	ExternalIssueReferenceV2ProviderLinear      ExternalIssueReferenceV2Provider = "linear"
+	ExternalIssueReferenceV2ProviderNotion      ExternalIssueReferenceV2Provider = "notion"
 	ExternalIssueReferenceV2ProviderServiceNow  ExternalIssueReferenceV2Provider = "service_now"
 	ExternalIssueReferenceV2ProviderShortcut    ExternalIssueReferenceV2Provider = "shortcut"
 )
@@ -3431,6 +3435,8 @@ func (e ExternalIssueReferenceV2Provider) Valid() bool {
 	case ExternalIssueReferenceV2ProviderJiraServer:
 		return true
 	case ExternalIssueReferenceV2ProviderLinear:
+		return true
+	case ExternalIssueReferenceV2ProviderNotion:
 		return true
 	case ExternalIssueReferenceV2ProviderServiceNow:
 		return true
@@ -3538,6 +3544,7 @@ const (
 	Jira        FollowUpsConnectExternalIssuePayloadV2Provider = "jira"
 	JiraServer  FollowUpsConnectExternalIssuePayloadV2Provider = "jira_server"
 	Linear      FollowUpsConnectExternalIssuePayloadV2Provider = "linear"
+	Notion      FollowUpsConnectExternalIssuePayloadV2Provider = "notion"
 	ServiceNow  FollowUpsConnectExternalIssuePayloadV2Provider = "service_now"
 	Shortcut    FollowUpsConnectExternalIssuePayloadV2Provider = "shortcut"
 )
@@ -3560,6 +3567,8 @@ func (e FollowUpsConnectExternalIssuePayloadV2Provider) Valid() bool {
 	case JiraServer:
 		return true
 	case Linear:
+		return true
+	case Notion:
 		return true
 	case ServiceNow:
 		return true

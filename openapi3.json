@@ -48392,7 +48392,8 @@
               "github",
               "gitlab",
               "service_now",
-              "shortcut"
+              "shortcut",
+              "notion"
             ],
             "example": "asana",
             "type": "string"
@@ -48429,7 +48430,8 @@
               "github",
               "gitlab",
               "service_now",
-              "shortcut"
+              "shortcut",
+              "notion"
             ],
             "example": "asana",
             "type": "string"
@@ -48701,7 +48703,8 @@
               "github",
               "gitlab",
               "service_now",
-              "shortcut"
+              "shortcut",
+              "notion"
             ],
             "example": "linear",
             "type": "string"
