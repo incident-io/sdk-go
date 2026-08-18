@@ -813,6 +813,33 @@ func (e AlertSlimV2Status) Valid() bool {
 	}
 }
 
+// Defines values for AlertSourceAttributeValidatePayloadV3MergeStrategy.
+const (
+	AlertSourceAttributeValidatePayloadV3MergeStrategyAppend    AlertSourceAttributeValidatePayloadV3MergeStrategy = "append"
+	AlertSourceAttributeValidatePayloadV3MergeStrategyFirstWins AlertSourceAttributeValidatePayloadV3MergeStrategy = "first_wins"
+	AlertSourceAttributeValidatePayloadV3MergeStrategyLastWins  AlertSourceAttributeValidatePayloadV3MergeStrategy = "last_wins"
+	AlertSourceAttributeValidatePayloadV3MergeStrategyMax       AlertSourceAttributeValidatePayloadV3MergeStrategy = "max"
+	AlertSourceAttributeValidatePayloadV3MergeStrategyMin       AlertSourceAttributeValidatePayloadV3MergeStrategy = "min"
+)
+
+// Valid indicates whether the value is a known member of the AlertSourceAttributeValidatePayloadV3MergeStrategy enum.
+func (e AlertSourceAttributeValidatePayloadV3MergeStrategy) Valid() bool {
+	switch e {
+	case AlertSourceAttributeValidatePayloadV3MergeStrategyAppend:
+		return true
+	case AlertSourceAttributeValidatePayloadV3MergeStrategyFirstWins:
+		return true
+	case AlertSourceAttributeValidatePayloadV3MergeStrategyLastWins:
+		return true
+	case AlertSourceAttributeValidatePayloadV3MergeStrategyMax:
+		return true
+	case AlertSourceAttributeValidatePayloadV3MergeStrategyMin:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for AlertSourceEmailOptionsPayloadV2Redactions.
 const (
 	AlertSourceEmailOptionsPayloadV2RedactionsCreditCardNumbers       AlertSourceEmailOptionsPayloadV2Redactions = "credit_card_numbers"
@@ -3311,46 +3338,46 @@ func (e ExpressionOperationV2OperationType) Valid() bool {
 
 // Defines values for ExpressionOperationV3OperationType.
 const (
-	Branches    ExpressionOperationV3OperationType = "branches"
-	Cast        ExpressionOperationV3OperationType = "cast"
-	Concatenate ExpressionOperationV3OperationType = "concatenate"
-	Count       ExpressionOperationV3OperationType = "count"
-	Filter      ExpressionOperationV3OperationType = "filter"
-	First       ExpressionOperationV3OperationType = "first"
-	Max         ExpressionOperationV3OperationType = "max"
-	Min         ExpressionOperationV3OperationType = "min"
-	Navigate    ExpressionOperationV3OperationType = "navigate"
-	Parse       ExpressionOperationV3OperationType = "parse"
-	Random      ExpressionOperationV3OperationType = "random"
-	Sum         ExpressionOperationV3OperationType = "sum"
+	ExpressionOperationV3OperationTypeBranches    ExpressionOperationV3OperationType = "branches"
+	ExpressionOperationV3OperationTypeCast        ExpressionOperationV3OperationType = "cast"
+	ExpressionOperationV3OperationTypeConcatenate ExpressionOperationV3OperationType = "concatenate"
+	ExpressionOperationV3OperationTypeCount       ExpressionOperationV3OperationType = "count"
+	ExpressionOperationV3OperationTypeFilter      ExpressionOperationV3OperationType = "filter"
+	ExpressionOperationV3OperationTypeFirst       ExpressionOperationV3OperationType = "first"
+	ExpressionOperationV3OperationTypeMax         ExpressionOperationV3OperationType = "max"
+	ExpressionOperationV3OperationTypeMin         ExpressionOperationV3OperationType = "min"
+	ExpressionOperationV3OperationTypeNavigate    ExpressionOperationV3OperationType = "navigate"
+	ExpressionOperationV3OperationTypeParse       ExpressionOperationV3OperationType = "parse"
+	ExpressionOperationV3OperationTypeRandom      ExpressionOperationV3OperationType = "random"
+	ExpressionOperationV3OperationTypeSum         ExpressionOperationV3OperationType = "sum"
 )
 
 // Valid indicates whether the value is a known member of the ExpressionOperationV3OperationType enum.
 func (e ExpressionOperationV3OperationType) Valid() bool {
 	switch e {
-	case Branches:
+	case ExpressionOperationV3OperationTypeBranches:
 		return true
-	case Cast:
+	case ExpressionOperationV3OperationTypeCast:
 		return true
-	case Concatenate:
+	case ExpressionOperationV3OperationTypeConcatenate:
 		return true
-	case Count:
+	case ExpressionOperationV3OperationTypeCount:
 		return true
-	case Filter:
+	case ExpressionOperationV3OperationTypeFilter:
 		return true
-	case First:
+	case ExpressionOperationV3OperationTypeFirst:
 		return true
-	case Max:
+	case ExpressionOperationV3OperationTypeMax:
 		return true
-	case Min:
+	case ExpressionOperationV3OperationTypeMin:
 		return true
-	case Navigate:
+	case ExpressionOperationV3OperationTypeNavigate:
 		return true
-	case Parse:
+	case ExpressionOperationV3OperationTypeParse:
 		return true
-	case Random:
+	case ExpressionOperationV3OperationTypeRandom:
 		return true
-	case Sum:
+	case ExpressionOperationV3OperationTypeSum:
 		return true
 	default:
 		return false
@@ -7367,6 +7394,25 @@ type AlertSlimV2 struct {
 // AlertSlimV2Status Statuses of an alert
 type AlertSlimV2Status string
 
+// AlertSourceAttributeValidatePayloadV3 defines model for AlertSourceAttributeValidatePayloadV3.
+type AlertSourceAttributeValidatePayloadV3 struct {
+	// AlertAttributeId The alert attribute to bind
+	AlertAttributeId string `json:"alert_attribute_id"`
+
+	// ArrayValue Several values for this attribute
+	ArrayValue *[]EngineParamBindingValuePayloadV3 `json:"array_value,omitempty"`
+
+	// Expressions The expressions this binding uses. Reference them from value or array_value: they are owned by this attribute, and removed with it.
+	Expressions *[]ExpressionPayloadV3 `json:"expressions,omitempty"`
+
+	// MergeStrategy How values are combined when an alert is updated. Defaults to the source type's own default.
+	MergeStrategy *AlertSourceAttributeValidatePayloadV3MergeStrategy `json:"merge_strategy,omitempty"`
+	Value         *EngineParamBindingValuePayloadV3                   `json:"value,omitempty"`
+}
+
+// AlertSourceAttributeValidatePayloadV3MergeStrategy How values are combined when an alert is updated. Defaults to the source type's own default.
+type AlertSourceAttributeValidatePayloadV3MergeStrategy string
+
 // AlertSourceEmailOptionsPayloadV2 defines model for AlertSourceEmailOptionsPayloadV2.
 type AlertSourceEmailOptionsPayloadV2 struct {
 	// Redactions Which PII types to automatically redact from incoming email content before storage
@@ -7538,6 +7584,11 @@ type AlertSourcesUpdatePayloadV2 struct {
 // AlertSourcesUpdateResultV2 defines model for AlertSourcesUpdateResultV2.
 type AlertSourcesUpdateResultV2 struct {
 	AlertSource AlertSourceV2 `json:"alert_source"`
+}
+
+// AlertSourcesValidateAttributePayloadV3 defines model for AlertSourcesValidateAttributePayloadV3.
+type AlertSourcesValidateAttributePayloadV3 struct {
+	AlertSourceAttribute AlertSourceAttributeValidatePayloadV3 `json:"alert_source_attribute"`
 }
 
 // AlertSourcesValidatePayloadV2 defines model for AlertSourcesValidatePayloadV2.
@@ -15230,6 +15281,9 @@ type AlertRoutesV3CreateJSONRequestBody = AlertRoutesCreatePayloadV3
 // AlertRoutesV3UpdateJSONRequestBody defines body for AlertRoutesV3Update for application/json ContentType.
 type AlertRoutesV3UpdateJSONRequestBody = AlertRoutesUpdatePayloadV3
 
+// AlertSourcesV3ValidateAttributeJSONRequestBody defines body for AlertSourcesV3ValidateAttribute for application/json ContentType.
+type AlertSourcesV3ValidateAttributeJSONRequestBody = AlertSourcesValidateAttributePayloadV3
+
 // CatalogV3CreateEntryJSONRequestBody defines body for CatalogV3CreateEntry for application/json ContentType.
 type CatalogV3CreateEntryJSONRequestBody = CatalogCreateEntryPayloadV3
 
@@ -16075,6 +16129,11 @@ type ClientInterface interface {
 	AlertRoutesV3UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	AlertRoutesV3Update(ctx context.Context, id string, body AlertRoutesV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertSourcesV3ValidateAttributeWithBody request with any body
+	AlertSourcesV3ValidateAttributeWithBody(ctx context.Context, alertSourceId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AlertSourcesV3ValidateAttribute(ctx context.Context, alertSourceId string, body AlertSourcesV3ValidateAttributeJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CatalogV3ListEntries request
 	CatalogV3ListEntries(ctx context.Context, params *CatalogV3ListEntriesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -19522,6 +19581,30 @@ func (c *Client) AlertRoutesV3UpdateWithBody(ctx context.Context, id string, con
 
 func (c *Client) AlertRoutesV3Update(ctx context.Context, id string, body AlertRoutesV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newAlertRoutesV3UpdateRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertSourcesV3ValidateAttributeWithBody(ctx context.Context, alertSourceId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertSourcesV3ValidateAttributeRequestWithBody(c.Server, alertSourceId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertSourcesV3ValidateAttribute(ctx context.Context, alertSourceId string, body AlertSourcesV3ValidateAttributeJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertSourcesV3ValidateAttributeRequest(c.Server, alertSourceId, body)
 	if err != nil {
 		return nil, err
 	}
@@ -29463,6 +29546,53 @@ func newAlertRoutesV3UpdateRequestWithBody(server string, id string, contentType
 	return req, nil
 }
 
+// NewAlertSourcesV3ValidateAttributeRequest calls the generic AlertSourcesV3ValidateAttribute builder with application/json body
+func newAlertSourcesV3ValidateAttributeRequest(server string, alertSourceId string, body AlertSourcesV3ValidateAttributeJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAlertSourcesV3ValidateAttributeRequestWithBody(server, alertSourceId, "application/json", bodyReader)
+}
+
+// NewAlertSourcesV3ValidateAttributeRequestWithBody generates requests for AlertSourcesV3ValidateAttribute with any type of body
+func newAlertSourcesV3ValidateAttributeRequestWithBody(server string, alertSourceId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "alert_source_id", alertSourceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/alert_sources/%s/attributes/actions/validate", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewCatalogV3ListEntriesRequest generates requests for CatalogV3ListEntries
 func newCatalogV3ListEntriesRequest(server string, params *CatalogV3ListEntriesParams) (*http.Request, error) {
 	var err error
@@ -30921,6 +31051,11 @@ type ClientWithResponsesInterface interface {
 	AlertRoutesV3UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertRoutesV3UpdateResponse, error)
 
 	AlertRoutesV3UpdateWithResponse(ctx context.Context, id string, body AlertRoutesV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertRoutesV3UpdateResponse, error)
+
+	// AlertSourcesV3ValidateAttributeWithBodyWithResponse request with any body
+	AlertSourcesV3ValidateAttributeWithBodyWithResponse(ctx context.Context, alertSourceId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertSourcesV3ValidateAttributeResponse, error)
+
+	AlertSourcesV3ValidateAttributeWithResponse(ctx context.Context, alertSourceId string, body AlertSourcesV3ValidateAttributeJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertSourcesV3ValidateAttributeResponse, error)
 
 	// CatalogV3ListEntriesWithResponse request
 	CatalogV3ListEntriesWithResponse(ctx context.Context, params *CatalogV3ListEntriesParams, reqEditors ...RequestEditorFn) (*CatalogV3ListEntriesResponse, error)
@@ -35370,6 +35505,27 @@ func (r AlertRoutesV3UpdateResponse) StatusCode() int {
 	return 0
 }
 
+type AlertSourcesV3ValidateAttributeResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertSourcesV3ValidateAttributeResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertSourcesV3ValidateAttributeResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type CatalogV3ListEntriesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -38213,6 +38369,23 @@ func (c *ClientWithResponses) AlertRoutesV3UpdateWithResponse(ctx context.Contex
 		return nil, err
 	}
 	return parseAlertRoutesV3UpdateResponse(rsp)
+}
+
+// AlertSourcesV3ValidateAttributeWithBodyWithResponse request with arbitrary body returning *AlertSourcesV3ValidateAttributeResponse
+func (c *ClientWithResponses) AlertSourcesV3ValidateAttributeWithBodyWithResponse(ctx context.Context, alertSourceId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertSourcesV3ValidateAttributeResponse, error) {
+	rsp, err := c.AlertSourcesV3ValidateAttributeWithBody(ctx, alertSourceId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertSourcesV3ValidateAttributeResponse(rsp)
+}
+
+func (c *ClientWithResponses) AlertSourcesV3ValidateAttributeWithResponse(ctx context.Context, alertSourceId string, body AlertSourcesV3ValidateAttributeJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertSourcesV3ValidateAttributeResponse, error) {
+	rsp, err := c.AlertSourcesV3ValidateAttribute(ctx, alertSourceId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertSourcesV3ValidateAttributeResponse(rsp)
 }
 
 // CatalogV3ListEntriesWithResponse request returning *CatalogV3ListEntriesResponse
@@ -43299,6 +43472,22 @@ func parseAlertRoutesV3UpdateResponse(rsp *http.Response) (*AlertRoutesV3UpdateR
 		}
 		response.JSON200 = &dest
 
+	}
+
+	return response, nil
+}
+
+// ParseAlertSourcesV3ValidateAttributeResponse parses an HTTP response from a AlertSourcesV3ValidateAttributeWithResponse call
+func parseAlertSourcesV3ValidateAttributeResponse(rsp *http.Response) (*AlertSourcesV3ValidateAttributeResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertSourcesV3ValidateAttributeResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
 	}
 
 	return response, nil

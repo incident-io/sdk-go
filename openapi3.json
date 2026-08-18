@@ -14117,6 +14117,302 @@
         ],
         "type": "object"
       },
+      "AlertSourceAttributeValidatePayloadV3": {
+        "example": {
+          "alert_attribute_id": "01GW2G3V0S59R238FAHPDS1R66",
+          "array_value": [
+            {
+              "literal": "SEV123",
+              "reference": "incident.severity"
+            }
+          ],
+          "expressions": [
+            {
+              "else_branch": {
+                "result": {
+                  "array_value": [
+                    {
+                      "literal": "SEV123",
+                      "reference": "incident.severity"
+                    }
+                  ],
+                  "value": {
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                }
+              },
+              "label": "Team Slack channel",
+              "operations": [
+                {
+                  "branches": {
+                    "branches": [
+                      {
+                        "condition_groups": [
+                          {
+                            "conditions": [
+                              {
+                                "operation": "one_of",
+                                "param_bindings": [
+                                  {
+                                    "array_value": [
+                                      {
+                                        "literal": "SEV123",
+                                        "reference": "incident.severity"
+                                      }
+                                    ],
+                                    "value": {
+                                      "literal": "SEV123",
+                                      "reference": "incident.severity"
+                                    }
+                                  }
+                                ],
+                                "subject": "alert.priority"
+                              }
+                            ]
+                          }
+                        ],
+                        "result": {
+                          "array_value": [
+                            {
+                              "literal": "SEV123",
+                              "reference": "incident.severity"
+                            }
+                          ],
+                          "value": {
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        }
+                      }
+                    ],
+                    "returns": {
+                      "array": true,
+                      "type": "IncidentStatus"
+                    }
+                  },
+                  "cast": {
+                    "returns": {
+                      "array": true,
+                      "type": "IncidentStatus"
+                    }
+                  },
+                  "concatenate": {
+                    "reference": "catalog_attribute[\"01FCNDV6P870EA6S7TK1DSYD5H\"]"
+                  },
+                  "filter": {
+                    "condition_groups": [
+                      {
+                        "conditions": [
+                          {
+                            "operation": "one_of",
+                            "param_bindings": [
+                              {
+                                "array_value": [
+                                  {
+                                    "literal": "SEV123",
+                                    "reference": "incident.severity"
+                                  }
+                                ],
+                                "value": {
+                                  "literal": "SEV123",
+                                  "reference": "incident.severity"
+                                }
+                              }
+                            ],
+                            "subject": "alert.priority"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "navigate": {
+                    "reference": "catalog_attribute[\"01FCNDV6P870EA6S7TK1DSYD5H\"]"
+                  },
+                  "operation_type": "navigate",
+                  "parse": {
+                    "returns": {
+                      "array": true,
+                      "type": "IncidentStatus"
+                    },
+                    "source": "metadata.annotations[\"github.com/repo\"]"
+                  }
+                }
+              ],
+              "reference": "abc123",
+              "root_reference": "incident.status"
+            }
+          ],
+          "merge_strategy": "first_wins",
+          "value": {
+            "literal": "SEV123",
+            "reference": "incident.severity"
+          }
+        },
+        "properties": {
+          "alert_attribute_id": {
+            "description": "The alert attribute to bind",
+            "example": "01GW2G3V0S59R238FAHPDS1R66",
+            "type": "string"
+          },
+          "array_value": {
+            "description": "Several values for this attribute",
+            "example": [
+              {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/EngineParamBindingValuePayloadV3"
+            },
+            "type": "array"
+          },
+          "expressions": {
+            "description": "The expressions this binding uses. Reference them from value or array_value: they are owned by this attribute, and removed with it.",
+            "example": [
+              {
+                "else_branch": {
+                  "result": {
+                    "array_value": [
+                      {
+                        "literal": "SEV123",
+                        "reference": "incident.severity"
+                      }
+                    ],
+                    "value": {
+                      "literal": "SEV123",
+                      "reference": "incident.severity"
+                    }
+                  }
+                },
+                "label": "Team Slack channel",
+                "operations": [
+                  {
+                    "branches": {
+                      "branches": [
+                        {
+                          "condition_groups": [
+                            {
+                              "conditions": [
+                                {
+                                  "operation": "one_of",
+                                  "param_bindings": [
+                                    {
+                                      "array_value": [
+                                        {
+                                          "literal": "SEV123",
+                                          "reference": "incident.severity"
+                                        }
+                                      ],
+                                      "value": {
+                                        "literal": "SEV123",
+                                        "reference": "incident.severity"
+                                      }
+                                    }
+                                  ],
+                                  "subject": "alert.priority"
+                                }
+                              ]
+                            }
+                          ],
+                          "result": {
+                            "array_value": [
+                              {
+                                "literal": "SEV123",
+                                "reference": "incident.severity"
+                              }
+                            ],
+                            "value": {
+                              "literal": "SEV123",
+                              "reference": "incident.severity"
+                            }
+                          }
+                        }
+                      ],
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "catalog_attribute[\"01FCNDV6P870EA6S7TK1DSYD5H\"]"
+                    },
+                    "filter": {
+                      "condition_groups": [
+                        {
+                          "conditions": [
+                            {
+                              "operation": "one_of",
+                              "param_bindings": [
+                                {
+                                  "array_value": [
+                                    {
+                                      "literal": "SEV123",
+                                      "reference": "incident.severity"
+                                    }
+                                  ],
+                                  "value": {
+                                    "literal": "SEV123",
+                                    "reference": "incident.severity"
+                                  }
+                                }
+                              ],
+                              "subject": "alert.priority"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "navigate": {
+                      "reference": "catalog_attribute[\"01FCNDV6P870EA6S7TK1DSYD5H\"]"
+                    },
+                    "operation_type": "navigate",
+                    "parse": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      },
+                      "source": "metadata.annotations[\"github.com/repo\"]"
+                    }
+                  }
+                ],
+                "reference": "abc123",
+                "root_reference": "incident.status"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ExpressionPayloadV3"
+            },
+            "type": "array"
+          },
+          "merge_strategy": {
+            "description": "How values are combined when an alert is updated. Defaults to the source type's own default.",
+            "enum": [
+              "first_wins",
+              "last_wins",
+              "append",
+              "max",
+              "min"
+            ],
+            "example": "first_wins",
+            "type": "string"
+          },
+          "value": {
+            "$ref": "#/components/schemas/EngineParamBindingValuePayloadV3"
+          }
+        },
+        "required": [
+          "alert_attribute_id"
+        ],
+        "type": "object"
+      },
       "AlertSourceEmailOptionsPayloadV2": {
         "example": {
           "redactions": [
@@ -16355,6 +16651,150 @@
         },
         "required": [
           "alert_source"
+        ],
+        "type": "object"
+      },
+      "AlertSourcesValidateAttributePayloadV3": {
+        "example": {
+          "alert_source_attribute": {
+            "alert_attribute_id": "01GW2G3V0S59R238FAHPDS1R66",
+            "array_value": [
+              {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            ],
+            "expressions": [
+              {
+                "else_branch": {
+                  "result": {
+                    "array_value": [
+                      {
+                        "literal": "SEV123",
+                        "reference": "incident.severity"
+                      }
+                    ],
+                    "value": {
+                      "literal": "SEV123",
+                      "reference": "incident.severity"
+                    }
+                  }
+                },
+                "label": "Team Slack channel",
+                "operations": [
+                  {
+                    "branches": {
+                      "branches": [
+                        {
+                          "condition_groups": [
+                            {
+                              "conditions": [
+                                {
+                                  "operation": "one_of",
+                                  "param_bindings": [
+                                    {
+                                      "array_value": [
+                                        {
+                                          "literal": "SEV123",
+                                          "reference": "incident.severity"
+                                        }
+                                      ],
+                                      "value": {
+                                        "literal": "SEV123",
+                                        "reference": "incident.severity"
+                                      }
+                                    }
+                                  ],
+                                  "subject": "alert.priority"
+                                }
+                              ]
+                            }
+                          ],
+                          "result": {
+                            "array_value": [
+                              {
+                                "literal": "SEV123",
+                                "reference": "incident.severity"
+                              }
+                            ],
+                            "value": {
+                              "literal": "SEV123",
+                              "reference": "incident.severity"
+                            }
+                          }
+                        }
+                      ],
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "catalog_attribute[\"01FCNDV6P870EA6S7TK1DSYD5H\"]"
+                    },
+                    "filter": {
+                      "condition_groups": [
+                        {
+                          "conditions": [
+                            {
+                              "operation": "one_of",
+                              "param_bindings": [
+                                {
+                                  "array_value": [
+                                    {
+                                      "literal": "SEV123",
+                                      "reference": "incident.severity"
+                                    }
+                                  ],
+                                  "value": {
+                                    "literal": "SEV123",
+                                    "reference": "incident.severity"
+                                  }
+                                }
+                              ],
+                              "subject": "alert.priority"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "navigate": {
+                      "reference": "catalog_attribute[\"01FCNDV6P870EA6S7TK1DSYD5H\"]"
+                    },
+                    "operation_type": "navigate",
+                    "parse": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      },
+                      "source": "metadata.annotations[\"github.com/repo\"]"
+                    }
+                  }
+                ],
+                "reference": "abc123",
+                "root_reference": "incident.status"
+              }
+            ],
+            "merge_strategy": "first_wins",
+            "value": {
+              "literal": "SEV123",
+              "reference": "incident.severity"
+            }
+          }
+        },
+        "properties": {
+          "alert_source_attribute": {
+            "$ref": "#/components/schemas/AlertSourceAttributeValidatePayloadV3"
+          }
+        },
+        "required": [
+          "alert_source_attribute"
         ],
         "type": "object"
       },
@@ -99567,6 +100007,187 @@
         ]
       }
     },
+    "/v3/alert_sources/{alert_source_id}/attributes/actions/validate": {
+      "post": {
+        "description": "Check whether a binding would be accepted on this alert source, without writing it.\n\nThe binding is validated in the source as it stands today: merge strategy against the attribute's\ntype, values and expressions against the scope the source's type provides, and references against\nyour alert schema and catalog. Whether the attribute is already bound makes no difference, so the\nsame request answers for a new binding and a change to an existing one.\n\nAn expression this binding references has to already exist on the source, or be sent with the\nbinding. One you have yet to write is rejected.",
+        "operationId": "Alert Sources V3#ValidateAttribute",
+        "parameters": [
+          {
+            "description": "The alert source to validate the binding against",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "in": "path",
+            "name": "alert_source_id",
+            "required": true,
+            "schema": {
+              "description": "The alert source to validate the binding against",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "alert_source_attribute": {
+                  "alert_attribute_id": "01GW2G3V0S59R238FAHPDS1R66",
+                  "array_value": [
+                    {
+                      "literal": "SEV123",
+                      "reference": "incident.severity"
+                    }
+                  ],
+                  "expressions": [
+                    {
+                      "else_branch": {
+                        "result": {
+                          "array_value": [
+                            {
+                              "literal": "SEV123",
+                              "reference": "incident.severity"
+                            }
+                          ],
+                          "value": {
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        }
+                      },
+                      "label": "Team Slack channel",
+                      "operations": [
+                        {
+                          "branches": {
+                            "branches": [
+                              {
+                                "condition_groups": [
+                                  {
+                                    "conditions": [
+                                      {
+                                        "operation": "one_of",
+                                        "param_bindings": [
+                                          {
+                                            "array_value": [
+                                              {
+                                                "literal": "SEV123",
+                                                "reference": "incident.severity"
+                                              }
+                                            ],
+                                            "value": {
+                                              "literal": "SEV123",
+                                              "reference": "incident.severity"
+                                            }
+                                          }
+                                        ],
+                                        "subject": "alert.priority"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "result": {
+                                  "array_value": [
+                                    {
+                                      "literal": "SEV123",
+                                      "reference": "incident.severity"
+                                    }
+                                  ],
+                                  "value": {
+                                    "literal": "SEV123",
+                                    "reference": "incident.severity"
+                                  }
+                                }
+                              }
+                            ],
+                            "returns": {
+                              "array": true,
+                              "type": "IncidentStatus"
+                            }
+                          },
+                          "cast": {
+                            "returns": {
+                              "array": true,
+                              "type": "IncidentStatus"
+                            }
+                          },
+                          "concatenate": {
+                            "reference": "catalog_attribute[\"01FCNDV6P870EA6S7TK1DSYD5H\"]"
+                          },
+                          "filter": {
+                            "condition_groups": [
+                              {
+                                "conditions": [
+                                  {
+                                    "operation": "one_of",
+                                    "param_bindings": [
+                                      {
+                                        "array_value": [
+                                          {
+                                            "literal": "SEV123",
+                                            "reference": "incident.severity"
+                                          }
+                                        ],
+                                        "value": {
+                                          "literal": "SEV123",
+                                          "reference": "incident.severity"
+                                        }
+                                      }
+                                    ],
+                                    "subject": "alert.priority"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "navigate": {
+                            "reference": "catalog_attribute[\"01FCNDV6P870EA6S7TK1DSYD5H\"]"
+                          },
+                          "operation_type": "navigate",
+                          "parse": {
+                            "returns": {
+                              "array": true,
+                              "type": "IncidentStatus"
+                            },
+                            "source": "metadata.annotations[\"github.com/repo\"]"
+                          }
+                        }
+                      ],
+                      "reference": "abc123",
+                      "root_reference": "incident.status"
+                    }
+                  ],
+                  "merge_strategy": "first_wins",
+                  "value": {
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                }
+              },
+              "schema": {
+                "$ref": "#/components/schemas/AlertSourcesValidateAttributePayloadV3"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content response."
+          }
+        },
+        "summary": "ValidateAttribute Alert Sources V3",
+        "tags": [
+          "Alert Sources V3"
+        ],
+        "x-docs-display-name": "Validate",
+        "x-docs-group-name": "Alert Source Attributes V3",
+        "x-docs-resource-type": "AlertSourceAttributeV3",
+        "x-mint": {
+          "content": "🔑 Requires the `alert_sources.view` scope."
+        },
+        "x-rbac-scopes": [
+          "alert_sources.view"
+        ]
+      }
+    },
     "/v3/catalog_entries": {
       "get": {
         "description": "List entries for a catalog type.",
@@ -101074,6 +101695,10 @@
     {
       "description": "Configure your alert sources in incident.io.\n\nAlert sources are the systems that send alerts to incident.io, which can then be routed to the right people and teams.",
       "name": "Alert Sources V2"
+    },
+    {
+      "description": "Configure your alert sources, separately from the attributes they populate.",
+      "name": "Alert Sources V3"
     },
     {
       "description": "Read your alerts in incident.io.\n\nAlerts are events ingested from third parties by alert sources. They can trigger incidents and escalations, as configured in alert routes.\nTo view your alerts, you can list all alerts, or show a single alert. \nIf you'd like to view only alerts that are currently firing, you can filter by status. \nTo view the alert that was created for an event in your external system, filter by deduplication key. \n\nIf you'd like to view alerts connected to a particular incident, you can list incident alerts. You can filter by incident_id to find all alerts attached to a particular incident, or by alert_id to find the incident that a particular alert triggered.  \n",
