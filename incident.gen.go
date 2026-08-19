@@ -27,6 +27,7 @@ const (
 	APIKeyRoleV1NameCatalogViewer                       APIKeyRoleV1Name = "catalog_viewer"
 	APIKeyRoleV1NameEscalationCreator                   APIKeyRoleV1Name = "escalation_creator"
 	APIKeyRoleV1NameGlobalAccess                        APIKeyRoleV1Name = "global_access"
+	APIKeyRoleV1NameHeartbeatsPing                      APIKeyRoleV1Name = "heartbeats_ping"
 	APIKeyRoleV1NameIncidentCreator                     APIKeyRoleV1Name = "incident_creator"
 	APIKeyRoleV1NameIncidentEditor                      APIKeyRoleV1Name = "incident_editor"
 	APIKeyRoleV1NameIncidentMembershipsEditor           APIKeyRoleV1Name = "incident_memberships_editor"
@@ -71,6 +72,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameEscalationCreator:
 		return true
 	case APIKeyRoleV1NameGlobalAccess:
+		return true
+	case APIKeyRoleV1NameHeartbeatsPing:
 		return true
 	case APIKeyRoleV1NameIncidentCreator:
 		return true
@@ -134,6 +137,7 @@ const (
 	APIKeyTeamRoleV1NameApiKeysManage           APIKeyTeamRoleV1Name = "api_keys_manage"
 	APIKeyTeamRoleV1NameCatalogEditor           APIKeyTeamRoleV1Name = "catalog_editor"
 	APIKeyTeamRoleV1NameEscalationCreator       APIKeyTeamRoleV1Name = "escalation_creator"
+	APIKeyTeamRoleV1NameHeartbeatsPing          APIKeyTeamRoleV1Name = "heartbeats_ping"
 	APIKeyTeamRoleV1NameOnCallEditor            APIKeyTeamRoleV1Name = "on_call_editor"
 	APIKeyTeamRoleV1NamePrivateWorkflowsEditor  APIKeyTeamRoleV1Name = "private_workflows_editor"
 	APIKeyTeamRoleV1NameScheduleOverridesEditor APIKeyTeamRoleV1Name = "schedule_overrides_editor"
@@ -152,6 +156,8 @@ func (e APIKeyTeamRoleV1Name) Valid() bool {
 	case APIKeyTeamRoleV1NameCatalogEditor:
 		return true
 	case APIKeyTeamRoleV1NameEscalationCreator:
+		return true
+	case APIKeyTeamRoleV1NameHeartbeatsPing:
 		return true
 	case APIKeyTeamRoleV1NameOnCallEditor:
 		return true
@@ -183,6 +189,7 @@ const (
 	APIKeysCreatePayloadV1RoleNamesCatalogViewer                       APIKeysCreatePayloadV1RoleNames = "catalog_viewer"
 	APIKeysCreatePayloadV1RoleNamesEscalationCreator                   APIKeysCreatePayloadV1RoleNames = "escalation_creator"
 	APIKeysCreatePayloadV1RoleNamesGlobalAccess                        APIKeysCreatePayloadV1RoleNames = "global_access"
+	APIKeysCreatePayloadV1RoleNamesHeartbeatsPing                      APIKeysCreatePayloadV1RoleNames = "heartbeats_ping"
 	APIKeysCreatePayloadV1RoleNamesIncidentCreator                     APIKeysCreatePayloadV1RoleNames = "incident_creator"
 	APIKeysCreatePayloadV1RoleNamesIncidentEditor                      APIKeysCreatePayloadV1RoleNames = "incident_editor"
 	APIKeysCreatePayloadV1RoleNamesIncidentMembershipsEditor           APIKeysCreatePayloadV1RoleNames = "incident_memberships_editor"
@@ -227,6 +234,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesEscalationCreator:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesGlobalAccess:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesHeartbeatsPing:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesIncidentCreator:
 		return true
@@ -290,6 +299,7 @@ const (
 	APIKeysCreatePayloadV1TeamRoleNamesApiKeysManage           APIKeysCreatePayloadV1TeamRoleNames = "api_keys_manage"
 	APIKeysCreatePayloadV1TeamRoleNamesCatalogEditor           APIKeysCreatePayloadV1TeamRoleNames = "catalog_editor"
 	APIKeysCreatePayloadV1TeamRoleNamesEscalationCreator       APIKeysCreatePayloadV1TeamRoleNames = "escalation_creator"
+	APIKeysCreatePayloadV1TeamRoleNamesHeartbeatsPing          APIKeysCreatePayloadV1TeamRoleNames = "heartbeats_ping"
 	APIKeysCreatePayloadV1TeamRoleNamesOnCallEditor            APIKeysCreatePayloadV1TeamRoleNames = "on_call_editor"
 	APIKeysCreatePayloadV1TeamRoleNamesPrivateWorkflowsEditor  APIKeysCreatePayloadV1TeamRoleNames = "private_workflows_editor"
 	APIKeysCreatePayloadV1TeamRoleNamesScheduleOverridesEditor APIKeysCreatePayloadV1TeamRoleNames = "schedule_overrides_editor"
@@ -308,6 +318,8 @@ func (e APIKeysCreatePayloadV1TeamRoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1TeamRoleNamesCatalogEditor:
 		return true
 	case APIKeysCreatePayloadV1TeamRoleNamesEscalationCreator:
+		return true
+	case APIKeysCreatePayloadV1TeamRoleNamesHeartbeatsPing:
 		return true
 	case APIKeysCreatePayloadV1TeamRoleNamesOnCallEditor:
 		return true
@@ -339,6 +351,7 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesCatalogViewer                       APIKeysUpdatePayloadV1RoleNames = "catalog_viewer"
 	APIKeysUpdatePayloadV1RoleNamesEscalationCreator                   APIKeysUpdatePayloadV1RoleNames = "escalation_creator"
 	APIKeysUpdatePayloadV1RoleNamesGlobalAccess                        APIKeysUpdatePayloadV1RoleNames = "global_access"
+	APIKeysUpdatePayloadV1RoleNamesHeartbeatsPing                      APIKeysUpdatePayloadV1RoleNames = "heartbeats_ping"
 	APIKeysUpdatePayloadV1RoleNamesIncidentCreator                     APIKeysUpdatePayloadV1RoleNames = "incident_creator"
 	APIKeysUpdatePayloadV1RoleNamesIncidentEditor                      APIKeysUpdatePayloadV1RoleNames = "incident_editor"
 	APIKeysUpdatePayloadV1RoleNamesIncidentMembershipsEditor           APIKeysUpdatePayloadV1RoleNames = "incident_memberships_editor"
@@ -383,6 +396,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesEscalationCreator:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesGlobalAccess:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesHeartbeatsPing:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesIncidentCreator:
 		return true
@@ -446,6 +461,7 @@ const (
 	APIKeysUpdatePayloadV1TeamRoleNamesApiKeysManage           APIKeysUpdatePayloadV1TeamRoleNames = "api_keys_manage"
 	APIKeysUpdatePayloadV1TeamRoleNamesCatalogEditor           APIKeysUpdatePayloadV1TeamRoleNames = "catalog_editor"
 	APIKeysUpdatePayloadV1TeamRoleNamesEscalationCreator       APIKeysUpdatePayloadV1TeamRoleNames = "escalation_creator"
+	APIKeysUpdatePayloadV1TeamRoleNamesHeartbeatsPing          APIKeysUpdatePayloadV1TeamRoleNames = "heartbeats_ping"
 	APIKeysUpdatePayloadV1TeamRoleNamesOnCallEditor            APIKeysUpdatePayloadV1TeamRoleNames = "on_call_editor"
 	APIKeysUpdatePayloadV1TeamRoleNamesPrivateWorkflowsEditor  APIKeysUpdatePayloadV1TeamRoleNames = "private_workflows_editor"
 	APIKeysUpdatePayloadV1TeamRoleNamesScheduleOverridesEditor APIKeysUpdatePayloadV1TeamRoleNames = "schedule_overrides_editor"
@@ -464,6 +480,8 @@ func (e APIKeysUpdatePayloadV1TeamRoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1TeamRoleNamesCatalogEditor:
 		return true
 	case APIKeysUpdatePayloadV1TeamRoleNamesEscalationCreator:
+		return true
+	case APIKeysUpdatePayloadV1TeamRoleNamesHeartbeatsPing:
 		return true
 	case APIKeysUpdatePayloadV1TeamRoleNamesOnCallEditor:
 		return true
@@ -807,33 +825,6 @@ func (e AlertSlimV2Status) Valid() bool {
 	case AlertSlimV2StatusFiring:
 		return true
 	case AlertSlimV2StatusResolved:
-		return true
-	default:
-		return false
-	}
-}
-
-// Defines values for AlertSourceAttributeValidatePayloadV3MergeStrategy.
-const (
-	AlertSourceAttributeValidatePayloadV3MergeStrategyAppend    AlertSourceAttributeValidatePayloadV3MergeStrategy = "append"
-	AlertSourceAttributeValidatePayloadV3MergeStrategyFirstWins AlertSourceAttributeValidatePayloadV3MergeStrategy = "first_wins"
-	AlertSourceAttributeValidatePayloadV3MergeStrategyLastWins  AlertSourceAttributeValidatePayloadV3MergeStrategy = "last_wins"
-	AlertSourceAttributeValidatePayloadV3MergeStrategyMax       AlertSourceAttributeValidatePayloadV3MergeStrategy = "max"
-	AlertSourceAttributeValidatePayloadV3MergeStrategyMin       AlertSourceAttributeValidatePayloadV3MergeStrategy = "min"
-)
-
-// Valid indicates whether the value is a known member of the AlertSourceAttributeValidatePayloadV3MergeStrategy enum.
-func (e AlertSourceAttributeValidatePayloadV3MergeStrategy) Valid() bool {
-	switch e {
-	case AlertSourceAttributeValidatePayloadV3MergeStrategyAppend:
-		return true
-	case AlertSourceAttributeValidatePayloadV3MergeStrategyFirstWins:
-		return true
-	case AlertSourceAttributeValidatePayloadV3MergeStrategyLastWins:
-		return true
-	case AlertSourceAttributeValidatePayloadV3MergeStrategyMax:
-		return true
-	case AlertSourceAttributeValidatePayloadV3MergeStrategyMin:
 		return true
 	default:
 		return false
@@ -3338,46 +3329,46 @@ func (e ExpressionOperationV2OperationType) Valid() bool {
 
 // Defines values for ExpressionOperationV3OperationType.
 const (
-	ExpressionOperationV3OperationTypeBranches    ExpressionOperationV3OperationType = "branches"
-	ExpressionOperationV3OperationTypeCast        ExpressionOperationV3OperationType = "cast"
-	ExpressionOperationV3OperationTypeConcatenate ExpressionOperationV3OperationType = "concatenate"
-	ExpressionOperationV3OperationTypeCount       ExpressionOperationV3OperationType = "count"
-	ExpressionOperationV3OperationTypeFilter      ExpressionOperationV3OperationType = "filter"
-	ExpressionOperationV3OperationTypeFirst       ExpressionOperationV3OperationType = "first"
-	ExpressionOperationV3OperationTypeMax         ExpressionOperationV3OperationType = "max"
-	ExpressionOperationV3OperationTypeMin         ExpressionOperationV3OperationType = "min"
-	ExpressionOperationV3OperationTypeNavigate    ExpressionOperationV3OperationType = "navigate"
-	ExpressionOperationV3OperationTypeParse       ExpressionOperationV3OperationType = "parse"
-	ExpressionOperationV3OperationTypeRandom      ExpressionOperationV3OperationType = "random"
-	ExpressionOperationV3OperationTypeSum         ExpressionOperationV3OperationType = "sum"
+	Branches    ExpressionOperationV3OperationType = "branches"
+	Cast        ExpressionOperationV3OperationType = "cast"
+	Concatenate ExpressionOperationV3OperationType = "concatenate"
+	Count       ExpressionOperationV3OperationType = "count"
+	Filter      ExpressionOperationV3OperationType = "filter"
+	First       ExpressionOperationV3OperationType = "first"
+	Max         ExpressionOperationV3OperationType = "max"
+	Min         ExpressionOperationV3OperationType = "min"
+	Navigate    ExpressionOperationV3OperationType = "navigate"
+	Parse       ExpressionOperationV3OperationType = "parse"
+	Random      ExpressionOperationV3OperationType = "random"
+	Sum         ExpressionOperationV3OperationType = "sum"
 )
 
 // Valid indicates whether the value is a known member of the ExpressionOperationV3OperationType enum.
 func (e ExpressionOperationV3OperationType) Valid() bool {
 	switch e {
-	case ExpressionOperationV3OperationTypeBranches:
+	case Branches:
 		return true
-	case ExpressionOperationV3OperationTypeCast:
+	case Cast:
 		return true
-	case ExpressionOperationV3OperationTypeConcatenate:
+	case Concatenate:
 		return true
-	case ExpressionOperationV3OperationTypeCount:
+	case Count:
 		return true
-	case ExpressionOperationV3OperationTypeFilter:
+	case Filter:
 		return true
-	case ExpressionOperationV3OperationTypeFirst:
+	case First:
 		return true
-	case ExpressionOperationV3OperationTypeMax:
+	case Max:
 		return true
-	case ExpressionOperationV3OperationTypeMin:
+	case Min:
 		return true
-	case ExpressionOperationV3OperationTypeNavigate:
+	case Navigate:
 		return true
-	case ExpressionOperationV3OperationTypeParse:
+	case Parse:
 		return true
-	case ExpressionOperationV3OperationTypeRandom:
+	case Random:
 		return true
-	case ExpressionOperationV3OperationTypeSum:
+	case Sum:
 		return true
 	default:
 		return false
@@ -3657,6 +3648,7 @@ const (
 	IdentityV1RolesCatalogViewer                       IdentityV1Roles = "catalog_viewer"
 	IdentityV1RolesEscalationCreator                   IdentityV1Roles = "escalation_creator"
 	IdentityV1RolesGlobalAccess                        IdentityV1Roles = "global_access"
+	IdentityV1RolesHeartbeatsPing                      IdentityV1Roles = "heartbeats_ping"
 	IdentityV1RolesIncidentCreator                     IdentityV1Roles = "incident_creator"
 	IdentityV1RolesIncidentEditor                      IdentityV1Roles = "incident_editor"
 	IdentityV1RolesIncidentMembershipsEditor           IdentityV1Roles = "incident_memberships_editor"
@@ -3701,6 +3693,8 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesEscalationCreator:
 		return true
 	case IdentityV1RolesGlobalAccess:
+		return true
+	case IdentityV1RolesHeartbeatsPing:
 		return true
 	case IdentityV1RolesIncidentCreator:
 		return true
@@ -3764,6 +3758,7 @@ const (
 	IdentityV1TeamRolesApiKeysManage           IdentityV1TeamRoles = "api_keys_manage"
 	IdentityV1TeamRolesCatalogEditor           IdentityV1TeamRoles = "catalog_editor"
 	IdentityV1TeamRolesEscalationCreator       IdentityV1TeamRoles = "escalation_creator"
+	IdentityV1TeamRolesHeartbeatsPing          IdentityV1TeamRoles = "heartbeats_ping"
 	IdentityV1TeamRolesOnCallEditor            IdentityV1TeamRoles = "on_call_editor"
 	IdentityV1TeamRolesPrivateWorkflowsEditor  IdentityV1TeamRoles = "private_workflows_editor"
 	IdentityV1TeamRolesScheduleOverridesEditor IdentityV1TeamRoles = "schedule_overrides_editor"
@@ -3782,6 +3777,8 @@ func (e IdentityV1TeamRoles) Valid() bool {
 	case IdentityV1TeamRolesCatalogEditor:
 		return true
 	case IdentityV1TeamRolesEscalationCreator:
+		return true
+	case IdentityV1TeamRolesHeartbeatsPing:
 		return true
 	case IdentityV1TeamRolesOnCallEditor:
 		return true
@@ -7394,25 +7391,6 @@ type AlertSlimV2 struct {
 // AlertSlimV2Status Statuses of an alert
 type AlertSlimV2Status string
 
-// AlertSourceAttributeValidatePayloadV3 defines model for AlertSourceAttributeValidatePayloadV3.
-type AlertSourceAttributeValidatePayloadV3 struct {
-	// AlertAttributeId The alert attribute to bind
-	AlertAttributeId string `json:"alert_attribute_id"`
-
-	// ArrayValue Several values for this attribute
-	ArrayValue *[]EngineParamBindingValuePayloadV3 `json:"array_value,omitempty"`
-
-	// Expressions The expressions this binding uses. Reference them from value or array_value: they are owned by this attribute, and removed with it.
-	Expressions *[]ExpressionPayloadV3 `json:"expressions,omitempty"`
-
-	// MergeStrategy How values are combined when an alert is updated. Defaults to the source type's own default.
-	MergeStrategy *AlertSourceAttributeValidatePayloadV3MergeStrategy `json:"merge_strategy,omitempty"`
-	Value         *EngineParamBindingValuePayloadV3                   `json:"value,omitempty"`
-}
-
-// AlertSourceAttributeValidatePayloadV3MergeStrategy How values are combined when an alert is updated. Defaults to the source type's own default.
-type AlertSourceAttributeValidatePayloadV3MergeStrategy string
-
 // AlertSourceEmailOptionsPayloadV2 defines model for AlertSourceEmailOptionsPayloadV2.
 type AlertSourceEmailOptionsPayloadV2 struct {
 	// Redactions Which PII types to automatically redact from incoming email content before storage
@@ -7584,11 +7562,6 @@ type AlertSourcesUpdatePayloadV2 struct {
 // AlertSourcesUpdateResultV2 defines model for AlertSourcesUpdateResultV2.
 type AlertSourcesUpdateResultV2 struct {
 	AlertSource AlertSourceV2 `json:"alert_source"`
-}
-
-// AlertSourcesValidateAttributePayloadV3 defines model for AlertSourcesValidateAttributePayloadV3.
-type AlertSourcesValidateAttributePayloadV3 struct {
-	AlertSourceAttribute AlertSourceAttributeValidatePayloadV3 `json:"alert_source_attribute"`
 }
 
 // AlertSourcesValidatePayloadV2 defines model for AlertSourcesValidatePayloadV2.
@@ -15281,9 +15254,6 @@ type AlertRoutesV3CreateJSONRequestBody = AlertRoutesCreatePayloadV3
 // AlertRoutesV3UpdateJSONRequestBody defines body for AlertRoutesV3Update for application/json ContentType.
 type AlertRoutesV3UpdateJSONRequestBody = AlertRoutesUpdatePayloadV3
 
-// AlertSourcesV3ValidateAttributeJSONRequestBody defines body for AlertSourcesV3ValidateAttribute for application/json ContentType.
-type AlertSourcesV3ValidateAttributeJSONRequestBody = AlertSourcesValidateAttributePayloadV3
-
 // CatalogV3CreateEntryJSONRequestBody defines body for CatalogV3CreateEntry for application/json ContentType.
 type CatalogV3CreateEntryJSONRequestBody = CatalogCreateEntryPayloadV3
 
@@ -16129,11 +16099,6 @@ type ClientInterface interface {
 	AlertRoutesV3UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	AlertRoutesV3Update(ctx context.Context, id string, body AlertRoutesV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// AlertSourcesV3ValidateAttributeWithBody request with any body
-	AlertSourcesV3ValidateAttributeWithBody(ctx context.Context, alertSourceId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	AlertSourcesV3ValidateAttribute(ctx context.Context, alertSourceId string, body AlertSourcesV3ValidateAttributeJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CatalogV3ListEntries request
 	CatalogV3ListEntries(ctx context.Context, params *CatalogV3ListEntriesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -19581,30 +19546,6 @@ func (c *Client) AlertRoutesV3UpdateWithBody(ctx context.Context, id string, con
 
 func (c *Client) AlertRoutesV3Update(ctx context.Context, id string, body AlertRoutesV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newAlertRoutesV3UpdateRequest(c.Server, id, body)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) AlertSourcesV3ValidateAttributeWithBody(ctx context.Context, alertSourceId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := newAlertSourcesV3ValidateAttributeRequestWithBody(c.Server, alertSourceId, contentType, body)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) AlertSourcesV3ValidateAttribute(ctx context.Context, alertSourceId string, body AlertSourcesV3ValidateAttributeJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := newAlertSourcesV3ValidateAttributeRequest(c.Server, alertSourceId, body)
 	if err != nil {
 		return nil, err
 	}
@@ -29546,53 +29487,6 @@ func newAlertRoutesV3UpdateRequestWithBody(server string, id string, contentType
 	return req, nil
 }
 
-// NewAlertSourcesV3ValidateAttributeRequest calls the generic AlertSourcesV3ValidateAttribute builder with application/json body
-func newAlertSourcesV3ValidateAttributeRequest(server string, alertSourceId string, body AlertSourcesV3ValidateAttributeJSONRequestBody) (*http.Request, error) {
-	var bodyReader io.Reader
-	buf, err := json.Marshal(body)
-	if err != nil {
-		return nil, err
-	}
-	bodyReader = bytes.NewReader(buf)
-	return newAlertSourcesV3ValidateAttributeRequestWithBody(server, alertSourceId, "application/json", bodyReader)
-}
-
-// NewAlertSourcesV3ValidateAttributeRequestWithBody generates requests for AlertSourcesV3ValidateAttribute with any type of body
-func newAlertSourcesV3ValidateAttributeRequestWithBody(server string, alertSourceId string, contentType string, body io.Reader) (*http.Request, error) {
-	var err error
-
-	var pathParam0 string
-
-	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "alert_source_id", alertSourceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
-	if err != nil {
-		return nil, err
-	}
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/v3/alert_sources/%s/attributes/actions/validate", pathParam0)
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	req, err := http.NewRequest("POST", queryURL.String(), body)
-	if err != nil {
-		return nil, err
-	}
-
-	req.Header.Add("Content-Type", contentType)
-
-	return req, nil
-}
-
 // NewCatalogV3ListEntriesRequest generates requests for CatalogV3ListEntries
 func newCatalogV3ListEntriesRequest(server string, params *CatalogV3ListEntriesParams) (*http.Request, error) {
 	var err error
@@ -31051,11 +30945,6 @@ type ClientWithResponsesInterface interface {
 	AlertRoutesV3UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertRoutesV3UpdateResponse, error)
 
 	AlertRoutesV3UpdateWithResponse(ctx context.Context, id string, body AlertRoutesV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertRoutesV3UpdateResponse, error)
-
-	// AlertSourcesV3ValidateAttributeWithBodyWithResponse request with any body
-	AlertSourcesV3ValidateAttributeWithBodyWithResponse(ctx context.Context, alertSourceId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertSourcesV3ValidateAttributeResponse, error)
-
-	AlertSourcesV3ValidateAttributeWithResponse(ctx context.Context, alertSourceId string, body AlertSourcesV3ValidateAttributeJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertSourcesV3ValidateAttributeResponse, error)
 
 	// CatalogV3ListEntriesWithResponse request
 	CatalogV3ListEntriesWithResponse(ctx context.Context, params *CatalogV3ListEntriesParams, reqEditors ...RequestEditorFn) (*CatalogV3ListEntriesResponse, error)
@@ -35505,27 +35394,6 @@ func (r AlertRoutesV3UpdateResponse) StatusCode() int {
 	return 0
 }
 
-type AlertSourcesV3ValidateAttributeResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-}
-
-// Status returns HTTPResponse.Status
-func (r AlertSourcesV3ValidateAttributeResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r AlertSourcesV3ValidateAttributeResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
 type CatalogV3ListEntriesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -38369,23 +38237,6 @@ func (c *ClientWithResponses) AlertRoutesV3UpdateWithResponse(ctx context.Contex
 		return nil, err
 	}
 	return parseAlertRoutesV3UpdateResponse(rsp)
-}
-
-// AlertSourcesV3ValidateAttributeWithBodyWithResponse request with arbitrary body returning *AlertSourcesV3ValidateAttributeResponse
-func (c *ClientWithResponses) AlertSourcesV3ValidateAttributeWithBodyWithResponse(ctx context.Context, alertSourceId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertSourcesV3ValidateAttributeResponse, error) {
-	rsp, err := c.AlertSourcesV3ValidateAttributeWithBody(ctx, alertSourceId, contentType, body, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return parseAlertSourcesV3ValidateAttributeResponse(rsp)
-}
-
-func (c *ClientWithResponses) AlertSourcesV3ValidateAttributeWithResponse(ctx context.Context, alertSourceId string, body AlertSourcesV3ValidateAttributeJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertSourcesV3ValidateAttributeResponse, error) {
-	rsp, err := c.AlertSourcesV3ValidateAttribute(ctx, alertSourceId, body, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return parseAlertSourcesV3ValidateAttributeResponse(rsp)
 }
 
 // CatalogV3ListEntriesWithResponse request returning *CatalogV3ListEntriesResponse
@@ -43472,22 +43323,6 @@ func parseAlertRoutesV3UpdateResponse(rsp *http.Response) (*AlertRoutesV3UpdateR
 		}
 		response.JSON200 = &dest
 
-	}
-
-	return response, nil
-}
-
-// ParseAlertSourcesV3ValidateAttributeResponse parses an HTTP response from a AlertSourcesV3ValidateAttributeWithResponse call
-func parseAlertSourcesV3ValidateAttributeResponse(rsp *http.Response) (*AlertSourcesV3ValidateAttributeResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &AlertSourcesV3ValidateAttributeResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
 	}
 
 	return response, nil
