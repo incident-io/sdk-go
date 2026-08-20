@@ -3011,18 +3011,21 @@ func (e EscalationPathNodeNotifyChannelV2TimeToAckIntervalCondition) Valid() boo
 
 // Defines values for EscalationPathNodePayloadV2Type.
 const (
-	EscalationPathNodePayloadV2TypeDelay         EscalationPathNodePayloadV2Type = "delay"
-	EscalationPathNodePayloadV2TypeIfElse        EscalationPathNodePayloadV2Type = "if_else"
-	EscalationPathNodePayloadV2TypeLevel         EscalationPathNodePayloadV2Type = "level"
-	EscalationPathNodePayloadV2TypeNotifyChannel EscalationPathNodePayloadV2Type = "notify_channel"
-	EscalationPathNodePayloadV2TypeRepeat        EscalationPathNodePayloadV2Type = "repeat"
-	EscalationPathNodePayloadV2TypeVoicemail     EscalationPathNodePayloadV2Type = "voicemail"
+	EscalationPathNodePayloadV2TypeDelay          EscalationPathNodePayloadV2Type = "delay"
+	EscalationPathNodePayloadV2TypeEscalationPath EscalationPathNodePayloadV2Type = "escalation_path"
+	EscalationPathNodePayloadV2TypeIfElse         EscalationPathNodePayloadV2Type = "if_else"
+	EscalationPathNodePayloadV2TypeLevel          EscalationPathNodePayloadV2Type = "level"
+	EscalationPathNodePayloadV2TypeNotifyChannel  EscalationPathNodePayloadV2Type = "notify_channel"
+	EscalationPathNodePayloadV2TypeRepeat         EscalationPathNodePayloadV2Type = "repeat"
+	EscalationPathNodePayloadV2TypeVoicemail      EscalationPathNodePayloadV2Type = "voicemail"
 )
 
 // Valid indicates whether the value is a known member of the EscalationPathNodePayloadV2Type enum.
 func (e EscalationPathNodePayloadV2Type) Valid() bool {
 	switch e {
 	case EscalationPathNodePayloadV2TypeDelay:
+		return true
+	case EscalationPathNodePayloadV2TypeEscalationPath:
 		return true
 	case EscalationPathNodePayloadV2TypeIfElse:
 		return true
@@ -3041,28 +3044,31 @@ func (e EscalationPathNodePayloadV2Type) Valid() bool {
 
 // Defines values for EscalationPathNodeV2Type.
 const (
-	EscalationPathNodeV2TypeDelay         EscalationPathNodeV2Type = "delay"
-	EscalationPathNodeV2TypeIfElse        EscalationPathNodeV2Type = "if_else"
-	EscalationPathNodeV2TypeLevel         EscalationPathNodeV2Type = "level"
-	EscalationPathNodeV2TypeNotifyChannel EscalationPathNodeV2Type = "notify_channel"
-	EscalationPathNodeV2TypeRepeat        EscalationPathNodeV2Type = "repeat"
-	EscalationPathNodeV2TypeVoicemail     EscalationPathNodeV2Type = "voicemail"
+	Delay          EscalationPathNodeV2Type = "delay"
+	EscalationPath EscalationPathNodeV2Type = "escalation_path"
+	IfElse         EscalationPathNodeV2Type = "if_else"
+	Level          EscalationPathNodeV2Type = "level"
+	NotifyChannel  EscalationPathNodeV2Type = "notify_channel"
+	Repeat         EscalationPathNodeV2Type = "repeat"
+	Voicemail      EscalationPathNodeV2Type = "voicemail"
 )
 
 // Valid indicates whether the value is a known member of the EscalationPathNodeV2Type enum.
 func (e EscalationPathNodeV2Type) Valid() bool {
 	switch e {
-	case EscalationPathNodeV2TypeDelay:
+	case Delay:
 		return true
-	case EscalationPathNodeV2TypeIfElse:
+	case EscalationPath:
 		return true
-	case EscalationPathNodeV2TypeLevel:
+	case IfElse:
 		return true
-	case EscalationPathNodeV2TypeNotifyChannel:
+	case Level:
 		return true
-	case EscalationPathNodeV2TypeRepeat:
+	case NotifyChannel:
 		return true
-	case EscalationPathNodeV2TypeVoicemail:
+	case Repeat:
+		return true
+	case Voicemail:
 		return true
 	default:
 		return false
@@ -3104,22 +3110,22 @@ func (e EscalationPathTargetV2ScheduleMode) Valid() bool {
 
 // Defines values for EscalationPathTargetV2Type.
 const (
-	EscalationPathTargetV2TypeMsteamsChannel EscalationPathTargetV2Type = "msteams_channel"
-	EscalationPathTargetV2TypeSchedule       EscalationPathTargetV2Type = "schedule"
-	EscalationPathTargetV2TypeSlackChannel   EscalationPathTargetV2Type = "slack_channel"
-	EscalationPathTargetV2TypeUser           EscalationPathTargetV2Type = "user"
+	MsteamsChannel EscalationPathTargetV2Type = "msteams_channel"
+	Schedule       EscalationPathTargetV2Type = "schedule"
+	SlackChannel   EscalationPathTargetV2Type = "slack_channel"
+	User           EscalationPathTargetV2Type = "user"
 )
 
 // Valid indicates whether the value is a known member of the EscalationPathTargetV2Type enum.
 func (e EscalationPathTargetV2Type) Valid() bool {
 	switch e {
-	case EscalationPathTargetV2TypeMsteamsChannel:
+	case MsteamsChannel:
 		return true
-	case EscalationPathTargetV2TypeSchedule:
+	case Schedule:
 		return true
-	case EscalationPathTargetV2TypeSlackChannel:
+	case SlackChannel:
 		return true
-	case EscalationPathTargetV2TypeUser:
+	case User:
 		return true
 	default:
 		return false
@@ -9544,6 +9550,7 @@ type EscalationPathNodePayloadV2 struct {
 	// * if_else: Branch the escalation based on a set of conditions.
 	// * repeat: Go back to a previous node and repeat the logic from there.
 	// * delay: Pause the escalation for a configured duration before advancing to the next node.
+	// * escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
 	// * voicemail: Send an inbound caller to voicemail. Only valid inside a call route's path.
 	Type EscalationPathNodePayloadV2Type `json:"type"`
 }
@@ -9554,6 +9561,7 @@ type EscalationPathNodePayloadV2 struct {
 // * if_else: Branch the escalation based on a set of conditions.
 // * repeat: Go back to a previous node and repeat the logic from there.
 // * delay: Pause the escalation for a configured duration before advancing to the next node.
+// * escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
 // * voicemail: Send an inbound caller to voicemail. Only valid inside a call route's path.
 type EscalationPathNodePayloadV2Type string
 
@@ -9585,6 +9593,7 @@ type EscalationPathNodeV2 struct {
 	// * if_else: Branch the escalation based on a set of conditions.
 	// * repeat: Go back to a previous node and repeat the logic from there.
 	// * delay: Pause the escalation for a configured duration before advancing to the next node.
+	// * escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
 	// * voicemail: Send an inbound caller to voicemail. Only valid inside a call route's path.
 	Type EscalationPathNodeV2Type `json:"type"`
 }
@@ -9595,6 +9604,7 @@ type EscalationPathNodeV2 struct {
 // * if_else: Branch the escalation based on a set of conditions.
 // * repeat: Go back to a previous node and repeat the logic from there.
 // * delay: Pause the escalation for a configured duration before advancing to the next node.
+// * escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
 // * voicemail: Send an inbound caller to voicemail. Only valid inside a call route's path.
 type EscalationPathNodeV2Type string
 

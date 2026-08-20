@@ -43203,14 +43203,15 @@
             "$ref": "#/components/schemas/EscalationPathNodeRepeatV2"
           },
           "type": {
-            "description": "The type of this node. Available types are:\n* level: A set of targets (users or schedules) that should be paged, either all at once, or with a round-robin configuration.\n* notify_channel: Send the escalation to a Slack channel, where it can be acked by anyone in the channel.\n* if_else: Branch the escalation based on a set of conditions.\n* repeat: Go back to a previous node and repeat the logic from there.\n* delay: Pause the escalation for a configured duration before advancing to the next node.\n* voicemail: Send an inbound caller to voicemail. Only valid inside a call route's path.",
+            "description": "The type of this node. Available types are:\n* level: A set of targets (users or schedules) that should be paged, either all at once, or with a round-robin configuration.\n* notify_channel: Send the escalation to a Slack channel, where it can be acked by anyone in the channel.\n* if_else: Branch the escalation based on a set of conditions.\n* repeat: Go back to a previous node and repeat the logic from there.\n* delay: Pause the escalation for a configured duration before advancing to the next node.\n* escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.\n* voicemail: Send an inbound caller to voicemail. Only valid inside a call route's path.",
             "enum": [
               "if_else",
               "repeat",
               "level",
               "notify_channel",
               "delay",
-              "voicemail"
+              "voicemail",
+              "escalation_path"
             ],
             "example": "if_else",
             "type": "string"
@@ -43355,14 +43356,15 @@
             "$ref": "#/components/schemas/EscalationPathNodeRepeatV2"
           },
           "type": {
-            "description": "The type of this node. Available types are:\n* level: A set of targets (users or schedules) that should be paged, either all at once, or with a round-robin configuration.\n* notify_channel: Send the escalation to a Slack channel, where it can be acked by anyone in the channel.\n* if_else: Branch the escalation based on a set of conditions.\n* repeat: Go back to a previous node and repeat the logic from there.\n* delay: Pause the escalation for a configured duration before advancing to the next node.\n* voicemail: Send an inbound caller to voicemail. Only valid inside a call route's path.",
+            "description": "The type of this node. Available types are:\n* level: A set of targets (users or schedules) that should be paged, either all at once, or with a round-robin configuration.\n* notify_channel: Send the escalation to a Slack channel, where it can be acked by anyone in the channel.\n* if_else: Branch the escalation based on a set of conditions.\n* repeat: Go back to a previous node and repeat the logic from there.\n* delay: Pause the escalation for a configured duration before advancing to the next node.\n* escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.\n* voicemail: Send an inbound caller to voicemail. Only valid inside a call route's path.",
             "enum": [
               "if_else",
               "repeat",
               "level",
               "notify_channel",
               "delay",
-              "voicemail"
+              "voicemail",
+              "escalation_path"
             ],
             "example": "if_else",
             "type": "string"
