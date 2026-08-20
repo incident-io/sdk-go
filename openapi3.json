@@ -18222,6 +18222,7 @@
       },
       "AuditLogExtensionConnectorCalledMetadataV2": {
         "example": {
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "outcome": "success",
           "source_kind": "mcp",
           "surface": "chat",
@@ -18229,6 +18230,11 @@
           "write": "true"
         },
         "properties": {
+          "incident_id": {
+            "description": "The incident the call was made for, when incident-scoped",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
           "outcome": {
             "description": "How the call ended (success, error)",
             "example": "success",
@@ -22836,6 +22842,7 @@
             "user_agent": "Chrome/91.0.4472.114"
           },
           "metadata": {
+            "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
             "outcome": "success",
             "source_kind": "mcp",
             "surface": "chat",
@@ -104104,6 +104111,7 @@
                     "user_agent": "Chrome/91.0.4472.114"
                   },
                   "metadata": {
+                    "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                     "outcome": "success",
                     "source_kind": "mcp",
                     "surface": "chat",
