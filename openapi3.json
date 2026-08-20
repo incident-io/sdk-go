@@ -18791,7 +18791,8 @@
           "access_mode": "restricted",
           "investigation_id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "outcome": "granted",
-          "surface": "chat"
+          "surface": "chat",
+          "telemetry_query_id": "01FCNDV6P870EA6S7TK1DSYDG0"
         },
         "properties": {
           "access_mode": {
@@ -18812,6 +18813,11 @@
           "surface": {
             "description": "The product surface the query ran from (chat, investigation, explore, mcp_client, verify), or internal for system paths with no surface",
             "example": "chat",
+            "type": "string"
+          },
+          "telemetry_query_id": {
+            "description": "ID of the recorded query, pointing at our full stored record of it",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
             "type": "string"
           }
         },
@@ -33385,7 +33391,8 @@
             "access_mode": "restricted",
             "investigation_id": "01FCNDV6P870EA6S7TK1DSYDG0",
             "outcome": "granted",
-            "surface": "chat"
+            "surface": "chat",
+            "telemetry_query_id": "01FCNDV6P870EA6S7TK1DSYDG0"
           },
           "occurred_at": "2021-08-17T13:28:57.801578Z",
           "targets": [
@@ -110549,7 +110556,8 @@
                     "access_mode": "restricted",
                     "investigation_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                     "outcome": "granted",
-                    "surface": "chat"
+                    "surface": "chat",
+                    "telemetry_query_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                   },
                   "occurred_at": "2021-08-17T13:28:57.801578Z",
                   "targets": [
