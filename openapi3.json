@@ -44173,6 +44173,7 @@
               "name": "My little workflow"
             }
           },
+          "description": "Database CPU has been above 90% for 5 minutes",
           "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
           "events": [
             {
@@ -44244,6 +44245,11 @@
           },
           "creator": {
             "$ref": "#/components/schemas/EscalationCreatorV2"
+          },
+          "description": {
+            "description": "Additional detail provided with this escalation. When it isn't set explicitly, this is taken from the alert description or the incident summary, and is empty when neither applies.",
+            "example": "Database CPU has been above 90% for 5 minutes",
+            "type": "string"
           },
           "escalation_path_id": {
             "description": "Unique identifier of the escalation path that the escalation was created from",
@@ -44366,6 +44372,7 @@
           "updated_at",
           "status",
           "title",
+          "description",
           "priority",
           "creator",
           "events",
@@ -44416,6 +44423,7 @@
                 "name": "My little workflow"
               }
             },
+            "description": "Database CPU has been above 90% for 5 minutes",
             "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "events": [
               {
@@ -44989,6 +44997,7 @@
                 "name": "My little workflow"
               }
             },
+            "description": "Database CPU has been above 90% for 5 minutes",
             "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "events": [
               {
@@ -45362,6 +45371,7 @@
                   "name": "My little workflow"
                 }
               },
+              "description": "Database CPU has been above 90% for 5 minutes",
               "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "events": [
                 {
@@ -45452,6 +45462,7 @@
                     "name": "My little workflow"
                   }
                 },
+                "description": "Database CPU has been above 90% for 5 minutes",
                 "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "events": [
                   {
@@ -45689,6 +45700,7 @@
                 "name": "My little workflow"
               }
             },
+            "description": "Database CPU has been above 90% for 5 minutes",
             "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "events": [
               {
@@ -68281,6 +68293,7 @@
                 "name": "My little workflow"
               }
             },
+            "description": "Database CPU has been above 90% for 5 minutes",
             "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "events": [
               {
@@ -68439,6 +68452,7 @@
                   "name": "My little workflow"
                 }
               },
+              "description": "Database CPU has been above 90% for 5 minutes",
               "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "events": [
                 {
@@ -88035,7 +88049,7 @@
     },
     "/v2/escalations": {
       "get": {
-        "description": "List all escalations for your account.\n\nThis endpoint supports a number of filters, which can help find escalations matching certain\ncriteria.\n\nNote that:\n- Filters may be used together, and the result will be escalations that match all filters.\n- All query parameters must be URI encoded.\n\nTo use this API, you will need an API key with the \"View data\" or \"Create and manage on-call resources\" permission.\n\n### By escalation_path\n\nFind all escalations that escalated to escalation path with id=ABC:\n\n\t\tcurl --get 'https://api.incident.io/v2/escalations' \\\n\t\t\t--data 'escalation_path[one_of]=ABC'\n\n### By status\n\nFind all escalations with a current status of \"triggered\":\n\n\t\tcurl --get 'https://api.incident.io/v2/escalations' \\\n\t\t\t--data 'status[one_of]=triggered'\n\nPossible values are \"pending\", \"triggered\", \"acked\", \"resolved\", \"expired\" and \"cancelled\".\nEscalations are in \"pending\" when they are in a grace period when the related alert has\nbeen grouped in an incident.\n\n### By alert\n\nFind all escalations that were created by alert with id=ABC:\n\n\t\tcurl --get 'https://api.incident.io/v2/escalations' \\\n\t\t\t--data 'alert[one_of]=ABC'\n\n### By created_at and updated_at\nFind all escalations that follow specified date parameters for created_at and updated_at fields.\nPossible values are \"gte\" (greater than or equal to), \"lte\" (less than or equal to), and\n\"date_range\" (between two dates).\nFor example, to find all escalations updated after 2025-01-01:\n\n\t\tcurl --get 'https://api.incident.io/v2/escalations' \\\n\t\t\t--data 'updated_at[gte]=2025-01-01'\n\nTo find all escalations created between 2025-01-01 and 2025-01-31:\n\n\t\tcurl --get 'https://api.incident.io/v2/escalations' \\\n            --data 'created_at[date_range]=2025-01-01~2025-01-31'\n",
+        "description": "List all escalations for your account.\n\nThis endpoint supports a number of filters, which can help find escalations matching certain\ncriteria.\n\nNote that:\n- Filters may be used together, and the result will be escalations that match all filters.\n- All query parameters must be URI encoded.\n\nTo use this API, you will need an API key with the \"View data\" or \"Create and manage on-call resources\" permission.\n\n### By escalation_path\n\nFind all escalations that escalated to escalation path with id=ABC:\n\n\t\tcurl --get 'https://api.incident.io/v2/escalations' \\\n\t\t\t--data 'escalation_path[one_of]=ABC'\n\n### By status\n\nFind all escalations with a current status of \"triggered\":\n\n\t\tcurl --get 'https://api.incident.io/v2/escalations' \\\n\t\t\t--data 'status[one_of]=triggered'\n\nPossible values are \"pending\", \"triggered\", \"acked\", \"resolved\", \"expired\" and \"cancelled\".\nEscalations are in \"pending\" when they are in a grace period when the related alert has\nbeen grouped in an incident.\n\n### By alert\n\nFind all escalations that were created by alert with id=ABC:\n\n\t\tcurl --get 'https://api.incident.io/v2/escalations' \\\n\t\t\t--data 'alert[one_of]=ABC'\n\n### By incident\n\nFind all escalations related to incident with id=ABC:\n\n\t\tcurl --get 'https://api.incident.io/v2/escalations' \\\n\t\t\t--data 'incident[one_of]=ABC'\n\nAn escalation is related to an incident if it is linked to that incident directly, if it is\nattached to one of the incident's alerts, or if it triggered one of those alerts (which is\nwhat happens when someone pages by calling in, and that call raises the alert).\n\nTo find everything that is not related to an incident, use \"not_in\":\n\n\t\tcurl --get 'https://api.incident.io/v2/escalations' \\\n\t\t\t--data 'incident[not_in]=ABC'\n\n### By created_at and updated_at\nFind all escalations that follow specified date parameters for created_at and updated_at fields.\nPossible values are \"gte\" (greater than or equal to), \"lte\" (less than or equal to), and\n\"date_range\" (between two dates).\nFor example, to find all escalations updated after 2025-01-01:\n\n\t\tcurl --get 'https://api.incident.io/v2/escalations' \\\n\t\t\t--data 'updated_at[gte]=2025-01-01'\n\nTo find all escalations created between 2025-01-01 and 2025-01-31:\n\n\t\tcurl --get 'https://api.incident.io/v2/escalations' \\\n            --data 'created_at[date_range]=2025-01-01~2025-01-31'\n",
         "operationId": "Escalations V2#List",
         "parameters": [
           {
@@ -88148,6 +88162,36 @@
                 "type": "array"
               },
               "description": "Filter on the alert that created an escalation. Accepted operators are 'one_of' and 'not_in'.",
+              "example": {
+                "one_of": [
+                  "01J479052SSQAA4531ASFPR3BF"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Filter on the incident that the escalation is connected to. Accepted operators are 'one_of' and 'not_in'.",
+            "example": {
+              "one_of": [
+                "01J479052SSQAA4531ASFPR3BF"
+              ]
+            },
+            "in": "query",
+            "name": "incident",
+            "schema": {
+              "additionalProperties": {
+                "example": [
+                  "some_value"
+                ],
+                "items": {
+                  "example": "some_value",
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "description": "Filter on the incident that the escalation is connected to. Accepted operators are 'one_of' and 'not_in'.",
               "example": {
                 "one_of": [
                   "01J479052SSQAA4531ASFPR3BF"
@@ -88272,6 +88316,7 @@
                           "name": "My little workflow"
                         }
                       },
+                      "description": "Database CPU has been above 90% for 5 minutes",
                       "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                       "events": [
                         {
@@ -88410,6 +88455,7 @@
                         "name": "My little workflow"
                       }
                     },
+                    "description": "Database CPU has been above 90% for 5 minutes",
                     "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "events": [
                       {
@@ -88538,6 +88584,7 @@
                         "name": "My little workflow"
                       }
                     },
+                    "description": "Database CPU has been above 90% for 5 minutes",
                     "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "events": [
                       {
@@ -112302,6 +112349,7 @@
                         "name": "My little workflow"
                       }
                     },
+                    "description": "Database CPU has been above 90% for 5 minutes",
                     "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "events": [
                       {
@@ -112429,6 +112477,7 @@
                           "name": "My little workflow"
                         }
                       },
+                      "description": "Database CPU has been above 90% for 5 minutes",
                       "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                       "events": [
                         {

@@ -9706,6 +9706,9 @@ type EscalationV2 struct {
 	// Creator The creator of this escalation. Can be a user, a workflow, or an alert. If the escalation came from a call route, this will be empty.
 	Creator EscalationCreatorV2 `json:"creator"`
 
+	// Description Additional detail provided with this escalation. When it isn't set explicitly, this is taken from the alert description or the incident summary, and is empty when neither applies.
+	Description string `json:"description"`
+
 	// EscalationPathId Unique identifier of the escalation path that the escalation was created from
 	EscalationPathId *string `json:"escalation_path_id,omitempty"`
 
@@ -14698,6 +14701,9 @@ type EscalationsV2ListParams struct {
 
 	// Alert Filter on the alert that created an escalation. Accepted operators are 'one_of' and 'not_in'.
 	Alert *map[string][]string `form:"alert,omitempty" json:"alert,omitempty"`
+
+	// Incident Filter on the incident that the escalation is connected to. Accepted operators are 'one_of' and 'not_in'.
+	Incident *map[string][]string `form:"incident,omitempty" json:"incident,omitempty"`
 
 	// CreatedAt Filter on the created_at timestamp of the escalation. Accepted operators are 'gte', 'lte' and 'date_range'.
 	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
@@ -24928,6 +24934,22 @@ func newEscalationsV2ListRequest(server string, params *EscalationsV2ListParams)
 		if params.Alert != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "alert", *params.Alert, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Incident != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident", *params.Incident, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
