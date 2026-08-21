@@ -9463,6 +9463,12 @@ type EscalationPathNodeDelayV2 struct {
 // EscalationPathNodeDelayV2DelayIntervalCondition If the delay is relative to a time window, this defines whether we advance when the window is active or inactive
 type EscalationPathNodeDelayV2DelayIntervalCondition string
 
+// EscalationPathNodeEscalationPathV2 defines model for EscalationPathNodeEscalationPathV2.
+type EscalationPathNodeEscalationPathV2 struct {
+	// EscalationPathId The ID of the escalation path to reassign to
+	EscalationPathId string `json:"escalation_path_id"`
+}
+
 // EscalationPathNodeIfElsePayloadV2 defines model for EscalationPathNodeIfElsePayloadV2.
 type EscalationPathNodeIfElsePayloadV2 struct {
 	// Conditions The condition that defines which branch to take
@@ -9533,7 +9539,8 @@ type EscalationPathNodeNotifyChannelV2TimeToAckIntervalCondition string
 
 // EscalationPathNodePayloadV2 defines model for EscalationPathNodePayloadV2.
 type EscalationPathNodePayloadV2 struct {
-	Delay *EscalationPathNodeDelayV2 `json:"delay,omitempty"`
+	Delay          *EscalationPathNodeDelayV2          `json:"delay,omitempty"`
+	EscalationPath *EscalationPathNodeEscalationPathV2 `json:"escalation_path,omitempty"`
 
 	// Id An ID for this node, unique within the escalation path.
 	//
@@ -9576,7 +9583,8 @@ type EscalationPathNodeRepeatV2 struct {
 
 // EscalationPathNodeV2 defines model for EscalationPathNodeV2.
 type EscalationPathNodeV2 struct {
-	Delay *EscalationPathNodeDelayV2 `json:"delay,omitempty"`
+	Delay          *EscalationPathNodeDelayV2          `json:"delay,omitempty"`
+	EscalationPath *EscalationPathNodeEscalationPathV2 `json:"escalation_path,omitempty"`
 
 	// Id An ID for this node, unique within the escalation path.
 	//

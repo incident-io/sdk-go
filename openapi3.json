@@ -42143,6 +42143,22 @@
         },
         "type": "object"
       },
+      "EscalationPathNodeEscalationPathV2": {
+        "example": {
+          "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+        },
+        "properties": {
+          "escalation_path_id": {
+            "description": "The ID of the escalation path to reassign to",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          }
+        },
+        "required": [
+          "escalation_path_id"
+        ],
+        "type": "object"
+      },
       "EscalationPathNodeIfElsePayloadV2": {
         "example": {
           "conditions": [
@@ -42171,6 +42187,9 @@
                 "delay_interval_condition": "active",
                 "delay_seconds": 300,
                 "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+              },
+              "escalation_path": {
+                "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
               },
               "id": "01FCNDV6P870EA6S7TK1DSYDG0",
               "if_else": {
@@ -42251,6 +42270,9 @@
                 "delay_interval_condition": "active",
                 "delay_seconds": 300,
                 "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+              },
+              "escalation_path": {
+                "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
               },
               "id": "01FCNDV6P870EA6S7TK1DSYDG0",
               "if_else": {
@@ -42363,6 +42385,9 @@
                   "delay_seconds": 300,
                   "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                 },
+                "escalation_path": {
+                  "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                },
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "if_else": {
                   "conditions": [
@@ -42449,6 +42474,9 @@
                   "delay_interval_condition": "active",
                   "delay_seconds": 300,
                   "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                },
+                "escalation_path": {
+                  "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                 },
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "if_else": {
@@ -42572,6 +42600,9 @@
                 "delay_seconds": 300,
                 "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
               },
+              "escalation_path": {
+                "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+              },
               "id": "01FCNDV6P870EA6S7TK1DSYDG0",
               "if_else": {
                 "conditions": [
@@ -42659,6 +42690,9 @@
                 "delay_interval_condition": "active",
                 "delay_seconds": 300,
                 "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+              },
+              "escalation_path": {
+                "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
               },
               "id": "01FCNDV6P870EA6S7TK1DSYDG0",
               "if_else": {
@@ -42787,6 +42821,9 @@
                   "delay_seconds": 300,
                   "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                 },
+                "escalation_path": {
+                  "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                },
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "if_else": {
                   "conditions": [
@@ -42881,6 +42918,9 @@
                   "delay_interval_condition": "active",
                   "delay_seconds": 300,
                   "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                },
+                "escalation_path": {
+                  "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                 },
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "if_else": {
@@ -43123,6 +43163,9 @@
             "delay_seconds": 300,
             "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
           },
+          "escalation_path": {
+            "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+          },
           "id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "if_else": {
             "conditions": [
@@ -43199,6 +43242,9 @@
           "delay": {
             "$ref": "#/components/schemas/EscalationPathNodeDelayV2"
           },
+          "escalation_path": {
+            "$ref": "#/components/schemas/EscalationPathNodeEscalationPathV2"
+          },
           "id": {
             "description": "An ID for this node, unique within the escalation path.\n\nThis allows you to reference the node in other nodes, such as when configuring a 'repeat' node.",
             "example": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -43267,6 +43313,9 @@
             "delay_interval_condition": "active",
             "delay_seconds": 300,
             "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+          },
+          "escalation_path": {
+            "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
           },
           "id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "if_else": {
@@ -43351,6 +43400,9 @@
         "properties": {
           "delay": {
             "$ref": "#/components/schemas/EscalationPathNodeDelayV2"
+          },
+          "escalation_path": {
+            "$ref": "#/components/schemas/EscalationPathNodeEscalationPathV2"
           },
           "id": {
             "description": "An ID for this node, unique within the escalation path.\n\nThis allows you to reference the node in other nodes, such as when configuring a 'repeat' node.",
@@ -43549,6 +43601,9 @@
                 "delay_seconds": 300,
                 "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
               },
+              "escalation_path": {
+                "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+              },
               "id": "01FCNDV6P870EA6S7TK1DSYDG0",
               "if_else": {
                 "conditions": [
@@ -43687,6 +43742,9 @@
                   "delay_interval_condition": "active",
                   "delay_seconds": 300,
                   "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                },
+                "escalation_path": {
+                  "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                 },
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "if_else": {
@@ -44219,6 +44277,9 @@
                 "delay_seconds": 300,
                 "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
               },
+              "escalation_path": {
+                "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+              },
               "id": "01FCNDV6P870EA6S7TK1DSYDG0",
               "if_else": {
                 "conditions": [
@@ -44328,6 +44389,9 @@
                   "delay_interval_condition": "active",
                   "delay_seconds": 300,
                   "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                },
+                "escalation_path": {
+                  "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                 },
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "if_else": {
@@ -44469,6 +44533,9 @@
                   "delay_interval_condition": "active",
                   "delay_seconds": 300,
                   "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                },
+                "escalation_path": {
+                  "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                 },
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "if_else": {
@@ -44757,6 +44824,9 @@
                     "delay_seconds": 300,
                     "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                   },
+                  "escalation_path": {
+                    "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                  },
                   "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                   "if_else": {
                     "conditions": [
@@ -44887,6 +44957,9 @@
                       "delay_interval_condition": "active",
                       "delay_seconds": 300,
                       "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                    },
+                    "escalation_path": {
+                      "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                     },
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                     "if_else": {
@@ -45218,6 +45291,9 @@
                   "delay_seconds": 300,
                   "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                 },
+                "escalation_path": {
+                  "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                },
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "if_else": {
                   "conditions": [
@@ -45436,6 +45512,9 @@
                 "delay_seconds": 300,
                 "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
               },
+              "escalation_path": {
+                "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+              },
               "id": "01FCNDV6P870EA6S7TK1DSYDG0",
               "if_else": {
                 "conditions": [
@@ -45545,6 +45624,9 @@
                   "delay_interval_condition": "active",
                   "delay_seconds": 300,
                   "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                },
+                "escalation_path": {
+                  "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                 },
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "if_else": {
@@ -45686,6 +45768,9 @@
                   "delay_interval_condition": "active",
                   "delay_seconds": 300,
                   "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                },
+                "escalation_path": {
+                  "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                 },
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "if_else": {
@@ -86780,6 +86865,9 @@
                             "delay_seconds": 300,
                             "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                           },
+                          "escalation_path": {
+                            "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                          },
                           "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                           "if_else": {
                             "conditions": [
@@ -86927,6 +87015,9 @@
                       "delay_seconds": 300,
                       "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                     },
+                    "escalation_path": {
+                      "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                    },
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                     "if_else": {
                       "conditions": [
@@ -87052,6 +87143,9 @@
                           "delay_interval_condition": "active",
                           "delay_seconds": 300,
                           "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                        },
+                        "escalation_path": {
+                          "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                         },
                         "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                         "if_else": {
@@ -87260,6 +87354,9 @@
                           "delay_seconds": 300,
                           "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                         },
+                        "escalation_path": {
+                          "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                        },
                         "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                         "if_else": {
                           "conditions": [
@@ -87416,6 +87513,9 @@
                       "delay_seconds": 300,
                       "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                     },
+                    "escalation_path": {
+                      "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                    },
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                     "if_else": {
                       "conditions": [
@@ -87541,6 +87641,9 @@
                           "delay_interval_condition": "active",
                           "delay_seconds": 300,
                           "delay_weekday_interval_config_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                        },
+                        "escalation_path": {
+                          "escalation_path_id": "01FCNDV6P870EA6S7TK1DSYDG0"
                         },
                         "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                         "if_else": {
