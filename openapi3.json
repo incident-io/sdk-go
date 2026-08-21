@@ -91897,6 +91897,45 @@
         ]
       }
     },
+    "/v2/schedule_overrides/{id}": {
+      "delete": {
+        "description": "Delete a schedule override, restoring whoever the rotations put on-call for that window.\n\nDeleting an override that has already been deleted succeeds, so it is safe to retry.",
+        "operationId": "Schedules V2#DestroyOverride",
+        "parameters": [
+          {
+            "description": "The override ID to delete",
+            "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "The override ID to delete",
+              "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content response."
+          }
+        },
+        "summary": "DestroyOverride Schedules V2",
+        "tags": [
+          "Schedules V2"
+        ],
+        "x-display-name": "Destroy",
+        "x-docs-display-name": "Delete",
+        "x-docs-group-name": "Schedule Overrides V2",
+        "x-docs-resource-type": "ScheduleOverrideV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_overrides.destroy` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_overrides.destroy"
+        ]
+      }
+    },
     "/v2/schedule_sync_targets": {
       "get": {
         "description": "List all schedule sync targets for this organisation.",

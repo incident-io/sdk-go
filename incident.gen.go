@@ -15907,6 +15907,9 @@ type ClientInterface interface {
 
 	SchedulesV2CreateOverride(ctx context.Context, body SchedulesV2CreateOverrideJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// SchedulesV2DestroyOverride request
+	SchedulesV2DestroyOverride(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ScheduleSyncTargetsV2List request
 	ScheduleSyncTargetsV2List(ctx context.Context, params *ScheduleSyncTargetsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -18610,6 +18613,18 @@ func (c *Client) SchedulesV2CreateOverrideWithBody(ctx context.Context, contentT
 
 func (c *Client) SchedulesV2CreateOverride(ctx context.Context, body SchedulesV2CreateOverrideJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newSchedulesV2CreateOverrideRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SchedulesV2DestroyOverride(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSchedulesV2DestroyOverrideRequest(c.Server, id)
 	if err != nil {
 		return nil, err
 	}
@@ -26697,6 +26712,40 @@ func newSchedulesV2CreateOverrideRequestWithBody(server string, contentType stri
 	return req, nil
 }
 
+// NewSchedulesV2DestroyOverrideRequest generates requests for SchedulesV2DestroyOverride
+func newSchedulesV2DestroyOverrideRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/schedule_overrides/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewScheduleSyncTargetsV2ListRequest generates requests for ScheduleSyncTargetsV2List
 func newScheduleSyncTargetsV2ListRequest(server string, params *ScheduleSyncTargetsV2ListParams) (*http.Request, error) {
 	var err error
@@ -30769,6 +30818,9 @@ type ClientWithResponsesInterface interface {
 
 	SchedulesV2CreateOverrideWithResponse(ctx context.Context, body SchedulesV2CreateOverrideJSONRequestBody, reqEditors ...RequestEditorFn) (*SchedulesV2CreateOverrideResponse, error)
 
+	// SchedulesV2DestroyOverrideWithResponse request
+	SchedulesV2DestroyOverrideWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*SchedulesV2DestroyOverrideResponse, error)
+
 	// ScheduleSyncTargetsV2ListWithResponse request
 	ScheduleSyncTargetsV2ListWithResponse(ctx context.Context, params *ScheduleSyncTargetsV2ListParams, reqEditors ...RequestEditorFn) (*ScheduleSyncTargetsV2ListResponse, error)
 
@@ -34188,6 +34240,27 @@ func (r SchedulesV2CreateOverrideResponse) StatusCode() int {
 	return 0
 }
 
+type SchedulesV2DestroyOverrideResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+}
+
+// Status returns HTTPResponse.Status
+func (r SchedulesV2DestroyOverrideResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SchedulesV2DestroyOverrideResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type ScheduleSyncTargetsV2ListResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -37580,6 +37653,15 @@ func (c *ClientWithResponses) SchedulesV2CreateOverrideWithResponse(ctx context.
 		return nil, err
 	}
 	return parseSchedulesV2CreateOverrideResponse(rsp)
+}
+
+// SchedulesV2DestroyOverrideWithResponse request returning *SchedulesV2DestroyOverrideResponse
+func (c *ClientWithResponses) SchedulesV2DestroyOverrideWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*SchedulesV2DestroyOverrideResponse, error) {
+	rsp, err := c.SchedulesV2DestroyOverride(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSchedulesV2DestroyOverrideResponse(rsp)
 }
 
 // ScheduleSyncTargetsV2ListWithResponse request returning *ScheduleSyncTargetsV2ListResponse
@@ -41961,6 +42043,22 @@ func parseSchedulesV2CreateOverrideResponse(rsp *http.Response) (*SchedulesV2Cre
 		}
 		response.JSON201 = &dest
 
+	}
+
+	return response, nil
+}
+
+// ParseSchedulesV2DestroyOverrideResponse parses an HTTP response from a SchedulesV2DestroyOverrideWithResponse call
+func parseSchedulesV2DestroyOverrideResponse(rsp *http.Response) (*SchedulesV2DestroyOverrideResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SchedulesV2DestroyOverrideResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
 	}
 
 	return response, nil
