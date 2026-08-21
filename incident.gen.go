@@ -12780,6 +12780,27 @@ type SchedulesShowScheduleSyncRuleResultV2 struct {
 	ScheduleSyncRule ScheduleSyncRuleV2 `json:"schedule_sync_rule"`
 }
 
+// SchedulesUpdateOverridePayloadV2 defines model for SchedulesUpdateOverridePayloadV2.
+type SchedulesUpdateOverridePayloadV2 struct {
+	// EndAt End time of the override
+	EndAt time.Time `json:"end_at"`
+
+	// LayerId The layer this override applies to
+	LayerId string `json:"layer_id"`
+
+	// RotationId The rotation this override applies to
+	RotationId string `json:"rotation_id"`
+
+	// StartAt Start time of the override
+	StartAt time.Time              `json:"start_at"`
+	User    UserReferencePayloadV2 `json:"user"`
+}
+
+// SchedulesUpdateOverrideResultV2 defines model for SchedulesUpdateOverrideResultV2.
+type SchedulesUpdateOverrideResultV2 struct {
+	Override ScheduleOverrideV2 `json:"override"`
+}
+
 // SchedulesUpdatePayloadV2 defines model for SchedulesUpdatePayloadV2.
 type SchedulesUpdatePayloadV2 struct {
 	Schedule ScheduleUpdatePayloadV2 `json:"schedule"`
@@ -15209,6 +15230,9 @@ type IncidentsV2ImportPostmortemDocumentJSONRequestBody = IncidentsImportPostmor
 // SchedulesV2CreateOverrideJSONRequestBody defines body for SchedulesV2CreateOverride for application/json ContentType.
 type SchedulesV2CreateOverrideJSONRequestBody = SchedulesCreateOverridePayloadV2
 
+// SchedulesV2UpdateOverrideJSONRequestBody defines body for SchedulesV2UpdateOverride for application/json ContentType.
+type SchedulesV2UpdateOverrideJSONRequestBody = SchedulesUpdateOverridePayloadV2
+
 // ScheduleSyncTargetsV2CreateJSONRequestBody defines body for ScheduleSyncTargetsV2Create for application/json ContentType.
 type ScheduleSyncTargetsV2CreateJSONRequestBody = ScheduleSyncTargetsCreatePayloadV2
 
@@ -15909,6 +15933,11 @@ type ClientInterface interface {
 
 	// SchedulesV2DestroyOverride request
 	SchedulesV2DestroyOverride(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SchedulesV2UpdateOverrideWithBody request with any body
+	SchedulesV2UpdateOverrideWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	SchedulesV2UpdateOverride(ctx context.Context, id string, body SchedulesV2UpdateOverrideJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// ScheduleSyncTargetsV2List request
 	ScheduleSyncTargetsV2List(ctx context.Context, params *ScheduleSyncTargetsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -18625,6 +18654,30 @@ func (c *Client) SchedulesV2CreateOverride(ctx context.Context, body SchedulesV2
 
 func (c *Client) SchedulesV2DestroyOverride(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newSchedulesV2DestroyOverrideRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SchedulesV2UpdateOverrideWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSchedulesV2UpdateOverrideRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) SchedulesV2UpdateOverride(ctx context.Context, id string, body SchedulesV2UpdateOverrideJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSchedulesV2UpdateOverrideRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -26746,6 +26799,53 @@ func newSchedulesV2DestroyOverrideRequest(server string, id string) (*http.Reque
 	return req, nil
 }
 
+// NewSchedulesV2UpdateOverrideRequest calls the generic SchedulesV2UpdateOverride builder with application/json body
+func newSchedulesV2UpdateOverrideRequest(server string, id string, body SchedulesV2UpdateOverrideJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newSchedulesV2UpdateOverrideRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewSchedulesV2UpdateOverrideRequestWithBody generates requests for SchedulesV2UpdateOverride with any type of body
+func newSchedulesV2UpdateOverrideRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/schedule_overrides/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewScheduleSyncTargetsV2ListRequest generates requests for ScheduleSyncTargetsV2List
 func newScheduleSyncTargetsV2ListRequest(server string, params *ScheduleSyncTargetsV2ListParams) (*http.Request, error) {
 	var err error
@@ -30821,6 +30921,11 @@ type ClientWithResponsesInterface interface {
 	// SchedulesV2DestroyOverrideWithResponse request
 	SchedulesV2DestroyOverrideWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*SchedulesV2DestroyOverrideResponse, error)
 
+	// SchedulesV2UpdateOverrideWithBodyWithResponse request with any body
+	SchedulesV2UpdateOverrideWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SchedulesV2UpdateOverrideResponse, error)
+
+	SchedulesV2UpdateOverrideWithResponse(ctx context.Context, id string, body SchedulesV2UpdateOverrideJSONRequestBody, reqEditors ...RequestEditorFn) (*SchedulesV2UpdateOverrideResponse, error)
+
 	// ScheduleSyncTargetsV2ListWithResponse request
 	ScheduleSyncTargetsV2ListWithResponse(ctx context.Context, params *ScheduleSyncTargetsV2ListParams, reqEditors ...RequestEditorFn) (*ScheduleSyncTargetsV2ListResponse, error)
 
@@ -34261,6 +34366,28 @@ func (r SchedulesV2DestroyOverrideResponse) StatusCode() int {
 	return 0
 }
 
+type SchedulesV2UpdateOverrideResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *SchedulesUpdateOverrideResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r SchedulesV2UpdateOverrideResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SchedulesV2UpdateOverrideResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type ScheduleSyncTargetsV2ListResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -37662,6 +37789,23 @@ func (c *ClientWithResponses) SchedulesV2DestroyOverrideWithResponse(ctx context
 		return nil, err
 	}
 	return parseSchedulesV2DestroyOverrideResponse(rsp)
+}
+
+// SchedulesV2UpdateOverrideWithBodyWithResponse request with arbitrary body returning *SchedulesV2UpdateOverrideResponse
+func (c *ClientWithResponses) SchedulesV2UpdateOverrideWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SchedulesV2UpdateOverrideResponse, error) {
+	rsp, err := c.SchedulesV2UpdateOverrideWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSchedulesV2UpdateOverrideResponse(rsp)
+}
+
+func (c *ClientWithResponses) SchedulesV2UpdateOverrideWithResponse(ctx context.Context, id string, body SchedulesV2UpdateOverrideJSONRequestBody, reqEditors ...RequestEditorFn) (*SchedulesV2UpdateOverrideResponse, error) {
+	rsp, err := c.SchedulesV2UpdateOverride(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSchedulesV2UpdateOverrideResponse(rsp)
 }
 
 // ScheduleSyncTargetsV2ListWithResponse request returning *ScheduleSyncTargetsV2ListResponse
@@ -42059,6 +42203,32 @@ func parseSchedulesV2DestroyOverrideResponse(rsp *http.Response) (*SchedulesV2De
 	response := &SchedulesV2DestroyOverrideResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
+	}
+
+	return response, nil
+}
+
+// ParseSchedulesV2UpdateOverrideResponse parses an HTTP response from a SchedulesV2UpdateOverrideWithResponse call
+func parseSchedulesV2UpdateOverrideResponse(rsp *http.Response) (*SchedulesV2UpdateOverrideResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SchedulesV2UpdateOverrideResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SchedulesUpdateOverrideResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
 	}
 
 	return response, nil
