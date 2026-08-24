@@ -94,7 +94,8 @@
               "secrets_manage",
               "secrets_use",
               "call_transcripts_viewer",
-              "heartbeats_ping"
+              "heartbeats_ping",
+              "telemetry_query_restricted"
             ],
             "example": "viewer",
             "type": "string",
@@ -132,7 +133,8 @@
               "private_workflows_editor",
               "secrets_manage",
               "secrets_use",
-              "heartbeats_ping"
+              "heartbeats_ping",
+              "telemetry_query_restricted"
             ],
             "example": "catalog_editor",
             "type": "string",
@@ -342,7 +344,8 @@
                 "secrets_manage",
                 "secrets_use",
                 "call_transcripts_viewer",
-                "heartbeats_ping"
+                "heartbeats_ping",
+                "telemetry_query_restricted"
               ],
               "example": "viewer",
               "type": "string"
@@ -378,7 +381,8 @@
                 "private_workflows_editor",
                 "secrets_manage",
                 "secrets_use",
-                "heartbeats_ping"
+                "heartbeats_ping",
+                "telemetry_query_restricted"
               ],
               "example": "catalog_editor",
               "type": "string"
@@ -746,7 +750,8 @@
                 "secrets_manage",
                 "secrets_use",
                 "call_transcripts_viewer",
-                "heartbeats_ping"
+                "heartbeats_ping",
+                "telemetry_query_restricted"
               ],
               "example": "viewer",
               "type": "string"
@@ -782,7 +787,8 @@
                 "private_workflows_editor",
                 "secrets_manage",
                 "secrets_use",
-                "heartbeats_ping"
+                "heartbeats_ping",
+                "telemetry_query_restricted"
               ],
               "example": "catalog_editor",
               "type": "string"
@@ -50477,7 +50483,8 @@
                 "secrets_manage",
                 "secrets_use",
                 "call_transcripts_viewer",
-                "heartbeats_ping"
+                "heartbeats_ping",
+                "telemetry_query_restricted"
               ],
               "example": "viewer",
               "type": "string",
@@ -50504,7 +50511,8 @@
                 "private_workflows_editor",
                 "secrets_manage",
                 "secrets_use",
-                "heartbeats_ping"
+                "heartbeats_ping",
+                "telemetry_query_restricted"
               ],
               "example": "catalog_editor",
               "type": "string",
