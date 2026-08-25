@@ -7495,7 +7495,7 @@ type AlertSourceV2 struct {
 	// AlertEventsUrl URL that can be used to send alert events to this source. This is only set for sources that accept webhook/HTTP events; email sources use the email_address field, and integration-based sources (like Jira) receive events through their native integrations.
 	AlertEventsUrl *string `json:"alert_events_url,omitempty"`
 
-	// AutoResolveIncidentAlerts Whether to auto-resolve incident alerts when the alert auto-resolves. Defaults to true. Only use in conjunction with auto_resolve_timeout_minutes.
+	// AutoResolveIncidentAlerts Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts *bool `json:"auto_resolve_incident_alerts,omitempty"`
 
 	// AutoResolveTimeoutMinutes When set, alerts from this source will automatically resolve after this many minutes.
@@ -7527,7 +7527,7 @@ type AlertSourceV2SourceType string
 
 // AlertSourcesCreatePayloadV2 defines model for AlertSourcesCreatePayloadV2.
 type AlertSourcesCreatePayloadV2 struct {
-	// AutoResolveIncidentAlerts Whether to auto-resolve incident alerts when the alert auto-resolves. Defaults to true. Only use in conjunction with auto_resolve_timeout_minutes.
+	// AutoResolveIncidentAlerts Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts *bool `json:"auto_resolve_incident_alerts,omitempty"`
 
 	// AutoResolveTimeoutMinutes When set, alerts from this source will automatically resolve after this many minutes.
@@ -7568,7 +7568,7 @@ type AlertSourcesShowResultV2 struct {
 
 // AlertSourcesUpdatePayloadV2 defines model for AlertSourcesUpdatePayloadV2.
 type AlertSourcesUpdatePayloadV2 struct {
-	// AutoResolveIncidentAlerts Whether to auto-resolve incident alerts when the alert auto-resolves. Defaults to true. Only use in conjunction with auto_resolve_timeout_minutes.
+	// AutoResolveIncidentAlerts Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts *bool `json:"auto_resolve_incident_alerts,omitempty"`
 
 	// AutoResolveTimeoutMinutes When set, alerts from this source will automatically resolve after this many minutes.

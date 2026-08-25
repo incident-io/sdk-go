@@ -14559,7 +14559,7 @@
             "type": "string"
           },
           "auto_resolve_incident_alerts": {
-            "description": "Whether to auto-resolve incident alerts when the alert auto-resolves. Defaults to true. Only use in conjunction with auto_resolve_timeout_minutes.",
+            "description": "Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.",
             "example": false,
             "type": "boolean"
           },
@@ -14867,7 +14867,7 @@
         },
         "properties": {
           "auto_resolve_incident_alerts": {
-            "description": "Whether to auto-resolve incident alerts when the alert auto-resolves. Defaults to true. Only use in conjunction with auto_resolve_timeout_minutes.",
+            "description": "Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.",
             "example": false,
             "type": "boolean"
           },
@@ -16085,7 +16085,7 @@
         },
         "properties": {
           "auto_resolve_incident_alerts": {
-            "description": "Whether to auto-resolve incident alerts when the alert auto-resolves. Defaults to true. Only use in conjunction with auto_resolve_timeout_minutes.",
+            "description": "Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.",
             "example": false,
             "type": "boolean"
           },
