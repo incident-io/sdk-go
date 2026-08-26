@@ -895,6 +895,7 @@ func (e AlertSourceEmailOptionsV2Redactions) Valid() bool {
 const (
 	AlertSourceV2SourceTypeAlertmanager      AlertSourceV2SourceType = "alertmanager"
 	AlertSourceV2SourceTypeAppOptics         AlertSourceV2SourceType = "app_optics"
+	AlertSourceV2SourceTypeAzureDevops       AlertSourceV2SourceType = "azure_devops"
 	AlertSourceV2SourceTypeAzureMonitor      AlertSourceV2SourceType = "azure_monitor"
 	AlertSourceV2SourceTypeBigPanda          AlertSourceV2SourceType = "big_panda"
 	AlertSourceV2SourceTypeBugsnag           AlertSourceV2SourceType = "bugsnag"
@@ -950,6 +951,8 @@ func (e AlertSourceV2SourceType) Valid() bool {
 	case AlertSourceV2SourceTypeAlertmanager:
 		return true
 	case AlertSourceV2SourceTypeAppOptics:
+		return true
+	case AlertSourceV2SourceTypeAzureDevops:
 		return true
 	case AlertSourceV2SourceTypeAzureMonitor:
 		return true
@@ -1054,6 +1057,7 @@ func (e AlertSourceV2SourceType) Valid() bool {
 const (
 	AlertSourcesCreatePayloadV2SourceTypeAlertmanager      AlertSourcesCreatePayloadV2SourceType = "alertmanager"
 	AlertSourcesCreatePayloadV2SourceTypeAppOptics         AlertSourcesCreatePayloadV2SourceType = "app_optics"
+	AlertSourcesCreatePayloadV2SourceTypeAzureDevops       AlertSourcesCreatePayloadV2SourceType = "azure_devops"
 	AlertSourcesCreatePayloadV2SourceTypeAzureMonitor      AlertSourcesCreatePayloadV2SourceType = "azure_monitor"
 	AlertSourcesCreatePayloadV2SourceTypeBigPanda          AlertSourcesCreatePayloadV2SourceType = "big_panda"
 	AlertSourcesCreatePayloadV2SourceTypeBugsnag           AlertSourcesCreatePayloadV2SourceType = "bugsnag"
@@ -1109,6 +1113,8 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesCreatePayloadV2SourceTypeAlertmanager:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeAppOptics:
+		return true
+	case AlertSourcesCreatePayloadV2SourceTypeAzureDevops:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeAzureMonitor:
 		return true
@@ -1213,6 +1219,7 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 const (
 	AlertSourcesValidatePayloadV2SourceTypeAlertmanager      AlertSourcesValidatePayloadV2SourceType = "alertmanager"
 	AlertSourcesValidatePayloadV2SourceTypeAppOptics         AlertSourcesValidatePayloadV2SourceType = "app_optics"
+	AlertSourcesValidatePayloadV2SourceTypeAzureDevops       AlertSourcesValidatePayloadV2SourceType = "azure_devops"
 	AlertSourcesValidatePayloadV2SourceTypeAzureMonitor      AlertSourcesValidatePayloadV2SourceType = "azure_monitor"
 	AlertSourcesValidatePayloadV2SourceTypeBigPanda          AlertSourcesValidatePayloadV2SourceType = "big_panda"
 	AlertSourcesValidatePayloadV2SourceTypeBugsnag           AlertSourcesValidatePayloadV2SourceType = "bugsnag"
@@ -1268,6 +1275,8 @@ func (e AlertSourcesValidatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesValidatePayloadV2SourceTypeAlertmanager:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeAppOptics:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeAzureDevops:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeAzureMonitor:
 		return true
@@ -7421,6 +7430,12 @@ type AlertSlimV2 struct {
 // AlertSlimV2Status Statuses of an alert
 type AlertSlimV2Status string
 
+// AlertSourceAzureDevopsOptionsV2 defines model for AlertSourceAzureDevopsOptionsV2.
+type AlertSourceAzureDevopsOptionsV2 struct {
+	// ProjectIds Which Azure DevOps projects should this alert source watch for work item updates? IDs can either be IDs of the projects in Azure DevOps, or IDs of catalog entries in the 'Azure DevOps Project' catalog type.
+	ProjectIds []string `json:"project_ids"`
+}
+
 // AlertSourceEmailOptionsPayloadV2 defines model for AlertSourceEmailOptionsPayloadV2.
 type AlertSourceEmailOptionsPayloadV2 struct {
 	// Redactions Which PII types to automatically redact from incoming email content before storage
@@ -7499,10 +7514,11 @@ type AlertSourceV2 struct {
 	AutoResolveIncidentAlerts *bool `json:"auto_resolve_incident_alerts,omitempty"`
 
 	// AutoResolveTimeoutMinutes When set, alerts from this source will automatically resolve after this many minutes.
-	AutoResolveTimeoutMinutes *int64                          `json:"auto_resolve_timeout_minutes,omitempty"`
-	EmailOptions              *AlertSourceEmailOptionsV2      `json:"email_options,omitempty"`
-	HeartbeatOptions          *AlertSourceHeartbeatOptionsV2  `json:"heartbeat_options,omitempty"`
-	HttpCustomOptions         *AlertSourceHTTPCustomOptionsV2 `json:"http_custom_options,omitempty"`
+	AutoResolveTimeoutMinutes *int64                           `json:"auto_resolve_timeout_minutes,omitempty"`
+	AzureDevopsOptions        *AlertSourceAzureDevopsOptionsV2 `json:"azure_devops_options,omitempty"`
+	EmailOptions              *AlertSourceEmailOptionsV2       `json:"email_options,omitempty"`
+	HeartbeatOptions          *AlertSourceHeartbeatOptionsV2   `json:"heartbeat_options,omitempty"`
+	HttpCustomOptions         *AlertSourceHTTPCustomOptionsV2  `json:"http_custom_options,omitempty"`
 
 	// Id The ID of this alert source
 	Id          string                    `json:"id"`
@@ -7532,6 +7548,7 @@ type AlertSourcesCreatePayloadV2 struct {
 
 	// AutoResolveTimeoutMinutes When set, alerts from this source will automatically resolve after this many minutes.
 	AutoResolveTimeoutMinutes *int64                                `json:"auto_resolve_timeout_minutes,omitempty"`
+	AzureDevopsOptions        *AlertSourceAzureDevopsOptionsV2      `json:"azure_devops_options,omitempty"`
 	EmailOptions              *AlertSourceEmailOptionsPayloadV2     `json:"email_options,omitempty"`
 	HeartbeatOptions          *AlertSourceHeartbeatOptionsPayloadV2 `json:"heartbeat_options,omitempty"`
 	HttpCustomOptions         *AlertSourceHTTPCustomOptionsV2       `json:"http_custom_options,omitempty"`
@@ -7572,7 +7589,8 @@ type AlertSourcesUpdatePayloadV2 struct {
 	AutoResolveIncidentAlerts *bool `json:"auto_resolve_incident_alerts,omitempty"`
 
 	// AutoResolveTimeoutMinutes When set, alerts from this source will automatically resolve after this many minutes.
-	AutoResolveTimeoutMinutes *int64 `json:"auto_resolve_timeout_minutes,omitempty"`
+	AutoResolveTimeoutMinutes *int64                           `json:"auto_resolve_timeout_minutes,omitempty"`
+	AzureDevopsOptions        *AlertSourceAzureDevopsOptionsV2 `json:"azure_devops_options,omitempty"`
 
 	// Disabled For heartbeat sources, set to true to disable monitoring
 	Disabled          *bool                                 `json:"disabled,omitempty"`
