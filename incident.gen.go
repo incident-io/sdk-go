@@ -51,6 +51,7 @@ const (
 	APIKeyRoleV1NameSecuritySettingsEditor              APIKeyRoleV1Name = "security_settings_editor"
 	APIKeyRoleV1NameStatusPagePublisher                 APIKeyRoleV1Name = "status_page_publisher"
 	APIKeyRoleV1NameTeamMembershipsManage               APIKeyRoleV1Name = "team_memberships_manage"
+	APIKeyRoleV1NameTelemetryDataSourceUpdate           APIKeyRoleV1Name = "telemetry_data_source_update"
 	APIKeyRoleV1NameTelemetryQueryRestricted            APIKeyRoleV1Name = "telemetry_query_restricted"
 	APIKeyRoleV1NameViewer                              APIKeyRoleV1Name = "viewer"
 	APIKeyRoleV1NameWorkflowsEditor                     APIKeyRoleV1Name = "workflows_editor"
@@ -122,6 +123,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 		return true
 	case APIKeyRoleV1NameTeamMembershipsManage:
 		return true
+	case APIKeyRoleV1NameTelemetryDataSourceUpdate:
+		return true
 	case APIKeyRoleV1NameTelemetryQueryRestricted:
 		return true
 	case APIKeyRoleV1NameViewer:
@@ -137,19 +140,20 @@ func (e APIKeyRoleV1Name) Valid() bool {
 
 // Defines values for APIKeyTeamRoleV1Name.
 const (
-	APIKeyTeamRoleV1NameApiKeysManage            APIKeyTeamRoleV1Name = "api_keys_manage"
-	APIKeyTeamRoleV1NameCatalogEditor            APIKeyTeamRoleV1Name = "catalog_editor"
-	APIKeyTeamRoleV1NameEscalationCreator        APIKeyTeamRoleV1Name = "escalation_creator"
-	APIKeyTeamRoleV1NameHeartbeatsPing           APIKeyTeamRoleV1Name = "heartbeats_ping"
-	APIKeyTeamRoleV1NameOnCallEditor             APIKeyTeamRoleV1Name = "on_call_editor"
-	APIKeyTeamRoleV1NamePrivateWorkflowsEditor   APIKeyTeamRoleV1Name = "private_workflows_editor"
-	APIKeyTeamRoleV1NameScheduleOverridesEditor  APIKeyTeamRoleV1Name = "schedule_overrides_editor"
-	APIKeyTeamRoleV1NameSchedulesEditor          APIKeyTeamRoleV1Name = "schedules_editor"
-	APIKeyTeamRoleV1NameSchedulesReader          APIKeyTeamRoleV1Name = "schedules_reader"
-	APIKeyTeamRoleV1NameSecretsManage            APIKeyTeamRoleV1Name = "secrets_manage"
-	APIKeyTeamRoleV1NameSecretsUse               APIKeyTeamRoleV1Name = "secrets_use"
-	APIKeyTeamRoleV1NameTelemetryQueryRestricted APIKeyTeamRoleV1Name = "telemetry_query_restricted"
-	APIKeyTeamRoleV1NameWorkflowsEditor          APIKeyTeamRoleV1Name = "workflows_editor"
+	APIKeyTeamRoleV1NameApiKeysManage             APIKeyTeamRoleV1Name = "api_keys_manage"
+	APIKeyTeamRoleV1NameCatalogEditor             APIKeyTeamRoleV1Name = "catalog_editor"
+	APIKeyTeamRoleV1NameEscalationCreator         APIKeyTeamRoleV1Name = "escalation_creator"
+	APIKeyTeamRoleV1NameHeartbeatsPing            APIKeyTeamRoleV1Name = "heartbeats_ping"
+	APIKeyTeamRoleV1NameOnCallEditor              APIKeyTeamRoleV1Name = "on_call_editor"
+	APIKeyTeamRoleV1NamePrivateWorkflowsEditor    APIKeyTeamRoleV1Name = "private_workflows_editor"
+	APIKeyTeamRoleV1NameScheduleOverridesEditor   APIKeyTeamRoleV1Name = "schedule_overrides_editor"
+	APIKeyTeamRoleV1NameSchedulesEditor           APIKeyTeamRoleV1Name = "schedules_editor"
+	APIKeyTeamRoleV1NameSchedulesReader           APIKeyTeamRoleV1Name = "schedules_reader"
+	APIKeyTeamRoleV1NameSecretsManage             APIKeyTeamRoleV1Name = "secrets_manage"
+	APIKeyTeamRoleV1NameSecretsUse                APIKeyTeamRoleV1Name = "secrets_use"
+	APIKeyTeamRoleV1NameTelemetryDataSourceUpdate APIKeyTeamRoleV1Name = "telemetry_data_source_update"
+	APIKeyTeamRoleV1NameTelemetryQueryRestricted  APIKeyTeamRoleV1Name = "telemetry_query_restricted"
+	APIKeyTeamRoleV1NameWorkflowsEditor           APIKeyTeamRoleV1Name = "workflows_editor"
 )
 
 // Valid indicates whether the value is a known member of the APIKeyTeamRoleV1Name enum.
@@ -176,6 +180,8 @@ func (e APIKeyTeamRoleV1Name) Valid() bool {
 	case APIKeyTeamRoleV1NameSecretsManage:
 		return true
 	case APIKeyTeamRoleV1NameSecretsUse:
+		return true
+	case APIKeyTeamRoleV1NameTelemetryDataSourceUpdate:
 		return true
 	case APIKeyTeamRoleV1NameTelemetryQueryRestricted:
 		return true
@@ -219,6 +225,7 @@ const (
 	APIKeysCreatePayloadV1RoleNamesSecuritySettingsEditor              APIKeysCreatePayloadV1RoleNames = "security_settings_editor"
 	APIKeysCreatePayloadV1RoleNamesStatusPagePublisher                 APIKeysCreatePayloadV1RoleNames = "status_page_publisher"
 	APIKeysCreatePayloadV1RoleNamesTeamMembershipsManage               APIKeysCreatePayloadV1RoleNames = "team_memberships_manage"
+	APIKeysCreatePayloadV1RoleNamesTelemetryDataSourceUpdate           APIKeysCreatePayloadV1RoleNames = "telemetry_data_source_update"
 	APIKeysCreatePayloadV1RoleNamesTelemetryQueryRestricted            APIKeysCreatePayloadV1RoleNames = "telemetry_query_restricted"
 	APIKeysCreatePayloadV1RoleNamesViewer                              APIKeysCreatePayloadV1RoleNames = "viewer"
 	APIKeysCreatePayloadV1RoleNamesWorkflowsEditor                     APIKeysCreatePayloadV1RoleNames = "workflows_editor"
@@ -290,6 +297,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 		return true
 	case APIKeysCreatePayloadV1RoleNamesTeamMembershipsManage:
 		return true
+	case APIKeysCreatePayloadV1RoleNamesTelemetryDataSourceUpdate:
+		return true
 	case APIKeysCreatePayloadV1RoleNamesTelemetryQueryRestricted:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesViewer:
@@ -305,19 +314,20 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 
 // Defines values for APIKeysCreatePayloadV1TeamRoleNames.
 const (
-	APIKeysCreatePayloadV1TeamRoleNamesApiKeysManage            APIKeysCreatePayloadV1TeamRoleNames = "api_keys_manage"
-	APIKeysCreatePayloadV1TeamRoleNamesCatalogEditor            APIKeysCreatePayloadV1TeamRoleNames = "catalog_editor"
-	APIKeysCreatePayloadV1TeamRoleNamesEscalationCreator        APIKeysCreatePayloadV1TeamRoleNames = "escalation_creator"
-	APIKeysCreatePayloadV1TeamRoleNamesHeartbeatsPing           APIKeysCreatePayloadV1TeamRoleNames = "heartbeats_ping"
-	APIKeysCreatePayloadV1TeamRoleNamesOnCallEditor             APIKeysCreatePayloadV1TeamRoleNames = "on_call_editor"
-	APIKeysCreatePayloadV1TeamRoleNamesPrivateWorkflowsEditor   APIKeysCreatePayloadV1TeamRoleNames = "private_workflows_editor"
-	APIKeysCreatePayloadV1TeamRoleNamesScheduleOverridesEditor  APIKeysCreatePayloadV1TeamRoleNames = "schedule_overrides_editor"
-	APIKeysCreatePayloadV1TeamRoleNamesSchedulesEditor          APIKeysCreatePayloadV1TeamRoleNames = "schedules_editor"
-	APIKeysCreatePayloadV1TeamRoleNamesSchedulesReader          APIKeysCreatePayloadV1TeamRoleNames = "schedules_reader"
-	APIKeysCreatePayloadV1TeamRoleNamesSecretsManage            APIKeysCreatePayloadV1TeamRoleNames = "secrets_manage"
-	APIKeysCreatePayloadV1TeamRoleNamesSecretsUse               APIKeysCreatePayloadV1TeamRoleNames = "secrets_use"
-	APIKeysCreatePayloadV1TeamRoleNamesTelemetryQueryRestricted APIKeysCreatePayloadV1TeamRoleNames = "telemetry_query_restricted"
-	APIKeysCreatePayloadV1TeamRoleNamesWorkflowsEditor          APIKeysCreatePayloadV1TeamRoleNames = "workflows_editor"
+	APIKeysCreatePayloadV1TeamRoleNamesApiKeysManage             APIKeysCreatePayloadV1TeamRoleNames = "api_keys_manage"
+	APIKeysCreatePayloadV1TeamRoleNamesCatalogEditor             APIKeysCreatePayloadV1TeamRoleNames = "catalog_editor"
+	APIKeysCreatePayloadV1TeamRoleNamesEscalationCreator         APIKeysCreatePayloadV1TeamRoleNames = "escalation_creator"
+	APIKeysCreatePayloadV1TeamRoleNamesHeartbeatsPing            APIKeysCreatePayloadV1TeamRoleNames = "heartbeats_ping"
+	APIKeysCreatePayloadV1TeamRoleNamesOnCallEditor              APIKeysCreatePayloadV1TeamRoleNames = "on_call_editor"
+	APIKeysCreatePayloadV1TeamRoleNamesPrivateWorkflowsEditor    APIKeysCreatePayloadV1TeamRoleNames = "private_workflows_editor"
+	APIKeysCreatePayloadV1TeamRoleNamesScheduleOverridesEditor   APIKeysCreatePayloadV1TeamRoleNames = "schedule_overrides_editor"
+	APIKeysCreatePayloadV1TeamRoleNamesSchedulesEditor           APIKeysCreatePayloadV1TeamRoleNames = "schedules_editor"
+	APIKeysCreatePayloadV1TeamRoleNamesSchedulesReader           APIKeysCreatePayloadV1TeamRoleNames = "schedules_reader"
+	APIKeysCreatePayloadV1TeamRoleNamesSecretsManage             APIKeysCreatePayloadV1TeamRoleNames = "secrets_manage"
+	APIKeysCreatePayloadV1TeamRoleNamesSecretsUse                APIKeysCreatePayloadV1TeamRoleNames = "secrets_use"
+	APIKeysCreatePayloadV1TeamRoleNamesTelemetryDataSourceUpdate APIKeysCreatePayloadV1TeamRoleNames = "telemetry_data_source_update"
+	APIKeysCreatePayloadV1TeamRoleNamesTelemetryQueryRestricted  APIKeysCreatePayloadV1TeamRoleNames = "telemetry_query_restricted"
+	APIKeysCreatePayloadV1TeamRoleNamesWorkflowsEditor           APIKeysCreatePayloadV1TeamRoleNames = "workflows_editor"
 )
 
 // Valid indicates whether the value is a known member of the APIKeysCreatePayloadV1TeamRoleNames enum.
@@ -344,6 +354,8 @@ func (e APIKeysCreatePayloadV1TeamRoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1TeamRoleNamesSecretsManage:
 		return true
 	case APIKeysCreatePayloadV1TeamRoleNamesSecretsUse:
+		return true
+	case APIKeysCreatePayloadV1TeamRoleNamesTelemetryDataSourceUpdate:
 		return true
 	case APIKeysCreatePayloadV1TeamRoleNamesTelemetryQueryRestricted:
 		return true
@@ -387,6 +399,7 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesSecuritySettingsEditor              APIKeysUpdatePayloadV1RoleNames = "security_settings_editor"
 	APIKeysUpdatePayloadV1RoleNamesStatusPagePublisher                 APIKeysUpdatePayloadV1RoleNames = "status_page_publisher"
 	APIKeysUpdatePayloadV1RoleNamesTeamMembershipsManage               APIKeysUpdatePayloadV1RoleNames = "team_memberships_manage"
+	APIKeysUpdatePayloadV1RoleNamesTelemetryDataSourceUpdate           APIKeysUpdatePayloadV1RoleNames = "telemetry_data_source_update"
 	APIKeysUpdatePayloadV1RoleNamesTelemetryQueryRestricted            APIKeysUpdatePayloadV1RoleNames = "telemetry_query_restricted"
 	APIKeysUpdatePayloadV1RoleNamesViewer                              APIKeysUpdatePayloadV1RoleNames = "viewer"
 	APIKeysUpdatePayloadV1RoleNamesWorkflowsEditor                     APIKeysUpdatePayloadV1RoleNames = "workflows_editor"
@@ -458,6 +471,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesTeamMembershipsManage:
 		return true
+	case APIKeysUpdatePayloadV1RoleNamesTelemetryDataSourceUpdate:
+		return true
 	case APIKeysUpdatePayloadV1RoleNamesTelemetryQueryRestricted:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesViewer:
@@ -473,19 +488,20 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 
 // Defines values for APIKeysUpdatePayloadV1TeamRoleNames.
 const (
-	APIKeysUpdatePayloadV1TeamRoleNamesApiKeysManage            APIKeysUpdatePayloadV1TeamRoleNames = "api_keys_manage"
-	APIKeysUpdatePayloadV1TeamRoleNamesCatalogEditor            APIKeysUpdatePayloadV1TeamRoleNames = "catalog_editor"
-	APIKeysUpdatePayloadV1TeamRoleNamesEscalationCreator        APIKeysUpdatePayloadV1TeamRoleNames = "escalation_creator"
-	APIKeysUpdatePayloadV1TeamRoleNamesHeartbeatsPing           APIKeysUpdatePayloadV1TeamRoleNames = "heartbeats_ping"
-	APIKeysUpdatePayloadV1TeamRoleNamesOnCallEditor             APIKeysUpdatePayloadV1TeamRoleNames = "on_call_editor"
-	APIKeysUpdatePayloadV1TeamRoleNamesPrivateWorkflowsEditor   APIKeysUpdatePayloadV1TeamRoleNames = "private_workflows_editor"
-	APIKeysUpdatePayloadV1TeamRoleNamesScheduleOverridesEditor  APIKeysUpdatePayloadV1TeamRoleNames = "schedule_overrides_editor"
-	APIKeysUpdatePayloadV1TeamRoleNamesSchedulesEditor          APIKeysUpdatePayloadV1TeamRoleNames = "schedules_editor"
-	APIKeysUpdatePayloadV1TeamRoleNamesSchedulesReader          APIKeysUpdatePayloadV1TeamRoleNames = "schedules_reader"
-	APIKeysUpdatePayloadV1TeamRoleNamesSecretsManage            APIKeysUpdatePayloadV1TeamRoleNames = "secrets_manage"
-	APIKeysUpdatePayloadV1TeamRoleNamesSecretsUse               APIKeysUpdatePayloadV1TeamRoleNames = "secrets_use"
-	APIKeysUpdatePayloadV1TeamRoleNamesTelemetryQueryRestricted APIKeysUpdatePayloadV1TeamRoleNames = "telemetry_query_restricted"
-	APIKeysUpdatePayloadV1TeamRoleNamesWorkflowsEditor          APIKeysUpdatePayloadV1TeamRoleNames = "workflows_editor"
+	APIKeysUpdatePayloadV1TeamRoleNamesApiKeysManage             APIKeysUpdatePayloadV1TeamRoleNames = "api_keys_manage"
+	APIKeysUpdatePayloadV1TeamRoleNamesCatalogEditor             APIKeysUpdatePayloadV1TeamRoleNames = "catalog_editor"
+	APIKeysUpdatePayloadV1TeamRoleNamesEscalationCreator         APIKeysUpdatePayloadV1TeamRoleNames = "escalation_creator"
+	APIKeysUpdatePayloadV1TeamRoleNamesHeartbeatsPing            APIKeysUpdatePayloadV1TeamRoleNames = "heartbeats_ping"
+	APIKeysUpdatePayloadV1TeamRoleNamesOnCallEditor              APIKeysUpdatePayloadV1TeamRoleNames = "on_call_editor"
+	APIKeysUpdatePayloadV1TeamRoleNamesPrivateWorkflowsEditor    APIKeysUpdatePayloadV1TeamRoleNames = "private_workflows_editor"
+	APIKeysUpdatePayloadV1TeamRoleNamesScheduleOverridesEditor   APIKeysUpdatePayloadV1TeamRoleNames = "schedule_overrides_editor"
+	APIKeysUpdatePayloadV1TeamRoleNamesSchedulesEditor           APIKeysUpdatePayloadV1TeamRoleNames = "schedules_editor"
+	APIKeysUpdatePayloadV1TeamRoleNamesSchedulesReader           APIKeysUpdatePayloadV1TeamRoleNames = "schedules_reader"
+	APIKeysUpdatePayloadV1TeamRoleNamesSecretsManage             APIKeysUpdatePayloadV1TeamRoleNames = "secrets_manage"
+	APIKeysUpdatePayloadV1TeamRoleNamesSecretsUse                APIKeysUpdatePayloadV1TeamRoleNames = "secrets_use"
+	APIKeysUpdatePayloadV1TeamRoleNamesTelemetryDataSourceUpdate APIKeysUpdatePayloadV1TeamRoleNames = "telemetry_data_source_update"
+	APIKeysUpdatePayloadV1TeamRoleNamesTelemetryQueryRestricted  APIKeysUpdatePayloadV1TeamRoleNames = "telemetry_query_restricted"
+	APIKeysUpdatePayloadV1TeamRoleNamesWorkflowsEditor           APIKeysUpdatePayloadV1TeamRoleNames = "workflows_editor"
 )
 
 // Valid indicates whether the value is a known member of the APIKeysUpdatePayloadV1TeamRoleNames enum.
@@ -512,6 +528,8 @@ func (e APIKeysUpdatePayloadV1TeamRoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1TeamRoleNamesSecretsManage:
 		return true
 	case APIKeysUpdatePayloadV1TeamRoleNamesSecretsUse:
+		return true
+	case APIKeysUpdatePayloadV1TeamRoleNamesTelemetryDataSourceUpdate:
 		return true
 	case APIKeysUpdatePayloadV1TeamRoleNamesTelemetryQueryRestricted:
 		return true
@@ -1544,33 +1562,34 @@ func (e CatalogCreateTypePayloadV2Color) Valid() bool {
 
 // Defines values for CatalogCreateTypePayloadV2Icon.
 const (
-	CatalogCreateTypePayloadV2IconAlert          CatalogCreateTypePayloadV2Icon = "alert"
-	CatalogCreateTypePayloadV2IconBolt           CatalogCreateTypePayloadV2Icon = "bolt"
-	CatalogCreateTypePayloadV2IconBox            CatalogCreateTypePayloadV2Icon = "box"
-	CatalogCreateTypePayloadV2IconBriefcase      CatalogCreateTypePayloadV2Icon = "briefcase"
-	CatalogCreateTypePayloadV2IconBrowser        CatalogCreateTypePayloadV2Icon = "browser"
-	CatalogCreateTypePayloadV2IconBulb           CatalogCreateTypePayloadV2Icon = "bulb"
-	CatalogCreateTypePayloadV2IconCalendar       CatalogCreateTypePayloadV2Icon = "calendar"
-	CatalogCreateTypePayloadV2IconClock          CatalogCreateTypePayloadV2Icon = "clock"
-	CatalogCreateTypePayloadV2IconCog            CatalogCreateTypePayloadV2Icon = "cog"
-	CatalogCreateTypePayloadV2IconComponents     CatalogCreateTypePayloadV2Icon = "components"
-	CatalogCreateTypePayloadV2IconDatabase       CatalogCreateTypePayloadV2Icon = "database"
-	CatalogCreateTypePayloadV2IconDoc            CatalogCreateTypePayloadV2Icon = "doc"
-	CatalogCreateTypePayloadV2IconEmail          CatalogCreateTypePayloadV2Icon = "email"
-	CatalogCreateTypePayloadV2IconEscalationPath CatalogCreateTypePayloadV2Icon = "escalation-path"
-	CatalogCreateTypePayloadV2IconFiles          CatalogCreateTypePayloadV2Icon = "files"
-	CatalogCreateTypePayloadV2IconFlag           CatalogCreateTypePayloadV2Icon = "flag"
-	CatalogCreateTypePayloadV2IconFolder         CatalogCreateTypePayloadV2Icon = "folder"
-	CatalogCreateTypePayloadV2IconGlobe          CatalogCreateTypePayloadV2Icon = "globe"
-	CatalogCreateTypePayloadV2IconMoney          CatalogCreateTypePayloadV2Icon = "money"
-	CatalogCreateTypePayloadV2IconServer         CatalogCreateTypePayloadV2Icon = "server"
-	CatalogCreateTypePayloadV2IconSeverity       CatalogCreateTypePayloadV2Icon = "severity"
-	CatalogCreateTypePayloadV2IconStar           CatalogCreateTypePayloadV2Icon = "star"
-	CatalogCreateTypePayloadV2IconStatusPage     CatalogCreateTypePayloadV2Icon = "status-page"
-	CatalogCreateTypePayloadV2IconStore          CatalogCreateTypePayloadV2Icon = "store"
-	CatalogCreateTypePayloadV2IconTag            CatalogCreateTypePayloadV2Icon = "tag"
-	CatalogCreateTypePayloadV2IconUser           CatalogCreateTypePayloadV2Icon = "user"
-	CatalogCreateTypePayloadV2IconUsers          CatalogCreateTypePayloadV2Icon = "users"
+	CatalogCreateTypePayloadV2IconAlert            CatalogCreateTypePayloadV2Icon = "alert"
+	CatalogCreateTypePayloadV2IconBolt             CatalogCreateTypePayloadV2Icon = "bolt"
+	CatalogCreateTypePayloadV2IconBox              CatalogCreateTypePayloadV2Icon = "box"
+	CatalogCreateTypePayloadV2IconBriefcase        CatalogCreateTypePayloadV2Icon = "briefcase"
+	CatalogCreateTypePayloadV2IconBrowser          CatalogCreateTypePayloadV2Icon = "browser"
+	CatalogCreateTypePayloadV2IconBulb             CatalogCreateTypePayloadV2Icon = "bulb"
+	CatalogCreateTypePayloadV2IconCalendar         CatalogCreateTypePayloadV2Icon = "calendar"
+	CatalogCreateTypePayloadV2IconClock            CatalogCreateTypePayloadV2Icon = "clock"
+	CatalogCreateTypePayloadV2IconCog              CatalogCreateTypePayloadV2Icon = "cog"
+	CatalogCreateTypePayloadV2IconComponents       CatalogCreateTypePayloadV2Icon = "components"
+	CatalogCreateTypePayloadV2IconDatabase         CatalogCreateTypePayloadV2Icon = "database"
+	CatalogCreateTypePayloadV2IconDoc              CatalogCreateTypePayloadV2Icon = "doc"
+	CatalogCreateTypePayloadV2IconEmail            CatalogCreateTypePayloadV2Icon = "email"
+	CatalogCreateTypePayloadV2IconEscalationPath   CatalogCreateTypePayloadV2Icon = "escalation-path"
+	CatalogCreateTypePayloadV2IconFiles            CatalogCreateTypePayloadV2Icon = "files"
+	CatalogCreateTypePayloadV2IconFlag             CatalogCreateTypePayloadV2Icon = "flag"
+	CatalogCreateTypePayloadV2IconFolder           CatalogCreateTypePayloadV2Icon = "folder"
+	CatalogCreateTypePayloadV2IconGlobe            CatalogCreateTypePayloadV2Icon = "globe"
+	CatalogCreateTypePayloadV2IconIncidentTemplate CatalogCreateTypePayloadV2Icon = "incident-template"
+	CatalogCreateTypePayloadV2IconMoney            CatalogCreateTypePayloadV2Icon = "money"
+	CatalogCreateTypePayloadV2IconServer           CatalogCreateTypePayloadV2Icon = "server"
+	CatalogCreateTypePayloadV2IconSeverity         CatalogCreateTypePayloadV2Icon = "severity"
+	CatalogCreateTypePayloadV2IconStar             CatalogCreateTypePayloadV2Icon = "star"
+	CatalogCreateTypePayloadV2IconStatusPage       CatalogCreateTypePayloadV2Icon = "status-page"
+	CatalogCreateTypePayloadV2IconStore            CatalogCreateTypePayloadV2Icon = "store"
+	CatalogCreateTypePayloadV2IconTag              CatalogCreateTypePayloadV2Icon = "tag"
+	CatalogCreateTypePayloadV2IconUser             CatalogCreateTypePayloadV2Icon = "user"
+	CatalogCreateTypePayloadV2IconUsers            CatalogCreateTypePayloadV2Icon = "users"
 )
 
 // Valid indicates whether the value is a known member of the CatalogCreateTypePayloadV2Icon enum.
@@ -1611,6 +1630,8 @@ func (e CatalogCreateTypePayloadV2Icon) Valid() bool {
 	case CatalogCreateTypePayloadV2IconFolder:
 		return true
 	case CatalogCreateTypePayloadV2IconGlobe:
+		return true
+	case CatalogCreateTypePayloadV2IconIncidentTemplate:
 		return true
 	case CatalogCreateTypePayloadV2IconMoney:
 		return true
@@ -1703,33 +1724,34 @@ func (e CatalogCreateTypePayloadV3Color) Valid() bool {
 
 // Defines values for CatalogCreateTypePayloadV3Icon.
 const (
-	CatalogCreateTypePayloadV3IconAlert          CatalogCreateTypePayloadV3Icon = "alert"
-	CatalogCreateTypePayloadV3IconBolt           CatalogCreateTypePayloadV3Icon = "bolt"
-	CatalogCreateTypePayloadV3IconBox            CatalogCreateTypePayloadV3Icon = "box"
-	CatalogCreateTypePayloadV3IconBriefcase      CatalogCreateTypePayloadV3Icon = "briefcase"
-	CatalogCreateTypePayloadV3IconBrowser        CatalogCreateTypePayloadV3Icon = "browser"
-	CatalogCreateTypePayloadV3IconBulb           CatalogCreateTypePayloadV3Icon = "bulb"
-	CatalogCreateTypePayloadV3IconCalendar       CatalogCreateTypePayloadV3Icon = "calendar"
-	CatalogCreateTypePayloadV3IconClock          CatalogCreateTypePayloadV3Icon = "clock"
-	CatalogCreateTypePayloadV3IconCog            CatalogCreateTypePayloadV3Icon = "cog"
-	CatalogCreateTypePayloadV3IconComponents     CatalogCreateTypePayloadV3Icon = "components"
-	CatalogCreateTypePayloadV3IconDatabase       CatalogCreateTypePayloadV3Icon = "database"
-	CatalogCreateTypePayloadV3IconDoc            CatalogCreateTypePayloadV3Icon = "doc"
-	CatalogCreateTypePayloadV3IconEmail          CatalogCreateTypePayloadV3Icon = "email"
-	CatalogCreateTypePayloadV3IconEscalationPath CatalogCreateTypePayloadV3Icon = "escalation-path"
-	CatalogCreateTypePayloadV3IconFiles          CatalogCreateTypePayloadV3Icon = "files"
-	CatalogCreateTypePayloadV3IconFlag           CatalogCreateTypePayloadV3Icon = "flag"
-	CatalogCreateTypePayloadV3IconFolder         CatalogCreateTypePayloadV3Icon = "folder"
-	CatalogCreateTypePayloadV3IconGlobe          CatalogCreateTypePayloadV3Icon = "globe"
-	CatalogCreateTypePayloadV3IconMoney          CatalogCreateTypePayloadV3Icon = "money"
-	CatalogCreateTypePayloadV3IconServer         CatalogCreateTypePayloadV3Icon = "server"
-	CatalogCreateTypePayloadV3IconSeverity       CatalogCreateTypePayloadV3Icon = "severity"
-	CatalogCreateTypePayloadV3IconStar           CatalogCreateTypePayloadV3Icon = "star"
-	CatalogCreateTypePayloadV3IconStatusPage     CatalogCreateTypePayloadV3Icon = "status-page"
-	CatalogCreateTypePayloadV3IconStore          CatalogCreateTypePayloadV3Icon = "store"
-	CatalogCreateTypePayloadV3IconTag            CatalogCreateTypePayloadV3Icon = "tag"
-	CatalogCreateTypePayloadV3IconUser           CatalogCreateTypePayloadV3Icon = "user"
-	CatalogCreateTypePayloadV3IconUsers          CatalogCreateTypePayloadV3Icon = "users"
+	CatalogCreateTypePayloadV3IconAlert            CatalogCreateTypePayloadV3Icon = "alert"
+	CatalogCreateTypePayloadV3IconBolt             CatalogCreateTypePayloadV3Icon = "bolt"
+	CatalogCreateTypePayloadV3IconBox              CatalogCreateTypePayloadV3Icon = "box"
+	CatalogCreateTypePayloadV3IconBriefcase        CatalogCreateTypePayloadV3Icon = "briefcase"
+	CatalogCreateTypePayloadV3IconBrowser          CatalogCreateTypePayloadV3Icon = "browser"
+	CatalogCreateTypePayloadV3IconBulb             CatalogCreateTypePayloadV3Icon = "bulb"
+	CatalogCreateTypePayloadV3IconCalendar         CatalogCreateTypePayloadV3Icon = "calendar"
+	CatalogCreateTypePayloadV3IconClock            CatalogCreateTypePayloadV3Icon = "clock"
+	CatalogCreateTypePayloadV3IconCog              CatalogCreateTypePayloadV3Icon = "cog"
+	CatalogCreateTypePayloadV3IconComponents       CatalogCreateTypePayloadV3Icon = "components"
+	CatalogCreateTypePayloadV3IconDatabase         CatalogCreateTypePayloadV3Icon = "database"
+	CatalogCreateTypePayloadV3IconDoc              CatalogCreateTypePayloadV3Icon = "doc"
+	CatalogCreateTypePayloadV3IconEmail            CatalogCreateTypePayloadV3Icon = "email"
+	CatalogCreateTypePayloadV3IconEscalationPath   CatalogCreateTypePayloadV3Icon = "escalation-path"
+	CatalogCreateTypePayloadV3IconFiles            CatalogCreateTypePayloadV3Icon = "files"
+	CatalogCreateTypePayloadV3IconFlag             CatalogCreateTypePayloadV3Icon = "flag"
+	CatalogCreateTypePayloadV3IconFolder           CatalogCreateTypePayloadV3Icon = "folder"
+	CatalogCreateTypePayloadV3IconGlobe            CatalogCreateTypePayloadV3Icon = "globe"
+	CatalogCreateTypePayloadV3IconIncidentTemplate CatalogCreateTypePayloadV3Icon = "incident-template"
+	CatalogCreateTypePayloadV3IconMoney            CatalogCreateTypePayloadV3Icon = "money"
+	CatalogCreateTypePayloadV3IconServer           CatalogCreateTypePayloadV3Icon = "server"
+	CatalogCreateTypePayloadV3IconSeverity         CatalogCreateTypePayloadV3Icon = "severity"
+	CatalogCreateTypePayloadV3IconStar             CatalogCreateTypePayloadV3Icon = "star"
+	CatalogCreateTypePayloadV3IconStatusPage       CatalogCreateTypePayloadV3Icon = "status-page"
+	CatalogCreateTypePayloadV3IconStore            CatalogCreateTypePayloadV3Icon = "store"
+	CatalogCreateTypePayloadV3IconTag              CatalogCreateTypePayloadV3Icon = "tag"
+	CatalogCreateTypePayloadV3IconUser             CatalogCreateTypePayloadV3Icon = "user"
+	CatalogCreateTypePayloadV3IconUsers            CatalogCreateTypePayloadV3Icon = "users"
 )
 
 // Valid indicates whether the value is a known member of the CatalogCreateTypePayloadV3Icon enum.
@@ -1770,6 +1792,8 @@ func (e CatalogCreateTypePayloadV3Icon) Valid() bool {
 	case CatalogCreateTypePayloadV3IconFolder:
 		return true
 	case CatalogCreateTypePayloadV3IconGlobe:
+		return true
+	case CatalogCreateTypePayloadV3IconIncidentTemplate:
 		return true
 	case CatalogCreateTypePayloadV3IconMoney:
 		return true
@@ -2042,33 +2066,34 @@ func (e CatalogTypeV2Color) Valid() bool {
 
 // Defines values for CatalogTypeV2Icon.
 const (
-	CatalogTypeV2IconAlert          CatalogTypeV2Icon = "alert"
-	CatalogTypeV2IconBolt           CatalogTypeV2Icon = "bolt"
-	CatalogTypeV2IconBox            CatalogTypeV2Icon = "box"
-	CatalogTypeV2IconBriefcase      CatalogTypeV2Icon = "briefcase"
-	CatalogTypeV2IconBrowser        CatalogTypeV2Icon = "browser"
-	CatalogTypeV2IconBulb           CatalogTypeV2Icon = "bulb"
-	CatalogTypeV2IconCalendar       CatalogTypeV2Icon = "calendar"
-	CatalogTypeV2IconClock          CatalogTypeV2Icon = "clock"
-	CatalogTypeV2IconCog            CatalogTypeV2Icon = "cog"
-	CatalogTypeV2IconComponents     CatalogTypeV2Icon = "components"
-	CatalogTypeV2IconDatabase       CatalogTypeV2Icon = "database"
-	CatalogTypeV2IconDoc            CatalogTypeV2Icon = "doc"
-	CatalogTypeV2IconEmail          CatalogTypeV2Icon = "email"
-	CatalogTypeV2IconEscalationPath CatalogTypeV2Icon = "escalation-path"
-	CatalogTypeV2IconFiles          CatalogTypeV2Icon = "files"
-	CatalogTypeV2IconFlag           CatalogTypeV2Icon = "flag"
-	CatalogTypeV2IconFolder         CatalogTypeV2Icon = "folder"
-	CatalogTypeV2IconGlobe          CatalogTypeV2Icon = "globe"
-	CatalogTypeV2IconMoney          CatalogTypeV2Icon = "money"
-	CatalogTypeV2IconServer         CatalogTypeV2Icon = "server"
-	CatalogTypeV2IconSeverity       CatalogTypeV2Icon = "severity"
-	CatalogTypeV2IconStar           CatalogTypeV2Icon = "star"
-	CatalogTypeV2IconStatusPage     CatalogTypeV2Icon = "status-page"
-	CatalogTypeV2IconStore          CatalogTypeV2Icon = "store"
-	CatalogTypeV2IconTag            CatalogTypeV2Icon = "tag"
-	CatalogTypeV2IconUser           CatalogTypeV2Icon = "user"
-	CatalogTypeV2IconUsers          CatalogTypeV2Icon = "users"
+	CatalogTypeV2IconAlert            CatalogTypeV2Icon = "alert"
+	CatalogTypeV2IconBolt             CatalogTypeV2Icon = "bolt"
+	CatalogTypeV2IconBox              CatalogTypeV2Icon = "box"
+	CatalogTypeV2IconBriefcase        CatalogTypeV2Icon = "briefcase"
+	CatalogTypeV2IconBrowser          CatalogTypeV2Icon = "browser"
+	CatalogTypeV2IconBulb             CatalogTypeV2Icon = "bulb"
+	CatalogTypeV2IconCalendar         CatalogTypeV2Icon = "calendar"
+	CatalogTypeV2IconClock            CatalogTypeV2Icon = "clock"
+	CatalogTypeV2IconCog              CatalogTypeV2Icon = "cog"
+	CatalogTypeV2IconComponents       CatalogTypeV2Icon = "components"
+	CatalogTypeV2IconDatabase         CatalogTypeV2Icon = "database"
+	CatalogTypeV2IconDoc              CatalogTypeV2Icon = "doc"
+	CatalogTypeV2IconEmail            CatalogTypeV2Icon = "email"
+	CatalogTypeV2IconEscalationPath   CatalogTypeV2Icon = "escalation-path"
+	CatalogTypeV2IconFiles            CatalogTypeV2Icon = "files"
+	CatalogTypeV2IconFlag             CatalogTypeV2Icon = "flag"
+	CatalogTypeV2IconFolder           CatalogTypeV2Icon = "folder"
+	CatalogTypeV2IconGlobe            CatalogTypeV2Icon = "globe"
+	CatalogTypeV2IconIncidentTemplate CatalogTypeV2Icon = "incident-template"
+	CatalogTypeV2IconMoney            CatalogTypeV2Icon = "money"
+	CatalogTypeV2IconServer           CatalogTypeV2Icon = "server"
+	CatalogTypeV2IconSeverity         CatalogTypeV2Icon = "severity"
+	CatalogTypeV2IconStar             CatalogTypeV2Icon = "star"
+	CatalogTypeV2IconStatusPage       CatalogTypeV2Icon = "status-page"
+	CatalogTypeV2IconStore            CatalogTypeV2Icon = "store"
+	CatalogTypeV2IconTag              CatalogTypeV2Icon = "tag"
+	CatalogTypeV2IconUser             CatalogTypeV2Icon = "user"
+	CatalogTypeV2IconUsers            CatalogTypeV2Icon = "users"
 )
 
 // Valid indicates whether the value is a known member of the CatalogTypeV2Icon enum.
@@ -2109,6 +2134,8 @@ func (e CatalogTypeV2Icon) Valid() bool {
 	case CatalogTypeV2IconFolder:
 		return true
 	case CatalogTypeV2IconGlobe:
+		return true
+	case CatalogTypeV2IconIncidentTemplate:
 		return true
 	case CatalogTypeV2IconMoney:
 		return true
@@ -2201,33 +2228,34 @@ func (e CatalogTypeV3Color) Valid() bool {
 
 // Defines values for CatalogTypeV3Icon.
 const (
-	CatalogTypeV3IconAlert          CatalogTypeV3Icon = "alert"
-	CatalogTypeV3IconBolt           CatalogTypeV3Icon = "bolt"
-	CatalogTypeV3IconBox            CatalogTypeV3Icon = "box"
-	CatalogTypeV3IconBriefcase      CatalogTypeV3Icon = "briefcase"
-	CatalogTypeV3IconBrowser        CatalogTypeV3Icon = "browser"
-	CatalogTypeV3IconBulb           CatalogTypeV3Icon = "bulb"
-	CatalogTypeV3IconCalendar       CatalogTypeV3Icon = "calendar"
-	CatalogTypeV3IconClock          CatalogTypeV3Icon = "clock"
-	CatalogTypeV3IconCog            CatalogTypeV3Icon = "cog"
-	CatalogTypeV3IconComponents     CatalogTypeV3Icon = "components"
-	CatalogTypeV3IconDatabase       CatalogTypeV3Icon = "database"
-	CatalogTypeV3IconDoc            CatalogTypeV3Icon = "doc"
-	CatalogTypeV3IconEmail          CatalogTypeV3Icon = "email"
-	CatalogTypeV3IconEscalationPath CatalogTypeV3Icon = "escalation-path"
-	CatalogTypeV3IconFiles          CatalogTypeV3Icon = "files"
-	CatalogTypeV3IconFlag           CatalogTypeV3Icon = "flag"
-	CatalogTypeV3IconFolder         CatalogTypeV3Icon = "folder"
-	CatalogTypeV3IconGlobe          CatalogTypeV3Icon = "globe"
-	CatalogTypeV3IconMoney          CatalogTypeV3Icon = "money"
-	CatalogTypeV3IconServer         CatalogTypeV3Icon = "server"
-	CatalogTypeV3IconSeverity       CatalogTypeV3Icon = "severity"
-	CatalogTypeV3IconStar           CatalogTypeV3Icon = "star"
-	CatalogTypeV3IconStatusPage     CatalogTypeV3Icon = "status-page"
-	CatalogTypeV3IconStore          CatalogTypeV3Icon = "store"
-	CatalogTypeV3IconTag            CatalogTypeV3Icon = "tag"
-	CatalogTypeV3IconUser           CatalogTypeV3Icon = "user"
-	CatalogTypeV3IconUsers          CatalogTypeV3Icon = "users"
+	CatalogTypeV3IconAlert            CatalogTypeV3Icon = "alert"
+	CatalogTypeV3IconBolt             CatalogTypeV3Icon = "bolt"
+	CatalogTypeV3IconBox              CatalogTypeV3Icon = "box"
+	CatalogTypeV3IconBriefcase        CatalogTypeV3Icon = "briefcase"
+	CatalogTypeV3IconBrowser          CatalogTypeV3Icon = "browser"
+	CatalogTypeV3IconBulb             CatalogTypeV3Icon = "bulb"
+	CatalogTypeV3IconCalendar         CatalogTypeV3Icon = "calendar"
+	CatalogTypeV3IconClock            CatalogTypeV3Icon = "clock"
+	CatalogTypeV3IconCog              CatalogTypeV3Icon = "cog"
+	CatalogTypeV3IconComponents       CatalogTypeV3Icon = "components"
+	CatalogTypeV3IconDatabase         CatalogTypeV3Icon = "database"
+	CatalogTypeV3IconDoc              CatalogTypeV3Icon = "doc"
+	CatalogTypeV3IconEmail            CatalogTypeV3Icon = "email"
+	CatalogTypeV3IconEscalationPath   CatalogTypeV3Icon = "escalation-path"
+	CatalogTypeV3IconFiles            CatalogTypeV3Icon = "files"
+	CatalogTypeV3IconFlag             CatalogTypeV3Icon = "flag"
+	CatalogTypeV3IconFolder           CatalogTypeV3Icon = "folder"
+	CatalogTypeV3IconGlobe            CatalogTypeV3Icon = "globe"
+	CatalogTypeV3IconIncidentTemplate CatalogTypeV3Icon = "incident-template"
+	CatalogTypeV3IconMoney            CatalogTypeV3Icon = "money"
+	CatalogTypeV3IconServer           CatalogTypeV3Icon = "server"
+	CatalogTypeV3IconSeverity         CatalogTypeV3Icon = "severity"
+	CatalogTypeV3IconStar             CatalogTypeV3Icon = "star"
+	CatalogTypeV3IconStatusPage       CatalogTypeV3Icon = "status-page"
+	CatalogTypeV3IconStore            CatalogTypeV3Icon = "store"
+	CatalogTypeV3IconTag              CatalogTypeV3Icon = "tag"
+	CatalogTypeV3IconUser             CatalogTypeV3Icon = "user"
+	CatalogTypeV3IconUsers            CatalogTypeV3Icon = "users"
 )
 
 // Valid indicates whether the value is a known member of the CatalogTypeV3Icon enum.
@@ -2268,6 +2296,8 @@ func (e CatalogTypeV3Icon) Valid() bool {
 	case CatalogTypeV3IconFolder:
 		return true
 	case CatalogTypeV3IconGlobe:
+		return true
+	case CatalogTypeV3IconIncidentTemplate:
 		return true
 	case CatalogTypeV3IconMoney:
 		return true
@@ -2360,33 +2390,34 @@ func (e CatalogUpdateTypePayloadV2Color) Valid() bool {
 
 // Defines values for CatalogUpdateTypePayloadV2Icon.
 const (
-	CatalogUpdateTypePayloadV2IconAlert          CatalogUpdateTypePayloadV2Icon = "alert"
-	CatalogUpdateTypePayloadV2IconBolt           CatalogUpdateTypePayloadV2Icon = "bolt"
-	CatalogUpdateTypePayloadV2IconBox            CatalogUpdateTypePayloadV2Icon = "box"
-	CatalogUpdateTypePayloadV2IconBriefcase      CatalogUpdateTypePayloadV2Icon = "briefcase"
-	CatalogUpdateTypePayloadV2IconBrowser        CatalogUpdateTypePayloadV2Icon = "browser"
-	CatalogUpdateTypePayloadV2IconBulb           CatalogUpdateTypePayloadV2Icon = "bulb"
-	CatalogUpdateTypePayloadV2IconCalendar       CatalogUpdateTypePayloadV2Icon = "calendar"
-	CatalogUpdateTypePayloadV2IconClock          CatalogUpdateTypePayloadV2Icon = "clock"
-	CatalogUpdateTypePayloadV2IconCog            CatalogUpdateTypePayloadV2Icon = "cog"
-	CatalogUpdateTypePayloadV2IconComponents     CatalogUpdateTypePayloadV2Icon = "components"
-	CatalogUpdateTypePayloadV2IconDatabase       CatalogUpdateTypePayloadV2Icon = "database"
-	CatalogUpdateTypePayloadV2IconDoc            CatalogUpdateTypePayloadV2Icon = "doc"
-	CatalogUpdateTypePayloadV2IconEmail          CatalogUpdateTypePayloadV2Icon = "email"
-	CatalogUpdateTypePayloadV2IconEscalationPath CatalogUpdateTypePayloadV2Icon = "escalation-path"
-	CatalogUpdateTypePayloadV2IconFiles          CatalogUpdateTypePayloadV2Icon = "files"
-	CatalogUpdateTypePayloadV2IconFlag           CatalogUpdateTypePayloadV2Icon = "flag"
-	CatalogUpdateTypePayloadV2IconFolder         CatalogUpdateTypePayloadV2Icon = "folder"
-	CatalogUpdateTypePayloadV2IconGlobe          CatalogUpdateTypePayloadV2Icon = "globe"
-	CatalogUpdateTypePayloadV2IconMoney          CatalogUpdateTypePayloadV2Icon = "money"
-	CatalogUpdateTypePayloadV2IconServer         CatalogUpdateTypePayloadV2Icon = "server"
-	CatalogUpdateTypePayloadV2IconSeverity       CatalogUpdateTypePayloadV2Icon = "severity"
-	CatalogUpdateTypePayloadV2IconStar           CatalogUpdateTypePayloadV2Icon = "star"
-	CatalogUpdateTypePayloadV2IconStatusPage     CatalogUpdateTypePayloadV2Icon = "status-page"
-	CatalogUpdateTypePayloadV2IconStore          CatalogUpdateTypePayloadV2Icon = "store"
-	CatalogUpdateTypePayloadV2IconTag            CatalogUpdateTypePayloadV2Icon = "tag"
-	CatalogUpdateTypePayloadV2IconUser           CatalogUpdateTypePayloadV2Icon = "user"
-	CatalogUpdateTypePayloadV2IconUsers          CatalogUpdateTypePayloadV2Icon = "users"
+	CatalogUpdateTypePayloadV2IconAlert            CatalogUpdateTypePayloadV2Icon = "alert"
+	CatalogUpdateTypePayloadV2IconBolt             CatalogUpdateTypePayloadV2Icon = "bolt"
+	CatalogUpdateTypePayloadV2IconBox              CatalogUpdateTypePayloadV2Icon = "box"
+	CatalogUpdateTypePayloadV2IconBriefcase        CatalogUpdateTypePayloadV2Icon = "briefcase"
+	CatalogUpdateTypePayloadV2IconBrowser          CatalogUpdateTypePayloadV2Icon = "browser"
+	CatalogUpdateTypePayloadV2IconBulb             CatalogUpdateTypePayloadV2Icon = "bulb"
+	CatalogUpdateTypePayloadV2IconCalendar         CatalogUpdateTypePayloadV2Icon = "calendar"
+	CatalogUpdateTypePayloadV2IconClock            CatalogUpdateTypePayloadV2Icon = "clock"
+	CatalogUpdateTypePayloadV2IconCog              CatalogUpdateTypePayloadV2Icon = "cog"
+	CatalogUpdateTypePayloadV2IconComponents       CatalogUpdateTypePayloadV2Icon = "components"
+	CatalogUpdateTypePayloadV2IconDatabase         CatalogUpdateTypePayloadV2Icon = "database"
+	CatalogUpdateTypePayloadV2IconDoc              CatalogUpdateTypePayloadV2Icon = "doc"
+	CatalogUpdateTypePayloadV2IconEmail            CatalogUpdateTypePayloadV2Icon = "email"
+	CatalogUpdateTypePayloadV2IconEscalationPath   CatalogUpdateTypePayloadV2Icon = "escalation-path"
+	CatalogUpdateTypePayloadV2IconFiles            CatalogUpdateTypePayloadV2Icon = "files"
+	CatalogUpdateTypePayloadV2IconFlag             CatalogUpdateTypePayloadV2Icon = "flag"
+	CatalogUpdateTypePayloadV2IconFolder           CatalogUpdateTypePayloadV2Icon = "folder"
+	CatalogUpdateTypePayloadV2IconGlobe            CatalogUpdateTypePayloadV2Icon = "globe"
+	CatalogUpdateTypePayloadV2IconIncidentTemplate CatalogUpdateTypePayloadV2Icon = "incident-template"
+	CatalogUpdateTypePayloadV2IconMoney            CatalogUpdateTypePayloadV2Icon = "money"
+	CatalogUpdateTypePayloadV2IconServer           CatalogUpdateTypePayloadV2Icon = "server"
+	CatalogUpdateTypePayloadV2IconSeverity         CatalogUpdateTypePayloadV2Icon = "severity"
+	CatalogUpdateTypePayloadV2IconStar             CatalogUpdateTypePayloadV2Icon = "star"
+	CatalogUpdateTypePayloadV2IconStatusPage       CatalogUpdateTypePayloadV2Icon = "status-page"
+	CatalogUpdateTypePayloadV2IconStore            CatalogUpdateTypePayloadV2Icon = "store"
+	CatalogUpdateTypePayloadV2IconTag              CatalogUpdateTypePayloadV2Icon = "tag"
+	CatalogUpdateTypePayloadV2IconUser             CatalogUpdateTypePayloadV2Icon = "user"
+	CatalogUpdateTypePayloadV2IconUsers            CatalogUpdateTypePayloadV2Icon = "users"
 )
 
 // Valid indicates whether the value is a known member of the CatalogUpdateTypePayloadV2Icon enum.
@@ -2427,6 +2458,8 @@ func (e CatalogUpdateTypePayloadV2Icon) Valid() bool {
 	case CatalogUpdateTypePayloadV2IconFolder:
 		return true
 	case CatalogUpdateTypePayloadV2IconGlobe:
+		return true
+	case CatalogUpdateTypePayloadV2IconIncidentTemplate:
 		return true
 	case CatalogUpdateTypePayloadV2IconMoney:
 		return true
@@ -2519,33 +2552,34 @@ func (e CatalogUpdateTypePayloadV3Color) Valid() bool {
 
 // Defines values for CatalogUpdateTypePayloadV3Icon.
 const (
-	CatalogUpdateTypePayloadV3IconAlert          CatalogUpdateTypePayloadV3Icon = "alert"
-	CatalogUpdateTypePayloadV3IconBolt           CatalogUpdateTypePayloadV3Icon = "bolt"
-	CatalogUpdateTypePayloadV3IconBox            CatalogUpdateTypePayloadV3Icon = "box"
-	CatalogUpdateTypePayloadV3IconBriefcase      CatalogUpdateTypePayloadV3Icon = "briefcase"
-	CatalogUpdateTypePayloadV3IconBrowser        CatalogUpdateTypePayloadV3Icon = "browser"
-	CatalogUpdateTypePayloadV3IconBulb           CatalogUpdateTypePayloadV3Icon = "bulb"
-	CatalogUpdateTypePayloadV3IconCalendar       CatalogUpdateTypePayloadV3Icon = "calendar"
-	CatalogUpdateTypePayloadV3IconClock          CatalogUpdateTypePayloadV3Icon = "clock"
-	CatalogUpdateTypePayloadV3IconCog            CatalogUpdateTypePayloadV3Icon = "cog"
-	CatalogUpdateTypePayloadV3IconComponents     CatalogUpdateTypePayloadV3Icon = "components"
-	CatalogUpdateTypePayloadV3IconDatabase       CatalogUpdateTypePayloadV3Icon = "database"
-	CatalogUpdateTypePayloadV3IconDoc            CatalogUpdateTypePayloadV3Icon = "doc"
-	CatalogUpdateTypePayloadV3IconEmail          CatalogUpdateTypePayloadV3Icon = "email"
-	CatalogUpdateTypePayloadV3IconEscalationPath CatalogUpdateTypePayloadV3Icon = "escalation-path"
-	CatalogUpdateTypePayloadV3IconFiles          CatalogUpdateTypePayloadV3Icon = "files"
-	CatalogUpdateTypePayloadV3IconFlag           CatalogUpdateTypePayloadV3Icon = "flag"
-	CatalogUpdateTypePayloadV3IconFolder         CatalogUpdateTypePayloadV3Icon = "folder"
-	CatalogUpdateTypePayloadV3IconGlobe          CatalogUpdateTypePayloadV3Icon = "globe"
-	CatalogUpdateTypePayloadV3IconMoney          CatalogUpdateTypePayloadV3Icon = "money"
-	CatalogUpdateTypePayloadV3IconServer         CatalogUpdateTypePayloadV3Icon = "server"
-	CatalogUpdateTypePayloadV3IconSeverity       CatalogUpdateTypePayloadV3Icon = "severity"
-	CatalogUpdateTypePayloadV3IconStar           CatalogUpdateTypePayloadV3Icon = "star"
-	CatalogUpdateTypePayloadV3IconStatusPage     CatalogUpdateTypePayloadV3Icon = "status-page"
-	CatalogUpdateTypePayloadV3IconStore          CatalogUpdateTypePayloadV3Icon = "store"
-	CatalogUpdateTypePayloadV3IconTag            CatalogUpdateTypePayloadV3Icon = "tag"
-	CatalogUpdateTypePayloadV3IconUser           CatalogUpdateTypePayloadV3Icon = "user"
-	CatalogUpdateTypePayloadV3IconUsers          CatalogUpdateTypePayloadV3Icon = "users"
+	CatalogUpdateTypePayloadV3IconAlert            CatalogUpdateTypePayloadV3Icon = "alert"
+	CatalogUpdateTypePayloadV3IconBolt             CatalogUpdateTypePayloadV3Icon = "bolt"
+	CatalogUpdateTypePayloadV3IconBox              CatalogUpdateTypePayloadV3Icon = "box"
+	CatalogUpdateTypePayloadV3IconBriefcase        CatalogUpdateTypePayloadV3Icon = "briefcase"
+	CatalogUpdateTypePayloadV3IconBrowser          CatalogUpdateTypePayloadV3Icon = "browser"
+	CatalogUpdateTypePayloadV3IconBulb             CatalogUpdateTypePayloadV3Icon = "bulb"
+	CatalogUpdateTypePayloadV3IconCalendar         CatalogUpdateTypePayloadV3Icon = "calendar"
+	CatalogUpdateTypePayloadV3IconClock            CatalogUpdateTypePayloadV3Icon = "clock"
+	CatalogUpdateTypePayloadV3IconCog              CatalogUpdateTypePayloadV3Icon = "cog"
+	CatalogUpdateTypePayloadV3IconComponents       CatalogUpdateTypePayloadV3Icon = "components"
+	CatalogUpdateTypePayloadV3IconDatabase         CatalogUpdateTypePayloadV3Icon = "database"
+	CatalogUpdateTypePayloadV3IconDoc              CatalogUpdateTypePayloadV3Icon = "doc"
+	CatalogUpdateTypePayloadV3IconEmail            CatalogUpdateTypePayloadV3Icon = "email"
+	CatalogUpdateTypePayloadV3IconEscalationPath   CatalogUpdateTypePayloadV3Icon = "escalation-path"
+	CatalogUpdateTypePayloadV3IconFiles            CatalogUpdateTypePayloadV3Icon = "files"
+	CatalogUpdateTypePayloadV3IconFlag             CatalogUpdateTypePayloadV3Icon = "flag"
+	CatalogUpdateTypePayloadV3IconFolder           CatalogUpdateTypePayloadV3Icon = "folder"
+	CatalogUpdateTypePayloadV3IconGlobe            CatalogUpdateTypePayloadV3Icon = "globe"
+	CatalogUpdateTypePayloadV3IconIncidentTemplate CatalogUpdateTypePayloadV3Icon = "incident-template"
+	CatalogUpdateTypePayloadV3IconMoney            CatalogUpdateTypePayloadV3Icon = "money"
+	CatalogUpdateTypePayloadV3IconServer           CatalogUpdateTypePayloadV3Icon = "server"
+	CatalogUpdateTypePayloadV3IconSeverity         CatalogUpdateTypePayloadV3Icon = "severity"
+	CatalogUpdateTypePayloadV3IconStar             CatalogUpdateTypePayloadV3Icon = "star"
+	CatalogUpdateTypePayloadV3IconStatusPage       CatalogUpdateTypePayloadV3Icon = "status-page"
+	CatalogUpdateTypePayloadV3IconStore            CatalogUpdateTypePayloadV3Icon = "store"
+	CatalogUpdateTypePayloadV3IconTag              CatalogUpdateTypePayloadV3Icon = "tag"
+	CatalogUpdateTypePayloadV3IconUser             CatalogUpdateTypePayloadV3Icon = "user"
+	CatalogUpdateTypePayloadV3IconUsers            CatalogUpdateTypePayloadV3Icon = "users"
 )
 
 // Valid indicates whether the value is a known member of the CatalogUpdateTypePayloadV3Icon enum.
@@ -2586,6 +2620,8 @@ func (e CatalogUpdateTypePayloadV3Icon) Valid() bool {
 	case CatalogUpdateTypePayloadV3IconFolder:
 		return true
 	case CatalogUpdateTypePayloadV3IconGlobe:
+		return true
+	case CatalogUpdateTypePayloadV3IconIncidentTemplate:
 		return true
 	case CatalogUpdateTypePayloadV3IconMoney:
 		return true
@@ -3186,6 +3222,27 @@ func (e EscalationPathTargetV2Urgency) Valid() bool {
 	}
 }
 
+// Defines values for EscalationUserResponseOptionsV2AvailableActions.
+const (
+	EscalationUserResponseOptionsV2AvailableActionsAck    EscalationUserResponseOptionsV2AvailableActions = "ack"
+	EscalationUserResponseOptionsV2AvailableActionsNack   EscalationUserResponseOptionsV2AvailableActions = "nack"
+	EscalationUserResponseOptionsV2AvailableActionsSnooze EscalationUserResponseOptionsV2AvailableActions = "snooze"
+)
+
+// Valid indicates whether the value is a known member of the EscalationUserResponseOptionsV2AvailableActions enum.
+func (e EscalationUserResponseOptionsV2AvailableActions) Valid() bool {
+	switch e {
+	case EscalationUserResponseOptionsV2AvailableActionsAck:
+		return true
+	case EscalationUserResponseOptionsV2AvailableActionsNack:
+		return true
+	case EscalationUserResponseOptionsV2AvailableActionsSnooze:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for EscalationV2Status.
 const (
 	EscalationV2StatusAcked         EscalationV2Status = "acked"
@@ -3219,6 +3276,27 @@ func (e EscalationV2Status) Valid() bool {
 	case EscalationV2StatusSnoozed:
 		return true
 	case EscalationV2StatusTriggered:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for EscalationsRespondEscalationPayloadV2Response.
+const (
+	EscalationsRespondEscalationPayloadV2ResponseAck    EscalationsRespondEscalationPayloadV2Response = "ack"
+	EscalationsRespondEscalationPayloadV2ResponseNack   EscalationsRespondEscalationPayloadV2Response = "nack"
+	EscalationsRespondEscalationPayloadV2ResponseSnooze EscalationsRespondEscalationPayloadV2Response = "snooze"
+)
+
+// Valid indicates whether the value is a known member of the EscalationsRespondEscalationPayloadV2Response enum.
+func (e EscalationsRespondEscalationPayloadV2Response) Valid() bool {
+	switch e {
+	case EscalationsRespondEscalationPayloadV2ResponseAck:
+		return true
+	case EscalationsRespondEscalationPayloadV2ResponseNack:
+		return true
+	case EscalationsRespondEscalationPayloadV2ResponseSnooze:
 		return true
 	default:
 		return false
@@ -3714,6 +3792,7 @@ const (
 	IdentityV1RolesSecuritySettingsEditor              IdentityV1Roles = "security_settings_editor"
 	IdentityV1RolesStatusPagePublisher                 IdentityV1Roles = "status_page_publisher"
 	IdentityV1RolesTeamMembershipsManage               IdentityV1Roles = "team_memberships_manage"
+	IdentityV1RolesTelemetryDataSourceUpdate           IdentityV1Roles = "telemetry_data_source_update"
 	IdentityV1RolesTelemetryQueryRestricted            IdentityV1Roles = "telemetry_query_restricted"
 	IdentityV1RolesViewer                              IdentityV1Roles = "viewer"
 	IdentityV1RolesWorkflowsEditor                     IdentityV1Roles = "workflows_editor"
@@ -3785,6 +3864,8 @@ func (e IdentityV1Roles) Valid() bool {
 		return true
 	case IdentityV1RolesTeamMembershipsManage:
 		return true
+	case IdentityV1RolesTelemetryDataSourceUpdate:
+		return true
 	case IdentityV1RolesTelemetryQueryRestricted:
 		return true
 	case IdentityV1RolesViewer:
@@ -3800,19 +3881,20 @@ func (e IdentityV1Roles) Valid() bool {
 
 // Defines values for IdentityV1TeamRoles.
 const (
-	IdentityV1TeamRolesApiKeysManage            IdentityV1TeamRoles = "api_keys_manage"
-	IdentityV1TeamRolesCatalogEditor            IdentityV1TeamRoles = "catalog_editor"
-	IdentityV1TeamRolesEscalationCreator        IdentityV1TeamRoles = "escalation_creator"
-	IdentityV1TeamRolesHeartbeatsPing           IdentityV1TeamRoles = "heartbeats_ping"
-	IdentityV1TeamRolesOnCallEditor             IdentityV1TeamRoles = "on_call_editor"
-	IdentityV1TeamRolesPrivateWorkflowsEditor   IdentityV1TeamRoles = "private_workflows_editor"
-	IdentityV1TeamRolesScheduleOverridesEditor  IdentityV1TeamRoles = "schedule_overrides_editor"
-	IdentityV1TeamRolesSchedulesEditor          IdentityV1TeamRoles = "schedules_editor"
-	IdentityV1TeamRolesSchedulesReader          IdentityV1TeamRoles = "schedules_reader"
-	IdentityV1TeamRolesSecretsManage            IdentityV1TeamRoles = "secrets_manage"
-	IdentityV1TeamRolesSecretsUse               IdentityV1TeamRoles = "secrets_use"
-	IdentityV1TeamRolesTelemetryQueryRestricted IdentityV1TeamRoles = "telemetry_query_restricted"
-	IdentityV1TeamRolesWorkflowsEditor          IdentityV1TeamRoles = "workflows_editor"
+	IdentityV1TeamRolesApiKeysManage             IdentityV1TeamRoles = "api_keys_manage"
+	IdentityV1TeamRolesCatalogEditor             IdentityV1TeamRoles = "catalog_editor"
+	IdentityV1TeamRolesEscalationCreator         IdentityV1TeamRoles = "escalation_creator"
+	IdentityV1TeamRolesHeartbeatsPing            IdentityV1TeamRoles = "heartbeats_ping"
+	IdentityV1TeamRolesOnCallEditor              IdentityV1TeamRoles = "on_call_editor"
+	IdentityV1TeamRolesPrivateWorkflowsEditor    IdentityV1TeamRoles = "private_workflows_editor"
+	IdentityV1TeamRolesScheduleOverridesEditor   IdentityV1TeamRoles = "schedule_overrides_editor"
+	IdentityV1TeamRolesSchedulesEditor           IdentityV1TeamRoles = "schedules_editor"
+	IdentityV1TeamRolesSchedulesReader           IdentityV1TeamRoles = "schedules_reader"
+	IdentityV1TeamRolesSecretsManage             IdentityV1TeamRoles = "secrets_manage"
+	IdentityV1TeamRolesSecretsUse                IdentityV1TeamRoles = "secrets_use"
+	IdentityV1TeamRolesTelemetryDataSourceUpdate IdentityV1TeamRoles = "telemetry_data_source_update"
+	IdentityV1TeamRolesTelemetryQueryRestricted  IdentityV1TeamRoles = "telemetry_query_restricted"
+	IdentityV1TeamRolesWorkflowsEditor           IdentityV1TeamRoles = "workflows_editor"
 )
 
 // Valid indicates whether the value is a known member of the IdentityV1TeamRoles enum.
@@ -3839,6 +3921,8 @@ func (e IdentityV1TeamRoles) Valid() bool {
 	case IdentityV1TeamRolesSecretsManage:
 		return true
 	case IdentityV1TeamRolesSecretsUse:
+		return true
+	case IdentityV1TeamRolesTelemetryDataSourceUpdate:
 		return true
 	case IdentityV1TeamRolesTelemetryQueryRestricted:
 		return true
@@ -6930,7 +7014,9 @@ type AlertRouteIncidentConfigPayloadV3 struct {
 	ConditionGroups *[]ConditionGroupPayloadV3 `json:"condition_groups,omitempty"`
 
 	// Enabled Whether incident creation is enabled for this alert route
-	Enabled  bool                                 `json:"enabled"`
+	Enabled bool `json:"enabled"`
+
+	// Template The template this alert route applies to the incidents it creates. It must be unset when incident creation is disabled. Disabling incident creation clears a template the route already has.
 	Template *AlertRouteIncidentTemplatePayloadV3 `json:"template,omitempty"`
 }
 
@@ -6967,7 +7053,9 @@ type AlertRouteIncidentConfigV3 struct {
 	ConditionGroups *[]ConditionGroupV3 `json:"condition_groups,omitempty"`
 
 	// Enabled Whether incident creation is enabled for this alert route
-	Enabled  bool                          `json:"enabled"`
+	Enabled bool `json:"enabled"`
+
+	// Template The template an alert route applies to the incidents it creates. Disabling incident creation clears it.
 	Template *AlertRouteIncidentTemplateV3 `json:"template,omitempty"`
 }
 
@@ -6985,7 +7073,7 @@ type AlertRouteIncidentTemplatePayloadV2 struct {
 	Workspace       *AlertRouteTemplateBindingPayloadV2              `json:"workspace,omitempty"`
 }
 
-// AlertRouteIncidentTemplatePayloadV3 defines model for AlertRouteIncidentTemplatePayloadV3.
+// AlertRouteIncidentTemplatePayloadV3 The template this alert route applies to the incidents it creates. It must be unset when incident creation is disabled. Disabling incident creation clears a template the route already has.
 type AlertRouteIncidentTemplatePayloadV3 struct {
 	// CustomFields Custom fields configuration
 	CustomFields    *[]AlertRouteCustomFieldBindingPayloadV3         `json:"custom_fields,omitempty"`
@@ -7012,7 +7100,7 @@ type AlertRouteIncidentTemplateV2 struct {
 	Workspace       *AlertRouteTemplateBindingV2              `json:"workspace,omitempty"`
 }
 
-// AlertRouteIncidentTemplateV3 defines model for AlertRouteIncidentTemplateV3.
+// AlertRouteIncidentTemplateV3 The template an alert route applies to the incidents it creates. Disabling incident creation clears it.
 type AlertRouteIncidentTemplateV3 struct {
 	// CustomFields Custom fields configuration
 	CustomFields    *[]AlertRouteCustomFieldBindingV3         `json:"custom_fields,omitempty"`
@@ -7516,7 +7604,7 @@ type AlertSourceJiraOptionsV2 struct {
 
 // AlertSourceRateLimitShardingV2 Controls how this source's ingest rate limit is split into buckets.
 type AlertSourceRateLimitShardingV2 struct {
-	// RateLimitShardKeyPath JSON path to a value that splits this source's rate limit into per-value buckets. Empty applies one limit to the whole source.
+	// RateLimitShardKeyPath JSON path to a value that splits this source's rate limit into per-value buckets.
 	RateLimitShardKeyPath string `json:"rate_limit_shard_key_path"`
 }
 
@@ -9764,6 +9852,27 @@ type EscalationPriorityV2 struct {
 	Name string `json:"name"`
 }
 
+// EscalationRespondSnoozeDetailsPayloadV2 defines model for EscalationRespondSnoozeDetailsPayloadV2.
+type EscalationRespondSnoozeDetailsPayloadV2 struct {
+	// Reason Optional reason for snoozing the escalation
+	Reason *string `json:"reason,omitempty"`
+
+	// SnoozeUntil The time at which the snooze should end
+	SnoozeUntil time.Time `json:"snooze_until"`
+}
+
+// EscalationUserResponseOptionsV2 defines model for EscalationUserResponseOptionsV2.
+type EscalationUserResponseOptionsV2 struct {
+	// AvailableActions The response actions this user can currently take on the escalation. Empty if the user can't respond to it at all.
+	AvailableActions []EscalationUserResponseOptionsV2AvailableActions `json:"available_actions"`
+
+	// UserId The ID of the user these response options are for
+	UserId string `json:"user_id"`
+}
+
+// EscalationUserResponseOptionsV2AvailableActions An action a user can take in response to an escalation
+type EscalationUserResponseOptionsV2AvailableActions string
+
 // EscalationV2 defines model for EscalationV2.
 type EscalationV2 struct {
 	// CreatedAt When this escalation was created
@@ -9805,6 +9914,18 @@ type EscalationV2 struct {
 
 // EscalationV2Status Status of the escalation
 type EscalationV2Status string
+
+// EscalationsCheckEscalationPermissionsPayloadV2 defines model for EscalationsCheckEscalationPermissionsPayloadV2.
+type EscalationsCheckEscalationPermissionsPayloadV2 struct {
+	// UserIds The IDs of the users to check response options for
+	UserIds []string `json:"user_ids"`
+}
+
+// EscalationsCheckEscalationPermissionsResultV2 defines model for EscalationsCheckEscalationPermissionsResultV2.
+type EscalationsCheckEscalationPermissionsResultV2 struct {
+	// ResponseOptions The response options available to each requested user, in the same order as the request.
+	ResponseOptions []EscalationUserResponseOptionsV2 `json:"response_options"`
+}
 
 // EscalationsCreatePathPayloadV2 defines model for EscalationsCreatePathPayloadV2.
 type EscalationsCreatePathPayloadV2 struct {
@@ -9864,6 +9985,16 @@ type EscalationsListResultV2 struct {
 	Escalations    []EscalationV2         `json:"escalations"`
 	PaginationMeta PaginationMetaResultV2 `json:"pagination_meta"`
 }
+
+// EscalationsRespondEscalationPayloadV2 defines model for EscalationsRespondEscalationPayloadV2.
+type EscalationsRespondEscalationPayloadV2 struct {
+	// Response Whether to acknowledge, decline or snooze the escalation
+	Response      EscalationsRespondEscalationPayloadV2Response `json:"response"`
+	SnoozeDetails *EscalationRespondSnoozeDetailsPayloadV2      `json:"snooze_details,omitempty"`
+}
+
+// EscalationsRespondEscalationPayloadV2Response Whether to acknowledge, decline or snooze the escalation
+type EscalationsRespondEscalationPayloadV2Response string
 
 // EscalationsShowPathResultV2 defines model for EscalationsShowPathResultV2.
 type EscalationsShowPathResultV2 struct {
@@ -11208,6 +11339,29 @@ type IncidentUpdateV2 struct {
 	NewIncidentStatus IncidentStatusV2 `json:"new_incident_status"`
 	NewSeverity       *SeverityV2      `json:"new_severity,omitempty"`
 	Updater           ActorV2          `json:"updater"`
+}
+
+// IncidentUpdatesCreatePayloadV2 defines model for IncidentUpdatesCreatePayloadV2.
+type IncidentUpdatesCreatePayloadV2 struct {
+	// IdempotencyKey Unique string used to de-duplicate incident update requests. Retrying with the same key returns the update the first request created, rather than sharing a second one.
+	IdempotencyKey string `json:"idempotency_key"`
+
+	// IncidentId The incident you want to update
+	IncidentId string `json:"incident_id"`
+
+	// Message Message that explains the context behind the update, in markdown
+	Message *string `json:"message,omitempty"`
+
+	// ToIncidentStatusId Move the incident to this status
+	ToIncidentStatusId *string `json:"to_incident_status_id,omitempty"`
+
+	// ToSeverityId Move the incident to this severity
+	ToSeverityId *string `json:"to_severity_id,omitempty"`
+}
+
+// IncidentUpdatesCreateResultV2 defines model for IncidentUpdatesCreateResultV2.
+type IncidentUpdatesCreateResultV2 struct {
+	IncidentUpdate IncidentUpdateV2 `json:"incident_update"`
 }
 
 // IncidentUpdatesListResultV2 defines model for IncidentUpdatesListResultV2.
@@ -15269,6 +15423,12 @@ type EscalationsV2UpdatePathJSONRequestBody = EscalationsUpdatePathPayloadV2
 // EscalationsV2CreateJSONRequestBody defines body for EscalationsV2Create for application/json ContentType.
 type EscalationsV2CreateJSONRequestBody = EscalationsCreatePayloadV2
 
+// EscalationsV2CheckEscalationPermissionsJSONRequestBody defines body for EscalationsV2CheckEscalationPermissions for application/json ContentType.
+type EscalationsV2CheckEscalationPermissionsJSONRequestBody = EscalationsCheckEscalationPermissionsPayloadV2
+
+// EscalationsV2RespondEscalationJSONRequestBody defines body for EscalationsV2RespondEscalation for application/json ContentType.
+type EscalationsV2RespondEscalationJSONRequestBody = EscalationsRespondEscalationPayloadV2
+
 // FollowUpsV2CreateJSONRequestBody defines body for FollowUpsV2Create for application/json ContentType.
 type FollowUpsV2CreateJSONRequestBody = FollowUpsCreatePayloadV2
 
@@ -15283,6 +15443,9 @@ type IncidentRolesV2CreateJSONRequestBody = IncidentRolesCreatePayloadV2
 
 // IncidentRolesV2UpdateJSONRequestBody defines body for IncidentRolesV2Update for application/json ContentType.
 type IncidentRolesV2UpdateJSONRequestBody = IncidentRolesUpdatePayloadV2
+
+// IncidentUpdatesV2CreateJSONRequestBody defines body for IncidentUpdatesV2Create for application/json ContentType.
+type IncidentUpdatesV2CreateJSONRequestBody = IncidentUpdatesCreatePayloadV2
 
 // IncidentsV2CreateJSONRequestBody defines body for IncidentsV2Create for application/json ContentType.
 type IncidentsV2CreateJSONRequestBody = IncidentsCreatePayloadV2
@@ -15892,6 +16055,16 @@ type ClientInterface interface {
 
 	EscalationsV2Create(ctx context.Context, body EscalationsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// EscalationsV2CheckEscalationPermissionsWithBody request with any body
+	EscalationsV2CheckEscalationPermissionsWithBody(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	EscalationsV2CheckEscalationPermissions(ctx context.Context, escalationId string, body EscalationsV2CheckEscalationPermissionsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// EscalationsV2RespondEscalationWithBody request with any body
+	EscalationsV2RespondEscalationWithBody(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	EscalationsV2RespondEscalation(ctx context.Context, escalationId string, body EscalationsV2RespondEscalationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// EscalationsV2Show request
 	EscalationsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -15964,6 +16137,11 @@ type ClientInterface interface {
 
 	// IncidentUpdatesV2List request
 	IncidentUpdatesV2List(ctx context.Context, params *IncidentUpdatesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentUpdatesV2CreateWithBody request with any body
+	IncidentUpdatesV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	IncidentUpdatesV2Create(ctx context.Context, body IncidentUpdatesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// IncidentsV2List request
 	IncidentsV2List(ctx context.Context, params *IncidentsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -18262,6 +18440,54 @@ func (c *Client) EscalationsV2Create(ctx context.Context, body EscalationsV2Crea
 	return c.Client.Do(req)
 }
 
+func (c *Client) EscalationsV2CheckEscalationPermissionsWithBody(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newEscalationsV2CheckEscalationPermissionsRequestWithBody(c.Server, escalationId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) EscalationsV2CheckEscalationPermissions(ctx context.Context, escalationId string, body EscalationsV2CheckEscalationPermissionsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newEscalationsV2CheckEscalationPermissionsRequest(c.Server, escalationId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) EscalationsV2RespondEscalationWithBody(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newEscalationsV2RespondEscalationRequestWithBody(c.Server, escalationId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) EscalationsV2RespondEscalation(ctx context.Context, escalationId string, body EscalationsV2RespondEscalationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newEscalationsV2RespondEscalationRequest(c.Server, escalationId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) EscalationsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newEscalationsV2ShowRequest(c.Server, id)
 	if err != nil {
@@ -18564,6 +18790,30 @@ func (c *Client) IncidentTimestampsV2Show(ctx context.Context, id string, reqEdi
 
 func (c *Client) IncidentUpdatesV2List(ctx context.Context, params *IncidentUpdatesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newIncidentUpdatesV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentUpdatesV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentUpdatesV2CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentUpdatesV2Create(ctx context.Context, body IncidentUpdatesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentUpdatesV2CreateRequest(c.Server, body)
 	if err != nil {
 		return nil, err
 	}
@@ -25196,6 +25446,100 @@ func newEscalationsV2CreateRequestWithBody(server string, contentType string, bo
 	return req, nil
 }
 
+// NewEscalationsV2CheckEscalationPermissionsRequest calls the generic EscalationsV2CheckEscalationPermissions builder with application/json body
+func newEscalationsV2CheckEscalationPermissionsRequest(server string, escalationId string, body EscalationsV2CheckEscalationPermissionsJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newEscalationsV2CheckEscalationPermissionsRequestWithBody(server, escalationId, "application/json", bodyReader)
+}
+
+// NewEscalationsV2CheckEscalationPermissionsRequestWithBody generates requests for EscalationsV2CheckEscalationPermissions with any type of body
+func newEscalationsV2CheckEscalationPermissionsRequestWithBody(server string, escalationId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "escalation_id", escalationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/escalations/%s/actions/check_permissions", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewEscalationsV2RespondEscalationRequest calls the generic EscalationsV2RespondEscalation builder with application/json body
+func newEscalationsV2RespondEscalationRequest(server string, escalationId string, body EscalationsV2RespondEscalationJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newEscalationsV2RespondEscalationRequestWithBody(server, escalationId, "application/json", bodyReader)
+}
+
+// NewEscalationsV2RespondEscalationRequestWithBody generates requests for EscalationsV2RespondEscalation with any type of body
+func newEscalationsV2RespondEscalationRequestWithBody(server string, escalationId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "escalation_id", escalationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/escalations/%s/actions/respond", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewEscalationsV2ShowRequest generates requests for EscalationsV2Show
 func newEscalationsV2ShowRequest(server string, id string) (*http.Request, error) {
 	var err error
@@ -26192,6 +26536,46 @@ func newIncidentUpdatesV2ListRequest(server string, params *IncidentUpdatesV2Lis
 	if err != nil {
 		return nil, err
 	}
+
+	return req, nil
+}
+
+// NewIncidentUpdatesV2CreateRequest calls the generic IncidentUpdatesV2Create builder with application/json body
+func newIncidentUpdatesV2CreateRequest(server string, body IncidentUpdatesV2CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newIncidentUpdatesV2CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewIncidentUpdatesV2CreateRequestWithBody generates requests for IncidentUpdatesV2Create with any type of body
+func newIncidentUpdatesV2CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/incident_updates")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -30879,6 +31263,16 @@ type ClientWithResponsesInterface interface {
 
 	EscalationsV2CreateWithResponse(ctx context.Context, body EscalationsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*EscalationsV2CreateResponse, error)
 
+	// EscalationsV2CheckEscalationPermissionsWithBodyWithResponse request with any body
+	EscalationsV2CheckEscalationPermissionsWithBodyWithResponse(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EscalationsV2CheckEscalationPermissionsResponse, error)
+
+	EscalationsV2CheckEscalationPermissionsWithResponse(ctx context.Context, escalationId string, body EscalationsV2CheckEscalationPermissionsJSONRequestBody, reqEditors ...RequestEditorFn) (*EscalationsV2CheckEscalationPermissionsResponse, error)
+
+	// EscalationsV2RespondEscalationWithBodyWithResponse request with any body
+	EscalationsV2RespondEscalationWithBodyWithResponse(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EscalationsV2RespondEscalationResponse, error)
+
+	EscalationsV2RespondEscalationWithResponse(ctx context.Context, escalationId string, body EscalationsV2RespondEscalationJSONRequestBody, reqEditors ...RequestEditorFn) (*EscalationsV2RespondEscalationResponse, error)
+
 	// EscalationsV2ShowWithResponse request
 	EscalationsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*EscalationsV2ShowResponse, error)
 
@@ -30951,6 +31345,11 @@ type ClientWithResponsesInterface interface {
 
 	// IncidentUpdatesV2ListWithResponse request
 	IncidentUpdatesV2ListWithResponse(ctx context.Context, params *IncidentUpdatesV2ListParams, reqEditors ...RequestEditorFn) (*IncidentUpdatesV2ListResponse, error)
+
+	// IncidentUpdatesV2CreateWithBodyWithResponse request with any body
+	IncidentUpdatesV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentUpdatesV2CreateResponse, error)
+
+	IncidentUpdatesV2CreateWithResponse(ctx context.Context, body IncidentUpdatesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentUpdatesV2CreateResponse, error)
 
 	// IncidentsV2ListWithResponse request
 	IncidentsV2ListWithResponse(ctx context.Context, params *IncidentsV2ListParams, reqEditors ...RequestEditorFn) (*IncidentsV2ListResponse, error)
@@ -33778,6 +34177,49 @@ func (r EscalationsV2CreateResponse) StatusCode() int {
 	return 0
 }
 
+type EscalationsV2CheckEscalationPermissionsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *EscalationsCheckEscalationPermissionsResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r EscalationsV2CheckEscalationPermissionsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r EscalationsV2CheckEscalationPermissionsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type EscalationsV2RespondEscalationResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+}
+
+// Status returns HTTPResponse.Status
+func (r EscalationsV2RespondEscalationResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r EscalationsV2RespondEscalationResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type EscalationsV2ShowResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -34229,6 +34671,28 @@ func (r IncidentUpdatesV2ListResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r IncidentUpdatesV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentUpdatesV2CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *IncidentUpdatesCreateResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentUpdatesV2CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentUpdatesV2CreateResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -37515,6 +37979,40 @@ func (c *ClientWithResponses) EscalationsV2CreateWithResponse(ctx context.Contex
 	return parseEscalationsV2CreateResponse(rsp)
 }
 
+// EscalationsV2CheckEscalationPermissionsWithBodyWithResponse request with arbitrary body returning *EscalationsV2CheckEscalationPermissionsResponse
+func (c *ClientWithResponses) EscalationsV2CheckEscalationPermissionsWithBodyWithResponse(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EscalationsV2CheckEscalationPermissionsResponse, error) {
+	rsp, err := c.EscalationsV2CheckEscalationPermissionsWithBody(ctx, escalationId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseEscalationsV2CheckEscalationPermissionsResponse(rsp)
+}
+
+func (c *ClientWithResponses) EscalationsV2CheckEscalationPermissionsWithResponse(ctx context.Context, escalationId string, body EscalationsV2CheckEscalationPermissionsJSONRequestBody, reqEditors ...RequestEditorFn) (*EscalationsV2CheckEscalationPermissionsResponse, error) {
+	rsp, err := c.EscalationsV2CheckEscalationPermissions(ctx, escalationId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseEscalationsV2CheckEscalationPermissionsResponse(rsp)
+}
+
+// EscalationsV2RespondEscalationWithBodyWithResponse request with arbitrary body returning *EscalationsV2RespondEscalationResponse
+func (c *ClientWithResponses) EscalationsV2RespondEscalationWithBodyWithResponse(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EscalationsV2RespondEscalationResponse, error) {
+	rsp, err := c.EscalationsV2RespondEscalationWithBody(ctx, escalationId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseEscalationsV2RespondEscalationResponse(rsp)
+}
+
+func (c *ClientWithResponses) EscalationsV2RespondEscalationWithResponse(ctx context.Context, escalationId string, body EscalationsV2RespondEscalationJSONRequestBody, reqEditors ...RequestEditorFn) (*EscalationsV2RespondEscalationResponse, error) {
+	rsp, err := c.EscalationsV2RespondEscalation(ctx, escalationId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseEscalationsV2RespondEscalationResponse(rsp)
+}
+
 // EscalationsV2ShowWithResponse request returning *EscalationsV2ShowResponse
 func (c *ClientWithResponses) EscalationsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*EscalationsV2ShowResponse, error) {
 	rsp, err := c.EscalationsV2Show(ctx, id, reqEditors...)
@@ -37742,6 +38240,23 @@ func (c *ClientWithResponses) IncidentUpdatesV2ListWithResponse(ctx context.Cont
 		return nil, err
 	}
 	return parseIncidentUpdatesV2ListResponse(rsp)
+}
+
+// IncidentUpdatesV2CreateWithBodyWithResponse request with arbitrary body returning *IncidentUpdatesV2CreateResponse
+func (c *ClientWithResponses) IncidentUpdatesV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentUpdatesV2CreateResponse, error) {
+	rsp, err := c.IncidentUpdatesV2CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentUpdatesV2CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) IncidentUpdatesV2CreateWithResponse(ctx context.Context, body IncidentUpdatesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentUpdatesV2CreateResponse, error) {
+	rsp, err := c.IncidentUpdatesV2Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentUpdatesV2CreateResponse(rsp)
 }
 
 // IncidentsV2ListWithResponse request returning *IncidentsV2ListResponse
@@ -41554,6 +42069,48 @@ func parseEscalationsV2CreateResponse(rsp *http.Response) (*EscalationsV2CreateR
 	return response, nil
 }
 
+// ParseEscalationsV2CheckEscalationPermissionsResponse parses an HTTP response from a EscalationsV2CheckEscalationPermissionsWithResponse call
+func parseEscalationsV2CheckEscalationPermissionsResponse(rsp *http.Response) (*EscalationsV2CheckEscalationPermissionsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &EscalationsV2CheckEscalationPermissionsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest EscalationsCheckEscalationPermissionsResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseEscalationsV2RespondEscalationResponse parses an HTTP response from a EscalationsV2RespondEscalationWithResponse call
+func parseEscalationsV2RespondEscalationResponse(rsp *http.Response) (*EscalationsV2RespondEscalationResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &EscalationsV2RespondEscalationResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	return response, nil
+}
+
 // ParseEscalationsV2ShowResponse parses an HTTP response from a EscalationsV2ShowWithResponse call
 func parseEscalationsV2ShowResponse(rsp *http.Response) (*EscalationsV2ShowResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -42044,6 +42601,32 @@ func parseIncidentUpdatesV2ListResponse(rsp *http.Response) (*IncidentUpdatesV2L
 			return nil, err
 		}
 		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentUpdatesV2CreateResponse parses an HTTP response from a IncidentUpdatesV2CreateWithResponse call
+func parseIncidentUpdatesV2CreateResponse(rsp *http.Response) (*IncidentUpdatesV2CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentUpdatesV2CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest IncidentUpdatesCreateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
 
 	}
 

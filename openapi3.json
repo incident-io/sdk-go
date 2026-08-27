@@ -95,7 +95,8 @@
               "secrets_use",
               "call_transcripts_viewer",
               "heartbeats_ping",
-              "telemetry_query_restricted"
+              "telemetry_query_restricted",
+              "telemetry_data_source_update"
             ],
             "example": "viewer",
             "type": "string",
@@ -134,7 +135,8 @@
               "secrets_manage",
               "secrets_use",
               "heartbeats_ping",
-              "telemetry_query_restricted"
+              "telemetry_query_restricted",
+              "telemetry_data_source_update"
             ],
             "example": "catalog_editor",
             "type": "string",
@@ -345,7 +347,8 @@
                 "secrets_use",
                 "call_transcripts_viewer",
                 "heartbeats_ping",
-                "telemetry_query_restricted"
+                "telemetry_query_restricted",
+                "telemetry_data_source_update"
               ],
               "example": "viewer",
               "type": "string"
@@ -382,7 +385,8 @@
                 "secrets_manage",
                 "secrets_use",
                 "heartbeats_ping",
-                "telemetry_query_restricted"
+                "telemetry_query_restricted",
+                "telemetry_data_source_update"
               ],
               "example": "catalog_editor",
               "type": "string"
@@ -751,7 +755,8 @@
                 "secrets_use",
                 "call_transcripts_viewer",
                 "heartbeats_ping",
-                "telemetry_query_restricted"
+                "telemetry_query_restricted",
+                "telemetry_data_source_update"
               ],
               "example": "viewer",
               "type": "string"
@@ -788,7 +793,8 @@
                 "secrets_manage",
                 "secrets_use",
                 "heartbeats_ping",
-                "telemetry_query_restricted"
+                "telemetry_query_restricted",
+                "telemetry_data_source_update"
               ],
               "example": "catalog_editor",
               "type": "string"
@@ -5247,6 +5253,7 @@
         "type": "object"
       },
       "AlertRouteIncidentTemplatePayloadV3": {
+        "description": "The template this alert route applies to the incidents it creates. It must be unset when incident creation is disabled. Disabling incident creation clears a template the route already has.",
         "example": {
           "custom_fields": [
             {
@@ -5634,6 +5641,7 @@
         "type": "object"
       },
       "AlertRouteIncidentTemplateV3": {
+        "description": "The template an alert route applies to the incidents it creates. Disabling incident creation clears it.",
         "example": {
           "custom_fields": [
             {
@@ -14366,7 +14374,7 @@
         "properties": {
           "rate_limit_shard_key_path": {
             "default": "",
-            "description": "JSON path to a value that splits this source's rate limit into per-value buckets. Empty applies one limit to the whole source.",
+            "description": "JSON path to a value that splits this source's rate limit into per-value buckets.",
             "example": "$.priority",
             "type": "string"
           }
@@ -35729,6 +35737,7 @@
               "flag",
               "folder",
               "globe",
+              "incident-template",
               "money",
               "server",
               "severity",
@@ -35861,6 +35870,7 @@
               "flag",
               "folder",
               "globe",
+              "incident-template",
               "money",
               "server",
               "severity",
@@ -38352,6 +38362,7 @@
               "flag",
               "folder",
               "globe",
+              "incident-template",
               "money",
               "server",
               "severity",
@@ -38598,6 +38609,7 @@
               "flag",
               "folder",
               "globe",
+              "incident-template",
               "money",
               "server",
               "severity",
@@ -39185,6 +39197,7 @@
               "flag",
               "folder",
               "globe",
+              "incident-template",
               "money",
               "server",
               "severity",
@@ -39311,6 +39324,7 @@
               "flag",
               "folder",
               "globe",
+              "incident-template",
               "money",
               "server",
               "severity",
@@ -44405,6 +44419,71 @@
         ],
         "type": "object"
       },
+      "EscalationRespondSnoozeDetailsPayloadV2": {
+        "example": {
+          "reason": "Waiting for deployment to complete",
+          "snooze_until": "2025-01-01T12:00:00Z"
+        },
+        "properties": {
+          "reason": {
+            "description": "Optional reason for snoozing the escalation",
+            "example": "Waiting for deployment to complete",
+            "type": "string"
+          },
+          "snooze_until": {
+            "description": "The time at which the snooze should end",
+            "example": "2025-01-01T12:00:00Z",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "snooze_until"
+        ],
+        "type": "object"
+      },
+      "EscalationUserResponseOptionsV2": {
+        "example": {
+          "available_actions": [
+            "ack",
+            "nack",
+            "snooze"
+          ],
+          "user_id": "01G0J1EXE7AXZ2C93K61WBPYEH"
+        },
+        "properties": {
+          "available_actions": {
+            "description": "The response actions this user can currently take on the escalation. Empty if the user can't respond to it at all.",
+            "example": [
+              "ack",
+              "nack",
+              "snooze"
+            ],
+            "items": {
+              "description": "An action a user can take in response to an escalation",
+              "enum": [
+                "ack",
+                "nack",
+                "snooze"
+              ],
+              "example": "ack",
+              "type": "string",
+              "x-public-api-version": "v2"
+            },
+            "type": "array"
+          },
+          "user_id": {
+            "description": "The ID of the user these response options are for",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "available_actions"
+        ],
+        "type": "object"
+      },
       "EscalationV2": {
         "example": {
           "created_at": "2021-08-17T13:28:57.801578Z",
@@ -44784,6 +44863,67 @@
         "required": [
           "escalation",
           "new_status"
+        ],
+        "type": "object"
+      },
+      "EscalationsCheckEscalationPermissionsPayloadV2": {
+        "example": {
+          "user_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ]
+        },
+        "properties": {
+          "user_ids": {
+            "description": "The IDs of the users to check response options for",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "user_ids"
+        ],
+        "type": "object"
+      },
+      "EscalationsCheckEscalationPermissionsResultV2": {
+        "example": {
+          "response_options": [
+            {
+              "available_actions": [
+                "ack",
+                "nack",
+                "snooze"
+              ],
+              "user_id": "01G0J1EXE7AXZ2C93K61WBPYEH"
+            }
+          ]
+        },
+        "properties": {
+          "response_options": {
+            "description": "The response options available to each requested user, in the same order as the request.",
+            "example": [
+              {
+                "available_actions": [
+                  "ack",
+                  "nack",
+                  "snooze"
+                ],
+                "user_id": "01G0J1EXE7AXZ2C93K61WBPYEH"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/EscalationUserResponseOptionsV2"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "response_options"
         ],
         "type": "object"
       },
@@ -45790,6 +45930,34 @@
         "required": [
           "escalations",
           "pagination_meta"
+        ],
+        "type": "object"
+      },
+      "EscalationsRespondEscalationPayloadV2": {
+        "example": {
+          "response": "ack",
+          "snooze_details": {
+            "reason": "Waiting for deployment to complete",
+            "snooze_until": "2025-01-01T12:00:00Z"
+          }
+        },
+        "properties": {
+          "response": {
+            "description": "Whether to acknowledge, decline or snooze the escalation",
+            "enum": [
+              "ack",
+              "nack",
+              "snooze"
+            ],
+            "example": "ack",
+            "type": "string"
+          },
+          "snooze_details": {
+            "$ref": "#/components/schemas/EscalationRespondSnoozeDetailsPayloadV2"
+          }
+        },
+        "required": [
+          "response"
         ],
         "type": "object"
       },
@@ -50730,7 +50898,8 @@
                 "secrets_use",
                 "call_transcripts_viewer",
                 "heartbeats_ping",
-                "telemetry_query_restricted"
+                "telemetry_query_restricted",
+                "telemetry_data_source_update"
               ],
               "example": "viewer",
               "type": "string",
@@ -50758,7 +50927,8 @@
                 "secrets_manage",
                 "secrets_use",
                 "heartbeats_ping",
-                "telemetry_query_restricted"
+                "telemetry_query_restricted",
+                "telemetry_data_source_update"
               ],
               "example": "catalog_editor",
               "type": "string",
@@ -53221,6 +53391,105 @@
           "new_incident_status",
           "updater",
           "created_at"
+        ],
+        "type": "object"
+      },
+      "IncidentUpdatesCreatePayloadV2": {
+        "example": {
+          "idempotency_key": "alert-uuid",
+          "incident_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+          "message": "We're working on a fix, hoping to ship in the next 30 minutes",
+          "to_incident_status_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+          "to_severity_id": "01FH5TZRWMNAFB0DZ23FD1TV96"
+        },
+        "properties": {
+          "idempotency_key": {
+            "description": "Unique string used to de-duplicate incident update requests. Retrying with the same key returns the update the first request created, rather than sharing a second one.",
+            "example": "alert-uuid",
+            "type": "string"
+          },
+          "incident_id": {
+            "description": "The incident you want to update",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "type": "string"
+          },
+          "message": {
+            "description": "Message that explains the context behind the update, in markdown",
+            "example": "We're working on a fix, hoping to ship in the next 30 minutes",
+            "type": "string"
+          },
+          "to_incident_status_id": {
+            "description": "Move the incident to this status",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "type": "string"
+          },
+          "to_severity_id": {
+            "description": "Move the incident to this severity",
+            "example": "01FH5TZRWMNAFB0DZ23FD1TV96",
+            "type": "string"
+          }
+        },
+        "required": [
+          "incident_id",
+          "idempotency_key"
+        ],
+        "type": "object"
+      },
+      "IncidentUpdatesCreateResultV2": {
+        "example": {
+          "incident_update": {
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "merged_into_incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "message": "We're working on a fix, hoping to ship in the next 30 minutes",
+            "new_incident_status": {
+              "category": "triage",
+              "created_at": "2021-08-17T13:28:57.801578Z",
+              "description": "Impact has been **fully mitigated**, and we're ready to learn from this incident.",
+              "id": "01FCNDV6P870EA6S7TK1DSYD5H",
+              "name": "Closed",
+              "rank": 4,
+              "updated_at": "2021-08-17T13:28:57.801578Z"
+            },
+            "new_severity": {
+              "created_at": "2021-08-17T13:28:57.801578Z",
+              "description": "Issues with **low impact**.",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Minor",
+              "rank": 1,
+              "updated_at": "2021-08-17T13:28:57.801578Z"
+            },
+            "updater": {
+              "alert": {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "title": "*errors.withMessage: PG::Error failed to connect"
+              },
+              "api_key": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My test API key"
+              },
+              "user": {
+                "email": "lisa@incident.io",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Lisa Karlin Curtis",
+                "role": "owner",
+                "slack_user_id": "U02AYNF2XJM"
+              },
+              "workflow": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My little workflow"
+              }
+            }
+          }
+        },
+        "properties": {
+          "incident_update": {
+            "$ref": "#/components/schemas/IncidentUpdateV2"
+          }
+        },
+        "required": [
+          "incident_update"
         ],
         "type": "object"
       },
@@ -89121,6 +89390,134 @@
         ]
       }
     },
+    "/v2/escalations/{escalation_id}/actions/check_permissions": {
+      "post": {
+        "description": "Check whether the given users can currently acknowledge, decline, or snooze an escalation.\n\nThis is a read-only projection of the escalation's current state, intended for deciding\nwhich response actions to surface to each user in a custom integration.\n\nTo use this API, you will need an API key that can view escalations and users.",
+        "operationId": "Escalations V2#CheckEscalationPermissions",
+        "parameters": [
+          {
+            "description": "The ID of the escalation",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "escalation_id",
+            "required": true,
+            "schema": {
+              "description": "The ID of the escalation",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "user_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ]
+              },
+              "schema": {
+                "$ref": "#/components/schemas/EscalationsCheckEscalationPermissionsPayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "response_options": [
+                    {
+                      "available_actions": [
+                        "ack",
+                        "nack",
+                        "snooze"
+                      ],
+                      "user_id": "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/EscalationsCheckEscalationPermissionsResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "summary": "CheckEscalationPermissions Escalations V2",
+        "tags": [
+          "Escalations V2"
+        ],
+        "x-docs-display-name": "Check permissions",
+        "x-docs-group-name": "Escalations V2",
+        "x-docs-resource-type": "EscalationV2",
+        "x-mint": {
+          "content": "🔑 Requires the `escalations.view` and `users.view` scopes."
+        },
+        "x-rbac-scopes": [
+          "escalations.view",
+          "users.view"
+        ]
+      }
+    },
+    "/v2/escalations/{escalation_id}/actions/respond": {
+      "post": {
+        "description": "Respond to an escalation.\n\nAn API key can acknowledge or snooze an escalation on its own, and the response is\nattributed to the key.\n\nTo respond as one of your users instead, set the X-Incident-User header to their user ID.\nThis needs the api_keys.act_on_behalf_of_users scope. Declining (\"nack\") means \"I\npersonally can't take this page\", so it's only available this way.\n\nTo use this API, you will need an API key with the \"Create and manage escalations\" permission.",
+        "operationId": "Escalations V2#RespondEscalation",
+        "parameters": [
+          {
+            "description": "The ID of the escalation",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "escalation_id",
+            "required": true,
+            "schema": {
+              "description": "The ID of the escalation",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "response": "ack",
+                "snooze_details": {
+                  "reason": "Waiting for deployment to complete",
+                  "snooze_until": "2025-01-01T12:00:00Z"
+                }
+              },
+              "schema": {
+                "$ref": "#/components/schemas/EscalationsRespondEscalationPayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK response."
+          }
+        },
+        "summary": "RespondEscalation Escalations V2",
+        "tags": [
+          "Escalations V2"
+        ],
+        "x-docs-display-name": "Respond",
+        "x-docs-group-name": "Escalations V2",
+        "x-docs-resource-type": "EscalationV2",
+        "x-mint": {
+          "content": "🔑 Requires the `escalations.respond` scope."
+        },
+        "x-rbac-scopes": [
+          "escalations.respond"
+        ]
+      }
+    },
     "/v2/escalations/{id}": {
       "get": {
         "description": "Show a specific escalation.",
@@ -90767,6 +91164,99 @@
         },
         "x-rbac-scopes": [
           "incidents.view"
+        ]
+      },
+      "post": {
+        "description": "Share an update against an incident.\n\nAn update can carry a message, move the incident to a new status, change its severity,\nor any combination of the three. At least one of them must be provided.\n\nWhich permissions you need depends on what the update does: changing status requires\npermission to update an incident's status, and changing severity permission to update\nits severity.\n",
+        "operationId": "Incident Updates V2#Create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "idempotency_key": "alert-uuid",
+                "incident_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "message": "We're working on a fix, hoping to ship in the next 30 minutes",
+                "to_incident_status_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "to_severity_id": "01FH5TZRWMNAFB0DZ23FD1TV96"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/IncidentUpdatesCreatePayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "incident_update": {
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "merged_into_incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "message": "We're working on a fix, hoping to ship in the next 30 minutes",
+                    "new_incident_status": {
+                      "category": "triage",
+                      "created_at": "2021-08-17T13:28:57.801578Z",
+                      "description": "Impact has been **fully mitigated**, and we're ready to learn from this incident.",
+                      "id": "01FCNDV6P870EA6S7TK1DSYD5H",
+                      "name": "Closed",
+                      "rank": 4,
+                      "updated_at": "2021-08-17T13:28:57.801578Z"
+                    },
+                    "new_severity": {
+                      "created_at": "2021-08-17T13:28:57.801578Z",
+                      "description": "Issues with **low impact**.",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Minor",
+                      "rank": 1,
+                      "updated_at": "2021-08-17T13:28:57.801578Z"
+                    },
+                    "updater": {
+                      "alert": {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "title": "*errors.withMessage: PG::Error failed to connect"
+                      },
+                      "api_key": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My test API key"
+                      },
+                      "user": {
+                        "email": "lisa@incident.io",
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "Lisa Karlin Curtis",
+                        "role": "owner",
+                        "slack_user_id": "U02AYNF2XJM"
+                      },
+                      "workflow": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My little workflow"
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/IncidentUpdatesCreateResultV2"
+                }
+              }
+            },
+            "description": "Created response."
+          }
+        },
+        "summary": "Create Incident Updates V2",
+        "tags": [
+          "Incident Updates V2"
+        ],
+        "x-docs-display-name": "Create",
+        "x-docs-group-name": "Incident Updates V2",
+        "x-docs-resource-type": "IncidentUpdateV2",
+        "x-mint": {
+          "content": "🔑 Requires the `incident_updates.create` scope."
+        },
+        "x-rbac-scopes": [
+          "incident_updates.create"
         ]
       }
     },
@@ -96269,13 +96759,7 @@
         "x-display-name": "Update",
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Telemetry V2",
-        "x-docs-resource-type": "TelemetryDataSourceV2",
-        "x-mint": {
-          "content": "🔑 Requires the `organisation_settings.update` scope."
-        },
-        "x-rbac-scopes": [
-          "organisation_settings.update"
-        ]
+        "x-docs-resource-type": "TelemetryDataSourceV2"
       }
     },
     "/v2/users": {
@@ -102716,7 +103200,7 @@
       "name": "Custom Fields V2"
     },
     {
-      "description": "Create and manage escalation paths, and create, list and filter escalations.\n\nWith incident.io On-call you can create escalation paths that describe how a page should\nbe escalated to people and schedules.\n",
+      "description": "Create and manage escalation paths, and create, list, filter and respond to escalations.\n\nWith incident.io On-call you can create escalation paths that describe how a page should\nbe escalated to people and schedules.\n",
       "name": "Escalations V2"
     },
     {
@@ -102764,7 +103248,7 @@
       "name": "Incident Types V1"
     },
     {
-      "description": "List incident updates.\n\nIncident Updates allows you to see all the updates that have been shared against a\nparticular incident. This will include any time that the Severity or Status of\nan incident changed, alongside any additional updates that were provided.\n",
+      "description": "List and create incident updates.\n\nIncident Updates allows you to see all the updates that have been shared against a\nparticular incident. This will include any time that the Severity or Status of\nan incident changed, alongside any additional updates that were provided.\n",
       "name": "Incident Updates V2"
     },
     {
