@@ -919,6 +919,7 @@ const (
 	AlertSourceV2SourceTypeHoneycomb         AlertSourceV2SourceType = "honeycomb"
 	AlertSourceV2SourceTypeHttp              AlertSourceV2SourceType = "http"
 	AlertSourceV2SourceTypeHttpCustom        AlertSourceV2SourceType = "http_custom"
+	AlertSourceV2SourceTypeIcinga2           AlertSourceV2SourceType = "icinga2"
 	AlertSourceV2SourceTypeIncomingCalls     AlertSourceV2SourceType = "incoming_calls"
 	AlertSourceV2SourceTypeJira              AlertSourceV2SourceType = "jira"
 	AlertSourceV2SourceTypeJsm               AlertSourceV2SourceType = "jsm"
@@ -999,6 +1000,8 @@ func (e AlertSourceV2SourceType) Valid() bool {
 	case AlertSourceV2SourceTypeHttp:
 		return true
 	case AlertSourceV2SourceTypeHttpCustom:
+		return true
+	case AlertSourceV2SourceTypeIcinga2:
 		return true
 	case AlertSourceV2SourceTypeIncomingCalls:
 		return true
@@ -1081,6 +1084,7 @@ const (
 	AlertSourcesCreatePayloadV2SourceTypeHoneycomb         AlertSourcesCreatePayloadV2SourceType = "honeycomb"
 	AlertSourcesCreatePayloadV2SourceTypeHttp              AlertSourcesCreatePayloadV2SourceType = "http"
 	AlertSourcesCreatePayloadV2SourceTypeHttpCustom        AlertSourcesCreatePayloadV2SourceType = "http_custom"
+	AlertSourcesCreatePayloadV2SourceTypeIcinga2           AlertSourcesCreatePayloadV2SourceType = "icinga2"
 	AlertSourcesCreatePayloadV2SourceTypeIncomingCalls     AlertSourcesCreatePayloadV2SourceType = "incoming_calls"
 	AlertSourcesCreatePayloadV2SourceTypeJira              AlertSourcesCreatePayloadV2SourceType = "jira"
 	AlertSourcesCreatePayloadV2SourceTypeJsm               AlertSourcesCreatePayloadV2SourceType = "jsm"
@@ -1161,6 +1165,8 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesCreatePayloadV2SourceTypeHttp:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeHttpCustom:
+		return true
+	case AlertSourcesCreatePayloadV2SourceTypeIcinga2:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeIncomingCalls:
 		return true
@@ -1243,6 +1249,7 @@ const (
 	AlertSourcesValidatePayloadV2SourceTypeHoneycomb         AlertSourcesValidatePayloadV2SourceType = "honeycomb"
 	AlertSourcesValidatePayloadV2SourceTypeHttp              AlertSourcesValidatePayloadV2SourceType = "http"
 	AlertSourcesValidatePayloadV2SourceTypeHttpCustom        AlertSourcesValidatePayloadV2SourceType = "http_custom"
+	AlertSourcesValidatePayloadV2SourceTypeIcinga2           AlertSourcesValidatePayloadV2SourceType = "icinga2"
 	AlertSourcesValidatePayloadV2SourceTypeIncomingCalls     AlertSourcesValidatePayloadV2SourceType = "incoming_calls"
 	AlertSourcesValidatePayloadV2SourceTypeJira              AlertSourcesValidatePayloadV2SourceType = "jira"
 	AlertSourcesValidatePayloadV2SourceTypeJsm               AlertSourcesValidatePayloadV2SourceType = "jsm"
@@ -1323,6 +1330,8 @@ func (e AlertSourcesValidatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesValidatePayloadV2SourceTypeHttp:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeHttpCustom:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeIcinga2:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeIncomingCalls:
 		return true
@@ -7505,6 +7514,12 @@ type AlertSourceJiraOptionsV2 struct {
 	ProjectIds []string `json:"project_ids"`
 }
 
+// AlertSourceRateLimitShardingV2 Controls how this source's ingest rate limit is split into buckets.
+type AlertSourceRateLimitShardingV2 struct {
+	// RateLimitShardKeyPath JSON path to a value that splits this source's rate limit into per-value buckets. Empty applies one limit to the whole source.
+	RateLimitShardKeyPath string `json:"rate_limit_shard_key_path"`
+}
+
 // AlertSourceV2 defines model for AlertSourceV2.
 type AlertSourceV2 struct {
 	// AlertEventsUrl URL that can be used to send alert events to this source. This is only set for sources that accept webhook/HTTP events; email sources use the email_address field, and integration-based sources (like Jira) receive events through their native integrations.
@@ -7529,6 +7544,9 @@ type AlertSourceV2 struct {
 
 	// OwningTeamIds IDs of teams that own this alert source
 	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// RateLimitSharding Controls how this source's ingest rate limit is split into buckets.
+	RateLimitSharding *AlertSourceRateLimitShardingV2 `json:"rate_limit_sharding,omitempty"`
 
 	// SecretToken Secret token used to authenticate this source, if applicable. If applicable, this is the token that must be included in either the query string or the 'Authorization' header when sending events to this alert source.
 	SecretToken *string `json:"secret_token,omitempty"`
@@ -7559,6 +7577,9 @@ type AlertSourcesCreatePayloadV2 struct {
 
 	// OwningTeamIds IDs of teams that own this alert source
 	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// RateLimitSharding Controls how this source's ingest rate limit is split into buckets.
+	RateLimitSharding *AlertSourceRateLimitShardingV2 `json:"rate_limit_sharding,omitempty"`
 
 	// SourceType Type of alert source
 	SourceType AlertSourcesCreatePayloadV2SourceType `json:"source_type"`
@@ -7603,8 +7624,11 @@ type AlertSourcesUpdatePayloadV2 struct {
 	Name string `json:"name"`
 
 	// OwningTeamIds IDs of teams that own this alert source
-	OwningTeamIds *[]string              `json:"owning_team_ids,omitempty"`
-	Template      AlertTemplatePayloadV2 `json:"template"`
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// RateLimitSharding Controls how this source's ingest rate limit is split into buckets.
+	RateLimitSharding *AlertSourceRateLimitShardingV2 `json:"rate_limit_sharding,omitempty"`
+	Template          AlertTemplatePayloadV2          `json:"template"`
 }
 
 // AlertSourcesUpdateResultV2 defines model for AlertSourcesUpdateResultV2.

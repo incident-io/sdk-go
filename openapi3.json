@@ -14358,6 +14358,24 @@
         ],
         "type": "object"
       },
+      "AlertSourceRateLimitShardingV2": {
+        "description": "Controls how this source's ingest rate limit is split into buckets.",
+        "example": {
+          "rate_limit_shard_key_path": "$.priority"
+        },
+        "properties": {
+          "rate_limit_shard_key_path": {
+            "default": "",
+            "description": "JSON path to a value that splits this source's rate limit into per-value buckets. Empty applies one limit to the whole source.",
+            "example": "$.priority",
+            "type": "string"
+          }
+        },
+        "required": [
+          "rate_limit_shard_key_path"
+        ],
+        "type": "object"
+      },
       "AlertSourceV2": {
         "example": {
           "alert_events_url": "https://api.incident.io/v2/alert_events/http/01GW2G3V0S59R238FAHPDS1R66",
@@ -14397,6 +14415,9 @@
           "owning_team_ids": [
             "01G0J1EXE7AXZ2C93K61WBPYEH"
           ],
+          "rate_limit_sharding": {
+            "rate_limit_shard_key_path": "$.priority"
+          },
           "secret_token": "some-secret-token",
           "source_type": "alertmanager",
           "template": {
@@ -14637,6 +14658,9 @@
             },
             "type": "array"
           },
+          "rate_limit_sharding": {
+            "$ref": "#/components/schemas/AlertSourceRateLimitShardingV2"
+          },
           "secret_token": {
             "description": "Secret token used to authenticate this source, if applicable. If applicable, this is the token that must be included in either the query string or the 'Authorization' header when sending events to this alert source.",
             "example": "some-secret-token",
@@ -14671,6 +14695,7 @@
               "http",
               "http_custom",
               "honeycomb",
+              "icinga2",
               "incoming_calls",
               "jira",
               "jsm",
@@ -14747,6 +14772,9 @@
           "owning_team_ids": [
             "01G0J1EXE7AXZ2C93K61WBPYEH"
           ],
+          "rate_limit_sharding": {
+            "rate_limit_shard_key_path": "$.priority"
+          },
           "source_type": "alertmanager",
           "template": {
             "attributes": [
@@ -14950,6 +14978,9 @@
             },
             "type": "array"
           },
+          "rate_limit_sharding": {
+            "$ref": "#/components/schemas/AlertSourceRateLimitShardingV2"
+          },
           "source_type": {
             "description": "Type of alert source",
             "enum": [
@@ -14979,6 +15010,7 @@
               "http",
               "http_custom",
               "honeycomb",
+              "icinga2",
               "incoming_calls",
               "jira",
               "jsm",
@@ -15058,6 +15090,9 @@
             "owning_team_ids": [
               "01G0J1EXE7AXZ2C93K61WBPYEH"
             ],
+            "rate_limit_sharding": {
+              "rate_limit_shard_key_path": "$.priority"
+            },
             "secret_token": "some-secret-token",
             "source_type": "alertmanager",
             "template": {
@@ -15297,6 +15332,9 @@
               "owning_team_ids": [
                 "01G0J1EXE7AXZ2C93K61WBPYEH"
               ],
+              "rate_limit_sharding": {
+                "rate_limit_shard_key_path": "$.priority"
+              },
               "secret_token": "some-secret-token",
               "source_type": "alertmanager",
               "template": {
@@ -15527,6 +15565,9 @@
                 "owning_team_ids": [
                   "01G0J1EXE7AXZ2C93K61WBPYEH"
                 ],
+                "rate_limit_sharding": {
+                  "rate_limit_shard_key_path": "$.priority"
+                },
                 "secret_token": "some-secret-token",
                 "source_type": "alertmanager",
                 "template": {
@@ -15766,6 +15807,9 @@
             "owning_team_ids": [
               "01G0J1EXE7AXZ2C93K61WBPYEH"
             ],
+            "rate_limit_sharding": {
+              "rate_limit_shard_key_path": "$.priority"
+            },
             "secret_token": "some-secret-token",
             "source_type": "alertmanager",
             "template": {
@@ -16000,6 +16044,9 @@
           "owning_team_ids": [
             "01G0J1EXE7AXZ2C93K61WBPYEH"
           ],
+          "rate_limit_sharding": {
+            "rate_limit_shard_key_path": "$.priority"
+          },
           "template": {
             "attributes": [
               {
@@ -16207,6 +16254,9 @@
             },
             "type": "array"
           },
+          "rate_limit_sharding": {
+            "$ref": "#/components/schemas/AlertSourceRateLimitShardingV2"
+          },
           "template": {
             "$ref": "#/components/schemas/AlertTemplatePayloadV2"
           }
@@ -16257,6 +16307,9 @@
             "owning_team_ids": [
               "01G0J1EXE7AXZ2C93K61WBPYEH"
             ],
+            "rate_limit_sharding": {
+              "rate_limit_shard_key_path": "$.priority"
+            },
             "secret_token": "some-secret-token",
             "source_type": "alertmanager",
             "template": {
@@ -16661,6 +16714,7 @@
               "http",
               "http_custom",
               "honeycomb",
+              "icinga2",
               "incoming_calls",
               "jira",
               "jsm",
@@ -63879,6 +63933,66 @@
         ],
         "type": "object"
       },
+      "StatusPageIncidentWithUpdateV2": {
+        "example": {
+          "status_page_incident": {
+            "component_impacts": [
+              {
+                "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
+                "component_status": "degraded_performance",
+                "end_at": "2021-08-17T13:28:57.801578Z",
+                "start_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_status": "investigating",
+            "name": "Elevated API latency",
+            "published_at": "2021-08-17T13:28:57.801578Z",
+            "status_page_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "updates": [
+              {
+                "component_statuses": [
+                  {
+                    "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                    "component_status": "operational"
+                  }
+                ],
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "incident_status": "investigating",
+                "message": "abc123",
+                "published_at": "2021-08-17T13:28:57.801578Z",
+                "status_page_incident_id": "01FCNDV6P870EA6S7TK1DSYDG1"
+              }
+            ]
+          },
+          "update": {
+            "component_statuses": [
+              {
+                "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                "component_status": "operational"
+              }
+            ],
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_status": "investigating",
+            "message": "abc123",
+            "published_at": "2021-08-17T13:28:57.801578Z",
+            "status_page_incident_id": "01FCNDV6P870EA6S7TK1DSYDG1"
+          }
+        },
+        "properties": {
+          "status_page_incident": {
+            "$ref": "#/components/schemas/StatusPageIncidentV2"
+          },
+          "update": {
+            "$ref": "#/components/schemas/StatusPageIncidentUpdateV2"
+          }
+        },
+        "required": [
+          "update",
+          "status_page_incident"
+        ],
+        "type": "object"
+      },
       "StatusPageLinkedResponseIncidentV1": {
         "example": {
           "id": "01FDAG4SAH3GYPT98WGR2N7W91",
@@ -67514,7 +67628,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_alert.alert_created_v1",
             "type": "string"
@@ -67572,7 +67687,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_alert.alert_resolved_v1",
             "type": "string"
@@ -67630,7 +67746,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_escalation.escalation_created_v1",
             "type": "string"
@@ -67688,7 +67805,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_escalation.escalation_status_updated_v1",
             "type": "string"
@@ -67746,7 +67864,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_incident.action_created_v1",
             "type": "string"
@@ -67804,7 +67923,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_incident.action_updated_v1",
             "type": "string"
@@ -67862,7 +67982,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_incident.follow_up_created_v1",
             "type": "string"
@@ -67920,7 +68041,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_incident.follow_up_created_v2",
             "type": "string"
@@ -67978,7 +68100,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_incident.follow_up_updated_v1",
             "type": "string"
@@ -68036,7 +68159,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_incident.follow_up_updated_v2",
             "type": "string"
@@ -68094,7 +68218,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_incident.incident_created_v2",
             "type": "string"
@@ -68152,7 +68277,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_incident.incident_updated_v2",
             "type": "string"
@@ -68212,7 +68338,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_incident.membership_granted_v1",
             "type": "string"
@@ -68272,7 +68399,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_incident.membership_revoked_v1",
             "type": "string"
@@ -68330,7 +68458,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "private_incident.postmortem_document_status_updated_v1",
             "type": "string"
@@ -68432,7 +68561,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_alert.alert_created_v1",
             "type": "string"
@@ -68534,7 +68664,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_alert.alert_resolved_v1",
             "type": "string"
@@ -68671,7 +68802,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_escalation.escalation_created_v1",
             "type": "string"
@@ -68833,7 +68965,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_escalation.escalation_status_updated_v1",
             "type": "string"
@@ -68910,7 +69043,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_incident.action_created_v1",
             "type": "string"
@@ -68987,7 +69121,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_incident.action_updated_v1",
             "type": "string"
@@ -69064,7 +69199,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_incident.follow_up_created_v1",
             "type": "string"
@@ -69176,7 +69312,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_incident.follow_up_created_v2",
             "type": "string"
@@ -69253,7 +69390,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_incident.follow_up_updated_v1",
             "type": "string"
@@ -69365,7 +69503,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_incident.follow_up_updated_v2",
             "type": "string"
@@ -69585,7 +69724,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_incident.incident_created_v2",
             "type": "string"
@@ -69822,7 +69962,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_incident.incident_status_updated_v2",
             "type": "string"
@@ -70042,7 +70183,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_incident.incident_updated_v2",
             "type": "string"
@@ -70124,7 +70266,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "public_incident.postmortem_document_status_updated_v1",
             "type": "string"
@@ -70189,7 +70332,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "schedule.created_v1",
             "type": "string"
@@ -70254,7 +70398,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "schedule.deleted_v1",
             "type": "string"
@@ -70339,7 +70484,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "schedule.shift_change_v1",
             "type": "string"
@@ -70404,7 +70550,8 @@
               "schedule.shift_change_v1",
               "schedule.created_v1",
               "schedule.updated_v1",
-              "schedule.deleted_v1"
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
             ],
             "example": "schedule.updated_v1",
             "type": "string"
@@ -70416,6 +70563,107 @@
         "required": [
           "event_type",
           "schedule.updated_v1"
+        ],
+        "type": "object"
+      },
+      "WebhooksStatusPageIncidentUpdateSharedV1ResponseBody": {
+        "example": {
+          "event_type": "status_page_incident.update_shared_v1",
+          "status_page_incident.update_shared_v1": {
+            "status_page_incident": {
+              "component_impacts": [
+                {
+                  "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
+                  "component_status": "degraded_performance",
+                  "end_at": "2021-08-17T13:28:57.801578Z",
+                  "start_at": "2021-08-17T13:28:57.801578Z"
+                }
+              ],
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "incident_status": "investigating",
+              "name": "Elevated API latency",
+              "published_at": "2021-08-17T13:28:57.801578Z",
+              "status_page_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "updates": [
+                {
+                  "component_statuses": [
+                    {
+                      "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                      "component_status": "operational"
+                    }
+                  ],
+                  "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                  "incident_status": "investigating",
+                  "message": "abc123",
+                  "published_at": "2021-08-17T13:28:57.801578Z",
+                  "status_page_incident_id": "01FCNDV6P870EA6S7TK1DSYDG1"
+                }
+              ]
+            },
+            "update": {
+              "component_statuses": [
+                {
+                  "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                  "component_status": "operational"
+                }
+              ],
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "incident_status": "investigating",
+              "message": "abc123",
+              "published_at": "2021-08-17T13:28:57.801578Z",
+              "status_page_incident_id": "01FCNDV6P870EA6S7TK1DSYDG1"
+            }
+          }
+        },
+        "properties": {
+          "event_type": {
+            "description": "What type of event is this webhook for?",
+            "enum": [
+              "public_incident.incident_created_v2",
+              "private_incident.incident_created_v2",
+              "public_incident.incident_updated_v2",
+              "private_incident.incident_updated_v2",
+              "public_incident.incident_status_updated_v2",
+              "public_incident.follow_up_created_v1",
+              "private_incident.follow_up_created_v1",
+              "public_incident.follow_up_updated_v1",
+              "private_incident.follow_up_updated_v1",
+              "public_incident.follow_up_created_v2",
+              "private_incident.follow_up_created_v2",
+              "public_incident.follow_up_updated_v2",
+              "private_incident.follow_up_updated_v2",
+              "public_incident.action_created_v1",
+              "private_incident.action_created_v1",
+              "public_incident.action_updated_v1",
+              "private_incident.action_updated_v1",
+              "public_alert.alert_created_v1",
+              "private_alert.alert_created_v1",
+              "public_alert.alert_resolved_v1",
+              "private_alert.alert_resolved_v1",
+              "public_escalation.escalation_created_v1",
+              "private_escalation.escalation_created_v1",
+              "public_escalation.escalation_status_updated_v1",
+              "private_escalation.escalation_status_updated_v1",
+              "private_incident.membership_granted_v1",
+              "private_incident.membership_revoked_v1",
+              "public_incident.postmortem_document_status_updated_v1",
+              "private_incident.postmortem_document_status_updated_v1",
+              "schedule.shift_change_v1",
+              "schedule.created_v1",
+              "schedule.updated_v1",
+              "schedule.deleted_v1",
+              "status_page_incident.update_shared_v1"
+            ],
+            "example": "status_page_incident.update_shared_v1",
+            "type": "string"
+          },
+          "status_page_incident.update_shared_v1": {
+            "$ref": "#/components/schemas/StatusPageIncidentWithUpdateV2"
+          }
+        },
+        "required": [
+          "event_type",
+          "status_page_incident.update_shared_v1"
         ],
         "type": "object"
       },
@@ -83394,6 +83642,9 @@
                       "owning_team_ids": [
                         "01G0J1EXE7AXZ2C93K61WBPYEH"
                       ],
+                      "rate_limit_sharding": {
+                        "rate_limit_shard_key_path": "$.priority"
+                      },
                       "secret_token": "some-secret-token",
                       "source_type": "alertmanager",
                       "template": {
@@ -83645,6 +83896,9 @@
                 "owning_team_ids": [
                   "01G0J1EXE7AXZ2C93K61WBPYEH"
                 ],
+                "rate_limit_sharding": {
+                  "rate_limit_shard_key_path": "$.priority"
+                },
                 "source_type": "alertmanager",
                 "template": {
                   "attributes": [
@@ -83855,6 +84109,9 @@
                     "owning_team_ids": [
                       "01G0J1EXE7AXZ2C93K61WBPYEH"
                     ],
+                    "rate_limit_sharding": {
+                      "rate_limit_shard_key_path": "$.priority"
+                    },
                     "secret_token": "some-secret-token",
                     "source_type": "alertmanager",
                     "template": {
@@ -84361,6 +84618,9 @@
                     "owning_team_ids": [
                       "01G0J1EXE7AXZ2C93K61WBPYEH"
                     ],
+                    "rate_limit_sharding": {
+                      "rate_limit_shard_key_path": "$.priority"
+                    },
                     "secret_token": "some-secret-token",
                     "source_type": "alertmanager",
                     "template": {
@@ -84626,6 +84886,9 @@
                 "owning_team_ids": [
                   "01G0J1EXE7AXZ2C93K61WBPYEH"
                 ],
+                "rate_limit_sharding": {
+                  "rate_limit_shard_key_path": "$.priority"
+                },
                 "template": {
                   "attributes": [
                     {
@@ -84835,6 +85098,9 @@
                     "owning_team_ids": [
                       "01G0J1EXE7AXZ2C93K61WBPYEH"
                     ],
+                    "rate_limit_sharding": {
+                      "rate_limit_shard_key_path": "$.priority"
+                    },
                     "secret_token": "some-secret-token",
                     "source_type": "alertmanager",
                     "template": {
@@ -114169,6 +114435,75 @@
                 },
                 "schema": {
                   "$ref": "#/components/schemas/WebhooksScheduleUpdatedV1ResponseBody"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "tags": [
+          "Webhooks"
+        ]
+      }
+    },
+    "/x-webhooks/status_page_incident.update_shared_v1": {
+      "get": {
+        "description": "This webhook is emitted whenever an update is posted on a status page incident, including the update that publishes the incident.",
+        "operationId": "StatusPageIncidentUpdateSharedV1",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "event_type": "status_page_incident.update_shared_v1",
+                  "status_page_incident.update_shared_v1": {
+                    "status_page_incident": {
+                      "component_impacts": [
+                        {
+                          "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
+                          "component_status": "degraded_performance",
+                          "end_at": "2021-08-17T13:28:57.801578Z",
+                          "start_at": "2021-08-17T13:28:57.801578Z"
+                        }
+                      ],
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "incident_status": "investigating",
+                      "name": "Elevated API latency",
+                      "published_at": "2021-08-17T13:28:57.801578Z",
+                      "status_page_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "updates": [
+                        {
+                          "component_statuses": [
+                            {
+                              "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                              "component_status": "operational"
+                            }
+                          ],
+                          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                          "incident_status": "investigating",
+                          "message": "abc123",
+                          "published_at": "2021-08-17T13:28:57.801578Z",
+                          "status_page_incident_id": "01FCNDV6P870EA6S7TK1DSYDG1"
+                        }
+                      ]
+                    },
+                    "update": {
+                      "component_statuses": [
+                        {
+                          "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                          "component_status": "operational"
+                        }
+                      ],
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "incident_status": "investigating",
+                      "message": "abc123",
+                      "published_at": "2021-08-17T13:28:57.801578Z",
+                      "status_page_incident_id": "01FCNDV6P870EA6S7TK1DSYDG1"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/WebhooksStatusPageIncidentUpdateSharedV1ResponseBody"
                 }
               }
             },
