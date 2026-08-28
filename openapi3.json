@@ -6363,6 +6363,16 @@
                       "type": "IncidentStatus"
                     }
                   },
+                  "cast": {
+                    "returns": {
+                      "array": true,
+                      "type": "IncidentStatus"
+                    }
+                  },
+                  "concatenate": {
+                    "reference": "1235",
+                    "reference_label": "Teams"
+                  },
                   "filter": {
                     "condition_groups": [
                       {
@@ -6897,6 +6907,16 @@
                         "type": "IncidentStatus"
                       }
                     },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
+                    },
                     "filter": {
                       "condition_groups": [
                         {
@@ -7200,6 +7220,16 @@
                       "array": true,
                       "type": "IncidentStatus"
                     }
+                  },
+                  "cast": {
+                    "returns": {
+                      "array": true,
+                      "type": "IncidentStatus"
+                    }
+                  },
+                  "concatenate": {
+                    "reference": "1235",
+                    "reference_label": "Teams"
                   },
                   "filter": {
                     "condition_groups": [
@@ -7681,6 +7711,16 @@
                         "array": true,
                         "type": "IncidentStatus"
                       }
+                    },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
                     },
                     "filter": {
                       "condition_groups": [
@@ -9590,6 +9630,16 @@
                         "type": "IncidentStatus"
                       }
                     },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
+                    },
                     "filter": {
                       "condition_groups": [
                         {
@@ -10056,6 +10106,16 @@
                         "array": true,
                         "type": "IncidentStatus"
                       }
+                    },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
                     },
                     "filter": {
                       "condition_groups": [
@@ -10714,6 +10774,16 @@
                         "type": "IncidentStatus"
                       }
                     },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
+                    },
                     "filter": {
                       "condition_groups": [
                         {
@@ -11180,6 +11250,16 @@
                         "array": true,
                         "type": "IncidentStatus"
                       }
+                    },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
                     },
                     "filter": {
                       "condition_groups": [
@@ -13247,6 +13327,16 @@
                         "type": "IncidentStatus"
                       }
                     },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
+                    },
                     "filter": {
                       "condition_groups": [
                         {
@@ -13713,6 +13803,16 @@
                         "array": true,
                         "type": "IncidentStatus"
                       }
+                    },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
                     },
                     "filter": {
                       "condition_groups": [
@@ -14531,6 +14631,16 @@
                         "type": "IncidentStatus"
                       }
                     },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
+                    },
                     "filter": {
                       "condition_groups": [
                         {
@@ -15206,6 +15316,16 @@
                           "type": "IncidentStatus"
                         }
                       },
+                      "cast": {
+                        "returns": {
+                          "array": true,
+                          "type": "IncidentStatus"
+                        }
+                      },
+                      "concatenate": {
+                        "reference": "1235",
+                        "reference_label": "Teams"
+                      },
                       "filter": {
                         "condition_groups": [
                           {
@@ -15448,6 +15568,16 @@
                             "type": "IncidentStatus"
                           }
                         },
+                        "cast": {
+                          "returns": {
+                            "array": true,
+                            "type": "IncidentStatus"
+                          }
+                        },
+                        "concatenate": {
+                          "reference": "1235",
+                          "reference_label": "Teams"
+                        },
                         "filter": {
                           "condition_groups": [
                             {
@@ -15680,6 +15810,16 @@
                               "array": true,
                               "type": "IncidentStatus"
                             }
+                          },
+                          "cast": {
+                            "returns": {
+                              "array": true,
+                              "type": "IncidentStatus"
+                            }
+                          },
+                          "concatenate": {
+                            "reference": "1235",
+                            "reference_label": "Teams"
                           },
                           "filter": {
                             "condition_groups": [
@@ -15922,6 +16062,16 @@
                           "array": true,
                           "type": "IncidentStatus"
                         }
+                      },
+                      "cast": {
+                        "returns": {
+                          "array": true,
+                          "type": "IncidentStatus"
+                        }
+                      },
+                      "concatenate": {
+                        "reference": "1235",
+                        "reference_label": "Teams"
                       },
                       "filter": {
                         "condition_groups": [
@@ -16422,6 +16572,16 @@
                           "array": true,
                           "type": "IncidentStatus"
                         }
+                      },
+                      "cast": {
+                        "returns": {
+                          "array": true,
+                          "type": "IncidentStatus"
+                        }
+                      },
+                      "concatenate": {
+                        "reference": "1235",
+                        "reference_label": "Teams"
                       },
                       "filter": {
                         "condition_groups": [
@@ -17360,6 +17520,16 @@
                       "type": "IncidentStatus"
                     }
                   },
+                  "cast": {
+                    "returns": {
+                      "array": true,
+                      "type": "IncidentStatus"
+                    }
+                  },
+                  "concatenate": {
+                    "reference": "1235",
+                    "reference_label": "Teams"
+                  },
                   "filter": {
                     "condition_groups": [
                       {
@@ -17550,6 +17720,16 @@
                         "array": true,
                         "type": "IncidentStatus"
                       }
+                    },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
                     },
                     "filter": {
                       "condition_groups": [
@@ -47418,6 +47598,40 @@
         ],
         "type": "object"
       },
+      "ExpressionCastOptsV2": {
+        "example": {
+          "returns": {
+            "array": true,
+            "type": "IncidentStatus"
+          }
+        },
+        "properties": {
+          "returns": {
+            "$ref": "#/components/schemas/ReturnsMetaV2"
+          }
+        },
+        "required": [
+          "returns"
+        ],
+        "type": "object"
+      },
+      "ExpressionCastOptsV3": {
+        "example": {
+          "returns": {
+            "array": true,
+            "type": "IncidentStatus"
+          }
+        },
+        "properties": {
+          "returns": {
+            "$ref": "#/components/schemas/ReturnsMetaV3"
+          }
+        },
+        "required": [
+          "returns"
+        ],
+        "type": "object"
+      },
       "ExpressionConcatenateOptsPayloadV2": {
         "example": {
           "reference": "catalog_attribute[\"01FCNDV6P870EA6S7TK1DSYD5H\"]"
@@ -47447,6 +47661,52 @@
         },
         "required": [
           "reference"
+        ],
+        "type": "object"
+      },
+      "ExpressionConcatenateOptsV2": {
+        "example": {
+          "reference": "1235",
+          "reference_label": "Teams"
+        },
+        "properties": {
+          "reference": {
+            "description": "The reference within the scope to concatenate with",
+            "example": "1235",
+            "type": "string"
+          },
+          "reference_label": {
+            "description": "The name of the reference to concatenate with",
+            "example": "Teams",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reference",
+          "reference_label"
+        ],
+        "type": "object"
+      },
+      "ExpressionConcatenateOptsV3": {
+        "example": {
+          "reference": "1235",
+          "reference_label": "Teams"
+        },
+        "properties": {
+          "reference": {
+            "description": "The reference within the scope to concatenate with",
+            "example": "1235",
+            "type": "string"
+          },
+          "reference_label": {
+            "description": "The name of the reference to concatenate with",
+            "example": "Teams",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reference",
+          "reference_label"
         ],
         "type": "object"
       },
@@ -48254,6 +48514,16 @@
               "type": "IncidentStatus"
             }
           },
+          "cast": {
+            "returns": {
+              "array": true,
+              "type": "IncidentStatus"
+            }
+          },
+          "concatenate": {
+            "reference": "1235",
+            "reference_label": "Teams"
+          },
           "filter": {
             "condition_groups": [
               {
@@ -48308,6 +48578,12 @@
         "properties": {
           "branches": {
             "$ref": "#/components/schemas/ExpressionBranchesOptsV2"
+          },
+          "cast": {
+            "$ref": "#/components/schemas/ExpressionCastOptsV2"
+          },
+          "concatenate": {
+            "$ref": "#/components/schemas/ExpressionConcatenateOptsV2"
           },
           "filter": {
             "$ref": "#/components/schemas/ExpressionFilterOptsV2"
@@ -48401,6 +48677,16 @@
               "type": "IncidentStatus"
             }
           },
+          "cast": {
+            "returns": {
+              "array": true,
+              "type": "IncidentStatus"
+            }
+          },
+          "concatenate": {
+            "reference": "1235",
+            "reference_label": "Teams"
+          },
           "filter": {
             "condition_groups": [
               {
@@ -48453,6 +48739,12 @@
         "properties": {
           "branches": {
             "$ref": "#/components/schemas/ExpressionBranchesOptsV3"
+          },
+          "cast": {
+            "$ref": "#/components/schemas/ExpressionCastOptsV3"
+          },
+          "concatenate": {
+            "$ref": "#/components/schemas/ExpressionConcatenateOptsV3"
           },
           "filter": {
             "$ref": "#/components/schemas/ExpressionFilterOptsV3"
@@ -49157,6 +49449,16 @@
                   "type": "IncidentStatus"
                 }
               },
+              "cast": {
+                "returns": {
+                  "array": true,
+                  "type": "IncidentStatus"
+                }
+              },
+              "concatenate": {
+                "reference": "1235",
+                "reference_label": "Teams"
+              },
               "filter": {
                 "condition_groups": [
                   {
@@ -49283,6 +49585,16 @@
                     "array": true,
                     "type": "IncidentStatus"
                   }
+                },
+                "cast": {
+                  "returns": {
+                    "array": true,
+                    "type": "IncidentStatus"
+                  }
+                },
+                "concatenate": {
+                  "reference": "1235",
+                  "reference_label": "Teams"
                 },
                 "filter": {
                   "condition_groups": [
@@ -49435,6 +49747,16 @@
                   "type": "IncidentStatus"
                 }
               },
+              "cast": {
+                "returns": {
+                  "array": true,
+                  "type": "IncidentStatus"
+                }
+              },
+              "concatenate": {
+                "reference": "1235",
+                "reference_label": "Teams"
+              },
               "filter": {
                 "condition_groups": [
                   {
@@ -49556,6 +49878,16 @@
                     "type": "IncidentStatus"
                   }
                 },
+                "cast": {
+                  "returns": {
+                    "array": true,
+                    "type": "IncidentStatus"
+                  }
+                },
+                "concatenate": {
+                  "reference": "1235",
+                  "reference_label": "Teams"
+                },
                 "filter": {
                   "condition_groups": [
                     {
@@ -49657,8 +49989,10 @@
               "asana",
               "azure_devops",
               "click_up",
+              "freshservice",
               "linear",
               "jira",
+              "salesforce",
               "jira_server",
               "github",
               "gitlab",
@@ -49695,8 +50029,10 @@
               "asana",
               "azure_devops",
               "click_up",
+              "freshservice",
               "linear",
               "jira",
+              "salesforce",
               "jira_server",
               "github",
               "gitlab",
@@ -49968,8 +50304,10 @@
               "asana",
               "azure_devops",
               "click_up",
+              "freshservice",
               "linear",
               "jira",
+              "salesforce",
               "jira_server",
               "github",
               "gitlab",
@@ -54076,7 +54414,9 @@
             "private_incidents_only": false,
             "updated_at": "2021-08-17T13:28:57.801578Z"
           },
+          "last_activity_at": "2021-08-17T13:28:57.801578Z",
           "mode": "standard",
+          "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
           "name": "Our database is sad",
           "permalink": "https://app.incident.io/incidents/123",
           "postmortem_document_ids": [
@@ -54094,8 +54434,12 @@
           },
           "slack_channel_id": "C02AW36C1M5",
           "slack_channel_name": "inc-165-green-parrot",
+          "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
           "slack_team_id": "T02A1FSLE8J",
           "summary": "Our database is really really sad, and we don't know why yet.",
+          "team_ids": [
+            "01JPQA75EPNEES4479P16P4XAB"
+          ],
           "updated_at": "2021-08-17T13:28:57.801578Z",
           "visibility": "public",
           "workload_minutes_late": 40.7,
@@ -54249,6 +54593,12 @@
           "incident_type": {
             "$ref": "#/components/schemas/IncidentTypeV2"
           },
+          "last_activity_at": {
+            "description": "When the incident last recorded 'activity'",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
           "mode": {
             "description": "Whether the incident is real, a test, a tutorial, or importing as a retrospective incident",
             "enum": [
@@ -54258,6 +54608,11 @@
               "tutorial"
             ],
             "example": "standard",
+            "type": "string"
+          },
+          "ms_teams_channel_url": {
+            "description": "URL to link to the Microsoft Teams channel",
+            "example": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
             "type": "string"
           },
           "name": {
@@ -54304,6 +54659,11 @@
             "example": "inc-165-green-parrot",
             "type": "string"
           },
+          "slack_channel_url": {
+            "description": "URL to link to the slack channel",
+            "example": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
+            "type": "string"
+          },
           "slack_team_id": {
             "description": "ID of the Slack team / workspace. This is only required if you are using a Slack Enterprise Grid with multiple teams.",
             "example": "T02A1FSLE8J",
@@ -54313,6 +54673,17 @@
             "description": "Detailed description of the incident",
             "example": "Our database is really really sad, and we don't know why yet.",
             "type": "string"
+          },
+          "team_ids": {
+            "description": "IDs of the teams that own this incident, resolved from your team settings. Empty when no teams match.",
+            "example": [
+              "01JPQA75EPNEES4479P16P4XAB"
+            ],
+            "items": {
+              "example": "01JPQA75EPNEES4479P16P4XAB",
+              "type": "string"
+            },
+            "type": "array"
           },
           "updated_at": {
             "description": "When the incident was last updated",
@@ -54356,6 +54727,8 @@
         },
         "required": [
           "incident_status",
+          "last_activity_at",
+          "team_ids",
           "id",
           "reference",
           "name",
@@ -54507,7 +54880,9 @@
               "private_incidents_only": false,
               "updated_at": "2021-08-17T13:28:57.801578Z"
             },
+            "last_activity_at": "2021-08-17T13:28:57.801578Z",
             "mode": "standard",
+            "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
             "name": "Our database is sad",
             "permalink": "https://app.incident.io/incidents/123",
             "postmortem_document_ids": [
@@ -54525,8 +54900,12 @@
             },
             "slack_channel_id": "C02AW36C1M5",
             "slack_channel_name": "inc-165-green-parrot",
+            "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
             "slack_team_id": "T02A1FSLE8J",
             "summary": "Our database is really really sad, and we don't know why yet.",
+            "team_ids": [
+              "01JPQA75EPNEES4479P16P4XAB"
+            ],
             "updated_at": "2021-08-17T13:28:57.801578Z",
             "visibility": "public",
             "workload_minutes_late": 40.7,
@@ -55178,7 +55557,9 @@
               "private_incidents_only": false,
               "updated_at": "2021-08-17T13:28:57.801578Z"
             },
+            "last_activity_at": "2021-08-17T13:28:57.801578Z",
             "mode": "standard",
+            "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
             "name": "Our database is sad",
             "permalink": "https://app.incident.io/incidents/123",
             "postmortem_document_ids": [
@@ -55196,8 +55577,12 @@
             },
             "slack_channel_id": "C02AW36C1M5",
             "slack_channel_name": "inc-165-green-parrot",
+            "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
             "slack_team_id": "T02A1FSLE8J",
             "summary": "Our database is really really sad, and we don't know why yet.",
+            "team_ids": [
+              "01JPQA75EPNEES4479P16P4XAB"
+            ],
             "updated_at": "2021-08-17T13:28:57.801578Z",
             "visibility": "public",
             "workload_minutes_late": 40.7,
@@ -55412,7 +55797,9 @@
               "private_incidents_only": false,
               "updated_at": "2021-08-17T13:28:57.801578Z"
             },
+            "last_activity_at": "2021-08-17T13:28:57.801578Z",
             "mode": "standard",
+            "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
             "name": "Our database is sad",
             "permalink": "https://app.incident.io/incidents/123",
             "postmortem_document_ids": [
@@ -55430,8 +55817,12 @@
             },
             "slack_channel_id": "C02AW36C1M5",
             "slack_channel_name": "inc-165-green-parrot",
+            "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
             "slack_team_id": "T02A1FSLE8J",
             "summary": "Our database is really really sad, and we don't know why yet.",
+            "team_ids": [
+              "01JPQA75EPNEES4479P16P4XAB"
+            ],
             "updated_at": "2021-08-17T13:28:57.801578Z",
             "visibility": "public",
             "workload_minutes_late": 40.7,
@@ -55912,7 +56303,9 @@
                 "private_incidents_only": false,
                 "updated_at": "2021-08-17T13:28:57.801578Z"
               },
+              "last_activity_at": "2021-08-17T13:28:57.801578Z",
               "mode": "standard",
+              "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
               "name": "Our database is sad",
               "permalink": "https://app.incident.io/incidents/123",
               "postmortem_document_ids": [
@@ -55930,8 +56323,12 @@
               },
               "slack_channel_id": "C02AW36C1M5",
               "slack_channel_name": "inc-165-green-parrot",
+              "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
               "slack_team_id": "T02A1FSLE8J",
               "summary": "Our database is really really sad, and we don't know why yet.",
+              "team_ids": [
+                "01JPQA75EPNEES4479P16P4XAB"
+              ],
               "updated_at": "2021-08-17T13:28:57.801578Z",
               "visibility": "public",
               "workload_minutes_late": 40.7,
@@ -56083,7 +56480,9 @@
                   "private_incidents_only": false,
                   "updated_at": "2021-08-17T13:28:57.801578Z"
                 },
+                "last_activity_at": "2021-08-17T13:28:57.801578Z",
                 "mode": "standard",
+                "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
                 "name": "Our database is sad",
                 "permalink": "https://app.incident.io/incidents/123",
                 "postmortem_document_ids": [
@@ -56101,8 +56500,12 @@
                 },
                 "slack_channel_id": "C02AW36C1M5",
                 "slack_channel_name": "inc-165-green-parrot",
+                "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
                 "slack_team_id": "T02A1FSLE8J",
                 "summary": "Our database is really really sad, and we don't know why yet.",
+                "team_ids": [
+                  "01JPQA75EPNEES4479P16P4XAB"
+                ],
                 "updated_at": "2021-08-17T13:28:57.801578Z",
                 "visibility": "public",
                 "workload_minutes_late": 40.7,
@@ -56393,7 +56796,9 @@
               "private_incidents_only": false,
               "updated_at": "2021-08-17T13:28:57.801578Z"
             },
+            "last_activity_at": "2021-08-17T13:28:57.801578Z",
             "mode": "standard",
+            "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
             "name": "Our database is sad",
             "permalink": "https://app.incident.io/incidents/123",
             "postmortem_document_ids": [
@@ -56411,8 +56816,12 @@
             },
             "slack_channel_id": "C02AW36C1M5",
             "slack_channel_name": "inc-165-green-parrot",
+            "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
             "slack_team_id": "T02A1FSLE8J",
             "summary": "Our database is really really sad, and we don't know why yet.",
+            "team_ids": [
+              "01JPQA75EPNEES4479P16P4XAB"
+            ],
             "updated_at": "2021-08-17T13:28:57.801578Z",
             "visibility": "public",
             "workload_minutes_late": 40.7,
@@ -67523,8 +67932,10 @@
             "private_incidents_only": false,
             "updated_at": "2021-08-17T13:28:57.801578Z"
           },
+          "last_activity_at": "2021-08-17T13:28:57.801578Z",
           "mode": "standard",
           "most_recent_update_message": "We're working on a fix, hoping to ship in the next 30 minutes",
+          "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
           "name": "Our database is sad",
           "permalink": "https://app.incident.io/incidents/123",
           "postmortem_document_ids": [
@@ -67545,8 +67956,12 @@
           },
           "slack_channel_id": "C02AW36C1M5",
           "slack_channel_name": "inc-165-green-parrot",
+          "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
           "slack_team_id": "T02A1FSLE8J",
           "summary": "Our database is really really sad, and we don't know why yet.",
+          "team_ids": [
+            "01JPQA75EPNEES4479P16P4XAB"
+          ],
           "updated_at": "2021-08-17T13:28:57.801578Z",
           "visibility": "public",
           "workload_minutes_late": 40.7,
@@ -67700,6 +68115,12 @@
           "incident_type": {
             "$ref": "#/components/schemas/IncidentTypeV2"
           },
+          "last_activity_at": {
+            "description": "When the incident last recorded 'activity'",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
           "mode": {
             "description": "Whether the incident is real, a test, a tutorial, or importing as a retrospective incident",
             "enum": [
@@ -67714,6 +68135,11 @@
           "most_recent_update_message": {
             "description": "Message that explains the context behind the update",
             "example": "We're working on a fix, hoping to ship in the next 30 minutes",
+            "type": "string"
+          },
+          "ms_teams_channel_url": {
+            "description": "URL to link to the Microsoft Teams channel",
+            "example": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
             "type": "string"
           },
           "name": {
@@ -67771,6 +68197,11 @@
             "example": "inc-165-green-parrot",
             "type": "string"
           },
+          "slack_channel_url": {
+            "description": "URL to link to the slack channel",
+            "example": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
+            "type": "string"
+          },
           "slack_team_id": {
             "description": "ID of the Slack team / workspace. This is only required if you are using a Slack Enterprise Grid with multiple teams.",
             "example": "T02A1FSLE8J",
@@ -67780,6 +68211,17 @@
             "description": "Detailed description of the incident",
             "example": "Our database is really really sad, and we don't know why yet.",
             "type": "string"
+          },
+          "team_ids": {
+            "description": "IDs of the teams that own this incident, resolved from your team settings. Empty when no teams match.",
+            "example": [
+              "01JPQA75EPNEES4479P16P4XAB"
+            ],
+            "items": {
+              "example": "01JPQA75EPNEES4479P16P4XAB",
+              "type": "string"
+            },
+            "type": "array"
           },
           "updated_at": {
             "description": "When the incident was last updated",
@@ -67823,6 +68265,8 @@
         },
         "required": [
           "incident_status",
+          "last_activity_at",
+          "team_ids",
           "id",
           "reference",
           "name",
@@ -69925,8 +70369,10 @@
               "private_incidents_only": false,
               "updated_at": "2021-08-17T13:28:57.801578Z"
             },
+            "last_activity_at": "2021-08-17T13:28:57.801578Z",
             "mode": "standard",
             "most_recent_update_message": "We're working on a fix, hoping to ship in the next 30 minutes",
+            "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
             "name": "Our database is sad",
             "permalink": "https://app.incident.io/incidents/123",
             "postmortem_document_ids": [
@@ -69947,8 +70393,12 @@
             },
             "slack_channel_id": "C02AW36C1M5",
             "slack_channel_name": "inc-165-green-parrot",
+            "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
             "slack_team_id": "T02A1FSLE8J",
             "summary": "Our database is really really sad, and we don't know why yet.",
+            "team_ids": [
+              "01JPQA75EPNEES4479P16P4XAB"
+            ],
             "updated_at": "2021-08-17T13:28:57.801578Z",
             "visibility": "public",
             "workload_minutes_late": 40.7,
@@ -70147,7 +70597,9 @@
                 "private_incidents_only": false,
                 "updated_at": "2021-08-17T13:28:57.801578Z"
               },
+              "last_activity_at": "2021-08-17T13:28:57.801578Z",
               "mode": "standard",
+              "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
               "name": "Our database is sad",
               "permalink": "https://app.incident.io/incidents/123",
               "postmortem_document_ids": [
@@ -70165,8 +70617,12 @@
               },
               "slack_channel_id": "C02AW36C1M5",
               "slack_channel_name": "inc-165-green-parrot",
+              "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
               "slack_team_id": "T02A1FSLE8J",
               "summary": "Our database is really really sad, and we don't know why yet.",
+              "team_ids": [
+                "01JPQA75EPNEES4479P16P4XAB"
+              ],
               "updated_at": "2021-08-17T13:28:57.801578Z",
               "visibility": "public",
               "workload_minutes_late": 40.7,
@@ -70384,8 +70840,10 @@
               "private_incidents_only": false,
               "updated_at": "2021-08-17T13:28:57.801578Z"
             },
+            "last_activity_at": "2021-08-17T13:28:57.801578Z",
             "mode": "standard",
             "most_recent_update_message": "We're working on a fix, hoping to ship in the next 30 minutes",
+            "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
             "name": "Our database is sad",
             "permalink": "https://app.incident.io/incidents/123",
             "postmortem_document_ids": [
@@ -70406,8 +70864,12 @@
             },
             "slack_channel_id": "C02AW36C1M5",
             "slack_channel_name": "inc-165-green-parrot",
+            "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
             "slack_team_id": "T02A1FSLE8J",
             "summary": "Our database is really really sad, and we don't know why yet.",
+            "team_ids": [
+              "01JPQA75EPNEES4479P16P4XAB"
+            ],
             "updated_at": "2021-08-17T13:28:57.801578Z",
             "visibility": "public",
             "workload_minutes_late": 40.7,
@@ -71772,6 +72234,16 @@
                       "type": "IncidentStatus"
                     }
                   },
+                  "cast": {
+                    "returns": {
+                      "array": true,
+                      "type": "IncidentStatus"
+                    }
+                  },
+                  "concatenate": {
+                    "reference": "1235",
+                    "reference_label": "Teams"
+                  },
                   "filter": {
                     "condition_groups": [
                       {
@@ -71996,6 +72468,16 @@
                         "array": true,
                         "type": "IncidentStatus"
                       }
+                    },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
                     },
                     "filter": {
                       "condition_groups": [
@@ -72332,6 +72814,16 @@
                       "type": "IncidentStatus"
                     }
                   },
+                  "cast": {
+                    "returns": {
+                      "array": true,
+                      "type": "IncidentStatus"
+                    }
+                  },
+                  "concatenate": {
+                    "reference": "1235",
+                    "reference_label": "Teams"
+                  },
                   "filter": {
                     "condition_groups": [
                       {
@@ -72585,6 +73077,16 @@
                         "array": true,
                         "type": "IncidentStatus"
                       }
+                    },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
                     },
                     "filter": {
                       "condition_groups": [
@@ -73504,6 +74006,16 @@
                         "type": "IncidentStatus"
                       }
                     },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
+                    },
                     "filter": {
                       "condition_groups": [
                         {
@@ -73764,6 +74276,16 @@
                           "type": "IncidentStatus"
                         }
                       },
+                      "cast": {
+                        "returns": {
+                          "array": true,
+                          "type": "IncidentStatus"
+                        }
+                      },
+                      "concatenate": {
+                        "reference": "1235",
+                        "reference_label": "Teams"
+                      },
                       "filter": {
                         "condition_groups": [
                           {
@@ -73981,6 +74503,16 @@
                             "array": true,
                             "type": "IncidentStatus"
                           }
+                        },
+                        "cast": {
+                          "returns": {
+                            "array": true,
+                            "type": "IncidentStatus"
+                          }
+                        },
+                        "concatenate": {
+                          "reference": "1235",
+                          "reference_label": "Teams"
                         },
                         "filter": {
                           "condition_groups": [
@@ -74215,6 +74747,16 @@
                         "array": true,
                         "type": "IncidentStatus"
                       }
+                    },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
                     },
                     "filter": {
                       "condition_groups": [
@@ -75019,6 +75561,16 @@
                         "array": true,
                         "type": "IncidentStatus"
                       }
+                    },
+                    "cast": {
+                      "returns": {
+                        "array": true,
+                        "type": "IncidentStatus"
+                      }
+                    },
+                    "concatenate": {
+                      "reference": "1235",
+                      "reference_label": "Teams"
                     },
                     "filter": {
                       "condition_groups": [
@@ -81895,6 +82447,16 @@
                                 "type": "IncidentStatus"
                               }
                             },
+                            "cast": {
+                              "returns": {
+                                "array": true,
+                                "type": "IncidentStatus"
+                              }
+                            },
+                            "concatenate": {
+                              "reference": "1235",
+                              "reference_label": "Teams"
+                            },
                             "filter": {
                               "condition_groups": [
                                 {
@@ -82511,6 +83073,16 @@
                                 "array": true,
                                 "type": "IncidentStatus"
                               }
+                            },
+                            "cast": {
+                              "returns": {
+                                "array": true,
+                                "type": "IncidentStatus"
+                              }
+                            },
+                            "concatenate": {
+                              "reference": "1235",
+                              "reference_label": "Teams"
                             },
                             "filter": {
                               "condition_groups": [
@@ -83559,6 +84131,16 @@
                                 "type": "IncidentStatus"
                               }
                             },
+                            "cast": {
+                              "returns": {
+                                "array": true,
+                                "type": "IncidentStatus"
+                              }
+                            },
+                            "concatenate": {
+                              "reference": "1235",
+                              "reference_label": "Teams"
+                            },
                             "filter": {
                               "condition_groups": [
                                 {
@@ -84018,6 +84600,16 @@
                                     "array": true,
                                     "type": "IncidentStatus"
                                   }
+                                },
+                                "cast": {
+                                  "returns": {
+                                    "array": true,
+                                    "type": "IncidentStatus"
+                                  }
+                                },
+                                "concatenate": {
+                                  "reference": "1235",
+                                  "reference_label": "Teams"
                                 },
                                 "filter": {
                                   "condition_groups": [
@@ -84485,6 +85077,16 @@
                                   "array": true,
                                   "type": "IncidentStatus"
                                 }
+                              },
+                              "cast": {
+                                "returns": {
+                                  "array": true,
+                                  "type": "IncidentStatus"
+                                }
+                              },
+                              "concatenate": {
+                                "reference": "1235",
+                                "reference_label": "Teams"
                               },
                               "filter": {
                                 "condition_groups": [
@@ -84995,6 +85597,16 @@
                                   "type": "IncidentStatus"
                                 }
                               },
+                              "cast": {
+                                "returns": {
+                                  "array": true,
+                                  "type": "IncidentStatus"
+                                }
+                              },
+                              "concatenate": {
+                                "reference": "1235",
+                                "reference_label": "Teams"
+                              },
                               "filter": {
                                 "condition_groups": [
                                   {
@@ -85475,6 +86087,16 @@
                                   "type": "IncidentStatus"
                                 }
                               },
+                              "cast": {
+                                "returns": {
+                                  "array": true,
+                                  "type": "IncidentStatus"
+                                }
+                              },
+                              "concatenate": {
+                                "reference": "1235",
+                                "reference_label": "Teams"
+                              },
                               "filter": {
                                 "condition_groups": [
                                   {
@@ -85583,7 +86205,7 @@
     },
     "/v2/alerts": {
       "get": {
-        "description": "List all alerts for your account.\n\t\t\nThis endpoint supports a number of filters, which can help find alerts matching certain\ncriteria. These filters work similarly to the filters on the incidents endpoint, where \na field is specified alongside a comparison operator in the query string.\n\nNote that:\n- Filters may be used together, and the result will be alerts that match all filters.\n- All query parameters must be URI encoded.\n\n### By deduplication_key\n\nFind all alerts with deduplication_key ABC:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'deduplication_key[is]=ABC'\n\n### By status\n\nFind all alerts in a firing state:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'status[one_of]=firing'\n\n### By alert_source\n\nFind all alerts from a specific alert source (by alert source ID):\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_source[one_of]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\nFind all alerts not from a specific alert source:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_source[not_in]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\n### By alert_group_id\n\nFind all alerts in a specific alert group:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_group_id[one_of]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\n### By created_at\nFind all alerts that follow specified date parameters for created_at field.\nPossible values are \"gte\" (greater than or equal to), \"lte\" (less than or equal to), and \n\"date_range\" (between two dates). The following example finds all alerts created after \n2025-01-01:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'created_at[gte]=2025-01-01'\n\nTo find alerts created within a specific date range, use the date_range option with \ntilde-separated dates:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'created_at[date_range]=2024-12-02~2024-12-08'\n\n### By has_notes\n\nFind all alerts that have notes attached:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'has_notes[is]=true'\n\nFind all alerts that have no notes attached:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'has_notes[is]=false'\n\n### By attributes\n\nAlerts can be filtered by their attribute values. Each filter is keyed by the alert\nattribute ID, followed by an operator and the values to match. The accepted operators\ndepend on the attribute's type.\n\nFind all alerts where attribute 01GBSQF3FHF7FWZQNWGHAVQ804 is one of two catalog entries:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'attributes[01GBSQF3FHF7FWZQNWGHAVQ804][one_of]=01GBSQF3FHF7FWZQNWGHAVQ804' \\\n\t\t\t--data 'attributes[01GBSQF3FHF7FWZQNWGHAVQ804][one_of]=01ET65M7ZARSFZ6TFDFVQDN9AA'\n\nYou can filter on multiple attributes at once, and the result will be alerts that match\nall of them.\n\n### Maintenance windows\nBy default, all alerts are returned including those held by a maintenance window.\nTo exclude alerts that are held by a maintenance window:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'include_maintenance_window[is]=false'\n\t\t",
+        "description": "List all alerts for your account.\n\t\t\nThis endpoint supports a number of filters, which can help find alerts matching certain\ncriteria. These filters work similarly to the filters on the incidents endpoint, where \na field is specified alongside a comparison operator in the query string.\n\nNote that:\n- Filters may be used together, and the result will be alerts that match all filters.\n- All query parameters must be URI encoded.\n\n### By deduplication_key\n\nFind all alerts with deduplication_key ABC:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'deduplication_key[is]=ABC'\n\n### By status\n\nFind all alerts in a firing state:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'status[one_of]=firing'\n\n### By alert_source\n\nFind all alerts from a specific alert source (by alert source ID):\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_source[one_of]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\nFind all alerts not from a specific alert source:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_source[not_in]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\n### By alert_group_id\n\nFind all alerts in a specific alert group:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_group_id[one_of]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\n### By created_at\nFind all alerts that follow specified date parameters for created_at field.\nPossible values are \"gte\" (greater than or equal to), \"lte\" (less than or equal to), and \n\"date_range\" (between two dates). The following example finds all alerts created after \n2025-01-01:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'created_at[gte]=2025-01-01'\n\nTo find alerts created within a specific date range, use the date_range option with \ntilde-separated dates:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'created_at[date_range]=2024-12-02~2024-12-08'\n\n### By updated_at\nFind all alerts that follow specified date parameters for updated_at field, using the same\n\"gte\", \"lte\" and \"date_range\" operators as created_at. This is useful for incrementally\nsyncing alerts: poll with updated_at[gte] set to your last sync time instead of re-fetching\nthe full history. Note that updated_at moves whenever the alert row is written, which can\nhappen without a visible change to the alert payload, so treat matches as candidates to\nre-fetch rather than guaranteed changes — and overlap your sync window by a few minutes to\nallow for writes that commit out of timestamp order:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'updated_at[gte]=2025-01-01T00:00:00Z'\n\n### By has_notes\n\nFind all alerts that have notes attached:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'has_notes[is]=true'\n\nFind all alerts that have no notes attached:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'has_notes[is]=false'\n\n### By attributes\n\nAlerts can be filtered by their attribute values. Each filter is keyed by the alert\nattribute ID, followed by an operator and the values to match. The accepted operators\ndepend on the attribute's type.\n\nFind all alerts where attribute 01GBSQF3FHF7FWZQNWGHAVQ804 is one of two catalog entries:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'attributes[01GBSQF3FHF7FWZQNWGHAVQ804][one_of]=01GBSQF3FHF7FWZQNWGHAVQ804' \\\n\t\t\t--data 'attributes[01GBSQF3FHF7FWZQNWGHAVQ804][one_of]=01ET65M7ZARSFZ6TFDFVQDN9AA'\n\nYou can filter on multiple attributes at once, and the result will be alerts that match\nall of them.\n\n### Maintenance windows\nBy default, all alerts are returned including those held by a maintenance window.\nTo exclude alerts that are held by a maintenance window:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'include_maintenance_window[is]=false'\n\t\t",
         "operationId": "Alerts V2#List",
         "parameters": [
           {
@@ -85757,6 +86379,36 @@
                 "type": "array"
               },
               "description": "Filter on alert created at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.",
+              "example": {
+                "gte": [
+                  "2025-01-01"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Filter on alert updated at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.",
+            "example": {
+              "gte": [
+                "2025-01-01"
+              ]
+            },
+            "in": "query",
+            "name": "updated_at",
+            "schema": {
+              "additionalProperties": {
+                "example": [
+                  "some_value"
+                ],
+                "items": {
+                  "example": "some_value",
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "description": "Filter on alert updated at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.",
               "example": {
                 "gte": [
                   "2025-01-01"
@@ -89465,7 +90117,7 @@
     },
     "/v2/escalations/{escalation_id}/actions/respond": {
       "post": {
-        "description": "Respond to an escalation.\n\nAn API key can acknowledge or snooze an escalation on its own, and the response is\nattributed to the key.\n\nTo respond as one of your users instead, set the X-Incident-User header to their user ID.\nThis needs the api_keys.act_on_behalf_of_users scope. Declining (\"nack\") means \"I\npersonally can't take this page\", so it's only available this way.\n\nTo use this API, you will need an API key with the \"Create and manage escalations\" permission.",
+        "description": "Respond to an escalation.\n\nAn API key can acknowledge or snooze an escalation on its own, and the response is\nattributed to the key.\n\nDeclining (\"nack\") means \"I personally can't take this page\", so it isn't available to\nan API key responding in its own right.\n\nTo use this API, you will need an API key with the \"Create and manage escalations\" permission.",
         "operationId": "Escalations V2#RespondEscalation",
         "parameters": [
           {
@@ -91769,7 +92421,9 @@
                         "private_incidents_only": false,
                         "updated_at": "2021-08-17T13:28:57.801578Z"
                       },
+                      "last_activity_at": "2021-08-17T13:28:57.801578Z",
                       "mode": "standard",
+                      "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
                       "name": "Our database is sad",
                       "permalink": "https://app.incident.io/incidents/123",
                       "postmortem_document_ids": [
@@ -91787,8 +92441,12 @@
                       },
                       "slack_channel_id": "C02AW36C1M5",
                       "slack_channel_name": "inc-165-green-parrot",
+                      "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
                       "slack_team_id": "T02A1FSLE8J",
                       "summary": "Our database is really really sad, and we don't know why yet.",
+                      "team_ids": [
+                        "01JPQA75EPNEES4479P16P4XAB"
+                      ],
                       "updated_at": "2021-08-17T13:28:57.801578Z",
                       "visibility": "public",
                       "workload_minutes_late": 40.7,
@@ -92026,7 +92684,9 @@
                       "private_incidents_only": false,
                       "updated_at": "2021-08-17T13:28:57.801578Z"
                     },
+                    "last_activity_at": "2021-08-17T13:28:57.801578Z",
                     "mode": "standard",
+                    "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
                     "name": "Our database is sad",
                     "permalink": "https://app.incident.io/incidents/123",
                     "postmortem_document_ids": [
@@ -92044,8 +92704,12 @@
                     },
                     "slack_channel_id": "C02AW36C1M5",
                     "slack_channel_name": "inc-165-green-parrot",
+                    "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
                     "slack_team_id": "T02A1FSLE8J",
                     "summary": "Our database is really really sad, and we don't know why yet.",
+                    "team_ids": [
+                      "01JPQA75EPNEES4479P16P4XAB"
+                    ],
                     "updated_at": "2021-08-17T13:28:57.801578Z",
                     "visibility": "public",
                     "workload_minutes_late": 40.7,
@@ -92234,7 +92898,9 @@
                       "private_incidents_only": false,
                       "updated_at": "2021-08-17T13:28:57.801578Z"
                     },
+                    "last_activity_at": "2021-08-17T13:28:57.801578Z",
                     "mode": "standard",
+                    "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
                     "name": "Our database is sad",
                     "permalink": "https://app.incident.io/incidents/123",
                     "postmortem_document_ids": [
@@ -92252,8 +92918,12 @@
                     },
                     "slack_channel_id": "C02AW36C1M5",
                     "slack_channel_name": "inc-165-green-parrot",
+                    "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
                     "slack_team_id": "T02A1FSLE8J",
                     "summary": "Our database is really really sad, and we don't know why yet.",
+                    "team_ids": [
+                      "01JPQA75EPNEES4479P16P4XAB"
+                    ],
                     "updated_at": "2021-08-17T13:28:57.801578Z",
                     "visibility": "public",
                     "workload_minutes_late": 40.7,
@@ -92495,7 +93165,9 @@
                       "private_incidents_only": false,
                       "updated_at": "2021-08-17T13:28:57.801578Z"
                     },
+                    "last_activity_at": "2021-08-17T13:28:57.801578Z",
                     "mode": "standard",
+                    "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
                     "name": "Our database is sad",
                     "permalink": "https://app.incident.io/incidents/123",
                     "postmortem_document_ids": [
@@ -92513,8 +93185,12 @@
                     },
                     "slack_channel_id": "C02AW36C1M5",
                     "slack_channel_name": "inc-165-green-parrot",
+                    "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
                     "slack_team_id": "T02A1FSLE8J",
                     "summary": "Our database is really really sad, and we don't know why yet.",
+                    "team_ids": [
+                      "01JPQA75EPNEES4479P16P4XAB"
+                    ],
                     "updated_at": "2021-08-17T13:28:57.801578Z",
                     "visibility": "public",
                     "workload_minutes_late": 40.7,
@@ -96759,7 +97435,13 @@
         "x-display-name": "Update",
         "x-docs-display-name": "Update",
         "x-docs-group-name": "Telemetry V2",
-        "x-docs-resource-type": "TelemetryDataSourceV2"
+        "x-docs-resource-type": "TelemetryDataSourceV2",
+        "x-mint": {
+          "content": "🔑 Requires the `telemetry_data_source.update` scope."
+        },
+        "x-rbac-scopes": [
+          "telemetry_data_source.update"
+        ]
       }
     },
     "/v2/users": {
@@ -97568,6 +98250,16 @@
                                   "type": "IncidentStatus"
                                 }
                               },
+                              "cast": {
+                                "returns": {
+                                  "array": true,
+                                  "type": "IncidentStatus"
+                                }
+                              },
+                              "concatenate": {
+                                "reference": "1235",
+                                "reference_label": "Teams"
+                              },
                               "filter": {
                                 "condition_groups": [
                                   {
@@ -98034,6 +98726,16 @@
                                 "type": "IncidentStatus"
                               }
                             },
+                            "cast": {
+                              "returns": {
+                                "array": true,
+                                "type": "IncidentStatus"
+                              }
+                            },
+                            "concatenate": {
+                              "reference": "1235",
+                              "reference_label": "Teams"
+                            },
                             "filter": {
                               "condition_groups": [
                                 {
@@ -98379,6 +99081,16 @@
                                 "array": true,
                                 "type": "IncidentStatus"
                               }
+                            },
+                            "cast": {
+                              "returns": {
+                                "array": true,
+                                "type": "IncidentStatus"
+                              }
+                            },
+                            "concatenate": {
+                              "reference": "1235",
+                              "reference_label": "Teams"
                             },
                             "filter": {
                               "condition_groups": [
@@ -98892,6 +99604,16 @@
                                 "array": true,
                                 "type": "IncidentStatus"
                               }
+                            },
+                            "cast": {
+                              "returns": {
+                                "array": true,
+                                "type": "IncidentStatus"
+                              }
+                            },
+                            "concatenate": {
+                              "reference": "1235",
+                              "reference_label": "Teams"
                             },
                             "filter": {
                               "condition_groups": [
@@ -99758,6 +100480,16 @@
                                 "type": "IncidentStatus"
                               }
                             },
+                            "cast": {
+                              "returns": {
+                                "array": true,
+                                "type": "IncidentStatus"
+                              }
+                            },
+                            "concatenate": {
+                              "reference": "1235",
+                              "reference_label": "Teams"
+                            },
                             "filter": {
                               "condition_groups": [
                                 {
@@ -100328,6 +101060,16 @@
                                 "array": true,
                                 "type": "IncidentStatus"
                               }
+                            },
+                            "cast": {
+                              "returns": {
+                                "array": true,
+                                "type": "IncidentStatus"
+                              }
+                            },
+                            "concatenate": {
+                              "reference": "1235",
+                              "reference_label": "Teams"
                             },
                             "filter": {
                               "condition_groups": [
@@ -101320,6 +102062,16 @@
                                 "array": true,
                                 "type": "IncidentStatus"
                               }
+                            },
+                            "cast": {
+                              "returns": {
+                                "array": true,
+                                "type": "IncidentStatus"
+                              }
+                            },
+                            "concatenate": {
+                              "reference": "1235",
+                              "reference_label": "Teams"
                             },
                             "filter": {
                               "condition_groups": [
@@ -114283,8 +115035,10 @@
                       "private_incidents_only": false,
                       "updated_at": "2021-08-17T13:28:57.801578Z"
                     },
+                    "last_activity_at": "2021-08-17T13:28:57.801578Z",
                     "mode": "standard",
                     "most_recent_update_message": "We're working on a fix, hoping to ship in the next 30 minutes",
+                    "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
                     "name": "Our database is sad",
                     "permalink": "https://app.incident.io/incidents/123",
                     "postmortem_document_ids": [
@@ -114305,8 +115059,12 @@
                     },
                     "slack_channel_id": "C02AW36C1M5",
                     "slack_channel_name": "inc-165-green-parrot",
+                    "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
                     "slack_team_id": "T02A1FSLE8J",
                     "summary": "Our database is really really sad, and we don't know why yet.",
+                    "team_ids": [
+                      "01JPQA75EPNEES4479P16P4XAB"
+                    ],
                     "updated_at": "2021-08-17T13:28:57.801578Z",
                     "visibility": "public",
                     "workload_minutes_late": 40.7,
@@ -114473,7 +115231,9 @@
                         "private_incidents_only": false,
                         "updated_at": "2021-08-17T13:28:57.801578Z"
                       },
+                      "last_activity_at": "2021-08-17T13:28:57.801578Z",
                       "mode": "standard",
+                      "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
                       "name": "Our database is sad",
                       "permalink": "https://app.incident.io/incidents/123",
                       "postmortem_document_ids": [
@@ -114491,8 +115251,12 @@
                       },
                       "slack_channel_id": "C02AW36C1M5",
                       "slack_channel_name": "inc-165-green-parrot",
+                      "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
                       "slack_team_id": "T02A1FSLE8J",
                       "summary": "Our database is really really sad, and we don't know why yet.",
+                      "team_ids": [
+                        "01JPQA75EPNEES4479P16P4XAB"
+                      ],
                       "updated_at": "2021-08-17T13:28:57.801578Z",
                       "visibility": "public",
                       "workload_minutes_late": 40.7,
@@ -114678,8 +115442,10 @@
                       "private_incidents_only": false,
                       "updated_at": "2021-08-17T13:28:57.801578Z"
                     },
+                    "last_activity_at": "2021-08-17T13:28:57.801578Z",
                     "mode": "standard",
                     "most_recent_update_message": "We're working on a fix, hoping to ship in the next 30 minutes",
+                    "ms_teams_channel_url": "https://teams.microsoft.com/l/channel/19%some-hex%40thread.tacv2/inc-123-title?groupId=some-uuid\u0026tenantId=another-uuid",
                     "name": "Our database is sad",
                     "permalink": "https://app.incident.io/incidents/123",
                     "postmortem_document_ids": [
@@ -114700,8 +115466,12 @@
                     },
                     "slack_channel_id": "C02AW36C1M5",
                     "slack_channel_name": "inc-165-green-parrot",
+                    "slack_channel_url": "https://slack.com/app_redirect?team=T1234\u0026channel=C5678",
                     "slack_team_id": "T02A1FSLE8J",
                     "summary": "Our database is really really sad, and we don't know why yet.",
+                    "team_ids": [
+                      "01JPQA75EPNEES4479P16P4XAB"
+                    ],
                     "updated_at": "2021-08-17T13:28:57.801578Z",
                     "visibility": "public",
                     "workload_minutes_late": 40.7,

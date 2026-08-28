@@ -3497,17 +3497,19 @@ func (e ExpressionOperationV3OperationType) Valid() bool {
 
 // Defines values for ExternalIssueReferenceV1Provider.
 const (
-	ExternalIssueReferenceV1ProviderAsana       ExternalIssueReferenceV1Provider = "asana"
-	ExternalIssueReferenceV1ProviderAzureDevops ExternalIssueReferenceV1Provider = "azure_devops"
-	ExternalIssueReferenceV1ProviderClickUp     ExternalIssueReferenceV1Provider = "click_up"
-	ExternalIssueReferenceV1ProviderGithub      ExternalIssueReferenceV1Provider = "github"
-	ExternalIssueReferenceV1ProviderGitlab      ExternalIssueReferenceV1Provider = "gitlab"
-	ExternalIssueReferenceV1ProviderJira        ExternalIssueReferenceV1Provider = "jira"
-	ExternalIssueReferenceV1ProviderJiraServer  ExternalIssueReferenceV1Provider = "jira_server"
-	ExternalIssueReferenceV1ProviderLinear      ExternalIssueReferenceV1Provider = "linear"
-	ExternalIssueReferenceV1ProviderNotion      ExternalIssueReferenceV1Provider = "notion"
-	ExternalIssueReferenceV1ProviderServiceNow  ExternalIssueReferenceV1Provider = "service_now"
-	ExternalIssueReferenceV1ProviderShortcut    ExternalIssueReferenceV1Provider = "shortcut"
+	ExternalIssueReferenceV1ProviderAsana        ExternalIssueReferenceV1Provider = "asana"
+	ExternalIssueReferenceV1ProviderAzureDevops  ExternalIssueReferenceV1Provider = "azure_devops"
+	ExternalIssueReferenceV1ProviderClickUp      ExternalIssueReferenceV1Provider = "click_up"
+	ExternalIssueReferenceV1ProviderFreshservice ExternalIssueReferenceV1Provider = "freshservice"
+	ExternalIssueReferenceV1ProviderGithub       ExternalIssueReferenceV1Provider = "github"
+	ExternalIssueReferenceV1ProviderGitlab       ExternalIssueReferenceV1Provider = "gitlab"
+	ExternalIssueReferenceV1ProviderJira         ExternalIssueReferenceV1Provider = "jira"
+	ExternalIssueReferenceV1ProviderJiraServer   ExternalIssueReferenceV1Provider = "jira_server"
+	ExternalIssueReferenceV1ProviderLinear       ExternalIssueReferenceV1Provider = "linear"
+	ExternalIssueReferenceV1ProviderNotion       ExternalIssueReferenceV1Provider = "notion"
+	ExternalIssueReferenceV1ProviderSalesforce   ExternalIssueReferenceV1Provider = "salesforce"
+	ExternalIssueReferenceV1ProviderServiceNow   ExternalIssueReferenceV1Provider = "service_now"
+	ExternalIssueReferenceV1ProviderShortcut     ExternalIssueReferenceV1Provider = "shortcut"
 )
 
 // Valid indicates whether the value is a known member of the ExternalIssueReferenceV1Provider enum.
@@ -3518,6 +3520,8 @@ func (e ExternalIssueReferenceV1Provider) Valid() bool {
 	case ExternalIssueReferenceV1ProviderAzureDevops:
 		return true
 	case ExternalIssueReferenceV1ProviderClickUp:
+		return true
+	case ExternalIssueReferenceV1ProviderFreshservice:
 		return true
 	case ExternalIssueReferenceV1ProviderGithub:
 		return true
@@ -3531,6 +3535,8 @@ func (e ExternalIssueReferenceV1Provider) Valid() bool {
 		return true
 	case ExternalIssueReferenceV1ProviderNotion:
 		return true
+	case ExternalIssueReferenceV1ProviderSalesforce:
+		return true
 	case ExternalIssueReferenceV1ProviderServiceNow:
 		return true
 	case ExternalIssueReferenceV1ProviderShortcut:
@@ -3542,17 +3548,19 @@ func (e ExternalIssueReferenceV1Provider) Valid() bool {
 
 // Defines values for ExternalIssueReferenceV2Provider.
 const (
-	ExternalIssueReferenceV2ProviderAsana       ExternalIssueReferenceV2Provider = "asana"
-	ExternalIssueReferenceV2ProviderAzureDevops ExternalIssueReferenceV2Provider = "azure_devops"
-	ExternalIssueReferenceV2ProviderClickUp     ExternalIssueReferenceV2Provider = "click_up"
-	ExternalIssueReferenceV2ProviderGithub      ExternalIssueReferenceV2Provider = "github"
-	ExternalIssueReferenceV2ProviderGitlab      ExternalIssueReferenceV2Provider = "gitlab"
-	ExternalIssueReferenceV2ProviderJira        ExternalIssueReferenceV2Provider = "jira"
-	ExternalIssueReferenceV2ProviderJiraServer  ExternalIssueReferenceV2Provider = "jira_server"
-	ExternalIssueReferenceV2ProviderLinear      ExternalIssueReferenceV2Provider = "linear"
-	ExternalIssueReferenceV2ProviderNotion      ExternalIssueReferenceV2Provider = "notion"
-	ExternalIssueReferenceV2ProviderServiceNow  ExternalIssueReferenceV2Provider = "service_now"
-	ExternalIssueReferenceV2ProviderShortcut    ExternalIssueReferenceV2Provider = "shortcut"
+	ExternalIssueReferenceV2ProviderAsana        ExternalIssueReferenceV2Provider = "asana"
+	ExternalIssueReferenceV2ProviderAzureDevops  ExternalIssueReferenceV2Provider = "azure_devops"
+	ExternalIssueReferenceV2ProviderClickUp      ExternalIssueReferenceV2Provider = "click_up"
+	ExternalIssueReferenceV2ProviderFreshservice ExternalIssueReferenceV2Provider = "freshservice"
+	ExternalIssueReferenceV2ProviderGithub       ExternalIssueReferenceV2Provider = "github"
+	ExternalIssueReferenceV2ProviderGitlab       ExternalIssueReferenceV2Provider = "gitlab"
+	ExternalIssueReferenceV2ProviderJira         ExternalIssueReferenceV2Provider = "jira"
+	ExternalIssueReferenceV2ProviderJiraServer   ExternalIssueReferenceV2Provider = "jira_server"
+	ExternalIssueReferenceV2ProviderLinear       ExternalIssueReferenceV2Provider = "linear"
+	ExternalIssueReferenceV2ProviderNotion       ExternalIssueReferenceV2Provider = "notion"
+	ExternalIssueReferenceV2ProviderSalesforce   ExternalIssueReferenceV2Provider = "salesforce"
+	ExternalIssueReferenceV2ProviderServiceNow   ExternalIssueReferenceV2Provider = "service_now"
+	ExternalIssueReferenceV2ProviderShortcut     ExternalIssueReferenceV2Provider = "shortcut"
 )
 
 // Valid indicates whether the value is a known member of the ExternalIssueReferenceV2Provider enum.
@@ -3563,6 +3571,8 @@ func (e ExternalIssueReferenceV2Provider) Valid() bool {
 	case ExternalIssueReferenceV2ProviderAzureDevops:
 		return true
 	case ExternalIssueReferenceV2ProviderClickUp:
+		return true
+	case ExternalIssueReferenceV2ProviderFreshservice:
 		return true
 	case ExternalIssueReferenceV2ProviderGithub:
 		return true
@@ -3575,6 +3585,8 @@ func (e ExternalIssueReferenceV2Provider) Valid() bool {
 	case ExternalIssueReferenceV2ProviderLinear:
 		return true
 	case ExternalIssueReferenceV2ProviderNotion:
+		return true
+	case ExternalIssueReferenceV2ProviderSalesforce:
 		return true
 	case ExternalIssueReferenceV2ProviderServiceNow:
 		return true
@@ -3674,17 +3686,19 @@ func (e FollowUpV2Status) Valid() bool {
 
 // Defines values for FollowUpsConnectExternalIssuePayloadV2Provider.
 const (
-	Asana       FollowUpsConnectExternalIssuePayloadV2Provider = "asana"
-	AzureDevops FollowUpsConnectExternalIssuePayloadV2Provider = "azure_devops"
-	ClickUp     FollowUpsConnectExternalIssuePayloadV2Provider = "click_up"
-	Github      FollowUpsConnectExternalIssuePayloadV2Provider = "github"
-	Gitlab      FollowUpsConnectExternalIssuePayloadV2Provider = "gitlab"
-	Jira        FollowUpsConnectExternalIssuePayloadV2Provider = "jira"
-	JiraServer  FollowUpsConnectExternalIssuePayloadV2Provider = "jira_server"
-	Linear      FollowUpsConnectExternalIssuePayloadV2Provider = "linear"
-	Notion      FollowUpsConnectExternalIssuePayloadV2Provider = "notion"
-	ServiceNow  FollowUpsConnectExternalIssuePayloadV2Provider = "service_now"
-	Shortcut    FollowUpsConnectExternalIssuePayloadV2Provider = "shortcut"
+	Asana        FollowUpsConnectExternalIssuePayloadV2Provider = "asana"
+	AzureDevops  FollowUpsConnectExternalIssuePayloadV2Provider = "azure_devops"
+	ClickUp      FollowUpsConnectExternalIssuePayloadV2Provider = "click_up"
+	Freshservice FollowUpsConnectExternalIssuePayloadV2Provider = "freshservice"
+	Github       FollowUpsConnectExternalIssuePayloadV2Provider = "github"
+	Gitlab       FollowUpsConnectExternalIssuePayloadV2Provider = "gitlab"
+	Jira         FollowUpsConnectExternalIssuePayloadV2Provider = "jira"
+	JiraServer   FollowUpsConnectExternalIssuePayloadV2Provider = "jira_server"
+	Linear       FollowUpsConnectExternalIssuePayloadV2Provider = "linear"
+	Notion       FollowUpsConnectExternalIssuePayloadV2Provider = "notion"
+	Salesforce   FollowUpsConnectExternalIssuePayloadV2Provider = "salesforce"
+	ServiceNow   FollowUpsConnectExternalIssuePayloadV2Provider = "service_now"
+	Shortcut     FollowUpsConnectExternalIssuePayloadV2Provider = "shortcut"
 )
 
 // Valid indicates whether the value is a known member of the FollowUpsConnectExternalIssuePayloadV2Provider enum.
@@ -3695,6 +3709,8 @@ func (e FollowUpsConnectExternalIssuePayloadV2Provider) Valid() bool {
 	case AzureDevops:
 		return true
 	case ClickUp:
+		return true
+	case Freshservice:
 		return true
 	case Github:
 		return true
@@ -3707,6 +3723,8 @@ func (e FollowUpsConnectExternalIssuePayloadV2Provider) Valid() bool {
 	case Linear:
 		return true
 	case Notion:
+		return true
+	case Salesforce:
 		return true
 	case ServiceNow:
 		return true
@@ -10093,6 +10111,16 @@ type ExpressionCastOptsPayloadV3 struct {
 	Returns ReturnsMetaV3 `json:"returns"`
 }
 
+// ExpressionCastOptsV2 defines model for ExpressionCastOptsV2.
+type ExpressionCastOptsV2 struct {
+	Returns ReturnsMetaV2 `json:"returns"`
+}
+
+// ExpressionCastOptsV3 defines model for ExpressionCastOptsV3.
+type ExpressionCastOptsV3 struct {
+	Returns ReturnsMetaV3 `json:"returns"`
+}
+
 // ExpressionConcatenateOptsPayloadV2 defines model for ExpressionConcatenateOptsPayloadV2.
 type ExpressionConcatenateOptsPayloadV2 struct {
 	// Reference The reference that you want to concatenate with
@@ -10103,6 +10131,24 @@ type ExpressionConcatenateOptsPayloadV2 struct {
 type ExpressionConcatenateOptsPayloadV3 struct {
 	// Reference The reference that you want to concatenate with
 	Reference string `json:"reference"`
+}
+
+// ExpressionConcatenateOptsV2 defines model for ExpressionConcatenateOptsV2.
+type ExpressionConcatenateOptsV2 struct {
+	// Reference The reference within the scope to concatenate with
+	Reference string `json:"reference"`
+
+	// ReferenceLabel The name of the reference to concatenate with
+	ReferenceLabel string `json:"reference_label"`
+}
+
+// ExpressionConcatenateOptsV3 defines model for ExpressionConcatenateOptsV3.
+type ExpressionConcatenateOptsV3 struct {
+	// Reference The reference within the scope to concatenate with
+	Reference string `json:"reference"`
+
+	// ReferenceLabel The name of the reference to concatenate with
+	ReferenceLabel string `json:"reference_label"`
 }
 
 // ExpressionElseBranchPayloadV2 defines model for ExpressionElseBranchPayloadV2.
@@ -10213,9 +10259,11 @@ type ExpressionOperationPayloadV3OperationType string
 
 // ExpressionOperationV2 defines model for ExpressionOperationV2.
 type ExpressionOperationV2 struct {
-	Branches *ExpressionBranchesOptsV2 `json:"branches,omitempty"`
-	Filter   *ExpressionFilterOptsV2   `json:"filter,omitempty"`
-	Navigate *ExpressionNavigateOptsV2 `json:"navigate,omitempty"`
+	Branches    *ExpressionBranchesOptsV2    `json:"branches,omitempty"`
+	Cast        *ExpressionCastOptsV2        `json:"cast,omitempty"`
+	Concatenate *ExpressionConcatenateOptsV2 `json:"concatenate,omitempty"`
+	Filter      *ExpressionFilterOptsV2      `json:"filter,omitempty"`
+	Navigate    *ExpressionNavigateOptsV2    `json:"navigate,omitempty"`
 
 	// OperationType The type of the operation
 	OperationType ExpressionOperationV2OperationType `json:"operation_type"`
@@ -10228,9 +10276,11 @@ type ExpressionOperationV2OperationType string
 
 // ExpressionOperationV3 defines model for ExpressionOperationV3.
 type ExpressionOperationV3 struct {
-	Branches *ExpressionBranchesOptsV3 `json:"branches,omitempty"`
-	Filter   *ExpressionFilterOptsV3   `json:"filter,omitempty"`
-	Navigate *ExpressionNavigateOptsV3 `json:"navigate,omitempty"`
+	Branches    *ExpressionBranchesOptsV3    `json:"branches,omitempty"`
+	Cast        *ExpressionCastOptsV3        `json:"cast,omitempty"`
+	Concatenate *ExpressionConcatenateOptsV3 `json:"concatenate,omitempty"`
+	Filter      *ExpressionFilterOptsV3      `json:"filter,omitempty"`
+	Navigate    *ExpressionNavigateOptsV3    `json:"navigate,omitempty"`
 
 	// OperationType The type of the operation
 	OperationType ExpressionOperationV3OperationType `json:"operation_type"`
@@ -11469,8 +11519,14 @@ type IncidentV2 struct {
 	IncidentTimestampValues *[]IncidentTimestampWithValueV2 `json:"incident_timestamp_values,omitempty"`
 	IncidentType            *IncidentTypeV2                 `json:"incident_type,omitempty"`
 
+	// LastActivityAt When the incident last recorded 'activity'
+	LastActivityAt time.Time `json:"last_activity_at"`
+
 	// Mode Whether the incident is real, a test, a tutorial, or importing as a retrospective incident
 	Mode IncidentV2Mode `json:"mode"`
+
+	// MsTeamsChannelUrl URL to link to the Microsoft Teams channel
+	MsTeamsChannelUrl *string `json:"ms_teams_channel_url,omitempty"`
 
 	// Name Explanation of the incident
 	Name string `json:"name"`
@@ -11494,11 +11550,17 @@ type IncidentV2 struct {
 	// SlackChannelName Name of the slack channel
 	SlackChannelName *string `json:"slack_channel_name,omitempty"`
 
+	// SlackChannelUrl URL to link to the slack channel
+	SlackChannelUrl *string `json:"slack_channel_url,omitempty"`
+
 	// SlackTeamId ID of the Slack team / workspace. This is only required if you are using a Slack Enterprise Grid with multiple teams.
 	SlackTeamId string `json:"slack_team_id"`
 
 	// Summary Detailed description of the incident
 	Summary *string `json:"summary,omitempty"`
+
+	// TeamIds IDs of the teams that own this incident, resolved from your team settings. Empty when no teams match.
+	TeamIds []string `json:"team_ids"`
 
 	// UpdatedAt When the incident was last updated
 	UpdatedAt time.Time `json:"updated_at"`
@@ -14870,6 +14932,9 @@ type AlertsV2ListParams struct {
 
 	// CreatedAt Filter on alert created at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
 	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
+
+	// UpdatedAt Filter on alert updated at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
+	UpdatedAt *map[string][]string `form:"updated_at,omitempty" json:"updated_at,omitempty"`
 
 	// Attributes Filter on an alerts attributes. Alert attribute ID should be sent, followed by the operator and values. Accepted operator will depend on the attribute type.
 	Attributes *map[string]map[string][]string `form:"attributes,omitempty" json:"attributes,omitempty"`
@@ -24045,6 +24110,22 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 		if params.CreatedAt != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UpdatedAt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
