@@ -17987,6 +17987,77 @@
         ],
         "type": "object"
       },
+      "AlertsCreateIncidentAlertPayloadV2": {
+        "example": {
+          "alert_id": "01FCNDV6P870EA6S7TK1DSYDG1",
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "re_relate": false
+        },
+        "properties": {
+          "alert_id": {
+            "description": "Alert to attach to the incident",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG1",
+            "type": "string"
+          },
+          "incident_id": {
+            "description": "Incident to attach the alert to",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "re_relate": {
+            "default": false,
+            "description": "Relate the alert again even though someone previously marked it unrelated to this incident. Defaults to false, which preserves that decision and returns a 422",
+            "example": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "alert_id",
+          "incident_id"
+        ],
+        "type": "object"
+      },
+      "AlertsCreateIncidentAlertResultV2": {
+        "example": {
+          "incident_alert": {
+            "alert": {
+              "alert_group_ids": [
+                "01GW2G3V0S59R238FAHPDS1R66"
+              ],
+              "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+              "created_at": "2021-08-17T13:28:57.801578Z",
+              "deduplication_key": "4293868629",
+              "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+              "id": "01GW2G3V0S59R238FAHPDS1R66",
+              "resolved_at": "2021-08-17T14:28:57.801578Z",
+              "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+              "status": "firing",
+              "title": "*errors.withMessage: PG::Error failed to connect",
+              "updated_at": "2021-08-17T13:28:57.801578Z"
+            },
+            "alert_route_id": "01GW2G3V0S59R238FAHPDS1R67",
+            "id": "01GW2G3V0S59R238FAHPDS1R66",
+            "incident": {
+              "external_id": 123,
+              "id": "01FDAG4SAP5TYPT98WGR2N7W91",
+              "name": "Our database is sad",
+              "reference": "INC-123",
+              "status_category": "triage",
+              "summary": "Our database is really really sad, and we don't know why yet.",
+              "visibility": "public"
+            }
+          }
+        },
+        "properties": {
+          "incident_alert": {
+            "$ref": "#/components/schemas/IncidentAlertV2"
+          }
+        },
+        "required": [
+          "incident_alert"
+        ],
+        "type": "object"
+      },
       "AlertsListIncidentAlertsResultV2": {
         "example": {
           "incident_alerts": [
@@ -18310,6 +18381,67 @@
         },
         "required": [
           "alert"
+        ],
+        "type": "object"
+      },
+      "AlertsTransitionIncidentAlertPayloadV2": {
+        "example": {
+          "state": "related"
+        },
+        "properties": {
+          "state": {
+            "description": "What state to move the connection to",
+            "enum": [
+              "related",
+              "unrelated"
+            ],
+            "example": "related",
+            "type": "string"
+          }
+        },
+        "required": [
+          "state"
+        ],
+        "type": "object"
+      },
+      "AlertsTransitionIncidentAlertResultV2": {
+        "example": {
+          "incident_alert": {
+            "alert": {
+              "alert_group_ids": [
+                "01GW2G3V0S59R238FAHPDS1R66"
+              ],
+              "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+              "created_at": "2021-08-17T13:28:57.801578Z",
+              "deduplication_key": "4293868629",
+              "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+              "id": "01GW2G3V0S59R238FAHPDS1R66",
+              "resolved_at": "2021-08-17T14:28:57.801578Z",
+              "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+              "status": "firing",
+              "title": "*errors.withMessage: PG::Error failed to connect",
+              "updated_at": "2021-08-17T13:28:57.801578Z"
+            },
+            "alert_route_id": "01GW2G3V0S59R238FAHPDS1R67",
+            "id": "01GW2G3V0S59R238FAHPDS1R66",
+            "incident": {
+              "external_id": 123,
+              "id": "01FDAG4SAP5TYPT98WGR2N7W91",
+              "name": "Our database is sad",
+              "reference": "INC-123",
+              "status_category": "triage",
+              "summary": "Our database is really really sad, and we don't know why yet.",
+              "visibility": "public"
+            }
+          }
+        },
+        "properties": {
+          "incident_alert": {
+            "$ref": "#/components/schemas/IncidentAlertV2"
+          }
+        },
+        "required": [
+          "incident_alert"
         ],
         "type": "object"
       },
@@ -18795,9 +18927,21 @@
       },
       "AuditLogOrganisationSettingsUpdatedMetadataV2": {
         "example": {
+          "after_organisation_name": "Acme Corporation",
+          "before_organisation_name": "Pineapple Labs",
           "default_timezone": "Europe/London"
         },
         "properties": {
+          "after_organisation_name": {
+            "description": "The organisation name after the change",
+            "example": "Acme Corporation",
+            "type": "string"
+          },
+          "before_organisation_name": {
+            "description": "The organisation name before the change",
+            "example": "Pineapple Labs",
+            "type": "string"
+          },
           "default_timezone": {
             "description": "The default timezone that was set",
             "example": "Europe/London",
@@ -27564,6 +27708,8 @@
             "user_agent": "Chrome/91.0.4472.114"
           },
           "metadata": {
+            "after_organisation_name": "Acme Corporation",
+            "before_organisation_name": "Pineapple Labs",
             "default_timezone": "Europe/London"
           },
           "occurred_at": "2021-08-17T13:28:57.801578Z",
@@ -61280,7 +61426,7 @@
         "type": "object"
       },
       "ScheduleSyncRuleV2": {
-        "description": "A sync rule links a schedule to a sync target, telling us which of the\nschedule's members should flow into the target's Slack user group.\n\nsync_type decides who is synced: on_call syncs only the people currently on\ncall, next_on_call syncs the people on the next upcoming shift, and all_users\nsyncs everyone on the schedule. By default every rotation on the schedule is\nincluded; set rotation_id to scope the rule to a single rotation. As the\nschedule's shifts change hands, we keep the target's Slack user group\nmembership in step with the rule.\n\npermanent_member_user_ids names users who stay in the group whichever way the\nshifts fall, on top of whoever sync_type selects.",
+        "description": "A sync rule links a schedule to a sync target, telling us which of the\nschedule's members should flow into the target's Slack user group.\n\nsync_type decides who is synced: on_call syncs only the people currently on\ncall, next_on_call syncs the people on the next upcoming shift, and all_users\nsyncs everyone on the schedule. By default every rotation on the schedule is\nincluded; set rotation_id to scope the rule to a single rotation. As the\nschedule's shifts change hands, we keep the target's Slack user group\nmembership in step with the rule.\n\nA user group's members are the union of every rule feeding it, so one schedule\ncan have several rules for the same target as long as they differ on\nrotation_id or sync_type. Point an on_call and a next_on_call rule at one group\nand it holds both the current and the next on-call.\n\npermanent_member_user_ids names users who stay in the group whichever way the\nshifts fall, on top of whoever sync_type selects.",
         "example": {
           "created_at": "2021-08-17T13:28:57.801578Z",
           "id": "01JXYZ000000000000000000CD",
@@ -91203,6 +91349,168 @@
         "x-rbac-scopes": [
           "alerts.view"
         ]
+      },
+      "post": {
+        "description": "Attach an alert to an incident, creating the connection between them.\n\nThe API key also needs the 'manage incident alerts' scope, which is what actually relates\nthe alert once the connection exists.\n\nIf the alert is already related to this incident, the existing connection is returned\nunchanged. If someone previously marked the alert as unrelated to this incident, that\ndecision is preserved and this endpoint returns a 422 — set re_relate to override it.\n\nPrivate alerts can only be attached to private incidents, including when re_relate is set.\nAn API key that cannot see the alert or the incident receives a 404.\n\nBusy incidents can be locked by another operation, in which case this endpoint returns a\n409 and the request can be retried.\n\nNote that this endpoint returns 201 even when it re-relates or returns an existing\nconnection rather than creating a new one.\n",
+        "operationId": "Alerts V2#CreateIncidentAlert",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "alert_id": "01FCNDV6P870EA6S7TK1DSYDG1",
+                "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "re_relate": false
+              },
+              "schema": {
+                "$ref": "#/components/schemas/AlertsCreateIncidentAlertPayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "incident_alert": {
+                    "alert": {
+                      "alert_group_ids": [
+                        "01GW2G3V0S59R238FAHPDS1R66"
+                      ],
+                      "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+                      "created_at": "2021-08-17T13:28:57.801578Z",
+                      "deduplication_key": "4293868629",
+                      "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+                      "id": "01GW2G3V0S59R238FAHPDS1R66",
+                      "resolved_at": "2021-08-17T14:28:57.801578Z",
+                      "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+                      "status": "firing",
+                      "title": "*errors.withMessage: PG::Error failed to connect",
+                      "updated_at": "2021-08-17T13:28:57.801578Z"
+                    },
+                    "alert_route_id": "01GW2G3V0S59R238FAHPDS1R67",
+                    "id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "incident": {
+                      "external_id": 123,
+                      "id": "01FDAG4SAP5TYPT98WGR2N7W91",
+                      "name": "Our database is sad",
+                      "reference": "INC-123",
+                      "status_category": "triage",
+                      "summary": "Our database is really really sad, and we don't know why yet.",
+                      "visibility": "public"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AlertsCreateIncidentAlertResultV2"
+                }
+              }
+            },
+            "description": "Created response."
+          }
+        },
+        "summary": "CreateIncidentAlert Alerts V2",
+        "tags": [
+          "Alerts V2"
+        ],
+        "x-docs-display-name": "Create",
+        "x-docs-group-name": "Incident Alerts V2",
+        "x-docs-resource-type": "IncidentAlertV2",
+        "x-mint": {
+          "content": "🔑 Requires the `alerts.attach_to_incident` scope."
+        },
+        "x-rbac-scopes": [
+          "alerts.attach_to_incident"
+        ]
+      }
+    },
+    "/v2/incident_alerts/{id}/actions/transition": {
+      "post": {
+        "description": "Confirm or detach the connection between an alert and an incident.\n\nSet state to 'related' to confirm the connection, or 'unrelated' to detach the alert from\nthe incident. The API key also needs the 'manage incident alerts' scope.\n\nA detached connection no longer appears in the list endpoint, which returns related\nconnections only.\n\nBusy incidents can be locked by another operation, in which case this endpoint returns a\n409 and the request can be retried.\n",
+        "operationId": "Alerts V2#TransitionIncidentAlert",
+        "parameters": [
+          {
+            "description": "Unique identifier for the incident alert",
+            "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for the incident alert",
+              "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "state": "related"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/AlertsTransitionIncidentAlertPayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "incident_alert": {
+                    "alert": {
+                      "alert_group_ids": [
+                        "01GW2G3V0S59R238FAHPDS1R66"
+                      ],
+                      "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+                      "created_at": "2021-08-17T13:28:57.801578Z",
+                      "deduplication_key": "4293868629",
+                      "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+                      "id": "01GW2G3V0S59R238FAHPDS1R66",
+                      "resolved_at": "2021-08-17T14:28:57.801578Z",
+                      "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+                      "status": "firing",
+                      "title": "*errors.withMessage: PG::Error failed to connect",
+                      "updated_at": "2021-08-17T13:28:57.801578Z"
+                    },
+                    "alert_route_id": "01GW2G3V0S59R238FAHPDS1R67",
+                    "id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "incident": {
+                      "external_id": 123,
+                      "id": "01FDAG4SAP5TYPT98WGR2N7W91",
+                      "name": "Our database is sad",
+                      "reference": "INC-123",
+                      "status_category": "triage",
+                      "summary": "Our database is really really sad, and we don't know why yet.",
+                      "visibility": "public"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AlertsTransitionIncidentAlertResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "summary": "TransitionIncidentAlert Alerts V2",
+        "tags": [
+          "Alerts V2"
+        ],
+        "x-docs-display-name": "Transition",
+        "x-docs-group-name": "Incident Alerts V2",
+        "x-docs-resource-type": "IncidentAlertV2",
+        "x-mint": {
+          "content": "🔑 Requires the `incident_alerts.transition` scope."
+        },
+        "x-rbac-scopes": [
+          "incident_alerts.transition"
+        ]
       }
     },
     "/v2/incident_participant_workloads": {
@@ -109080,6 +109388,8 @@
                     "user_agent": "Chrome/91.0.4472.114"
                   },
                   "metadata": {
+                    "after_organisation_name": "Acme Corporation",
+                    "before_organisation_name": "Pineapple Labs",
                     "default_timezone": "Europe/London"
                   },
                   "occurred_at": "2021-08-17T13:28:57.801578Z",

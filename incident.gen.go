@@ -1476,6 +1476,24 @@ func (e AlertV2Status) Valid() bool {
 	}
 }
 
+// Defines values for AlertsTransitionIncidentAlertPayloadV2State.
+const (
+	Related   AlertsTransitionIncidentAlertPayloadV2State = "related"
+	Unrelated AlertsTransitionIncidentAlertPayloadV2State = "unrelated"
+)
+
+// Valid indicates whether the value is a known member of the AlertsTransitionIncidentAlertPayloadV2State enum.
+func (e AlertsTransitionIncidentAlertPayloadV2State) Valid() bool {
+	switch e {
+	case Related:
+		return true
+	case Unrelated:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for CallTranscriptEntryV2Medium.
 const (
 	CallChat CallTranscriptEntryV2Medium = "call_chat"
@@ -7869,6 +7887,23 @@ type AlertV2 struct {
 // AlertV2Status Statuses of an alert
 type AlertV2Status string
 
+// AlertsCreateIncidentAlertPayloadV2 defines model for AlertsCreateIncidentAlertPayloadV2.
+type AlertsCreateIncidentAlertPayloadV2 struct {
+	// AlertId Alert to attach to the incident
+	AlertId string `json:"alert_id"`
+
+	// IncidentId Incident to attach the alert to
+	IncidentId string `json:"incident_id"`
+
+	// ReRelate Relate the alert again even though someone previously marked it unrelated to this incident. Defaults to false, which preserves that decision and returns a 422
+	ReRelate *bool `json:"re_relate,omitempty"`
+}
+
+// AlertsCreateIncidentAlertResultV2 defines model for AlertsCreateIncidentAlertResultV2.
+type AlertsCreateIncidentAlertResultV2 struct {
+	IncidentAlert IncidentAlertV2 `json:"incident_alert"`
+}
+
 // AlertsListIncidentAlertsResultV2 defines model for AlertsListIncidentAlertsResultV2.
 type AlertsListIncidentAlertsResultV2 struct {
 	IncidentAlerts []IncidentAlertV2      `json:"incident_alerts"`
@@ -7889,6 +7924,20 @@ type AlertsResolveResultV2 struct {
 // AlertsShowResultV2 defines model for AlertsShowResultV2.
 type AlertsShowResultV2 struct {
 	Alert AlertV2 `json:"alert"`
+}
+
+// AlertsTransitionIncidentAlertPayloadV2 defines model for AlertsTransitionIncidentAlertPayloadV2.
+type AlertsTransitionIncidentAlertPayloadV2 struct {
+	// State What state to move the connection to
+	State AlertsTransitionIncidentAlertPayloadV2State `json:"state"`
+}
+
+// AlertsTransitionIncidentAlertPayloadV2State What state to move the connection to
+type AlertsTransitionIncidentAlertPayloadV2State string
+
+// AlertsTransitionIncidentAlertResultV2 defines model for AlertsTransitionIncidentAlertResultV2.
+type AlertsTransitionIncidentAlertResultV2 struct {
+	IncidentAlert IncidentAlertV2 `json:"incident_alert"`
 }
 
 // CallSessionV2 A call session is a single occurrence of a call that Scribe attended,
@@ -12705,6 +12754,11 @@ type ScheduleSyncRuleCreatePayloadV2SyncType string
 // schedule's shifts change hands, we keep the target's Slack user group
 // membership in step with the rule.
 //
+// A user group's members are the union of every rule feeding it, so one schedule
+// can have several rules for the same target as long as they differ on
+// rotation_id or sync_type. Point an on_call and a next_on_call rule at one group
+// and it holds both the current and the next on-call.
+//
 // permanent_member_user_ids names users who stay in the group whichever way the
 // shifts fall, on top of whoever sync_type selects.
 type ScheduleSyncRuleV2 struct {
@@ -12971,6 +13025,11 @@ type SchedulesCreateScheduleSyncRuleResultV2 struct {
 	// schedule's shifts change hands, we keep the target's Slack user group
 	// membership in step with the rule.
 	//
+	// A user group's members are the union of every rule feeding it, so one schedule
+	// can have several rules for the same target as long as they differ on
+	// rotation_id or sync_type. Point an on_call and a next_on_call rule at one group
+	// and it holds both the current and the next on-call.
+	//
 	// permanent_member_user_ids names users who stay in the group whichever way the
 	// shifts fall, on top of whoever sync_type selects.
 	ScheduleSyncRule ScheduleSyncRuleV2 `json:"schedule_sync_rule"`
@@ -13057,6 +13116,11 @@ type SchedulesShowScheduleSyncRuleResultV2 struct {
 	// schedule's shifts change hands, we keep the target's Slack user group
 	// membership in step with the rule.
 	//
+	// A user group's members are the union of every rule feeding it, so one schedule
+	// can have several rules for the same target as long as they differ on
+	// rotation_id or sync_type. Point an on_call and a next_on_call rule at one group
+	// and it holds both the current and the next on-call.
+	//
 	// permanent_member_user_ids names users who stay in the group whichever way the
 	// shifts fall, on top of whoever sync_type selects.
 	ScheduleSyncRule ScheduleSyncRuleV2 `json:"schedule_sync_rule"`
@@ -13119,6 +13183,11 @@ type SchedulesUpdateScheduleSyncRuleResultV2 struct {
 	// included; set rotation_id to scope the rule to a single rotation. As the
 	// schedule's shifts change hands, we keep the target's Slack user group
 	// membership in step with the rule.
+	//
+	// A user group's members are the union of every rule feeding it, so one schedule
+	// can have several rules for the same target as long as they differ on
+	// rotation_id or sync_type. Point an on_call and a next_on_call rule at one group
+	// and it holds both the current and the next on-call.
 	//
 	// permanent_member_user_ids names users who stay in the group whichever way the
 	// shifts fall, on top of whoever sync_type selects.
@@ -15503,6 +15572,12 @@ type FollowUpsV2UpdateJSONRequestBody = FollowUpsUpdatePayloadV2
 // FollowUpsV2ConnectExternalIssueJSONRequestBody defines body for FollowUpsV2ConnectExternalIssue for application/json ContentType.
 type FollowUpsV2ConnectExternalIssueJSONRequestBody = FollowUpsConnectExternalIssuePayloadV2
 
+// AlertsV2CreateIncidentAlertJSONRequestBody defines body for AlertsV2CreateIncidentAlert for application/json ContentType.
+type AlertsV2CreateIncidentAlertJSONRequestBody = AlertsCreateIncidentAlertPayloadV2
+
+// AlertsV2TransitionIncidentAlertJSONRequestBody defines body for AlertsV2TransitionIncidentAlert for application/json ContentType.
+type AlertsV2TransitionIncidentAlertJSONRequestBody = AlertsTransitionIncidentAlertPayloadV2
+
 // IncidentRolesV2CreateJSONRequestBody defines body for IncidentRolesV2Create for application/json ContentType.
 type IncidentRolesV2CreateJSONRequestBody = IncidentRolesCreatePayloadV2
 
@@ -16168,6 +16243,16 @@ type ClientInterface interface {
 
 	// AlertsV2ListIncidentAlerts request
 	AlertsV2ListIncidentAlerts(ctx context.Context, params *AlertsV2ListIncidentAlertsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertsV2CreateIncidentAlertWithBody request with any body
+	AlertsV2CreateIncidentAlertWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AlertsV2CreateIncidentAlert(ctx context.Context, body AlertsV2CreateIncidentAlertJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertsV2TransitionIncidentAlertWithBody request with any body
+	AlertsV2TransitionIncidentAlertWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AlertsV2TransitionIncidentAlert(ctx context.Context, id string, body AlertsV2TransitionIncidentAlertJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// IncidentParticipantWorkloadsV2List request
 	IncidentParticipantWorkloadsV2List(ctx context.Context, params *IncidentParticipantWorkloadsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -18711,6 +18796,54 @@ func (c *Client) HeartbeatV2Ping(ctx context.Context, alertSourceConfigId string
 
 func (c *Client) AlertsV2ListIncidentAlerts(ctx context.Context, params *AlertsV2ListIncidentAlertsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newAlertsV2ListIncidentAlertsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertsV2CreateIncidentAlertWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertsV2CreateIncidentAlertRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertsV2CreateIncidentAlert(ctx context.Context, body AlertsV2CreateIncidentAlertJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertsV2CreateIncidentAlertRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertsV2TransitionIncidentAlertWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertsV2TransitionIncidentAlertRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertsV2TransitionIncidentAlert(ctx context.Context, id string, body AlertsV2TransitionIncidentAlertJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertsV2TransitionIncidentAlertRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -26207,6 +26340,93 @@ func newAlertsV2ListIncidentAlertsRequest(server string, params *AlertsV2ListInc
 	return req, nil
 }
 
+// NewAlertsV2CreateIncidentAlertRequest calls the generic AlertsV2CreateIncidentAlert builder with application/json body
+func newAlertsV2CreateIncidentAlertRequest(server string, body AlertsV2CreateIncidentAlertJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAlertsV2CreateIncidentAlertRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewAlertsV2CreateIncidentAlertRequestWithBody generates requests for AlertsV2CreateIncidentAlert with any type of body
+func newAlertsV2CreateIncidentAlertRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/incident_alerts")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewAlertsV2TransitionIncidentAlertRequest calls the generic AlertsV2TransitionIncidentAlert builder with application/json body
+func newAlertsV2TransitionIncidentAlertRequest(server string, id string, body AlertsV2TransitionIncidentAlertJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAlertsV2TransitionIncidentAlertRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewAlertsV2TransitionIncidentAlertRequestWithBody generates requests for AlertsV2TransitionIncidentAlert with any type of body
+func newAlertsV2TransitionIncidentAlertRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/incident_alerts/%s/actions/transition", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewIncidentParticipantWorkloadsV2ListRequest generates requests for IncidentParticipantWorkloadsV2List
 func newIncidentParticipantWorkloadsV2ListRequest(server string, params *IncidentParticipantWorkloadsV2ListParams) (*http.Request, error) {
 	var err error
@@ -31393,6 +31613,16 @@ type ClientWithResponsesInterface interface {
 	// AlertsV2ListIncidentAlertsWithResponse request
 	AlertsV2ListIncidentAlertsWithResponse(ctx context.Context, params *AlertsV2ListIncidentAlertsParams, reqEditors ...RequestEditorFn) (*AlertsV2ListIncidentAlertsResponse, error)
 
+	// AlertsV2CreateIncidentAlertWithBodyWithResponse request with any body
+	AlertsV2CreateIncidentAlertWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertsV2CreateIncidentAlertResponse, error)
+
+	AlertsV2CreateIncidentAlertWithResponse(ctx context.Context, body AlertsV2CreateIncidentAlertJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertsV2CreateIncidentAlertResponse, error)
+
+	// AlertsV2TransitionIncidentAlertWithBodyWithResponse request with any body
+	AlertsV2TransitionIncidentAlertWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertsV2TransitionIncidentAlertResponse, error)
+
+	AlertsV2TransitionIncidentAlertWithResponse(ctx context.Context, id string, body AlertsV2TransitionIncidentAlertJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertsV2TransitionIncidentAlertResponse, error)
+
 	// IncidentParticipantWorkloadsV2ListWithResponse request
 	IncidentParticipantWorkloadsV2ListWithResponse(ctx context.Context, params *IncidentParticipantWorkloadsV2ListParams, reqEditors ...RequestEditorFn) (*IncidentParticipantWorkloadsV2ListResponse, error)
 
@@ -34533,6 +34763,50 @@ func (r AlertsV2ListIncidentAlertsResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r AlertsV2ListIncidentAlertsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AlertsV2CreateIncidentAlertResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *AlertsCreateIncidentAlertResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertsV2CreateIncidentAlertResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertsV2CreateIncidentAlertResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AlertsV2TransitionIncidentAlertResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AlertsTransitionIncidentAlertResultV2
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertsV2TransitionIncidentAlertResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertsV2TransitionIncidentAlertResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -38215,6 +38489,40 @@ func (c *ClientWithResponses) AlertsV2ListIncidentAlertsWithResponse(ctx context
 		return nil, err
 	}
 	return parseAlertsV2ListIncidentAlertsResponse(rsp)
+}
+
+// AlertsV2CreateIncidentAlertWithBodyWithResponse request with arbitrary body returning *AlertsV2CreateIncidentAlertResponse
+func (c *ClientWithResponses) AlertsV2CreateIncidentAlertWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertsV2CreateIncidentAlertResponse, error) {
+	rsp, err := c.AlertsV2CreateIncidentAlertWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertsV2CreateIncidentAlertResponse(rsp)
+}
+
+func (c *ClientWithResponses) AlertsV2CreateIncidentAlertWithResponse(ctx context.Context, body AlertsV2CreateIncidentAlertJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertsV2CreateIncidentAlertResponse, error) {
+	rsp, err := c.AlertsV2CreateIncidentAlert(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertsV2CreateIncidentAlertResponse(rsp)
+}
+
+// AlertsV2TransitionIncidentAlertWithBodyWithResponse request with arbitrary body returning *AlertsV2TransitionIncidentAlertResponse
+func (c *ClientWithResponses) AlertsV2TransitionIncidentAlertWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertsV2TransitionIncidentAlertResponse, error) {
+	rsp, err := c.AlertsV2TransitionIncidentAlertWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertsV2TransitionIncidentAlertResponse(rsp)
+}
+
+func (c *ClientWithResponses) AlertsV2TransitionIncidentAlertWithResponse(ctx context.Context, id string, body AlertsV2TransitionIncidentAlertJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertsV2TransitionIncidentAlertResponse, error) {
+	rsp, err := c.AlertsV2TransitionIncidentAlert(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertsV2TransitionIncidentAlertResponse(rsp)
 }
 
 // IncidentParticipantWorkloadsV2ListWithResponse request returning *IncidentParticipantWorkloadsV2ListResponse
@@ -42428,6 +42736,58 @@ func parseAlertsV2ListIncidentAlertsResponse(rsp *http.Response) (*AlertsV2ListI
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest AlertsListIncidentAlertsResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAlertsV2CreateIncidentAlertResponse parses an HTTP response from a AlertsV2CreateIncidentAlertWithResponse call
+func parseAlertsV2CreateIncidentAlertResponse(rsp *http.Response) (*AlertsV2CreateIncidentAlertResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertsV2CreateIncidentAlertResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest AlertsCreateIncidentAlertResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAlertsV2TransitionIncidentAlertResponse parses an HTTP response from a AlertsV2TransitionIncidentAlertWithResponse call
+func parseAlertsV2TransitionIncidentAlertResponse(rsp *http.Response) (*AlertsV2TransitionIncidentAlertResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertsV2TransitionIncidentAlertResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AlertsTransitionIncidentAlertResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
