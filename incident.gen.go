@@ -15844,7 +15844,7 @@ type FollowUpsV3ListParams struct {
 	// IncidentId Find follow-ups related to this incident
 	IncidentId *string `form:"incident_id,omitempty" json:"incident_id,omitempty"`
 
-	// IncidentMode Filter to follow-ups from incidents of the given mode
+	// IncidentMode Filter to follow-ups from incidents of the given mode. If not set, only follow-ups from `standard` and `retrospective` incidents are returned
 	IncidentMode *FollowUpsV3ListParamsIncidentMode `form:"incident_mode,omitempty" json:"incident_mode,omitempty"`
 
 	// AssigneeTeamId Filter follow-ups that are assigned to the given team
@@ -19142,6 +19142,8 @@ func (c *Client) EscalationsV2CancelEscalation(ctx context.Context, id string, r
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) FollowUpsV2List(ctx context.Context, params *FollowUpsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV2ListRequest(c.Server, params)
 	if err != nil {
@@ -19154,6 +19156,8 @@ func (c *Client) FollowUpsV2List(ctx context.Context, params *FollowUpsV2ListPar
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) FollowUpsV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV2CreateRequestWithBody(c.Server, contentType, body)
 	if err != nil {
@@ -19166,6 +19170,8 @@ func (c *Client) FollowUpsV2CreateWithBody(ctx context.Context, contentType stri
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) FollowUpsV2Create(ctx context.Context, body FollowUpsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV2CreateRequest(c.Server, body)
 	if err != nil {
@@ -19178,6 +19184,8 @@ func (c *Client) FollowUpsV2Create(ctx context.Context, body FollowUpsV2CreateJS
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) FollowUpsV2Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV2DeleteRequest(c.Server, id)
 	if err != nil {
@@ -19190,6 +19198,8 @@ func (c *Client) FollowUpsV2Delete(ctx context.Context, id string, reqEditors ..
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) FollowUpsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV2ShowRequest(c.Server, id)
 	if err != nil {
@@ -19202,6 +19212,8 @@ func (c *Client) FollowUpsV2Show(ctx context.Context, id string, reqEditors ...R
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) FollowUpsV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV2UpdateRequestWithBody(c.Server, id, contentType, body)
 	if err != nil {
@@ -19214,6 +19226,8 @@ func (c *Client) FollowUpsV2UpdateWithBody(ctx context.Context, id string, conte
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) FollowUpsV2Update(ctx context.Context, id string, body FollowUpsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV2UpdateRequest(c.Server, id, body)
 	if err != nil {
@@ -19226,6 +19240,8 @@ func (c *Client) FollowUpsV2Update(ctx context.Context, id string, body FollowUp
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) FollowUpsV2ConnectExternalIssueWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV2ConnectExternalIssueRequestWithBody(c.Server, id, contentType, body)
 	if err != nil {
@@ -19238,6 +19254,8 @@ func (c *Client) FollowUpsV2ConnectExternalIssueWithBody(ctx context.Context, id
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) FollowUpsV2ConnectExternalIssue(ctx context.Context, id string, body FollowUpsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV2ConnectExternalIssueRequest(c.Server, id, body)
 	if err != nil {
@@ -42538,6 +42556,9 @@ func (c *ClientWithResponses) EscalationsV2CancelEscalationWithResponse(ctx cont
 }
 
 // FollowUpsV2ListWithResponse request returning *FollowUpsV2ListResponse
+//
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) FollowUpsV2ListWithResponse(ctx context.Context, params *FollowUpsV2ListParams, reqEditors ...RequestEditorFn) (*FollowUpsV2ListResponse, error) {
 	rsp, err := c.FollowUpsV2List(ctx, params, reqEditors...)
 	if err != nil {
@@ -42547,6 +42568,9 @@ func (c *ClientWithResponses) FollowUpsV2ListWithResponse(ctx context.Context, p
 }
 
 // FollowUpsV2CreateWithBodyWithResponse request with arbitrary body returning *FollowUpsV2CreateResponse
+//
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) FollowUpsV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV2CreateResponse, error) {
 	rsp, err := c.FollowUpsV2CreateWithBody(ctx, contentType, body, reqEditors...)
 	if err != nil {
@@ -42555,6 +42579,8 @@ func (c *ClientWithResponses) FollowUpsV2CreateWithBodyWithResponse(ctx context.
 	return parseFollowUpsV2CreateResponse(rsp)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) FollowUpsV2CreateWithResponse(ctx context.Context, body FollowUpsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV2CreateResponse, error) {
 	rsp, err := c.FollowUpsV2Create(ctx, body, reqEditors...)
 	if err != nil {
@@ -42564,6 +42590,9 @@ func (c *ClientWithResponses) FollowUpsV2CreateWithResponse(ctx context.Context,
 }
 
 // FollowUpsV2DeleteWithResponse request returning *FollowUpsV2DeleteResponse
+//
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) FollowUpsV2DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*FollowUpsV2DeleteResponse, error) {
 	rsp, err := c.FollowUpsV2Delete(ctx, id, reqEditors...)
 	if err != nil {
@@ -42573,6 +42602,9 @@ func (c *ClientWithResponses) FollowUpsV2DeleteWithResponse(ctx context.Context,
 }
 
 // FollowUpsV2ShowWithResponse request returning *FollowUpsV2ShowResponse
+//
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) FollowUpsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*FollowUpsV2ShowResponse, error) {
 	rsp, err := c.FollowUpsV2Show(ctx, id, reqEditors...)
 	if err != nil {
@@ -42582,6 +42614,9 @@ func (c *ClientWithResponses) FollowUpsV2ShowWithResponse(ctx context.Context, i
 }
 
 // FollowUpsV2UpdateWithBodyWithResponse request with arbitrary body returning *FollowUpsV2UpdateResponse
+//
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) FollowUpsV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV2UpdateResponse, error) {
 	rsp, err := c.FollowUpsV2UpdateWithBody(ctx, id, contentType, body, reqEditors...)
 	if err != nil {
@@ -42590,6 +42625,8 @@ func (c *ClientWithResponses) FollowUpsV2UpdateWithBodyWithResponse(ctx context.
 	return parseFollowUpsV2UpdateResponse(rsp)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) FollowUpsV2UpdateWithResponse(ctx context.Context, id string, body FollowUpsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV2UpdateResponse, error) {
 	rsp, err := c.FollowUpsV2Update(ctx, id, body, reqEditors...)
 	if err != nil {
@@ -42599,6 +42636,9 @@ func (c *ClientWithResponses) FollowUpsV2UpdateWithResponse(ctx context.Context,
 }
 
 // FollowUpsV2ConnectExternalIssueWithBodyWithResponse request with arbitrary body returning *FollowUpsV2ConnectExternalIssueResponse
+//
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) FollowUpsV2ConnectExternalIssueWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV2ConnectExternalIssueResponse, error) {
 	rsp, err := c.FollowUpsV2ConnectExternalIssueWithBody(ctx, id, contentType, body, reqEditors...)
 	if err != nil {
@@ -42607,6 +42647,8 @@ func (c *ClientWithResponses) FollowUpsV2ConnectExternalIssueWithBodyWithRespons
 	return parseFollowUpsV2ConnectExternalIssueResponse(rsp)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) FollowUpsV2ConnectExternalIssueWithResponse(ctx context.Context, id string, body FollowUpsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV2ConnectExternalIssueResponse, error) {
 	rsp, err := c.FollowUpsV2ConnectExternalIssue(ctx, id, body, reqEditors...)
 	if err != nil {

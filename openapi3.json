@@ -107091,6 +107091,7 @@
     },
     "/v2/follow_ups": {
       "get": {
+        "deprecated": true,
         "description": "List all follow-ups for an organisation.",
         "operationId": "Follow-ups V2#List",
         "parameters": [
@@ -107355,6 +107356,7 @@
         ]
       },
       "post": {
+        "deprecated": true,
         "description": "Create a new incident follow-up.",
         "operationId": "Follow-ups V2#Create",
         "requestBody": {
@@ -107599,6 +107601,7 @@
     },
     "/v2/follow_ups/{id}": {
       "delete": {
+        "deprecated": true,
         "description": "Delete an incident follow-up.",
         "operationId": "Follow-ups V2#Delete",
         "parameters": [
@@ -107769,6 +107772,7 @@
         ]
       },
       "get": {
+        "deprecated": true,
         "description": "Get a single incident follow-up.",
         "operationId": "Follow-ups V2#Show",
         "parameters": [
@@ -108005,6 +108009,7 @@
         ]
       },
       "put": {
+        "deprecated": true,
         "description": "Update an existing incident follow-up.",
         "operationId": "Follow-ups V2#Update",
         "parameters": [
@@ -108261,6 +108266,7 @@
     },
     "/v2/follow_ups/{id}/actions/connect_external_issue": {
       "post": {
+        "deprecated": true,
         "description": "Connect a follow-up to an existing issue in an issue tracker, using the URL of the issue.\n\nThis will not work if the follow-up is already connected to an external issue.\n",
         "operationId": "Follow-ups V2#ConnectExternalIssue",
         "parameters": [
@@ -134145,12 +134151,12 @@
           },
           {
             "allowEmptyValue": true,
-            "description": "Filter to follow-ups from incidents of the given mode",
+            "description": "Filter to follow-ups from incidents of the given mode. If not set, only follow-ups from `standard` and `retrospective` incidents are returned",
             "example": "standard",
             "in": "query",
             "name": "incident_mode",
             "schema": {
-              "description": "Filter to follow-ups from incidents of the given mode",
+              "description": "Filter to follow-ups from incidents of the given mode. If not set, only follow-ups from `standard` and `retrospective` incidents are returned",
               "enum": [
                 "standard",
                 "retrospective",
@@ -136132,7 +136138,7 @@
       "name": "Escalations V2"
     },
     {
-      "description": "Manage incident follow-ups.\n\nIncidents can have follow-ups associated with them, which track work that should be done\nafter an incident (e.g. improving some documentation, or upgrading a dependency). They can\nalso be exported to external issue trackers.\n\nYou can manage follow-ups in the incident Slack channel with \u003ccode\u003e/incident follow-ups\u003c/code\u003e, or on\nthe incident homepage.\n",
+      "description": "Manage incident follow-ups.\n\nThese endpoints have been deprecated in favour of Follow-ups V3, which returns the same\nfollow-up payload. The V3 List endpoint is paginated and supports filtering by created_at\nand updated_at, so use it instead of re-fetching the full list.\n\nIncidents can have follow-ups associated with them, which track work that should be done\nafter an incident (e.g. improving some documentation, or upgrading a dependency). They can\nalso be exported to external issue trackers.\n\nYou can manage follow-ups in the incident Slack channel with \u003ccode\u003e/incident follow-ups\u003c/code\u003e, or on\nthe incident homepage.\n",
       "name": "Follow-ups V2"
     },
     {
