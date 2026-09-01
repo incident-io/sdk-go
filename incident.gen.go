@@ -7839,8 +7839,11 @@ type AlertSourceV2 struct {
 	AutoResolveTimeoutMinutes *int64                           `json:"auto_resolve_timeout_minutes,omitempty"`
 	AzureDevopsOptions        *AlertSourceAzureDevopsOptionsV2 `json:"azure_devops_options,omitempty"`
 	EmailOptions              *AlertSourceEmailOptionsV2       `json:"email_options,omitempty"`
-	HeartbeatOptions          *AlertSourceHeartbeatOptionsV2   `json:"heartbeat_options,omitempty"`
-	HttpCustomOptions         *AlertSourceHTTPCustomOptionsV2  `json:"http_custom_options,omitempty"`
+
+	// FixedTeamId When set, the team every alert from this source is attributed to. The team attribute is managed from this field: its binding is not returned in the template and cannot be edited directly.
+	FixedTeamId       *string                         `json:"fixed_team_id,omitempty"`
+	HeartbeatOptions  *AlertSourceHeartbeatOptionsV2  `json:"heartbeat_options,omitempty"`
+	HttpCustomOptions *AlertSourceHTTPCustomOptionsV2 `json:"http_custom_options,omitempty"`
 
 	// Id The ID of this alert source
 	Id          string                    `json:"id"`
@@ -7872,12 +7875,15 @@ type AlertSourcesCreatePayloadV2 struct {
 	AutoResolveIncidentAlerts *bool `json:"auto_resolve_incident_alerts,omitempty"`
 
 	// AutoResolveTimeoutMinutes When set, alerts from this source will automatically resolve after this many minutes.
-	AutoResolveTimeoutMinutes *int64                                `json:"auto_resolve_timeout_minutes,omitempty"`
-	AzureDevopsOptions        *AlertSourceAzureDevopsOptionsV2      `json:"azure_devops_options,omitempty"`
-	EmailOptions              *AlertSourceEmailOptionsPayloadV2     `json:"email_options,omitempty"`
-	HeartbeatOptions          *AlertSourceHeartbeatOptionsPayloadV2 `json:"heartbeat_options,omitempty"`
-	HttpCustomOptions         *AlertSourceHTTPCustomOptionsV2       `json:"http_custom_options,omitempty"`
-	JiraOptions               *AlertSourceJiraOptionsV2             `json:"jira_options,omitempty"`
+	AutoResolveTimeoutMinutes *int64                            `json:"auto_resolve_timeout_minutes,omitempty"`
+	AzureDevopsOptions        *AlertSourceAzureDevopsOptionsV2  `json:"azure_devops_options,omitempty"`
+	EmailOptions              *AlertSourceEmailOptionsPayloadV2 `json:"email_options,omitempty"`
+
+	// FixedTeamId Fix the team every alert from this source is attributed to. While set, the team attribute is managed from this field: don't send its binding in the template.
+	FixedTeamId       *string                               `json:"fixed_team_id,omitempty"`
+	HeartbeatOptions  *AlertSourceHeartbeatOptionsPayloadV2 `json:"heartbeat_options,omitempty"`
+	HttpCustomOptions *AlertSourceHTTPCustomOptionsV2       `json:"http_custom_options,omitempty"`
+	JiraOptions       *AlertSourceJiraOptionsV2             `json:"jira_options,omitempty"`
 
 	// Name Unique name of the alert source
 	Name string `json:"name"`
@@ -7921,8 +7927,11 @@ type AlertSourcesUpdatePayloadV2 struct {
 	AzureDevopsOptions        *AlertSourceAzureDevopsOptionsV2 `json:"azure_devops_options,omitempty"`
 
 	// Disabled For heartbeat sources, set to true to disable monitoring
-	Disabled          *bool                                 `json:"disabled,omitempty"`
-	EmailOptions      *AlertSourceEmailOptionsPayloadV2     `json:"email_options,omitempty"`
+	Disabled     *bool                             `json:"disabled,omitempty"`
+	EmailOptions *AlertSourceEmailOptionsPayloadV2 `json:"email_options,omitempty"`
+
+	// FixedTeamId Fix the team every alert from this source is attributed to. While set, the team attribute is managed from this field: a team binding sent in the template is ignored. Omit to leave unchanged; set to an empty string to clear it, making the team attribute editable again.
+	FixedTeamId       *string                               `json:"fixed_team_id,omitempty"`
 	HeartbeatOptions  *AlertSourceHeartbeatOptionsPayloadV2 `json:"heartbeat_options,omitempty"`
 	HttpCustomOptions *AlertSourceHTTPCustomOptionsV2       `json:"http_custom_options,omitempty"`
 	JiraOptions       *AlertSourceJiraOptionsV2             `json:"jira_options,omitempty"`
