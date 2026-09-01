@@ -10741,6 +10741,21 @@ type ExternalResourceV1 struct {
 // ExternalResourceV1ResourceType E.g. PagerDuty: the external system that holds the resource
 type ExternalResourceV1ResourceType string
 
+// FollowUpCategoryV3 defines model for FollowUpCategoryV3.
+type FollowUpCategoryV3 struct {
+	// Description Description of the follow-up category
+	Description *string `json:"description,omitempty"`
+
+	// Id Unique identifier for the follow-up category
+	Id string `json:"id"`
+
+	// Name Name of the follow-up category
+	Name string `json:"name"`
+
+	// Rank Rank is used to order the follow-up categories correctly
+	Rank int64 `json:"rank"`
+}
+
 // FollowUpPriorityV2 defines model for FollowUpPriorityV2.
 type FollowUpPriorityV2 struct {
 	// Description Description of the follow-up priority option
@@ -10797,8 +10812,9 @@ type FollowUpV2Status string
 
 // FollowUpV3 defines model for FollowUpV3.
 type FollowUpV3 struct {
-	Assignee     *UserV2     `json:"assignee,omitempty"`
-	AssigneeTeam *TeamSlimV2 `json:"assignee_team,omitempty"`
+	Assignee     *UserV2             `json:"assignee,omitempty"`
+	AssigneeTeam *TeamSlimV2         `json:"assignee_team,omitempty"`
+	Category     *FollowUpCategoryV3 `json:"category,omitempty"`
 
 	// CompletedAt When the follow-up was completed
 	CompletedAt *time.Time `json:"completed_at,omitempty"`
