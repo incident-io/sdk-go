@@ -3759,51 +3759,126 @@ func (e FollowUpV2Status) Valid() bool {
 	}
 }
 
+// Defines values for FollowUpV3Status.
+const (
+	FollowUpV3StatusCompleted   FollowUpV3Status = "completed"
+	FollowUpV3StatusDeleted     FollowUpV3Status = "deleted"
+	FollowUpV3StatusNotDoing    FollowUpV3Status = "not_doing"
+	FollowUpV3StatusOutstanding FollowUpV3Status = "outstanding"
+)
+
+// Valid indicates whether the value is a known member of the FollowUpV3Status enum.
+func (e FollowUpV3Status) Valid() bool {
+	switch e {
+	case FollowUpV3StatusCompleted:
+		return true
+	case FollowUpV3StatusDeleted:
+		return true
+	case FollowUpV3StatusNotDoing:
+		return true
+	case FollowUpV3StatusOutstanding:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for FollowUpsConnectExternalIssuePayloadV2Provider.
 const (
-	Asana        FollowUpsConnectExternalIssuePayloadV2Provider = "asana"
-	AzureDevops  FollowUpsConnectExternalIssuePayloadV2Provider = "azure_devops"
-	ClickUp      FollowUpsConnectExternalIssuePayloadV2Provider = "click_up"
-	Freshservice FollowUpsConnectExternalIssuePayloadV2Provider = "freshservice"
-	Github       FollowUpsConnectExternalIssuePayloadV2Provider = "github"
-	Gitlab       FollowUpsConnectExternalIssuePayloadV2Provider = "gitlab"
-	Jira         FollowUpsConnectExternalIssuePayloadV2Provider = "jira"
-	JiraServer   FollowUpsConnectExternalIssuePayloadV2Provider = "jira_server"
-	Linear       FollowUpsConnectExternalIssuePayloadV2Provider = "linear"
-	Notion       FollowUpsConnectExternalIssuePayloadV2Provider = "notion"
-	Salesforce   FollowUpsConnectExternalIssuePayloadV2Provider = "salesforce"
-	ServiceNow   FollowUpsConnectExternalIssuePayloadV2Provider = "service_now"
-	Shortcut     FollowUpsConnectExternalIssuePayloadV2Provider = "shortcut"
+	FollowUpsConnectExternalIssuePayloadV2ProviderAsana        FollowUpsConnectExternalIssuePayloadV2Provider = "asana"
+	FollowUpsConnectExternalIssuePayloadV2ProviderAzureDevops  FollowUpsConnectExternalIssuePayloadV2Provider = "azure_devops"
+	FollowUpsConnectExternalIssuePayloadV2ProviderClickUp      FollowUpsConnectExternalIssuePayloadV2Provider = "click_up"
+	FollowUpsConnectExternalIssuePayloadV2ProviderFreshservice FollowUpsConnectExternalIssuePayloadV2Provider = "freshservice"
+	FollowUpsConnectExternalIssuePayloadV2ProviderGithub       FollowUpsConnectExternalIssuePayloadV2Provider = "github"
+	FollowUpsConnectExternalIssuePayloadV2ProviderGitlab       FollowUpsConnectExternalIssuePayloadV2Provider = "gitlab"
+	FollowUpsConnectExternalIssuePayloadV2ProviderJira         FollowUpsConnectExternalIssuePayloadV2Provider = "jira"
+	FollowUpsConnectExternalIssuePayloadV2ProviderJiraServer   FollowUpsConnectExternalIssuePayloadV2Provider = "jira_server"
+	FollowUpsConnectExternalIssuePayloadV2ProviderLinear       FollowUpsConnectExternalIssuePayloadV2Provider = "linear"
+	FollowUpsConnectExternalIssuePayloadV2ProviderNotion       FollowUpsConnectExternalIssuePayloadV2Provider = "notion"
+	FollowUpsConnectExternalIssuePayloadV2ProviderSalesforce   FollowUpsConnectExternalIssuePayloadV2Provider = "salesforce"
+	FollowUpsConnectExternalIssuePayloadV2ProviderServiceNow   FollowUpsConnectExternalIssuePayloadV2Provider = "service_now"
+	FollowUpsConnectExternalIssuePayloadV2ProviderShortcut     FollowUpsConnectExternalIssuePayloadV2Provider = "shortcut"
 )
 
 // Valid indicates whether the value is a known member of the FollowUpsConnectExternalIssuePayloadV2Provider enum.
 func (e FollowUpsConnectExternalIssuePayloadV2Provider) Valid() bool {
 	switch e {
-	case Asana:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderAsana:
 		return true
-	case AzureDevops:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderAzureDevops:
 		return true
-	case ClickUp:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderClickUp:
 		return true
-	case Freshservice:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderFreshservice:
 		return true
-	case Github:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderGithub:
 		return true
-	case Gitlab:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderGitlab:
 		return true
-	case Jira:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderJira:
 		return true
-	case JiraServer:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderJiraServer:
 		return true
-	case Linear:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderLinear:
 		return true
-	case Notion:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderNotion:
 		return true
-	case Salesforce:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderSalesforce:
 		return true
-	case ServiceNow:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderServiceNow:
 		return true
-	case Shortcut:
+	case FollowUpsConnectExternalIssuePayloadV2ProviderShortcut:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for FollowUpsConnectExternalIssuePayloadV3Provider.
+const (
+	FollowUpsConnectExternalIssuePayloadV3ProviderAsana        FollowUpsConnectExternalIssuePayloadV3Provider = "asana"
+	FollowUpsConnectExternalIssuePayloadV3ProviderAzureDevops  FollowUpsConnectExternalIssuePayloadV3Provider = "azure_devops"
+	FollowUpsConnectExternalIssuePayloadV3ProviderClickUp      FollowUpsConnectExternalIssuePayloadV3Provider = "click_up"
+	FollowUpsConnectExternalIssuePayloadV3ProviderFreshservice FollowUpsConnectExternalIssuePayloadV3Provider = "freshservice"
+	FollowUpsConnectExternalIssuePayloadV3ProviderGithub       FollowUpsConnectExternalIssuePayloadV3Provider = "github"
+	FollowUpsConnectExternalIssuePayloadV3ProviderGitlab       FollowUpsConnectExternalIssuePayloadV3Provider = "gitlab"
+	FollowUpsConnectExternalIssuePayloadV3ProviderJira         FollowUpsConnectExternalIssuePayloadV3Provider = "jira"
+	FollowUpsConnectExternalIssuePayloadV3ProviderJiraServer   FollowUpsConnectExternalIssuePayloadV3Provider = "jira_server"
+	FollowUpsConnectExternalIssuePayloadV3ProviderLinear       FollowUpsConnectExternalIssuePayloadV3Provider = "linear"
+	FollowUpsConnectExternalIssuePayloadV3ProviderNotion       FollowUpsConnectExternalIssuePayloadV3Provider = "notion"
+	FollowUpsConnectExternalIssuePayloadV3ProviderSalesforce   FollowUpsConnectExternalIssuePayloadV3Provider = "salesforce"
+	FollowUpsConnectExternalIssuePayloadV3ProviderServiceNow   FollowUpsConnectExternalIssuePayloadV3Provider = "service_now"
+	FollowUpsConnectExternalIssuePayloadV3ProviderShortcut     FollowUpsConnectExternalIssuePayloadV3Provider = "shortcut"
+)
+
+// Valid indicates whether the value is a known member of the FollowUpsConnectExternalIssuePayloadV3Provider enum.
+func (e FollowUpsConnectExternalIssuePayloadV3Provider) Valid() bool {
+	switch e {
+	case FollowUpsConnectExternalIssuePayloadV3ProviderAsana:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV3ProviderAzureDevops:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV3ProviderClickUp:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV3ProviderFreshservice:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV3ProviderGithub:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV3ProviderGitlab:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV3ProviderJira:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV3ProviderJiraServer:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV3ProviderLinear:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV3ProviderNotion:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV3ProviderSalesforce:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV3ProviderServiceNow:
+		return true
+	case FollowUpsConnectExternalIssuePayloadV3ProviderShortcut:
 		return true
 	default:
 		return false
@@ -3828,6 +3903,30 @@ func (e FollowUpsUpdatePayloadV2Status) Valid() bool {
 	case FollowUpsUpdatePayloadV2StatusNotDoing:
 		return true
 	case FollowUpsUpdatePayloadV2StatusOutstanding:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for FollowUpsUpdatePayloadV3Status.
+const (
+	FollowUpsUpdatePayloadV3StatusCompleted   FollowUpsUpdatePayloadV3Status = "completed"
+	FollowUpsUpdatePayloadV3StatusDeleted     FollowUpsUpdatePayloadV3Status = "deleted"
+	FollowUpsUpdatePayloadV3StatusNotDoing    FollowUpsUpdatePayloadV3Status = "not_doing"
+	FollowUpsUpdatePayloadV3StatusOutstanding FollowUpsUpdatePayloadV3Status = "outstanding"
+)
+
+// Valid indicates whether the value is a known member of the FollowUpsUpdatePayloadV3Status enum.
+func (e FollowUpsUpdatePayloadV3Status) Valid() bool {
+	switch e {
+	case FollowUpsUpdatePayloadV3StatusCompleted:
+		return true
+	case FollowUpsUpdatePayloadV3StatusDeleted:
+		return true
+	case FollowUpsUpdatePayloadV3StatusNotDoing:
+		return true
+	case FollowUpsUpdatePayloadV3StatusOutstanding:
 		return true
 	default:
 		return false
@@ -6215,25 +6314,25 @@ func (e ActionsV2ListParamsIncidentMode) Valid() bool {
 
 // Defines values for FollowUpsV2ListParamsIncidentMode.
 const (
-	Retrospective FollowUpsV2ListParamsIncidentMode = "retrospective"
-	Standard      FollowUpsV2ListParamsIncidentMode = "standard"
-	Stream        FollowUpsV2ListParamsIncidentMode = "stream"
-	Test          FollowUpsV2ListParamsIncidentMode = "test"
-	Tutorial      FollowUpsV2ListParamsIncidentMode = "tutorial"
+	FollowUpsV2ListParamsIncidentModeRetrospective FollowUpsV2ListParamsIncidentMode = "retrospective"
+	FollowUpsV2ListParamsIncidentModeStandard      FollowUpsV2ListParamsIncidentMode = "standard"
+	FollowUpsV2ListParamsIncidentModeStream        FollowUpsV2ListParamsIncidentMode = "stream"
+	FollowUpsV2ListParamsIncidentModeTest          FollowUpsV2ListParamsIncidentMode = "test"
+	FollowUpsV2ListParamsIncidentModeTutorial      FollowUpsV2ListParamsIncidentMode = "tutorial"
 )
 
 // Valid indicates whether the value is a known member of the FollowUpsV2ListParamsIncidentMode enum.
 func (e FollowUpsV2ListParamsIncidentMode) Valid() bool {
 	switch e {
-	case Retrospective:
+	case FollowUpsV2ListParamsIncidentModeRetrospective:
 		return true
-	case Standard:
+	case FollowUpsV2ListParamsIncidentModeStandard:
 		return true
-	case Stream:
+	case FollowUpsV2ListParamsIncidentModeStream:
 		return true
-	case Test:
+	case FollowUpsV2ListParamsIncidentModeTest:
 		return true
-	case Tutorial:
+	case FollowUpsV2ListParamsIncidentModeTutorial:
 		return true
 	default:
 		return false
@@ -6270,6 +6369,33 @@ func (e IncidentsV2ListParamsFilterMode) Valid() bool {
 	case IncidentsV2ListParamsFilterModeAll:
 		return true
 	case IncidentsV2ListParamsFilterModeAny:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for FollowUpsV3ListParamsIncidentMode.
+const (
+	FollowUpsV3ListParamsIncidentModeRetrospective FollowUpsV3ListParamsIncidentMode = "retrospective"
+	FollowUpsV3ListParamsIncidentModeStandard      FollowUpsV3ListParamsIncidentMode = "standard"
+	FollowUpsV3ListParamsIncidentModeStream        FollowUpsV3ListParamsIncidentMode = "stream"
+	FollowUpsV3ListParamsIncidentModeTest          FollowUpsV3ListParamsIncidentMode = "test"
+	FollowUpsV3ListParamsIncidentModeTutorial      FollowUpsV3ListParamsIncidentMode = "tutorial"
+)
+
+// Valid indicates whether the value is a known member of the FollowUpsV3ListParamsIncidentMode enum.
+func (e FollowUpsV3ListParamsIncidentMode) Valid() bool {
+	switch e {
+	case FollowUpsV3ListParamsIncidentModeRetrospective:
+		return true
+	case FollowUpsV3ListParamsIncidentModeStandard:
+		return true
+	case FollowUpsV3ListParamsIncidentModeStream:
+		return true
+	case FollowUpsV3ListParamsIncidentModeTest:
+		return true
+	case FollowUpsV3ListParamsIncidentModeTutorial:
 		return true
 	default:
 		return false
@@ -10660,6 +10786,45 @@ type FollowUpV2 struct {
 // FollowUpV2Status Status of the follow-up
 type FollowUpV2Status string
 
+// FollowUpV3 defines model for FollowUpV3.
+type FollowUpV3 struct {
+	Assignee     *UserV2     `json:"assignee,omitempty"`
+	AssigneeTeam *TeamSlimV2 `json:"assignee_team,omitempty"`
+
+	// CompletedAt When the follow-up was completed
+	CompletedAt *time.Time `json:"completed_at,omitempty"`
+
+	// CreatedAt When the follow-up was created
+	CreatedAt time.Time `json:"created_at"`
+	Creator   ActorV2   `json:"creator"`
+
+	// Description Description of the follow-up
+	Description            *string                   `json:"description,omitempty"`
+	ExternalIssueReference *ExternalIssueReferenceV2 `json:"external_issue_reference,omitempty"`
+
+	// Id Unique identifier for the follow-up
+	Id string `json:"id"`
+
+	// IncidentId Unique identifier of the incident the follow-up belongs to
+	IncidentId string `json:"incident_id"`
+
+	// Labels Labels associated with this follow-up
+	Labels   []string            `json:"labels"`
+	Priority *FollowUpPriorityV2 `json:"priority,omitempty"`
+
+	// Status Status of the follow-up
+	Status FollowUpV3Status `json:"status"`
+
+	// Title Title of the follow-up
+	Title string `json:"title"`
+
+	// UpdatedAt When the follow-up was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
+// FollowUpV3Status Status of the follow-up
+type FollowUpV3Status string
+
 // FollowUpsConnectExternalIssuePayloadV2 defines model for FollowUpsConnectExternalIssuePayloadV2.
 type FollowUpsConnectExternalIssuePayloadV2 struct {
 	// Provider The issue tracker provider the issue belongs to
@@ -10672,13 +10837,60 @@ type FollowUpsConnectExternalIssuePayloadV2 struct {
 // FollowUpsConnectExternalIssuePayloadV2Provider The issue tracker provider the issue belongs to
 type FollowUpsConnectExternalIssuePayloadV2Provider string
 
+// FollowUpsConnectExternalIssuePayloadV3 defines model for FollowUpsConnectExternalIssuePayloadV3.
+type FollowUpsConnectExternalIssuePayloadV3 struct {
+	// Provider The issue tracker provider the issue belongs to
+	Provider FollowUpsConnectExternalIssuePayloadV3Provider `json:"provider"`
+
+	// Url URL of the issue in the external provider
+	Url string `json:"url"`
+}
+
+// FollowUpsConnectExternalIssuePayloadV3Provider The issue tracker provider the issue belongs to
+type FollowUpsConnectExternalIssuePayloadV3Provider string
+
 // FollowUpsConnectExternalIssueResultV2 defines model for FollowUpsConnectExternalIssueResultV2.
 type FollowUpsConnectExternalIssueResultV2 struct {
 	FollowUp FollowUpV2 `json:"follow_up"`
 }
 
+// FollowUpsConnectExternalIssueResultV3 defines model for FollowUpsConnectExternalIssueResultV3.
+type FollowUpsConnectExternalIssueResultV3 struct {
+	FollowUp FollowUpV3 `json:"follow_up"`
+}
+
 // FollowUpsCreatePayloadV2 defines model for FollowUpsCreatePayloadV2.
 type FollowUpsCreatePayloadV2 struct {
+	// AssigneeId ID of the user this follow-up is assigned to
+	AssigneeId *string `json:"assignee_id,omitempty"`
+
+	// AssigneeTeamId ID of the team this follow-up is assigned to
+	AssigneeTeamId *string `json:"assignee_team_id,omitempty"`
+
+	// Description Description of the follow-up. Supports Markdown.
+	Description *string `json:"description,omitempty"`
+
+	// ExternalIssueReferenceId If this follow-up is related to an external issue, the ID of that issue
+	ExternalIssueReferenceId *string `json:"external_issue_reference_id,omitempty"`
+
+	// FollowUpCategoryId ID of the category for this follow-up
+	FollowUpCategoryId *string `json:"follow_up_category_id,omitempty"`
+
+	// FollowUpPriorityOptionId ID of the priority for this follow-up
+	FollowUpPriorityOptionId *string `json:"follow_up_priority_option_id,omitempty"`
+
+	// IncidentId Unique identifier of the incident the follow-up belongs to
+	IncidentId string `json:"incident_id"`
+
+	// Labels Labels associated with this follow-up
+	Labels *[]string `json:"labels,omitempty"`
+
+	// Title Title of the follow-up
+	Title string `json:"title"`
+}
+
+// FollowUpsCreatePayloadV3 defines model for FollowUpsCreatePayloadV3.
+type FollowUpsCreatePayloadV3 struct {
 	// AssigneeId ID of the user this follow-up is assigned to
 	AssigneeId *string `json:"assignee_id,omitempty"`
 
@@ -10712,14 +10924,30 @@ type FollowUpsCreateResultV2 struct {
 	FollowUp FollowUpV2 `json:"follow_up"`
 }
 
+// FollowUpsCreateResultV3 defines model for FollowUpsCreateResultV3.
+type FollowUpsCreateResultV3 struct {
+	FollowUp FollowUpV3 `json:"follow_up"`
+}
+
 // FollowUpsListResultV2 defines model for FollowUpsListResultV2.
 type FollowUpsListResultV2 struct {
 	FollowUps []FollowUpV2 `json:"follow_ups"`
 }
 
+// FollowUpsListResultV3 defines model for FollowUpsListResultV3.
+type FollowUpsListResultV3 struct {
+	FollowUps      []FollowUpV3           `json:"follow_ups"`
+	PaginationMeta PaginationMetaResultV3 `json:"pagination_meta"`
+}
+
 // FollowUpsShowResultV2 defines model for FollowUpsShowResultV2.
 type FollowUpsShowResultV2 struct {
 	FollowUp FollowUpV2 `json:"follow_up"`
+}
+
+// FollowUpsShowResultV3 defines model for FollowUpsShowResultV3.
+type FollowUpsShowResultV3 struct {
+	FollowUp FollowUpV3 `json:"follow_up"`
 }
 
 // FollowUpsUpdatePayloadV2 defines model for FollowUpsUpdatePayloadV2.
@@ -10752,9 +10980,44 @@ type FollowUpsUpdatePayloadV2 struct {
 // FollowUpsUpdatePayloadV2Status Status of the follow-up. Setting this to `deleted` is not allowed; use the delete endpoint instead.
 type FollowUpsUpdatePayloadV2Status string
 
+// FollowUpsUpdatePayloadV3 defines model for FollowUpsUpdatePayloadV3.
+type FollowUpsUpdatePayloadV3 struct {
+	// AssigneeId ID of the user this follow-up is assigned to. Set to null to unassign.
+	AssigneeId *string `json:"assignee_id,omitempty"`
+
+	// AssigneeTeamId ID of the team this follow-up is assigned to. Set to null to unassign.
+	AssigneeTeamId *string `json:"assignee_team_id,omitempty"`
+
+	// Description Description of the follow-up. Supports Markdown.
+	Description *string `json:"description,omitempty"`
+
+	// FollowUpCategoryId ID of the category for this follow-up
+	FollowUpCategoryId *string `json:"follow_up_category_id,omitempty"`
+
+	// FollowUpPriorityOptionId ID of the priority for this follow-up
+	FollowUpPriorityOptionId *string `json:"follow_up_priority_option_id,omitempty"`
+
+	// Labels Labels associated with this follow-up
+	Labels *[]string `json:"labels,omitempty"`
+
+	// Status Status of the follow-up. Setting this to `deleted` is not allowed; use the delete endpoint instead.
+	Status FollowUpsUpdatePayloadV3Status `json:"status"`
+
+	// Title Title of the follow-up
+	Title string `json:"title"`
+}
+
+// FollowUpsUpdatePayloadV3Status Status of the follow-up. Setting this to `deleted` is not allowed; use the delete endpoint instead.
+type FollowUpsUpdatePayloadV3Status string
+
 // FollowUpsUpdateResultV2 defines model for FollowUpsUpdateResultV2.
 type FollowUpsUpdateResultV2 struct {
 	FollowUp FollowUpV2 `json:"follow_up"`
+}
+
+// FollowUpsUpdateResultV3 defines model for FollowUpsUpdateResultV3.
+type FollowUpsUpdateResultV3 struct {
+	FollowUp FollowUpV3 `json:"follow_up"`
 }
 
 // GroupingKeyV2 defines model for GroupingKeyV2.
@@ -13218,6 +13481,11 @@ type SchedulesPreviewScheduleEntriesResultV2 struct {
 	ScheduleEntries ScheduleEntriesListPayloadV2 `json:"schedule_entries"`
 }
 
+// SchedulesShowOverrideResultV2 defines model for SchedulesShowOverrideResultV2.
+type SchedulesShowOverrideResultV2 struct {
+	Override ScheduleOverrideV2 `json:"override"`
+}
+
 // SchedulesShowResultV2 defines model for SchedulesShowResultV2.
 type SchedulesShowResultV2 struct {
 	Schedule ScheduleV2 `json:"schedule"`
@@ -15540,6 +15808,33 @@ type CatalogV3ShowEntryParams struct {
 	Expand *bool `form:"expand,omitempty" json:"expand,omitempty"`
 }
 
+// FollowUpsV3ListParams defines parameters for FollowUpsV3List.
+type FollowUpsV3ListParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After A follow-up's ID. This endpoint will return a list of follow-ups after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+
+	// IncidentId Find follow-ups related to this incident
+	IncidentId *string `form:"incident_id,omitempty" json:"incident_id,omitempty"`
+
+	// IncidentMode Filter to follow-ups from incidents of the given mode
+	IncidentMode *FollowUpsV3ListParamsIncidentMode `form:"incident_mode,omitempty" json:"incident_mode,omitempty"`
+
+	// AssigneeTeamId Filter follow-ups that are assigned to the given team
+	AssigneeTeamId *string `form:"assignee_team_id,omitempty" json:"assignee_team_id,omitempty"`
+
+	// CreatedAt Filter on follow-up created at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
+	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
+
+	// UpdatedAt Filter on follow-up updated at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
+	UpdatedAt *map[string][]string `form:"updated_at,omitempty" json:"updated_at,omitempty"`
+}
+
+// FollowUpsV3ListParamsIncidentMode defines parameters for FollowUpsV3List.
+type FollowUpsV3ListParamsIncidentMode string
+
 // TeamsV3ListParams defines parameters for TeamsV3List.
 type TeamsV3ListParams struct {
 	// PageSize Integer number of records to return
@@ -15812,6 +16107,15 @@ type CatalogV3UpdateTypeJSONRequestBody = CatalogUpdateTypePayloadV3
 
 // CatalogV3UpdateTypeSchemaJSONRequestBody defines body for CatalogV3UpdateTypeSchema for application/json ContentType.
 type CatalogV3UpdateTypeSchemaJSONRequestBody = CatalogUpdateTypeSchemaPayloadV3
+
+// FollowUpsV3CreateJSONRequestBody defines body for FollowUpsV3Create for application/json ContentType.
+type FollowUpsV3CreateJSONRequestBody = FollowUpsCreatePayloadV3
+
+// FollowUpsV3UpdateJSONRequestBody defines body for FollowUpsV3Update for application/json ContentType.
+type FollowUpsV3UpdateJSONRequestBody = FollowUpsUpdatePayloadV3
+
+// FollowUpsV3ConnectExternalIssueJSONRequestBody defines body for FollowUpsV3ConnectExternalIssue for application/json ContentType.
+type FollowUpsV3ConnectExternalIssueJSONRequestBody = FollowUpsConnectExternalIssuePayloadV3
 
 // RequestEditorFn  is the function signature for the RequestEditor callback function
 type RequestEditorFn func(ctx context.Context, req *http.Request) error
@@ -16452,6 +16756,9 @@ type ClientInterface interface {
 	// SchedulesV2DestroyOverride request
 	SchedulesV2DestroyOverride(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// SchedulesV2ShowOverride request
+	SchedulesV2ShowOverride(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// SchedulesV2UpdateOverrideWithBody request with any body
 	SchedulesV2UpdateOverrideWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -16724,6 +17031,30 @@ type ClientInterface interface {
 	CatalogV3UpdateTypeSchemaWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	CatalogV3UpdateTypeSchema(ctx context.Context, id string, body CatalogV3UpdateTypeSchemaJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// FollowUpsV3List request
+	FollowUpsV3List(ctx context.Context, params *FollowUpsV3ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// FollowUpsV3CreateWithBody request with any body
+	FollowUpsV3CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	FollowUpsV3Create(ctx context.Context, body FollowUpsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// FollowUpsV3Delete request
+	FollowUpsV3Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// FollowUpsV3Show request
+	FollowUpsV3Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// FollowUpsV3UpdateWithBody request with any body
+	FollowUpsV3UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	FollowUpsV3Update(ctx context.Context, id string, body FollowUpsV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// FollowUpsV3ConnectExternalIssueWithBody request with any body
+	FollowUpsV3ConnectExternalIssueWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	FollowUpsV3ConnectExternalIssue(ctx context.Context, id string, body FollowUpsV3ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// TeamsV3List request
 	TeamsV3List(ctx context.Context, params *TeamsV3ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -19302,6 +19633,18 @@ func (c *Client) SchedulesV2DestroyOverride(ctx context.Context, id string, reqE
 	return c.Client.Do(req)
 }
 
+func (c *Client) SchedulesV2ShowOverride(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newSchedulesV2ShowOverrideRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) SchedulesV2UpdateOverrideWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newSchedulesV2UpdateOverrideRequestWithBody(c.Server, id, contentType, body)
 	if err != nil {
@@ -20504,6 +20847,114 @@ func (c *Client) CatalogV3UpdateTypeSchemaWithBody(ctx context.Context, id strin
 
 func (c *Client) CatalogV3UpdateTypeSchema(ctx context.Context, id string, body CatalogV3UpdateTypeSchemaJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newCatalogV3UpdateTypeSchemaRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV3List(ctx context.Context, params *FollowUpsV3ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV3ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV3CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV3CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV3Create(ctx context.Context, body FollowUpsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV3CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV3Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV3DeleteRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV3Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV3ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV3UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV3UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV3Update(ctx context.Context, id string, body FollowUpsV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV3UpdateRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV3ConnectExternalIssueWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV3ConnectExternalIssueRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV3ConnectExternalIssue(ctx context.Context, id string, body FollowUpsV3ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV3ConnectExternalIssueRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -27674,6 +28125,40 @@ func newSchedulesV2DestroyOverrideRequest(server string, id string) (*http.Reque
 	return req, nil
 }
 
+// NewSchedulesV2ShowOverrideRequest generates requests for SchedulesV2ShowOverride
+func newSchedulesV2ShowOverrideRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/schedule_overrides/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewSchedulesV2UpdateOverrideRequest calls the generic SchedulesV2UpdateOverride builder with application/json body
 func newSchedulesV2UpdateOverrideRequest(server string, id string, body SchedulesV2UpdateOverrideJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -31113,6 +31598,353 @@ func newCatalogV3UpdateTypeSchemaRequestWithBody(server string, id string, conte
 	return req, nil
 }
 
+// NewFollowUpsV3ListRequest generates requests for FollowUpsV3List
+func newFollowUpsV3ListRequest(server string, params *FollowUpsV3ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/follow_ups")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IncidentId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident_id", *params.IncidentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IncidentMode != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident_mode", *params.IncidentMode, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.AssigneeTeamId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "assignee_team_id", *params.AssigneeTeamId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CreatedAt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UpdatedAt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewFollowUpsV3CreateRequest calls the generic FollowUpsV3Create builder with application/json body
+func newFollowUpsV3CreateRequest(server string, body FollowUpsV3CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newFollowUpsV3CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewFollowUpsV3CreateRequestWithBody generates requests for FollowUpsV3Create with any type of body
+func newFollowUpsV3CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/follow_ups")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewFollowUpsV3DeleteRequest generates requests for FollowUpsV3Delete
+func newFollowUpsV3DeleteRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/follow_ups/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewFollowUpsV3ShowRequest generates requests for FollowUpsV3Show
+func newFollowUpsV3ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/follow_ups/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewFollowUpsV3UpdateRequest calls the generic FollowUpsV3Update builder with application/json body
+func newFollowUpsV3UpdateRequest(server string, id string, body FollowUpsV3UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newFollowUpsV3UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewFollowUpsV3UpdateRequestWithBody generates requests for FollowUpsV3Update with any type of body
+func newFollowUpsV3UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/follow_ups/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewFollowUpsV3ConnectExternalIssueRequest calls the generic FollowUpsV3ConnectExternalIssue builder with application/json body
+func newFollowUpsV3ConnectExternalIssueRequest(server string, id string, body FollowUpsV3ConnectExternalIssueJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newFollowUpsV3ConnectExternalIssueRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewFollowUpsV3ConnectExternalIssueRequestWithBody generates requests for FollowUpsV3ConnectExternalIssue with any type of body
+func newFollowUpsV3ConnectExternalIssueRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/follow_ups/%s/actions/connect_external_issue", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewTeamsV3ListRequest generates requests for TeamsV3List
 func newTeamsV3ListRequest(server string, params *TeamsV3ListParams) (*http.Request, error) {
 	var err error
@@ -31821,6 +32653,9 @@ type ClientWithResponsesInterface interface {
 	// SchedulesV2DestroyOverrideWithResponse request
 	SchedulesV2DestroyOverrideWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*SchedulesV2DestroyOverrideResponse, error)
 
+	// SchedulesV2ShowOverrideWithResponse request
+	SchedulesV2ShowOverrideWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*SchedulesV2ShowOverrideResponse, error)
+
 	// SchedulesV2UpdateOverrideWithBodyWithResponse request with any body
 	SchedulesV2UpdateOverrideWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SchedulesV2UpdateOverrideResponse, error)
 
@@ -32093,6 +32928,30 @@ type ClientWithResponsesInterface interface {
 	CatalogV3UpdateTypeSchemaWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CatalogV3UpdateTypeSchemaResponse, error)
 
 	CatalogV3UpdateTypeSchemaWithResponse(ctx context.Context, id string, body CatalogV3UpdateTypeSchemaJSONRequestBody, reqEditors ...RequestEditorFn) (*CatalogV3UpdateTypeSchemaResponse, error)
+
+	// FollowUpsV3ListWithResponse request
+	FollowUpsV3ListWithResponse(ctx context.Context, params *FollowUpsV3ListParams, reqEditors ...RequestEditorFn) (*FollowUpsV3ListResponse, error)
+
+	// FollowUpsV3CreateWithBodyWithResponse request with any body
+	FollowUpsV3CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV3CreateResponse, error)
+
+	FollowUpsV3CreateWithResponse(ctx context.Context, body FollowUpsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV3CreateResponse, error)
+
+	// FollowUpsV3DeleteWithResponse request
+	FollowUpsV3DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*FollowUpsV3DeleteResponse, error)
+
+	// FollowUpsV3ShowWithResponse request
+	FollowUpsV3ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*FollowUpsV3ShowResponse, error)
+
+	// FollowUpsV3UpdateWithBodyWithResponse request with any body
+	FollowUpsV3UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV3UpdateResponse, error)
+
+	FollowUpsV3UpdateWithResponse(ctx context.Context, id string, body FollowUpsV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV3UpdateResponse, error)
+
+	// FollowUpsV3ConnectExternalIssueWithBodyWithResponse request with any body
+	FollowUpsV3ConnectExternalIssueWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV3ConnectExternalIssueResponse, error)
+
+	FollowUpsV3ConnectExternalIssueWithResponse(ctx context.Context, id string, body FollowUpsV3ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV3ConnectExternalIssueResponse, error)
 
 	// TeamsV3ListWithResponse request
 	TeamsV3ListWithResponse(ctx context.Context, params *TeamsV3ListParams, reqEditors ...RequestEditorFn) (*TeamsV3ListResponse, error)
@@ -37325,6 +38184,41 @@ func (r SchedulesV2DestroyOverrideResponse) StatusCode() int {
 	return 0
 }
 
+type SchedulesV2ShowOverrideResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *SchedulesShowOverrideResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r SchedulesV2ShowOverrideResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SchedulesV2ShowOverrideResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type SchedulesV2UpdateOverrideResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -39799,6 +40693,215 @@ func (r CatalogV3UpdateTypeSchemaResponse) StatusCode() int {
 	return 0
 }
 
+type FollowUpsV3ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *FollowUpsListResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r FollowUpsV3ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r FollowUpsV3ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type FollowUpsV3CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *FollowUpsCreateResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r FollowUpsV3CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r FollowUpsV3CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type FollowUpsV3DeleteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r FollowUpsV3DeleteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r FollowUpsV3DeleteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type FollowUpsV3ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *FollowUpsShowResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r FollowUpsV3ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r FollowUpsV3ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type FollowUpsV3UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *FollowUpsUpdateResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r FollowUpsV3UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r FollowUpsV3UpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type FollowUpsV3ConnectExternalIssueResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *FollowUpsConnectExternalIssueResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r FollowUpsV3ConnectExternalIssueResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r FollowUpsV3ConnectExternalIssueResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type TeamsV3ListResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -41784,6 +42887,15 @@ func (c *ClientWithResponses) SchedulesV2DestroyOverrideWithResponse(ctx context
 	return parseSchedulesV2DestroyOverrideResponse(rsp)
 }
 
+// SchedulesV2ShowOverrideWithResponse request returning *SchedulesV2ShowOverrideResponse
+func (c *ClientWithResponses) SchedulesV2ShowOverrideWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*SchedulesV2ShowOverrideResponse, error) {
+	rsp, err := c.SchedulesV2ShowOverride(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseSchedulesV2ShowOverrideResponse(rsp)
+}
+
 // SchedulesV2UpdateOverrideWithBodyWithResponse request with arbitrary body returning *SchedulesV2UpdateOverrideResponse
 func (c *ClientWithResponses) SchedulesV2UpdateOverrideWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SchedulesV2UpdateOverrideResponse, error) {
 	rsp, err := c.SchedulesV2UpdateOverrideWithBody(ctx, id, contentType, body, reqEditors...)
@@ -42661,6 +43773,84 @@ func (c *ClientWithResponses) CatalogV3UpdateTypeSchemaWithResponse(ctx context.
 		return nil, err
 	}
 	return parseCatalogV3UpdateTypeSchemaResponse(rsp)
+}
+
+// FollowUpsV3ListWithResponse request returning *FollowUpsV3ListResponse
+func (c *ClientWithResponses) FollowUpsV3ListWithResponse(ctx context.Context, params *FollowUpsV3ListParams, reqEditors ...RequestEditorFn) (*FollowUpsV3ListResponse, error) {
+	rsp, err := c.FollowUpsV3List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV3ListResponse(rsp)
+}
+
+// FollowUpsV3CreateWithBodyWithResponse request with arbitrary body returning *FollowUpsV3CreateResponse
+func (c *ClientWithResponses) FollowUpsV3CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV3CreateResponse, error) {
+	rsp, err := c.FollowUpsV3CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV3CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) FollowUpsV3CreateWithResponse(ctx context.Context, body FollowUpsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV3CreateResponse, error) {
+	rsp, err := c.FollowUpsV3Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV3CreateResponse(rsp)
+}
+
+// FollowUpsV3DeleteWithResponse request returning *FollowUpsV3DeleteResponse
+func (c *ClientWithResponses) FollowUpsV3DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*FollowUpsV3DeleteResponse, error) {
+	rsp, err := c.FollowUpsV3Delete(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV3DeleteResponse(rsp)
+}
+
+// FollowUpsV3ShowWithResponse request returning *FollowUpsV3ShowResponse
+func (c *ClientWithResponses) FollowUpsV3ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*FollowUpsV3ShowResponse, error) {
+	rsp, err := c.FollowUpsV3Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV3ShowResponse(rsp)
+}
+
+// FollowUpsV3UpdateWithBodyWithResponse request with arbitrary body returning *FollowUpsV3UpdateResponse
+func (c *ClientWithResponses) FollowUpsV3UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV3UpdateResponse, error) {
+	rsp, err := c.FollowUpsV3UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV3UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) FollowUpsV3UpdateWithResponse(ctx context.Context, id string, body FollowUpsV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV3UpdateResponse, error) {
+	rsp, err := c.FollowUpsV3Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV3UpdateResponse(rsp)
+}
+
+// FollowUpsV3ConnectExternalIssueWithBodyWithResponse request with arbitrary body returning *FollowUpsV3ConnectExternalIssueResponse
+func (c *ClientWithResponses) FollowUpsV3ConnectExternalIssueWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV3ConnectExternalIssueResponse, error) {
+	rsp, err := c.FollowUpsV3ConnectExternalIssueWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV3ConnectExternalIssueResponse(rsp)
+}
+
+func (c *ClientWithResponses) FollowUpsV3ConnectExternalIssueWithResponse(ctx context.Context, id string, body FollowUpsV3ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV3ConnectExternalIssueResponse, error) {
+	rsp, err := c.FollowUpsV3ConnectExternalIssue(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV3ConnectExternalIssueResponse(rsp)
 }
 
 // TeamsV3ListWithResponse request returning *TeamsV3ListResponse
@@ -60049,6 +61239,123 @@ func parseSchedulesV2DestroyOverrideResponse(rsp *http.Response) (*SchedulesV2De
 	return response, nil
 }
 
+// ParseSchedulesV2ShowOverrideResponse parses an HTTP response from a SchedulesV2ShowOverrideWithResponse call
+func parseSchedulesV2ShowOverrideResponse(rsp *http.Response) (*SchedulesV2ShowOverrideResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SchedulesV2ShowOverrideResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SchedulesShowOverrideResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseSchedulesV2UpdateOverrideResponse parses an HTTP response from a SchedulesV2UpdateOverrideWithResponse call
 func parseSchedulesV2UpdateOverrideResponse(rsp *http.Response) (*SchedulesV2UpdateOverrideResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -68178,6 +69485,701 @@ func parseCatalogV3UpdateTypeSchemaResponse(rsp *http.Response) (*CatalogV3Updat
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest CatalogUpdateTypeSchemaResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseFollowUpsV3ListResponse parses an HTTP response from a FollowUpsV3ListWithResponse call
+func parseFollowUpsV3ListResponse(rsp *http.Response) (*FollowUpsV3ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &FollowUpsV3ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest FollowUpsListResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseFollowUpsV3CreateResponse parses an HTTP response from a FollowUpsV3CreateWithResponse call
+func parseFollowUpsV3CreateResponse(rsp *http.Response) (*FollowUpsV3CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &FollowUpsV3CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest FollowUpsCreateResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseFollowUpsV3DeleteResponse parses an HTTP response from a FollowUpsV3DeleteWithResponse call
+func parseFollowUpsV3DeleteResponse(rsp *http.Response) (*FollowUpsV3DeleteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &FollowUpsV3DeleteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseFollowUpsV3ShowResponse parses an HTTP response from a FollowUpsV3ShowWithResponse call
+func parseFollowUpsV3ShowResponse(rsp *http.Response) (*FollowUpsV3ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &FollowUpsV3ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest FollowUpsShowResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseFollowUpsV3UpdateResponse parses an HTTP response from a FollowUpsV3UpdateWithResponse call
+func parseFollowUpsV3UpdateResponse(rsp *http.Response) (*FollowUpsV3UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &FollowUpsV3UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest FollowUpsUpdateResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseFollowUpsV3ConnectExternalIssueResponse parses an HTTP response from a FollowUpsV3ConnectExternalIssueWithResponse call
+func parseFollowUpsV3ConnectExternalIssueResponse(rsp *http.Response) (*FollowUpsV3ConnectExternalIssueResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &FollowUpsV3ConnectExternalIssueResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest FollowUpsConnectExternalIssueResultV3
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
