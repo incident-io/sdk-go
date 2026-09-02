@@ -3305,22 +3305,22 @@ func (e EscalationPathTargetV2ScheduleMode) Valid() bool {
 
 // Defines values for EscalationPathTargetV2Type.
 const (
-	MsteamsChannel EscalationPathTargetV2Type = "msteams_channel"
-	Schedule       EscalationPathTargetV2Type = "schedule"
-	SlackChannel   EscalationPathTargetV2Type = "slack_channel"
-	User           EscalationPathTargetV2Type = "user"
+	EscalationPathTargetV2TypeMsteamsChannel EscalationPathTargetV2Type = "msteams_channel"
+	EscalationPathTargetV2TypeSchedule       EscalationPathTargetV2Type = "schedule"
+	EscalationPathTargetV2TypeSlackChannel   EscalationPathTargetV2Type = "slack_channel"
+	EscalationPathTargetV2TypeUser           EscalationPathTargetV2Type = "user"
 )
 
 // Valid indicates whether the value is a known member of the EscalationPathTargetV2Type enum.
 func (e EscalationPathTargetV2Type) Valid() bool {
 	switch e {
-	case MsteamsChannel:
+	case EscalationPathTargetV2TypeMsteamsChannel:
 		return true
-	case Schedule:
+	case EscalationPathTargetV2TypeSchedule:
 		return true
-	case SlackChannel:
+	case EscalationPathTargetV2TypeSlackChannel:
 		return true
-	case User:
+	case EscalationPathTargetV2TypeUser:
 		return true
 	default:
 		return false
@@ -4835,16 +4835,16 @@ func (e OnCallNotificationRuleMethodTargetPublicV2Type) Valid() bool {
 
 // Defines values for OnCallNotificationRulePhoneDetailsPublicV2Channel.
 const (
-	Sms   OnCallNotificationRulePhoneDetailsPublicV2Channel = "sms"
-	Voice OnCallNotificationRulePhoneDetailsPublicV2Channel = "voice"
+	OnCallNotificationRulePhoneDetailsPublicV2ChannelSms   OnCallNotificationRulePhoneDetailsPublicV2Channel = "sms"
+	OnCallNotificationRulePhoneDetailsPublicV2ChannelVoice OnCallNotificationRulePhoneDetailsPublicV2Channel = "voice"
 )
 
 // Valid indicates whether the value is a known member of the OnCallNotificationRulePhoneDetailsPublicV2Channel enum.
 func (e OnCallNotificationRulePhoneDetailsPublicV2Channel) Valid() bool {
 	switch e {
-	case Sms:
+	case OnCallNotificationRulePhoneDetailsPublicV2ChannelSms:
 		return true
-	case Voice:
+	case OnCallNotificationRulePhoneDetailsPublicV2ChannelVoice:
 		return true
 	default:
 		return false
@@ -4893,6 +4893,417 @@ func (e OnCallNotificationRulePublicV2RuleType) Valid() bool {
 	case HighUrgency:
 		return true
 	case LowUrgency:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PoliciesCreatePayloadV2PolicyType.
+const (
+	PoliciesCreatePayloadV2PolicyTypeDebrief          PoliciesCreatePayloadV2PolicyType = "debrief"
+	PoliciesCreatePayloadV2PolicyTypeFollowUp         PoliciesCreatePayloadV2PolicyType = "follow_up"
+	PoliciesCreatePayloadV2PolicyTypeOnCallReadiness  PoliciesCreatePayloadV2PolicyType = "on_call_readiness"
+	PoliciesCreatePayloadV2PolicyTypePostMortem       PoliciesCreatePayloadV2PolicyType = "post_mortem"
+	PoliciesCreatePayloadV2PolicyTypeSchedule         PoliciesCreatePayloadV2PolicyType = "schedule"
+	PoliciesCreatePayloadV2PolicyTypeVacationConflict PoliciesCreatePayloadV2PolicyType = "vacation_conflict"
+)
+
+// Valid indicates whether the value is a known member of the PoliciesCreatePayloadV2PolicyType enum.
+func (e PoliciesCreatePayloadV2PolicyType) Valid() bool {
+	switch e {
+	case PoliciesCreatePayloadV2PolicyTypeDebrief:
+		return true
+	case PoliciesCreatePayloadV2PolicyTypeFollowUp:
+		return true
+	case PoliciesCreatePayloadV2PolicyTypeOnCallReadiness:
+		return true
+	case PoliciesCreatePayloadV2PolicyTypePostMortem:
+		return true
+	case PoliciesCreatePayloadV2PolicyTypeSchedule:
+		return true
+	case PoliciesCreatePayloadV2PolicyTypeVacationConflict:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PoliciesCreatePayloadV2Status.
+const (
+	PoliciesCreatePayloadV2StatusDisabled PoliciesCreatePayloadV2Status = "disabled"
+	PoliciesCreatePayloadV2StatusEnabled  PoliciesCreatePayloadV2Status = "enabled"
+)
+
+// Valid indicates whether the value is a known member of the PoliciesCreatePayloadV2Status enum.
+func (e PoliciesCreatePayloadV2Status) Valid() bool {
+	switch e {
+	case PoliciesCreatePayloadV2StatusDisabled:
+		return true
+	case PoliciesCreatePayloadV2StatusEnabled:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PoliciesUpdatePayloadV2PolicyType.
+const (
+	PoliciesUpdatePayloadV2PolicyTypeDebrief          PoliciesUpdatePayloadV2PolicyType = "debrief"
+	PoliciesUpdatePayloadV2PolicyTypeFollowUp         PoliciesUpdatePayloadV2PolicyType = "follow_up"
+	PoliciesUpdatePayloadV2PolicyTypeOnCallReadiness  PoliciesUpdatePayloadV2PolicyType = "on_call_readiness"
+	PoliciesUpdatePayloadV2PolicyTypePostMortem       PoliciesUpdatePayloadV2PolicyType = "post_mortem"
+	PoliciesUpdatePayloadV2PolicyTypeSchedule         PoliciesUpdatePayloadV2PolicyType = "schedule"
+	PoliciesUpdatePayloadV2PolicyTypeVacationConflict PoliciesUpdatePayloadV2PolicyType = "vacation_conflict"
+)
+
+// Valid indicates whether the value is a known member of the PoliciesUpdatePayloadV2PolicyType enum.
+func (e PoliciesUpdatePayloadV2PolicyType) Valid() bool {
+	switch e {
+	case PoliciesUpdatePayloadV2PolicyTypeDebrief:
+		return true
+	case PoliciesUpdatePayloadV2PolicyTypeFollowUp:
+		return true
+	case PoliciesUpdatePayloadV2PolicyTypeOnCallReadiness:
+		return true
+	case PoliciesUpdatePayloadV2PolicyTypePostMortem:
+		return true
+	case PoliciesUpdatePayloadV2PolicyTypeSchedule:
+		return true
+	case PoliciesUpdatePayloadV2PolicyTypeVacationConflict:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PoliciesUpdatePayloadV2Status.
+const (
+	PoliciesUpdatePayloadV2StatusDisabled PoliciesUpdatePayloadV2Status = "disabled"
+	PoliciesUpdatePayloadV2StatusEnabled  PoliciesUpdatePayloadV2Status = "enabled"
+)
+
+// Valid indicates whether the value is a known member of the PoliciesUpdatePayloadV2Status enum.
+func (e PoliciesUpdatePayloadV2Status) Valid() bool {
+	switch e {
+	case PoliciesUpdatePayloadV2StatusDisabled:
+		return true
+	case PoliciesUpdatePayloadV2StatusEnabled:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyDueDateConfigPayloadV2CalculationType.
+const (
+	PolicyDueDateConfigPayloadV2CalculationTypeSevenDays PolicyDueDateConfigPayloadV2CalculationType = "seven_days"
+	PolicyDueDateConfigPayloadV2CalculationTypeWeekdays  PolicyDueDateConfigPayloadV2CalculationType = "weekdays"
+)
+
+// Valid indicates whether the value is a known member of the PolicyDueDateConfigPayloadV2CalculationType enum.
+func (e PolicyDueDateConfigPayloadV2CalculationType) Valid() bool {
+	switch e {
+	case PolicyDueDateConfigPayloadV2CalculationTypeSevenDays:
+		return true
+	case PolicyDueDateConfigPayloadV2CalculationTypeWeekdays:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyDueDateConfigV2CalculationType.
+const (
+	PolicyDueDateConfigV2CalculationTypeSevenDays PolicyDueDateConfigV2CalculationType = "seven_days"
+	PolicyDueDateConfigV2CalculationTypeWeekdays  PolicyDueDateConfigV2CalculationType = "weekdays"
+)
+
+// Valid indicates whether the value is a known member of the PolicyDueDateConfigV2CalculationType enum.
+func (e PolicyDueDateConfigV2CalculationType) Valid() bool {
+	switch e {
+	case PolicyDueDateConfigV2CalculationTypeSevenDays:
+		return true
+	case PolicyDueDateConfigV2CalculationTypeWeekdays:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyFindingReadinessRuleV2MethodTypes.
+const (
+	PolicyFindingReadinessRuleV2MethodTypesApp                   PolicyFindingReadinessRuleV2MethodTypes = "app"
+	PolicyFindingReadinessRuleV2MethodTypesEmail                 PolicyFindingReadinessRuleV2MethodTypes = "email"
+	PolicyFindingReadinessRuleV2MethodTypesLiveCall              PolicyFindingReadinessRuleV2MethodTypes = "live_call"
+	PolicyFindingReadinessRuleV2MethodTypesMicrosoftTeams        PolicyFindingReadinessRuleV2MethodTypes = "microsoft_teams"
+	PolicyFindingReadinessRuleV2MethodTypesMicrosoftTeamsChannel PolicyFindingReadinessRuleV2MethodTypes = "microsoft_teams_channel"
+	PolicyFindingReadinessRuleV2MethodTypesPhone                 PolicyFindingReadinessRuleV2MethodTypes = "phone"
+	PolicyFindingReadinessRuleV2MethodTypesSlack                 PolicyFindingReadinessRuleV2MethodTypes = "slack"
+	PolicyFindingReadinessRuleV2MethodTypesSlackChannel          PolicyFindingReadinessRuleV2MethodTypes = "slack_channel"
+	PolicyFindingReadinessRuleV2MethodTypesSms                   PolicyFindingReadinessRuleV2MethodTypes = "sms"
+	PolicyFindingReadinessRuleV2MethodTypesWhatsappMessage       PolicyFindingReadinessRuleV2MethodTypes = "whatsapp_message"
+)
+
+// Valid indicates whether the value is a known member of the PolicyFindingReadinessRuleV2MethodTypes enum.
+func (e PolicyFindingReadinessRuleV2MethodTypes) Valid() bool {
+	switch e {
+	case PolicyFindingReadinessRuleV2MethodTypesApp:
+		return true
+	case PolicyFindingReadinessRuleV2MethodTypesEmail:
+		return true
+	case PolicyFindingReadinessRuleV2MethodTypesLiveCall:
+		return true
+	case PolicyFindingReadinessRuleV2MethodTypesMicrosoftTeams:
+		return true
+	case PolicyFindingReadinessRuleV2MethodTypesMicrosoftTeamsChannel:
+		return true
+	case PolicyFindingReadinessRuleV2MethodTypesPhone:
+		return true
+	case PolicyFindingReadinessRuleV2MethodTypesSlack:
+		return true
+	case PolicyFindingReadinessRuleV2MethodTypesSlackChannel:
+		return true
+	case PolicyFindingReadinessRuleV2MethodTypesSms:
+		return true
+	case PolicyFindingReadinessRuleV2MethodTypesWhatsappMessage:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyFindingScheduleImpactedUserV2Cause.
+const (
+	PolicyFindingScheduleImpactedUserV2CauseNoOnCallSeat    PolicyFindingScheduleImpactedUserV2Cause = "no_on_call_seat"
+	PolicyFindingScheduleImpactedUserV2CauseUserDeactivated PolicyFindingScheduleImpactedUserV2Cause = "user_deactivated"
+)
+
+// Valid indicates whether the value is a known member of the PolicyFindingScheduleImpactedUserV2Cause enum.
+func (e PolicyFindingScheduleImpactedUserV2Cause) Valid() bool {
+	switch e {
+	case PolicyFindingScheduleImpactedUserV2CauseNoOnCallSeat:
+		return true
+	case PolicyFindingScheduleImpactedUserV2CauseUserDeactivated:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyFindingScheduleV2Cause.
+const (
+	PolicyFindingScheduleV2CauseNoOnCallSeat    PolicyFindingScheduleV2Cause = "no_on_call_seat"
+	PolicyFindingScheduleV2CauseNobodyScheduled PolicyFindingScheduleV2Cause = "nobody_scheduled"
+	PolicyFindingScheduleV2CauseUserDeactivated PolicyFindingScheduleV2Cause = "user_deactivated"
+)
+
+// Valid indicates whether the value is a known member of the PolicyFindingScheduleV2Cause enum.
+func (e PolicyFindingScheduleV2Cause) Valid() bool {
+	switch e {
+	case PolicyFindingScheduleV2CauseNoOnCallSeat:
+		return true
+	case PolicyFindingScheduleV2CauseNobodyScheduled:
+		return true
+	case PolicyFindingScheduleV2CauseUserDeactivated:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyFindingV2PolicyType.
+const (
+	PolicyFindingV2PolicyTypeDebrief          PolicyFindingV2PolicyType = "debrief"
+	PolicyFindingV2PolicyTypeFollowUp         PolicyFindingV2PolicyType = "follow_up"
+	PolicyFindingV2PolicyTypeOnCallReadiness  PolicyFindingV2PolicyType = "on_call_readiness"
+	PolicyFindingV2PolicyTypePostMortem       PolicyFindingV2PolicyType = "post_mortem"
+	PolicyFindingV2PolicyTypeSchedule         PolicyFindingV2PolicyType = "schedule"
+	PolicyFindingV2PolicyTypeVacationConflict PolicyFindingV2PolicyType = "vacation_conflict"
+)
+
+// Valid indicates whether the value is a known member of the PolicyFindingV2PolicyType enum.
+func (e PolicyFindingV2PolicyType) Valid() bool {
+	switch e {
+	case PolicyFindingV2PolicyTypeDebrief:
+		return true
+	case PolicyFindingV2PolicyTypeFollowUp:
+		return true
+	case PolicyFindingV2PolicyTypeOnCallReadiness:
+		return true
+	case PolicyFindingV2PolicyTypePostMortem:
+		return true
+	case PolicyFindingV2PolicyTypeSchedule:
+		return true
+	case PolicyFindingV2PolicyTypeVacationConflict:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyFindingV2State.
+const (
+	PolicyFindingV2StateActive    PolicyFindingV2State = "active"
+	PolicyFindingV2StateCancelled PolicyFindingV2State = "cancelled"
+	PolicyFindingV2StateDismissed PolicyFindingV2State = "dismissed"
+	PolicyFindingV2StatePending   PolicyFindingV2State = "pending"
+	PolicyFindingV2StateResolved  PolicyFindingV2State = "resolved"
+)
+
+// Valid indicates whether the value is a known member of the PolicyFindingV2State enum.
+func (e PolicyFindingV2State) Valid() bool {
+	switch e {
+	case PolicyFindingV2StateActive:
+		return true
+	case PolicyFindingV2StateCancelled:
+		return true
+	case PolicyFindingV2StateDismissed:
+		return true
+	case PolicyFindingV2StatePending:
+		return true
+	case PolicyFindingV2StateResolved:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyOnCallReadinessV2Enforcement.
+const (
+	Advisory PolicyOnCallReadinessV2Enforcement = "advisory"
+	Blocking PolicyOnCallReadinessV2Enforcement = "blocking"
+)
+
+// Valid indicates whether the value is a known member of the PolicyOnCallReadinessV2Enforcement enum.
+func (e PolicyOnCallReadinessV2Enforcement) Valid() bool {
+	switch e {
+	case Advisory:
+		return true
+	case Blocking:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyReadinessRuleV2MethodTypes.
+const (
+	App                   PolicyReadinessRuleV2MethodTypes = "app"
+	Email                 PolicyReadinessRuleV2MethodTypes = "email"
+	LiveCall              PolicyReadinessRuleV2MethodTypes = "live_call"
+	MicrosoftTeams        PolicyReadinessRuleV2MethodTypes = "microsoft_teams"
+	MicrosoftTeamsChannel PolicyReadinessRuleV2MethodTypes = "microsoft_teams_channel"
+	Phone                 PolicyReadinessRuleV2MethodTypes = "phone"
+	Slack                 PolicyReadinessRuleV2MethodTypes = "slack"
+	SlackChannel          PolicyReadinessRuleV2MethodTypes = "slack_channel"
+	Sms                   PolicyReadinessRuleV2MethodTypes = "sms"
+	WhatsappMessage       PolicyReadinessRuleV2MethodTypes = "whatsapp_message"
+)
+
+// Valid indicates whether the value is a known member of the PolicyReadinessRuleV2MethodTypes enum.
+func (e PolicyReadinessRuleV2MethodTypes) Valid() bool {
+	switch e {
+	case App:
+		return true
+	case Email:
+		return true
+	case LiveCall:
+		return true
+	case MicrosoftTeams:
+		return true
+	case MicrosoftTeamsChannel:
+		return true
+	case Phone:
+		return true
+	case Slack:
+		return true
+	case SlackChannel:
+		return true
+	case Sms:
+		return true
+	case WhatsappMessage:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyScheduleV2EvaluationLevel.
+const (
+	PolicyScheduleV2EvaluationLevelRotation PolicyScheduleV2EvaluationLevel = "rotation"
+	PolicyScheduleV2EvaluationLevelSchedule PolicyScheduleV2EvaluationLevel = "schedule"
+)
+
+// Valid indicates whether the value is a known member of the PolicyScheduleV2EvaluationLevel enum.
+func (e PolicyScheduleV2EvaluationLevel) Valid() bool {
+	switch e {
+	case PolicyScheduleV2EvaluationLevelRotation:
+		return true
+	case PolicyScheduleV2EvaluationLevelSchedule:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyScheduleV2RequirementType.
+const (
+	Contiguous PolicyScheduleV2RequirementType = "contiguous"
+)
+
+// Valid indicates whether the value is a known member of the PolicyScheduleV2RequirementType enum.
+func (e PolicyScheduleV2RequirementType) Valid() bool {
+	switch e {
+	case Contiguous:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyV2PolicyType.
+const (
+	PolicyV2PolicyTypeDebrief          PolicyV2PolicyType = "debrief"
+	PolicyV2PolicyTypeFollowUp         PolicyV2PolicyType = "follow_up"
+	PolicyV2PolicyTypeOnCallReadiness  PolicyV2PolicyType = "on_call_readiness"
+	PolicyV2PolicyTypePostMortem       PolicyV2PolicyType = "post_mortem"
+	PolicyV2PolicyTypeSchedule         PolicyV2PolicyType = "schedule"
+	PolicyV2PolicyTypeVacationConflict PolicyV2PolicyType = "vacation_conflict"
+)
+
+// Valid indicates whether the value is a known member of the PolicyV2PolicyType enum.
+func (e PolicyV2PolicyType) Valid() bool {
+	switch e {
+	case PolicyV2PolicyTypeDebrief:
+		return true
+	case PolicyV2PolicyTypeFollowUp:
+		return true
+	case PolicyV2PolicyTypeOnCallReadiness:
+		return true
+	case PolicyV2PolicyTypePostMortem:
+		return true
+	case PolicyV2PolicyTypeSchedule:
+		return true
+	case PolicyV2PolicyTypeVacationConflict:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PolicyV2Status.
+const (
+	PolicyV2StatusDisabled PolicyV2Status = "disabled"
+	PolicyV2StatusEnabled  PolicyV2Status = "enabled"
+)
+
+// Valid indicates whether the value is a known member of the PolicyV2Status enum.
+func (e PolicyV2Status) Valid() bool {
+	switch e {
+	case PolicyV2StatusDisabled:
+		return true
+	case PolicyV2StatusEnabled:
 		return true
 	default:
 		return false
@@ -5462,22 +5873,22 @@ func (e StatusPagesCreateStatusPageIncidentPayloadV2IncidentStatus) Valid() bool
 
 // Defines values for StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus.
 const (
-	Identified    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "identified"
-	Investigating StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "investigating"
-	Monitoring    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "monitoring"
-	Resolved      StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "resolved"
+	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusIdentified    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "identified"
+	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusInvestigating StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "investigating"
+	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusMonitoring    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "monitoring"
+	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusResolved      StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "resolved"
 )
 
 // Valid indicates whether the value is a known member of the StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus enum.
 func (e StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus) Valid() bool {
 	switch e {
-	case Identified:
+	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusIdentified:
 		return true
-	case Investigating:
+	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusInvestigating:
 		return true
-	case Monitoring:
+	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusMonitoring:
 		return true
-	case Resolved:
+	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusResolved:
 		return true
 	default:
 		return false
@@ -6296,19 +6707,19 @@ func (e IncidentAttachmentsV1ListParamsResourceType) Valid() bool {
 
 // Defines values for MaintenanceWindowsV1ListParamsStatus.
 const (
-	MaintenanceWindowsV1ListParamsStatusActive   MaintenanceWindowsV1ListParamsStatus = "active"
-	MaintenanceWindowsV1ListParamsStatusPast     MaintenanceWindowsV1ListParamsStatus = "past"
-	MaintenanceWindowsV1ListParamsStatusUpcoming MaintenanceWindowsV1ListParamsStatus = "upcoming"
+	Active   MaintenanceWindowsV1ListParamsStatus = "active"
+	Past     MaintenanceWindowsV1ListParamsStatus = "past"
+	Upcoming MaintenanceWindowsV1ListParamsStatus = "upcoming"
 )
 
 // Valid indicates whether the value is a known member of the MaintenanceWindowsV1ListParamsStatus enum.
 func (e MaintenanceWindowsV1ListParamsStatus) Valid() bool {
 	switch e {
-	case MaintenanceWindowsV1ListParamsStatusActive:
+	case Active:
 		return true
-	case MaintenanceWindowsV1ListParamsStatusPast:
+	case Past:
 		return true
-	case MaintenanceWindowsV1ListParamsStatusUpcoming:
+	case Upcoming:
 		return true
 	default:
 		return false
@@ -6417,6 +6828,36 @@ func (e IncidentsV2ListParamsFilterMode) Valid() bool {
 	case IncidentsV2ListParamsFilterModeAll:
 		return true
 	case IncidentsV2ListParamsFilterModeAny:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PoliciesV2ListParamsPolicyType.
+const (
+	Debrief          PoliciesV2ListParamsPolicyType = "debrief"
+	FollowUp         PoliciesV2ListParamsPolicyType = "follow_up"
+	OnCallReadiness  PoliciesV2ListParamsPolicyType = "on_call_readiness"
+	PostMortem       PoliciesV2ListParamsPolicyType = "post_mortem"
+	Schedule         PoliciesV2ListParamsPolicyType = "schedule"
+	VacationConflict PoliciesV2ListParamsPolicyType = "vacation_conflict"
+)
+
+// Valid indicates whether the value is a known member of the PoliciesV2ListParamsPolicyType enum.
+func (e PoliciesV2ListParamsPolicyType) Valid() bool {
+	switch e {
+	case Debrief:
+		return true
+	case FollowUp:
+		return true
+	case OnCallReadiness:
+		return true
+	case PostMortem:
+		return true
+	case Schedule:
+		return true
+	case VacationConflict:
 		return true
 	default:
 		return false
@@ -12783,6 +13224,518 @@ type PartialEntryPayloadV3 struct {
 	Rank *int32 `json:"rank,omitempty"`
 }
 
+// PoliciesCreatePayloadV2 defines model for PoliciesCreatePayloadV2.
+type PoliciesCreatePayloadV2 struct {
+	AssignmentRules *PolicyAssignmentRulesPayloadV2 `json:"assignment_rules,omitempty"`
+
+	// Conditions Conditions which determine which resources are in scope for this policy
+	Conditions []ConditionGroupPayloadV2 `json:"conditions"`
+
+	// Debrief Set when policy_type is debrief.
+	Debrief *PolicyDebriefPayloadV2 `json:"debrief,omitempty"`
+
+	// Description Human readable description of the policy
+	Description string `json:"description"`
+
+	// Expressions The expressions to use in this policy
+	Expressions *[]ExpressionPayloadV2 `json:"expressions,omitempty"`
+
+	// FollowUp Set when policy_type is follow_up.
+	FollowUp *PolicyFollowUpPayloadV2 `json:"follow_up,omitempty"`
+
+	// Name Human readable name of the policy
+	Name string `json:"name"`
+
+	// OnCallReadiness Set when policy_type is on_call_readiness. The assignee is always the user in violation and cannot be configured.
+	OnCallReadiness *PolicyOnCallReadinessV2 `json:"on_call_readiness,omitempty"`
+
+	// PolicyType Type of the policy, specifying what this applies to. Cannot be changed after the policy is created.
+	PolicyType PoliciesCreatePayloadV2PolicyType `json:"policy_type"`
+
+	// PostMortem Set when policy_type is post_mortem.
+	PostMortem *PolicyPostMortemPayloadV2 `json:"post_mortem,omitempty"`
+
+	// Schedule Detects gaps in on-call coverage. Set when policy_type is schedule.
+	Schedule *PolicyScheduleV2 `json:"schedule,omitempty"`
+
+	// Status Defaults to enabled on create. Settable on update — there is no separate disable endpoint.
+	Status *PoliciesCreatePayloadV2Status `json:"status,omitempty"`
+}
+
+// PoliciesCreatePayloadV2PolicyType Type of the policy, specifying what this applies to. Cannot be changed after the policy is created.
+type PoliciesCreatePayloadV2PolicyType string
+
+// PoliciesCreatePayloadV2Status Defaults to enabled on create. Settable on update — there is no separate disable endpoint.
+type PoliciesCreatePayloadV2Status string
+
+// PoliciesCreateResultV2 defines model for PoliciesCreateResultV2.
+type PoliciesCreateResultV2 struct {
+	Policy PolicyV2 `json:"policy"`
+}
+
+// PoliciesListResultV2 defines model for PoliciesListResultV2.
+type PoliciesListResultV2 struct {
+	PaginationMeta PaginationMetaResultV2 `json:"pagination_meta"`
+	Policies       []PolicyV2             `json:"policies"`
+}
+
+// PoliciesShowResultV2 defines model for PoliciesShowResultV2.
+type PoliciesShowResultV2 struct {
+	Policy PolicyV2 `json:"policy"`
+}
+
+// PoliciesUpdatePayloadV2 defines model for PoliciesUpdatePayloadV2.
+type PoliciesUpdatePayloadV2 struct {
+	AssignmentRules *PolicyAssignmentRulesPayloadV2 `json:"assignment_rules,omitempty"`
+
+	// Conditions Conditions which determine which resources are in scope for this policy
+	Conditions []ConditionGroupPayloadV2 `json:"conditions"`
+
+	// Debrief Set when policy_type is debrief.
+	Debrief *PolicyDebriefPayloadV2 `json:"debrief,omitempty"`
+
+	// Description Human readable description of the policy
+	Description string `json:"description"`
+
+	// Expressions The expressions to use in this policy
+	Expressions *[]ExpressionPayloadV2 `json:"expressions,omitempty"`
+
+	// FollowUp Set when policy_type is follow_up.
+	FollowUp *PolicyFollowUpPayloadV2 `json:"follow_up,omitempty"`
+
+	// Name Human readable name of the policy
+	Name string `json:"name"`
+
+	// OnCallReadiness Set when policy_type is on_call_readiness. The assignee is always the user in violation and cannot be configured.
+	OnCallReadiness *PolicyOnCallReadinessV2 `json:"on_call_readiness,omitempty"`
+
+	// PolicyType Type of the policy, specifying what this applies to. Cannot be changed after the policy is created.
+	PolicyType PoliciesUpdatePayloadV2PolicyType `json:"policy_type"`
+
+	// PostMortem Set when policy_type is post_mortem.
+	PostMortem *PolicyPostMortemPayloadV2 `json:"post_mortem,omitempty"`
+
+	// Schedule Detects gaps in on-call coverage. Set when policy_type is schedule.
+	Schedule *PolicyScheduleV2 `json:"schedule,omitempty"`
+
+	// Status Defaults to enabled on create. Settable on update — there is no separate disable endpoint.
+	Status *PoliciesUpdatePayloadV2Status `json:"status,omitempty"`
+}
+
+// PoliciesUpdatePayloadV2PolicyType Type of the policy, specifying what this applies to. Cannot be changed after the policy is created.
+type PoliciesUpdatePayloadV2PolicyType string
+
+// PoliciesUpdatePayloadV2Status Defaults to enabled on create. Settable on update — there is no separate disable endpoint.
+type PoliciesUpdatePayloadV2Status string
+
+// PoliciesUpdateResultV2 defines model for PoliciesUpdateResultV2.
+type PoliciesUpdateResultV2 struct {
+	Policy PolicyV2 `json:"policy"`
+}
+
+// PolicyAssignmentRulesPayloadV2 defines model for PolicyAssignmentRulesPayloadV2.
+type PolicyAssignmentRulesPayloadV2 struct {
+	// Bindings Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
+	Bindings []EngineParamBindingPayloadV2 `json:"bindings"`
+
+	// ReminderDetectedDateOffsetHours List of hours relative to when the violation was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).
+	ReminderDetectedDateOffsetHours *[]int64 `json:"reminder_detected_date_offset_hours,omitempty"`
+
+	// ReminderDueDateOffsetHours List of hours relative to the due date to remind the assignee. Negative values are before the due date, positive after.
+	ReminderDueDateOffsetHours []int64 `json:"reminder_due_date_offset_hours"`
+}
+
+// PolicyAssignmentRulesV2 defines model for PolicyAssignmentRulesV2.
+type PolicyAssignmentRulesV2 struct {
+	// Bindings Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
+	Bindings []EngineParamBindingV2 `json:"bindings"`
+
+	// ReminderDetectedDateOffsetHours List of hours relative to when the violation was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).
+	ReminderDetectedDateOffsetHours *[]int64 `json:"reminder_detected_date_offset_hours,omitempty"`
+
+	// ReminderDueDateOffsetHours List of hours relative to the due date to remind the assignee. Negative values are before the due date, positive after.
+	ReminderDueDateOffsetHours []int64 `json:"reminder_due_date_offset_hours"`
+}
+
+// PolicyDebriefPayloadV2 Set when policy_type is debrief.
+type PolicyDebriefPayloadV2 struct {
+	DueDateConfig *PolicyDueDateConfigPayloadV2 `json:"due_date_config,omitempty"`
+
+	// Requirements Conditions a debrief must satisfy to be compliant
+	Requirements []ConditionGroupPayloadV2 `json:"requirements"`
+
+	// RunOnPrivateIncidents Requires the policies.run_on_private scope
+	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
+}
+
+// PolicyDebriefV2 Set when policy_type is debrief.
+type PolicyDebriefV2 struct {
+	DueDateConfig *PolicyDueDateConfigV2 `json:"due_date_config,omitempty"`
+
+	// Requirements Conditions a debrief must satisfy to be compliant
+	Requirements []ConditionGroupV2 `json:"requirements"`
+
+	// RunOnPrivateIncidents Requires the policies.run_on_private scope
+	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
+}
+
+// PolicyDueDateConfigPayloadV2 defines model for PolicyDueDateConfigPayloadV2.
+type PolicyDueDateConfigPayloadV2 struct {
+	// AppliesFrom If set, the policy only applies to resources from this timestamp onwards
+	AppliesFrom *time.Time `json:"applies_from,omitempty"`
+
+	// CalculationTimezone Timezone the due date is calculated in. Only meaningful when calculation_type is weekdays.
+	CalculationTimezone *string                                     `json:"calculation_timezone,omitempty"`
+	CalculationType     PolicyDueDateConfigPayloadV2CalculationType `json:"calculation_type"`
+	Days                EngineParamBindingPayloadV2                 `json:"days"`
+
+	// IncidentTimestampId Timestamp the due date counts from
+	IncidentTimestampId string `json:"incident_timestamp_id"`
+}
+
+// PolicyDueDateConfigPayloadV2CalculationType defines model for PolicyDueDateConfigPayloadV2.CalculationType.
+type PolicyDueDateConfigPayloadV2CalculationType string
+
+// PolicyDueDateConfigV2 defines model for PolicyDueDateConfigV2.
+type PolicyDueDateConfigV2 struct {
+	// AppliesFrom If set, the policy only applies to resources from this timestamp onwards
+	AppliesFrom *time.Time `json:"applies_from,omitempty"`
+
+	// CalculationTimezone Timezone the due date is calculated in. Only meaningful when calculation_type is weekdays.
+	CalculationTimezone *string                              `json:"calculation_timezone,omitempty"`
+	CalculationType     PolicyDueDateConfigV2CalculationType `json:"calculation_type"`
+	Days                EngineParamBindingV2                 `json:"days"`
+
+	// IncidentTimestampId Timestamp the due date counts from
+	IncidentTimestampId string `json:"incident_timestamp_id"`
+}
+
+// PolicyDueDateConfigV2CalculationType defines model for PolicyDueDateConfigV2.CalculationType.
+type PolicyDueDateConfigV2CalculationType string
+
+// PolicyFindingDebriefV2 Set when policy_type is debrief.
+type PolicyFindingDebriefV2 struct {
+	// IncidentId The incident the debrief belongs to
+	IncidentId string `json:"incident_id"`
+}
+
+// PolicyFindingDismissalV2 defines model for PolicyFindingDismissalV2.
+type PolicyFindingDismissalV2 struct {
+	DismissedAt time.Time `json:"dismissed_at"`
+	DismissedBy ActorV2   `json:"dismissed_by"`
+
+	// Reason Why it was dismissed
+	Reason string `json:"reason"`
+}
+
+// PolicyFindingFollowUpV2 Set when policy_type is follow_up.
+type PolicyFindingFollowUpV2 struct {
+	// FollowUpId The follow-up that fell short of the policy
+	FollowUpId string `json:"follow_up_id"`
+
+	// IncidentId The incident the follow-up belongs to
+	IncidentId string `json:"incident_id"`
+}
+
+// PolicyFindingOnCallReadinessV2 Set when policy_type is on_call_readiness. The user is always the one in violation.
+type PolicyFindingOnCallReadinessV2 struct {
+	// HighUrgency The high urgency rules the policy requires, and whether each was met
+	HighUrgency []PolicyFindingReadinessRuleV2 `json:"high_urgency"`
+
+	// LowUrgency The low urgency rules the policy requires, and whether each was met
+	LowUrgency []PolicyFindingReadinessRuleV2 `json:"low_urgency"`
+
+	// UserId The user whose notification rules fell short
+	UserId string `json:"user_id"`
+}
+
+// PolicyFindingPostMortemV2 Set when policy_type is post_mortem.
+type PolicyFindingPostMortemV2 struct {
+	// IncidentId The incident whose post-mortem fell short of the policy
+	IncidentId string `json:"incident_id"`
+}
+
+// PolicyFindingReadinessRuleV2 defines model for PolicyFindingReadinessRuleV2.
+type PolicyFindingReadinessRuleV2 struct {
+	// MaxDelaySeconds How quickly the method must fire to count
+	MaxDelaySeconds *int64 `json:"max_delay_seconds,omitempty"`
+
+	// Met Whether the user's notification rules satisfy this one
+	Met         bool                                      `json:"met"`
+	MethodTypes []PolicyFindingReadinessRuleV2MethodTypes `json:"method_types"`
+}
+
+// PolicyFindingReadinessRuleV2MethodTypes defines model for PolicyFindingReadinessRuleV2.MethodTypes.
+type PolicyFindingReadinessRuleV2MethodTypes string
+
+// PolicyFindingScheduleImpactedUserV2 defines model for PolicyFindingScheduleImpactedUserV2.
+type PolicyFindingScheduleImpactedUserV2 struct {
+	// Cause Why this user's entries don't count as cover
+	Cause  PolicyFindingScheduleImpactedUserV2Cause `json:"cause"`
+	Name   string                                   `json:"name"`
+	UserId string                                   `json:"user_id"`
+}
+
+// PolicyFindingScheduleImpactedUserV2Cause Why this user's entries don't count as cover
+type PolicyFindingScheduleImpactedUserV2Cause string
+
+// PolicyFindingScheduleV2 Set when policy_type is schedule. Describes a gap in on-call cover.
+type PolicyFindingScheduleV2 struct {
+	// Cause Why the gap exists
+	Cause *PolicyFindingScheduleV2Cause `json:"cause,omitempty"`
+
+	// EndAt When the gap ends
+	EndAt time.Time `json:"end_at"`
+
+	// HasUnscheduledTime Whether part of the gap has nobody scheduled at all, so impacted_users doesn't fully explain it
+	HasUnscheduledTime *bool `json:"has_unscheduled_time,omitempty"`
+
+	// ImpactedUsers Users scheduled across the gap whose entries don't count as cover
+	ImpactedUsers *[]PolicyFindingScheduleImpactedUserV2 `json:"impacted_users,omitempty"`
+
+	// RotationId The rotation with the gap, when the policy evaluates per rotation
+	RotationId *string `json:"rotation_id,omitempty"`
+
+	// ScheduleId The schedule with the gap
+	ScheduleId string `json:"schedule_id"`
+
+	// StartAt When the gap starts
+	StartAt time.Time `json:"start_at"`
+}
+
+// PolicyFindingScheduleV2Cause Why the gap exists
+type PolicyFindingScheduleV2Cause string
+
+// PolicyFindingV2 defines model for PolicyFindingV2.
+type PolicyFindingV2 struct {
+	CreatedAt time.Time `json:"created_at"`
+
+	// Days Days outside the policy's due date
+	Days *int64 `json:"days,omitempty"`
+
+	// Debrief Set when policy_type is debrief.
+	Debrief   *PolicyFindingDebriefV2   `json:"debrief,omitempty"`
+	Dismissal *PolicyFindingDismissalV2 `json:"dismissal,omitempty"`
+
+	// DueAt When this finding becomes overdue
+	DueAt *time.Time `json:"due_at,omitempty"`
+
+	// FollowUp Set when policy_type is follow_up.
+	FollowUp *PolicyFindingFollowUpV2 `json:"follow_up,omitempty"`
+
+	// Id Unique ID of the finding
+	Id string `json:"id"`
+
+	// LastCheckedAt When this finding was last re-evaluated
+	LastCheckedAt time.Time `json:"last_checked_at"`
+
+	// OnCallReadiness Set when policy_type is on_call_readiness. The user is always the one in violation.
+	OnCallReadiness *PolicyFindingOnCallReadinessV2 `json:"on_call_readiness,omitempty"`
+
+	// PolicyId The policy this finding was raised against
+	PolicyId string `json:"policy_id"`
+
+	// PolicyType Type of the policy this finding was raised against
+	PolicyType PolicyFindingV2PolicyType `json:"policy_type"`
+
+	// PostMortem Set when policy_type is post_mortem.
+	PostMortem *PolicyFindingPostMortemV2 `json:"post_mortem,omitempty"`
+
+	// ResponsibleUsers Who is expected to resolve this finding
+	ResponsibleUsers []UserV2 `json:"responsible_users"`
+
+	// Schedule Set when policy_type is schedule. Describes a gap in on-call cover.
+	Schedule *PolicyFindingScheduleV2 `json:"schedule,omitempty"`
+
+	// State Where this finding is in its lifecycle
+	State     PolicyFindingV2State `json:"state"`
+	UpdatedAt time.Time            `json:"updated_at"`
+
+	// VacationConflict Set when policy_type is vacation_conflict. Someone is on call while on holiday.
+	VacationConflict *PolicyFindingVacationConflictV2 `json:"vacation_conflict,omitempty"`
+}
+
+// PolicyFindingV2PolicyType Type of the policy this finding was raised against
+type PolicyFindingV2PolicyType string
+
+// PolicyFindingV2State Where this finding is in its lifecycle
+type PolicyFindingV2State string
+
+// PolicyFindingVacationConflictV2 Set when policy_type is vacation_conflict. Someone is on call while on holiday.
+type PolicyFindingVacationConflictV2 struct {
+	// EndAt When the conflict ends
+	EndAt time.Time `json:"end_at"`
+
+	// HolidayName What the holiday is called in the external system
+	HolidayName *string `json:"holiday_name,omitempty"`
+
+	// RotationId The rotation the holiday conflicts with
+	RotationId *string `json:"rotation_id,omitempty"`
+
+	// ScheduleId The schedule the holiday conflicts with
+	ScheduleId string `json:"schedule_id"`
+
+	// StartAt When the conflict starts
+	StartAt time.Time `json:"start_at"`
+
+	// UserId The user on holiday
+	UserId string `json:"user_id"`
+}
+
+// PolicyFindingsDismissPayloadV2 defines model for PolicyFindingsDismissPayloadV2.
+type PolicyFindingsDismissPayloadV2 struct {
+	// Reason Why this finding is being dismissed
+	Reason string `json:"reason"`
+}
+
+// PolicyFindingsDismissResultV2 defines model for PolicyFindingsDismissResultV2.
+type PolicyFindingsDismissResultV2 struct {
+	PolicyFinding PolicyFindingV2 `json:"policy_finding"`
+}
+
+// PolicyFindingsListResultV2 defines model for PolicyFindingsListResultV2.
+type PolicyFindingsListResultV2 struct {
+	PaginationMeta PaginationMetaResultV2 `json:"pagination_meta"`
+	PolicyFindings []PolicyFindingV2      `json:"policy_findings"`
+}
+
+// PolicyFindingsRestoreResultV2 defines model for PolicyFindingsRestoreResultV2.
+type PolicyFindingsRestoreResultV2 struct {
+	PolicyFinding PolicyFindingV2 `json:"policy_finding"`
+}
+
+// PolicyFindingsShowResultV2 defines model for PolicyFindingsShowResultV2.
+type PolicyFindingsShowResultV2 struct {
+	PolicyFinding PolicyFindingV2 `json:"policy_finding"`
+}
+
+// PolicyFollowUpPayloadV2 Set when policy_type is follow_up.
+type PolicyFollowUpPayloadV2 struct {
+	DueDateConfig *PolicyDueDateConfigPayloadV2 `json:"due_date_config,omitempty"`
+
+	// Requirements Conditions a follow-up must satisfy to be compliant, e.g. 'is exported to Jira'
+	Requirements []ConditionGroupPayloadV2 `json:"requirements"`
+
+	// RunOnPrivateIncidents Requires the policies.run_on_private scope
+	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
+}
+
+// PolicyFollowUpV2 Set when policy_type is follow_up.
+type PolicyFollowUpV2 struct {
+	DueDateConfig *PolicyDueDateConfigV2 `json:"due_date_config,omitempty"`
+
+	// Requirements Conditions a follow-up must satisfy to be compliant, e.g. 'is exported to Jira'
+	Requirements []ConditionGroupV2 `json:"requirements"`
+
+	// RunOnPrivateIncidents Requires the policies.run_on_private scope
+	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
+}
+
+// PolicyOnCallReadinessV2 Set when policy_type is on_call_readiness. The assignee is always the user in violation and cannot be configured.
+type PolicyOnCallReadinessV2 struct {
+	// Enforcement advisory reports only; blocking also prevents users saving non-compliant notification rules. Defaults to advisory.
+	Enforcement *PolicyOnCallReadinessV2Enforcement `json:"enforcement,omitempty"`
+	HighUrgency *[]PolicyReadinessRuleV2            `json:"high_urgency,omitempty"`
+	LowUrgency  *[]PolicyReadinessRuleV2            `json:"low_urgency,omitempty"`
+}
+
+// PolicyOnCallReadinessV2Enforcement advisory reports only; blocking also prevents users saving non-compliant notification rules. Defaults to advisory.
+type PolicyOnCallReadinessV2Enforcement string
+
+// PolicyPostMortemPayloadV2 Set when policy_type is post_mortem.
+type PolicyPostMortemPayloadV2 struct {
+	DueDateConfig *PolicyDueDateConfigPayloadV2 `json:"due_date_config,omitempty"`
+
+	// Requirements Conditions a post-mortem must satisfy to be compliant
+	Requirements []ConditionGroupPayloadV2 `json:"requirements"`
+
+	// RunOnPrivateIncidents Requires the policies.run_on_private scope
+	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
+}
+
+// PolicyPostMortemV2 Set when policy_type is post_mortem.
+type PolicyPostMortemV2 struct {
+	DueDateConfig *PolicyDueDateConfigV2 `json:"due_date_config,omitempty"`
+
+	// Requirements Conditions a post-mortem must satisfy to be compliant
+	Requirements []ConditionGroupV2 `json:"requirements"`
+
+	// RunOnPrivateIncidents Requires the policies.run_on_private scope
+	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
+}
+
+// PolicyReadinessRuleV2 defines model for PolicyReadinessRuleV2.
+type PolicyReadinessRuleV2 struct {
+	// MaxDelaySeconds How quickly the method must fire to count
+	MaxDelaySeconds *int64                             `json:"max_delay_seconds,omitempty"`
+	MethodTypes     []PolicyReadinessRuleV2MethodTypes `json:"method_types"`
+}
+
+// PolicyReadinessRuleV2MethodTypes defines model for PolicyReadinessRuleV2.MethodTypes.
+type PolicyReadinessRuleV2MethodTypes string
+
+// PolicyScheduleV2 Detects gaps in on-call coverage. Set when policy_type is schedule.
+type PolicyScheduleV2 struct {
+	// EvaluationLevel Evaluate coverage across the whole schedule, or per rotation. Defaults to schedule.
+	EvaluationLevel *PolicyScheduleV2EvaluationLevel `json:"evaluation_level,omitempty"`
+	RequirementType PolicyScheduleV2RequirementType  `json:"requirement_type"`
+}
+
+// PolicyScheduleV2EvaluationLevel Evaluate coverage across the whole schedule, or per rotation. Defaults to schedule.
+type PolicyScheduleV2EvaluationLevel string
+
+// PolicyScheduleV2RequirementType defines model for PolicyScheduleV2.RequirementType.
+type PolicyScheduleV2RequirementType string
+
+// PolicyV2 defines model for PolicyV2.
+type PolicyV2 struct {
+	AssignmentRules *PolicyAssignmentRulesV2 `json:"assignment_rules,omitempty"`
+
+	// Conditions Conditions which determine which resources are in scope for this policy
+	Conditions []ConditionGroupV2 `json:"conditions"`
+	CreatedAt  time.Time          `json:"created_at"`
+
+	// Debrief Set when policy_type is debrief.
+	Debrief *PolicyDebriefV2 `json:"debrief,omitempty"`
+
+	// Description Human readable description of the policy
+	Description *string `json:"description,omitempty"`
+
+	// Expressions The expressions relating to this policy
+	Expressions *[]ExpressionV2 `json:"expressions,omitempty"`
+
+	// FollowUp Set when policy_type is follow_up.
+	FollowUp *PolicyFollowUpV2 `json:"follow_up,omitempty"`
+
+	// Id Unique ID of the policy
+	Id string `json:"id"`
+
+	// Name Human readable name of the policy
+	Name string `json:"name"`
+
+	// OnCallReadiness Set when policy_type is on_call_readiness. The assignee is always the user in violation and cannot be configured.
+	OnCallReadiness *PolicyOnCallReadinessV2 `json:"on_call_readiness,omitempty"`
+
+	// PolicyType Type of the policy, specifying what this applies to
+	PolicyType PolicyV2PolicyType `json:"policy_type"`
+
+	// PostMortem Set when policy_type is post_mortem.
+	PostMortem *PolicyPostMortemV2 `json:"post_mortem,omitempty"`
+
+	// Schedule Detects gaps in on-call coverage. Set when policy_type is schedule.
+	Schedule *PolicyScheduleV2 `json:"schedule,omitempty"`
+
+	// Status Disabled policies stop evaluating but keep their config
+	Status    PolicyV2Status `json:"status"`
+	UpdatedAt time.Time      `json:"updated_at"`
+}
+
+// PolicyV2PolicyType Type of the policy, specifying what this applies to
+type PolicyV2PolicyType string
+
+// PolicyV2Status Disabled policies stop evaluating but keep their config
+type PolicyV2Status string
+
 // PostmortemDocumentV1 defines model for PostmortemDocumentV1.
 type PostmortemDocumentV1 struct {
 	// CreatedAt Timestamp for when the document was created
@@ -15784,6 +16737,33 @@ type IncidentsV2ListParamsSortBy string
 // IncidentsV2ListParamsFilterMode defines parameters for IncidentsV2List.
 type IncidentsV2ListParamsFilterMode string
 
+// PoliciesV2ListParams defines parameters for PoliciesV2List.
+type PoliciesV2ListParams struct {
+	// PageSize Number of policies to return per page
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After The ID of the last policy on the previous page
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+
+	// PolicyType Filter to policies of this type
+	PolicyType *PoliciesV2ListParamsPolicyType `form:"policy_type,omitempty" json:"policy_type,omitempty"`
+}
+
+// PoliciesV2ListParamsPolicyType defines parameters for PoliciesV2List.
+type PoliciesV2ListParamsPolicyType string
+
+// PolicyFindingsV2ListParams defines parameters for PolicyFindingsV2List.
+type PolicyFindingsV2ListParams struct {
+	// PageSize Number of findings to return per page
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After The ID of the last finding on the previous page
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+
+	// PolicyId Only findings raised by this policy
+	PolicyId *string `form:"policy_id,omitempty" json:"policy_id,omitempty"`
+}
+
 // SchedulesV2ListScheduleEntriesParams defines parameters for SchedulesV2ListScheduleEntries.
 type SchedulesV2ListScheduleEntriesParams struct {
 	// ScheduleId The ID of the schedule to get entries for.
@@ -16220,6 +17200,15 @@ type IncidentsV2EditJSONRequestBody = IncidentsEditPayloadV2
 
 // IncidentsV2ImportPostmortemDocumentJSONRequestBody defines body for IncidentsV2ImportPostmortemDocument for application/json ContentType.
 type IncidentsV2ImportPostmortemDocumentJSONRequestBody = IncidentsImportPostmortemDocumentPayloadV2
+
+// PoliciesV2CreateJSONRequestBody defines body for PoliciesV2Create for application/json ContentType.
+type PoliciesV2CreateJSONRequestBody = PoliciesCreatePayloadV2
+
+// PoliciesV2UpdateJSONRequestBody defines body for PoliciesV2Update for application/json ContentType.
+type PoliciesV2UpdateJSONRequestBody = PoliciesUpdatePayloadV2
+
+// PolicyFindingsV2DismissJSONRequestBody defines body for PolicyFindingsV2Dismiss for application/json ContentType.
+type PolicyFindingsV2DismissJSONRequestBody = PolicyFindingsDismissPayloadV2
 
 // SchedulesV2CreateOverrideJSONRequestBody defines body for SchedulesV2CreateOverride for application/json ContentType.
 type SchedulesV2CreateOverrideJSONRequestBody = SchedulesCreateOverridePayloadV2
@@ -16953,6 +17942,39 @@ type ClientInterface interface {
 	IncidentsV2ImportPostmortemDocumentWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	IncidentsV2ImportPostmortemDocument(ctx context.Context, id string, body IncidentsV2ImportPostmortemDocumentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PoliciesV2List request
+	PoliciesV2List(ctx context.Context, params *PoliciesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PoliciesV2CreateWithBody request with any body
+	PoliciesV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	PoliciesV2Create(ctx context.Context, body PoliciesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PoliciesV2Delete request
+	PoliciesV2Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PoliciesV2Show request
+	PoliciesV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PoliciesV2UpdateWithBody request with any body
+	PoliciesV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	PoliciesV2Update(ctx context.Context, id string, body PoliciesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PolicyFindingsV2List request
+	PolicyFindingsV2List(ctx context.Context, params *PolicyFindingsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PolicyFindingsV2Show request
+	PolicyFindingsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PolicyFindingsV2DismissWithBody request with any body
+	PolicyFindingsV2DismissWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	PolicyFindingsV2Dismiss(ctx context.Context, id string, body PolicyFindingsV2DismissJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PolicyFindingsV2Restore request
+	PolicyFindingsV2Restore(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// SchedulesV2ListScheduleEntries request
 	SchedulesV2ListScheduleEntries(ctx context.Context, params *SchedulesV2ListScheduleEntriesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -19812,6 +20834,150 @@ func (c *Client) IncidentsV2ImportPostmortemDocumentWithBody(ctx context.Context
 
 func (c *Client) IncidentsV2ImportPostmortemDocument(ctx context.Context, id string, body IncidentsV2ImportPostmortemDocumentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newIncidentsV2ImportPostmortemDocumentRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PoliciesV2List(ctx context.Context, params *PoliciesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPoliciesV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PoliciesV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPoliciesV2CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PoliciesV2Create(ctx context.Context, body PoliciesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPoliciesV2CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PoliciesV2Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPoliciesV2DeleteRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PoliciesV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPoliciesV2ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PoliciesV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPoliciesV2UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PoliciesV2Update(ctx context.Context, id string, body PoliciesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPoliciesV2UpdateRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PolicyFindingsV2List(ctx context.Context, params *PolicyFindingsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPolicyFindingsV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PolicyFindingsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPolicyFindingsV2ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PolicyFindingsV2DismissWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPolicyFindingsV2DismissRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PolicyFindingsV2Dismiss(ctx context.Context, id string, body PolicyFindingsV2DismissJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPolicyFindingsV2DismissRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PolicyFindingsV2Restore(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPolicyFindingsV2RestoreRequest(c.Server, id)
 	if err != nil {
 		return nil, err
 	}
@@ -28198,6 +29364,438 @@ func newIncidentsV2ImportPostmortemDocumentRequestWithBody(server string, id str
 	return req, nil
 }
 
+// NewPoliciesV2ListRequest generates requests for PoliciesV2List
+func newPoliciesV2ListRequest(server string, params *PoliciesV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/policies")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PolicyType != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "policy_type", *params.PolicyType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPoliciesV2CreateRequest calls the generic PoliciesV2Create builder with application/json body
+func newPoliciesV2CreateRequest(server string, body PoliciesV2CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newPoliciesV2CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewPoliciesV2CreateRequestWithBody generates requests for PoliciesV2Create with any type of body
+func newPoliciesV2CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/policies")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewPoliciesV2DeleteRequest generates requests for PoliciesV2Delete
+func newPoliciesV2DeleteRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/policies/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPoliciesV2ShowRequest generates requests for PoliciesV2Show
+func newPoliciesV2ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/policies/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPoliciesV2UpdateRequest calls the generic PoliciesV2Update builder with application/json body
+func newPoliciesV2UpdateRequest(server string, id string, body PoliciesV2UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newPoliciesV2UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewPoliciesV2UpdateRequestWithBody generates requests for PoliciesV2Update with any type of body
+func newPoliciesV2UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/policies/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewPolicyFindingsV2ListRequest generates requests for PolicyFindingsV2List
+func newPolicyFindingsV2ListRequest(server string, params *PolicyFindingsV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/policy_findings")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PolicyId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "policy_id", *params.PolicyId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPolicyFindingsV2ShowRequest generates requests for PolicyFindingsV2Show
+func newPolicyFindingsV2ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/policy_findings/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPolicyFindingsV2DismissRequest calls the generic PolicyFindingsV2Dismiss builder with application/json body
+func newPolicyFindingsV2DismissRequest(server string, id string, body PolicyFindingsV2DismissJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newPolicyFindingsV2DismissRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewPolicyFindingsV2DismissRequestWithBody generates requests for PolicyFindingsV2Dismiss with any type of body
+func newPolicyFindingsV2DismissRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/policy_findings/%s/actions/dismiss", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewPolicyFindingsV2RestoreRequest generates requests for PolicyFindingsV2Restore
+func newPolicyFindingsV2RestoreRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/policy_findings/%s/actions/restore", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewSchedulesV2ListScheduleEntriesRequest generates requests for SchedulesV2ListScheduleEntries
 func newSchedulesV2ListScheduleEntriesRequest(server string, params *SchedulesV2ListScheduleEntriesParams) (*http.Request, error) {
 	var err error
@@ -33255,6 +34853,39 @@ type ClientWithResponsesInterface interface {
 	IncidentsV2ImportPostmortemDocumentWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentsV2ImportPostmortemDocumentResponse, error)
 
 	IncidentsV2ImportPostmortemDocumentWithResponse(ctx context.Context, id string, body IncidentsV2ImportPostmortemDocumentJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentsV2ImportPostmortemDocumentResponse, error)
+
+	// PoliciesV2ListWithResponse request
+	PoliciesV2ListWithResponse(ctx context.Context, params *PoliciesV2ListParams, reqEditors ...RequestEditorFn) (*PoliciesV2ListResponse, error)
+
+	// PoliciesV2CreateWithBodyWithResponse request with any body
+	PoliciesV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PoliciesV2CreateResponse, error)
+
+	PoliciesV2CreateWithResponse(ctx context.Context, body PoliciesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*PoliciesV2CreateResponse, error)
+
+	// PoliciesV2DeleteWithResponse request
+	PoliciesV2DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PoliciesV2DeleteResponse, error)
+
+	// PoliciesV2ShowWithResponse request
+	PoliciesV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PoliciesV2ShowResponse, error)
+
+	// PoliciesV2UpdateWithBodyWithResponse request with any body
+	PoliciesV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PoliciesV2UpdateResponse, error)
+
+	PoliciesV2UpdateWithResponse(ctx context.Context, id string, body PoliciesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*PoliciesV2UpdateResponse, error)
+
+	// PolicyFindingsV2ListWithResponse request
+	PolicyFindingsV2ListWithResponse(ctx context.Context, params *PolicyFindingsV2ListParams, reqEditors ...RequestEditorFn) (*PolicyFindingsV2ListResponse, error)
+
+	// PolicyFindingsV2ShowWithResponse request
+	PolicyFindingsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PolicyFindingsV2ShowResponse, error)
+
+	// PolicyFindingsV2DismissWithBodyWithResponse request with any body
+	PolicyFindingsV2DismissWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PolicyFindingsV2DismissResponse, error)
+
+	PolicyFindingsV2DismissWithResponse(ctx context.Context, id string, body PolicyFindingsV2DismissJSONRequestBody, reqEditors ...RequestEditorFn) (*PolicyFindingsV2DismissResponse, error)
+
+	// PolicyFindingsV2RestoreWithResponse request
+	PolicyFindingsV2RestoreWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PolicyFindingsV2RestoreResponse, error)
 
 	// SchedulesV2ListScheduleEntriesWithResponse request
 	SchedulesV2ListScheduleEntriesWithResponse(ctx context.Context, params *SchedulesV2ListScheduleEntriesParams, reqEditors ...RequestEditorFn) (*SchedulesV2ListScheduleEntriesResponse, error)
@@ -38681,6 +40312,320 @@ func (r IncidentsV2ImportPostmortemDocumentResponse) StatusCode() int {
 	return 0
 }
 
+type PoliciesV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PoliciesListResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PoliciesV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PoliciesV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PoliciesV2CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *PoliciesCreateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PoliciesV2CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PoliciesV2CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PoliciesV2DeleteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PoliciesV2DeleteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PoliciesV2DeleteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PoliciesV2ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PoliciesShowResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PoliciesV2ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PoliciesV2ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PoliciesV2UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PoliciesUpdateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PoliciesV2UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PoliciesV2UpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PolicyFindingsV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PolicyFindingsListResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PolicyFindingsV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PolicyFindingsV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PolicyFindingsV2ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PolicyFindingsShowResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PolicyFindingsV2ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PolicyFindingsV2ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PolicyFindingsV2DismissResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PolicyFindingsDismissResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PolicyFindingsV2DismissResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PolicyFindingsV2DismissResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PolicyFindingsV2RestoreResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PolicyFindingsRestoreResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PolicyFindingsV2RestoreResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PolicyFindingsV2RestoreResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type SchedulesV2ListScheduleEntriesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -43675,6 +45620,111 @@ func (c *ClientWithResponses) IncidentsV2ImportPostmortemDocumentWithResponse(ct
 		return nil, err
 	}
 	return parseIncidentsV2ImportPostmortemDocumentResponse(rsp)
+}
+
+// PoliciesV2ListWithResponse request returning *PoliciesV2ListResponse
+func (c *ClientWithResponses) PoliciesV2ListWithResponse(ctx context.Context, params *PoliciesV2ListParams, reqEditors ...RequestEditorFn) (*PoliciesV2ListResponse, error) {
+	rsp, err := c.PoliciesV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePoliciesV2ListResponse(rsp)
+}
+
+// PoliciesV2CreateWithBodyWithResponse request with arbitrary body returning *PoliciesV2CreateResponse
+func (c *ClientWithResponses) PoliciesV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PoliciesV2CreateResponse, error) {
+	rsp, err := c.PoliciesV2CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePoliciesV2CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) PoliciesV2CreateWithResponse(ctx context.Context, body PoliciesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*PoliciesV2CreateResponse, error) {
+	rsp, err := c.PoliciesV2Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePoliciesV2CreateResponse(rsp)
+}
+
+// PoliciesV2DeleteWithResponse request returning *PoliciesV2DeleteResponse
+func (c *ClientWithResponses) PoliciesV2DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PoliciesV2DeleteResponse, error) {
+	rsp, err := c.PoliciesV2Delete(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePoliciesV2DeleteResponse(rsp)
+}
+
+// PoliciesV2ShowWithResponse request returning *PoliciesV2ShowResponse
+func (c *ClientWithResponses) PoliciesV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PoliciesV2ShowResponse, error) {
+	rsp, err := c.PoliciesV2Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePoliciesV2ShowResponse(rsp)
+}
+
+// PoliciesV2UpdateWithBodyWithResponse request with arbitrary body returning *PoliciesV2UpdateResponse
+func (c *ClientWithResponses) PoliciesV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PoliciesV2UpdateResponse, error) {
+	rsp, err := c.PoliciesV2UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePoliciesV2UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) PoliciesV2UpdateWithResponse(ctx context.Context, id string, body PoliciesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*PoliciesV2UpdateResponse, error) {
+	rsp, err := c.PoliciesV2Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePoliciesV2UpdateResponse(rsp)
+}
+
+// PolicyFindingsV2ListWithResponse request returning *PolicyFindingsV2ListResponse
+func (c *ClientWithResponses) PolicyFindingsV2ListWithResponse(ctx context.Context, params *PolicyFindingsV2ListParams, reqEditors ...RequestEditorFn) (*PolicyFindingsV2ListResponse, error) {
+	rsp, err := c.PolicyFindingsV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePolicyFindingsV2ListResponse(rsp)
+}
+
+// PolicyFindingsV2ShowWithResponse request returning *PolicyFindingsV2ShowResponse
+func (c *ClientWithResponses) PolicyFindingsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PolicyFindingsV2ShowResponse, error) {
+	rsp, err := c.PolicyFindingsV2Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePolicyFindingsV2ShowResponse(rsp)
+}
+
+// PolicyFindingsV2DismissWithBodyWithResponse request with arbitrary body returning *PolicyFindingsV2DismissResponse
+func (c *ClientWithResponses) PolicyFindingsV2DismissWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PolicyFindingsV2DismissResponse, error) {
+	rsp, err := c.PolicyFindingsV2DismissWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePolicyFindingsV2DismissResponse(rsp)
+}
+
+func (c *ClientWithResponses) PolicyFindingsV2DismissWithResponse(ctx context.Context, id string, body PolicyFindingsV2DismissJSONRequestBody, reqEditors ...RequestEditorFn) (*PolicyFindingsV2DismissResponse, error) {
+	rsp, err := c.PolicyFindingsV2Dismiss(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePolicyFindingsV2DismissResponse(rsp)
+}
+
+// PolicyFindingsV2RestoreWithResponse request returning *PolicyFindingsV2RestoreResponse
+func (c *ClientWithResponses) PolicyFindingsV2RestoreWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PolicyFindingsV2RestoreResponse, error) {
+	rsp, err := c.PolicyFindingsV2Restore(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePolicyFindingsV2RestoreResponse(rsp)
 }
 
 // SchedulesV2ListScheduleEntriesWithResponse request returning *SchedulesV2ListScheduleEntriesResponse
@@ -61576,6 +63626,1052 @@ func parseIncidentsV2ImportPostmortemDocumentResponse(rsp *http.Response) (*Inci
 			return nil, err
 		}
 		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePoliciesV2ListResponse parses an HTTP response from a PoliciesV2ListWithResponse call
+func parsePoliciesV2ListResponse(rsp *http.Response) (*PoliciesV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PoliciesV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PoliciesListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePoliciesV2CreateResponse parses an HTTP response from a PoliciesV2CreateWithResponse call
+func parsePoliciesV2CreateResponse(rsp *http.Response) (*PoliciesV2CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PoliciesV2CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest PoliciesCreateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePoliciesV2DeleteResponse parses an HTTP response from a PoliciesV2DeleteWithResponse call
+func parsePoliciesV2DeleteResponse(rsp *http.Response) (*PoliciesV2DeleteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PoliciesV2DeleteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePoliciesV2ShowResponse parses an HTTP response from a PoliciesV2ShowWithResponse call
+func parsePoliciesV2ShowResponse(rsp *http.Response) (*PoliciesV2ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PoliciesV2ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PoliciesShowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePoliciesV2UpdateResponse parses an HTTP response from a PoliciesV2UpdateWithResponse call
+func parsePoliciesV2UpdateResponse(rsp *http.Response) (*PoliciesV2UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PoliciesV2UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PoliciesUpdateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePolicyFindingsV2ListResponse parses an HTTP response from a PolicyFindingsV2ListWithResponse call
+func parsePolicyFindingsV2ListResponse(rsp *http.Response) (*PolicyFindingsV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PolicyFindingsV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PolicyFindingsListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePolicyFindingsV2ShowResponse parses an HTTP response from a PolicyFindingsV2ShowWithResponse call
+func parsePolicyFindingsV2ShowResponse(rsp *http.Response) (*PolicyFindingsV2ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PolicyFindingsV2ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PolicyFindingsShowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePolicyFindingsV2DismissResponse parses an HTTP response from a PolicyFindingsV2DismissWithResponse call
+func parsePolicyFindingsV2DismissResponse(rsp *http.Response) (*PolicyFindingsV2DismissResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PolicyFindingsV2DismissResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PolicyFindingsDismissResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePolicyFindingsV2RestoreResponse parses an HTTP response from a PolicyFindingsV2RestoreWithResponse call
+func parsePolicyFindingsV2RestoreResponse(rsp *http.Response) (*PolicyFindingsV2RestoreResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PolicyFindingsV2RestoreResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PolicyFindingsRestoreResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest ErrorResponse
