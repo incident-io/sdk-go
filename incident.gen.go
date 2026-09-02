@@ -7388,6 +7388,7 @@ type AlertRouteIncidentConfigPayloadV3 struct {
 	// Enabled Whether incident creation is enabled for this alert route
 	Enabled          bool                         `json:"enabled"`
 	IncidentTemplate *EngineParamBindingPayloadV3 `json:"incident_template,omitempty"`
+	MembershipTeams  *EngineParamBindingPayloadV3 `json:"membership_teams,omitempty"`
 
 	// Template The template this alert route applies to the incidents it creates. It must be unset when incident creation is disabled. Disabling incident creation clears a template the route already has.
 	Template *AlertRouteIncidentTemplatePayloadV3 `json:"template,omitempty"`
@@ -7428,6 +7429,7 @@ type AlertRouteIncidentConfigV3 struct {
 	// Enabled Whether incident creation is enabled for this alert route
 	Enabled          bool                  `json:"enabled"`
 	IncidentTemplate *EngineParamBindingV3 `json:"incident_template,omitempty"`
+	MembershipTeams  *EngineParamBindingV3 `json:"membership_teams,omitempty"`
 
 	// Template The template an alert route applies to the incidents it creates. Disabling incident creation clears it.
 	Template *AlertRouteIncidentTemplateV3 `json:"template,omitempty"`

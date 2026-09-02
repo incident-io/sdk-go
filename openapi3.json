@@ -4967,6 +4967,18 @@
               "reference": "incident.severity"
             }
           },
+          "membership_teams": {
+            "array_value": [
+              {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            ],
+            "value": {
+              "literal": "SEV123",
+              "reference": "incident.severity"
+            }
+          },
           "template": {
             "custom_fields": [
               {
@@ -5132,6 +5144,9 @@
             "type": "boolean"
           },
           "incident_template": {
+            "$ref": "#/components/schemas/EngineParamBindingPayloadV3"
+          },
+          "membership_teams": {
             "$ref": "#/components/schemas/EngineParamBindingPayloadV3"
           },
           "template": {
@@ -5325,6 +5340,18 @@
               "reference": "incident.severity"
             }
           },
+          "membership_teams": {
+            "array_value": [
+              {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            ],
+            "value": {
+              "literal": "SEV123",
+              "reference": "incident.severity"
+            }
+          },
           "template": {
             "custom_fields": [
               {
@@ -5496,6 +5523,9 @@
             "type": "boolean"
           },
           "incident_template": {
+            "$ref": "#/components/schemas/EngineParamBindingV3"
+          },
+          "membership_teams": {
             "$ref": "#/components/schemas/EngineParamBindingV3"
           },
           "template": {
@@ -7794,6 +7824,18 @@
                 "reference": "incident.severity"
               }
             },
+            "membership_teams": {
+              "array_value": [
+                {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              ],
+              "value": {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            },
             "template": {
               "custom_fields": [
                 {
@@ -9398,6 +9440,18 @@
                 "reference": "incident.severity"
               }
             },
+            "membership_teams": {
+              "array_value": [
+                {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              ],
+              "value": {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            },
             "template": {
               "custom_fields": [
                 {
@@ -10704,6 +10758,18 @@
                   "reference": "incident.severity"
                 }
               },
+              "membership_teams": {
+                "array_value": [
+                  {
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                ],
+                "value": {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              },
               "template": {
                 "custom_fields": [
                   {
@@ -11849,6 +11915,18 @@
               ],
               "enabled": false,
               "incident_template": {
+                "array_value": [
+                  {
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                ],
+                "value": {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              },
+              "membership_teams": {
                 "array_value": [
                   {
                     "literal": "SEV123",
@@ -13112,6 +13190,18 @@
             ],
             "enabled": false,
             "incident_template": {
+              "array_value": [
+                {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              ],
+              "value": {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            },
+            "membership_teams": {
               "array_value": [
                 {
                   "literal": "SEV123",
@@ -14426,6 +14516,18 @@
               ],
               "enabled": false,
               "incident_template": {
+                "array_value": [
+                  {
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                ],
+                "value": {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              },
+              "membership_teams": {
                 "array_value": [
                   {
                     "literal": "SEV123",
@@ -129949,6 +130051,18 @@
                       "reference": "incident.severity"
                     }
                   },
+                  "membership_teams": {
+                    "array_value": [
+                      {
+                        "literal": "SEV123",
+                        "reference": "incident.severity"
+                      }
+                    ],
+                    "value": {
+                      "literal": "SEV123",
+                      "reference": "incident.severity"
+                    }
+                  },
                   "template": {
                     "custom_fields": [
                       {
@@ -130452,6 +130566,18 @@
                       ],
                       "enabled": false,
                       "incident_template": {
+                        "array_value": [
+                          {
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      },
+                      "membership_teams": {
                         "array_value": [
                           {
                             "literal": "SEV123",
@@ -131316,6 +131442,18 @@
                           "reference": "incident.severity"
                         }
                       },
+                      "membership_teams": {
+                        "array_value": [
+                          {
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      },
                       "template": {
                         "custom_fields": [
                           {
@@ -131957,6 +132095,18 @@
                       "reference": "incident.severity"
                     }
                   },
+                  "membership_teams": {
+                    "array_value": [
+                      {
+                        "literal": "SEV123",
+                        "reference": "incident.severity"
+                      }
+                    ],
+                    "value": {
+                      "literal": "SEV123",
+                      "reference": "incident.severity"
+                    }
+                  },
                   "template": {
                     "custom_fields": [
                       {
@@ -132461,6 +132611,18 @@
                       ],
                       "enabled": false,
                       "incident_template": {
+                        "array_value": [
+                          {
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      },
+                      "membership_teams": {
                         "array_value": [
                           {
                             "literal": "SEV123",
