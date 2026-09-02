@@ -1050,7 +1050,137 @@
         ],
         "type": "object"
       },
+      "ActionV3": {
+        "example": {
+          "assignee": {
+            "email": "lisa@incident.io",
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "name": "Lisa Karlin Curtis",
+            "role": "owner",
+            "slack_user_id": "U02AYNF2XJM"
+          },
+          "completed_at": "2021-08-17T13:28:57.801578Z",
+          "created_at": "2021-08-17T13:28:57.801578Z",
+          "creator": {
+            "alert": {
+              "id": "01GW2G3V0S59R238FAHPDS1R66",
+              "title": "*errors.withMessage: PG::Error failed to connect"
+            },
+            "api_key": {
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "My test API key"
+            },
+            "user": {
+              "email": "lisa@incident.io",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Lisa Karlin Curtis",
+              "role": "owner",
+              "slack_user_id": "U02AYNF2XJM"
+            },
+            "workflow": {
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "My little workflow"
+            }
+          },
+          "description": "Call the fire brigade",
+          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "status": "outstanding",
+          "updated_at": "2021-08-17T13:28:57.801578Z"
+        },
+        "properties": {
+          "assignee": {
+            "$ref": "#/components/schemas/UserV2"
+          },
+          "completed_at": {
+            "description": "When the action was completed",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "created_at": {
+            "description": "When the action was created",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "creator": {
+            "$ref": "#/components/schemas/ActorV2"
+          },
+          "description": {
+            "description": "Description of the action",
+            "example": "Call the fire brigade",
+            "type": "string"
+          },
+          "id": {
+            "description": "Unique identifier for the action",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "incident_id": {
+            "description": "Unique identifier of the incident the action belongs to",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "status": {
+            "description": "Status of the action",
+            "enum": [
+              "outstanding",
+              "completed",
+              "deleted",
+              "not_doing"
+            ],
+            "example": "outstanding",
+            "type": "string"
+          },
+          "updated_at": {
+            "description": "When the action was last updated",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "incident_id",
+          "creator",
+          "description",
+          "status",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object"
+      },
       "ActionsCreatePayloadV2": {
+        "example": {
+          "assignee_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "description": "Call the fire brigade",
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H"
+        },
+        "properties": {
+          "assignee_id": {
+            "description": "ID of the user this action is assigned to",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "description": {
+            "description": "Description of the action. Supports Markdown.",
+            "example": "Call the fire brigade",
+            "type": "string"
+          },
+          "incident_id": {
+            "description": "Unique identifier of the incident the action belongs to",
+            "example": "01FCNDV6P870EA6S7TK1DSYD5H",
+            "type": "string"
+          }
+        },
+        "required": [
+          "incident_id",
+          "description"
+        ],
+        "type": "object"
+      },
+      "ActionsCreatePayloadV3": {
         "example": {
           "assignee_id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "description": "Call the fire brigade",
@@ -1122,6 +1252,56 @@
         "properties": {
           "action": {
             "$ref": "#/components/schemas/ActionV2"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "type": "object"
+      },
+      "ActionsCreateResultV3": {
+        "example": {
+          "action": {
+            "assignee": {
+              "email": "lisa@incident.io",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Lisa Karlin Curtis",
+              "role": "owner",
+              "slack_user_id": "U02AYNF2XJM"
+            },
+            "completed_at": "2021-08-17T13:28:57.801578Z",
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "creator": {
+              "alert": {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "title": "*errors.withMessage: PG::Error failed to connect"
+              },
+              "api_key": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My test API key"
+              },
+              "user": {
+                "email": "lisa@incident.io",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Lisa Karlin Curtis",
+                "role": "owner",
+                "slack_user_id": "U02AYNF2XJM"
+              },
+              "workflow": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My little workflow"
+              }
+            },
+            "description": "Call the fire brigade",
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "status": "outstanding",
+            "updated_at": "2021-08-17T13:28:57.801578Z"
+          }
+        },
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/ActionV3"
           }
         },
         "required": [
@@ -1287,6 +1467,108 @@
         ],
         "type": "object"
       },
+      "ActionsListResultV3": {
+        "example": {
+          "actions": [
+            {
+              "assignee": {
+                "email": "lisa@incident.io",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Lisa Karlin Curtis",
+                "role": "owner",
+                "slack_user_id": "U02AYNF2XJM"
+              },
+              "completed_at": "2021-08-17T13:28:57.801578Z",
+              "created_at": "2021-08-17T13:28:57.801578Z",
+              "creator": {
+                "alert": {
+                  "id": "01GW2G3V0S59R238FAHPDS1R66",
+                  "title": "*errors.withMessage: PG::Error failed to connect"
+                },
+                "api_key": {
+                  "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                  "name": "My test API key"
+                },
+                "user": {
+                  "email": "lisa@incident.io",
+                  "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                  "name": "Lisa Karlin Curtis",
+                  "role": "owner",
+                  "slack_user_id": "U02AYNF2XJM"
+                },
+                "workflow": {
+                  "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                  "name": "My little workflow"
+                }
+              },
+              "description": "Call the fire brigade",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "status": "outstanding",
+              "updated_at": "2021-08-17T13:28:57.801578Z"
+            }
+          ],
+          "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25
+          }
+        },
+        "properties": {
+          "actions": {
+            "example": [
+              {
+                "assignee": {
+                  "email": "lisa@incident.io",
+                  "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                  "name": "Lisa Karlin Curtis",
+                  "role": "owner",
+                  "slack_user_id": "U02AYNF2XJM"
+                },
+                "completed_at": "2021-08-17T13:28:57.801578Z",
+                "created_at": "2021-08-17T13:28:57.801578Z",
+                "creator": {
+                  "alert": {
+                    "id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "title": "*errors.withMessage: PG::Error failed to connect"
+                  },
+                  "api_key": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "My test API key"
+                  },
+                  "user": {
+                    "email": "lisa@incident.io",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "Lisa Karlin Curtis",
+                    "role": "owner",
+                    "slack_user_id": "U02AYNF2XJM"
+                  },
+                  "workflow": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "My little workflow"
+                  }
+                },
+                "description": "Call the fire brigade",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "status": "outstanding",
+                "updated_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ActionV3"
+            },
+            "type": "array"
+          },
+          "pagination_meta": {
+            "$ref": "#/components/schemas/PaginationMetaResultV3"
+          }
+        },
+        "required": [
+          "actions",
+          "pagination_meta"
+        ],
+        "type": "object"
+      },
       "ActionsShowResultV1": {
         "example": {
           "action": {
@@ -1372,7 +1654,92 @@
         ],
         "type": "object"
       },
+      "ActionsShowResultV3": {
+        "example": {
+          "action": {
+            "assignee": {
+              "email": "lisa@incident.io",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Lisa Karlin Curtis",
+              "role": "owner",
+              "slack_user_id": "U02AYNF2XJM"
+            },
+            "completed_at": "2021-08-17T13:28:57.801578Z",
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "creator": {
+              "alert": {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "title": "*errors.withMessage: PG::Error failed to connect"
+              },
+              "api_key": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My test API key"
+              },
+              "user": {
+                "email": "lisa@incident.io",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Lisa Karlin Curtis",
+                "role": "owner",
+                "slack_user_id": "U02AYNF2XJM"
+              },
+              "workflow": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My little workflow"
+              }
+            },
+            "description": "Call the fire brigade",
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "status": "outstanding",
+            "updated_at": "2021-08-17T13:28:57.801578Z"
+          }
+        },
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/ActionV3"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "type": "object"
+      },
       "ActionsUpdatePayloadV2": {
+        "example": {
+          "assignee_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "description": "Call the fire brigade",
+          "status": "outstanding"
+        },
+        "properties": {
+          "assignee_id": {
+            "description": "ID of the user this action is assigned to. Set to null to unassign.",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
+          "description": {
+            "description": "Description of the action. Supports Markdown.",
+            "example": "Call the fire brigade",
+            "type": "string"
+          },
+          "status": {
+            "description": "Status of the action. Setting this to `deleted` is not allowed; use the delete endpoint instead.",
+            "enum": [
+              "outstanding",
+              "completed",
+              "deleted",
+              "not_doing"
+            ],
+            "example": "outstanding",
+            "type": "string"
+          }
+        },
+        "required": [
+          "description",
+          "status"
+        ],
+        "type": "object"
+      },
+      "ActionsUpdatePayloadV3": {
         "example": {
           "assignee_id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "description": "Call the fire brigade",
@@ -1450,6 +1817,56 @@
         "properties": {
           "action": {
             "$ref": "#/components/schemas/ActionV2"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "type": "object"
+      },
+      "ActionsUpdateResultV3": {
+        "example": {
+          "action": {
+            "assignee": {
+              "email": "lisa@incident.io",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Lisa Karlin Curtis",
+              "role": "owner",
+              "slack_user_id": "U02AYNF2XJM"
+            },
+            "completed_at": "2021-08-17T13:28:57.801578Z",
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "creator": {
+              "alert": {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "title": "*errors.withMessage: PG::Error failed to connect"
+              },
+              "api_key": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My test API key"
+              },
+              "user": {
+                "email": "lisa@incident.io",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Lisa Karlin Curtis",
+                "role": "owner",
+                "slack_user_id": "U02AYNF2XJM"
+              },
+              "workflow": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My little workflow"
+              }
+            },
+            "description": "Call the fire brigade",
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "status": "outstanding",
+            "updated_at": "2021-08-17T13:28:57.801578Z"
+          }
+        },
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/ActionV3"
           }
         },
         "required": [
@@ -4538,6 +4955,18 @@
             }
           ],
           "enabled": false,
+          "incident_template": {
+            "array_value": [
+              {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            ],
+            "value": {
+              "literal": "SEV123",
+              "reference": "incident.severity"
+            }
+          },
           "template": {
             "custom_fields": [
               {
@@ -4701,6 +5130,9 @@
             "description": "Whether incident creation is enabled for this alert route",
             "example": false,
             "type": "boolean"
+          },
+          "incident_template": {
+            "$ref": "#/components/schemas/EngineParamBindingPayloadV3"
           },
           "template": {
             "$ref": "#/components/schemas/AlertRouteIncidentTemplatePayloadV3"
@@ -4881,6 +5313,18 @@
             }
           ],
           "enabled": false,
+          "incident_template": {
+            "array_value": [
+              {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            ],
+            "value": {
+              "literal": "SEV123",
+              "reference": "incident.severity"
+            }
+          },
           "template": {
             "custom_fields": [
               {
@@ -5050,6 +5494,9 @@
             "description": "Whether incident creation is enabled for this alert route",
             "example": false,
             "type": "boolean"
+          },
+          "incident_template": {
+            "$ref": "#/components/schemas/EngineParamBindingV3"
           },
           "template": {
             "$ref": "#/components/schemas/AlertRouteIncidentTemplateV3"
@@ -7335,6 +7782,18 @@
               }
             ],
             "enabled": false,
+            "incident_template": {
+              "array_value": [
+                {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              ],
+              "value": {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            },
             "template": {
               "custom_fields": [
                 {
@@ -8927,6 +9386,18 @@
               }
             ],
             "enabled": false,
+            "incident_template": {
+              "array_value": [
+                {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              ],
+              "value": {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            },
             "template": {
               "custom_fields": [
                 {
@@ -10221,6 +10692,18 @@
                 }
               ],
               "enabled": false,
+              "incident_template": {
+                "array_value": [
+                  {
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                ],
+                "value": {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              },
               "template": {
                 "custom_fields": [
                   {
@@ -11365,6 +11848,18 @@
                 }
               ],
               "enabled": false,
+              "incident_template": {
+                "array_value": [
+                  {
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                ],
+                "value": {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              },
               "template": {
                 "custom_fields": [
                   {
@@ -12616,6 +13111,18 @@
               }
             ],
             "enabled": false,
+            "incident_template": {
+              "array_value": [
+                {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              ],
+              "value": {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            },
             "template": {
               "custom_fields": [
                 {
@@ -13918,6 +14425,18 @@
                 }
               ],
               "enabled": false,
+              "incident_template": {
+                "array_value": [
+                  {
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                ],
+                "value": {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              },
               "template": {
                 "custom_fields": [
                   {
@@ -127800,6 +128319,1169 @@
         ]
       }
     },
+    "/v3/actions": {
+      "get": {
+        "description": "List actions for an organisation.\n\nResults are paginated and ordered by action ID, oldest first. Use the \u003ccode\u003eafter\u003c/code\u003e\nvalue from \u003ccode\u003epagination_meta\u003c/code\u003e to fetch the next page; it is only set when there\nmay be more results.\n\n### By created_at and updated_at\n\nBoth timestamp filters accept the operators \"gte\" (greater than or equal to), \"lte\" (less\nthan or equal to) and \"date_range\" (between two dates). The following example finds all\nactions updated after 2025-01-01:\n\n\t\tcurl --get 'https://api.incident.io/v3/actions' \\\n\t\t\t--data 'updated_at[gte]=2025-01-01T00:00:00Z'\n\nTo find actions created within a specific date range, use the date_range operator with\ntilde-separated dates:\n\n\t\tcurl --get 'https://api.incident.io/v3/actions' \\\n\t\t\t--data 'created_at[date_range]=2024-12-02~2024-12-08'\n\nFiltering on updated_at is useful for incrementally syncing actions: poll with\nupdated_at[gte] set to your last sync time instead of re-fetching the full history. Two\ncaveats: updated_at moves whenever the action row itself is written, but changes to\nembedded objects (e.g. an assignee being renamed) can alter the payload without bumping\nit. And timestamps are stamped before commit, so an action can become visible with an\nolder updated_at than rows you have already seen — overlap your sync window by a few\nminutes to allow for writes that commit out of timestamp order.\n",
+        "operationId": "Actions V3#List",
+        "parameters": [
+          {
+            "allowEmptyValue": true,
+            "description": "Integer number of records to return",
+            "example": 25,
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "default": 25,
+              "description": "Integer number of records to return",
+              "example": 25,
+              "format": "int64",
+              "maximum": 250,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "An action's ID. This endpoint will return a list of actions after this ID in relation to the API response order.",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FDAG4SAP5TYPT98WGR2N7W91"
+              }
+            },
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "description": "An action's ID. This endpoint will return a list of actions after this ID in relation to the API response order.",
+              "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Find actions related to this incident",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "in": "query",
+            "name": "incident_id",
+            "schema": {
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Filter to actions from incidents of the given mode. If not set, only actions from `standard` and `retrospective` incidents are returned",
+            "example": "standard",
+            "in": "query",
+            "name": "incident_mode",
+            "schema": {
+              "description": "Filter to actions from incidents of the given mode. If not set, only actions from `standard` and `retrospective` incidents are returned",
+              "enum": [
+                "standard",
+                "retrospective",
+                "test",
+                "tutorial",
+                "stream"
+              ],
+              "example": "standard",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Filter on action created at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.",
+            "example": {
+              "gte": [
+                "2025-01-01"
+              ]
+            },
+            "in": "query",
+            "name": "created_at",
+            "schema": {
+              "additionalProperties": {
+                "example": [
+                  "some_value"
+                ],
+                "items": {
+                  "example": "some_value",
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "description": "Filter on action created at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.",
+              "example": {
+                "gte": [
+                  "2025-01-01"
+                ]
+              },
+              "type": "object"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Filter on action updated at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.",
+            "example": {
+              "gte": [
+                "2025-01-01"
+              ]
+            },
+            "in": "query",
+            "name": "updated_at",
+            "schema": {
+              "additionalProperties": {
+                "example": [
+                  "some_value"
+                ],
+                "items": {
+                  "example": "some_value",
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "description": "Filter on action updated at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.",
+              "example": {
+                "gte": [
+                  "2025-01-01"
+                ]
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "actions": [
+                    {
+                      "assignee": {
+                        "email": "lisa@incident.io",
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "Lisa Karlin Curtis",
+                        "role": "owner",
+                        "slack_user_id": "U02AYNF2XJM"
+                      },
+                      "completed_at": "2021-08-17T13:28:57.801578Z",
+                      "created_at": "2021-08-17T13:28:57.801578Z",
+                      "creator": {
+                        "alert": {
+                          "id": "01GW2G3V0S59R238FAHPDS1R66",
+                          "title": "*errors.withMessage: PG::Error failed to connect"
+                        },
+                        "api_key": {
+                          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                          "name": "My test API key"
+                        },
+                        "user": {
+                          "email": "lisa@incident.io",
+                          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                          "name": "Lisa Karlin Curtis",
+                          "role": "owner",
+                          "slack_user_id": "U02AYNF2XJM"
+                        },
+                        "workflow": {
+                          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                          "name": "My little workflow"
+                        }
+                      },
+                      "description": "Call the fire brigade",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "status": "outstanding",
+                      "updated_at": "2021-08-17T13:28:57.801578Z"
+                    }
+                  ],
+                  "pagination_meta": {
+                    "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "page_size": 25
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsListResultV3"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "List Actions V3",
+        "tags": [
+          "Actions V3"
+        ],
+        "x-docs-display-name": "List",
+        "x-docs-group-name": "Actions V3",
+        "x-docs-resource-type": "ActionV3",
+        "x-mint": {
+          "content": "🔑 Requires the `actions.view` scope."
+        },
+        "x-rbac-scopes": [
+          "actions.view"
+        ]
+      },
+      "post": {
+        "description": "Create a new incident action.",
+        "operationId": "Actions V3#Create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "assignee_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "description": "Call the fire brigade",
+                "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/ActionsCreatePayloadV3"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "action": {
+                    "assignee": {
+                      "email": "lisa@incident.io",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Lisa Karlin Curtis",
+                      "role": "owner",
+                      "slack_user_id": "U02AYNF2XJM"
+                    },
+                    "completed_at": "2021-08-17T13:28:57.801578Z",
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "creator": {
+                      "alert": {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "title": "*errors.withMessage: PG::Error failed to connect"
+                      },
+                      "api_key": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My test API key"
+                      },
+                      "user": {
+                        "email": "lisa@incident.io",
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "Lisa Karlin Curtis",
+                        "role": "owner",
+                        "slack_user_id": "U02AYNF2XJM"
+                      },
+                      "workflow": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My little workflow"
+                      }
+                    },
+                    "description": "Call the fire brigade",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "status": "outstanding",
+                    "updated_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsCreateResultV3"
+                }
+              }
+            },
+            "description": "Created response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "Create Actions V3",
+        "tags": [
+          "Actions V3"
+        ],
+        "x-docs-display-name": "Create",
+        "x-docs-group-name": "Actions V3",
+        "x-docs-resource-type": "ActionV3",
+        "x-mint": {
+          "content": "🔑 Requires the `actions.create` scope."
+        },
+        "x-rbac-scopes": [
+          "actions.create"
+        ]
+      }
+    },
+    "/v3/actions/{id}": {
+      "delete": {
+        "description": "Delete an incident action.",
+        "operationId": "Actions V3#Delete",
+        "parameters": [
+          {
+            "description": "Unique identifier for the action",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "Delete Actions V3",
+        "tags": [
+          "Actions V3"
+        ],
+        "x-docs-display-name": "Delete",
+        "x-docs-group-name": "Actions V3",
+        "x-docs-resource-type": "ActionV3",
+        "x-mint": {
+          "content": "🔑 Requires the `actions.destroy` scope."
+        },
+        "x-rbac-scopes": [
+          "actions.destroy"
+        ]
+      },
+      "get": {
+        "description": "Get a single incident action.",
+        "operationId": "Actions V3#Show",
+        "parameters": [
+          {
+            "description": "Unique identifier for the action",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "action": {
+                    "assignee": {
+                      "email": "lisa@incident.io",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Lisa Karlin Curtis",
+                      "role": "owner",
+                      "slack_user_id": "U02AYNF2XJM"
+                    },
+                    "completed_at": "2021-08-17T13:28:57.801578Z",
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "creator": {
+                      "alert": {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "title": "*errors.withMessage: PG::Error failed to connect"
+                      },
+                      "api_key": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My test API key"
+                      },
+                      "user": {
+                        "email": "lisa@incident.io",
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "Lisa Karlin Curtis",
+                        "role": "owner",
+                        "slack_user_id": "U02AYNF2XJM"
+                      },
+                      "workflow": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My little workflow"
+                      }
+                    },
+                    "description": "Call the fire brigade",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "status": "outstanding",
+                    "updated_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsShowResultV3"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "Show Actions V3",
+        "tags": [
+          "Actions V3"
+        ],
+        "x-docs-display-name": "Show",
+        "x-docs-group-name": "Actions V3",
+        "x-docs-resource-type": "ActionV3",
+        "x-mint": {
+          "content": "🔑 Requires the `actions.view` scope."
+        },
+        "x-rbac-scopes": [
+          "actions.view"
+        ]
+      },
+      "put": {
+        "description": "Update an existing incident action.",
+        "operationId": "Actions V3#Update",
+        "parameters": [
+          {
+            "description": "Unique identifier for the action",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01FCNDV6P870EA6S7TK1DSYDG0"
+              }
+            },
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "example": "01FCNDV6P870EA6S7TK1DSYD5H",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "assignee_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "description": "Call the fire brigade",
+                "status": "outstanding"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/ActionsUpdatePayloadV3"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "action": {
+                    "assignee": {
+                      "email": "lisa@incident.io",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Lisa Karlin Curtis",
+                      "role": "owner",
+                      "slack_user_id": "U02AYNF2XJM"
+                    },
+                    "completed_at": "2021-08-17T13:28:57.801578Z",
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "creator": {
+                      "alert": {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "title": "*errors.withMessage: PG::Error failed to connect"
+                      },
+                      "api_key": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My test API key"
+                      },
+                      "user": {
+                        "email": "lisa@incident.io",
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "Lisa Karlin Curtis",
+                        "role": "owner",
+                        "slack_user_id": "U02AYNF2XJM"
+                      },
+                      "workflow": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My little workflow"
+                      }
+                    },
+                    "description": "Call the fire brigade",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "status": "outstanding",
+                    "updated_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ActionsUpdateResultV3"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "Update Actions V3",
+        "tags": [
+          "Actions V3"
+        ],
+        "x-docs-display-name": "Update",
+        "x-docs-group-name": "Actions V3",
+        "x-docs-resource-type": "ActionV3",
+        "x-mint": {
+          "content": "🔑 Requires the `actions.update` scope."
+        },
+        "x-rbac-scopes": [
+          "actions.update"
+        ]
+      }
+    },
     "/v3/alert_routes": {
       "get": {
         "description": "List all alert routes in your account.",
@@ -128255,6 +129937,18 @@
                     }
                   ],
                   "enabled": false,
+                  "incident_template": {
+                    "array_value": [
+                      {
+                        "literal": "SEV123",
+                        "reference": "incident.severity"
+                      }
+                    ],
+                    "value": {
+                      "literal": "SEV123",
+                      "reference": "incident.severity"
+                    }
+                  },
                   "template": {
                     "custom_fields": [
                       {
@@ -128757,6 +130451,18 @@
                         }
                       ],
                       "enabled": false,
+                      "incident_template": {
+                        "array_value": [
+                          {
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      },
                       "template": {
                         "custom_fields": [
                           {
@@ -129598,6 +131304,18 @@
                         }
                       ],
                       "enabled": false,
+                      "incident_template": {
+                        "array_value": [
+                          {
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      },
                       "template": {
                         "custom_fields": [
                           {
@@ -130227,6 +131945,18 @@
                     }
                   ],
                   "enabled": false,
+                  "incident_template": {
+                    "array_value": [
+                      {
+                        "literal": "SEV123",
+                        "reference": "incident.severity"
+                      }
+                    ],
+                    "value": {
+                      "literal": "SEV123",
+                      "reference": "incident.severity"
+                    }
+                  },
                   "template": {
                     "custom_fields": [
                       {
@@ -130730,6 +132460,18 @@
                         }
                       ],
                       "enabled": false,
+                      "incident_template": {
+                        "array_value": [
+                          {
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      },
                       "template": {
                         "custom_fields": [
                           {
@@ -136076,6 +137818,10 @@
     {
       "description": "Manage incident actions.\n\nIncident actions are used during an incident, to track work such as 'restart the database' or 'contact the customer'.\n\nYou can manage actions in the incident Slack channel with \u003ccode\u003e/incident actions\u003c/code\u003e, or on\nthe incident homepage.\n",
       "name": "Actions V2"
+    },
+    {
+      "description": "Manage incident actions.\n\nIncident actions are used during an incident, to track work such as 'restart the database' or 'contact the customer'.\n\nYou can manage actions in the incident Slack channel with \u003ccode\u003e/incident actions\u003c/code\u003e, or on\nthe incident homepage.\n",
+      "name": "Actions V3"
     },
     {
       "description": "View and manage alert attributes.\n\nAlert attributes are used to parse structured data from alerts coming in via alert sources.",

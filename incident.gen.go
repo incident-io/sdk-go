@@ -588,6 +588,30 @@ func (e ActionV2Status) Valid() bool {
 	}
 }
 
+// Defines values for ActionV3Status.
+const (
+	ActionV3StatusCompleted   ActionV3Status = "completed"
+	ActionV3StatusDeleted     ActionV3Status = "deleted"
+	ActionV3StatusNotDoing    ActionV3Status = "not_doing"
+	ActionV3StatusOutstanding ActionV3Status = "outstanding"
+)
+
+// Valid indicates whether the value is a known member of the ActionV3Status enum.
+func (e ActionV3Status) Valid() bool {
+	switch e {
+	case ActionV3StatusCompleted:
+		return true
+	case ActionV3StatusDeleted:
+		return true
+	case ActionV3StatusNotDoing:
+		return true
+	case ActionV3StatusOutstanding:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ActionsUpdatePayloadV2Status.
 const (
 	ActionsUpdatePayloadV2StatusCompleted   ActionsUpdatePayloadV2Status = "completed"
@@ -606,6 +630,30 @@ func (e ActionsUpdatePayloadV2Status) Valid() bool {
 	case ActionsUpdatePayloadV2StatusNotDoing:
 		return true
 	case ActionsUpdatePayloadV2StatusOutstanding:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ActionsUpdatePayloadV3Status.
+const (
+	ActionsUpdatePayloadV3StatusCompleted   ActionsUpdatePayloadV3Status = "completed"
+	ActionsUpdatePayloadV3StatusDeleted     ActionsUpdatePayloadV3Status = "deleted"
+	ActionsUpdatePayloadV3StatusNotDoing    ActionsUpdatePayloadV3Status = "not_doing"
+	ActionsUpdatePayloadV3StatusOutstanding ActionsUpdatePayloadV3Status = "outstanding"
+)
+
+// Valid indicates whether the value is a known member of the ActionsUpdatePayloadV3Status enum.
+func (e ActionsUpdatePayloadV3Status) Valid() bool {
+	switch e {
+	case ActionsUpdatePayloadV3StatusCompleted:
+		return true
+	case ActionsUpdatePayloadV3StatusDeleted:
+		return true
+	case ActionsUpdatePayloadV3StatusNotDoing:
+		return true
+	case ActionsUpdatePayloadV3StatusOutstanding:
 		return true
 	default:
 		return false
@@ -6375,27 +6423,54 @@ func (e IncidentsV2ListParamsFilterMode) Valid() bool {
 	}
 }
 
+// Defines values for ActionsV3ListParamsIncidentMode.
+const (
+	ActionsV3ListParamsIncidentModeRetrospective ActionsV3ListParamsIncidentMode = "retrospective"
+	ActionsV3ListParamsIncidentModeStandard      ActionsV3ListParamsIncidentMode = "standard"
+	ActionsV3ListParamsIncidentModeStream        ActionsV3ListParamsIncidentMode = "stream"
+	ActionsV3ListParamsIncidentModeTest          ActionsV3ListParamsIncidentMode = "test"
+	ActionsV3ListParamsIncidentModeTutorial      ActionsV3ListParamsIncidentMode = "tutorial"
+)
+
+// Valid indicates whether the value is a known member of the ActionsV3ListParamsIncidentMode enum.
+func (e ActionsV3ListParamsIncidentMode) Valid() bool {
+	switch e {
+	case ActionsV3ListParamsIncidentModeRetrospective:
+		return true
+	case ActionsV3ListParamsIncidentModeStandard:
+		return true
+	case ActionsV3ListParamsIncidentModeStream:
+		return true
+	case ActionsV3ListParamsIncidentModeTest:
+		return true
+	case ActionsV3ListParamsIncidentModeTutorial:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for FollowUpsV3ListParamsIncidentMode.
 const (
-	FollowUpsV3ListParamsIncidentModeRetrospective FollowUpsV3ListParamsIncidentMode = "retrospective"
-	FollowUpsV3ListParamsIncidentModeStandard      FollowUpsV3ListParamsIncidentMode = "standard"
-	FollowUpsV3ListParamsIncidentModeStream        FollowUpsV3ListParamsIncidentMode = "stream"
-	FollowUpsV3ListParamsIncidentModeTest          FollowUpsV3ListParamsIncidentMode = "test"
-	FollowUpsV3ListParamsIncidentModeTutorial      FollowUpsV3ListParamsIncidentMode = "tutorial"
+	Retrospective FollowUpsV3ListParamsIncidentMode = "retrospective"
+	Standard      FollowUpsV3ListParamsIncidentMode = "standard"
+	Stream        FollowUpsV3ListParamsIncidentMode = "stream"
+	Test          FollowUpsV3ListParamsIncidentMode = "test"
+	Tutorial      FollowUpsV3ListParamsIncidentMode = "tutorial"
 )
 
 // Valid indicates whether the value is a known member of the FollowUpsV3ListParamsIncidentMode enum.
 func (e FollowUpsV3ListParamsIncidentMode) Valid() bool {
 	switch e {
-	case FollowUpsV3ListParamsIncidentModeRetrospective:
+	case Retrospective:
 		return true
-	case FollowUpsV3ListParamsIncidentModeStandard:
+	case Standard:
 		return true
-	case FollowUpsV3ListParamsIncidentModeStream:
+	case Stream:
 		return true
-	case FollowUpsV3ListParamsIncidentModeTest:
+	case Test:
 		return true
-	case FollowUpsV3ListParamsIncidentModeTutorial:
+	case Tutorial:
 		return true
 	default:
 		return false
@@ -6624,8 +6699,50 @@ type ActionV2 struct {
 // ActionV2Status Status of the action
 type ActionV2Status string
 
+// ActionV3 defines model for ActionV3.
+type ActionV3 struct {
+	Assignee *UserV2 `json:"assignee,omitempty"`
+
+	// CompletedAt When the action was completed
+	CompletedAt *time.Time `json:"completed_at,omitempty"`
+
+	// CreatedAt When the action was created
+	CreatedAt time.Time `json:"created_at"`
+	Creator   ActorV2   `json:"creator"`
+
+	// Description Description of the action
+	Description string `json:"description"`
+
+	// Id Unique identifier for the action
+	Id string `json:"id"`
+
+	// IncidentId Unique identifier of the incident the action belongs to
+	IncidentId string `json:"incident_id"`
+
+	// Status Status of the action
+	Status ActionV3Status `json:"status"`
+
+	// UpdatedAt When the action was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
+// ActionV3Status Status of the action
+type ActionV3Status string
+
 // ActionsCreatePayloadV2 defines model for ActionsCreatePayloadV2.
 type ActionsCreatePayloadV2 struct {
+	// AssigneeId ID of the user this action is assigned to
+	AssigneeId *string `json:"assignee_id,omitempty"`
+
+	// Description Description of the action. Supports Markdown.
+	Description string `json:"description"`
+
+	// IncidentId Unique identifier of the incident the action belongs to
+	IncidentId string `json:"incident_id"`
+}
+
+// ActionsCreatePayloadV3 defines model for ActionsCreatePayloadV3.
+type ActionsCreatePayloadV3 struct {
 	// AssigneeId ID of the user this action is assigned to
 	AssigneeId *string `json:"assignee_id,omitempty"`
 
@@ -6641,6 +6758,11 @@ type ActionsCreateResultV2 struct {
 	Action ActionV2 `json:"action"`
 }
 
+// ActionsCreateResultV3 defines model for ActionsCreateResultV3.
+type ActionsCreateResultV3 struct {
+	Action ActionV3 `json:"action"`
+}
+
 // ActionsListResultV1 defines model for ActionsListResultV1.
 type ActionsListResultV1 struct {
 	Actions []ActionV1 `json:"actions"`
@@ -6651,6 +6773,12 @@ type ActionsListResultV2 struct {
 	Actions []ActionV2 `json:"actions"`
 }
 
+// ActionsListResultV3 defines model for ActionsListResultV3.
+type ActionsListResultV3 struct {
+	Actions        []ActionV3             `json:"actions"`
+	PaginationMeta PaginationMetaResultV3 `json:"pagination_meta"`
+}
+
 // ActionsShowResultV1 defines model for ActionsShowResultV1.
 type ActionsShowResultV1 struct {
 	Action ActionV1 `json:"action"`
@@ -6659,6 +6787,11 @@ type ActionsShowResultV1 struct {
 // ActionsShowResultV2 defines model for ActionsShowResultV2.
 type ActionsShowResultV2 struct {
 	Action ActionV2 `json:"action"`
+}
+
+// ActionsShowResultV3 defines model for ActionsShowResultV3.
+type ActionsShowResultV3 struct {
+	Action ActionV3 `json:"action"`
 }
 
 // ActionsUpdatePayloadV2 defines model for ActionsUpdatePayloadV2.
@@ -6676,9 +6809,29 @@ type ActionsUpdatePayloadV2 struct {
 // ActionsUpdatePayloadV2Status Status of the action. Setting this to `deleted` is not allowed; use the delete endpoint instead.
 type ActionsUpdatePayloadV2Status string
 
+// ActionsUpdatePayloadV3 defines model for ActionsUpdatePayloadV3.
+type ActionsUpdatePayloadV3 struct {
+	// AssigneeId ID of the user this action is assigned to. Set to null to unassign.
+	AssigneeId *string `json:"assignee_id,omitempty"`
+
+	// Description Description of the action. Supports Markdown.
+	Description string `json:"description"`
+
+	// Status Status of the action. Setting this to `deleted` is not allowed; use the delete endpoint instead.
+	Status ActionsUpdatePayloadV3Status `json:"status"`
+}
+
+// ActionsUpdatePayloadV3Status Status of the action. Setting this to `deleted` is not allowed; use the delete endpoint instead.
+type ActionsUpdatePayloadV3Status string
+
 // ActionsUpdateResultV2 defines model for ActionsUpdateResultV2.
 type ActionsUpdateResultV2 struct {
 	Action ActionV2 `json:"action"`
+}
+
+// ActionsUpdateResultV3 defines model for ActionsUpdateResultV3.
+type ActionsUpdateResultV3 struct {
+	Action ActionV3 `json:"action"`
 }
 
 // ActorV1 defines model for ActorV1.
@@ -7233,7 +7386,8 @@ type AlertRouteIncidentConfigPayloadV3 struct {
 	ConditionGroups *[]ConditionGroupPayloadV3 `json:"condition_groups,omitempty"`
 
 	// Enabled Whether incident creation is enabled for this alert route
-	Enabled bool `json:"enabled"`
+	Enabled          bool                         `json:"enabled"`
+	IncidentTemplate *EngineParamBindingPayloadV3 `json:"incident_template,omitempty"`
 
 	// Template The template this alert route applies to the incidents it creates. It must be unset when incident creation is disabled. Disabling incident creation clears a template the route already has.
 	Template *AlertRouteIncidentTemplatePayloadV3 `json:"template,omitempty"`
@@ -7272,7 +7426,8 @@ type AlertRouteIncidentConfigV3 struct {
 	ConditionGroups *[]ConditionGroupV3 `json:"condition_groups,omitempty"`
 
 	// Enabled Whether incident creation is enabled for this alert route
-	Enabled bool `json:"enabled"`
+	Enabled          bool                  `json:"enabled"`
+	IncidentTemplate *EngineParamBindingV3 `json:"incident_template,omitempty"`
 
 	// Template The template an alert route applies to the incidents it creates. Disabling incident creation clears it.
 	Template *AlertRouteIncidentTemplateV3 `json:"template,omitempty"`
@@ -15801,6 +15956,30 @@ type WorkflowsV2ShowWorkflowParams struct {
 	SkipStepUpgrades *bool `form:"skip_step_upgrades,omitempty" json:"skip_step_upgrades,omitempty"`
 }
 
+// ActionsV3ListParams defines parameters for ActionsV3List.
+type ActionsV3ListParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After An action's ID. This endpoint will return a list of actions after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+
+	// IncidentId Find actions related to this incident
+	IncidentId *string `form:"incident_id,omitempty" json:"incident_id,omitempty"`
+
+	// IncidentMode Filter to actions from incidents of the given mode. If not set, only actions from `standard` and `retrospective` incidents are returned
+	IncidentMode *ActionsV3ListParamsIncidentMode `form:"incident_mode,omitempty" json:"incident_mode,omitempty"`
+
+	// CreatedAt Filter on action created at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
+	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
+
+	// UpdatedAt Filter on action updated at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
+	UpdatedAt *map[string][]string `form:"updated_at,omitempty" json:"updated_at,omitempty"`
+}
+
+// ActionsV3ListParamsIncidentMode defines parameters for ActionsV3List.
+type ActionsV3ListParamsIncidentMode string
+
 // AlertRoutesV3ListParams defines parameters for AlertRoutesV3List.
 type AlertRoutesV3ListParams struct {
 	// PageSize Number of alert routes to return per page
@@ -16108,6 +16287,12 @@ type WorkflowsV2CreateWorkflowJSONRequestBody = WorkflowsCreateWorkflowPayloadV2
 
 // WorkflowsV2UpdateWorkflowJSONRequestBody defines body for WorkflowsV2UpdateWorkflow for application/json ContentType.
 type WorkflowsV2UpdateWorkflowJSONRequestBody = WorkflowsUpdateWorkflowPayloadV2
+
+// ActionsV3CreateJSONRequestBody defines body for ActionsV3Create for application/json ContentType.
+type ActionsV3CreateJSONRequestBody = ActionsCreatePayloadV3
+
+// ActionsV3UpdateJSONRequestBody defines body for ActionsV3Update for application/json ContentType.
+type ActionsV3UpdateJSONRequestBody = ActionsUpdatePayloadV3
 
 // AlertRoutesV3CreateJSONRequestBody defines body for AlertRoutesV3Create for application/json ContentType.
 type AlertRoutesV3CreateJSONRequestBody = AlertRoutesCreatePayloadV3
@@ -16986,6 +17171,25 @@ type ClientInterface interface {
 	WorkflowsV2UpdateWorkflowWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	WorkflowsV2UpdateWorkflow(ctx context.Context, id string, body WorkflowsV2UpdateWorkflowJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ActionsV3List request
+	ActionsV3List(ctx context.Context, params *ActionsV3ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ActionsV3CreateWithBody request with any body
+	ActionsV3CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	ActionsV3Create(ctx context.Context, body ActionsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ActionsV3Delete request
+	ActionsV3Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ActionsV3Show request
+	ActionsV3Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ActionsV3UpdateWithBody request with any body
+	ActionsV3UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	ActionsV3Update(ctx context.Context, id string, body ActionsV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// AlertRoutesV3List request
 	AlertRoutesV3List(ctx context.Context, params *AlertRoutesV3ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -20578,6 +20782,90 @@ func (c *Client) WorkflowsV2UpdateWorkflowWithBody(ctx context.Context, id strin
 
 func (c *Client) WorkflowsV2UpdateWorkflow(ctx context.Context, id string, body WorkflowsV2UpdateWorkflowJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newWorkflowsV2UpdateWorkflowRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionsV3List(ctx context.Context, params *ActionsV3ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newActionsV3ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionsV3CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newActionsV3CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionsV3Create(ctx context.Context, body ActionsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newActionsV3CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionsV3Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newActionsV3DeleteRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionsV3Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newActionsV3ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionsV3UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newActionsV3UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionsV3Update(ctx context.Context, id string, body ActionsV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newActionsV3UpdateRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -30859,6 +31147,290 @@ func newWorkflowsV2UpdateWorkflowRequestWithBody(server string, id string, conte
 	return req, nil
 }
 
+// NewActionsV3ListRequest generates requests for ActionsV3List
+func newActionsV3ListRequest(server string, params *ActionsV3ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/actions")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IncidentId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident_id", *params.IncidentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IncidentMode != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident_mode", *params.IncidentMode, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CreatedAt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UpdatedAt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewActionsV3CreateRequest calls the generic ActionsV3Create builder with application/json body
+func newActionsV3CreateRequest(server string, body ActionsV3CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newActionsV3CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewActionsV3CreateRequestWithBody generates requests for ActionsV3Create with any type of body
+func newActionsV3CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/actions")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewActionsV3DeleteRequest generates requests for ActionsV3Delete
+func newActionsV3DeleteRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/actions/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewActionsV3ShowRequest generates requests for ActionsV3Show
+func newActionsV3ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/actions/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewActionsV3UpdateRequest calls the generic ActionsV3Update builder with application/json body
+func newActionsV3UpdateRequest(server string, id string, body ActionsV3UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newActionsV3UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewActionsV3UpdateRequestWithBody generates requests for ActionsV3Update with any type of body
+func newActionsV3UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/actions/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewAlertRoutesV3ListRequest generates requests for AlertRoutesV3List
 func newAlertRoutesV3ListRequest(server string, params *AlertRoutesV3ListParams) (*http.Request, error) {
 	var err error
@@ -32901,6 +33473,25 @@ type ClientWithResponsesInterface interface {
 	WorkflowsV2UpdateWorkflowWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*WorkflowsV2UpdateWorkflowResponse, error)
 
 	WorkflowsV2UpdateWorkflowWithResponse(ctx context.Context, id string, body WorkflowsV2UpdateWorkflowJSONRequestBody, reqEditors ...RequestEditorFn) (*WorkflowsV2UpdateWorkflowResponse, error)
+
+	// ActionsV3ListWithResponse request
+	ActionsV3ListWithResponse(ctx context.Context, params *ActionsV3ListParams, reqEditors ...RequestEditorFn) (*ActionsV3ListResponse, error)
+
+	// ActionsV3CreateWithBodyWithResponse request with any body
+	ActionsV3CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionsV3CreateResponse, error)
+
+	ActionsV3CreateWithResponse(ctx context.Context, body ActionsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionsV3CreateResponse, error)
+
+	// ActionsV3DeleteWithResponse request
+	ActionsV3DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*ActionsV3DeleteResponse, error)
+
+	// ActionsV3ShowWithResponse request
+	ActionsV3ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*ActionsV3ShowResponse, error)
+
+	// ActionsV3UpdateWithBodyWithResponse request with any body
+	ActionsV3UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionsV3UpdateResponse, error)
+
+	ActionsV3UpdateWithResponse(ctx context.Context, id string, body ActionsV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionsV3UpdateResponse, error)
 
 	// AlertRoutesV3ListWithResponse request
 	AlertRoutesV3ListWithResponse(ctx context.Context, params *AlertRoutesV3ListParams, reqEditors ...RequestEditorFn) (*AlertRoutesV3ListResponse, error)
@@ -40110,6 +40701,180 @@ func (r WorkflowsV2UpdateWorkflowResponse) StatusCode() int {
 	return 0
 }
 
+type ActionsV3ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *ActionsListResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r ActionsV3ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ActionsV3ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type ActionsV3CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *ActionsCreateResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r ActionsV3CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ActionsV3CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type ActionsV3DeleteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r ActionsV3DeleteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ActionsV3DeleteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type ActionsV3ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *ActionsShowResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r ActionsV3ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ActionsV3ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type ActionsV3UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *ActionsUpdateResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r ActionsV3UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ActionsV3UpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type AlertRoutesV3ListResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -43614,6 +44379,67 @@ func (c *ClientWithResponses) WorkflowsV2UpdateWorkflowWithResponse(ctx context.
 		return nil, err
 	}
 	return parseWorkflowsV2UpdateWorkflowResponse(rsp)
+}
+
+// ActionsV3ListWithResponse request returning *ActionsV3ListResponse
+func (c *ClientWithResponses) ActionsV3ListWithResponse(ctx context.Context, params *ActionsV3ListParams, reqEditors ...RequestEditorFn) (*ActionsV3ListResponse, error) {
+	rsp, err := c.ActionsV3List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseActionsV3ListResponse(rsp)
+}
+
+// ActionsV3CreateWithBodyWithResponse request with arbitrary body returning *ActionsV3CreateResponse
+func (c *ClientWithResponses) ActionsV3CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionsV3CreateResponse, error) {
+	rsp, err := c.ActionsV3CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseActionsV3CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) ActionsV3CreateWithResponse(ctx context.Context, body ActionsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionsV3CreateResponse, error) {
+	rsp, err := c.ActionsV3Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseActionsV3CreateResponse(rsp)
+}
+
+// ActionsV3DeleteWithResponse request returning *ActionsV3DeleteResponse
+func (c *ClientWithResponses) ActionsV3DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*ActionsV3DeleteResponse, error) {
+	rsp, err := c.ActionsV3Delete(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseActionsV3DeleteResponse(rsp)
+}
+
+// ActionsV3ShowWithResponse request returning *ActionsV3ShowResponse
+func (c *ClientWithResponses) ActionsV3ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*ActionsV3ShowResponse, error) {
+	rsp, err := c.ActionsV3Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseActionsV3ShowResponse(rsp)
+}
+
+// ActionsV3UpdateWithBodyWithResponse request with arbitrary body returning *ActionsV3UpdateResponse
+func (c *ClientWithResponses) ActionsV3UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionsV3UpdateResponse, error) {
+	rsp, err := c.ActionsV3UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseActionsV3UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) ActionsV3UpdateWithResponse(ctx context.Context, id string, body ActionsV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionsV3UpdateResponse, error) {
+	rsp, err := c.ActionsV3Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseActionsV3UpdateResponse(rsp)
 }
 
 // AlertRoutesV3ListWithResponse request returning *AlertRoutesV3ListResponse
@@ -67474,6 +68300,584 @@ func parseWorkflowsV2UpdateWorkflowResponse(rsp *http.Response) (*WorkflowsV2Upd
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest WorkflowsUpdateWorkflowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseActionsV3ListResponse parses an HTTP response from a ActionsV3ListWithResponse call
+func parseActionsV3ListResponse(rsp *http.Response) (*ActionsV3ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ActionsV3ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ActionsListResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseActionsV3CreateResponse parses an HTTP response from a ActionsV3CreateWithResponse call
+func parseActionsV3CreateResponse(rsp *http.Response) (*ActionsV3CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ActionsV3CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest ActionsCreateResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseActionsV3DeleteResponse parses an HTTP response from a ActionsV3DeleteWithResponse call
+func parseActionsV3DeleteResponse(rsp *http.Response) (*ActionsV3DeleteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ActionsV3DeleteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseActionsV3ShowResponse parses an HTTP response from a ActionsV3ShowWithResponse call
+func parseActionsV3ShowResponse(rsp *http.Response) (*ActionsV3ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ActionsV3ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ActionsShowResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseActionsV3UpdateResponse parses an HTTP response from a ActionsV3UpdateWithResponse call
+func parseActionsV3UpdateResponse(rsp *http.Response) (*ActionsV3UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ActionsV3UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ActionsUpdateResultV3
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
