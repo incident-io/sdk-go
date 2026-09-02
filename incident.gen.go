@@ -3572,46 +3572,46 @@ func (e ExpressionOperationV2OperationType) Valid() bool {
 
 // Defines values for ExpressionOperationV3OperationType.
 const (
-	Branches    ExpressionOperationV3OperationType = "branches"
-	Cast        ExpressionOperationV3OperationType = "cast"
-	Concatenate ExpressionOperationV3OperationType = "concatenate"
-	Count       ExpressionOperationV3OperationType = "count"
-	Filter      ExpressionOperationV3OperationType = "filter"
-	First       ExpressionOperationV3OperationType = "first"
-	Max         ExpressionOperationV3OperationType = "max"
-	Min         ExpressionOperationV3OperationType = "min"
-	Navigate    ExpressionOperationV3OperationType = "navigate"
-	Parse       ExpressionOperationV3OperationType = "parse"
-	Random      ExpressionOperationV3OperationType = "random"
-	Sum         ExpressionOperationV3OperationType = "sum"
+	ExpressionOperationV3OperationTypeBranches    ExpressionOperationV3OperationType = "branches"
+	ExpressionOperationV3OperationTypeCast        ExpressionOperationV3OperationType = "cast"
+	ExpressionOperationV3OperationTypeConcatenate ExpressionOperationV3OperationType = "concatenate"
+	ExpressionOperationV3OperationTypeCount       ExpressionOperationV3OperationType = "count"
+	ExpressionOperationV3OperationTypeFilter      ExpressionOperationV3OperationType = "filter"
+	ExpressionOperationV3OperationTypeFirst       ExpressionOperationV3OperationType = "first"
+	ExpressionOperationV3OperationTypeMax         ExpressionOperationV3OperationType = "max"
+	ExpressionOperationV3OperationTypeMin         ExpressionOperationV3OperationType = "min"
+	ExpressionOperationV3OperationTypeNavigate    ExpressionOperationV3OperationType = "navigate"
+	ExpressionOperationV3OperationTypeParse       ExpressionOperationV3OperationType = "parse"
+	ExpressionOperationV3OperationTypeRandom      ExpressionOperationV3OperationType = "random"
+	ExpressionOperationV3OperationTypeSum         ExpressionOperationV3OperationType = "sum"
 )
 
 // Valid indicates whether the value is a known member of the ExpressionOperationV3OperationType enum.
 func (e ExpressionOperationV3OperationType) Valid() bool {
 	switch e {
-	case Branches:
+	case ExpressionOperationV3OperationTypeBranches:
 		return true
-	case Cast:
+	case ExpressionOperationV3OperationTypeCast:
 		return true
-	case Concatenate:
+	case ExpressionOperationV3OperationTypeConcatenate:
 		return true
-	case Count:
+	case ExpressionOperationV3OperationTypeCount:
 		return true
-	case Filter:
+	case ExpressionOperationV3OperationTypeFilter:
 		return true
-	case First:
+	case ExpressionOperationV3OperationTypeFirst:
 		return true
-	case Max:
+	case ExpressionOperationV3OperationTypeMax:
 		return true
-	case Min:
+	case ExpressionOperationV3OperationTypeMin:
 		return true
-	case Navigate:
+	case ExpressionOperationV3OperationTypeNavigate:
 		return true
-	case Parse:
+	case ExpressionOperationV3OperationTypeParse:
 		return true
-	case Random:
+	case ExpressionOperationV3OperationTypeRandom:
 		return true
-	case Sum:
+	case ExpressionOperationV3OperationTypeSum:
 		return true
 	default:
 		return false
@@ -4485,6 +4485,84 @@ func (e IncidentStatusesCreatePayloadV1Category) Valid() bool {
 	case IncidentStatusesCreatePayloadV1CategoryLearning:
 		return true
 	case IncidentStatusesCreatePayloadV1CategoryLive:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IncidentTemplateCustomFieldBindingPayloadV1MergeStrategy.
+const (
+	IncidentTemplateCustomFieldBindingPayloadV1MergeStrategyAppend    IncidentTemplateCustomFieldBindingPayloadV1MergeStrategy = "append"
+	IncidentTemplateCustomFieldBindingPayloadV1MergeStrategyFirstWins IncidentTemplateCustomFieldBindingPayloadV1MergeStrategy = "first-wins"
+	IncidentTemplateCustomFieldBindingPayloadV1MergeStrategyLastWins  IncidentTemplateCustomFieldBindingPayloadV1MergeStrategy = "last-wins"
+)
+
+// Valid indicates whether the value is a known member of the IncidentTemplateCustomFieldBindingPayloadV1MergeStrategy enum.
+func (e IncidentTemplateCustomFieldBindingPayloadV1MergeStrategy) Valid() bool {
+	switch e {
+	case IncidentTemplateCustomFieldBindingPayloadV1MergeStrategyAppend:
+		return true
+	case IncidentTemplateCustomFieldBindingPayloadV1MergeStrategyFirstWins:
+		return true
+	case IncidentTemplateCustomFieldBindingPayloadV1MergeStrategyLastWins:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IncidentTemplateCustomFieldBindingV1MergeStrategy.
+const (
+	IncidentTemplateCustomFieldBindingV1MergeStrategyAppend    IncidentTemplateCustomFieldBindingV1MergeStrategy = "append"
+	IncidentTemplateCustomFieldBindingV1MergeStrategyFirstWins IncidentTemplateCustomFieldBindingV1MergeStrategy = "first-wins"
+	IncidentTemplateCustomFieldBindingV1MergeStrategyLastWins  IncidentTemplateCustomFieldBindingV1MergeStrategy = "last-wins"
+)
+
+// Valid indicates whether the value is a known member of the IncidentTemplateCustomFieldBindingV1MergeStrategy enum.
+func (e IncidentTemplateCustomFieldBindingV1MergeStrategy) Valid() bool {
+	switch e {
+	case IncidentTemplateCustomFieldBindingV1MergeStrategyAppend:
+		return true
+	case IncidentTemplateCustomFieldBindingV1MergeStrategyFirstWins:
+		return true
+	case IncidentTemplateCustomFieldBindingV1MergeStrategyLastWins:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IncidentTemplateSeverityBindingPayloadV1MergeStrategy.
+const (
+	IncidentTemplateSeverityBindingPayloadV1MergeStrategyFirstWins IncidentTemplateSeverityBindingPayloadV1MergeStrategy = "first-wins"
+	IncidentTemplateSeverityBindingPayloadV1MergeStrategyMax       IncidentTemplateSeverityBindingPayloadV1MergeStrategy = "max"
+)
+
+// Valid indicates whether the value is a known member of the IncidentTemplateSeverityBindingPayloadV1MergeStrategy enum.
+func (e IncidentTemplateSeverityBindingPayloadV1MergeStrategy) Valid() bool {
+	switch e {
+	case IncidentTemplateSeverityBindingPayloadV1MergeStrategyFirstWins:
+		return true
+	case IncidentTemplateSeverityBindingPayloadV1MergeStrategyMax:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IncidentTemplateSeverityBindingV1MergeStrategy.
+const (
+	FirstWins IncidentTemplateSeverityBindingV1MergeStrategy = "first-wins"
+	Max       IncidentTemplateSeverityBindingV1MergeStrategy = "max"
+)
+
+// Valid indicates whether the value is a known member of the IncidentTemplateSeverityBindingV1MergeStrategy enum.
+func (e IncidentTemplateSeverityBindingV1MergeStrategy) Valid() bool {
+	switch e {
+	case FirstWins:
+		return true
+	case Max:
 		return true
 	default:
 		return false
@@ -12304,6 +12382,202 @@ type IncidentStatusesUpdateResultV1 struct {
 	IncidentStatus IncidentStatusV1 `json:"incident_status"`
 }
 
+// IncidentTemplateAutoGeneratedBindingPayloadV1 defines model for IncidentTemplateAutoGeneratedBindingPayloadV1.
+type IncidentTemplateAutoGeneratedBindingPayloadV1 struct {
+	// Autogenerated Whether this attribute is autogenerated using AI or not
+	Autogenerated *bool                        `json:"autogenerated,omitempty"`
+	Binding       *EngineParamBindingPayloadV3 `json:"binding,omitempty"`
+}
+
+// IncidentTemplateAutoGeneratedBindingV1 defines model for IncidentTemplateAutoGeneratedBindingV1.
+type IncidentTemplateAutoGeneratedBindingV1 struct {
+	// Autogenerated Whether this attribute is autogenerated using AI or not
+	Autogenerated bool                  `json:"autogenerated"`
+	Binding       *EngineParamBindingV3 `json:"binding,omitempty"`
+}
+
+// IncidentTemplateBindingPayloadV1 defines model for IncidentTemplateBindingPayloadV1.
+type IncidentTemplateBindingPayloadV1 struct {
+	Binding *EngineParamBindingPayloadV3 `json:"binding,omitempty"`
+}
+
+// IncidentTemplateBindingV1 defines model for IncidentTemplateBindingV1.
+type IncidentTemplateBindingV1 struct {
+	Binding *EngineParamBindingV3 `json:"binding,omitempty"`
+}
+
+// IncidentTemplateConfigPayloadV1 The values an incident template applies to the incidents it creates.
+type IncidentTemplateConfigPayloadV1 struct {
+	// CustomFields Custom fields configuration
+	CustomFields  *[]IncidentTemplateCustomFieldBindingPayloadV1 `json:"custom_fields,omitempty"`
+	IncidentMode  *IncidentTemplateBindingPayloadV1              `json:"incident_mode,omitempty"`
+	IncidentType  *IncidentTemplateBindingPayloadV1              `json:"incident_type,omitempty"`
+	Name          IncidentTemplateAutoGeneratedBindingPayloadV1  `json:"name"`
+	Severity      *IncidentTemplateSeverityBindingPayloadV1      `json:"severity,omitempty"`
+	StartInTriage *IncidentTemplateBindingPayloadV1              `json:"start_in_triage,omitempty"`
+	Summary       *IncidentTemplateAutoGeneratedBindingPayloadV1 `json:"summary,omitempty"`
+	Workspace     *IncidentTemplateBindingPayloadV1              `json:"workspace,omitempty"`
+}
+
+// IncidentTemplateConfigV1 The values an incident template applies to the incidents it creates.
+type IncidentTemplateConfigV1 struct {
+	// CustomFields Custom fields configuration
+	CustomFields  *[]IncidentTemplateCustomFieldBindingV1 `json:"custom_fields,omitempty"`
+	IncidentMode  *IncidentTemplateBindingV1              `json:"incident_mode,omitempty"`
+	IncidentType  *IncidentTemplateBindingV1              `json:"incident_type,omitempty"`
+	Name          IncidentTemplateAutoGeneratedBindingV1  `json:"name"`
+	Severity      *IncidentTemplateSeverityBindingV1      `json:"severity,omitempty"`
+	StartInTriage *IncidentTemplateBindingV1              `json:"start_in_triage,omitempty"`
+	Summary       *IncidentTemplateAutoGeneratedBindingV1 `json:"summary,omitempty"`
+	Workspace     *IncidentTemplateBindingV1              `json:"workspace,omitempty"`
+}
+
+// IncidentTemplateCustomFieldBindingPayloadV1 defines model for IncidentTemplateCustomFieldBindingPayloadV1.
+type IncidentTemplateCustomFieldBindingPayloadV1 struct {
+	Binding EngineParamBindingPayloadV3 `json:"binding"`
+
+	// CustomFieldId ID of the custom field
+	CustomFieldId string `json:"custom_field_id"`
+
+	// MergeStrategy The strategy to use when multiple alerts match this route
+	MergeStrategy IncidentTemplateCustomFieldBindingPayloadV1MergeStrategy `json:"merge_strategy"`
+}
+
+// IncidentTemplateCustomFieldBindingPayloadV1MergeStrategy The strategy to use when multiple alerts match this route
+type IncidentTemplateCustomFieldBindingPayloadV1MergeStrategy string
+
+// IncidentTemplateCustomFieldBindingV1 defines model for IncidentTemplateCustomFieldBindingV1.
+type IncidentTemplateCustomFieldBindingV1 struct {
+	Binding EngineParamBindingV3 `json:"binding"`
+
+	// CustomFieldId ID of the custom field
+	CustomFieldId string `json:"custom_field_id"`
+
+	// MergeStrategy The strategy to use when multiple alerts match this route
+	MergeStrategy IncidentTemplateCustomFieldBindingV1MergeStrategy `json:"merge_strategy"`
+}
+
+// IncidentTemplateCustomFieldBindingV1MergeStrategy The strategy to use when multiple alerts match this route
+type IncidentTemplateCustomFieldBindingV1MergeStrategy string
+
+// IncidentTemplateSeverityBindingPayloadV1 defines model for IncidentTemplateSeverityBindingPayloadV1.
+type IncidentTemplateSeverityBindingPayloadV1 struct {
+	Binding *EngineParamBindingPayloadV3 `json:"binding,omitempty"`
+
+	// MergeStrategy Strategy for merging severity when multiple alerts create/update the same incident
+	MergeStrategy IncidentTemplateSeverityBindingPayloadV1MergeStrategy `json:"merge_strategy"`
+}
+
+// IncidentTemplateSeverityBindingPayloadV1MergeStrategy Strategy for merging severity when multiple alerts create/update the same incident
+type IncidentTemplateSeverityBindingPayloadV1MergeStrategy string
+
+// IncidentTemplateSeverityBindingV1 defines model for IncidentTemplateSeverityBindingV1.
+type IncidentTemplateSeverityBindingV1 struct {
+	Binding *EngineParamBindingV3 `json:"binding,omitempty"`
+
+	// MergeStrategy Strategy for merging severity when multiple alerts create/update the same incident
+	MergeStrategy IncidentTemplateSeverityBindingV1MergeStrategy `json:"merge_strategy"`
+}
+
+// IncidentTemplateSeverityBindingV1MergeStrategy Strategy for merging severity when multiple alerts create/update the same incident
+type IncidentTemplateSeverityBindingV1MergeStrategy string
+
+// IncidentTemplateV1 A reusable set of values applied to incidents created from alerts.
+type IncidentTemplateV1 struct {
+	// CreatedAt When this incident template was created
+	CreatedAt time.Time `json:"created_at"`
+
+	// Expressions The expressions used by bindings in this template
+	Expressions *[]ExpressionV3 `json:"expressions,omitempty"`
+
+	// Id Unique identifier for this incident template
+	Id string `json:"id"`
+
+	// Name The name of this incident template, for the user's reference
+	Name string `json:"name"`
+
+	// Template The values an incident template applies to the incidents it creates.
+	Template IncidentTemplateConfigV1 `json:"template"`
+
+	// UpdatedAt When this incident template was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
+// IncidentTemplateValidateWarningV1 Something suspect about a template config that isn't severe enough to reject it.
+type IncidentTemplateValidateWarningV1 struct {
+	// Detail More detail about the warning and what to do about it
+	Detail string `json:"detail"`
+
+	// Summary A short description of the warning
+	Summary string `json:"summary"`
+}
+
+// IncidentTemplatesCreatePayloadV1 defines model for IncidentTemplatesCreatePayloadV1.
+type IncidentTemplatesCreatePayloadV1 struct {
+	// Expressions The expressions used by bindings in this template
+	Expressions *[]ExpressionPayloadV3 `json:"expressions,omitempty"`
+
+	// Name The name of this incident template, for the user's reference
+	Name string `json:"name"`
+
+	// Template The values an incident template applies to the incidents it creates.
+	Template IncidentTemplateConfigPayloadV1 `json:"template"`
+}
+
+// IncidentTemplatesCreateResultV1 defines model for IncidentTemplatesCreateResultV1.
+type IncidentTemplatesCreateResultV1 struct {
+	// IncidentTemplate A reusable set of values applied to incidents created from alerts.
+	IncidentTemplate IncidentTemplateV1 `json:"incident_template"`
+}
+
+// IncidentTemplatesListResultV1 defines model for IncidentTemplatesListResultV1.
+type IncidentTemplatesListResultV1 struct {
+	IncidentTemplates []IncidentTemplateV1    `json:"incident_templates"`
+	PaginationMeta    *PaginationMetaResultV1 `json:"pagination_meta,omitempty"`
+}
+
+// IncidentTemplatesShowResultV1 defines model for IncidentTemplatesShowResultV1.
+type IncidentTemplatesShowResultV1 struct {
+	// IncidentTemplate A reusable set of values applied to incidents created from alerts.
+	IncidentTemplate IncidentTemplateV1 `json:"incident_template"`
+}
+
+// IncidentTemplatesUpdatePayloadV1 defines model for IncidentTemplatesUpdatePayloadV1.
+type IncidentTemplatesUpdatePayloadV1 struct {
+	// Expressions The expressions used by bindings in this template
+	Expressions *[]ExpressionPayloadV3 `json:"expressions,omitempty"`
+
+	// Name The name of this incident template, for the user's reference
+	Name string `json:"name"`
+
+	// Template The values an incident template applies to the incidents it creates.
+	Template IncidentTemplateConfigPayloadV1 `json:"template"`
+}
+
+// IncidentTemplatesUpdateResultV1 defines model for IncidentTemplatesUpdateResultV1.
+type IncidentTemplatesUpdateResultV1 struct {
+	// IncidentTemplate A reusable set of values applied to incidents created from alerts.
+	IncidentTemplate IncidentTemplateV1 `json:"incident_template"`
+}
+
+// IncidentTemplatesValidatePayloadV1 defines model for IncidentTemplatesValidatePayloadV1.
+type IncidentTemplatesValidatePayloadV1 struct {
+	// Expressions The expressions used by bindings in this template
+	Expressions *[]ExpressionPayloadV3 `json:"expressions,omitempty"`
+
+	// Name The name of this incident template, for the user's reference
+	Name string `json:"name"`
+
+	// Template The values an incident template applies to the incidents it creates.
+	Template IncidentTemplateConfigPayloadV1 `json:"template"`
+}
+
+// IncidentTemplatesValidateResultV1 defines model for IncidentTemplatesValidateResultV1.
+type IncidentTemplatesValidateResultV1 struct {
+	// Warnings Anything suspect about this config that isn't severe enough to reject it. Empty when there's nothing to say.
+	Warnings []IncidentTemplateValidateWarningV1 `json:"warnings"`
+}
+
 // IncidentTimestampV2 defines model for IncidentTimestampV2.
 type IncidentTimestampV2 struct {
 	// Id Unique ID of this incident timestamp
@@ -16428,6 +16702,15 @@ type IncidentRelationshipsV1ListParams struct {
 	After *string `form:"after,omitempty" json:"after,omitempty"`
 }
 
+// IncidentTemplatesV1ListParams defines parameters for IncidentTemplatesV1List.
+type IncidentTemplatesV1ListParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After An incident template's ID. This endpoint returns a list of templates after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+}
+
 // IncidentsV1ListParams defines parameters for IncidentsV1List.
 type IncidentsV1ListParams struct {
 	// PageSize Integer number of records to return
@@ -17078,6 +17361,15 @@ type IncidentStatusesV1CreateJSONRequestBody = IncidentStatusesCreatePayloadV1
 // IncidentStatusesV1UpdateJSONRequestBody defines body for IncidentStatusesV1Update for application/json ContentType.
 type IncidentStatusesV1UpdateJSONRequestBody = IncidentStatusesUpdatePayloadV1
 
+// IncidentTemplatesV1CreateJSONRequestBody defines body for IncidentTemplatesV1Create for application/json ContentType.
+type IncidentTemplatesV1CreateJSONRequestBody = IncidentTemplatesCreatePayloadV1
+
+// IncidentTemplatesV1ValidateJSONRequestBody defines body for IncidentTemplatesV1Validate for application/json ContentType.
+type IncidentTemplatesV1ValidateJSONRequestBody = IncidentTemplatesValidatePayloadV1
+
+// IncidentTemplatesV1UpdateJSONRequestBody defines body for IncidentTemplatesV1Update for application/json ContentType.
+type IncidentTemplatesV1UpdateJSONRequestBody = IncidentTemplatesUpdatePayloadV1
+
 // IncidentsV1CreateJSONRequestBody defines body for IncidentsV1Create for application/json ContentType.
 type IncidentsV1CreateJSONRequestBody = IncidentsCreatePayloadV1
 
@@ -17542,6 +17834,30 @@ type ClientInterface interface {
 	IncidentStatusesV1UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	IncidentStatusesV1Update(ctx context.Context, id string, body IncidentStatusesV1UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentTemplatesV1List request
+	IncidentTemplatesV1List(ctx context.Context, params *IncidentTemplatesV1ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentTemplatesV1CreateWithBody request with any body
+	IncidentTemplatesV1CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	IncidentTemplatesV1Create(ctx context.Context, body IncidentTemplatesV1CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentTemplatesV1ValidateWithBody request with any body
+	IncidentTemplatesV1ValidateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	IncidentTemplatesV1Validate(ctx context.Context, body IncidentTemplatesV1ValidateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentTemplatesV1Destroy request
+	IncidentTemplatesV1Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentTemplatesV1Show request
+	IncidentTemplatesV1Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentTemplatesV1UpdateWithBody request with any body
+	IncidentTemplatesV1UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	IncidentTemplatesV1Update(ctx context.Context, id string, body IncidentTemplatesV1UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// IncidentTypesV1List request
 	IncidentTypesV1List(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -19010,6 +19326,114 @@ func (c *Client) IncidentStatusesV1UpdateWithBody(ctx context.Context, id string
 
 func (c *Client) IncidentStatusesV1Update(ctx context.Context, id string, body IncidentStatusesV1UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newIncidentStatusesV1UpdateRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTemplatesV1List(ctx context.Context, params *IncidentTemplatesV1ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTemplatesV1ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTemplatesV1CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTemplatesV1CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTemplatesV1Create(ctx context.Context, body IncidentTemplatesV1CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTemplatesV1CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTemplatesV1ValidateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTemplatesV1ValidateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTemplatesV1Validate(ctx context.Context, body IncidentTemplatesV1ValidateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTemplatesV1ValidateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTemplatesV1Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTemplatesV1DestroyRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTemplatesV1Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTemplatesV1ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTemplatesV1UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTemplatesV1UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTemplatesV1Update(ctx context.Context, id string, body IncidentTemplatesV1UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTemplatesV1UpdateRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -24220,6 +24644,266 @@ func newIncidentStatusesV1UpdateRequestWithBody(server string, id string, conten
 	}
 
 	operationPath := fmt.Sprintf("/v1/incident_statuses/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewIncidentTemplatesV1ListRequest generates requests for IncidentTemplatesV1List
+func newIncidentTemplatesV1ListRequest(server string, params *IncidentTemplatesV1ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/incident_templates")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewIncidentTemplatesV1CreateRequest calls the generic IncidentTemplatesV1Create builder with application/json body
+func newIncidentTemplatesV1CreateRequest(server string, body IncidentTemplatesV1CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newIncidentTemplatesV1CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewIncidentTemplatesV1CreateRequestWithBody generates requests for IncidentTemplatesV1Create with any type of body
+func newIncidentTemplatesV1CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/incident_templates")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewIncidentTemplatesV1ValidateRequest calls the generic IncidentTemplatesV1Validate builder with application/json body
+func newIncidentTemplatesV1ValidateRequest(server string, body IncidentTemplatesV1ValidateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newIncidentTemplatesV1ValidateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewIncidentTemplatesV1ValidateRequestWithBody generates requests for IncidentTemplatesV1Validate with any type of body
+func newIncidentTemplatesV1ValidateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/incident_templates/actions/validate")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewIncidentTemplatesV1DestroyRequest generates requests for IncidentTemplatesV1Destroy
+func newIncidentTemplatesV1DestroyRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/incident_templates/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewIncidentTemplatesV1ShowRequest generates requests for IncidentTemplatesV1Show
+func newIncidentTemplatesV1ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/incident_templates/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewIncidentTemplatesV1UpdateRequest calls the generic IncidentTemplatesV1Update builder with application/json body
+func newIncidentTemplatesV1UpdateRequest(server string, id string, body IncidentTemplatesV1UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newIncidentTemplatesV1UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewIncidentTemplatesV1UpdateRequestWithBody generates requests for IncidentTemplatesV1Update with any type of body
+func newIncidentTemplatesV1UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/incident_templates/%s", pathParam0)
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -34454,6 +35138,30 @@ type ClientWithResponsesInterface interface {
 
 	IncidentStatusesV1UpdateWithResponse(ctx context.Context, id string, body IncidentStatusesV1UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentStatusesV1UpdateResponse, error)
 
+	// IncidentTemplatesV1ListWithResponse request
+	IncidentTemplatesV1ListWithResponse(ctx context.Context, params *IncidentTemplatesV1ListParams, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1ListResponse, error)
+
+	// IncidentTemplatesV1CreateWithBodyWithResponse request with any body
+	IncidentTemplatesV1CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1CreateResponse, error)
+
+	IncidentTemplatesV1CreateWithResponse(ctx context.Context, body IncidentTemplatesV1CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1CreateResponse, error)
+
+	// IncidentTemplatesV1ValidateWithBodyWithResponse request with any body
+	IncidentTemplatesV1ValidateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1ValidateResponse, error)
+
+	IncidentTemplatesV1ValidateWithResponse(ctx context.Context, body IncidentTemplatesV1ValidateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1ValidateResponse, error)
+
+	// IncidentTemplatesV1DestroyWithResponse request
+	IncidentTemplatesV1DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1DestroyResponse, error)
+
+	// IncidentTemplatesV1ShowWithResponse request
+	IncidentTemplatesV1ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1ShowResponse, error)
+
+	// IncidentTemplatesV1UpdateWithBodyWithResponse request with any body
+	IncidentTemplatesV1UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1UpdateResponse, error)
+
+	IncidentTemplatesV1UpdateWithResponse(ctx context.Context, id string, body IncidentTemplatesV1UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1UpdateResponse, error)
+
 	// IncidentTypesV1ListWithResponse request
 	IncidentTypesV1ListWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*IncidentTypesV1ListResponse, error)
 
@@ -36613,6 +37321,215 @@ func (r IncidentStatusesV1UpdateResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r IncidentStatusesV1UpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentTemplatesV1ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *IncidentTemplatesListResultV1
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentTemplatesV1ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentTemplatesV1ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentTemplatesV1CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *IncidentTemplatesCreateResultV1
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentTemplatesV1CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentTemplatesV1CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentTemplatesV1ValidateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *IncidentTemplatesValidateResultV1
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentTemplatesV1ValidateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentTemplatesV1ValidateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentTemplatesV1DestroyResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentTemplatesV1DestroyResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentTemplatesV1DestroyResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentTemplatesV1ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *IncidentTemplatesShowResultV1
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentTemplatesV1ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentTemplatesV1ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentTemplatesV1UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *IncidentTemplatesUpdateResultV1
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentTemplatesV1UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentTemplatesV1UpdateResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -44259,6 +45176,84 @@ func (c *ClientWithResponses) IncidentStatusesV1UpdateWithResponse(ctx context.C
 	return parseIncidentStatusesV1UpdateResponse(rsp)
 }
 
+// IncidentTemplatesV1ListWithResponse request returning *IncidentTemplatesV1ListResponse
+func (c *ClientWithResponses) IncidentTemplatesV1ListWithResponse(ctx context.Context, params *IncidentTemplatesV1ListParams, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1ListResponse, error) {
+	rsp, err := c.IncidentTemplatesV1List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTemplatesV1ListResponse(rsp)
+}
+
+// IncidentTemplatesV1CreateWithBodyWithResponse request with arbitrary body returning *IncidentTemplatesV1CreateResponse
+func (c *ClientWithResponses) IncidentTemplatesV1CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1CreateResponse, error) {
+	rsp, err := c.IncidentTemplatesV1CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTemplatesV1CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) IncidentTemplatesV1CreateWithResponse(ctx context.Context, body IncidentTemplatesV1CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1CreateResponse, error) {
+	rsp, err := c.IncidentTemplatesV1Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTemplatesV1CreateResponse(rsp)
+}
+
+// IncidentTemplatesV1ValidateWithBodyWithResponse request with arbitrary body returning *IncidentTemplatesV1ValidateResponse
+func (c *ClientWithResponses) IncidentTemplatesV1ValidateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1ValidateResponse, error) {
+	rsp, err := c.IncidentTemplatesV1ValidateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTemplatesV1ValidateResponse(rsp)
+}
+
+func (c *ClientWithResponses) IncidentTemplatesV1ValidateWithResponse(ctx context.Context, body IncidentTemplatesV1ValidateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1ValidateResponse, error) {
+	rsp, err := c.IncidentTemplatesV1Validate(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTemplatesV1ValidateResponse(rsp)
+}
+
+// IncidentTemplatesV1DestroyWithResponse request returning *IncidentTemplatesV1DestroyResponse
+func (c *ClientWithResponses) IncidentTemplatesV1DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1DestroyResponse, error) {
+	rsp, err := c.IncidentTemplatesV1Destroy(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTemplatesV1DestroyResponse(rsp)
+}
+
+// IncidentTemplatesV1ShowWithResponse request returning *IncidentTemplatesV1ShowResponse
+func (c *ClientWithResponses) IncidentTemplatesV1ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1ShowResponse, error) {
+	rsp, err := c.IncidentTemplatesV1Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTemplatesV1ShowResponse(rsp)
+}
+
+// IncidentTemplatesV1UpdateWithBodyWithResponse request with arbitrary body returning *IncidentTemplatesV1UpdateResponse
+func (c *ClientWithResponses) IncidentTemplatesV1UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1UpdateResponse, error) {
+	rsp, err := c.IncidentTemplatesV1UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTemplatesV1UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) IncidentTemplatesV1UpdateWithResponse(ctx context.Context, id string, body IncidentTemplatesV1UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentTemplatesV1UpdateResponse, error) {
+	rsp, err := c.IncidentTemplatesV1Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTemplatesV1UpdateResponse(rsp)
+}
+
 // IncidentTypesV1ListWithResponse request returning *IncidentTypesV1ListResponse
 func (c *ClientWithResponses) IncidentTypesV1ListWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*IncidentTypesV1ListResponse, error) {
 	rsp, err := c.IncidentTypesV1List(ctx, reqEditors...)
@@ -51339,6 +52334,701 @@ func parseIncidentStatusesV1UpdateResponse(rsp *http.Response) (*IncidentStatuse
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest IncidentStatusesUpdateResultV1
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentTemplatesV1ListResponse parses an HTTP response from a IncidentTemplatesV1ListWithResponse call
+func parseIncidentTemplatesV1ListResponse(rsp *http.Response) (*IncidentTemplatesV1ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentTemplatesV1ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IncidentTemplatesListResultV1
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentTemplatesV1CreateResponse parses an HTTP response from a IncidentTemplatesV1CreateWithResponse call
+func parseIncidentTemplatesV1CreateResponse(rsp *http.Response) (*IncidentTemplatesV1CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentTemplatesV1CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest IncidentTemplatesCreateResultV1
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentTemplatesV1ValidateResponse parses an HTTP response from a IncidentTemplatesV1ValidateWithResponse call
+func parseIncidentTemplatesV1ValidateResponse(rsp *http.Response) (*IncidentTemplatesV1ValidateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentTemplatesV1ValidateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IncidentTemplatesValidateResultV1
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentTemplatesV1DestroyResponse parses an HTTP response from a IncidentTemplatesV1DestroyWithResponse call
+func parseIncidentTemplatesV1DestroyResponse(rsp *http.Response) (*IncidentTemplatesV1DestroyResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentTemplatesV1DestroyResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentTemplatesV1ShowResponse parses an HTTP response from a IncidentTemplatesV1ShowWithResponse call
+func parseIncidentTemplatesV1ShowResponse(rsp *http.Response) (*IncidentTemplatesV1ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentTemplatesV1ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IncidentTemplatesShowResultV1
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentTemplatesV1UpdateResponse parses an HTTP response from a IncidentTemplatesV1UpdateWithResponse call
+func parseIncidentTemplatesV1UpdateResponse(rsp *http.Response) (*IncidentTemplatesV1UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentTemplatesV1UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IncidentTemplatesUpdateResultV1
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
