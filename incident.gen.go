@@ -15353,6 +15353,9 @@ type StatusPageMaintenanceUpdateV2MaintenanceStatus string
 
 // StatusPageMaintenanceV2 defines model for StatusPageMaintenanceV2.
 type StatusPageMaintenanceV2 struct {
+	// AutomateMaintenanceStatus Whether updates are published automatically, moving this maintenance window to in progress at its start time and to complete at its end time
+	AutomateMaintenanceStatus bool `json:"automate_maintenance_status"`
+
 	// ComponentMaintenancePeriods A list of time periods where components were under maintenance during this status page maintenance window
 	ComponentMaintenancePeriods []StatusPageMaintenanceComponentMaintenancePeriodV2 `json:"component_maintenance_periods"`
 
@@ -15525,6 +15528,9 @@ type StatusPagesCreateStatusPageIncidentUpdateResultV2 struct {
 type StatusPagesCreateStatusPageMaintenancePayloadV2 struct {
 	// AffectedComponentIds An array of IDs of component affected by the maintenance window
 	AffectedComponentIds []string `json:"affected_component_ids"`
+
+	// AutomateMaintenanceStatus Whether to publish updates automatically, moving this maintenance window to in progress at start_at and to complete at end_at. Defaults to false, which means you publish those updates yourself. When notify_subscribers is true, the automated updates notify subscribers too. Publishing your own update that sets maintenance_status turns automation off.
+	AutomateMaintenanceStatus *bool `json:"automate_maintenance_status,omitempty"`
 
 	// EndAt The time the maintenance window ends
 	EndAt time.Time `json:"end_at"`

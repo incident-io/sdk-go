@@ -76434,6 +76434,7 @@
       },
       "StatusPageMaintenanceV2": {
         "example": {
+          "automate_maintenance_status": true,
           "component_maintenance_periods": [
             {
               "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
@@ -76463,6 +76464,11 @@
           ]
         },
         "properties": {
+          "automate_maintenance_status": {
+            "description": "Whether updates are published automatically, moving this maintenance window to in progress at its start time and to complete at its end time",
+            "example": true,
+            "type": "boolean"
+          },
           "component_maintenance_periods": {
             "description": "A list of time periods where components were under maintenance during this status page maintenance window",
             "example": [
@@ -76539,7 +76545,8 @@
           "published_at",
           "maintenance_status",
           "updates",
-          "component_maintenance_periods"
+          "component_maintenance_periods",
+          "automate_maintenance_status"
         ],
         "type": "object"
       },
@@ -77154,6 +77161,7 @@
           "affected_component_ids": [
             "01FCNDV6P870EA6S7TK1DSYDG2"
           ],
+          "automate_maintenance_status": true,
           "end_at": "2025-01-28T12:00:00Z",
           "idempotency_key": "maintenance-12345-abcde",
           "maintenance_status": "maintenance_scheduled",
@@ -77174,6 +77182,11 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "automate_maintenance_status": {
+            "description": "Whether to publish updates automatically, moving this maintenance window to in progress at start_at and to complete at end_at. Defaults to false, which means you publish those updates yourself. When notify_subscribers is true, the automated updates notify subscribers too. Publishing your own update that sets maintenance_status turns automation off.",
+            "example": true,
+            "type": "boolean"
           },
           "end_at": {
             "description": "The time the maintenance window ends",
@@ -77241,6 +77254,7 @@
       "StatusPagesCreateStatusPageMaintenanceResultV2": {
         "example": {
           "status_page_maintenance": {
+            "automate_maintenance_status": true,
             "component_maintenance_periods": [
               {
                 "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
@@ -77590,6 +77604,7 @@
           },
           "status_page_maintenances": [
             {
+              "automate_maintenance_status": true,
               "component_maintenance_periods": [
                 {
                   "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
@@ -77627,6 +77642,7 @@
           "status_page_maintenances": {
             "example": [
               {
+                "automate_maintenance_status": true,
                 "component_maintenance_periods": [
                   {
                     "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
@@ -77751,6 +77767,7 @@
       "StatusPagesShowStatusPageMaintenanceResultV2": {
         "example": {
           "status_page_maintenance": {
+            "automate_maintenance_status": true,
             "component_maintenance_periods": [
               {
                 "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
@@ -87869,6 +87886,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 250,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -88886,6 +88904,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 250,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -90183,6 +90202,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 250,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -93254,6 +93274,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 250,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -98534,6 +98555,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 500,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -101532,6 +101554,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 250,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -113322,6 +113345,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 250,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -124443,6 +124467,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 250,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -124909,6 +124934,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 500,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -126327,7 +126353,7 @@
     },
     "/v2/incidents/{id}/actions/edit": {
       "post": {
-        "description": "Edit an existing incident.\n\nThis endpoint allows you to edit the properties of an existing incident: e.g. set the severity or update custom fields.\n\nWhen using this endpoint, only fields that are provided will be edited (omitted fields\nwill be ignored).\n",
+        "description": "Edit an existing incident.\n\nThis endpoint allows you to edit the properties of an existing incident: e.g. set the severity or update custom fields.\n\nWhen using this endpoint, only fields that are provided will be edited (omitted fields\nwill be ignored).\n\nThe API key must have the scope corresponding to each property it changes:\n\n- `incidents.update_name` for the name\n- `incidents.update_summary` for the summary\n- `incidents.update_severity` for the severity\n- `incidents.update_status` for the status\n- `incidents.update_custom_fields` for custom fields\n- `incidents.update_timestamps` for timestamps\n- `incidents.update_role_assignments` for role assignments\n- `incident_calls.create` to set the call URL\n- `incident_calls.destroy` when replacing an existing call URL\n",
         "operationId": "Incidents V2#Edit",
         "parameters": [
           {
@@ -133608,6 +133634,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 10000,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -138750,6 +138777,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 250,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -139884,6 +139912,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 250,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -139911,6 +139940,7 @@
                   },
                   "status_page_maintenances": [
                     {
+                      "automate_maintenance_status": true,
                       "component_maintenance_periods": [
                         {
                           "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
@@ -140098,6 +140128,7 @@
                 "affected_component_ids": [
                   "01FCNDV6P870EA6S7TK1DSYDG2"
                 ],
+                "automate_maintenance_status": true,
                 "end_at": "2025-01-28T12:00:00Z",
                 "idempotency_key": "maintenance-12345-abcde",
                 "maintenance_status": "maintenance_scheduled",
@@ -140120,6 +140151,7 @@
               "application/json": {
                 "example": {
                   "status_page_maintenance": {
+                    "automate_maintenance_status": true,
                     "component_maintenance_periods": [
                       {
                         "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
@@ -140327,6 +140359,7 @@
               "application/json": {
                 "example": {
                   "status_page_maintenance": {
+                    "automate_maintenance_status": true,
                     "component_maintenance_periods": [
                       {
                         "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
@@ -140957,6 +140990,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 250,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -141401,6 +141435,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 10000,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -149974,6 +150009,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 250,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -154510,6 +154546,7 @@
               "example": 25,
               "format": "int64",
               "maximum": 250,
+              "minimum": 1,
               "type": "integer"
             }
           },
