@@ -64503,6 +64503,12 @@
                 }
               }
             ],
+            "reminder_cadence_after": {
+              "interval": "daily"
+            },
+            "reminder_cadence_before": {
+              "interval": "daily"
+            },
             "reminder_detected_date_offset_hours": [
               0,
               48
@@ -65052,6 +65058,12 @@
                   }
                 }
               ],
+              "reminder_cadence_after": {
+                "interval": "daily"
+              },
+              "reminder_cadence_before": {
+                "interval": "daily"
+              },
               "reminder_detected_date_offset_hours": [
                 0,
                 48
@@ -65473,6 +65485,12 @@
                     }
                   }
                 ],
+                "reminder_cadence_after": {
+                  "interval": "daily"
+                },
+                "reminder_cadence_before": {
+                  "interval": "daily"
+                },
                 "reminder_detected_date_offset_hours": [
                   0,
                   48
@@ -65884,6 +65902,12 @@
                       }
                     }
                   ],
+                  "reminder_cadence_after": {
+                    "interval": "daily"
+                  },
+                  "reminder_cadence_before": {
+                    "interval": "daily"
+                  },
                   "reminder_detected_date_offset_hours": [
                     0,
                     48
@@ -66302,6 +66326,12 @@
                   }
                 }
               ],
+              "reminder_cadence_after": {
+                "interval": "daily"
+              },
+              "reminder_cadence_before": {
+                "interval": "daily"
+              },
               "reminder_detected_date_offset_hours": [
                 0,
                 48
@@ -66715,6 +66745,12 @@
                 }
               }
             ],
+            "reminder_cadence_after": {
+              "interval": "daily"
+            },
+            "reminder_cadence_before": {
+              "interval": "daily"
+            },
             "reminder_detected_date_offset_hours": [
               0,
               48
@@ -67264,6 +67300,12 @@
                   }
                 }
               ],
+              "reminder_cadence_after": {
+                "interval": "daily"
+              },
+              "reminder_cadence_before": {
+                "interval": "daily"
+              },
               "reminder_detected_date_offset_hours": [
                 0,
                 48
@@ -67676,6 +67718,12 @@
               }
             }
           ],
+          "reminder_cadence_after": {
+            "interval": "daily"
+          },
+          "reminder_cadence_before": {
+            "interval": "daily"
+          },
           "reminder_detected_date_offset_hours": [
             0,
             48
@@ -67707,6 +67755,12 @@
               "$ref": "#/components/schemas/EngineParamBindingPayloadV2"
             },
             "type": "array"
+          },
+          "reminder_cadence_after": {
+            "$ref": "#/components/schemas/PolicyReminderCadenceV2"
+          },
+          "reminder_cadence_before": {
+            "$ref": "#/components/schemas/PolicyReminderCadenceV2"
           },
           "reminder_detected_date_offset_hours": {
             "description": "List of hours relative to when the violation was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).",
@@ -67760,6 +67814,12 @@
               }
             }
           ],
+          "reminder_cadence_after": {
+            "interval": "daily"
+          },
+          "reminder_cadence_before": {
+            "interval": "daily"
+          },
           "reminder_detected_date_offset_hours": [
             0,
             48
@@ -67793,6 +67853,12 @@
               "$ref": "#/components/schemas/EngineParamBindingV2"
             },
             "type": "array"
+          },
+          "reminder_cadence_after": {
+            "$ref": "#/components/schemas/PolicyReminderCadenceV2"
+          },
+          "reminder_cadence_before": {
+            "$ref": "#/components/schemas/PolicyReminderCadenceV2"
           },
           "reminder_detected_date_offset_hours": {
             "description": "List of hours relative to when the violation was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).",
@@ -69834,6 +69900,27 @@
         ],
         "type": "object"
       },
+      "PolicyReminderCadenceV2": {
+        "description": "A recurring reminder, which repeats once per interval until the violation is resolved.",
+        "example": {
+          "interval": "daily"
+        },
+        "properties": {
+          "interval": {
+            "description": "How often to send the reminder, stepping in fixed durations from the due date.",
+            "enum": [
+              "daily",
+              "weekly"
+            ],
+            "example": "daily",
+            "type": "string"
+          }
+        },
+        "required": [
+          "interval"
+        ],
+        "type": "object"
+      },
       "PolicyScheduleV2": {
         "description": "Detects gaps in on-call coverage. Set when policy_type is schedule.",
         "example": {
@@ -69882,6 +69969,12 @@
                 }
               }
             ],
+            "reminder_cadence_after": {
+              "interval": "daily"
+            },
+            "reminder_cadence_before": {
+              "interval": "daily"
+            },
             "reminder_detected_date_offset_hours": [
               0,
               48
@@ -127059,6 +127152,12 @@
                             }
                           }
                         ],
+                        "reminder_cadence_after": {
+                          "interval": "daily"
+                        },
+                        "reminder_cadence_before": {
+                          "interval": "daily"
+                        },
                         "reminder_detected_date_offset_hours": [
                           0,
                           48
@@ -127620,6 +127719,12 @@
                       }
                     }
                   ],
+                  "reminder_cadence_after": {
+                    "interval": "daily"
+                  },
+                  "reminder_cadence_before": {
+                    "interval": "daily"
+                  },
                   "reminder_detected_date_offset_hours": [
                     0,
                     48
@@ -127964,6 +128069,12 @@
                           }
                         }
                       ],
+                      "reminder_cadence_after": {
+                        "interval": "daily"
+                      },
+                      "reminder_cadence_before": {
+                        "interval": "daily"
+                      },
                       "reminder_detected_date_offset_hours": [
                         0,
                         48
@@ -128715,6 +128826,12 @@
                           }
                         }
                       ],
+                      "reminder_cadence_after": {
+                        "interval": "daily"
+                      },
+                      "reminder_cadence_before": {
+                        "interval": "daily"
+                      },
                       "reminder_detected_date_offset_hours": [
                         0,
                         48
@@ -129289,6 +129406,12 @@
                       }
                     }
                   ],
+                  "reminder_cadence_after": {
+                    "interval": "daily"
+                  },
+                  "reminder_cadence_before": {
+                    "interval": "daily"
+                  },
                   "reminder_detected_date_offset_hours": [
                     0,
                     48
@@ -129633,6 +129756,12 @@
                           }
                         }
                       ],
+                      "reminder_cadence_after": {
+                        "interval": "daily"
+                      },
+                      "reminder_cadence_before": {
+                        "interval": "daily"
+                      },
                       "reminder_detected_date_offset_hours": [
                         0,
                         48

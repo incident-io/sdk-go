@@ -5307,6 +5307,24 @@ func (e PolicyReadinessRuleV2MethodTypes) Valid() bool {
 	}
 }
 
+// Defines values for PolicyReminderCadenceV2Interval.
+const (
+	PolicyReminderCadenceV2IntervalDaily  PolicyReminderCadenceV2Interval = "daily"
+	PolicyReminderCadenceV2IntervalWeekly PolicyReminderCadenceV2Interval = "weekly"
+)
+
+// Valid indicates whether the value is a known member of the PolicyReminderCadenceV2Interval enum.
+func (e PolicyReminderCadenceV2Interval) Valid() bool {
+	switch e {
+	case PolicyReminderCadenceV2IntervalDaily:
+		return true
+	case PolicyReminderCadenceV2IntervalWeekly:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for PolicyScheduleV2EvaluationLevel.
 const (
 	PolicyScheduleV2EvaluationLevelRotation PolicyScheduleV2EvaluationLevel = "rotation"
@@ -5564,19 +5582,19 @@ func (e ScheduleRotationCreatePayloadV2SchedulingMode) Valid() bool {
 
 // Defines values for ScheduleRotationHandoverV2IntervalType.
 const (
-	Daily  ScheduleRotationHandoverV2IntervalType = "daily"
-	Hourly ScheduleRotationHandoverV2IntervalType = "hourly"
-	Weekly ScheduleRotationHandoverV2IntervalType = "weekly"
+	ScheduleRotationHandoverV2IntervalTypeDaily  ScheduleRotationHandoverV2IntervalType = "daily"
+	ScheduleRotationHandoverV2IntervalTypeHourly ScheduleRotationHandoverV2IntervalType = "hourly"
+	ScheduleRotationHandoverV2IntervalTypeWeekly ScheduleRotationHandoverV2IntervalType = "weekly"
 )
 
 // Valid indicates whether the value is a known member of the ScheduleRotationHandoverV2IntervalType enum.
 func (e ScheduleRotationHandoverV2IntervalType) Valid() bool {
 	switch e {
-	case Daily:
+	case ScheduleRotationHandoverV2IntervalTypeDaily:
 		return true
-	case Hourly:
+	case ScheduleRotationHandoverV2IntervalTypeHourly:
 		return true
-	case Weekly:
+	case ScheduleRotationHandoverV2IntervalTypeWeekly:
 		return true
 	default:
 		return false
@@ -13612,6 +13630,12 @@ type PolicyAssignmentRulesPayloadV2 struct {
 	// Bindings Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
 	Bindings []EngineParamBindingPayloadV2 `json:"bindings"`
 
+	// ReminderCadenceAfter A recurring reminder, which repeats once per interval until the violation is resolved.
+	ReminderCadenceAfter *PolicyReminderCadenceV2 `json:"reminder_cadence_after,omitempty"`
+
+	// ReminderCadenceBefore A recurring reminder, which repeats once per interval until the violation is resolved.
+	ReminderCadenceBefore *PolicyReminderCadenceV2 `json:"reminder_cadence_before,omitempty"`
+
 	// ReminderDetectedDateOffsetHours List of hours relative to when the violation was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).
 	ReminderDetectedDateOffsetHours *[]int64 `json:"reminder_detected_date_offset_hours,omitempty"`
 
@@ -13623,6 +13647,12 @@ type PolicyAssignmentRulesPayloadV2 struct {
 type PolicyAssignmentRulesV2 struct {
 	// Bindings Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
 	Bindings []EngineParamBindingV2 `json:"bindings"`
+
+	// ReminderCadenceAfter A recurring reminder, which repeats once per interval until the violation is resolved.
+	ReminderCadenceAfter *PolicyReminderCadenceV2 `json:"reminder_cadence_after,omitempty"`
+
+	// ReminderCadenceBefore A recurring reminder, which repeats once per interval until the violation is resolved.
+	ReminderCadenceBefore *PolicyReminderCadenceV2 `json:"reminder_cadence_before,omitempty"`
 
 	// ReminderDetectedDateOffsetHours List of hours relative to when the violation was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).
 	ReminderDetectedDateOffsetHours *[]int64 `json:"reminder_detected_date_offset_hours,omitempty"`
@@ -13947,6 +13977,15 @@ type PolicyReadinessRuleV2 struct {
 
 // PolicyReadinessRuleV2MethodTypes defines model for PolicyReadinessRuleV2.MethodTypes.
 type PolicyReadinessRuleV2MethodTypes string
+
+// PolicyReminderCadenceV2 A recurring reminder, which repeats once per interval until the violation is resolved.
+type PolicyReminderCadenceV2 struct {
+	// Interval How often to send the reminder, stepping in fixed durations from the due date.
+	Interval PolicyReminderCadenceV2Interval `json:"interval"`
+}
+
+// PolicyReminderCadenceV2Interval How often to send the reminder, stepping in fixed durations from the due date.
+type PolicyReminderCadenceV2Interval string
 
 // PolicyScheduleV2 Detects gaps in on-call coverage. Set when policy_type is schedule.
 type PolicyScheduleV2 struct {
