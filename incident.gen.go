@@ -13538,7 +13538,7 @@ type PoliciesCreatePayloadV2 struct {
 	// Name Human readable name of the policy
 	Name string `json:"name"`
 
-	// OnCallReadiness Set when policy_type is on_call_readiness. The assignee is always the user in violation and cannot be configured.
+	// OnCallReadiness Set when policy_type is on_call_readiness. The assignee is always the user the finding is about and cannot be configured.
 	OnCallReadiness *PolicyOnCallReadinessV2 `json:"on_call_readiness,omitempty"`
 
 	// PolicyType Type of the policy, specifying what this applies to. Cannot be changed after the policy is created.
@@ -13598,7 +13598,7 @@ type PoliciesUpdatePayloadV2 struct {
 	// Name Human readable name of the policy
 	Name string `json:"name"`
 
-	// OnCallReadiness Set when policy_type is on_call_readiness. The assignee is always the user in violation and cannot be configured.
+	// OnCallReadiness Set when policy_type is on_call_readiness. The assignee is always the user the finding is about and cannot be configured.
 	OnCallReadiness *PolicyOnCallReadinessV2 `json:"on_call_readiness,omitempty"`
 
 	// PolicyType Type of the policy, specifying what this applies to. Cannot be changed after the policy is created.
@@ -13630,13 +13630,13 @@ type PolicyAssignmentRulesPayloadV2 struct {
 	// Bindings Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
 	Bindings []EngineParamBindingPayloadV2 `json:"bindings"`
 
-	// ReminderCadenceAfter A recurring reminder, which repeats once per interval until the violation is resolved.
+	// ReminderCadenceAfter A recurring reminder, which repeats once per interval until the finding is resolved.
 	ReminderCadenceAfter *PolicyReminderCadenceV2 `json:"reminder_cadence_after,omitempty"`
 
-	// ReminderCadenceBefore A recurring reminder, which repeats once per interval until the violation is resolved.
+	// ReminderCadenceBefore A recurring reminder, which repeats once per interval until the finding is resolved.
 	ReminderCadenceBefore *PolicyReminderCadenceV2 `json:"reminder_cadence_before,omitempty"`
 
-	// ReminderDetectedDateOffsetHours List of hours relative to when the violation was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).
+	// ReminderDetectedDateOffsetHours List of hours relative to when the finding was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).
 	ReminderDetectedDateOffsetHours *[]int64 `json:"reminder_detected_date_offset_hours,omitempty"`
 
 	// ReminderDueDateOffsetHours List of hours relative to the due date to remind the assignee. Negative values are before the due date, positive after.
@@ -13648,13 +13648,13 @@ type PolicyAssignmentRulesV2 struct {
 	// Bindings Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
 	Bindings []EngineParamBindingV2 `json:"bindings"`
 
-	// ReminderCadenceAfter A recurring reminder, which repeats once per interval until the violation is resolved.
+	// ReminderCadenceAfter A recurring reminder, which repeats once per interval until the finding is resolved.
 	ReminderCadenceAfter *PolicyReminderCadenceV2 `json:"reminder_cadence_after,omitempty"`
 
-	// ReminderCadenceBefore A recurring reminder, which repeats once per interval until the violation is resolved.
+	// ReminderCadenceBefore A recurring reminder, which repeats once per interval until the finding is resolved.
 	ReminderCadenceBefore *PolicyReminderCadenceV2 `json:"reminder_cadence_before,omitempty"`
 
-	// ReminderDetectedDateOffsetHours List of hours relative to when the violation was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).
+	// ReminderDetectedDateOffsetHours List of hours relative to when the finding was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).
 	ReminderDetectedDateOffsetHours *[]int64 `json:"reminder_detected_date_offset_hours,omitempty"`
 
 	// ReminderDueDateOffsetHours List of hours relative to the due date to remind the assignee. Negative values are before the due date, positive after.
@@ -13741,7 +13741,7 @@ type PolicyFindingFollowUpV2 struct {
 	IncidentId string `json:"incident_id"`
 }
 
-// PolicyFindingOnCallReadinessV2 Set when policy_type is on_call_readiness. The user is always the one in violation.
+// PolicyFindingOnCallReadinessV2 Set when policy_type is on_call_readiness. The user is always the one the finding is about.
 type PolicyFindingOnCallReadinessV2 struct {
 	// HighUrgency The high urgency rules the policy requires, and whether each was met
 	HighUrgency []PolicyFindingReadinessRuleV2 `json:"high_urgency"`
@@ -13833,7 +13833,7 @@ type PolicyFindingV2 struct {
 	// LastCheckedAt When this finding was last re-evaluated
 	LastCheckedAt time.Time `json:"last_checked_at"`
 
-	// OnCallReadiness Set when policy_type is on_call_readiness. The user is always the one in violation.
+	// OnCallReadiness Set when policy_type is on_call_readiness. The user is always the one the finding is about.
 	OnCallReadiness *PolicyFindingOnCallReadinessV2 `json:"on_call_readiness,omitempty"`
 
 	// PolicyId The policy this finding was raised against
@@ -13935,7 +13935,7 @@ type PolicyFollowUpV2 struct {
 	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
 }
 
-// PolicyOnCallReadinessV2 Set when policy_type is on_call_readiness. The assignee is always the user in violation and cannot be configured.
+// PolicyOnCallReadinessV2 Set when policy_type is on_call_readiness. The assignee is always the user the finding is about and cannot be configured.
 type PolicyOnCallReadinessV2 struct {
 	// Enforcement advisory reports only; blocking also prevents users saving non-compliant notification rules. Defaults to advisory.
 	Enforcement *PolicyOnCallReadinessV2Enforcement `json:"enforcement,omitempty"`
@@ -13978,7 +13978,7 @@ type PolicyReadinessRuleV2 struct {
 // PolicyReadinessRuleV2MethodTypes defines model for PolicyReadinessRuleV2.MethodTypes.
 type PolicyReadinessRuleV2MethodTypes string
 
-// PolicyReminderCadenceV2 A recurring reminder, which repeats once per interval until the violation is resolved.
+// PolicyReminderCadenceV2 A recurring reminder, which repeats once per interval until the finding is resolved.
 type PolicyReminderCadenceV2 struct {
 	// Interval How often to send the reminder, stepping in fixed durations from the due date.
 	Interval PolicyReminderCadenceV2Interval `json:"interval"`
@@ -14026,7 +14026,7 @@ type PolicyV2 struct {
 	// Name Human readable name of the policy
 	Name string `json:"name"`
 
-	// OnCallReadiness Set when policy_type is on_call_readiness. The assignee is always the user in violation and cannot be configured.
+	// OnCallReadiness Set when policy_type is on_call_readiness. The assignee is always the user the finding is about and cannot be configured.
 	OnCallReadiness *PolicyOnCallReadinessV2 `json:"on_call_readiness,omitempty"`
 
 	// PolicyType Type of the policy, specifying what this applies to

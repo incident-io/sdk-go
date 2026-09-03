@@ -67763,7 +67763,7 @@
             "$ref": "#/components/schemas/PolicyReminderCadenceV2"
           },
           "reminder_detected_date_offset_hours": {
-            "description": "List of hours relative to when the violation was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).",
+            "description": "List of hours relative to when the finding was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).",
             "example": [
               0,
               48
@@ -67861,7 +67861,7 @@
             "$ref": "#/components/schemas/PolicyReminderCadenceV2"
           },
           "reminder_detected_date_offset_hours": {
-            "description": "List of hours relative to when the violation was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).",
+            "description": "List of hours relative to when the finding was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).",
             "example": [
               0,
               48
@@ -68300,7 +68300,7 @@
         "type": "object"
       },
       "PolicyFindingOnCallReadinessV2": {
-        "description": "Set when policy_type is on_call_readiness. The user is always the one in violation.",
+        "description": "Set when policy_type is on_call_readiness. The user is always the one the finding is about.",
         "example": {
           "high_urgency": [
             {
@@ -69593,7 +69593,7 @@
         "type": "object"
       },
       "PolicyOnCallReadinessV2": {
-        "description": "Set when policy_type is on_call_readiness. The assignee is always the user in violation and cannot be configured.",
+        "description": "Set when policy_type is on_call_readiness. The assignee is always the user the finding is about and cannot be configured.",
         "example": {
           "enforcement": "advisory",
           "high_urgency": [
@@ -69901,7 +69901,7 @@
         "type": "object"
       },
       "PolicyReminderCadenceV2": {
-        "description": "A recurring reminder, which repeats once per interval until the violation is resolved.",
+        "description": "A recurring reminder, which repeats once per interval until the finding is resolved.",
         "example": {
           "interval": "daily"
         },
