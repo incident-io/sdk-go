@@ -660,6 +660,138 @@ func (e ActionsUpdatePayloadV3Status) Valid() bool {
 	}
 }
 
+// Defines values for ActivityActionUpdatedV2NewStatus.
+const (
+	ActivityActionUpdatedV2NewStatusCompleted   ActivityActionUpdatedV2NewStatus = "completed"
+	ActivityActionUpdatedV2NewStatusDeleted     ActivityActionUpdatedV2NewStatus = "deleted"
+	ActivityActionUpdatedV2NewStatusNotDoing    ActivityActionUpdatedV2NewStatus = "not_doing"
+	ActivityActionUpdatedV2NewStatusOutstanding ActivityActionUpdatedV2NewStatus = "outstanding"
+)
+
+// Valid indicates whether the value is a known member of the ActivityActionUpdatedV2NewStatus enum.
+func (e ActivityActionUpdatedV2NewStatus) Valid() bool {
+	switch e {
+	case ActivityActionUpdatedV2NewStatusCompleted:
+		return true
+	case ActivityActionUpdatedV2NewStatusDeleted:
+		return true
+	case ActivityActionUpdatedV2NewStatusNotDoing:
+		return true
+	case ActivityActionUpdatedV2NewStatusOutstanding:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ActivityActionUpdatedV2PreviousStatus.
+const (
+	ActivityActionUpdatedV2PreviousStatusCompleted   ActivityActionUpdatedV2PreviousStatus = "completed"
+	ActivityActionUpdatedV2PreviousStatusDeleted     ActivityActionUpdatedV2PreviousStatus = "deleted"
+	ActivityActionUpdatedV2PreviousStatusNotDoing    ActivityActionUpdatedV2PreviousStatus = "not_doing"
+	ActivityActionUpdatedV2PreviousStatusOutstanding ActivityActionUpdatedV2PreviousStatus = "outstanding"
+)
+
+// Valid indicates whether the value is a known member of the ActivityActionUpdatedV2PreviousStatus enum.
+func (e ActivityActionUpdatedV2PreviousStatus) Valid() bool {
+	switch e {
+	case ActivityActionUpdatedV2PreviousStatusCompleted:
+		return true
+	case ActivityActionUpdatedV2PreviousStatusDeleted:
+		return true
+	case ActivityActionUpdatedV2PreviousStatusNotDoing:
+		return true
+	case ActivityActionUpdatedV2PreviousStatusOutstanding:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ActivityFollowUpUpdatedV2NewStatus.
+const (
+	ActivityFollowUpUpdatedV2NewStatusCompleted   ActivityFollowUpUpdatedV2NewStatus = "completed"
+	ActivityFollowUpUpdatedV2NewStatusDeleted     ActivityFollowUpUpdatedV2NewStatus = "deleted"
+	ActivityFollowUpUpdatedV2NewStatusNotDoing    ActivityFollowUpUpdatedV2NewStatus = "not_doing"
+	ActivityFollowUpUpdatedV2NewStatusOutstanding ActivityFollowUpUpdatedV2NewStatus = "outstanding"
+)
+
+// Valid indicates whether the value is a known member of the ActivityFollowUpUpdatedV2NewStatus enum.
+func (e ActivityFollowUpUpdatedV2NewStatus) Valid() bool {
+	switch e {
+	case ActivityFollowUpUpdatedV2NewStatusCompleted:
+		return true
+	case ActivityFollowUpUpdatedV2NewStatusDeleted:
+		return true
+	case ActivityFollowUpUpdatedV2NewStatusNotDoing:
+		return true
+	case ActivityFollowUpUpdatedV2NewStatusOutstanding:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ActivityFollowUpUpdatedV2PreviousStatus.
+const (
+	ActivityFollowUpUpdatedV2PreviousStatusCompleted   ActivityFollowUpUpdatedV2PreviousStatus = "completed"
+	ActivityFollowUpUpdatedV2PreviousStatusDeleted     ActivityFollowUpUpdatedV2PreviousStatus = "deleted"
+	ActivityFollowUpUpdatedV2PreviousStatusNotDoing    ActivityFollowUpUpdatedV2PreviousStatus = "not_doing"
+	ActivityFollowUpUpdatedV2PreviousStatusOutstanding ActivityFollowUpUpdatedV2PreviousStatus = "outstanding"
+)
+
+// Valid indicates whether the value is a known member of the ActivityFollowUpUpdatedV2PreviousStatus enum.
+func (e ActivityFollowUpUpdatedV2PreviousStatus) Valid() bool {
+	switch e {
+	case ActivityFollowUpUpdatedV2PreviousStatusCompleted:
+		return true
+	case ActivityFollowUpUpdatedV2PreviousStatusDeleted:
+		return true
+	case ActivityFollowUpUpdatedV2PreviousStatusNotDoing:
+		return true
+	case ActivityFollowUpUpdatedV2PreviousStatusOutstanding:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ActivityIncidentVisibilityChangedV2NewVisibility.
+const (
+	ActivityIncidentVisibilityChangedV2NewVisibilityPrivate ActivityIncidentVisibilityChangedV2NewVisibility = "private"
+	ActivityIncidentVisibilityChangedV2NewVisibilityPublic  ActivityIncidentVisibilityChangedV2NewVisibility = "public"
+)
+
+// Valid indicates whether the value is a known member of the ActivityIncidentVisibilityChangedV2NewVisibility enum.
+func (e ActivityIncidentVisibilityChangedV2NewVisibility) Valid() bool {
+	switch e {
+	case ActivityIncidentVisibilityChangedV2NewVisibilityPrivate:
+		return true
+	case ActivityIncidentVisibilityChangedV2NewVisibilityPublic:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ActivityIncidentVisibilityChangedV2PreviousVisibility.
+const (
+	ActivityIncidentVisibilityChangedV2PreviousVisibilityPrivate ActivityIncidentVisibilityChangedV2PreviousVisibility = "private"
+	ActivityIncidentVisibilityChangedV2PreviousVisibilityPublic  ActivityIncidentVisibilityChangedV2PreviousVisibility = "public"
+)
+
+// Valid indicates whether the value is a known member of the ActivityIncidentVisibilityChangedV2PreviousVisibility enum.
+func (e ActivityIncidentVisibilityChangedV2PreviousVisibility) Valid() bool {
+	switch e {
+	case ActivityIncidentVisibilityChangedV2PreviousVisibilityPrivate:
+		return true
+	case ActivityIncidentVisibilityChangedV2PreviousVisibilityPublic:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for AlertEventsCreateHTTPPayloadV2Status.
 const (
 	AlertEventsCreateHTTPPayloadV2StatusFiring   AlertEventsCreateHTTPPayloadV2Status = "firing"
@@ -4173,6 +4305,207 @@ func (e IdentityV1TeamRoles) Valid() bool {
 	}
 }
 
+// Defines values for IncidentActivityLogEntryV2Type.
+const (
+	ActionCreated                               IncidentActivityLogEntryV2Type = "action_created"
+	ActionUpdated                               IncidentActivityLogEntryV2Type = "action_updated"
+	ActionsSharedInChannel                      IncidentActivityLogEntryV2Type = "actions_shared_in_channel"
+	AlertAttachedToIncident                     IncidentActivityLogEntryV2Type = "alert_attached_to_incident"
+	AlertGroupAttachedToIncident                IncidentActivityLogEntryV2Type = "alert_group_attached_to_incident"
+	AlertGroupDetachedFromIncident              IncidentActivityLogEntryV2Type = "alert_group_detached_from_incident"
+	AtlassianStatuspageUpdate                   IncidentActivityLogEntryV2Type = "atlassian_statuspage_update"
+	CallUrlChanged                              IncidentActivityLogEntryV2Type = "call_url_changed"
+	CustomFieldValueUpdate                      IncidentActivityLogEntryV2Type = "custom_field_value_update"
+	EscalationAcknowledged                      IncidentActivityLogEntryV2Type = "escalation_acknowledged"
+	EscalationCreated                           IncidentActivityLogEntryV2Type = "escalation_created"
+	ExternalIssueCommentSynced                  IncidentActivityLogEntryV2Type = "external_issue_comment_synced"
+	FollowUpCreated                             IncidentActivityLogEntryV2Type = "follow_up_created"
+	FollowUpUpdated                             IncidentActivityLogEntryV2Type = "follow_up_updated"
+	FollowUpsSharedInChannel                    IncidentActivityLogEntryV2Type = "follow_ups_shared_in_channel"
+	Handover                                    IncidentActivityLogEntryV2Type = "handover"
+	IncidentAttachmentAdded                     IncidentActivityLogEntryV2Type = "incident_attachment_added"
+	IncidentAttachmentRemoved                   IncidentActivityLogEntryV2Type = "incident_attachment_removed"
+	IncidentCallCreated                         IncidentActivityLogEntryV2Type = "incident_call_created"
+	IncidentCallEnded                           IncidentActivityLogEntryV2Type = "incident_call_ended"
+	IncidentCallParticipantsUpdated             IncidentActivityLogEntryV2Type = "incident_call_participants_updated"
+	IncidentCallRecallBotStatusChanged          IncidentActivityLogEntryV2Type = "incident_call_recall_bot_status_changed"
+	IncidentCallStarted                         IncidentActivityLogEntryV2Type = "incident_call_started"
+	IncidentCallTranscriptCurrentTopicGenerated IncidentActivityLogEntryV2Type = "incident_call_transcript_current_topic_generated"
+	IncidentCallTranscriptKeyMomentGenerated    IncidentActivityLogEntryV2Type = "incident_call_transcript_key_moment_generated"
+	IncidentCallTranscriptMessage               IncidentActivityLogEntryV2Type = "incident_call_transcript_message"
+	IncidentCallTranscriptSummaryGenerated      IncidentActivityLogEntryV2Type = "incident_call_transcript_summary_generated"
+	IncidentChannelCreated                      IncidentActivityLogEntryV2Type = "incident_channel_created"
+	IncidentChannelJoin                         IncidentActivityLogEntryV2Type = "incident_channel_join"
+	IncidentChannelLeave                        IncidentActivityLogEntryV2Type = "incident_channel_leave"
+	IncidentEscalate                            IncidentActivityLogEntryV2Type = "incident_escalate"
+	IncidentMembershipRevoked                   IncidentActivityLogEntryV2Type = "incident_membership_revoked"
+	IncidentMerged                              IncidentActivityLogEntryV2Type = "incident_merged"
+	IncidentRename                              IncidentActivityLogEntryV2Type = "incident_rename"
+	IncidentTimestampOccurred                   IncidentActivityLogEntryV2Type = "incident_timestamp_occurred"
+	IncidentTimestampSet                        IncidentActivityLogEntryV2Type = "incident_timestamp_set"
+	IncidentTypeChanged                         IncidentActivityLogEntryV2Type = "incident_type_changed"
+	IncidentUpdate                              IncidentActivityLogEntryV2Type = "incident_update"
+	IncidentVisibilityChanged                   IncidentActivityLogEntryV2Type = "incident_visibility_changed"
+	InvestigationHypothesisUpdate               IncidentActivityLogEntryV2Type = "investigation_hypothesis_update"
+	MicrosoftTeamsAnnouncementReply             IncidentActivityLogEntryV2Type = "microsoft_teams_announcement_reply"
+	MicrosoftTeamsImage                         IncidentActivityLogEntryV2Type = "microsoft_teams_image"
+	MicrosoftTeamsMessage                       IncidentActivityLogEntryV2Type = "microsoft_teams_message"
+	MicrosoftTeamsPinnedChannelMessage          IncidentActivityLogEntryV2Type = "microsoft_teams_pinned_channel_message"
+	PagerdutyIncidentAcknowledged               IncidentActivityLogEntryV2Type = "pagerduty_incident_acknowledged"
+	PagerdutyIncidentResolved                   IncidentActivityLogEntryV2Type = "pagerduty_incident_resolved"
+	PagerdutyIncidentTriggered                  IncidentActivityLogEntryV2Type = "pagerduty_incident_triggered"
+	PostmortemChanged                           IncidentActivityLogEntryV2Type = "postmortem_changed"
+	PostmortemDocumentV2Changed                 IncidentActivityLogEntryV2Type = "postmortem_document_v2_changed"
+	RoleUpdate                                  IncidentActivityLogEntryV2Type = "role_update"
+	ScribeAdded                                 IncidentActivityLogEntryV2Type = "scribe_added"
+	ScribeRemoved                               IncidentActivityLogEntryV2Type = "scribe_removed"
+	Scrub                                       IncidentActivityLogEntryV2Type = "scrub"
+	SlackImage                                  IncidentActivityLogEntryV2Type = "slack_image"
+	SlackInferSentry                            IncidentActivityLogEntryV2Type = "slack_infer_sentry"
+	SlackMessage                                IncidentActivityLogEntryV2Type = "slack_message"
+	SlackPin                                    IncidentActivityLogEntryV2Type = "slack_pin"
+	StatusChange                                IncidentActivityLogEntryV2Type = "status_change"
+	StatusPageIncidentLinked                    IncidentActivityLogEntryV2Type = "status_page_incident_linked"
+	StatusPageIncidentUpdated                   IncidentActivityLogEntryV2Type = "status_page_incident_updated"
+	SummaryUpdate                               IncidentActivityLogEntryV2Type = "summary_update"
+	UserIntentDeclared                          IncidentActivityLogEntryV2Type = "user_intent_declared"
+	WorkflowRan                                 IncidentActivityLogEntryV2Type = "workflow_ran"
+)
+
+// Valid indicates whether the value is a known member of the IncidentActivityLogEntryV2Type enum.
+func (e IncidentActivityLogEntryV2Type) Valid() bool {
+	switch e {
+	case ActionCreated:
+		return true
+	case ActionUpdated:
+		return true
+	case ActionsSharedInChannel:
+		return true
+	case AlertAttachedToIncident:
+		return true
+	case AlertGroupAttachedToIncident:
+		return true
+	case AlertGroupDetachedFromIncident:
+		return true
+	case AtlassianStatuspageUpdate:
+		return true
+	case CallUrlChanged:
+		return true
+	case CustomFieldValueUpdate:
+		return true
+	case EscalationAcknowledged:
+		return true
+	case EscalationCreated:
+		return true
+	case ExternalIssueCommentSynced:
+		return true
+	case FollowUpCreated:
+		return true
+	case FollowUpUpdated:
+		return true
+	case FollowUpsSharedInChannel:
+		return true
+	case Handover:
+		return true
+	case IncidentAttachmentAdded:
+		return true
+	case IncidentAttachmentRemoved:
+		return true
+	case IncidentCallCreated:
+		return true
+	case IncidentCallEnded:
+		return true
+	case IncidentCallParticipantsUpdated:
+		return true
+	case IncidentCallRecallBotStatusChanged:
+		return true
+	case IncidentCallStarted:
+		return true
+	case IncidentCallTranscriptCurrentTopicGenerated:
+		return true
+	case IncidentCallTranscriptKeyMomentGenerated:
+		return true
+	case IncidentCallTranscriptMessage:
+		return true
+	case IncidentCallTranscriptSummaryGenerated:
+		return true
+	case IncidentChannelCreated:
+		return true
+	case IncidentChannelJoin:
+		return true
+	case IncidentChannelLeave:
+		return true
+	case IncidentEscalate:
+		return true
+	case IncidentMembershipRevoked:
+		return true
+	case IncidentMerged:
+		return true
+	case IncidentRename:
+		return true
+	case IncidentTimestampOccurred:
+		return true
+	case IncidentTimestampSet:
+		return true
+	case IncidentTypeChanged:
+		return true
+	case IncidentUpdate:
+		return true
+	case IncidentVisibilityChanged:
+		return true
+	case InvestigationHypothesisUpdate:
+		return true
+	case MicrosoftTeamsAnnouncementReply:
+		return true
+	case MicrosoftTeamsImage:
+		return true
+	case MicrosoftTeamsMessage:
+		return true
+	case MicrosoftTeamsPinnedChannelMessage:
+		return true
+	case PagerdutyIncidentAcknowledged:
+		return true
+	case PagerdutyIncidentResolved:
+		return true
+	case PagerdutyIncidentTriggered:
+		return true
+	case PostmortemChanged:
+		return true
+	case PostmortemDocumentV2Changed:
+		return true
+	case RoleUpdate:
+		return true
+	case ScribeAdded:
+		return true
+	case ScribeRemoved:
+		return true
+	case Scrub:
+		return true
+	case SlackImage:
+		return true
+	case SlackInferSentry:
+		return true
+	case SlackMessage:
+		return true
+	case SlackPin:
+		return true
+	case StatusChange:
+		return true
+	case StatusPageIncidentLinked:
+		return true
+	case StatusPageIncidentUpdated:
+		return true
+	case SummaryUpdate:
+		return true
+	case UserIntentDeclared:
+		return true
+	case WorkflowRan:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for IncidentAttachmentsCreatePayloadV1ResourceResourceType.
 const (
 	IncidentAttachmentsCreatePayloadV1ResourceResourceTypeArbitraryUrl                IncidentAttachmentsCreatePayloadV1ResourceResourceType = "arbitrary_url"
@@ -7369,6 +7702,225 @@ type ActionsUpdateResultV2 struct {
 // ActionsUpdateResultV3 defines model for ActionsUpdateResultV3.
 type ActionsUpdateResultV3 struct {
 	Action ActionV3 `json:"action"`
+}
+
+// ActivityActionRefV2 defines model for ActivityActionRefV2.
+type ActivityActionRefV2 struct {
+	// ActionId The action. Fetch it from GET /v2/actions/{id}.
+	ActionId string   `json:"action_id"`
+	Actor    *ActorV2 `json:"actor,omitempty"`
+}
+
+// ActivityActionUpdatedV2 defines model for ActivityActionUpdatedV2.
+type ActivityActionUpdatedV2 struct {
+	// ActionId The action that changed. Fetch it from GET /v2/actions/{id}.
+	ActionId    string  `json:"action_id"`
+	NewAssignee *UserV2 `json:"new_assignee,omitempty"`
+
+	// NewStatus Status after, when the status changed
+	NewStatus        *ActivityActionUpdatedV2NewStatus `json:"new_status,omitempty"`
+	PreviousAssignee *UserV2                           `json:"previous_assignee,omitempty"`
+
+	// PreviousStatus Status before, when the status changed
+	PreviousStatus *ActivityActionUpdatedV2PreviousStatus `json:"previous_status,omitempty"`
+	Updater        *ActorV2                               `json:"updater,omitempty"`
+}
+
+// ActivityActionUpdatedV2NewStatus Status after, when the status changed
+type ActivityActionUpdatedV2NewStatus string
+
+// ActivityActionUpdatedV2PreviousStatus Status before, when the status changed
+type ActivityActionUpdatedV2PreviousStatus string
+
+// ActivityAlertRefV2 defines model for ActivityAlertRefV2.
+type ActivityAlertRefV2 struct {
+	Actor *ActorV2 `json:"actor,omitempty"`
+
+	// AlertId The alert. Fetch it from GET /v2/alerts/{id}.
+	AlertId string `json:"alert_id"`
+}
+
+// ActivityCustomFieldValueUpdateV2 defines model for ActivityCustomFieldValueUpdateV2.
+type ActivityCustomFieldValueUpdateV2 struct {
+	CustomField *CustomFieldTypeInfoV2 `json:"custom_field,omitempty"`
+
+	// NewValues Values after the change, up to 100 of them
+	NewValues *[]CustomFieldValueV2 `json:"new_values,omitempty"`
+
+	// NewValuesCount How many values there are now, which can exceed the array above
+	NewValuesCount *int64 `json:"new_values_count,omitempty"`
+
+	// PreviousValues Values before the change, up to 100 of them
+	PreviousValues *[]CustomFieldValueV2 `json:"previous_values,omitempty"`
+
+	// PreviousValuesCount How many values there were before, which can exceed the array above
+	PreviousValuesCount *int64   `json:"previous_values_count,omitempty"`
+	Updater             *ActorV2 `json:"updater,omitempty"`
+}
+
+// ActivityEscalationAcknowledgedV2 defines model for ActivityEscalationAcknowledgedV2.
+type ActivityEscalationAcknowledgedV2 struct {
+	Acknowledger *UserV2 `json:"acknowledger,omitempty"`
+
+	// EscalationId The escalation that was acknowledged
+	EscalationId string `json:"escalation_id"`
+}
+
+// ActivityEscalationCreatedV2 defines model for ActivityEscalationCreatedV2.
+type ActivityEscalationCreatedV2 struct {
+	Creator *ActorV2 `json:"creator,omitempty"`
+
+	// EscalatedToUsers Users this escalation paged
+	EscalatedToUsers *[]UserV2 `json:"escalated_to_users,omitempty"`
+
+	// EscalationId The escalation. Fetch it from GET /v2/escalations/{id}.
+	EscalationId string `json:"escalation_id"`
+
+	// EscalationPathId The escalation path used, when one was
+	EscalationPathId *string `json:"escalation_path_id,omitempty"`
+}
+
+// ActivityFollowUpRefV2 defines model for ActivityFollowUpRefV2.
+type ActivityFollowUpRefV2 struct {
+	Actor *ActorV2 `json:"actor,omitempty"`
+
+	// FollowUpId The follow-up. Fetch it from GET /v2/follow_ups/{id}.
+	FollowUpId string `json:"follow_up_id"`
+}
+
+// ActivityFollowUpUpdatedV2 defines model for ActivityFollowUpUpdatedV2.
+type ActivityFollowUpUpdatedV2 struct {
+	// FollowUpId The follow-up that changed. Fetch it from GET /v2/follow_ups/{id}.
+	FollowUpId  string  `json:"follow_up_id"`
+	NewAssignee *UserV2 `json:"new_assignee,omitempty"`
+
+	// NewStatus Status after, when the status changed
+	NewStatus *ActivityFollowUpUpdatedV2NewStatus `json:"new_status,omitempty"`
+
+	// NewTitle Title after, when the title changed
+	NewTitle         *string `json:"new_title,omitempty"`
+	PreviousAssignee *UserV2 `json:"previous_assignee,omitempty"`
+
+	// PreviousStatus Status before, when the status changed
+	PreviousStatus *ActivityFollowUpUpdatedV2PreviousStatus `json:"previous_status,omitempty"`
+
+	// PreviousTitle Title before, when the title changed
+	PreviousTitle *string  `json:"previous_title,omitempty"`
+	Updater       *ActorV2 `json:"updater,omitempty"`
+}
+
+// ActivityFollowUpUpdatedV2NewStatus Status after, when the status changed
+type ActivityFollowUpUpdatedV2NewStatus string
+
+// ActivityFollowUpUpdatedV2PreviousStatus Status before, when the status changed
+type ActivityFollowUpUpdatedV2PreviousStatus string
+
+// ActivityIncidentMergedV2 defines model for ActivityIncidentMergedV2.
+type ActivityIncidentMergedV2 struct {
+	// IncidentUpdateId The incident update that carried the merge. Absent on merges recorded before December 2025.
+	IncidentUpdateId *string  `json:"incident_update_id,omitempty"`
+	Merger           *ActorV2 `json:"merger,omitempty"`
+
+	// SourceIncident Incident slim is a subset of the full incident object, listing key fields.
+	SourceIncident *IncidentSlimV2 `json:"source_incident,omitempty"`
+}
+
+// ActivityIncidentRenameV2 defines model for ActivityIncidentRenameV2.
+type ActivityIncidentRenameV2 struct {
+	// NewName The incident's name after the rename
+	NewName string `json:"new_name"`
+
+	// PreviousName The incident's name before the rename
+	PreviousName string   `json:"previous_name"`
+	Updater      *ActorV2 `json:"updater,omitempty"`
+}
+
+// ActivityIncidentTimestampSetV2 defines model for ActivityIncidentTimestampSetV2.
+type ActivityIncidentTimestampSetV2 struct {
+	IncidentTimestamp IncidentTimestampV2 `json:"incident_timestamp"`
+
+	// NewValue What it was set to
+	NewValue time.Time `json:"new_value"`
+
+	// PreviousValue What it was before. Absent when it was previously unset.
+	PreviousValue *time.Time `json:"previous_value,omitempty"`
+	Updater       *ActorV2   `json:"updater,omitempty"`
+}
+
+// ActivityIncidentTypeChangedV2 defines model for ActivityIncidentTypeChangedV2.
+type ActivityIncidentTypeChangedV2 struct {
+	NewIncidentType      *IncidentTypeV2 `json:"new_incident_type,omitempty"`
+	PreviousIncidentType *IncidentTypeV2 `json:"previous_incident_type,omitempty"`
+	Updater              *ActorV2        `json:"updater,omitempty"`
+}
+
+// ActivityIncidentUpdateV2 defines model for ActivityIncidentUpdateV2.
+type ActivityIncidentUpdateV2 struct {
+	// Id ID of the incident update
+	Id string `json:"id"`
+
+	// Message The update the responder wrote, in markdown
+	Message     *string           `json:"message,omitempty"`
+	NewSeverity *SeverityV2       `json:"new_severity,omitempty"`
+	NewStatus   *IncidentStatusV2 `json:"new_status,omitempty"`
+
+	// NextUpdateInMinutes When the responder said the next update would come
+	NextUpdateInMinutes *int64            `json:"next_update_in_minutes,omitempty"`
+	PreviousSeverity    *SeverityV2       `json:"previous_severity,omitempty"`
+	PreviousStatus      *IncidentStatusV2 `json:"previous_status,omitempty"`
+	Updater             *ActorV2          `json:"updater,omitempty"`
+}
+
+// ActivityIncidentVisibilityChangedV2 defines model for ActivityIncidentVisibilityChangedV2.
+type ActivityIncidentVisibilityChangedV2 struct {
+	// NewVisibility Visibility after the change
+	NewVisibility ActivityIncidentVisibilityChangedV2NewVisibility `json:"new_visibility"`
+
+	// PreviousVisibility Visibility before the change
+	PreviousVisibility ActivityIncidentVisibilityChangedV2PreviousVisibility `json:"previous_visibility"`
+	Updater            *ActorV2                                              `json:"updater,omitempty"`
+}
+
+// ActivityIncidentVisibilityChangedV2NewVisibility Visibility after the change
+type ActivityIncidentVisibilityChangedV2NewVisibility string
+
+// ActivityIncidentVisibilityChangedV2PreviousVisibility Visibility before the change
+type ActivityIncidentVisibilityChangedV2PreviousVisibility string
+
+// ActivityRoleUpdateV2 defines model for ActivityRoleUpdateV2.
+type ActivityRoleUpdateV2 struct {
+	NewAssignee      *UserV2         `json:"new_assignee,omitempty"`
+	PreviousAssignee *UserV2         `json:"previous_assignee,omitempty"`
+	Role             *IncidentRoleV2 `json:"role,omitempty"`
+	Updater          *ActorV2        `json:"updater,omitempty"`
+}
+
+// ActivityStatusChangeV2 defines model for ActivityStatusChangeV2.
+type ActivityStatusChangeV2 struct {
+	NewStatus      *IncidentStatusV2 `json:"new_status,omitempty"`
+	PreviousStatus *IncidentStatusV2 `json:"previous_status,omitempty"`
+	Updater        *ActorV2          `json:"updater,omitempty"`
+}
+
+// ActivitySummaryUpdateV2 defines model for ActivitySummaryUpdateV2.
+type ActivitySummaryUpdateV2 struct {
+	// NewSummary The summary after this change, in markdown
+	NewSummary *string `json:"new_summary,omitempty"`
+
+	// PreviousSummary The summary before this change, in markdown
+	PreviousSummary *string  `json:"previous_summary,omitempty"`
+	Updater         *ActorV2 `json:"updater,omitempty"`
+}
+
+// ActivityWorkflowRanV2 defines model for ActivityWorkflowRanV2.
+type ActivityWorkflowRanV2 struct {
+	Creator *ActorV2 `json:"creator,omitempty"`
+
+	// EventDescription Description of the event the workflow added, in markdown
+	EventDescription *string `json:"event_description,omitempty"`
+
+	// EventTitle Title of the event the workflow added
+	EventTitle string `json:"event_title"`
 }
 
 // ActorV1 defines model for ActorV1.
@@ -11857,6 +12409,70 @@ type ImageV1 struct {
 	Url string `json:"url"`
 }
 
+// IncidentActivityLogContentV2 Details of an activity log entry.
+//
+// At most one key is set, and it matches the entry's type. Types not listed here carry no
+// content: the entry's type and title are all there is.
+type IncidentActivityLogContentV2 struct {
+	ActionCreated             *ActivityActionRefV2                 `json:"action_created,omitempty"`
+	ActionUpdated             *ActivityActionUpdatedV2             `json:"action_updated,omitempty"`
+	AlertAttachedToIncident   *ActivityAlertRefV2                  `json:"alert_attached_to_incident,omitempty"`
+	CustomFieldValueUpdate    *ActivityCustomFieldValueUpdateV2    `json:"custom_field_value_update,omitempty"`
+	EscalationAcknowledged    *ActivityEscalationAcknowledgedV2    `json:"escalation_acknowledged,omitempty"`
+	EscalationCreated         *ActivityEscalationCreatedV2         `json:"escalation_created,omitempty"`
+	FollowUpCreated           *ActivityFollowUpRefV2               `json:"follow_up_created,omitempty"`
+	FollowUpUpdated           *ActivityFollowUpUpdatedV2           `json:"follow_up_updated,omitempty"`
+	IncidentMerged            *ActivityIncidentMergedV2            `json:"incident_merged,omitempty"`
+	IncidentRename            *ActivityIncidentRenameV2            `json:"incident_rename,omitempty"`
+	IncidentTimestampSet      *ActivityIncidentTimestampSetV2      `json:"incident_timestamp_set,omitempty"`
+	IncidentTypeChanged       *ActivityIncidentTypeChangedV2       `json:"incident_type_changed,omitempty"`
+	IncidentUpdate            *ActivityIncidentUpdateV2            `json:"incident_update,omitempty"`
+	IncidentVisibilityChanged *ActivityIncidentVisibilityChangedV2 `json:"incident_visibility_changed,omitempty"`
+	RoleUpdate                *ActivityRoleUpdateV2                `json:"role_update,omitempty"`
+	StatusChange              *ActivityStatusChangeV2              `json:"status_change,omitempty"`
+	SummaryUpdate             *ActivitySummaryUpdateV2             `json:"summary_update,omitempty"`
+	WorkflowRan               *ActivityWorkflowRanV2               `json:"workflow_ran,omitempty"`
+}
+
+// IncidentActivityLogEntriesListResultV2 defines model for IncidentActivityLogEntriesListResultV2.
+type IncidentActivityLogEntriesListResultV2 struct {
+	IncidentActivityLogEntries []IncidentActivityLogEntryV2 `json:"incident_activity_log_entries"`
+	PaginationMeta             *PaginationMetaResultV2      `json:"pagination_meta,omitempty"`
+}
+
+// IncidentActivityLogEntryV2 One thing that happened on an incident.
+//
+// The activity log records everything. The timeline is the narrative, made of the entries
+// someone promoted onto it and the items they wrote by hand.
+type IncidentActivityLogEntryV2 struct {
+	// Content Details of an activity log entry.
+	//
+	// At most one key is set, and it matches the entry's type. Types not listed here carry no
+	// content: the entry's type and title are all there is.
+	Content *IncidentActivityLogContentV2 `json:"content,omitempty"`
+
+	// CreatedAt When we recorded the activity
+	CreatedAt time.Time `json:"created_at"`
+
+	// Id Unique identifier of the activity log entry
+	Id string `json:"id"`
+
+	// IncidentId ID of the incident this happened on. When the incident has streams, listing the parent also returns entries from its streams, and this is the stream's ID for those.
+	IncidentId string `json:"incident_id"`
+
+	// OccurredAt When the activity happened. This is what the log is ordered by.
+	OccurredAt time.Time `json:"occurred_at"`
+
+	// Title Human-readable summary of what happened
+	Title string `json:"title"`
+
+	// Type What kind of activity this is. Switch on this rather than title, which is display copy we reword.
+	Type IncidentActivityLogEntryV2Type `json:"type"`
+}
+
+// IncidentActivityLogEntryV2Type What kind of activity this is. Switch on this rather than title, which is display copy we reword.
+type IncidentActivityLogEntryV2Type string
+
 // IncidentAlertV2 defines model for IncidentAlertV2.
 type IncidentAlertV2 struct {
 	Alert AlertSlimV2 `json:"alert"`
@@ -12594,6 +13210,100 @@ type IncidentTemplatesValidatePayloadV1 struct {
 type IncidentTemplatesValidateResultV1 struct {
 	// Warnings Anything suspect about this config that isn't severe enough to reject it. Empty when there's nothing to say.
 	Warnings []IncidentTemplateValidateWarningV1 `json:"warnings"`
+}
+
+// IncidentTimelineItemV2 An item on an incident's curated timeline.
+//
+// The timeline is the narrative of an incident, as opposed to the activity log, which records
+// everything that happened. Some of that activity - a pinned message, an escalation, an event a
+// workflow added - is promoted onto the timeline, and those items carry the ID of the activity
+// log entry they came from. The rest are custom, written by hand in the dashboard or through
+// the API, and have no activity_log_id.
+type IncidentTimelineItemV2 struct {
+	// ActivityLogId ID of the activity log entry this item was promoted from. Null for items written by hand, which are the items whose timestamp can be changed.
+	ActivityLogId *string `json:"activity_log_id,omitempty"`
+
+	// CreatedAt When this item was added to the timeline
+	CreatedAt time.Time `json:"created_at"`
+	Creator   ActorV2   `json:"creator"`
+
+	// Description Description of the timeline item, in markdown. Absent when the item has no description.
+	Description *string `json:"description,omitempty"`
+
+	// Id Unique identifier of the timeline item
+	Id string `json:"id"`
+
+	// IncidentId ID of the incident this item belongs to. When the incident has streams, listing the parent also returns items belonging to its streams, and this is the stream's ID for those.
+	IncidentId string `json:"incident_id"`
+
+	// Timestamp When the thing this item describes happened. This is what the timeline is ordered by, and is not the same as created_at.
+	Timestamp time.Time `json:"timestamp"`
+
+	// Title Title of the timeline item
+	Title string `json:"title"`
+
+	// UpdatedAt When this item was last edited
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
+// IncidentTimelineItemsCreatePayloadV2 defines model for IncidentTimelineItemsCreatePayloadV2.
+type IncidentTimelineItemsCreatePayloadV2 struct {
+	// Description Description of the timeline item, in markdown
+	Description *string `json:"description,omitempty"`
+
+	// IdempotencyKey Unique string used to de-duplicate timeline item requests. Retrying with the same key returns the item the first request created, rather than adding a second one.
+	IdempotencyKey string `json:"idempotency_key"`
+
+	// IncidentId Incident to add this item to
+	IncidentId string `json:"incident_id"`
+
+	// Timestamp When the thing this item describes happened. This is where the item sits on the timeline, and can be in the past.
+	Timestamp time.Time `json:"timestamp"`
+
+	// Title Title of the timeline item
+	Title string `json:"title"`
+}
+
+// IncidentTimelineItemsCreateResultV2 defines model for IncidentTimelineItemsCreateResultV2.
+type IncidentTimelineItemsCreateResultV2 struct {
+	// IncidentTimelineItem An item on an incident's curated timeline.
+	//
+	// The timeline is the narrative of an incident, as opposed to the activity log, which records
+	// everything that happened. Some of that activity - a pinned message, an escalation, an event a
+	// workflow added - is promoted onto the timeline, and those items carry the ID of the activity
+	// log entry they came from. The rest are custom, written by hand in the dashboard or through
+	// the API, and have no activity_log_id.
+	IncidentTimelineItem IncidentTimelineItemV2 `json:"incident_timeline_item"`
+}
+
+// IncidentTimelineItemsListResultV2 defines model for IncidentTimelineItemsListResultV2.
+type IncidentTimelineItemsListResultV2 struct {
+	IncidentTimelineItems []IncidentTimelineItemV2 `json:"incident_timeline_items"`
+	PaginationMeta        *PaginationMetaResultV2  `json:"pagination_meta,omitempty"`
+}
+
+// IncidentTimelineItemsUpdatePayloadV2 defines model for IncidentTimelineItemsUpdatePayloadV2.
+type IncidentTimelineItemsUpdatePayloadV2 struct {
+	// Description Description of the timeline item, in markdown. Send an empty string to remove it.
+	Description *string `json:"description,omitempty"`
+
+	// Timestamp When the thing this item describes happened. Only editable on a custom item.
+	Timestamp *time.Time `json:"timestamp,omitempty"`
+
+	// Title Title of the timeline item
+	Title *string `json:"title,omitempty"`
+}
+
+// IncidentTimelineItemsUpdateResultV2 defines model for IncidentTimelineItemsUpdateResultV2.
+type IncidentTimelineItemsUpdateResultV2 struct {
+	// IncidentTimelineItem An item on an incident's curated timeline.
+	//
+	// The timeline is the narrative of an incident, as opposed to the activity log, which records
+	// everything that happened. Some of that activity - a pinned message, an escalation, an event a
+	// workflow added - is promoted onto the timeline, and those items carry the ID of the activity
+	// log entry they came from. The rest are custom, written by hand in the dashboard or through
+	// the API, and have no activity_log_id.
+	IncidentTimelineItem IncidentTimelineItemV2 `json:"incident_timeline_item"`
 }
 
 // IncidentTimestampV2 defines model for IncidentTimestampV2.
@@ -16978,6 +17688,21 @@ type HeartbeatV2PingParams struct {
 	Authorization *string `json:"authorization,omitempty"`
 }
 
+// IncidentActivityLogEntriesV2ListParams defines parameters for IncidentActivityLogEntriesV2List.
+type IncidentActivityLogEntriesV2ListParams struct {
+	// IncidentId Incident whose activity you want to list
+	IncidentId string `form:"incident_id" json:"incident_id"`
+
+	// Id Return only the entries with these IDs
+	Id *[]string `form:"id,omitempty" json:"id,omitempty"`
+
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After An entry's ID. This endpoint returns the entries that follow it.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+}
+
 // AlertsV2ListIncidentAlertsParams defines parameters for AlertsV2ListIncidentAlerts.
 type AlertsV2ListIncidentAlertsParams struct {
 	// PageSize Number of incident alerts to return per page
@@ -17003,6 +17728,18 @@ type IncidentParticipantWorkloadsV2ListParams struct {
 type IncidentParticipantsV2ListParams struct {
 	// IncidentId Find participants of this incident
 	IncidentId string `form:"incident_id" json:"incident_id"`
+}
+
+// IncidentTimelineItemsV2ListParams defines parameters for IncidentTimelineItemsV2List.
+type IncidentTimelineItemsV2ListParams struct {
+	// IncidentId Incident whose timeline you want to list
+	IncidentId string `form:"incident_id" json:"incident_id"`
+
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After A timeline item's ID. This endpoint returns the items that follow it.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
 }
 
 // IncidentUpdatesV2ListParams defines parameters for IncidentUpdatesV2List.
@@ -17525,6 +18262,12 @@ type IncidentRolesV2CreateJSONRequestBody = IncidentRolesCreatePayloadV2
 
 // IncidentRolesV2UpdateJSONRequestBody defines body for IncidentRolesV2Update for application/json ContentType.
 type IncidentRolesV2UpdateJSONRequestBody = IncidentRolesUpdatePayloadV2
+
+// IncidentTimelineItemsV2CreateJSONRequestBody defines body for IncidentTimelineItemsV2Create for application/json ContentType.
+type IncidentTimelineItemsV2CreateJSONRequestBody = IncidentTimelineItemsCreatePayloadV2
+
+// IncidentTimelineItemsV2UpdateJSONRequestBody defines body for IncidentTimelineItemsV2Update for application/json ContentType.
+type IncidentTimelineItemsV2UpdateJSONRequestBody = IncidentTimelineItemsUpdatePayloadV2
 
 // IncidentUpdatesV2CreateJSONRequestBody defines body for IncidentUpdatesV2Create for application/json ContentType.
 type IncidentUpdatesV2CreateJSONRequestBody = IncidentUpdatesCreatePayloadV2
@@ -18231,6 +18974,9 @@ type ClientInterface interface {
 	// HeartbeatV2Ping request
 	HeartbeatV2Ping(ctx context.Context, alertSourceConfigId string, params *HeartbeatV2PingParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// IncidentActivityLogEntriesV2List request
+	IncidentActivityLogEntriesV2List(ctx context.Context, params *IncidentActivityLogEntriesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// AlertsV2ListIncidentAlerts request
 	AlertsV2ListIncidentAlerts(ctx context.Context, params *AlertsV2ListIncidentAlertsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -18268,6 +19014,19 @@ type ClientInterface interface {
 	IncidentRolesV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	IncidentRolesV2Update(ctx context.Context, id string, body IncidentRolesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentTimelineItemsV2List request
+	IncidentTimelineItemsV2List(ctx context.Context, params *IncidentTimelineItemsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentTimelineItemsV2CreateWithBody request with any body
+	IncidentTimelineItemsV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	IncidentTimelineItemsV2Create(ctx context.Context, body IncidentTimelineItemsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentTimelineItemsV2UpdateWithBody request with any body
+	IncidentTimelineItemsV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	IncidentTimelineItemsV2Update(ctx context.Context, id string, body IncidentTimelineItemsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// IncidentTimestampsV2List request
 	IncidentTimestampsV2List(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -20989,6 +21748,18 @@ func (c *Client) HeartbeatV2Ping(ctx context.Context, alertSourceConfigId string
 	return c.Client.Do(req)
 }
 
+func (c *Client) IncidentActivityLogEntriesV2List(ctx context.Context, params *IncidentActivityLogEntriesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentActivityLogEntriesV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) AlertsV2ListIncidentAlerts(ctx context.Context, params *AlertsV2ListIncidentAlertsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newAlertsV2ListIncidentAlertsRequest(c.Server, params)
 	if err != nil {
@@ -21147,6 +21918,66 @@ func (c *Client) IncidentRolesV2UpdateWithBody(ctx context.Context, id string, c
 
 func (c *Client) IncidentRolesV2Update(ctx context.Context, id string, body IncidentRolesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newIncidentRolesV2UpdateRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTimelineItemsV2List(ctx context.Context, params *IncidentTimelineItemsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTimelineItemsV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTimelineItemsV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTimelineItemsV2CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTimelineItemsV2Create(ctx context.Context, body IncidentTimelineItemsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTimelineItemsV2CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTimelineItemsV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTimelineItemsV2UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentTimelineItemsV2Update(ctx context.Context, id string, body IncidentTimelineItemsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentTimelineItemsV2UpdateRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -29050,6 +29881,99 @@ func newHeartbeatV2PingRequest(server string, alertSourceConfigId string, params
 	return req, nil
 }
 
+// NewIncidentActivityLogEntriesV2ListRequest generates requests for IncidentActivityLogEntriesV2List
+func newIncidentActivityLogEntriesV2ListRequest(server string, params *IncidentActivityLogEntriesV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/incident_activity_log_entries")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident_id", params.IncidentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+			return nil, err
+		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+			return nil, err
+		} else {
+			for k, v := range parsed {
+				for _, v2 := range v {
+					queryValues.Add(k, v2)
+				}
+			}
+		}
+
+		if params.Id != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "id", *params.Id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "array", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewAlertsV2ListIncidentAlertsRequest generates requests for AlertsV2ListIncidentAlerts
 func newAlertsV2ListIncidentAlertsRequest(server string, params *AlertsV2ListIncidentAlertsParams) (*http.Request, error) {
 	var err error
@@ -29493,6 +30417,170 @@ func newIncidentRolesV2UpdateRequestWithBody(server string, id string, contentTy
 	}
 
 	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewIncidentTimelineItemsV2ListRequest generates requests for IncidentTimelineItemsV2List
+func newIncidentTimelineItemsV2ListRequest(server string, params *IncidentTimelineItemsV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/incident_timeline_items")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident_id", params.IncidentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+			return nil, err
+		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+			return nil, err
+		} else {
+			for k, v := range parsed {
+				for _, v2 := range v {
+					queryValues.Add(k, v2)
+				}
+			}
+		}
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewIncidentTimelineItemsV2CreateRequest calls the generic IncidentTimelineItemsV2Create builder with application/json body
+func newIncidentTimelineItemsV2CreateRequest(server string, body IncidentTimelineItemsV2CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newIncidentTimelineItemsV2CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewIncidentTimelineItemsV2CreateRequestWithBody generates requests for IncidentTimelineItemsV2Create with any type of body
+func newIncidentTimelineItemsV2CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/incident_timeline_items")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewIncidentTimelineItemsV2UpdateRequest calls the generic IncidentTimelineItemsV2Update builder with application/json body
+func newIncidentTimelineItemsV2UpdateRequest(server string, id string, body IncidentTimelineItemsV2UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newIncidentTimelineItemsV2UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewIncidentTimelineItemsV2UpdateRequestWithBody generates requests for IncidentTimelineItemsV2Update with any type of body
+func newIncidentTimelineItemsV2UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/incident_timeline_items/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PATCH", queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
@@ -35534,6 +36622,9 @@ type ClientWithResponsesInterface interface {
 	// HeartbeatV2PingWithResponse request
 	HeartbeatV2PingWithResponse(ctx context.Context, alertSourceConfigId string, params *HeartbeatV2PingParams, reqEditors ...RequestEditorFn) (*HeartbeatV2PingResponse, error)
 
+	// IncidentActivityLogEntriesV2ListWithResponse request
+	IncidentActivityLogEntriesV2ListWithResponse(ctx context.Context, params *IncidentActivityLogEntriesV2ListParams, reqEditors ...RequestEditorFn) (*IncidentActivityLogEntriesV2ListResponse, error)
+
 	// AlertsV2ListIncidentAlertsWithResponse request
 	AlertsV2ListIncidentAlertsWithResponse(ctx context.Context, params *AlertsV2ListIncidentAlertsParams, reqEditors ...RequestEditorFn) (*AlertsV2ListIncidentAlertsResponse, error)
 
@@ -35571,6 +36662,19 @@ type ClientWithResponsesInterface interface {
 	IncidentRolesV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentRolesV2UpdateResponse, error)
 
 	IncidentRolesV2UpdateWithResponse(ctx context.Context, id string, body IncidentRolesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentRolesV2UpdateResponse, error)
+
+	// IncidentTimelineItemsV2ListWithResponse request
+	IncidentTimelineItemsV2ListWithResponse(ctx context.Context, params *IncidentTimelineItemsV2ListParams, reqEditors ...RequestEditorFn) (*IncidentTimelineItemsV2ListResponse, error)
+
+	// IncidentTimelineItemsV2CreateWithBodyWithResponse request with any body
+	IncidentTimelineItemsV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentTimelineItemsV2CreateResponse, error)
+
+	IncidentTimelineItemsV2CreateWithResponse(ctx context.Context, body IncidentTimelineItemsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentTimelineItemsV2CreateResponse, error)
+
+	// IncidentTimelineItemsV2UpdateWithBodyWithResponse request with any body
+	IncidentTimelineItemsV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentTimelineItemsV2UpdateResponse, error)
+
+	IncidentTimelineItemsV2UpdateWithResponse(ctx context.Context, id string, body IncidentTimelineItemsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentTimelineItemsV2UpdateResponse, error)
 
 	// IncidentTimestampsV2ListWithResponse request
 	IncidentTimestampsV2ListWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*IncidentTimestampsV2ListResponse, error)
@@ -40610,6 +41714,41 @@ func (r HeartbeatV2PingResponse) StatusCode() int {
 	return 0
 }
 
+type IncidentActivityLogEntriesV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *IncidentActivityLogEntriesListResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentActivityLogEntriesV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentActivityLogEntriesV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type AlertsV2ListIncidentAlertsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -40953,6 +42092,111 @@ func (r IncidentRolesV2UpdateResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r IncidentRolesV2UpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentTimelineItemsV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *IncidentTimelineItemsListResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentTimelineItemsV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentTimelineItemsV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentTimelineItemsV2CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *IncidentTimelineItemsCreateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentTimelineItemsV2CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentTimelineItemsV2CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentTimelineItemsV2UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *IncidentTimelineItemsUpdateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentTimelineItemsV2UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentTimelineItemsV2UpdateResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -46427,6 +47671,15 @@ func (c *ClientWithResponses) HeartbeatV2PingWithResponse(ctx context.Context, a
 	return parseHeartbeatV2PingResponse(rsp)
 }
 
+// IncidentActivityLogEntriesV2ListWithResponse request returning *IncidentActivityLogEntriesV2ListResponse
+func (c *ClientWithResponses) IncidentActivityLogEntriesV2ListWithResponse(ctx context.Context, params *IncidentActivityLogEntriesV2ListParams, reqEditors ...RequestEditorFn) (*IncidentActivityLogEntriesV2ListResponse, error) {
+	rsp, err := c.IncidentActivityLogEntriesV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentActivityLogEntriesV2ListResponse(rsp)
+}
+
 // AlertsV2ListIncidentAlertsWithResponse request returning *AlertsV2ListIncidentAlertsResponse
 func (c *ClientWithResponses) AlertsV2ListIncidentAlertsWithResponse(ctx context.Context, params *AlertsV2ListIncidentAlertsParams, reqEditors ...RequestEditorFn) (*AlertsV2ListIncidentAlertsResponse, error) {
 	rsp, err := c.AlertsV2ListIncidentAlerts(ctx, params, reqEditors...)
@@ -46547,6 +47800,49 @@ func (c *ClientWithResponses) IncidentRolesV2UpdateWithResponse(ctx context.Cont
 		return nil, err
 	}
 	return parseIncidentRolesV2UpdateResponse(rsp)
+}
+
+// IncidentTimelineItemsV2ListWithResponse request returning *IncidentTimelineItemsV2ListResponse
+func (c *ClientWithResponses) IncidentTimelineItemsV2ListWithResponse(ctx context.Context, params *IncidentTimelineItemsV2ListParams, reqEditors ...RequestEditorFn) (*IncidentTimelineItemsV2ListResponse, error) {
+	rsp, err := c.IncidentTimelineItemsV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTimelineItemsV2ListResponse(rsp)
+}
+
+// IncidentTimelineItemsV2CreateWithBodyWithResponse request with arbitrary body returning *IncidentTimelineItemsV2CreateResponse
+func (c *ClientWithResponses) IncidentTimelineItemsV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentTimelineItemsV2CreateResponse, error) {
+	rsp, err := c.IncidentTimelineItemsV2CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTimelineItemsV2CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) IncidentTimelineItemsV2CreateWithResponse(ctx context.Context, body IncidentTimelineItemsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentTimelineItemsV2CreateResponse, error) {
+	rsp, err := c.IncidentTimelineItemsV2Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTimelineItemsV2CreateResponse(rsp)
+}
+
+// IncidentTimelineItemsV2UpdateWithBodyWithResponse request with arbitrary body returning *IncidentTimelineItemsV2UpdateResponse
+func (c *ClientWithResponses) IncidentTimelineItemsV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentTimelineItemsV2UpdateResponse, error) {
+	rsp, err := c.IncidentTimelineItemsV2UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTimelineItemsV2UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) IncidentTimelineItemsV2UpdateWithResponse(ctx context.Context, id string, body IncidentTimelineItemsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentTimelineItemsV2UpdateResponse, error) {
+	rsp, err := c.IncidentTimelineItemsV2Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentTimelineItemsV2UpdateResponse(rsp)
 }
 
 // IncidentTimestampsV2ListWithResponse request returning *IncidentTimestampsV2ListResponse
@@ -63242,6 +64538,123 @@ func parseHeartbeatV2PingResponse(rsp *http.Response) (*HeartbeatV2PingResponse,
 	return response, nil
 }
 
+// ParseIncidentActivityLogEntriesV2ListResponse parses an HTTP response from a IncidentActivityLogEntriesV2ListWithResponse call
+func parseIncidentActivityLogEntriesV2ListResponse(rsp *http.Response) (*IncidentActivityLogEntriesV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentActivityLogEntriesV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IncidentActivityLogEntriesListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseAlertsV2ListIncidentAlertsResponse parses an HTTP response from a AlertsV2ListIncidentAlertsWithResponse call
 func parseAlertsV2ListIncidentAlertsResponse(rsp *http.Response) (*AlertsV2ListIncidentAlertsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -64304,6 +65717,357 @@ func parseIncidentRolesV2UpdateResponse(rsp *http.Response) (*IncidentRolesV2Upd
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest IncidentRolesUpdateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentTimelineItemsV2ListResponse parses an HTTP response from a IncidentTimelineItemsV2ListWithResponse call
+func parseIncidentTimelineItemsV2ListResponse(rsp *http.Response) (*IncidentTimelineItemsV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentTimelineItemsV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IncidentTimelineItemsListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentTimelineItemsV2CreateResponse parses an HTTP response from a IncidentTimelineItemsV2CreateWithResponse call
+func parseIncidentTimelineItemsV2CreateResponse(rsp *http.Response) (*IncidentTimelineItemsV2CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentTimelineItemsV2CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest IncidentTimelineItemsCreateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentTimelineItemsV2UpdateResponse parses an HTTP response from a IncidentTimelineItemsV2UpdateWithResponse call
+func parseIncidentTimelineItemsV2UpdateResponse(rsp *http.Response) (*IncidentTimelineItemsV2UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentTimelineItemsV2UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IncidentTimelineItemsUpdateResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
