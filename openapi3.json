@@ -136984,10 +136984,10 @@
         "x-docs-group-name": "Policy Findings V2",
         "x-docs-resource-type": "PolicyFindingV2",
         "x-mint": {
-          "content": "🔑 Requires the `policy_violations.dismiss` scope."
+          "content": "🔑 Requires the `policy_findings.dismiss` scope."
         },
         "x-rbac-scopes": [
-          "policy_violations.dismiss"
+          "policy_findings.dismiss"
         ]
       }
     },
@@ -137260,10 +137260,10 @@
         "x-docs-group-name": "Policy Findings V2",
         "x-docs-resource-type": "PolicyFindingV2",
         "x-mint": {
-          "content": "🔑 Requires the `policy_violations.restore` scope."
+          "content": "🔑 Requires the `policy_findings.restore` scope."
         },
         "x-rbac-scopes": [
-          "policy_violations.restore"
+          "policy_findings.restore"
         ]
       }
     },
