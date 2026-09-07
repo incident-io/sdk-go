@@ -20652,6 +20652,25 @@
         ],
         "type": "object"
       },
+      "AuditLogMicrosoftEntraTenantLinkedMetadataV2": {
+        "example": {
+          "tenant_domain": "acme.com",
+          "tenant_id": "f339c180-eee9-4e7d-95eb-d19a69b9a922"
+        },
+        "properties": {
+          "tenant_domain": {
+            "description": "The email domain we verified the tenant owns",
+            "example": "acme.com",
+            "type": "string"
+          },
+          "tenant_id": {
+            "description": "The Microsoft Entra tenant that was linked",
+            "example": "f339c180-eee9-4e7d-95eb-d19a69b9a922",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "AuditLogOnCallNotificationMethodMetadataV2": {
         "example": {
           "target_user": "01JV9EMFCFRGCFVNDWTBKT2EBR"
@@ -28821,6 +28840,89 @@
           "actor",
           "targets",
           "context"
+        ],
+        "type": "object"
+      },
+      "AuditLogsMicrosoftEntraTenantLinkedV1": {
+        "example": {
+          "action": "microsoft_entra_tenant.linked",
+          "actor": {
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "metadata": {
+              "user_base_role_slug": "admin",
+              "user_custom_role_slugs": "engineering,security"
+            },
+            "name": "John Doe",
+            "type": "user"
+          },
+          "context": {
+            "location": "1.2.3.4",
+            "user_agent": "Chrome/91.0.4472.114"
+          },
+          "metadata": {
+            "tenant_domain": "acme.com",
+            "tenant_id": "f339c180-eee9-4e7d-95eb-d19a69b9a922"
+          },
+          "occurred_at": "2021-08-17T13:28:57.801578Z",
+          "targets": [
+            {
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Organisation",
+              "type": "organisation"
+            }
+          ],
+          "version": 1
+        },
+        "properties": {
+          "action": {
+            "description": "The type of log entry that this is",
+            "example": "microsoft_entra_tenant.linked",
+            "type": "string"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/AuditLogActorV2"
+          },
+          "context": {
+            "$ref": "#/components/schemas/AuditLogEntryContextV2"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/AuditLogMicrosoftEntraTenantLinkedMetadataV2"
+          },
+          "occurred_at": {
+            "description": "When the entry occurred",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "targets": {
+            "description": "The custom field that was created",
+            "example": [
+              {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Organisation",
+                "type": "organisation"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/AuditLogTargetV2"
+            },
+            "type": "array"
+          },
+          "version": {
+            "description": "Which version the event is",
+            "example": 1,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "action",
+          "occurred_at",
+          "version",
+          "actor",
+          "targets",
+          "context",
+          "metadata"
         ],
         "type": "object"
       },
@@ -165685,6 +165787,56 @@
                 },
                 "schema": {
                   "$ref": "#/components/schemas/AuditLogsMaintenanceWindowUpdatedV1"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "tags": [
+          "Audit logs"
+        ]
+      }
+    },
+    "/x-audit-logs/microsoft_entra_tenant.linked.1": {
+      "get": {
+        "description": "This entry is created when a Microsoft Entra tenant is linked to the organisation",
+        "operationId": "MicrosoftEntraTenantLinkedV1",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "action": "microsoft_entra_tenant.linked",
+                  "actor": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "metadata": {
+                      "user_base_role_slug": "admin",
+                      "user_custom_role_slugs": "engineering,security"
+                    },
+                    "name": "John Doe",
+                    "type": "user"
+                  },
+                  "context": {
+                    "location": "1.2.3.4",
+                    "user_agent": "Chrome/91.0.4472.114"
+                  },
+                  "metadata": {
+                    "tenant_domain": "acme.com",
+                    "tenant_id": "f339c180-eee9-4e7d-95eb-d19a69b9a922"
+                  },
+                  "occurred_at": "2021-08-17T13:28:57.801578Z",
+                  "targets": [
+                    {
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Organisation",
+                      "type": "organisation"
+                    }
+                  ],
+                  "version": 1
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AuditLogsMicrosoftEntraTenantLinkedV1"
                 }
               }
             },
