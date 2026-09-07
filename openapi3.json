@@ -16256,6 +16256,38 @@
             ],
             "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
           },
+          "filter_condition_groups": [
+            {
+              "conditions": [
+                {
+                  "operation": {
+                    "label": "Lawrence Jones",
+                    "value": "01FCQSP07Z74QMMYPDDGQB9FTG"
+                  },
+                  "param_bindings": [
+                    {
+                      "array_value": [
+                        {
+                          "label": "Lawrence Jones",
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      ],
+                      "value": {
+                        "label": "Lawrence Jones",
+                        "literal": "SEV123",
+                        "reference": "incident.severity"
+                      }
+                    }
+                  ],
+                  "subject": {
+                    "label": "Incident Severity",
+                    "reference": "incident.severity"
+                  }
+                }
+              ]
+            }
+          ],
           "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
           "heartbeat_options": {
             "failure_threshold": 1,
@@ -16501,6 +16533,45 @@
           "email_options": {
             "$ref": "#/components/schemas/AlertSourceEmailOptionsV2"
           },
+          "filter_condition_groups": {
+            "description": "Conditions an incoming event must match to be ingested from this source, evaluated against the event's payload and this source's expressions.",
+            "example": [
+              {
+                "conditions": [
+                  {
+                    "operation": {
+                      "label": "Lawrence Jones",
+                      "value": "01FCQSP07Z74QMMYPDDGQB9FTG"
+                    },
+                    "param_bindings": [
+                      {
+                        "array_value": [
+                          {
+                            "label": "Lawrence Jones",
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "label": "Lawrence Jones",
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      }
+                    ],
+                    "subject": {
+                      "label": "Incident Severity",
+                      "reference": "incident.severity"
+                    }
+                  }
+                ]
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ConditionGroupV2"
+            },
+            "type": "array"
+          },
           "fixed_team_id": {
             "description": "When set, the team every alert from this source is attributed to. The team attribute is managed from this field: its binding is not returned in the template and cannot be edited directly.",
             "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
@@ -16631,6 +16702,30 @@
             ],
             "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
           },
+          "filter_condition_groups": [
+            {
+              "conditions": [
+                {
+                  "operation": "one_of",
+                  "param_bindings": [
+                    {
+                      "array_value": [
+                        {
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      ],
+                      "value": {
+                        "literal": "SEV123",
+                        "reference": "incident.severity"
+                      }
+                    }
+                  ],
+                  "subject": "incident.severity"
+                }
+              ]
+            }
+          ],
           "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
           "heartbeat_options": {
             "failure_threshold": 1,
@@ -16832,6 +16927,37 @@
           "email_options": {
             "$ref": "#/components/schemas/AlertSourceEmailOptionsPayloadV2"
           },
+          "filter_condition_groups": {
+            "description": "Conditions an incoming event must match to be ingested from this source, evaluated against the event's payload and this source's expressions. When empty or omitted, everything is ingested; otherwise a firing event that doesn't match is dropped and never creates or updates an alert. Resolve events are never filtered.",
+            "example": [
+              {
+                "conditions": [
+                  {
+                    "operation": "one_of",
+                    "param_bindings": [
+                      {
+                        "array_value": [
+                          {
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      }
+                    ],
+                    "subject": "incident.severity"
+                  }
+                ]
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ConditionGroupPayloadV2"
+            },
+            "type": "array"
+          },
           "fixed_team_id": {
             "description": "Fix the team every alert from this source is attributed to. While set, the team attribute is managed from this field: don't send its binding in the template.",
             "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
@@ -16953,6 +17079,38 @@
               ],
               "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
             },
+            "filter_condition_groups": [
+              {
+                "conditions": [
+                  {
+                    "operation": {
+                      "label": "Lawrence Jones",
+                      "value": "01FCQSP07Z74QMMYPDDGQB9FTG"
+                    },
+                    "param_bindings": [
+                      {
+                        "array_value": [
+                          {
+                            "label": "Lawrence Jones",
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "label": "Lawrence Jones",
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      }
+                    ],
+                    "subject": {
+                      "label": "Incident Severity",
+                      "reference": "incident.severity"
+                    }
+                  }
+                ]
+              }
+            ],
             "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "heartbeat_options": {
               "failure_threshold": 1,
@@ -17206,6 +17364,38 @@
                 ],
                 "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
               },
+              "filter_condition_groups": [
+                {
+                  "conditions": [
+                    {
+                      "operation": {
+                        "label": "Lawrence Jones",
+                        "value": "01FCQSP07Z74QMMYPDDGQB9FTG"
+                      },
+                      "param_bindings": [
+                        {
+                          "array_value": [
+                            {
+                              "label": "Lawrence Jones",
+                              "literal": "SEV123",
+                              "reference": "incident.severity"
+                            }
+                          ],
+                          "value": {
+                            "label": "Lawrence Jones",
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        }
+                      ],
+                      "subject": {
+                        "label": "Incident Severity",
+                        "reference": "incident.severity"
+                      }
+                    }
+                  ]
+                }
+              ],
               "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "heartbeat_options": {
                 "failure_threshold": 1,
@@ -17450,6 +17640,38 @@
                   ],
                   "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
                 },
+                "filter_condition_groups": [
+                  {
+                    "conditions": [
+                      {
+                        "operation": {
+                          "label": "Lawrence Jones",
+                          "value": "01FCQSP07Z74QMMYPDDGQB9FTG"
+                        },
+                        "param_bindings": [
+                          {
+                            "array_value": [
+                              {
+                                "label": "Lawrence Jones",
+                                "literal": "SEV123",
+                                "reference": "incident.severity"
+                              }
+                            ],
+                            "value": {
+                              "label": "Lawrence Jones",
+                              "literal": "SEV123",
+                              "reference": "incident.severity"
+                            }
+                          }
+                        ],
+                        "subject": {
+                          "label": "Incident Severity",
+                          "reference": "incident.severity"
+                        }
+                      }
+                    ]
+                  }
+                ],
                 "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "heartbeat_options": {
                   "failure_threshold": 1,
@@ -17703,6 +17925,38 @@
               ],
               "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
             },
+            "filter_condition_groups": [
+              {
+                "conditions": [
+                  {
+                    "operation": {
+                      "label": "Lawrence Jones",
+                      "value": "01FCQSP07Z74QMMYPDDGQB9FTG"
+                    },
+                    "param_bindings": [
+                      {
+                        "array_value": [
+                          {
+                            "label": "Lawrence Jones",
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "label": "Lawrence Jones",
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      }
+                    ],
+                    "subject": {
+                      "label": "Incident Severity",
+                      "reference": "incident.severity"
+                    }
+                  }
+                ]
+              }
+            ],
             "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "heartbeat_options": {
               "failure_threshold": 1,
@@ -17953,6 +18207,30 @@
             ],
             "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
           },
+          "filter_condition_groups": [
+            {
+              "conditions": [
+                {
+                  "operation": "one_of",
+                  "param_bindings": [
+                    {
+                      "array_value": [
+                        {
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      ],
+                      "value": {
+                        "literal": "SEV123",
+                        "reference": "incident.severity"
+                      }
+                    }
+                  ],
+                  "subject": "incident.severity"
+                }
+              ]
+            }
+          ],
           "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
           "heartbeat_options": {
             "failure_threshold": 1,
@@ -18158,6 +18436,37 @@
           "email_options": {
             "$ref": "#/components/schemas/AlertSourceEmailOptionsPayloadV2"
           },
+          "filter_condition_groups": {
+            "description": "Conditions an incoming event must match to be ingested from this source, evaluated against the event's payload and this source's expressions. When empty, everything is ingested; otherwise a firing event that doesn't match is dropped and never creates or updates an alert. Resolve events are never filtered. Omit to leave unchanged.",
+            "example": [
+              {
+                "conditions": [
+                  {
+                    "operation": "one_of",
+                    "param_bindings": [
+                      {
+                        "array_value": [
+                          {
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      }
+                    ],
+                    "subject": "incident.severity"
+                  }
+                ]
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ConditionGroupPayloadV2"
+            },
+            "type": "array"
+          },
           "fixed_team_id": {
             "description": "Fix the team every alert from this source is attributed to. While set, the team attribute is managed from this field: a team binding sent in the template is ignored. Omit to leave unchanged; set to an empty string to clear it, making the team attribute editable again.",
             "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
@@ -18220,6 +18529,38 @@
               ],
               "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
             },
+            "filter_condition_groups": [
+              {
+                "conditions": [
+                  {
+                    "operation": {
+                      "label": "Lawrence Jones",
+                      "value": "01FCQSP07Z74QMMYPDDGQB9FTG"
+                    },
+                    "param_bindings": [
+                      {
+                        "array_value": [
+                          {
+                            "label": "Lawrence Jones",
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "label": "Lawrence Jones",
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      }
+                    ],
+                    "subject": {
+                      "label": "Incident Severity",
+                      "reference": "incident.severity"
+                    }
+                  }
+                ]
+              }
+            ],
             "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "heartbeat_options": {
               "failure_threshold": 1,
@@ -20666,6 +21007,19 @@
           "tenant_id": {
             "description": "The Microsoft Entra tenant that was linked",
             "example": "f339c180-eee9-4e7d-95eb-d19a69b9a922",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "AuditLogMobileIntuneEnabledSettingUpdatedMetadataV2": {
+        "example": {
+          "enabled": "true"
+        },
+        "properties": {
+          "enabled": {
+            "description": "Whether Intune is enabled after the update",
+            "example": "true",
             "type": "string"
           }
         },
@@ -28901,6 +29255,88 @@
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "name": "Organisation",
                 "type": "organisation"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/AuditLogTargetV2"
+            },
+            "type": "array"
+          },
+          "version": {
+            "description": "Which version the event is",
+            "example": 1,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "action",
+          "occurred_at",
+          "version",
+          "actor",
+          "targets",
+          "context",
+          "metadata"
+        ],
+        "type": "object"
+      },
+      "AuditLogsMobileIntuneEnabledSettingUpdatedV1": {
+        "example": {
+          "action": "mobile_intune_enabled_setting.updated",
+          "actor": {
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "metadata": {
+              "user_base_role_slug": "admin",
+              "user_custom_role_slugs": "engineering,security"
+            },
+            "name": "John Doe",
+            "type": "user"
+          },
+          "context": {
+            "location": "1.2.3.4",
+            "user_agent": "Chrome/91.0.4472.114"
+          },
+          "metadata": {
+            "enabled": "true"
+          },
+          "occurred_at": "2021-08-17T13:28:57.801578Z",
+          "targets": [
+            {
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Organisation Settings",
+              "type": "organisation_settings"
+            }
+          ],
+          "version": 1
+        },
+        "properties": {
+          "action": {
+            "description": "The type of log entry that this is",
+            "example": "mobile_intune_enabled_setting.updated",
+            "type": "string"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/AuditLogActorV2"
+          },
+          "context": {
+            "$ref": "#/components/schemas/AuditLogEntryContextV2"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/AuditLogMobileIntuneEnabledSettingUpdatedMetadataV2"
+          },
+          "occurred_at": {
+            "description": "When the entry occurred",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "targets": {
+            "description": "The custom field that was created",
+            "example": [
+              {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Organisation Settings",
+                "type": "organisation_settings"
               }
             ],
             "items": {
@@ -113814,6 +114250,38 @@
                         ],
                         "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
                       },
+                      "filter_condition_groups": [
+                        {
+                          "conditions": [
+                            {
+                              "operation": {
+                                "label": "Lawrence Jones",
+                                "value": "01FCQSP07Z74QMMYPDDGQB9FTG"
+                              },
+                              "param_bindings": [
+                                {
+                                  "array_value": [
+                                    {
+                                      "label": "Lawrence Jones",
+                                      "literal": "SEV123",
+                                      "reference": "incident.severity"
+                                    }
+                                  ],
+                                  "value": {
+                                    "label": "Lawrence Jones",
+                                    "literal": "SEV123",
+                                    "reference": "incident.severity"
+                                  }
+                                }
+                              ],
+                              "subject": {
+                                "label": "Incident Severity",
+                                "reference": "incident.severity"
+                              }
+                            }
+                          ]
+                        }
+                      ],
                       "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                       "heartbeat_options": {
                         "failure_threshold": 1,
@@ -114211,6 +114679,30 @@
                   ],
                   "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
                 },
+                "filter_condition_groups": [
+                  {
+                    "conditions": [
+                      {
+                        "operation": "one_of",
+                        "param_bindings": [
+                          {
+                            "array_value": [
+                              {
+                                "literal": "SEV123",
+                                "reference": "incident.severity"
+                              }
+                            ],
+                            "value": {
+                              "literal": "SEV123",
+                              "reference": "incident.severity"
+                            }
+                          }
+                        ],
+                        "subject": "incident.severity"
+                      }
+                    ]
+                  }
+                ],
                 "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "heartbeat_options": {
                   "failure_threshold": 1,
@@ -114423,6 +114915,38 @@
                       ],
                       "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
                     },
+                    "filter_condition_groups": [
+                      {
+                        "conditions": [
+                          {
+                            "operation": {
+                              "label": "Lawrence Jones",
+                              "value": "01FCQSP07Z74QMMYPDDGQB9FTG"
+                            },
+                            "param_bindings": [
+                              {
+                                "array_value": [
+                                  {
+                                    "label": "Lawrence Jones",
+                                    "literal": "SEV123",
+                                    "reference": "incident.severity"
+                                  }
+                                ],
+                                "value": {
+                                  "label": "Lawrence Jones",
+                                  "literal": "SEV123",
+                                  "reference": "incident.severity"
+                                }
+                              }
+                            ],
+                            "subject": {
+                              "label": "Incident Severity",
+                              "reference": "incident.severity"
+                            }
+                          }
+                        ]
+                      }
+                    ],
                     "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "heartbeat_options": {
                       "failure_threshold": 1,
@@ -115333,6 +115857,38 @@
                       ],
                       "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
                     },
+                    "filter_condition_groups": [
+                      {
+                        "conditions": [
+                          {
+                            "operation": {
+                              "label": "Lawrence Jones",
+                              "value": "01FCQSP07Z74QMMYPDDGQB9FTG"
+                            },
+                            "param_bindings": [
+                              {
+                                "array_value": [
+                                  {
+                                    "label": "Lawrence Jones",
+                                    "literal": "SEV123",
+                                    "reference": "incident.severity"
+                                  }
+                                ],
+                                "value": {
+                                  "label": "Lawrence Jones",
+                                  "literal": "SEV123",
+                                  "reference": "incident.severity"
+                                }
+                              }
+                            ],
+                            "subject": {
+                              "label": "Incident Severity",
+                              "reference": "incident.severity"
+                            }
+                          }
+                        ]
+                      }
+                    ],
                     "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "heartbeat_options": {
                       "failure_threshold": 1,
@@ -115744,6 +116300,30 @@
                   ],
                   "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
                 },
+                "filter_condition_groups": [
+                  {
+                    "conditions": [
+                      {
+                        "operation": "one_of",
+                        "param_bindings": [
+                          {
+                            "array_value": [
+                              {
+                                "literal": "SEV123",
+                                "reference": "incident.severity"
+                              }
+                            ],
+                            "value": {
+                              "literal": "SEV123",
+                              "reference": "incident.severity"
+                            }
+                          }
+                        ],
+                        "subject": "incident.severity"
+                      }
+                    ]
+                  }
+                ],
                 "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "heartbeat_options": {
                   "failure_threshold": 1,
@@ -115955,6 +116535,38 @@
                       ],
                       "transform_expression": "return {\n  title: $.subject,\n  description: $.text,\n  status: $.subject.startsWith('[RESOLVED]') ? 'resolved' : 'firing',\n  deduplication_key: $.header_message_id,\n}"
                     },
+                    "filter_condition_groups": [
+                      {
+                        "conditions": [
+                          {
+                            "operation": {
+                              "label": "Lawrence Jones",
+                              "value": "01FCQSP07Z74QMMYPDDGQB9FTG"
+                            },
+                            "param_bindings": [
+                              {
+                                "array_value": [
+                                  {
+                                    "label": "Lawrence Jones",
+                                    "literal": "SEV123",
+                                    "reference": "incident.severity"
+                                  }
+                                ],
+                                "value": {
+                                  "label": "Lawrence Jones",
+                                  "literal": "SEV123",
+                                  "reference": "incident.severity"
+                                }
+                              }
+                            ],
+                            "subject": {
+                              "label": "Incident Severity",
+                              "reference": "incident.severity"
+                            }
+                          }
+                        ]
+                      }
+                    ],
                     "fixed_team_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "heartbeat_options": {
                       "failure_threshold": 1,
@@ -126364,7 +126976,9 @@
         "summary": "Ping Heartbeat V2",
         "tags": [
           "Heartbeat V2"
-        ]
+        ],
+        "x-docs-display-name": "Ping",
+        "x-docs-group-name": "Heartbeat V2"
       },
       "post": {
         "description": "Send a heartbeat ping for the specified alert source.\n\nRecords a ping, indicating that the monitored job or service is healthy. The\nheartbeat monitor uses these pings to detect missed heartbeats and fire alerts.\nBoth GET and POST are accepted\n",
@@ -126545,7 +127159,9 @@
         "summary": "Ping Heartbeat V2",
         "tags": [
           "Heartbeat V2"
-        ]
+        ],
+        "x-docs-display-name": "Ping",
+        "x-docs-group-name": "Heartbeat V2"
       }
     },
     "/v2/incident_activity_log_entries": {
@@ -148443,7 +149059,9 @@
         "tags": [
           "Users V2"
         ],
+        "x-docs-display-name": "Show paging provider",
         "x-docs-group-name": "Users V2",
+        "x-docs-resource-type": "UserWithRolesV2",
         "x-mint": {
           "content": "🔑 Requires the `user_preferences.view` scope."
         },
@@ -148620,7 +149238,9 @@
         "tags": [
           "Users V2"
         ],
+        "x-docs-display-name": "Update paging provider",
         "x-docs-group-name": "Users V2",
+        "x-docs-resource-type": "UserWithRolesV2",
         "x-mint": {
           "content": "🔑 Requires the `users.preferred_paging_provider.edit` scope."
         },
@@ -165837,6 +166457,55 @@
                 },
                 "schema": {
                   "$ref": "#/components/schemas/AuditLogsMicrosoftEntraTenantLinkedV1"
+                }
+              }
+            },
+            "description": "OK response."
+          }
+        },
+        "tags": [
+          "Audit logs"
+        ]
+      }
+    },
+    "/x-audit-logs/mobile_intune_enabled_setting.updated.1": {
+      "get": {
+        "description": "This entry is created whenever the Intune setting is toggled for an organisation",
+        "operationId": "MobileIntuneEnabledSettingUpdatedV1",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "action": "mobile_intune_enabled_setting.updated",
+                  "actor": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "metadata": {
+                      "user_base_role_slug": "admin",
+                      "user_custom_role_slugs": "engineering,security"
+                    },
+                    "name": "John Doe",
+                    "type": "user"
+                  },
+                  "context": {
+                    "location": "1.2.3.4",
+                    "user_agent": "Chrome/91.0.4472.114"
+                  },
+                  "metadata": {
+                    "enabled": "true"
+                  },
+                  "occurred_at": "2021-08-17T13:28:57.801578Z",
+                  "targets": [
+                    {
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Organisation Settings",
+                      "type": "organisation_settings"
+                    }
+                  ],
+                  "version": 1
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AuditLogsMobileIntuneEnabledSettingUpdatedV1"
                 }
               }
             },

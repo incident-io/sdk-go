@@ -9086,6 +9086,9 @@ type AlertSourceV2 struct {
 	AzureDevopsOptions        *AlertSourceAzureDevopsOptionsV2 `json:"azure_devops_options,omitempty"`
 	EmailOptions              *AlertSourceEmailOptionsV2       `json:"email_options,omitempty"`
 
+	// FilterConditionGroups Conditions an incoming event must match to be ingested from this source, evaluated against the event's payload and this source's expressions.
+	FilterConditionGroups *[]ConditionGroupV2 `json:"filter_condition_groups,omitempty"`
+
 	// FixedTeamId When set, the team every alert from this source is attributed to. The team attribute is managed from this field: its binding is not returned in the template and cannot be edited directly.
 	FixedTeamId       *string                         `json:"fixed_team_id,omitempty"`
 	HeartbeatOptions  *AlertSourceHeartbeatOptionsV2  `json:"heartbeat_options,omitempty"`
@@ -9124,6 +9127,9 @@ type AlertSourcesCreatePayloadV2 struct {
 	AutoResolveTimeoutMinutes *int64                            `json:"auto_resolve_timeout_minutes,omitempty"`
 	AzureDevopsOptions        *AlertSourceAzureDevopsOptionsV2  `json:"azure_devops_options,omitempty"`
 	EmailOptions              *AlertSourceEmailOptionsPayloadV2 `json:"email_options,omitempty"`
+
+	// FilterConditionGroups Conditions an incoming event must match to be ingested from this source, evaluated against the event's payload and this source's expressions. When empty or omitted, everything is ingested; otherwise a firing event that doesn't match is dropped and never creates or updates an alert. Resolve events are never filtered.
+	FilterConditionGroups *[]ConditionGroupPayloadV2 `json:"filter_condition_groups,omitempty"`
 
 	// FixedTeamId Fix the team every alert from this source is attributed to. While set, the team attribute is managed from this field: don't send its binding in the template.
 	FixedTeamId       *string                               `json:"fixed_team_id,omitempty"`
@@ -9175,6 +9181,9 @@ type AlertSourcesUpdatePayloadV2 struct {
 	// Disabled For heartbeat sources, set to true to disable monitoring
 	Disabled     *bool                             `json:"disabled,omitempty"`
 	EmailOptions *AlertSourceEmailOptionsPayloadV2 `json:"email_options,omitempty"`
+
+	// FilterConditionGroups Conditions an incoming event must match to be ingested from this source, evaluated against the event's payload and this source's expressions. When empty, everything is ingested; otherwise a firing event that doesn't match is dropped and never creates or updates an alert. Resolve events are never filtered. Omit to leave unchanged.
+	FilterConditionGroups *[]ConditionGroupPayloadV2 `json:"filter_condition_groups,omitempty"`
 
 	// FixedTeamId Fix the team every alert from this source is attributed to. While set, the team attribute is managed from this field: a team binding sent in the template is ignored. Omit to leave unchanged; set to an empty string to clear it, making the team attribute editable again.
 	FixedTeamId       *string                               `json:"fixed_team_id,omitempty"`
