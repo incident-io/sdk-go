@@ -1130,6 +1130,7 @@ const (
 	AlertSourceV2SourceTypePingdom           AlertSourceV2SourceType = "pingdom"
 	AlertSourceV2SourceTypePrtg              AlertSourceV2SourceType = "prtg"
 	AlertSourceV2SourceTypeRunscope          AlertSourceV2SourceType = "runscope"
+	AlertSourceV2SourceTypeSalesforceCase    AlertSourceV2SourceType = "salesforce_case"
 	AlertSourceV2SourceTypeSentry            AlertSourceV2SourceType = "sentry"
 	AlertSourceV2SourceTypeSentryMetric      AlertSourceV2SourceType = "sentry_metric"
 	AlertSourceV2SourceTypeServiceNow        AlertSourceV2SourceType = "service_now"
@@ -1225,6 +1226,8 @@ func (e AlertSourceV2SourceType) Valid() bool {
 		return true
 	case AlertSourceV2SourceTypeRunscope:
 		return true
+	case AlertSourceV2SourceTypeSalesforceCase:
+		return true
 	case AlertSourceV2SourceTypeSentry:
 		return true
 	case AlertSourceV2SourceTypeSentryMetric:
@@ -1295,6 +1298,7 @@ const (
 	AlertSourcesCreatePayloadV2SourceTypePingdom           AlertSourcesCreatePayloadV2SourceType = "pingdom"
 	AlertSourcesCreatePayloadV2SourceTypePrtg              AlertSourcesCreatePayloadV2SourceType = "prtg"
 	AlertSourcesCreatePayloadV2SourceTypeRunscope          AlertSourcesCreatePayloadV2SourceType = "runscope"
+	AlertSourcesCreatePayloadV2SourceTypeSalesforceCase    AlertSourcesCreatePayloadV2SourceType = "salesforce_case"
 	AlertSourcesCreatePayloadV2SourceTypeSentry            AlertSourcesCreatePayloadV2SourceType = "sentry"
 	AlertSourcesCreatePayloadV2SourceTypeSentryMetric      AlertSourcesCreatePayloadV2SourceType = "sentry_metric"
 	AlertSourcesCreatePayloadV2SourceTypeServiceNow        AlertSourcesCreatePayloadV2SourceType = "service_now"
@@ -1390,6 +1394,8 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeRunscope:
 		return true
+	case AlertSourcesCreatePayloadV2SourceTypeSalesforceCase:
+		return true
 	case AlertSourcesCreatePayloadV2SourceTypeSentry:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeSentryMetric:
@@ -1460,6 +1466,7 @@ const (
 	AlertSourcesValidatePayloadV2SourceTypePingdom           AlertSourcesValidatePayloadV2SourceType = "pingdom"
 	AlertSourcesValidatePayloadV2SourceTypePrtg              AlertSourcesValidatePayloadV2SourceType = "prtg"
 	AlertSourcesValidatePayloadV2SourceTypeRunscope          AlertSourcesValidatePayloadV2SourceType = "runscope"
+	AlertSourcesValidatePayloadV2SourceTypeSalesforceCase    AlertSourcesValidatePayloadV2SourceType = "salesforce_case"
 	AlertSourcesValidatePayloadV2SourceTypeSentry            AlertSourcesValidatePayloadV2SourceType = "sentry"
 	AlertSourcesValidatePayloadV2SourceTypeSentryMetric      AlertSourcesValidatePayloadV2SourceType = "sentry_metric"
 	AlertSourcesValidatePayloadV2SourceTypeServiceNow        AlertSourcesValidatePayloadV2SourceType = "service_now"
@@ -1554,6 +1561,8 @@ func (e AlertSourcesValidatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesValidatePayloadV2SourceTypePrtg:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeRunscope:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeSalesforceCase:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeSentry:
 		return true
@@ -11567,6 +11576,29 @@ type EscalationsListResultV2 struct {
 	PaginationMeta PaginationMetaResultV2 `json:"pagination_meta"`
 }
 
+// EscalationsReassignEscalationPayloadV2 defines model for EscalationsReassignEscalationPayloadV2.
+type EscalationsReassignEscalationPayloadV2 struct {
+	// Description Additional details about the new escalation. Defaults to the original's description.
+	Description *string `json:"description,omitempty"`
+
+	// EscalationPathId ID of the escalation path to reassign to
+	EscalationPathId *string `json:"escalation_path_id,omitempty"`
+
+	// ResolveOriginal Whether to resolve the original escalation, stopping it paging its targets. Defaults to true.
+	ResolveOriginal *bool `json:"resolve_original,omitempty"`
+
+	// Title The title of the new escalation. Defaults to the original's title.
+	Title *string `json:"title,omitempty"`
+
+	// UserIds IDs of users to reassign directly to
+	UserIds *[]string `json:"user_ids,omitempty"`
+}
+
+// EscalationsReassignEscalationResultV2 defines model for EscalationsReassignEscalationResultV2.
+type EscalationsReassignEscalationResultV2 struct {
+	Escalation EscalationV2 `json:"escalation"`
+}
+
 // EscalationsRespondEscalationPayloadV2 defines model for EscalationsRespondEscalationPayloadV2.
 type EscalationsRespondEscalationPayloadV2 struct {
 	// Response Whether to acknowledge, decline or snooze the escalation
@@ -18248,6 +18280,9 @@ type EscalationsV2CreateJSONRequestBody = EscalationsCreatePayloadV2
 // EscalationsV2CheckEscalationPermissionsJSONRequestBody defines body for EscalationsV2CheckEscalationPermissions for application/json ContentType.
 type EscalationsV2CheckEscalationPermissionsJSONRequestBody = EscalationsCheckEscalationPermissionsPayloadV2
 
+// EscalationsV2ReassignEscalationJSONRequestBody defines body for EscalationsV2ReassignEscalation for application/json ContentType.
+type EscalationsV2ReassignEscalationJSONRequestBody = EscalationsReassignEscalationPayloadV2
+
 // EscalationsV2RespondEscalationJSONRequestBody defines body for EscalationsV2RespondEscalation for application/json ContentType.
 type EscalationsV2RespondEscalationJSONRequestBody = EscalationsRespondEscalationPayloadV2
 
@@ -18941,6 +18976,11 @@ type ClientInterface interface {
 	EscalationsV2CheckEscalationPermissionsWithBody(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	EscalationsV2CheckEscalationPermissions(ctx context.Context, escalationId string, body EscalationsV2CheckEscalationPermissionsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// EscalationsV2ReassignEscalationWithBody request with any body
+	EscalationsV2ReassignEscalationWithBody(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	EscalationsV2ReassignEscalation(ctx context.Context, escalationId string, body EscalationsV2ReassignEscalationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// EscalationsV2RespondEscalationWithBody request with any body
 	EscalationsV2RespondEscalationWithBody(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -21549,6 +21589,30 @@ func (c *Client) EscalationsV2CheckEscalationPermissionsWithBody(ctx context.Con
 
 func (c *Client) EscalationsV2CheckEscalationPermissions(ctx context.Context, escalationId string, body EscalationsV2CheckEscalationPermissionsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newEscalationsV2CheckEscalationPermissionsRequest(c.Server, escalationId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) EscalationsV2ReassignEscalationWithBody(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newEscalationsV2ReassignEscalationRequestWithBody(c.Server, escalationId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) EscalationsV2ReassignEscalation(ctx context.Context, escalationId string, body EscalationsV2ReassignEscalationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newEscalationsV2ReassignEscalationRequest(c.Server, escalationId, body)
 	if err != nil {
 		return nil, err
 	}
@@ -29350,6 +29414,53 @@ func newEscalationsV2CheckEscalationPermissionsRequestWithBody(server string, es
 	return req, nil
 }
 
+// NewEscalationsV2ReassignEscalationRequest calls the generic EscalationsV2ReassignEscalation builder with application/json body
+func newEscalationsV2ReassignEscalationRequest(server string, escalationId string, body EscalationsV2ReassignEscalationJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newEscalationsV2ReassignEscalationRequestWithBody(server, escalationId, "application/json", bodyReader)
+}
+
+// NewEscalationsV2ReassignEscalationRequestWithBody generates requests for EscalationsV2ReassignEscalation with any type of body
+func newEscalationsV2ReassignEscalationRequestWithBody(server string, escalationId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "escalation_id", escalationId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/escalations/%s/actions/reassign", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewEscalationsV2RespondEscalationRequest calls the generic EscalationsV2RespondEscalation builder with application/json body
 func newEscalationsV2RespondEscalationRequest(server string, escalationId string, body EscalationsV2RespondEscalationJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -36590,6 +36701,11 @@ type ClientWithResponsesInterface interface {
 
 	EscalationsV2CheckEscalationPermissionsWithResponse(ctx context.Context, escalationId string, body EscalationsV2CheckEscalationPermissionsJSONRequestBody, reqEditors ...RequestEditorFn) (*EscalationsV2CheckEscalationPermissionsResponse, error)
 
+	// EscalationsV2ReassignEscalationWithBodyWithResponse request with any body
+	EscalationsV2ReassignEscalationWithBodyWithResponse(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EscalationsV2ReassignEscalationResponse, error)
+
+	EscalationsV2ReassignEscalationWithResponse(ctx context.Context, escalationId string, body EscalationsV2ReassignEscalationJSONRequestBody, reqEditors ...RequestEditorFn) (*EscalationsV2ReassignEscalationResponse, error)
+
 	// EscalationsV2RespondEscalationWithBodyWithResponse request with any body
 	EscalationsV2RespondEscalationWithBodyWithResponse(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EscalationsV2RespondEscalationResponse, error)
 
@@ -41337,6 +41453,41 @@ func (r EscalationsV2CheckEscalationPermissionsResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r EscalationsV2CheckEscalationPermissionsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type EscalationsV2ReassignEscalationResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *EscalationsReassignEscalationResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r EscalationsV2ReassignEscalationResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r EscalationsV2ReassignEscalationResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -47523,6 +47674,23 @@ func (c *ClientWithResponses) EscalationsV2CheckEscalationPermissionsWithRespons
 		return nil, err
 	}
 	return parseEscalationsV2CheckEscalationPermissionsResponse(rsp)
+}
+
+// EscalationsV2ReassignEscalationWithBodyWithResponse request with arbitrary body returning *EscalationsV2ReassignEscalationResponse
+func (c *ClientWithResponses) EscalationsV2ReassignEscalationWithBodyWithResponse(ctx context.Context, escalationId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EscalationsV2ReassignEscalationResponse, error) {
+	rsp, err := c.EscalationsV2ReassignEscalationWithBody(ctx, escalationId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseEscalationsV2ReassignEscalationResponse(rsp)
+}
+
+func (c *ClientWithResponses) EscalationsV2ReassignEscalationWithResponse(ctx context.Context, escalationId string, body EscalationsV2ReassignEscalationJSONRequestBody, reqEditors ...RequestEditorFn) (*EscalationsV2ReassignEscalationResponse, error) {
+	rsp, err := c.EscalationsV2ReassignEscalation(ctx, escalationId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseEscalationsV2ReassignEscalationResponse(rsp)
 }
 
 // EscalationsV2RespondEscalationWithBodyWithResponse request with arbitrary body returning *EscalationsV2RespondEscalationResponse
@@ -63198,6 +63366,123 @@ func parseEscalationsV2CheckEscalationPermissionsResponse(rsp *http.Response) (*
 			return nil, err
 		}
 		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseEscalationsV2ReassignEscalationResponse parses an HTTP response from a EscalationsV2ReassignEscalationWithResponse call
+func parseEscalationsV2ReassignEscalationResponse(rsp *http.Response) (*EscalationsV2ReassignEscalationResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &EscalationsV2ReassignEscalationResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest EscalationsReassignEscalationResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest ErrorResponse

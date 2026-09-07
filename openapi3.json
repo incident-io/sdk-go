@@ -16658,6 +16658,7 @@
               "pingdom",
               "runscope",
               "sns",
+              "salesforce_case",
               "sentry",
               "sentry_metric",
               "service_now",
@@ -17034,6 +17035,7 @@
               "pingdom",
               "runscope",
               "sns",
+              "salesforce_case",
               "sentry",
               "sentry_metric",
               "service_now",
@@ -19014,6 +19016,7 @@
               "pingdom",
               "runscope",
               "sns",
+              "salesforce_case",
               "sentry",
               "sentry_metric",
               "service_now",
@@ -48808,6 +48811,149 @@
         "required": [
           "escalations",
           "pagination_meta"
+        ],
+        "type": "object"
+      },
+      "EscalationsReassignEscalationPayloadV2": {
+        "example": {
+          "description": "Database CPU has been above 90% for 5 minutes",
+          "escalation_path_id": "01H0J1EXE7AXZ2C93K61WBPYEH",
+          "resolve_original": true,
+          "title": "Production database experiencing high CPU",
+          "user_ids": [
+            "01H0J1EXE7AXZ2C93K61WBPYEH",
+            "01H0J1EXE7AXZ2C93K61WBPYEI"
+          ]
+        },
+        "properties": {
+          "description": {
+            "description": "Additional details about the new escalation. Defaults to the original's description.",
+            "example": "Database CPU has been above 90% for 5 minutes",
+            "type": "string"
+          },
+          "escalation_path_id": {
+            "description": "ID of the escalation path to reassign to",
+            "example": "01H0J1EXE7AXZ2C93K61WBPYEH",
+            "type": "string"
+          },
+          "resolve_original": {
+            "default": true,
+            "description": "Whether to resolve the original escalation, stopping it paging its targets. Defaults to true.",
+            "example": true,
+            "type": "boolean"
+          },
+          "title": {
+            "description": "The title of the new escalation. Defaults to the original's title.",
+            "example": "Production database experiencing high CPU",
+            "type": "string"
+          },
+          "user_ids": {
+            "description": "IDs of users to reassign directly to",
+            "example": [
+              "01H0J1EXE7AXZ2C93K61WBPYEH",
+              "01H0J1EXE7AXZ2C93K61WBPYEI"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "EscalationsReassignEscalationResultV2": {
+        "example": {
+          "escalation": {
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "creator": {
+              "alert": {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "title": "*errors.withMessage: PG::Error failed to connect"
+              },
+              "user": {
+                "email": "lisa@incident.io",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Lisa Karlin Curtis",
+                "role": "owner",
+                "slack_user_id": "U02AYNF2XJM"
+              },
+              "workflow": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My little workflow"
+              }
+            },
+            "description": "Database CPU has been above 90% for 5 minutes",
+            "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "events": [
+              {
+                "channels": [
+                  {
+                    "microsoft_teams_channel_id": "abc123",
+                    "microsoft_teams_team_id": "abc123",
+                    "slack_channel_id": "abc123",
+                    "slack_team_id": "abc123"
+                  }
+                ],
+                "event": "entered_grace_period",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "occurred_at": "2021-08-17T13:28:57.801578Z",
+                "urgency": "high",
+                "users": [
+                  {
+                    "email": "lisa@incident.io",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "Lisa Karlin Curtis",
+                    "role": "owner",
+                    "slack_user_id": "U02AYNF2XJM"
+                  }
+                ]
+              }
+            ],
+            "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "priority": {
+              "name": "P1"
+            },
+            "related_alerts": [
+              {
+                "alert_group_ids": [
+                  "01GW2G3V0S59R238FAHPDS1R66"
+                ],
+                "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+                "created_at": "2021-08-17T13:28:57.801578Z",
+                "deduplication_key": "4293868629",
+                "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "resolved_at": "2021-08-17T14:28:57.801578Z",
+                "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+                "status": "firing",
+                "title": "*errors.withMessage: PG::Error failed to connect",
+                "updated_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "related_incidents": [
+              {
+                "external_id": 123,
+                "id": "01FDAG4SAP5TYPT98WGR2N7W91",
+                "name": "Our database is sad",
+                "reference": "INC-123",
+                "status_category": "triage",
+                "summary": "Our database is really really sad, and we don't know why yet.",
+                "visibility": "public"
+              }
+            ],
+            "status": "pending",
+            "title": "Database CPU is high",
+            "updated_at": "2021-08-17T13:28:57.801578Z"
+          }
+        },
+        "properties": {
+          "escalation": {
+            "$ref": "#/components/schemas/EscalationV2"
+          }
+        },
+        "required": [
+          "escalation"
         ],
         "type": "object"
       },
@@ -124753,6 +124899,285 @@
         "x-rbac-scopes": [
           "escalations.view",
           "users.view"
+        ]
+      }
+    },
+    "/v2/escalations/{escalation_id}/actions/reassign": {
+      "post": {
+        "description": "Reassign an escalation to a different escalation path or set of users.\n\nUse this when a page reached the wrong people. Reassigning creates a new escalation\naimed at the targets you give, linked back to the original, and carries over the\noriginal's title, description, priority, incident and alert so the page stays attached\nto the same alert and acknowledgements keep grouping under it.\n\nYou must provide either an escalation_path_id OR user_ids, but not both. Both name\nincident.io escalation paths and users, so an escalation cannot be reassigned to an\nexternal escalator such as PagerDuty or Opsgenie.\n\nBy default the original escalation is resolved, so the first targets stop being paged.\nPass resolve_original=false to leave it running alongside the new one. Resolving the\noriginal additionally needs the \"escalations.respond\" permission, since it stops a page\nsomeone else may be responding to.\n\nAn escalation can only be reassigned once: calling this again for the same escalation\nis rejected. Retrying a request whose response you never saw is safe in the sense that\nmatters — a reassignment that already happened is never repeated, so nobody is paged\ntwice — but the retry is rejected rather than returning the escalation the first call\ncreated, so keep the ID from the original response.\n\nTo use this API, you will need an API key with the \"Create and manage escalations\"\npermission. The reassignment is attributed to the key; to attribute it to one of your\nusers instead, set the X-Incident-User header, which needs the\n\"api_keys.act_on_behalf_of_users\" scope.\n\nIf your API key's permissions are scoped to teams, the escalation you're reassigning\nmust be owned by one of those teams, and you can only reassign via an escalation path\none of them owns. Reassigning directly to user_ids needs the permission at the account\nlevel, because an escalation aimed at a person has no owning team.",
+        "operationId": "Escalations V2#ReassignEscalation",
+        "parameters": [
+          {
+            "description": "The ID of the escalation to reassign",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "escalation_id",
+            "required": true,
+            "schema": {
+              "description": "The ID of the escalation to reassign",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "description": "Database CPU has been above 90% for 5 minutes",
+                "escalation_path_id": "01H0J1EXE7AXZ2C93K61WBPYEH",
+                "resolve_original": true,
+                "title": "Production database experiencing high CPU",
+                "user_ids": [
+                  "01H0J1EXE7AXZ2C93K61WBPYEH",
+                  "01H0J1EXE7AXZ2C93K61WBPYEI"
+                ]
+              },
+              "schema": {
+                "$ref": "#/components/schemas/EscalationsReassignEscalationPayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "escalation": {
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "creator": {
+                      "alert": {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "title": "*errors.withMessage: PG::Error failed to connect"
+                      },
+                      "user": {
+                        "email": "lisa@incident.io",
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "Lisa Karlin Curtis",
+                        "role": "owner",
+                        "slack_user_id": "U02AYNF2XJM"
+                      },
+                      "workflow": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My little workflow"
+                      }
+                    },
+                    "description": "Database CPU has been above 90% for 5 minutes",
+                    "escalation_path_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "events": [
+                      {
+                        "channels": [
+                          {
+                            "microsoft_teams_channel_id": "abc123",
+                            "microsoft_teams_team_id": "abc123",
+                            "slack_channel_id": "abc123",
+                            "slack_team_id": "abc123"
+                          }
+                        ],
+                        "event": "entered_grace_period",
+                        "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "occurred_at": "2021-08-17T13:28:57.801578Z",
+                        "urgency": "high",
+                        "users": [
+                          {
+                            "email": "lisa@incident.io",
+                            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                            "name": "Lisa Karlin Curtis",
+                            "role": "owner",
+                            "slack_user_id": "U02AYNF2XJM"
+                          }
+                        ]
+                      }
+                    ],
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "priority": {
+                      "name": "P1"
+                    },
+                    "related_alerts": [
+                      {
+                        "alert_group_ids": [
+                          "01GW2G3V0S59R238FAHPDS1R66"
+                        ],
+                        "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "created_at": "2021-08-17T13:28:57.801578Z",
+                        "deduplication_key": "4293868629",
+                        "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "resolved_at": "2021-08-17T14:28:57.801578Z",
+                        "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+                        "status": "firing",
+                        "title": "*errors.withMessage: PG::Error failed to connect",
+                        "updated_at": "2021-08-17T13:28:57.801578Z"
+                      }
+                    ],
+                    "related_incidents": [
+                      {
+                        "external_id": 123,
+                        "id": "01FDAG4SAP5TYPT98WGR2N7W91",
+                        "name": "Our database is sad",
+                        "reference": "INC-123",
+                        "status_category": "triage",
+                        "summary": "Our database is really really sad, and we don't know why yet.",
+                        "visibility": "public"
+                      }
+                    ],
+                    "status": "pending",
+                    "title": "Database CPU is high",
+                    "updated_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/EscalationsReassignEscalationResultV2"
+                }
+              }
+            },
+            "description": "Created response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "ReassignEscalation Escalations V2",
+        "tags": [
+          "Escalations V2"
+        ],
+        "x-docs-display-name": "Reassign",
+        "x-docs-group-name": "Escalations V2",
+        "x-docs-resource-type": "EscalationV2",
+        "x-mint": {
+          "content": "🔑 Requires the `escalations.create` scope."
+        },
+        "x-rbac-scopes": [
+          "escalations.create"
         ]
       }
     },
