@@ -12432,6 +12432,15 @@ type IPAllowlistsUpdateIPAllowlistResultV1 struct {
 	IpAllowlist IPAllowlistV1 `json:"ip_allowlist"`
 }
 
+// IPRangeV1 One address our requests to your systems come from.
+type IPRangeV1 struct {
+	// Cidr The address in CIDR notation. Single addresses are given as a /32.
+	Cidr string `json:"cidr"`
+
+	// Description Which of our traffic reaches you from this address
+	Description string `json:"description"`
+}
+
 // IdentityTeamV1 defines model for IdentityTeamV1.
 type IdentityTeamV1 struct {
 	// Id Unique identifier for the team
@@ -16847,6 +16856,12 @@ type UsersUpdatePagingProviderPayloadV2 struct {
 // UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider The preferred escalation provider for the user.
 type UsersUpdatePagingProviderPayloadV2PreferredEscalationProvider string
 
+// UtilitiesIPRangesResultV1 defines model for UtilitiesIPRangesResultV1.
+type UtilitiesIPRangesResultV1 struct {
+	// IpRanges Every address our traffic to you may originate from
+	IpRanges []IPRangeV1 `json:"ip_ranges"`
+}
+
 // UtilitiesIdentityResultV1 defines model for UtilitiesIdentityResultV1.
 type UtilitiesIdentityResultV1 struct {
 	Identity IdentityV1 `json:"identity"`
@@ -18740,6 +18755,9 @@ type ClientInterface interface {
 
 	IPAllowlistsV1UpdateIPAllowlist(ctx context.Context, body IPAllowlistsV1UpdateIPAllowlistJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// UtilitiesV1IPRanges request
+	UtilitiesV1IPRanges(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// MaintenanceWindowsV1List request
 	MaintenanceWindowsV1List(ctx context.Context, params *MaintenanceWindowsV1ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -20427,6 +20445,18 @@ func (c *Client) IPAllowlistsV1UpdateIPAllowlistWithBody(ctx context.Context, co
 
 func (c *Client) IPAllowlistsV1UpdateIPAllowlist(ctx context.Context, body IPAllowlistsV1UpdateIPAllowlistJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newIPAllowlistsV1UpdateIPAllowlistRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) UtilitiesV1IPRanges(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newUtilitiesV1IPRangesRequest(c.Server)
 	if err != nil {
 		return nil, err
 	}
@@ -26175,6 +26205,33 @@ func newIPAllowlistsV1UpdateIPAllowlistRequestWithBody(server string, contentTyp
 	}
 
 	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewUtilitiesV1IPRangesRequest generates requests for UtilitiesV1IPRanges
+func newUtilitiesV1IPRangesRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v1/ip_ranges")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
 
 	return req, nil
 }
@@ -36464,6 +36521,9 @@ type ClientWithResponsesInterface interface {
 
 	IPAllowlistsV1UpdateIPAllowlistWithResponse(ctx context.Context, body IPAllowlistsV1UpdateIPAllowlistJSONRequestBody, reqEditors ...RequestEditorFn) (*IPAllowlistsV1UpdateIPAllowlistResponse, error)
 
+	// UtilitiesV1IPRangesWithResponse request
+	UtilitiesV1IPRangesWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*UtilitiesV1IPRangesResponse, error)
+
 	// MaintenanceWindowsV1ListWithResponse request
 	MaintenanceWindowsV1ListWithResponse(ctx context.Context, params *MaintenanceWindowsV1ListParams, reqEditors ...RequestEditorFn) (*MaintenanceWindowsV1ListResponse, error)
 
@@ -39073,6 +39133,41 @@ func (r IPAllowlistsV1UpdateIPAllowlistResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r IPAllowlistsV1UpdateIPAllowlistResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type UtilitiesV1IPRangesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *UtilitiesIPRangesResultV1
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r UtilitiesV1IPRangesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UtilitiesV1IPRangesResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -46815,6 +46910,15 @@ func (c *ClientWithResponses) IPAllowlistsV1UpdateIPAllowlistWithResponse(ctx co
 		return nil, err
 	}
 	return parseIPAllowlistsV1UpdateIPAllowlistResponse(rsp)
+}
+
+// UtilitiesV1IPRangesWithResponse request returning *UtilitiesV1IPRangesResponse
+func (c *ClientWithResponses) UtilitiesV1IPRangesWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*UtilitiesV1IPRangesResponse, error) {
+	rsp, err := c.UtilitiesV1IPRanges(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseUtilitiesV1IPRangesResponse(rsp)
 }
 
 // MaintenanceWindowsV1ListWithResponse request returning *MaintenanceWindowsV1ListResponse
@@ -55390,6 +55494,123 @@ func parseIPAllowlistsV1UpdateIPAllowlistResponse(rsp *http.Response) (*IPAllowl
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest IPAllowlistsUpdateIPAllowlistResultV1
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseUtilitiesV1IPRangesResponse parses an HTTP response from a UtilitiesV1IPRangesWithResponse call
+func parseUtilitiesV1IPRangesResponse(rsp *http.Response) (*UtilitiesV1IPRangesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UtilitiesV1IPRangesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest UtilitiesIPRangesResultV1
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}

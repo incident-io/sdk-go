@@ -54833,6 +54833,30 @@
         ],
         "type": "object"
       },
+      "IPRangeV1": {
+        "description": "One address our requests to your systems come from.",
+        "example": {
+          "cidr": "34.91.219.113/32",
+          "description": "Requests to your systems from integrations and from workflow \"Send a webhook\" steps"
+        },
+        "properties": {
+          "cidr": {
+            "description": "The address in CIDR notation. Single addresses are given as a /32.",
+            "example": "34.91.219.113/32",
+            "type": "string"
+          },
+          "description": {
+            "description": "Which of our traffic reaches you from this address",
+            "example": "Requests to your systems from integrations and from workflow \"Send a webhook\" steps",
+            "type": "string"
+          }
+        },
+        "required": [
+          "cidr",
+          "description"
+        ],
+        "type": "object"
+      },
       "IdentityTeamV1": {
         "example": {
           "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
@@ -84197,6 +84221,35 @@
         ],
         "type": "object"
       },
+      "UtilitiesIPRangesResultV1": {
+        "example": {
+          "ip_ranges": [
+            {
+              "cidr": "34.91.219.113/32",
+              "description": "Requests to your systems from integrations and from workflow \"Send a webhook\" steps"
+            }
+          ]
+        },
+        "properties": {
+          "ip_ranges": {
+            "description": "Every address our traffic to you may originate from",
+            "example": [
+              {
+                "cidr": "34.91.219.113/32",
+                "description": "Requests to your systems from integrations and from workflow \"Send a webhook\" steps"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/IPRangeV1"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "ip_ranges"
+        ],
+        "type": "object"
+      },
       "UtilitiesIdentityResultV1": {
         "example": {
           "identity": {
@@ -104900,6 +104953,169 @@
         "x-rbac-scopes": [
           "security_settings.update"
         ]
+      }
+    },
+    "/v1/ip_ranges": {
+      "get": {
+        "description": "List the IP addresses our requests to your systems come from.\n\nUse this to keep a firewall allowlist up to date without watching our documentation. Poll\nit rather than copying the list once. We give at least two weeks' notice before our own\naddresses change. Webhook deliveries come from our provider's addresses, so we cannot\npromise notice on those.\n\nThese are the addresses we send from. Do not allowlist them for inbound access: our API is\nserved on different addresses, and those change without notice.",
+        "operationId": "Utilities V1#IPRanges",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "ip_ranges": [
+                    {
+                      "cidr": "34.91.219.113/32",
+                      "description": "Requests to your systems from integrations and from workflow \"Send a webhook\" steps"
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/UtilitiesIPRangesResultV1"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "IPRanges Utilities V1",
+        "tags": [
+          "Utilities V1"
+        ],
+        "x-docs-display-name": "List IP Ranges",
+        "x-docs-group-name": "Utilities V1",
+        "x-docs-resource-type": "IPRangeV1"
       }
     },
     "/v1/maintenance_windows": {
