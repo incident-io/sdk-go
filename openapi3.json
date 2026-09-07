@@ -96,7 +96,9 @@
               "call_transcripts_viewer",
               "heartbeats_ping",
               "telemetry_query_restricted",
-              "telemetry_data_source_update"
+              "telemetry_data_source_update",
+              "policies_viewer",
+              "policy_findings_manage"
             ],
             "example": "viewer",
             "type": "string",
@@ -348,7 +350,9 @@
                 "call_transcripts_viewer",
                 "heartbeats_ping",
                 "telemetry_query_restricted",
-                "telemetry_data_source_update"
+                "telemetry_data_source_update",
+                "policies_viewer",
+                "policy_findings_manage"
               ],
               "example": "viewer",
               "type": "string"
@@ -756,7 +760,9 @@
                 "call_transcripts_viewer",
                 "heartbeats_ping",
                 "telemetry_query_restricted",
-                "telemetry_data_source_update"
+                "telemetry_data_source_update",
+                "policies_viewer",
+                "policy_findings_manage"
               ],
               "example": "viewer",
               "type": "string"
@@ -54921,7 +54927,9 @@
                 "call_transcripts_viewer",
                 "heartbeats_ping",
                 "telemetry_query_restricted",
-                "telemetry_data_source_update"
+                "telemetry_data_source_update",
+                "policies_viewer",
+                "policy_findings_manage"
               ],
               "example": "viewer",
               "type": "string",
