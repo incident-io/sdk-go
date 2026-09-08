@@ -59580,7 +59580,8 @@
         "example": {
           "category": "live",
           "description": "Impact has been **fully mitigated**, and we're ready to learn from this incident.",
-          "name": "Closed"
+          "name": "Closed",
+          "rank": 4
         },
         "properties": {
           "category": {
@@ -59602,6 +59603,12 @@
             "description": "Unique name of this status",
             "example": "Closed",
             "type": "string"
+          },
+          "rank": {
+            "description": "Where this status sits within its category, lowest rank first. No two statuses in the same category can share a rank, but ranks needn't run consecutively — leaving gaps (10, 20, 30) means you can later insert a status between two others without renumbering them. Omit it to add this status to the end of its category.",
+            "example": 4,
+            "format": "int64",
+            "type": "integer"
           }
         },
         "required": [
@@ -59696,7 +59703,8 @@
       "IncidentStatusesUpdatePayloadV1": {
         "example": {
           "description": "Impact has been **fully mitigated**, and we're ready to learn from this incident.",
-          "name": "Closed"
+          "name": "Closed",
+          "rank": 4
         },
         "properties": {
           "description": {
@@ -59708,6 +59716,12 @@
             "description": "Unique name of this status",
             "example": "Closed",
             "type": "string"
+          },
+          "rank": {
+            "description": "Where this status sits within its category, lowest rank first. No two statuses in the same category can share a rank, but ranks needn't run consecutively — leaving gaps (10, 20, 30) means you can later insert a status between two others without renumbering them. Omit it to leave this status where it is.",
+            "example": 4,
+            "format": "int64",
+            "type": "integer"
           }
         },
         "required": [
@@ -99659,7 +99673,8 @@
               "example": {
                 "category": "live",
                 "description": "Impact has been **fully mitigated**, and we're ready to learn from this incident.",
-                "name": "Closed"
+                "name": "Closed",
+                "rank": 4
               },
               "schema": {
                 "$ref": "#/components/schemas/IncidentStatusesCreatePayloadV1"
@@ -100209,7 +100224,8 @@
             "application/json": {
               "example": {
                 "description": "Impact has been **fully mitigated**, and we're ready to learn from this incident.",
-                "name": "Closed"
+                "name": "Closed",
+                "rank": 4
               },
               "schema": {
                 "$ref": "#/components/schemas/IncidentStatusesUpdatePayloadV1"

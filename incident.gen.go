@@ -13056,6 +13056,9 @@ type IncidentStatusesCreatePayloadV1 struct {
 
 	// Name Unique name of this status
 	Name string `json:"name"`
+
+	// Rank Where this status sits within its category, lowest rank first. No two statuses in the same category can share a rank, but ranks needn't run consecutively — leaving gaps (10, 20, 30) means you can later insert a status between two others without renumbering them. Omit it to add this status to the end of its category.
+	Rank *int64 `json:"rank,omitempty"`
 }
 
 // IncidentStatusesCreatePayloadV1Category Whether the status should be considered 'live' (now renamed to active), 'learning' (now renamed to post-incident) or 'closed'. The triage and declined statuses cannot be created or modified.
@@ -13083,6 +13086,9 @@ type IncidentStatusesUpdatePayloadV1 struct {
 
 	// Name Unique name of this status
 	Name string `json:"name"`
+
+	// Rank Where this status sits within its category, lowest rank first. No two statuses in the same category can share a rank, but ranks needn't run consecutively — leaving gaps (10, 20, 30) means you can later insert a status between two others without renumbering them. Omit it to leave this status where it is.
+	Rank *int64 `json:"rank,omitempty"`
 }
 
 // IncidentStatusesUpdateResultV1 defines model for IncidentStatusesUpdateResultV1.
