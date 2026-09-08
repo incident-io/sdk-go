@@ -17656,6 +17656,9 @@ type AlertsV2ListParams struct {
 	// HasNotes Filter on whether an alert has notes. The accepted operator is 'is'.
 	HasNotes *map[string][]string `form:"has_notes,omitempty" json:"has_notes,omitempty"`
 
+	// Tags Filter on the tags applied to an alert, by tag ID. The accepted operators are 'one_of', 'all_of' and 'not_in'.
+	Tags *map[string][]string `form:"tags,omitempty" json:"tags,omitempty"`
+
 	// IncludeMaintenanceWindow Filter on whether to include maintenance window alerts. The accepted operator is 'is'.
 	IncludeMaintenanceWindow *map[string][]string `form:"include_maintenance_window,omitempty" json:"include_maintenance_window,omitempty"`
 }
@@ -28079,6 +28082,22 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 		if params.HasNotes != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "has_notes", *params.HasNotes, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Tags != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "tags", *params.Tags, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
