@@ -9253,6 +9253,15 @@ type AlertSourcesValidatePayloadV2 struct {
 // AlertSourcesValidatePayloadV2SourceType Type of alert source
 type AlertSourcesValidatePayloadV2SourceType string
 
+// AlertTagV2 defines model for AlertTagV2.
+type AlertTagV2 struct {
+	// Id Unique identifier for the tag
+	Id string `json:"id"`
+
+	// Name The tag name
+	Name string `json:"name"`
+}
+
 // AlertTemplateAttributeBindingPayloadV2 defines model for AlertTemplateAttributeBindingPayloadV2.
 type AlertTemplateAttributeBindingPayloadV2 struct {
 	// ArrayValue If set, this is the array value of the step parameter
@@ -9356,6 +9365,9 @@ type AlertV2 struct {
 
 	// Status Statuses of an alert
 	Status AlertV2Status `json:"status"`
+
+	// Tags Tags someone has applied to this alert
+	Tags *[]AlertTagV2 `json:"tags,omitempty"`
 
 	// Title The title of the alert, parsed from the alert payload according to the alert source configuration
 	Title string `json:"title"`

@@ -19048,6 +19048,29 @@
         ],
         "type": "object"
       },
+      "AlertTagV2": {
+        "example": {
+          "id": "01GW2G3V0S59R238FAHPDS1R66",
+          "name": "noisy"
+        },
+        "properties": {
+          "id": {
+            "description": "Unique identifier for the tag",
+            "example": "01GW2G3V0S59R238FAHPDS1R66",
+            "type": "string"
+          },
+          "name": {
+            "description": "The tag name",
+            "example": "noisy",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
       "AlertTemplateAttributeBindingPayloadV2": {
         "example": {
           "array_value": [
@@ -19989,6 +20012,12 @@
           "resolved_at": "2021-08-17T14:28:57.801578Z",
           "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
           "status": "firing",
+          "tags": [
+            {
+              "id": "01GW2G3V0S59R238FAHPDS1R66",
+              "name": "noisy"
+            }
+          ],
           "title": "*errors.withMessage: PG::Error failed to connect",
           "updated_at": "2021-08-17T13:28:57.801578Z"
         },
@@ -20089,6 +20118,19 @@
             "example": "firing",
             "type": "string",
             "x-public-api-version": "v2"
+          },
+          "tags": {
+            "description": "Tags someone has applied to this alert",
+            "example": [
+              {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "name": "noisy"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/AlertTagV2"
+            },
+            "type": "array"
           },
           "title": {
             "description": "The title of the alert, parsed from the alert payload according to the alert source configuration",
@@ -20316,6 +20358,12 @@
               "resolved_at": "2021-08-17T14:28:57.801578Z",
               "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
               "status": "firing",
+              "tags": [
+                {
+                  "id": "01GW2G3V0S59R238FAHPDS1R66",
+                  "name": "noisy"
+                }
+              ],
               "title": "*errors.withMessage: PG::Error failed to connect",
               "updated_at": "2021-08-17T13:28:57.801578Z"
             }
@@ -20372,6 +20420,12 @@
                 "resolved_at": "2021-08-17T14:28:57.801578Z",
                 "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
                 "status": "firing",
+                "tags": [
+                  {
+                    "id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "name": "noisy"
+                  }
+                ],
                 "title": "*errors.withMessage: PG::Error failed to connect",
                 "updated_at": "2021-08-17T13:28:57.801578Z"
               }
@@ -20437,6 +20491,12 @@
             "resolved_at": "2021-08-17T14:28:57.801578Z",
             "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
             "status": "firing",
+            "tags": [
+              {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "name": "noisy"
+              }
+            ],
             "title": "*errors.withMessage: PG::Error failed to connect",
             "updated_at": "2021-08-17T13:28:57.801578Z"
           }
@@ -20497,6 +20557,12 @@
             "resolved_at": "2021-08-17T14:28:57.801578Z",
             "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
             "status": "firing",
+            "tags": [
+              {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "name": "noisy"
+              }
+            ],
             "title": "*errors.withMessage: PG::Error failed to connect",
             "updated_at": "2021-08-17T13:28:57.801578Z"
           }
@@ -85958,6 +86024,12 @@
             "resolved_at": "2021-08-17T14:28:57.801578Z",
             "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
             "status": "firing",
+            "tags": [
+              {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "name": "noisy"
+              }
+            ],
             "title": "*errors.withMessage: PG::Error failed to connect",
             "updated_at": "2021-08-17T13:28:57.801578Z"
           }
@@ -86061,6 +86133,12 @@
             "resolved_at": "2021-08-17T14:28:57.801578Z",
             "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
             "status": "firing",
+            "tags": [
+              {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "name": "noisy"
+              }
+            ],
             "title": "*errors.withMessage: PG::Error failed to connect",
             "updated_at": "2021-08-17T13:28:57.801578Z"
           }
@@ -117728,6 +117806,12 @@
                       "resolved_at": "2021-08-17T14:28:57.801578Z",
                       "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
                       "status": "firing",
+                      "tags": [
+                        {
+                          "id": "01GW2G3V0S59R238FAHPDS1R66",
+                          "name": "noisy"
+                        }
+                      ],
                       "title": "*errors.withMessage: PG::Error failed to connect",
                       "updated_at": "2021-08-17T13:28:57.801578Z"
                     }
@@ -117957,6 +118041,12 @@
                     "resolved_at": "2021-08-17T14:28:57.801578Z",
                     "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
                     "status": "firing",
+                    "tags": [
+                      {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "name": "noisy"
+                      }
+                    ],
                     "title": "*errors.withMessage: PG::Error failed to connect",
                     "updated_at": "2021-08-17T13:28:57.801578Z"
                   }
@@ -118181,6 +118271,12 @@
                     "resolved_at": "2021-08-17T14:28:57.801578Z",
                     "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
                     "status": "firing",
+                    "tags": [
+                      {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "name": "noisy"
+                      }
+                    ],
                     "title": "*errors.withMessage: PG::Error failed to connect",
                     "updated_at": "2021-08-17T13:28:57.801578Z"
                   }
@@ -172768,6 +172864,12 @@
                     "resolved_at": "2021-08-17T14:28:57.801578Z",
                     "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
                     "status": "firing",
+                    "tags": [
+                      {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "name": "noisy"
+                      }
+                    ],
                     "title": "*errors.withMessage: PG::Error failed to connect",
                     "updated_at": "2021-08-17T13:28:57.801578Z"
                   }
@@ -172839,6 +172941,12 @@
                     "resolved_at": "2021-08-17T14:28:57.801578Z",
                     "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
                     "status": "firing",
+                    "tags": [
+                      {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "name": "noisy"
+                      }
+                    ],
                     "title": "*errors.withMessage: PG::Error failed to connect",
                     "updated_at": "2021-08-17T13:28:57.801578Z"
                   }
