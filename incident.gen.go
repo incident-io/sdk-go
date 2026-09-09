@@ -1701,6 +1701,384 @@ func (e AlertsTransitionIncidentAlertPayloadV2State) Valid() bool {
 	}
 }
 
+// Defines values for CallRouteOptionV2Digit.
+const (
+	CallRouteOptionV2DigitN1 CallRouteOptionV2Digit = "1"
+	CallRouteOptionV2DigitN2 CallRouteOptionV2Digit = "2"
+	CallRouteOptionV2DigitN3 CallRouteOptionV2Digit = "3"
+	CallRouteOptionV2DigitN4 CallRouteOptionV2Digit = "4"
+	CallRouteOptionV2DigitN5 CallRouteOptionV2Digit = "5"
+	CallRouteOptionV2DigitN6 CallRouteOptionV2Digit = "6"
+	CallRouteOptionV2DigitN7 CallRouteOptionV2Digit = "7"
+	CallRouteOptionV2DigitN8 CallRouteOptionV2Digit = "8"
+	CallRouteOptionV2DigitN9 CallRouteOptionV2Digit = "9"
+)
+
+// Valid indicates whether the value is a known member of the CallRouteOptionV2Digit enum.
+func (e CallRouteOptionV2Digit) Valid() bool {
+	switch e {
+	case CallRouteOptionV2DigitN1:
+		return true
+	case CallRouteOptionV2DigitN2:
+		return true
+	case CallRouteOptionV2DigitN3:
+		return true
+	case CallRouteOptionV2DigitN4:
+		return true
+	case CallRouteOptionV2DigitN5:
+		return true
+	case CallRouteOptionV2DigitN6:
+		return true
+	case CallRouteOptionV2DigitN7:
+		return true
+	case CallRouteOptionV2DigitN8:
+		return true
+	case CallRouteOptionV2DigitN9:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRoutePathNodePayloadV2Type.
+const (
+	CallRoutePathNodePayloadV2TypeLevel     CallRoutePathNodePayloadV2Type = "level"
+	CallRoutePathNodePayloadV2TypeVoicemail CallRoutePathNodePayloadV2Type = "voicemail"
+)
+
+// Valid indicates whether the value is a known member of the CallRoutePathNodePayloadV2Type enum.
+func (e CallRoutePathNodePayloadV2Type) Valid() bool {
+	switch e {
+	case CallRoutePathNodePayloadV2TypeLevel:
+		return true
+	case CallRoutePathNodePayloadV2TypeVoicemail:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRoutePathNodeV2Type.
+const (
+	CallRoutePathNodeV2TypeLevel     CallRoutePathNodeV2Type = "level"
+	CallRoutePathNodeV2TypeVoicemail CallRoutePathNodeV2Type = "voicemail"
+)
+
+// Valid indicates whether the value is a known member of the CallRoutePathNodeV2Type enum.
+func (e CallRoutePathNodeV2Type) Valid() bool {
+	switch e {
+	case CallRoutePathNodeV2TypeLevel:
+		return true
+	case CallRoutePathNodeV2TypeVoicemail:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRouteTargetV2ScheduleMode.
+const (
+	CallRouteTargetV2ScheduleModeAllUsers               CallRouteTargetV2ScheduleMode = "all_users"
+	CallRouteTargetV2ScheduleModeAllUsersForRota        CallRouteTargetV2ScheduleMode = "all_users_for_rota"
+	CallRouteTargetV2ScheduleModeCurrentlyOnCall        CallRouteTargetV2ScheduleMode = "currently_on_call"
+	CallRouteTargetV2ScheduleModeCurrentlyOnCallForRota CallRouteTargetV2ScheduleMode = "currently_on_call_for_rota"
+	CallRouteTargetV2ScheduleModeEmpty                  CallRouteTargetV2ScheduleMode = ""
+	CallRouteTargetV2ScheduleModeNextOnCall             CallRouteTargetV2ScheduleMode = "next_on_call"
+	CallRouteTargetV2ScheduleModeNextOnCallForRota      CallRouteTargetV2ScheduleMode = "next_on_call_for_rota"
+)
+
+// Valid indicates whether the value is a known member of the CallRouteTargetV2ScheduleMode enum.
+func (e CallRouteTargetV2ScheduleMode) Valid() bool {
+	switch e {
+	case CallRouteTargetV2ScheduleModeAllUsers:
+		return true
+	case CallRouteTargetV2ScheduleModeAllUsersForRota:
+		return true
+	case CallRouteTargetV2ScheduleModeCurrentlyOnCall:
+		return true
+	case CallRouteTargetV2ScheduleModeCurrentlyOnCallForRota:
+		return true
+	case CallRouteTargetV2ScheduleModeEmpty:
+		return true
+	case CallRouteTargetV2ScheduleModeNextOnCall:
+		return true
+	case CallRouteTargetV2ScheduleModeNextOnCallForRota:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRouteTargetV2Type.
+const (
+	CallRouteTargetV2TypeSchedule CallRouteTargetV2Type = "schedule"
+	CallRouteTargetV2TypeUser     CallRouteTargetV2Type = "user"
+)
+
+// Valid indicates whether the value is a known member of the CallRouteTargetV2Type enum.
+func (e CallRouteTargetV2Type) Valid() bool {
+	switch e {
+	case CallRouteTargetV2TypeSchedule:
+		return true
+	case CallRouteTargetV2TypeUser:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRouteTargetV2Urgency.
+const (
+	CallRouteTargetV2UrgencyHigh CallRouteTargetV2Urgency = "high"
+	CallRouteTargetV2UrgencyLow  CallRouteTargetV2Urgency = "low"
+)
+
+// Valid indicates whether the value is a known member of the CallRouteTargetV2Urgency enum.
+func (e CallRouteTargetV2Urgency) Valid() bool {
+	switch e {
+	case CallRouteTargetV2UrgencyHigh:
+		return true
+	case CallRouteTargetV2UrgencyLow:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRouteV2CurrentState.
+const (
+	CallRouteV2CurrentStateActive                       CallRouteV2CurrentState = "active"
+	CallRouteV2CurrentStatePending                      CallRouteV2CurrentState = "pending"
+	CallRouteV2CurrentStatePendingNumber                CallRouteV2CurrentState = "pending_number"
+	CallRouteV2CurrentStatePendingRegulatoryInformation CallRouteV2CurrentState = "pending_regulatory_information"
+)
+
+// Valid indicates whether the value is a known member of the CallRouteV2CurrentState enum.
+func (e CallRouteV2CurrentState) Valid() bool {
+	switch e {
+	case CallRouteV2CurrentStateActive:
+		return true
+	case CallRouteV2CurrentStatePending:
+		return true
+	case CallRouteV2CurrentStatePendingNumber:
+		return true
+	case CallRouteV2CurrentStatePendingRegulatoryInformation:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRouteV2CustomLanguage.
+const (
+	CallRouteV2CustomLanguageDeDE CallRouteV2CustomLanguage = "de-DE"
+	CallRouteV2CustomLanguageEnGB CallRouteV2CustomLanguage = "en-GB"
+	CallRouteV2CustomLanguageEnUS CallRouteV2CustomLanguage = "en-US"
+	CallRouteV2CustomLanguageEsES CallRouteV2CustomLanguage = "es-ES"
+	CallRouteV2CustomLanguageFrFR CallRouteV2CustomLanguage = "fr-FR"
+	CallRouteV2CustomLanguageNlNL CallRouteV2CustomLanguage = "nl-NL"
+	CallRouteV2CustomLanguagePtBR CallRouteV2CustomLanguage = "pt-BR"
+	CallRouteV2CustomLanguagePtPT CallRouteV2CustomLanguage = "pt-PT"
+)
+
+// Valid indicates whether the value is a known member of the CallRouteV2CustomLanguage enum.
+func (e CallRouteV2CustomLanguage) Valid() bool {
+	switch e {
+	case CallRouteV2CustomLanguageDeDE:
+		return true
+	case CallRouteV2CustomLanguageEnGB:
+		return true
+	case CallRouteV2CustomLanguageEnUS:
+		return true
+	case CallRouteV2CustomLanguageEsES:
+		return true
+	case CallRouteV2CustomLanguageFrFR:
+		return true
+	case CallRouteV2CustomLanguageNlNL:
+		return true
+	case CallRouteV2CustomLanguagePtBR:
+		return true
+	case CallRouteV2CustomLanguagePtPT:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRouteV2PhoneNumberType.
+const (
+	Local    CallRouteV2PhoneNumberType = "local"
+	Mobile   CallRouteV2PhoneNumberType = "mobile"
+	National CallRouteV2PhoneNumberType = "national"
+	TollFree CallRouteV2PhoneNumberType = "toll_free"
+)
+
+// Valid indicates whether the value is a known member of the CallRouteV2PhoneNumberType enum.
+func (e CallRouteV2PhoneNumberType) Valid() bool {
+	switch e {
+	case Local:
+		return true
+	case Mobile:
+		return true
+	case National:
+		return true
+	case TollFree:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRouteV2ResponderCallerId.
+const (
+	CallRouteV2ResponderCallerIdOncallNumber CallRouteV2ResponderCallerId = "oncall_number"
+	CallRouteV2ResponderCallerIdRouteNumber  CallRouteV2ResponderCallerId = "route_number"
+)
+
+// Valid indicates whether the value is a known member of the CallRouteV2ResponderCallerId enum.
+func (e CallRouteV2ResponderCallerId) Valid() bool {
+	switch e {
+	case CallRouteV2ResponderCallerIdOncallNumber:
+		return true
+	case CallRouteV2ResponderCallerIdRouteNumber:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRoutesCreateOptionPayloadV2Digit.
+const (
+	CallRoutesCreateOptionPayloadV2DigitN1 CallRoutesCreateOptionPayloadV2Digit = "1"
+	CallRoutesCreateOptionPayloadV2DigitN2 CallRoutesCreateOptionPayloadV2Digit = "2"
+	CallRoutesCreateOptionPayloadV2DigitN3 CallRoutesCreateOptionPayloadV2Digit = "3"
+	CallRoutesCreateOptionPayloadV2DigitN4 CallRoutesCreateOptionPayloadV2Digit = "4"
+	CallRoutesCreateOptionPayloadV2DigitN5 CallRoutesCreateOptionPayloadV2Digit = "5"
+	CallRoutesCreateOptionPayloadV2DigitN6 CallRoutesCreateOptionPayloadV2Digit = "6"
+	CallRoutesCreateOptionPayloadV2DigitN7 CallRoutesCreateOptionPayloadV2Digit = "7"
+	CallRoutesCreateOptionPayloadV2DigitN8 CallRoutesCreateOptionPayloadV2Digit = "8"
+	CallRoutesCreateOptionPayloadV2DigitN9 CallRoutesCreateOptionPayloadV2Digit = "9"
+)
+
+// Valid indicates whether the value is a known member of the CallRoutesCreateOptionPayloadV2Digit enum.
+func (e CallRoutesCreateOptionPayloadV2Digit) Valid() bool {
+	switch e {
+	case CallRoutesCreateOptionPayloadV2DigitN1:
+		return true
+	case CallRoutesCreateOptionPayloadV2DigitN2:
+		return true
+	case CallRoutesCreateOptionPayloadV2DigitN3:
+		return true
+	case CallRoutesCreateOptionPayloadV2DigitN4:
+		return true
+	case CallRoutesCreateOptionPayloadV2DigitN5:
+		return true
+	case CallRoutesCreateOptionPayloadV2DigitN6:
+		return true
+	case CallRoutesCreateOptionPayloadV2DigitN7:
+		return true
+	case CallRoutesCreateOptionPayloadV2DigitN8:
+		return true
+	case CallRoutesCreateOptionPayloadV2DigitN9:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRoutesUpdateOptionPayloadV2Digit.
+const (
+	N1 CallRoutesUpdateOptionPayloadV2Digit = "1"
+	N2 CallRoutesUpdateOptionPayloadV2Digit = "2"
+	N3 CallRoutesUpdateOptionPayloadV2Digit = "3"
+	N4 CallRoutesUpdateOptionPayloadV2Digit = "4"
+	N5 CallRoutesUpdateOptionPayloadV2Digit = "5"
+	N6 CallRoutesUpdateOptionPayloadV2Digit = "6"
+	N7 CallRoutesUpdateOptionPayloadV2Digit = "7"
+	N8 CallRoutesUpdateOptionPayloadV2Digit = "8"
+	N9 CallRoutesUpdateOptionPayloadV2Digit = "9"
+)
+
+// Valid indicates whether the value is a known member of the CallRoutesUpdateOptionPayloadV2Digit enum.
+func (e CallRoutesUpdateOptionPayloadV2Digit) Valid() bool {
+	switch e {
+	case N1:
+		return true
+	case N2:
+		return true
+	case N3:
+		return true
+	case N4:
+		return true
+	case N5:
+		return true
+	case N6:
+		return true
+	case N7:
+		return true
+	case N8:
+		return true
+	case N9:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRoutesUpdatePayloadV2CustomLanguage.
+const (
+	CallRoutesUpdatePayloadV2CustomLanguageDeDE CallRoutesUpdatePayloadV2CustomLanguage = "de-DE"
+	CallRoutesUpdatePayloadV2CustomLanguageEnGB CallRoutesUpdatePayloadV2CustomLanguage = "en-GB"
+	CallRoutesUpdatePayloadV2CustomLanguageEnUS CallRoutesUpdatePayloadV2CustomLanguage = "en-US"
+	CallRoutesUpdatePayloadV2CustomLanguageEsES CallRoutesUpdatePayloadV2CustomLanguage = "es-ES"
+	CallRoutesUpdatePayloadV2CustomLanguageFrFR CallRoutesUpdatePayloadV2CustomLanguage = "fr-FR"
+	CallRoutesUpdatePayloadV2CustomLanguageNlNL CallRoutesUpdatePayloadV2CustomLanguage = "nl-NL"
+	CallRoutesUpdatePayloadV2CustomLanguagePtBR CallRoutesUpdatePayloadV2CustomLanguage = "pt-BR"
+	CallRoutesUpdatePayloadV2CustomLanguagePtPT CallRoutesUpdatePayloadV2CustomLanguage = "pt-PT"
+)
+
+// Valid indicates whether the value is a known member of the CallRoutesUpdatePayloadV2CustomLanguage enum.
+func (e CallRoutesUpdatePayloadV2CustomLanguage) Valid() bool {
+	switch e {
+	case CallRoutesUpdatePayloadV2CustomLanguageDeDE:
+		return true
+	case CallRoutesUpdatePayloadV2CustomLanguageEnGB:
+		return true
+	case CallRoutesUpdatePayloadV2CustomLanguageEnUS:
+		return true
+	case CallRoutesUpdatePayloadV2CustomLanguageEsES:
+		return true
+	case CallRoutesUpdatePayloadV2CustomLanguageFrFR:
+		return true
+	case CallRoutesUpdatePayloadV2CustomLanguageNlNL:
+		return true
+	case CallRoutesUpdatePayloadV2CustomLanguagePtBR:
+		return true
+	case CallRoutesUpdatePayloadV2CustomLanguagePtPT:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CallRoutesUpdatePayloadV2ResponderCallerId.
+const (
+	CallRoutesUpdatePayloadV2ResponderCallerIdOncallNumber CallRoutesUpdatePayloadV2ResponderCallerId = "oncall_number"
+	CallRoutesUpdatePayloadV2ResponderCallerIdRouteNumber  CallRoutesUpdatePayloadV2ResponderCallerId = "route_number"
+)
+
+// Valid indicates whether the value is a known member of the CallRoutesUpdatePayloadV2ResponderCallerId enum.
+func (e CallRoutesUpdatePayloadV2ResponderCallerId) Valid() bool {
+	switch e {
+	case CallRoutesUpdatePayloadV2ResponderCallerIdOncallNumber:
+		return true
+	case CallRoutesUpdatePayloadV2ResponderCallerIdRouteNumber:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for CallTranscriptEntryV2Medium.
 const (
 	CallChat CallTranscriptEntryV2Medium = "call_chat"
@@ -3398,31 +3776,31 @@ func (e EscalationPathNodePayloadV2Type) Valid() bool {
 
 // Defines values for EscalationPathNodeV2Type.
 const (
-	Delay          EscalationPathNodeV2Type = "delay"
-	EscalationPath EscalationPathNodeV2Type = "escalation_path"
-	IfElse         EscalationPathNodeV2Type = "if_else"
-	Level          EscalationPathNodeV2Type = "level"
-	NotifyChannel  EscalationPathNodeV2Type = "notify_channel"
-	Repeat         EscalationPathNodeV2Type = "repeat"
-	Voicemail      EscalationPathNodeV2Type = "voicemail"
+	EscalationPathNodeV2TypeDelay          EscalationPathNodeV2Type = "delay"
+	EscalationPathNodeV2TypeEscalationPath EscalationPathNodeV2Type = "escalation_path"
+	EscalationPathNodeV2TypeIfElse         EscalationPathNodeV2Type = "if_else"
+	EscalationPathNodeV2TypeLevel          EscalationPathNodeV2Type = "level"
+	EscalationPathNodeV2TypeNotifyChannel  EscalationPathNodeV2Type = "notify_channel"
+	EscalationPathNodeV2TypeRepeat         EscalationPathNodeV2Type = "repeat"
+	EscalationPathNodeV2TypeVoicemail      EscalationPathNodeV2Type = "voicemail"
 )
 
 // Valid indicates whether the value is a known member of the EscalationPathNodeV2Type enum.
 func (e EscalationPathNodeV2Type) Valid() bool {
 	switch e {
-	case Delay:
+	case EscalationPathNodeV2TypeDelay:
 		return true
-	case EscalationPath:
+	case EscalationPathNodeV2TypeEscalationPath:
 		return true
-	case IfElse:
+	case EscalationPathNodeV2TypeIfElse:
 		return true
-	case Level:
+	case EscalationPathNodeV2TypeLevel:
 		return true
-	case NotifyChannel:
+	case EscalationPathNodeV2TypeNotifyChannel:
 		return true
-	case Repeat:
+	case EscalationPathNodeV2TypeRepeat:
 		return true
-	case Voicemail:
+	case EscalationPathNodeV2TypeVoicemail:
 		return true
 	default:
 		return false
@@ -3488,16 +3866,16 @@ func (e EscalationPathTargetV2Type) Valid() bool {
 
 // Defines values for EscalationPathTargetV2Urgency.
 const (
-	EscalationPathTargetV2UrgencyHigh EscalationPathTargetV2Urgency = "high"
-	EscalationPathTargetV2UrgencyLow  EscalationPathTargetV2Urgency = "low"
+	High EscalationPathTargetV2Urgency = "high"
+	Low  EscalationPathTargetV2Urgency = "low"
 )
 
 // Valid indicates whether the value is a known member of the EscalationPathTargetV2Urgency enum.
 func (e EscalationPathTargetV2Urgency) Valid() bool {
 	switch e {
-	case EscalationPathTargetV2UrgencyHigh:
+	case High:
 		return true
-	case EscalationPathTargetV2UrgencyLow:
+	case Low:
 		return true
 	default:
 		return false
@@ -5813,46 +6191,46 @@ func (e PostmortemDocumentV1Type) Valid() bool {
 
 // Defines values for PostmortemDocumentsAttachPayloadV1DocumentProvider.
 const (
-	PostmortemDocumentsAttachPayloadV1DocumentProviderConfluence          PostmortemDocumentsAttachPayloadV1DocumentProvider = "confluence"
-	PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteBasecamp   PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_basecamp"
-	PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteConfluence PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_confluence"
-	PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteGithubWiki PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_github_wiki"
-	PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteGoogleDocs PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_google_docs"
-	PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteNotion     PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_notion"
-	PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteQuip       PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_quip"
-	PostmortemDocumentsAttachPayloadV1DocumentProviderEmpty               PostmortemDocumentsAttachPayloadV1DocumentProvider = ""
-	PostmortemDocumentsAttachPayloadV1DocumentProviderGoogleDocs          PostmortemDocumentsAttachPayloadV1DocumentProvider = "google_docs"
-	PostmortemDocumentsAttachPayloadV1DocumentProviderIncidentIo          PostmortemDocumentsAttachPayloadV1DocumentProvider = "incident_io"
-	PostmortemDocumentsAttachPayloadV1DocumentProviderNotion              PostmortemDocumentsAttachPayloadV1DocumentProvider = "notion"
-	PostmortemDocumentsAttachPayloadV1DocumentProviderSharepoint          PostmortemDocumentsAttachPayloadV1DocumentProvider = "sharepoint"
+	Confluence          PostmortemDocumentsAttachPayloadV1DocumentProvider = "confluence"
+	CopyPasteBasecamp   PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_basecamp"
+	CopyPasteConfluence PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_confluence"
+	CopyPasteGithubWiki PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_github_wiki"
+	CopyPasteGoogleDocs PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_google_docs"
+	CopyPasteNotion     PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_notion"
+	CopyPasteQuip       PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_quip"
+	Empty               PostmortemDocumentsAttachPayloadV1DocumentProvider = ""
+	GoogleDocs          PostmortemDocumentsAttachPayloadV1DocumentProvider = "google_docs"
+	IncidentIo          PostmortemDocumentsAttachPayloadV1DocumentProvider = "incident_io"
+	Notion              PostmortemDocumentsAttachPayloadV1DocumentProvider = "notion"
+	Sharepoint          PostmortemDocumentsAttachPayloadV1DocumentProvider = "sharepoint"
 )
 
 // Valid indicates whether the value is a known member of the PostmortemDocumentsAttachPayloadV1DocumentProvider enum.
 func (e PostmortemDocumentsAttachPayloadV1DocumentProvider) Valid() bool {
 	switch e {
-	case PostmortemDocumentsAttachPayloadV1DocumentProviderConfluence:
+	case Confluence:
 		return true
-	case PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteBasecamp:
+	case CopyPasteBasecamp:
 		return true
-	case PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteConfluence:
+	case CopyPasteConfluence:
 		return true
-	case PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteGithubWiki:
+	case CopyPasteGithubWiki:
 		return true
-	case PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteGoogleDocs:
+	case CopyPasteGoogleDocs:
 		return true
-	case PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteNotion:
+	case CopyPasteNotion:
 		return true
-	case PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteQuip:
+	case CopyPasteQuip:
 		return true
-	case PostmortemDocumentsAttachPayloadV1DocumentProviderEmpty:
+	case Empty:
 		return true
-	case PostmortemDocumentsAttachPayloadV1DocumentProviderGoogleDocs:
+	case GoogleDocs:
 		return true
-	case PostmortemDocumentsAttachPayloadV1DocumentProviderIncidentIo:
+	case IncidentIo:
 		return true
-	case PostmortemDocumentsAttachPayloadV1DocumentProviderNotion:
+	case Notion:
 		return true
-	case PostmortemDocumentsAttachPayloadV1DocumentProviderSharepoint:
+	case Sharepoint:
 		return true
 	default:
 		return false
@@ -6335,22 +6713,22 @@ func (e StatusPagesCreateStatusPageIncidentPayloadV2IncidentStatus) Valid() bool
 
 // Defines values for StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus.
 const (
-	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusIdentified    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "identified"
-	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusInvestigating StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "investigating"
-	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusMonitoring    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "monitoring"
-	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusResolved      StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "resolved"
+	Identified    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "identified"
+	Investigating StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "investigating"
+	Monitoring    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "monitoring"
+	Resolved      StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "resolved"
 )
 
 // Valid indicates whether the value is a known member of the StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus enum.
 func (e StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus) Valid() bool {
 	switch e {
-	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusIdentified:
+	case Identified:
 		return true
-	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusInvestigating:
+	case Investigating:
 		return true
-	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusMonitoring:
+	case Monitoring:
 		return true
-	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusResolved:
+	case Resolved:
 		return true
 	default:
 		return false
@@ -9430,6 +9808,368 @@ type AlertsTransitionIncidentAlertPayloadV2State string
 // AlertsTransitionIncidentAlertResultV2 defines model for AlertsTransitionIncidentAlertResultV2.
 type AlertsTransitionIncidentAlertResultV2 struct {
 	IncidentAlert IncidentAlertV2 `json:"incident_alert"`
+}
+
+// CallRouteAllowedCallerV2 A phone number allowed to reach a call route.
+type CallRouteAllowedCallerV2 struct {
+	// Id Unique identifier for this allowed caller
+	Id string `json:"id"`
+
+	// Name Label for whose number this is
+	Name *string `json:"name,omitempty"`
+
+	// PhoneNumber The number allowed to call this route, in international format
+	PhoneNumber string `json:"phone_number"`
+}
+
+// CallRouteOptionV2 One entry in a call route's phone-tree menu: the digit a caller presses, the
+// prompt we read out to offer it, and who we page when they choose it.
+type CallRouteOptionV2 struct {
+	// Digit The keypad digit a caller presses to choose this option
+	Digit CallRouteOptionV2Digit `json:"digit"`
+
+	// Id Unique identifier for this option
+	Id string `json:"id"`
+
+	// Path Who we page when a caller chooses this option
+	Path []CallRoutePathNodeV2 `json:"path"`
+
+	// Prompt What we read out to offer this option, via text-to-speech in the route's language, exactly as written
+	Prompt string `json:"prompt"`
+}
+
+// CallRouteOptionV2Digit The keypad digit a caller presses to choose this option
+type CallRouteOptionV2Digit string
+
+// CallRoutePathNodeLevelV2 The targets a level pages.
+//
+// We call each target for 30 seconds, rotating to the next after 60 seconds, and
+// move to the next node if nobody acknowledges within 5 minutes. Those timings are
+// fixed for call routes.
+type CallRoutePathNodeLevelV2 struct {
+	// Targets The users and schedules to page
+	Targets []CallRouteTargetV2 `json:"targets"`
+}
+
+// CallRoutePathNodePayloadV2 defines model for CallRoutePathNodePayloadV2.
+type CallRoutePathNodePayloadV2 struct {
+	// Id Unique identifier for this node. Omit it and we'll generate one.
+	Id *string `json:"id,omitempty"`
+
+	// Level The targets a level pages.
+	//
+	// We call each target for 30 seconds, rotating to the next after 60 seconds, and
+	// move to the next node if nobody acknowledges within 5 minutes. Those timings are
+	// fixed for call routes.
+	Level *CallRoutePathNodeLevelV2 `json:"level,omitempty"`
+
+	// Type The type of this node. Available types are:
+	// * level: page a set of targets, rotating between them
+	// * voicemail: record a message from the caller
+	Type CallRoutePathNodePayloadV2Type `json:"type"`
+
+	// Voicemail Records a message from the caller, and enriches the resulting alert with the transcript.
+	Voicemail *CallRoutePathNodeVoicemailV2 `json:"voicemail,omitempty"`
+}
+
+// CallRoutePathNodePayloadV2Type The type of this node. Available types are:
+// * level: page a set of targets, rotating between them
+// * voicemail: record a message from the caller
+type CallRoutePathNodePayloadV2Type string
+
+// CallRoutePathNodeV2 A single step in a call route's path.
+//
+// Levels page a set of targets, and a trailing voicemail node records a message
+// from the caller. A path made up of only a voicemail node sends callers straight
+// to voicemail without paging anyone.
+type CallRoutePathNodeV2 struct {
+	// Id Unique identifier for this node
+	Id string `json:"id"`
+
+	// Level The targets a level pages.
+	//
+	// We call each target for 30 seconds, rotating to the next after 60 seconds, and
+	// move to the next node if nobody acknowledges within 5 minutes. Those timings are
+	// fixed for call routes.
+	Level *CallRoutePathNodeLevelV2 `json:"level,omitempty"`
+
+	// Type The type of this node. Available types are:
+	// * level: page a set of targets, rotating between them
+	// * voicemail: record a message from the caller
+	Type CallRoutePathNodeV2Type `json:"type"`
+
+	// Voicemail Records a message from the caller, and enriches the resulting alert with the transcript.
+	Voicemail *CallRoutePathNodeVoicemailV2 `json:"voicemail,omitempty"`
+}
+
+// CallRoutePathNodeV2Type The type of this node. Available types are:
+// * level: page a set of targets, rotating between them
+// * voicemail: record a message from the caller
+type CallRoutePathNodeV2Type string
+
+// CallRoutePathNodeVoicemailV2 Records a message from the caller, and enriches the resulting alert with the transcript.
+type CallRoutePathNodeVoicemailV2 struct {
+	// GreetingText What we read to the caller before recording, via text-to-speech in the route's language, exactly as written
+	GreetingText string `json:"greeting_text"`
+}
+
+// CallRouteTargetV2 Someone a call route pages when a call comes in.
+type CallRouteTargetV2 struct {
+	// Id Uniquely identifies an entity of this type
+	Id string `json:"id"`
+
+	// ScheduleMode Only set for schedule targets, this specifies which users to fetch from the schedule. Use currently_on_call to notify whoever is on call right now across the schedule, all_users to notify every user attached to the schedule, or all_users_for_rota / currently_on_call_for_rota / next_on_call_for_rota to scope to a specific rota (in which case selected_rota_id is required). next_on_call notifies whoever is next on call across the schedule.
+	ScheduleMode *CallRouteTargetV2ScheduleMode `json:"schedule_mode,omitempty"`
+
+	// SelectedRotaId For schedule targets, identifies which rota on the schedule the schedule_mode applies to. Required when schedule_mode is all_users_for_rota, currently_on_call_for_rota, or next_on_call_for_rota; must be omitted for other schedule_mode values.
+	SelectedRotaId *string `json:"selected_rota_id,omitempty"`
+
+	// Type Whether a call route target is a user or a schedule
+	Type CallRouteTargetV2Type `json:"type"`
+
+	// Urgency The urgency of this escalation path target
+	Urgency CallRouteTargetV2Urgency `json:"urgency"`
+}
+
+// CallRouteTargetV2ScheduleMode Only set for schedule targets, this specifies which users to fetch from the schedule. Use currently_on_call to notify whoever is on call right now across the schedule, all_users to notify every user attached to the schedule, or all_users_for_rota / currently_on_call_for_rota / next_on_call_for_rota to scope to a specific rota (in which case selected_rota_id is required). next_on_call notifies whoever is next on call across the schedule.
+type CallRouteTargetV2ScheduleMode string
+
+// CallRouteTargetV2Type Whether a call route target is a user or a schedule
+type CallRouteTargetV2Type string
+
+// CallRouteTargetV2Urgency The urgency of this escalation path target
+type CallRouteTargetV2Urgency string
+
+// CallRouteV2 A call route is a phone number your customers can call to reach whoever is
+// on call, for an urgent support line or a regulator hotline.
+//
+// When a call comes in we work down the route's path, ringing each level's targets
+// in turn until someone answers, then connect them to the caller. A trailing
+// voicemail node records a message instead. Every call raises an alert, so calls
+// can open incidents through an alert route.
+//
+// List and edit call routes here. Create and delete them in the dashboard.
+type CallRouteV2 struct {
+	// AllowedCallers The numbers allowed to call this route. Only enforced when use_caller_allowlist is true.
+	AllowedCallers []CallRouteAllowedCallerV2 `json:"allowed_callers"`
+
+	// CountryCode The country this route's number belongs to
+	CountryCode *string   `json:"country_code,omitempty"`
+	CreatedAt   time.Time `json:"created_at"`
+
+	// CurrentState Where this route is in provisioning. Only an active route answers calls:
+	// * pending: created, and awaiting manual work from us
+	// * pending_regulatory_information: awaiting regulatory compliance information, collected in the dashboard
+	// * pending_number: compliance is settled, and we're provisioning a number
+	// * active: fully provisioned, and answering calls
+	CurrentState CallRouteV2CurrentState `json:"current_state"`
+
+	// CustomLanguage The language we speak voice prompts in, via text-to-speech
+	CustomLanguage CallRouteV2CustomLanguage `json:"custom_language"`
+
+	// Id Unique identifier for this call route
+	Id string `json:"id"`
+
+	// Name Name for this call route
+	Name string `json:"name"`
+
+	// Options The phone-tree menu this route presents. Empty when callers are routed down the route's path.
+	Options []CallRouteOptionV2 `json:"options"`
+
+	// Path Who we page when a call comes in. Empty when this route presents a phone-tree menu, in which case each menu option carries its own path.
+	Path []CallRoutePathNodeV2 `json:"path"`
+
+	// PhoneNumber The number your customers call to reach this route, once one has been provisioned
+	PhoneNumber *string `json:"phone_number,omitempty"`
+
+	// PhoneNumberType The type of phone number, which determines the regulatory requirements for provisioning it
+	PhoneNumberType *CallRouteV2PhoneNumberType `json:"phone_number_type,omitempty"`
+
+	// ResponderCallerId Which number responders see when we call them:
+	// * route_number: this route's own number
+	// * oncall_number: an incident.io on-call number
+	ResponderCallerId CallRouteV2ResponderCallerId `json:"responder_caller_id"`
+	UpdatedAt         time.Time                    `json:"updated_at"`
+
+	// UseCallerAllowlist Whether this route only answers calls from its allowed callers
+	UseCallerAllowlist bool `json:"use_caller_allowlist"`
+}
+
+// CallRouteV2CurrentState Where this route is in provisioning. Only an active route answers calls:
+// * pending: created, and awaiting manual work from us
+// * pending_regulatory_information: awaiting regulatory compliance information, collected in the dashboard
+// * pending_number: compliance is settled, and we're provisioning a number
+// * active: fully provisioned, and answering calls
+type CallRouteV2CurrentState string
+
+// CallRouteV2CustomLanguage The language we speak voice prompts in, via text-to-speech
+type CallRouteV2CustomLanguage string
+
+// CallRouteV2PhoneNumberType The type of phone number, which determines the regulatory requirements for provisioning it
+type CallRouteV2PhoneNumberType string
+
+// CallRouteV2ResponderCallerId Which number responders see when we call them:
+// * route_number: this route's own number
+// * oncall_number: an incident.io on-call number
+type CallRouteV2ResponderCallerId string
+
+// CallRoutesCreateAllowedCallerPayloadV2 defines model for CallRoutesCreateAllowedCallerPayloadV2.
+type CallRoutesCreateAllowedCallerPayloadV2 struct {
+	// Name Label for whose number this is
+	Name *string `json:"name,omitempty"`
+
+	// PhoneNumber The number to allow, in international format
+	PhoneNumber string `json:"phone_number"`
+}
+
+// CallRoutesCreateAllowedCallerResultV2 defines model for CallRoutesCreateAllowedCallerResultV2.
+type CallRoutesCreateAllowedCallerResultV2 struct {
+	// AllowedCaller A phone number allowed to reach a call route.
+	AllowedCaller CallRouteAllowedCallerV2 `json:"allowed_caller"`
+}
+
+// CallRoutesCreateOptionPayloadV2 defines model for CallRoutesCreateOptionPayloadV2.
+type CallRoutesCreateOptionPayloadV2 struct {
+	// Digit The keypad digit a caller presses to choose this option
+	Digit CallRoutesCreateOptionPayloadV2Digit `json:"digit"`
+
+	// Path Who to page when a caller chooses this option
+	Path []CallRoutePathNodePayloadV2 `json:"path"`
+
+	// Prompt What we read out to offer this option, via text-to-speech in the route's language, exactly as written
+	Prompt string `json:"prompt"`
+}
+
+// CallRoutesCreateOptionPayloadV2Digit The keypad digit a caller presses to choose this option
+type CallRoutesCreateOptionPayloadV2Digit string
+
+// CallRoutesCreateOptionResultV2 defines model for CallRoutesCreateOptionResultV2.
+type CallRoutesCreateOptionResultV2 struct {
+	// Option One entry in a call route's phone-tree menu: the digit a caller presses, the
+	// prompt we read out to offer it, and who we page when they choose it.
+	Option CallRouteOptionV2 `json:"option"`
+}
+
+// CallRoutesListAllowedCallersResultV2 defines model for CallRoutesListAllowedCallersResultV2.
+type CallRoutesListAllowedCallersResultV2 struct {
+	AllowedCallers []CallRouteAllowedCallerV2 `json:"allowed_callers"`
+}
+
+// CallRoutesListOptionsResultV2 defines model for CallRoutesListOptionsResultV2.
+type CallRoutesListOptionsResultV2 struct {
+	Options []CallRouteOptionV2 `json:"options"`
+}
+
+// CallRoutesListResultV2 defines model for CallRoutesListResultV2.
+type CallRoutesListResultV2 struct {
+	CallRoutes     []CallRouteV2           `json:"call_routes"`
+	PaginationMeta *PaginationMetaResultV2 `json:"pagination_meta,omitempty"`
+}
+
+// CallRoutesShowAllowedCallerResultV2 defines model for CallRoutesShowAllowedCallerResultV2.
+type CallRoutesShowAllowedCallerResultV2 struct {
+	// AllowedCaller A phone number allowed to reach a call route.
+	AllowedCaller CallRouteAllowedCallerV2 `json:"allowed_caller"`
+}
+
+// CallRoutesShowOptionResultV2 defines model for CallRoutesShowOptionResultV2.
+type CallRoutesShowOptionResultV2 struct {
+	// Option One entry in a call route's phone-tree menu: the digit a caller presses, the
+	// prompt we read out to offer it, and who we page when they choose it.
+	Option CallRouteOptionV2 `json:"option"`
+}
+
+// CallRoutesShowResultV2 defines model for CallRoutesShowResultV2.
+type CallRoutesShowResultV2 struct {
+	// CallRoute A call route is a phone number your customers can call to reach whoever is
+	// on call, for an urgent support line or a regulator hotline.
+	//
+	// When a call comes in we work down the route's path, ringing each level's targets
+	// in turn until someone answers, then connect them to the caller. A trailing
+	// voicemail node records a message instead. Every call raises an alert, so calls
+	// can open incidents through an alert route.
+	//
+	// List and edit call routes here. Create and delete them in the dashboard.
+	CallRoute CallRouteV2 `json:"call_route"`
+}
+
+// CallRoutesUpdateAllowedCallerPayloadV2 defines model for CallRoutesUpdateAllowedCallerPayloadV2.
+type CallRoutesUpdateAllowedCallerPayloadV2 struct {
+	// Name Label for whose number this is
+	Name *string `json:"name,omitempty"`
+
+	// PhoneNumber The number to allow, in international format
+	PhoneNumber string `json:"phone_number"`
+}
+
+// CallRoutesUpdateAllowedCallerResultV2 defines model for CallRoutesUpdateAllowedCallerResultV2.
+type CallRoutesUpdateAllowedCallerResultV2 struct {
+	// AllowedCaller A phone number allowed to reach a call route.
+	AllowedCaller CallRouteAllowedCallerV2 `json:"allowed_caller"`
+}
+
+// CallRoutesUpdateOptionPayloadV2 defines model for CallRoutesUpdateOptionPayloadV2.
+type CallRoutesUpdateOptionPayloadV2 struct {
+	// Digit The keypad digit a caller presses to choose this option
+	Digit CallRoutesUpdateOptionPayloadV2Digit `json:"digit"`
+
+	// Path Who to page when a caller chooses this option
+	Path []CallRoutePathNodePayloadV2 `json:"path"`
+
+	// Prompt What we read out to offer this option, via text-to-speech in the route's language, exactly as written
+	Prompt string `json:"prompt"`
+}
+
+// CallRoutesUpdateOptionPayloadV2Digit The keypad digit a caller presses to choose this option
+type CallRoutesUpdateOptionPayloadV2Digit string
+
+// CallRoutesUpdateOptionResultV2 defines model for CallRoutesUpdateOptionResultV2.
+type CallRoutesUpdateOptionResultV2 struct {
+	// Option One entry in a call route's phone-tree menu: the digit a caller presses, the
+	// prompt we read out to offer it, and who we page when they choose it.
+	Option CallRouteOptionV2 `json:"option"`
+}
+
+// CallRoutesUpdatePayloadV2 defines model for CallRoutesUpdatePayloadV2.
+type CallRoutesUpdatePayloadV2 struct {
+	// CustomLanguage The language we speak voice prompts in, via text-to-speech
+	CustomLanguage CallRoutesUpdatePayloadV2CustomLanguage `json:"custom_language"`
+
+	// Name Name for this call route
+	Name string `json:"name"`
+
+	// Path Who to page when a call comes in. Retires any phone-tree menu on the route; send an empty list to keep the menu.
+	Path []CallRoutePathNodePayloadV2 `json:"path"`
+
+	// ResponderCallerId Which number responders see when we call them:
+	// * route_number: this route's own number
+	// * oncall_number: an incident.io on-call number
+	ResponderCallerId CallRoutesUpdatePayloadV2ResponderCallerId `json:"responder_caller_id"`
+
+	// UseCallerAllowlist Whether to only answer calls from this route's allowed callers. Needs at least one allowed caller.
+	UseCallerAllowlist bool `json:"use_caller_allowlist"`
+}
+
+// CallRoutesUpdatePayloadV2CustomLanguage The language we speak voice prompts in, via text-to-speech
+type CallRoutesUpdatePayloadV2CustomLanguage string
+
+// CallRoutesUpdatePayloadV2ResponderCallerId Which number responders see when we call them:
+// * route_number: this route's own number
+// * oncall_number: an incident.io on-call number
+type CallRoutesUpdatePayloadV2ResponderCallerId string
+
+// CallRoutesUpdateResultV2 defines model for CallRoutesUpdateResultV2.
+type CallRoutesUpdateResultV2 struct {
+	// CallRoute A call route is a phone number your customers can call to reach whoever is
+	// on call, for an urgent support line or a regulator hotline.
+	//
+	// When a call comes in we work down the route's path, ringing each level's targets
+	// in turn until someone answers, then connect them to the caller. A trailing
+	// voicemail node records a message instead. Every call raises an alert, so calls
+	// can open incidents through an alert route.
+	//
+	// List and edit call routes here. Create and delete them in the dashboard.
+	CallRoute CallRouteV2 `json:"call_route"`
 }
 
 // CallSessionV2 A call session is a single occurrence of a call that Scribe attended,
@@ -17698,6 +18438,15 @@ type AlertsV2ListParams struct {
 	IncludeMaintenanceWindow *map[string][]string `form:"include_maintenance_window,omitempty" json:"include_maintenance_window,omitempty"`
 }
 
+// CallRoutesV2ListParams defines parameters for CallRoutesV2List.
+type CallRoutesV2ListParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After A call route's ID. This endpoint will return a list of call routes after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+}
+
 // CallSessionsV2ListParams defines parameters for CallSessionsV2List.
 type CallSessionsV2ListParams struct {
 	// PageSize Integer number of records to return
@@ -18323,6 +19072,21 @@ type AlertSourcesV2ValidateJSONRequestBody = AlertSourcesValidatePayloadV2
 
 // AlertSourcesV2UpdateJSONRequestBody defines body for AlertSourcesV2Update for application/json ContentType.
 type AlertSourcesV2UpdateJSONRequestBody = AlertSourcesUpdatePayloadV2
+
+// CallRoutesV2CreateAllowedCallerJSONRequestBody defines body for CallRoutesV2CreateAllowedCaller for application/json ContentType.
+type CallRoutesV2CreateAllowedCallerJSONRequestBody = CallRoutesCreateAllowedCallerPayloadV2
+
+// CallRoutesV2UpdateAllowedCallerJSONRequestBody defines body for CallRoutesV2UpdateAllowedCaller for application/json ContentType.
+type CallRoutesV2UpdateAllowedCallerJSONRequestBody = CallRoutesUpdateAllowedCallerPayloadV2
+
+// CallRoutesV2CreateOptionJSONRequestBody defines body for CallRoutesV2CreateOption for application/json ContentType.
+type CallRoutesV2CreateOptionJSONRequestBody = CallRoutesCreateOptionPayloadV2
+
+// CallRoutesV2UpdateOptionJSONRequestBody defines body for CallRoutesV2UpdateOption for application/json ContentType.
+type CallRoutesV2UpdateOptionJSONRequestBody = CallRoutesUpdateOptionPayloadV2
+
+// CallRoutesV2UpdateJSONRequestBody defines body for CallRoutesV2Update for application/json ContentType.
+type CallRoutesV2UpdateJSONRequestBody = CallRoutesUpdatePayloadV2
 
 // CatalogV2CreateEntryJSONRequestBody defines body for CatalogV2CreateEntry for application/json ContentType.
 type CatalogV2CreateEntryJSONRequestBody = CatalogCreateEntryPayloadV2
@@ -18956,6 +19720,55 @@ type ClientInterface interface {
 
 	// AlertsV2Resolve request
 	AlertsV2Resolve(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2List request
+	CallRoutesV2List(ctx context.Context, params *CallRoutesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2ListAllowedCallers request
+	CallRoutesV2ListAllowedCallers(ctx context.Context, callRouteId string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2CreateAllowedCallerWithBody request with any body
+	CallRoutesV2CreateAllowedCallerWithBody(ctx context.Context, callRouteId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	CallRoutesV2CreateAllowedCaller(ctx context.Context, callRouteId string, body CallRoutesV2CreateAllowedCallerJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2DestroyAllowedCaller request
+	CallRoutesV2DestroyAllowedCaller(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2ShowAllowedCaller request
+	CallRoutesV2ShowAllowedCaller(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2UpdateAllowedCallerWithBody request with any body
+	CallRoutesV2UpdateAllowedCallerWithBody(ctx context.Context, callRouteId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	CallRoutesV2UpdateAllowedCaller(ctx context.Context, callRouteId string, id string, body CallRoutesV2UpdateAllowedCallerJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2ListOptions request
+	CallRoutesV2ListOptions(ctx context.Context, callRouteId string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2CreateOptionWithBody request with any body
+	CallRoutesV2CreateOptionWithBody(ctx context.Context, callRouteId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	CallRoutesV2CreateOption(ctx context.Context, callRouteId string, body CallRoutesV2CreateOptionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2DestroyOption request
+	CallRoutesV2DestroyOption(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2ShowOption request
+	CallRoutesV2ShowOption(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2UpdateOptionWithBody request with any body
+	CallRoutesV2UpdateOptionWithBody(ctx context.Context, callRouteId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	CallRoutesV2UpdateOption(ctx context.Context, callRouteId string, id string, body CallRoutesV2UpdateOptionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2Show request
+	CallRoutesV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CallRoutesV2UpdateWithBody request with any body
+	CallRoutesV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	CallRoutesV2Update(ctx context.Context, id string, body CallRoutesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CallSessionsV2List request
 	CallSessionsV2List(ctx context.Context, params *CallSessionsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -21216,6 +22029,222 @@ func (c *Client) AlertsV2Show(ctx context.Context, id string, reqEditors ...Requ
 
 func (c *Client) AlertsV2Resolve(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newAlertsV2ResolveRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2List(ctx context.Context, params *CallRoutesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2ListAllowedCallers(ctx context.Context, callRouteId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2ListAllowedCallersRequest(c.Server, callRouteId)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2CreateAllowedCallerWithBody(ctx context.Context, callRouteId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2CreateAllowedCallerRequestWithBody(c.Server, callRouteId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2CreateAllowedCaller(ctx context.Context, callRouteId string, body CallRoutesV2CreateAllowedCallerJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2CreateAllowedCallerRequest(c.Server, callRouteId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2DestroyAllowedCaller(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2DestroyAllowedCallerRequest(c.Server, callRouteId, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2ShowAllowedCaller(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2ShowAllowedCallerRequest(c.Server, callRouteId, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2UpdateAllowedCallerWithBody(ctx context.Context, callRouteId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2UpdateAllowedCallerRequestWithBody(c.Server, callRouteId, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2UpdateAllowedCaller(ctx context.Context, callRouteId string, id string, body CallRoutesV2UpdateAllowedCallerJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2UpdateAllowedCallerRequest(c.Server, callRouteId, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2ListOptions(ctx context.Context, callRouteId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2ListOptionsRequest(c.Server, callRouteId)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2CreateOptionWithBody(ctx context.Context, callRouteId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2CreateOptionRequestWithBody(c.Server, callRouteId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2CreateOption(ctx context.Context, callRouteId string, body CallRoutesV2CreateOptionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2CreateOptionRequest(c.Server, callRouteId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2DestroyOption(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2DestroyOptionRequest(c.Server, callRouteId, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2ShowOption(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2ShowOptionRequest(c.Server, callRouteId, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2UpdateOptionWithBody(ctx context.Context, callRouteId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2UpdateOptionRequestWithBody(c.Server, callRouteId, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2UpdateOption(ctx context.Context, callRouteId string, id string, body CallRoutesV2UpdateOptionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2UpdateOptionRequest(c.Server, callRouteId, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) CallRoutesV2Update(ctx context.Context, id string, body CallRoutesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newCallRoutesV2UpdateRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -28298,6 +29327,586 @@ func newAlertsV2ResolveRequest(server string, id string) (*http.Request, error) 
 	if err != nil {
 		return nil, err
 	}
+
+	return req, nil
+}
+
+// NewCallRoutesV2ListRequest generates requests for CallRoutesV2List
+func newCallRoutesV2ListRequest(server string, params *CallRoutesV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCallRoutesV2ListAllowedCallersRequest generates requests for CallRoutesV2ListAllowedCallers
+func newCallRoutesV2ListAllowedCallersRequest(server string, callRouteId string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "call_route_id", callRouteId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes/%s/allowed_callers", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCallRoutesV2CreateAllowedCallerRequest calls the generic CallRoutesV2CreateAllowedCaller builder with application/json body
+func newCallRoutesV2CreateAllowedCallerRequest(server string, callRouteId string, body CallRoutesV2CreateAllowedCallerJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newCallRoutesV2CreateAllowedCallerRequestWithBody(server, callRouteId, "application/json", bodyReader)
+}
+
+// NewCallRoutesV2CreateAllowedCallerRequestWithBody generates requests for CallRoutesV2CreateAllowedCaller with any type of body
+func newCallRoutesV2CreateAllowedCallerRequestWithBody(server string, callRouteId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "call_route_id", callRouteId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes/%s/allowed_callers", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewCallRoutesV2DestroyAllowedCallerRequest generates requests for CallRoutesV2DestroyAllowedCaller
+func newCallRoutesV2DestroyAllowedCallerRequest(server string, callRouteId string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "call_route_id", callRouteId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes/%s/allowed_callers/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCallRoutesV2ShowAllowedCallerRequest generates requests for CallRoutesV2ShowAllowedCaller
+func newCallRoutesV2ShowAllowedCallerRequest(server string, callRouteId string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "call_route_id", callRouteId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes/%s/allowed_callers/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCallRoutesV2UpdateAllowedCallerRequest calls the generic CallRoutesV2UpdateAllowedCaller builder with application/json body
+func newCallRoutesV2UpdateAllowedCallerRequest(server string, callRouteId string, id string, body CallRoutesV2UpdateAllowedCallerJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newCallRoutesV2UpdateAllowedCallerRequestWithBody(server, callRouteId, id, "application/json", bodyReader)
+}
+
+// NewCallRoutesV2UpdateAllowedCallerRequestWithBody generates requests for CallRoutesV2UpdateAllowedCaller with any type of body
+func newCallRoutesV2UpdateAllowedCallerRequestWithBody(server string, callRouteId string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "call_route_id", callRouteId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes/%s/allowed_callers/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewCallRoutesV2ListOptionsRequest generates requests for CallRoutesV2ListOptions
+func newCallRoutesV2ListOptionsRequest(server string, callRouteId string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "call_route_id", callRouteId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes/%s/options", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCallRoutesV2CreateOptionRequest calls the generic CallRoutesV2CreateOption builder with application/json body
+func newCallRoutesV2CreateOptionRequest(server string, callRouteId string, body CallRoutesV2CreateOptionJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newCallRoutesV2CreateOptionRequestWithBody(server, callRouteId, "application/json", bodyReader)
+}
+
+// NewCallRoutesV2CreateOptionRequestWithBody generates requests for CallRoutesV2CreateOption with any type of body
+func newCallRoutesV2CreateOptionRequestWithBody(server string, callRouteId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "call_route_id", callRouteId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes/%s/options", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewCallRoutesV2DestroyOptionRequest generates requests for CallRoutesV2DestroyOption
+func newCallRoutesV2DestroyOptionRequest(server string, callRouteId string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "call_route_id", callRouteId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes/%s/options/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCallRoutesV2ShowOptionRequest generates requests for CallRoutesV2ShowOption
+func newCallRoutesV2ShowOptionRequest(server string, callRouteId string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "call_route_id", callRouteId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes/%s/options/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCallRoutesV2UpdateOptionRequest calls the generic CallRoutesV2UpdateOption builder with application/json body
+func newCallRoutesV2UpdateOptionRequest(server string, callRouteId string, id string, body CallRoutesV2UpdateOptionJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newCallRoutesV2UpdateOptionRequestWithBody(server, callRouteId, id, "application/json", bodyReader)
+}
+
+// NewCallRoutesV2UpdateOptionRequestWithBody generates requests for CallRoutesV2UpdateOption with any type of body
+func newCallRoutesV2UpdateOptionRequestWithBody(server string, callRouteId string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "call_route_id", callRouteId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes/%s/options/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewCallRoutesV2ShowRequest generates requests for CallRoutesV2Show
+func newCallRoutesV2ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCallRoutesV2UpdateRequest calls the generic CallRoutesV2Update builder with application/json body
+func newCallRoutesV2UpdateRequest(server string, id string, body CallRoutesV2UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newCallRoutesV2UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewCallRoutesV2UpdateRequestWithBody generates requests for CallRoutesV2Update with any type of body
+func newCallRoutesV2UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/call_routes/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -36878,6 +38487,55 @@ type ClientWithResponsesInterface interface {
 	// AlertsV2ResolveWithResponse request
 	AlertsV2ResolveWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertsV2ResolveResponse, error)
 
+	// CallRoutesV2ListWithResponse request
+	CallRoutesV2ListWithResponse(ctx context.Context, params *CallRoutesV2ListParams, reqEditors ...RequestEditorFn) (*CallRoutesV2ListResponse, error)
+
+	// CallRoutesV2ListAllowedCallersWithResponse request
+	CallRoutesV2ListAllowedCallersWithResponse(ctx context.Context, callRouteId string, reqEditors ...RequestEditorFn) (*CallRoutesV2ListAllowedCallersResponse, error)
+
+	// CallRoutesV2CreateAllowedCallerWithBodyWithResponse request with any body
+	CallRoutesV2CreateAllowedCallerWithBodyWithResponse(ctx context.Context, callRouteId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CallRoutesV2CreateAllowedCallerResponse, error)
+
+	CallRoutesV2CreateAllowedCallerWithResponse(ctx context.Context, callRouteId string, body CallRoutesV2CreateAllowedCallerJSONRequestBody, reqEditors ...RequestEditorFn) (*CallRoutesV2CreateAllowedCallerResponse, error)
+
+	// CallRoutesV2DestroyAllowedCallerWithResponse request
+	CallRoutesV2DestroyAllowedCallerWithResponse(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*CallRoutesV2DestroyAllowedCallerResponse, error)
+
+	// CallRoutesV2ShowAllowedCallerWithResponse request
+	CallRoutesV2ShowAllowedCallerWithResponse(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*CallRoutesV2ShowAllowedCallerResponse, error)
+
+	// CallRoutesV2UpdateAllowedCallerWithBodyWithResponse request with any body
+	CallRoutesV2UpdateAllowedCallerWithBodyWithResponse(ctx context.Context, callRouteId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CallRoutesV2UpdateAllowedCallerResponse, error)
+
+	CallRoutesV2UpdateAllowedCallerWithResponse(ctx context.Context, callRouteId string, id string, body CallRoutesV2UpdateAllowedCallerJSONRequestBody, reqEditors ...RequestEditorFn) (*CallRoutesV2UpdateAllowedCallerResponse, error)
+
+	// CallRoutesV2ListOptionsWithResponse request
+	CallRoutesV2ListOptionsWithResponse(ctx context.Context, callRouteId string, reqEditors ...RequestEditorFn) (*CallRoutesV2ListOptionsResponse, error)
+
+	// CallRoutesV2CreateOptionWithBodyWithResponse request with any body
+	CallRoutesV2CreateOptionWithBodyWithResponse(ctx context.Context, callRouteId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CallRoutesV2CreateOptionResponse, error)
+
+	CallRoutesV2CreateOptionWithResponse(ctx context.Context, callRouteId string, body CallRoutesV2CreateOptionJSONRequestBody, reqEditors ...RequestEditorFn) (*CallRoutesV2CreateOptionResponse, error)
+
+	// CallRoutesV2DestroyOptionWithResponse request
+	CallRoutesV2DestroyOptionWithResponse(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*CallRoutesV2DestroyOptionResponse, error)
+
+	// CallRoutesV2ShowOptionWithResponse request
+	CallRoutesV2ShowOptionWithResponse(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*CallRoutesV2ShowOptionResponse, error)
+
+	// CallRoutesV2UpdateOptionWithBodyWithResponse request with any body
+	CallRoutesV2UpdateOptionWithBodyWithResponse(ctx context.Context, callRouteId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CallRoutesV2UpdateOptionResponse, error)
+
+	CallRoutesV2UpdateOptionWithResponse(ctx context.Context, callRouteId string, id string, body CallRoutesV2UpdateOptionJSONRequestBody, reqEditors ...RequestEditorFn) (*CallRoutesV2UpdateOptionResponse, error)
+
+	// CallRoutesV2ShowWithResponse request
+	CallRoutesV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*CallRoutesV2ShowResponse, error)
+
+	// CallRoutesV2UpdateWithBodyWithResponse request with any body
+	CallRoutesV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CallRoutesV2UpdateResponse, error)
+
+	CallRoutesV2UpdateWithResponse(ctx context.Context, id string, body CallRoutesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*CallRoutesV2UpdateResponse, error)
+
 	// CallSessionsV2ListWithResponse request
 	CallSessionsV2ListWithResponse(ctx context.Context, params *CallSessionsV2ListParams, reqEditors ...RequestEditorFn) (*CallSessionsV2ListResponse, error)
 
@@ -40835,6 +42493,459 @@ func (r AlertsV2ResolveResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r AlertsV2ResolveResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CallRoutesListResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2ListAllowedCallersResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CallRoutesListAllowedCallersResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2ListAllowedCallersResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2ListAllowedCallersResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2CreateAllowedCallerResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *CallRoutesCreateAllowedCallerResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2CreateAllowedCallerResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2CreateAllowedCallerResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2DestroyAllowedCallerResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2DestroyAllowedCallerResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2DestroyAllowedCallerResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2ShowAllowedCallerResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CallRoutesShowAllowedCallerResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2ShowAllowedCallerResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2ShowAllowedCallerResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2UpdateAllowedCallerResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CallRoutesUpdateAllowedCallerResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2UpdateAllowedCallerResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2UpdateAllowedCallerResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2ListOptionsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CallRoutesListOptionsResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2ListOptionsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2ListOptionsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2CreateOptionResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *CallRoutesCreateOptionResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2CreateOptionResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2CreateOptionResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2DestroyOptionResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2DestroyOptionResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2DestroyOptionResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2ShowOptionResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CallRoutesShowOptionResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2ShowOptionResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2ShowOptionResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2UpdateOptionResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CallRoutesUpdateOptionResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2UpdateOptionResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2UpdateOptionResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CallRoutesShowResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type CallRoutesV2UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CallRoutesUpdateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r CallRoutesV2UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CallRoutesV2UpdateResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -47717,6 +49828,163 @@ func (c *ClientWithResponses) AlertsV2ResolveWithResponse(ctx context.Context, i
 		return nil, err
 	}
 	return parseAlertsV2ResolveResponse(rsp)
+}
+
+// CallRoutesV2ListWithResponse request returning *CallRoutesV2ListResponse
+func (c *ClientWithResponses) CallRoutesV2ListWithResponse(ctx context.Context, params *CallRoutesV2ListParams, reqEditors ...RequestEditorFn) (*CallRoutesV2ListResponse, error) {
+	rsp, err := c.CallRoutesV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2ListResponse(rsp)
+}
+
+// CallRoutesV2ListAllowedCallersWithResponse request returning *CallRoutesV2ListAllowedCallersResponse
+func (c *ClientWithResponses) CallRoutesV2ListAllowedCallersWithResponse(ctx context.Context, callRouteId string, reqEditors ...RequestEditorFn) (*CallRoutesV2ListAllowedCallersResponse, error) {
+	rsp, err := c.CallRoutesV2ListAllowedCallers(ctx, callRouteId, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2ListAllowedCallersResponse(rsp)
+}
+
+// CallRoutesV2CreateAllowedCallerWithBodyWithResponse request with arbitrary body returning *CallRoutesV2CreateAllowedCallerResponse
+func (c *ClientWithResponses) CallRoutesV2CreateAllowedCallerWithBodyWithResponse(ctx context.Context, callRouteId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CallRoutesV2CreateAllowedCallerResponse, error) {
+	rsp, err := c.CallRoutesV2CreateAllowedCallerWithBody(ctx, callRouteId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2CreateAllowedCallerResponse(rsp)
+}
+
+func (c *ClientWithResponses) CallRoutesV2CreateAllowedCallerWithResponse(ctx context.Context, callRouteId string, body CallRoutesV2CreateAllowedCallerJSONRequestBody, reqEditors ...RequestEditorFn) (*CallRoutesV2CreateAllowedCallerResponse, error) {
+	rsp, err := c.CallRoutesV2CreateAllowedCaller(ctx, callRouteId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2CreateAllowedCallerResponse(rsp)
+}
+
+// CallRoutesV2DestroyAllowedCallerWithResponse request returning *CallRoutesV2DestroyAllowedCallerResponse
+func (c *ClientWithResponses) CallRoutesV2DestroyAllowedCallerWithResponse(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*CallRoutesV2DestroyAllowedCallerResponse, error) {
+	rsp, err := c.CallRoutesV2DestroyAllowedCaller(ctx, callRouteId, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2DestroyAllowedCallerResponse(rsp)
+}
+
+// CallRoutesV2ShowAllowedCallerWithResponse request returning *CallRoutesV2ShowAllowedCallerResponse
+func (c *ClientWithResponses) CallRoutesV2ShowAllowedCallerWithResponse(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*CallRoutesV2ShowAllowedCallerResponse, error) {
+	rsp, err := c.CallRoutesV2ShowAllowedCaller(ctx, callRouteId, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2ShowAllowedCallerResponse(rsp)
+}
+
+// CallRoutesV2UpdateAllowedCallerWithBodyWithResponse request with arbitrary body returning *CallRoutesV2UpdateAllowedCallerResponse
+func (c *ClientWithResponses) CallRoutesV2UpdateAllowedCallerWithBodyWithResponse(ctx context.Context, callRouteId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CallRoutesV2UpdateAllowedCallerResponse, error) {
+	rsp, err := c.CallRoutesV2UpdateAllowedCallerWithBody(ctx, callRouteId, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2UpdateAllowedCallerResponse(rsp)
+}
+
+func (c *ClientWithResponses) CallRoutesV2UpdateAllowedCallerWithResponse(ctx context.Context, callRouteId string, id string, body CallRoutesV2UpdateAllowedCallerJSONRequestBody, reqEditors ...RequestEditorFn) (*CallRoutesV2UpdateAllowedCallerResponse, error) {
+	rsp, err := c.CallRoutesV2UpdateAllowedCaller(ctx, callRouteId, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2UpdateAllowedCallerResponse(rsp)
+}
+
+// CallRoutesV2ListOptionsWithResponse request returning *CallRoutesV2ListOptionsResponse
+func (c *ClientWithResponses) CallRoutesV2ListOptionsWithResponse(ctx context.Context, callRouteId string, reqEditors ...RequestEditorFn) (*CallRoutesV2ListOptionsResponse, error) {
+	rsp, err := c.CallRoutesV2ListOptions(ctx, callRouteId, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2ListOptionsResponse(rsp)
+}
+
+// CallRoutesV2CreateOptionWithBodyWithResponse request with arbitrary body returning *CallRoutesV2CreateOptionResponse
+func (c *ClientWithResponses) CallRoutesV2CreateOptionWithBodyWithResponse(ctx context.Context, callRouteId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CallRoutesV2CreateOptionResponse, error) {
+	rsp, err := c.CallRoutesV2CreateOptionWithBody(ctx, callRouteId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2CreateOptionResponse(rsp)
+}
+
+func (c *ClientWithResponses) CallRoutesV2CreateOptionWithResponse(ctx context.Context, callRouteId string, body CallRoutesV2CreateOptionJSONRequestBody, reqEditors ...RequestEditorFn) (*CallRoutesV2CreateOptionResponse, error) {
+	rsp, err := c.CallRoutesV2CreateOption(ctx, callRouteId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2CreateOptionResponse(rsp)
+}
+
+// CallRoutesV2DestroyOptionWithResponse request returning *CallRoutesV2DestroyOptionResponse
+func (c *ClientWithResponses) CallRoutesV2DestroyOptionWithResponse(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*CallRoutesV2DestroyOptionResponse, error) {
+	rsp, err := c.CallRoutesV2DestroyOption(ctx, callRouteId, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2DestroyOptionResponse(rsp)
+}
+
+// CallRoutesV2ShowOptionWithResponse request returning *CallRoutesV2ShowOptionResponse
+func (c *ClientWithResponses) CallRoutesV2ShowOptionWithResponse(ctx context.Context, callRouteId string, id string, reqEditors ...RequestEditorFn) (*CallRoutesV2ShowOptionResponse, error) {
+	rsp, err := c.CallRoutesV2ShowOption(ctx, callRouteId, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2ShowOptionResponse(rsp)
+}
+
+// CallRoutesV2UpdateOptionWithBodyWithResponse request with arbitrary body returning *CallRoutesV2UpdateOptionResponse
+func (c *ClientWithResponses) CallRoutesV2UpdateOptionWithBodyWithResponse(ctx context.Context, callRouteId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CallRoutesV2UpdateOptionResponse, error) {
+	rsp, err := c.CallRoutesV2UpdateOptionWithBody(ctx, callRouteId, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2UpdateOptionResponse(rsp)
+}
+
+func (c *ClientWithResponses) CallRoutesV2UpdateOptionWithResponse(ctx context.Context, callRouteId string, id string, body CallRoutesV2UpdateOptionJSONRequestBody, reqEditors ...RequestEditorFn) (*CallRoutesV2UpdateOptionResponse, error) {
+	rsp, err := c.CallRoutesV2UpdateOption(ctx, callRouteId, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2UpdateOptionResponse(rsp)
+}
+
+// CallRoutesV2ShowWithResponse request returning *CallRoutesV2ShowResponse
+func (c *ClientWithResponses) CallRoutesV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*CallRoutesV2ShowResponse, error) {
+	rsp, err := c.CallRoutesV2Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2ShowResponse(rsp)
+}
+
+// CallRoutesV2UpdateWithBodyWithResponse request with arbitrary body returning *CallRoutesV2UpdateResponse
+func (c *ClientWithResponses) CallRoutesV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CallRoutesV2UpdateResponse, error) {
+	rsp, err := c.CallRoutesV2UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) CallRoutesV2UpdateWithResponse(ctx context.Context, id string, body CallRoutesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*CallRoutesV2UpdateResponse, error) {
+	rsp, err := c.CallRoutesV2Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseCallRoutesV2UpdateResponse(rsp)
 }
 
 // CallSessionsV2ListWithResponse request returning *CallSessionsV2ListResponse
@@ -60794,6 +63062,1513 @@ func parseAlertsV2ResolveResponse(rsp *http.Response) (*AlertsV2ResolveResponse,
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest AlertsResolveResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2ListResponse parses an HTTP response from a CallRoutesV2ListWithResponse call
+func parseCallRoutesV2ListResponse(rsp *http.Response) (*CallRoutesV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CallRoutesListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2ListAllowedCallersResponse parses an HTTP response from a CallRoutesV2ListAllowedCallersWithResponse call
+func parseCallRoutesV2ListAllowedCallersResponse(rsp *http.Response) (*CallRoutesV2ListAllowedCallersResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2ListAllowedCallersResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CallRoutesListAllowedCallersResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2CreateAllowedCallerResponse parses an HTTP response from a CallRoutesV2CreateAllowedCallerWithResponse call
+func parseCallRoutesV2CreateAllowedCallerResponse(rsp *http.Response) (*CallRoutesV2CreateAllowedCallerResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2CreateAllowedCallerResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest CallRoutesCreateAllowedCallerResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2DestroyAllowedCallerResponse parses an HTTP response from a CallRoutesV2DestroyAllowedCallerWithResponse call
+func parseCallRoutesV2DestroyAllowedCallerResponse(rsp *http.Response) (*CallRoutesV2DestroyAllowedCallerResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2DestroyAllowedCallerResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2ShowAllowedCallerResponse parses an HTTP response from a CallRoutesV2ShowAllowedCallerWithResponse call
+func parseCallRoutesV2ShowAllowedCallerResponse(rsp *http.Response) (*CallRoutesV2ShowAllowedCallerResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2ShowAllowedCallerResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CallRoutesShowAllowedCallerResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2UpdateAllowedCallerResponse parses an HTTP response from a CallRoutesV2UpdateAllowedCallerWithResponse call
+func parseCallRoutesV2UpdateAllowedCallerResponse(rsp *http.Response) (*CallRoutesV2UpdateAllowedCallerResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2UpdateAllowedCallerResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CallRoutesUpdateAllowedCallerResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2ListOptionsResponse parses an HTTP response from a CallRoutesV2ListOptionsWithResponse call
+func parseCallRoutesV2ListOptionsResponse(rsp *http.Response) (*CallRoutesV2ListOptionsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2ListOptionsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CallRoutesListOptionsResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2CreateOptionResponse parses an HTTP response from a CallRoutesV2CreateOptionWithResponse call
+func parseCallRoutesV2CreateOptionResponse(rsp *http.Response) (*CallRoutesV2CreateOptionResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2CreateOptionResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest CallRoutesCreateOptionResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2DestroyOptionResponse parses an HTTP response from a CallRoutesV2DestroyOptionWithResponse call
+func parseCallRoutesV2DestroyOptionResponse(rsp *http.Response) (*CallRoutesV2DestroyOptionResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2DestroyOptionResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2ShowOptionResponse parses an HTTP response from a CallRoutesV2ShowOptionWithResponse call
+func parseCallRoutesV2ShowOptionResponse(rsp *http.Response) (*CallRoutesV2ShowOptionResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2ShowOptionResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CallRoutesShowOptionResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2UpdateOptionResponse parses an HTTP response from a CallRoutesV2UpdateOptionWithResponse call
+func parseCallRoutesV2UpdateOptionResponse(rsp *http.Response) (*CallRoutesV2UpdateOptionResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2UpdateOptionResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CallRoutesUpdateOptionResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2ShowResponse parses an HTTP response from a CallRoutesV2ShowWithResponse call
+func parseCallRoutesV2ShowResponse(rsp *http.Response) (*CallRoutesV2ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CallRoutesShowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCallRoutesV2UpdateResponse parses an HTTP response from a CallRoutesV2UpdateWithResponse call
+func parseCallRoutesV2UpdateResponse(rsp *http.Response) (*CallRoutesV2UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CallRoutesV2UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CallRoutesUpdateResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
