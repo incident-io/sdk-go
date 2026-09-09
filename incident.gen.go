@@ -16501,6 +16501,23 @@ type StatusPagesUpdateStatusPageIncidentResultV2 struct {
 	StatusPageIncident *StatusPageIncidentV2 `json:"status_page_incident,omitempty"`
 }
 
+// StatusPagesUpdateStatusPageMaintenancePayloadV2 defines model for StatusPagesUpdateStatusPageMaintenancePayloadV2.
+type StatusPagesUpdateStatusPageMaintenancePayloadV2 struct {
+	// EndAt The time the maintenance window ends
+	EndAt time.Time `json:"end_at"`
+
+	// Name A title for the maintenance window
+	Name string `json:"name"`
+
+	// StartAt The time the maintenance window starts
+	StartAt time.Time `json:"start_at"`
+}
+
+// StatusPagesUpdateStatusPageMaintenanceResultV2 defines model for StatusPagesUpdateStatusPageMaintenanceResultV2.
+type StatusPagesUpdateStatusPageMaintenanceResultV2 struct {
+	StatusPageMaintenance *StatusPageMaintenanceV2 `json:"status_page_maintenance,omitempty"`
+}
+
 // StepConfigPayloadV2 defines model for StepConfigPayloadV2.
 type StepConfigPayloadV2 struct {
 	// ForEach Reference to an expression that returns resources to run this step over
@@ -18448,6 +18465,9 @@ type StatusPagesV2CreateStatusPageMaintenanceUpdateJSONRequestBody = StatusPages
 // StatusPagesV2CreateStatusPageMaintenanceJSONRequestBody defines body for StatusPagesV2CreateStatusPageMaintenance for application/json ContentType.
 type StatusPagesV2CreateStatusPageMaintenanceJSONRequestBody = StatusPagesCreateStatusPageMaintenancePayloadV2
 
+// StatusPagesV2UpdateStatusPageMaintenanceJSONRequestBody defines body for StatusPagesV2UpdateStatusPageMaintenance for application/json ContentType.
+type StatusPagesV2UpdateStatusPageMaintenanceJSONRequestBody = StatusPagesUpdateStatusPageMaintenancePayloadV2
+
 // StatusPagesV2CreateStatusPageRetrospectiveIncidentJSONRequestBody defines body for StatusPagesV2CreateStatusPageRetrospectiveIncident for application/json ContentType.
 type StatusPagesV2CreateStatusPageRetrospectiveIncidentJSONRequestBody = StatusPagesCreateStatusPageRetrospectiveIncidentPayloadV2
 
@@ -19364,8 +19384,16 @@ type ClientInterface interface {
 
 	StatusPagesV2CreateStatusPageMaintenance(ctx context.Context, body StatusPagesV2CreateStatusPageMaintenanceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// StatusPagesV2DeleteStatusPageMaintenance request
+	StatusPagesV2DeleteStatusPageMaintenance(ctx context.Context, statusPageMaintenanceId string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// StatusPagesV2ShowStatusPageMaintenance request
 	StatusPagesV2ShowStatusPageMaintenance(ctx context.Context, statusPageMaintenanceId string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// StatusPagesV2UpdateStatusPageMaintenanceWithBody request with any body
+	StatusPagesV2UpdateStatusPageMaintenanceWithBody(ctx context.Context, statusPageMaintenanceId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	StatusPagesV2UpdateStatusPageMaintenance(ctx context.Context, statusPageMaintenanceId string, body StatusPagesV2UpdateStatusPageMaintenanceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBody request with any body
 	StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -23146,8 +23174,44 @@ func (c *Client) StatusPagesV2CreateStatusPageMaintenance(ctx context.Context, b
 	return c.Client.Do(req)
 }
 
+func (c *Client) StatusPagesV2DeleteStatusPageMaintenance(ctx context.Context, statusPageMaintenanceId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newStatusPagesV2DeleteStatusPageMaintenanceRequest(c.Server, statusPageMaintenanceId)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) StatusPagesV2ShowStatusPageMaintenance(ctx context.Context, statusPageMaintenanceId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newStatusPagesV2ShowStatusPageMaintenanceRequest(c.Server, statusPageMaintenanceId)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) StatusPagesV2UpdateStatusPageMaintenanceWithBody(ctx context.Context, statusPageMaintenanceId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newStatusPagesV2UpdateStatusPageMaintenanceRequestWithBody(c.Server, statusPageMaintenanceId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) StatusPagesV2UpdateStatusPageMaintenance(ctx context.Context, statusPageMaintenanceId string, body StatusPagesV2UpdateStatusPageMaintenanceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newStatusPagesV2UpdateStatusPageMaintenanceRequest(c.Server, statusPageMaintenanceId, body)
 	if err != nil {
 		return nil, err
 	}
@@ -33949,6 +34013,40 @@ func newStatusPagesV2CreateStatusPageMaintenanceRequestWithBody(server string, c
 	return req, nil
 }
 
+// NewStatusPagesV2DeleteStatusPageMaintenanceRequest generates requests for StatusPagesV2DeleteStatusPageMaintenance
+func newStatusPagesV2DeleteStatusPageMaintenanceRequest(server string, statusPageMaintenanceId string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "status_page_maintenance_id", statusPageMaintenanceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/status_page_maintenances/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewStatusPagesV2ShowStatusPageMaintenanceRequest generates requests for StatusPagesV2ShowStatusPageMaintenance
 func newStatusPagesV2ShowStatusPageMaintenanceRequest(server string, statusPageMaintenanceId string) (*http.Request, error) {
 	var err error
@@ -33979,6 +34077,53 @@ func newStatusPagesV2ShowStatusPageMaintenanceRequest(server string, statusPageM
 	if err != nil {
 		return nil, err
 	}
+
+	return req, nil
+}
+
+// NewStatusPagesV2UpdateStatusPageMaintenanceRequest calls the generic StatusPagesV2UpdateStatusPageMaintenance builder with application/json body
+func newStatusPagesV2UpdateStatusPageMaintenanceRequest(server string, statusPageMaintenanceId string, body StatusPagesV2UpdateStatusPageMaintenanceJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newStatusPagesV2UpdateStatusPageMaintenanceRequestWithBody(server, statusPageMaintenanceId, "application/json", bodyReader)
+}
+
+// NewStatusPagesV2UpdateStatusPageMaintenanceRequestWithBody generates requests for StatusPagesV2UpdateStatusPageMaintenance with any type of body
+func newStatusPagesV2UpdateStatusPageMaintenanceRequestWithBody(server string, statusPageMaintenanceId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "status_page_maintenance_id", statusPageMaintenanceId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/status_page_maintenances/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -37160,8 +37305,16 @@ type ClientWithResponsesInterface interface {
 
 	StatusPagesV2CreateStatusPageMaintenanceWithResponse(ctx context.Context, body StatusPagesV2CreateStatusPageMaintenanceJSONRequestBody, reqEditors ...RequestEditorFn) (*StatusPagesV2CreateStatusPageMaintenanceResponse, error)
 
+	// StatusPagesV2DeleteStatusPageMaintenanceWithResponse request
+	StatusPagesV2DeleteStatusPageMaintenanceWithResponse(ctx context.Context, statusPageMaintenanceId string, reqEditors ...RequestEditorFn) (*StatusPagesV2DeleteStatusPageMaintenanceResponse, error)
+
 	// StatusPagesV2ShowStatusPageMaintenanceWithResponse request
 	StatusPagesV2ShowStatusPageMaintenanceWithResponse(ctx context.Context, statusPageMaintenanceId string, reqEditors ...RequestEditorFn) (*StatusPagesV2ShowStatusPageMaintenanceResponse, error)
+
+	// StatusPagesV2UpdateStatusPageMaintenanceWithBodyWithResponse request with any body
+	StatusPagesV2UpdateStatusPageMaintenanceWithBodyWithResponse(ctx context.Context, statusPageMaintenanceId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*StatusPagesV2UpdateStatusPageMaintenanceResponse, error)
+
+	StatusPagesV2UpdateStatusPageMaintenanceWithResponse(ctx context.Context, statusPageMaintenanceId string, body StatusPagesV2UpdateStatusPageMaintenanceJSONRequestBody, reqEditors ...RequestEditorFn) (*StatusPagesV2UpdateStatusPageMaintenanceResponse, error)
 
 	// StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBodyWithResponse request with any body
 	StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*StatusPagesV2CreateStatusPageRetrospectiveIncidentResponse, error)
@@ -44556,6 +44709,40 @@ func (r StatusPagesV2CreateStatusPageMaintenanceResponse) StatusCode() int {
 	return 0
 }
 
+type StatusPagesV2DeleteStatusPageMaintenanceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r StatusPagesV2DeleteStatusPageMaintenanceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r StatusPagesV2DeleteStatusPageMaintenanceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type StatusPagesV2ShowStatusPageMaintenanceResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -44585,6 +44772,41 @@ func (r StatusPagesV2ShowStatusPageMaintenanceResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r StatusPagesV2ShowStatusPageMaintenanceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type StatusPagesV2UpdateStatusPageMaintenanceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *StatusPagesUpdateStatusPageMaintenanceResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r StatusPagesV2UpdateStatusPageMaintenanceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r StatusPagesV2UpdateStatusPageMaintenanceResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -48942,6 +49164,15 @@ func (c *ClientWithResponses) StatusPagesV2CreateStatusPageMaintenanceWithRespon
 	return parseStatusPagesV2CreateStatusPageMaintenanceResponse(rsp)
 }
 
+// StatusPagesV2DeleteStatusPageMaintenanceWithResponse request returning *StatusPagesV2DeleteStatusPageMaintenanceResponse
+func (c *ClientWithResponses) StatusPagesV2DeleteStatusPageMaintenanceWithResponse(ctx context.Context, statusPageMaintenanceId string, reqEditors ...RequestEditorFn) (*StatusPagesV2DeleteStatusPageMaintenanceResponse, error) {
+	rsp, err := c.StatusPagesV2DeleteStatusPageMaintenance(ctx, statusPageMaintenanceId, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseStatusPagesV2DeleteStatusPageMaintenanceResponse(rsp)
+}
+
 // StatusPagesV2ShowStatusPageMaintenanceWithResponse request returning *StatusPagesV2ShowStatusPageMaintenanceResponse
 func (c *ClientWithResponses) StatusPagesV2ShowStatusPageMaintenanceWithResponse(ctx context.Context, statusPageMaintenanceId string, reqEditors ...RequestEditorFn) (*StatusPagesV2ShowStatusPageMaintenanceResponse, error) {
 	rsp, err := c.StatusPagesV2ShowStatusPageMaintenance(ctx, statusPageMaintenanceId, reqEditors...)
@@ -48949,6 +49180,23 @@ func (c *ClientWithResponses) StatusPagesV2ShowStatusPageMaintenanceWithResponse
 		return nil, err
 	}
 	return parseStatusPagesV2ShowStatusPageMaintenanceResponse(rsp)
+}
+
+// StatusPagesV2UpdateStatusPageMaintenanceWithBodyWithResponse request with arbitrary body returning *StatusPagesV2UpdateStatusPageMaintenanceResponse
+func (c *ClientWithResponses) StatusPagesV2UpdateStatusPageMaintenanceWithBodyWithResponse(ctx context.Context, statusPageMaintenanceId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*StatusPagesV2UpdateStatusPageMaintenanceResponse, error) {
+	rsp, err := c.StatusPagesV2UpdateStatusPageMaintenanceWithBody(ctx, statusPageMaintenanceId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseStatusPagesV2UpdateStatusPageMaintenanceResponse(rsp)
+}
+
+func (c *ClientWithResponses) StatusPagesV2UpdateStatusPageMaintenanceWithResponse(ctx context.Context, statusPageMaintenanceId string, body StatusPagesV2UpdateStatusPageMaintenanceJSONRequestBody, reqEditors ...RequestEditorFn) (*StatusPagesV2UpdateStatusPageMaintenanceResponse, error) {
+	rsp, err := c.StatusPagesV2UpdateStatusPageMaintenance(ctx, statusPageMaintenanceId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseStatusPagesV2UpdateStatusPageMaintenanceResponse(rsp)
 }
 
 // StatusPagesV2CreateStatusPageRetrospectiveIncidentWithBodyWithResponse request with arbitrary body returning *StatusPagesV2CreateStatusPageRetrospectiveIncidentResponse
@@ -73515,6 +73763,116 @@ func parseStatusPagesV2CreateStatusPageMaintenanceResponse(rsp *http.Response) (
 	return response, nil
 }
 
+// ParseStatusPagesV2DeleteStatusPageMaintenanceResponse parses an HTTP response from a StatusPagesV2DeleteStatusPageMaintenanceWithResponse call
+func parseStatusPagesV2DeleteStatusPageMaintenanceResponse(rsp *http.Response) (*StatusPagesV2DeleteStatusPageMaintenanceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &StatusPagesV2DeleteStatusPageMaintenanceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseStatusPagesV2ShowStatusPageMaintenanceResponse parses an HTTP response from a StatusPagesV2ShowStatusPageMaintenanceWithResponse call
 func parseStatusPagesV2ShowStatusPageMaintenanceResponse(rsp *http.Response) (*StatusPagesV2ShowStatusPageMaintenanceResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -73531,6 +73889,123 @@ func parseStatusPagesV2ShowStatusPageMaintenanceResponse(rsp *http.Response) (*S
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest StatusPagesShowStatusPageMaintenanceResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseStatusPagesV2UpdateStatusPageMaintenanceResponse parses an HTTP response from a StatusPagesV2UpdateStatusPageMaintenanceWithResponse call
+func parseStatusPagesV2UpdateStatusPageMaintenanceResponse(rsp *http.Response) (*StatusPagesV2UpdateStatusPageMaintenanceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &StatusPagesV2UpdateStatusPageMaintenanceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest StatusPagesUpdateStatusPageMaintenanceResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}

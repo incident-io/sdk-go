@@ -83053,6 +83053,79 @@
         },
         "type": "object"
       },
+      "StatusPagesUpdateStatusPageMaintenancePayloadV2": {
+        "example": {
+          "end_at": "2025-01-28T12:00:00Z",
+          "name": "Routine infrastructure upgrade",
+          "start_at": "2025-01-28T10:00:00Z"
+        },
+        "properties": {
+          "end_at": {
+            "description": "The time the maintenance window ends",
+            "example": "2025-01-28T12:00:00Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "name": {
+            "description": "A title for the maintenance window",
+            "example": "Routine infrastructure upgrade",
+            "maxLength": 200,
+            "type": "string"
+          },
+          "start_at": {
+            "description": "The time the maintenance window starts",
+            "example": "2025-01-28T10:00:00Z",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "start_at",
+          "end_at"
+        ],
+        "type": "object"
+      },
+      "StatusPagesUpdateStatusPageMaintenanceResultV2": {
+        "example": {
+          "status_page_maintenance": {
+            "automate_maintenance_status": true,
+            "component_maintenance_periods": [
+              {
+                "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
+                "end_at": "2021-08-17T13:28:57.801578Z",
+                "start_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "maintenance_status": "maintenance_scheduled",
+            "name": "Routine infrastructure upgrade",
+            "published_at": "2021-08-17T13:28:57.801578Z",
+            "status_page_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "updates": [
+              {
+                "component_statuses": [
+                  {
+                    "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                    "component_status": "operational"
+                  }
+                ],
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "maintenance_status": "maintenance_scheduled",
+                "message": "abc123",
+                "published_at": "2021-08-17T13:28:57.801578Z",
+                "status_page_maintenance_id": "01FCNDV6P870EA6S7TK1DSYDG1"
+              }
+            ]
+          }
+        },
+        "properties": {
+          "status_page_maintenance": {
+            "$ref": "#/components/schemas/StatusPageMaintenanceV2"
+          }
+        },
+        "type": "object"
+      },
       "StepConfigPayloadV2": {
         "example": {
           "for_each": "abc123",
@@ -147789,6 +147862,173 @@
       }
     },
     "/v2/status_page_maintenances/{status_page_maintenance_id}": {
+      "delete": {
+        "description": "Delete a Status Page maintenance window.\n\nThe maintenance window and its updates stop appearing on your public status page, links to it stop working, and a window that has not yet run publishes no further automated updates. This cannot be undone.\n\nSubscribers are not told the window has been deleted, so anyone already emailed about it will have updates for a maintenance window they can no longer find.\n\nThis endpoint requires an API key with the \"Create status page incidents, status page maintenance windows, and publish status page updates\" scope.",
+        "operationId": "Status Pages V2#DeleteStatusPageMaintenance",
+        "parameters": [
+          {
+            "description": "ID of the status page maintenance window",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG1",
+            "in": "path",
+            "name": "status_page_maintenance_id",
+            "required": true,
+            "schema": {
+              "description": "ID of the status page maintenance window",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "DeleteStatusPageMaintenance Status Pages V2",
+        "tags": [
+          "Status Pages V2"
+        ],
+        "x-display-name": "Delete",
+        "x-docs-display-name": "Delete",
+        "x-docs-group-name": "Status Page Maintenances V2",
+        "x-docs-resource-type": "StatusPageMaintenanceV2",
+        "x-mint": {
+          "content": "🔑 Requires the `status_pages.publish_updates` scope."
+        },
+        "x-rbac-scopes": [
+          "status_pages.publish_updates"
+        ]
+      },
       "get": {
         "description": "Show a status page maintenance window.\n\nThis endpoint requires a valid API key but no specific scopes.",
         "operationId": "Status Pages V2#ShowStatusPageMaintenance",
@@ -147988,6 +148228,227 @@
         "x-docs-display-name": "Show",
         "x-docs-group-name": "Status Page Maintenances V2",
         "x-docs-resource-type": "StatusPageMaintenanceV2"
+      },
+      "put": {
+        "description": "Update the name and scheduled window of a Status Page maintenance window.\n\nThe new start_at and end_at apply to every component this maintenance window affects.\n\nThis does not publish an update to your status page and does not notify subscribers. Automated updates only move a window forwards, so one that has already started or completed will not move back to an earlier status. To move a status backwards, or to tell subscribers the schedule has changed, post a maintenance update to POST /status_page_maintenance_updates.\n\nThis endpoint requires an API key with the \"Create status page incidents, status page maintenance windows, and publish status page updates\" scope.",
+        "operationId": "Status Pages V2#UpdateStatusPageMaintenance",
+        "parameters": [
+          {
+            "description": "ID of the status page maintenance window",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG1",
+            "in": "path",
+            "name": "status_page_maintenance_id",
+            "required": true,
+            "schema": {
+              "description": "ID of the status page maintenance window",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG1",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "end_at": "2025-01-28T12:00:00Z",
+                "name": "Routine infrastructure upgrade",
+                "start_at": "2025-01-28T10:00:00Z"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/StatusPagesUpdateStatusPageMaintenancePayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "status_page_maintenance": {
+                    "automate_maintenance_status": true,
+                    "component_maintenance_periods": [
+                      {
+                        "component_id": "01GW7P4ES31Q6V1ZQH321T0GJN",
+                        "end_at": "2021-08-17T13:28:57.801578Z",
+                        "start_at": "2021-08-17T13:28:57.801578Z"
+                      }
+                    ],
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "maintenance_status": "maintenance_scheduled",
+                    "name": "Routine infrastructure upgrade",
+                    "published_at": "2021-08-17T13:28:57.801578Z",
+                    "status_page_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "updates": [
+                      {
+                        "component_statuses": [
+                          {
+                            "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
+                            "component_status": "operational"
+                          }
+                        ],
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "maintenance_status": "maintenance_scheduled",
+                        "message": "abc123",
+                        "published_at": "2021-08-17T13:28:57.801578Z",
+                        "status_page_maintenance_id": "01FCNDV6P870EA6S7TK1DSYDG1"
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/StatusPagesUpdateStatusPageMaintenanceResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "UpdateStatusPageMaintenance Status Pages V2",
+        "tags": [
+          "Status Pages V2"
+        ],
+        "x-display-name": "Update",
+        "x-docs-display-name": "Update",
+        "x-docs-group-name": "Status Page Maintenances V2",
+        "x-docs-resource-type": "StatusPageMaintenanceV2",
+        "x-mint": {
+          "content": "🔑 Requires the `status_pages.publish_updates` scope."
+        },
+        "x-rbac-scopes": [
+          "status_pages.publish_updates"
+        ]
       }
     },
     "/v2/status_page_retrospective_incidents": {
