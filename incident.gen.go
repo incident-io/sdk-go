@@ -20764,6 +20764,8 @@ func (c *Client) StatusPagesV1ListResponseIncidents(ctx context.Context, id stri
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) ActionsV2List(ctx context.Context, params *ActionsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newActionsV2ListRequest(c.Server, params)
 	if err != nil {
@@ -20776,6 +20778,8 @@ func (c *Client) ActionsV2List(ctx context.Context, params *ActionsV2ListParams,
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) ActionsV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newActionsV2CreateRequestWithBody(c.Server, contentType, body)
 	if err != nil {
@@ -20788,6 +20792,8 @@ func (c *Client) ActionsV2CreateWithBody(ctx context.Context, contentType string
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) ActionsV2Create(ctx context.Context, body ActionsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newActionsV2CreateRequest(c.Server, body)
 	if err != nil {
@@ -20800,6 +20806,8 @@ func (c *Client) ActionsV2Create(ctx context.Context, body ActionsV2CreateJSONRe
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) ActionsV2Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newActionsV2DeleteRequest(c.Server, id)
 	if err != nil {
@@ -20812,6 +20820,8 @@ func (c *Client) ActionsV2Delete(ctx context.Context, id string, reqEditors ...R
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) ActionsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newActionsV2ShowRequest(c.Server, id)
 	if err != nil {
@@ -20824,6 +20834,8 @@ func (c *Client) ActionsV2Show(ctx context.Context, id string, reqEditors ...Req
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) ActionsV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newActionsV2UpdateRequestWithBody(c.Server, id, contentType, body)
 	if err != nil {
@@ -20836,6 +20848,8 @@ func (c *Client) ActionsV2UpdateWithBody(ctx context.Context, id string, content
 	return c.Client.Do(req)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) ActionsV2Update(ctx context.Context, id string, body ActionsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newActionsV2UpdateRequest(c.Server, id, body)
 	if err != nil {
@@ -47160,6 +47174,9 @@ func (c *ClientWithResponses) StatusPagesV1ListResponseIncidentsWithResponse(ctx
 }
 
 // ActionsV2ListWithResponse request returning *ActionsV2ListResponse
+//
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) ActionsV2ListWithResponse(ctx context.Context, params *ActionsV2ListParams, reqEditors ...RequestEditorFn) (*ActionsV2ListResponse, error) {
 	rsp, err := c.ActionsV2List(ctx, params, reqEditors...)
 	if err != nil {
@@ -47169,6 +47186,9 @@ func (c *ClientWithResponses) ActionsV2ListWithResponse(ctx context.Context, par
 }
 
 // ActionsV2CreateWithBodyWithResponse request with arbitrary body returning *ActionsV2CreateResponse
+//
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) ActionsV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionsV2CreateResponse, error) {
 	rsp, err := c.ActionsV2CreateWithBody(ctx, contentType, body, reqEditors...)
 	if err != nil {
@@ -47177,6 +47197,8 @@ func (c *ClientWithResponses) ActionsV2CreateWithBodyWithResponse(ctx context.Co
 	return parseActionsV2CreateResponse(rsp)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) ActionsV2CreateWithResponse(ctx context.Context, body ActionsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionsV2CreateResponse, error) {
 	rsp, err := c.ActionsV2Create(ctx, body, reqEditors...)
 	if err != nil {
@@ -47186,6 +47208,9 @@ func (c *ClientWithResponses) ActionsV2CreateWithResponse(ctx context.Context, b
 }
 
 // ActionsV2DeleteWithResponse request returning *ActionsV2DeleteResponse
+//
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) ActionsV2DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*ActionsV2DeleteResponse, error) {
 	rsp, err := c.ActionsV2Delete(ctx, id, reqEditors...)
 	if err != nil {
@@ -47195,6 +47220,9 @@ func (c *ClientWithResponses) ActionsV2DeleteWithResponse(ctx context.Context, i
 }
 
 // ActionsV2ShowWithResponse request returning *ActionsV2ShowResponse
+//
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) ActionsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*ActionsV2ShowResponse, error) {
 	rsp, err := c.ActionsV2Show(ctx, id, reqEditors...)
 	if err != nil {
@@ -47204,6 +47232,9 @@ func (c *ClientWithResponses) ActionsV2ShowWithResponse(ctx context.Context, id 
 }
 
 // ActionsV2UpdateWithBodyWithResponse request with arbitrary body returning *ActionsV2UpdateResponse
+//
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) ActionsV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionsV2UpdateResponse, error) {
 	rsp, err := c.ActionsV2UpdateWithBody(ctx, id, contentType, body, reqEditors...)
 	if err != nil {
@@ -47212,6 +47243,8 @@ func (c *ClientWithResponses) ActionsV2UpdateWithBodyWithResponse(ctx context.Co
 	return parseActionsV2UpdateResponse(rsp)
 }
 
+// Deprecated: this endpoint is deprecated in the incident.io API. See
+// https://api-docs.incident.io/ for the recommended replacement.
 func (c *ClientWithResponses) ActionsV2UpdateWithResponse(ctx context.Context, id string, body ActionsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionsV2UpdateResponse, error) {
 	rsp, err := c.ActionsV2Update(ctx, id, body, reqEditors...)
 	if err != nil {

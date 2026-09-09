@@ -109021,7 +109021,8 @@
     },
     "/v2/actions": {
       "get": {
-        "description": "List all actions for an organisation.",
+        "deprecated": true,
+        "description": "Deprecated: this endpoint will be removed on 31 December 2026. Use \u003ccode\u003eGET /v3/actions\u003c/code\u003e instead.\n\nList all actions for an organisation.",
         "operationId": "Actions V2#List",
         "parameters": [
           {
@@ -109258,7 +109259,8 @@
         ]
       },
       "post": {
-        "description": "Create a new incident action.",
+        "deprecated": true,
+        "description": "Deprecated: this endpoint will be removed on 31 December 2026. Use \u003ccode\u003ePOST /v3/actions\u003c/code\u003e instead.\n\nCreate a new incident action.",
         "operationId": "Actions V2#Create",
         "requestBody": {
           "content": {
@@ -109473,7 +109475,8 @@
     },
     "/v2/actions/{id}": {
       "delete": {
-        "description": "Delete an incident action.",
+        "deprecated": true,
+        "description": "Deprecated: this endpoint will be removed on 31 December 2026. Use \u003ccode\u003eDELETE /v3/actions/{id}\u003c/code\u003e instead.\n\nDelete an incident action.",
         "operationId": "Actions V2#Delete",
         "parameters": [
           {
@@ -109643,7 +109646,8 @@
         ]
       },
       "get": {
-        "description": "Get a single incident action.",
+        "deprecated": true,
+        "description": "Deprecated: this endpoint will be removed on 31 December 2026. Use \u003ccode\u003eGET /v3/actions/{id}\u003c/code\u003e instead.\n\nGet a single incident action.",
         "operationId": "Actions V2#Show",
         "parameters": [
           {
@@ -109859,7 +109863,8 @@
         ]
       },
       "put": {
-        "description": "Update an existing incident action.",
+        "deprecated": true,
+        "description": "Deprecated: this endpoint will be removed on 31 December 2026. Use \u003ccode\u003ePUT /v3/actions/{id}\u003c/code\u003e instead.\n\nUpdate an existing incident action.",
         "operationId": "Actions V2#Update",
         "parameters": [
           {
@@ -126162,7 +126167,7 @@
     "/v2/follow_ups": {
       "get": {
         "deprecated": true,
-        "description": "List all follow-ups for an organisation.",
+        "description": "Deprecated: this endpoint will be removed on 31 December 2026. Use \u003ccode\u003eGET /v3/follow_ups\u003c/code\u003e instead.\n\nList all follow-ups for an organisation.",
         "operationId": "Follow-ups V2#List",
         "parameters": [
           {
@@ -126427,7 +126432,7 @@
       },
       "post": {
         "deprecated": true,
-        "description": "Create a new incident follow-up.",
+        "description": "Deprecated: this endpoint will be removed on 31 December 2026. Use \u003ccode\u003ePOST /v3/follow_ups\u003c/code\u003e instead.\n\nCreate a new incident follow-up.",
         "operationId": "Follow-ups V2#Create",
         "requestBody": {
           "content": {
@@ -126672,7 +126677,7 @@
     "/v2/follow_ups/{id}": {
       "delete": {
         "deprecated": true,
-        "description": "Delete an incident follow-up.",
+        "description": "Deprecated: this endpoint will be removed on 31 December 2026. Use \u003ccode\u003eDELETE /v3/follow_ups/{id}\u003c/code\u003e instead.\n\nDelete an incident follow-up.",
         "operationId": "Follow-ups V2#Delete",
         "parameters": [
           {
@@ -126843,7 +126848,7 @@
       },
       "get": {
         "deprecated": true,
-        "description": "Get a single incident follow-up.",
+        "description": "Deprecated: this endpoint will be removed on 31 December 2026. Use \u003ccode\u003eGET /v3/follow_ups/{id}\u003c/code\u003e instead.\n\nGet a single incident follow-up.",
         "operationId": "Follow-ups V2#Show",
         "parameters": [
           {
@@ -127080,7 +127085,7 @@
       },
       "put": {
         "deprecated": true,
-        "description": "Update an existing incident follow-up.",
+        "description": "Deprecated: this endpoint will be removed on 31 December 2026. Use \u003ccode\u003ePUT /v3/follow_ups/{id}\u003c/code\u003e instead.\n\nUpdate an existing incident follow-up.",
         "operationId": "Follow-ups V2#Update",
         "parameters": [
           {
@@ -127337,7 +127342,7 @@
     "/v2/follow_ups/{id}/actions/connect_external_issue": {
       "post": {
         "deprecated": true,
-        "description": "Connect a follow-up to an existing issue in an issue tracker, using the URL of the issue.\n\nThis will not work if the follow-up is already connected to an external issue.\n",
+        "description": "Deprecated: this endpoint will be removed on 31 December 2026. Use \u003ccode\u003ePOST /v3/follow_ups/{id}/actions/connect_external_issue\u003c/code\u003e instead.\n\nConnect a follow-up to an existing issue in an issue tracker, using the URL of the issue.\n\nThis will not work if the follow-up is already connected to an external issue.\n",
         "operationId": "Follow-ups V2#ConnectExternalIssue",
         "parameters": [
           {
@@ -162407,7 +162412,7 @@
       "name": "Actions V1"
     },
     {
-      "description": "Manage incident actions.\n\nIncident actions are used during an incident, to track work such as 'restart the database' or 'contact the customer'.\n\nYou can manage actions in the incident Slack channel with \u003ccode\u003e/incident actions\u003c/code\u003e, or on\nthe incident homepage.\n",
+      "description": "Manage incident actions.\n\nThese endpoints have been deprecated in favour of Actions V3, which returns the same\naction payload, and will be removed on 31 December 2026. The V3 List endpoint is paginated\nand supports filtering by created_at and updated_at, so use it instead of re-fetching the\nfull list.\n\nIncident actions are used during an incident, to track work such as 'restart the database' or 'contact the customer'.\n\nYou can manage actions in the incident Slack channel with \u003ccode\u003e/incident actions\u003c/code\u003e, or on\nthe incident homepage.\n",
       "name": "Actions V2"
     },
     {
@@ -162475,7 +162480,7 @@
       "name": "Escalations V2"
     },
     {
-      "description": "Manage incident follow-ups.\n\nThese endpoints have been deprecated in favour of Follow-ups V3, which returns the same\nfollow-up payload. The V3 List endpoint is paginated and supports filtering by created_at\nand updated_at, so use it instead of re-fetching the full list.\n\nIncidents can have follow-ups associated with them, which track work that should be done\nafter an incident (e.g. improving some documentation, or upgrading a dependency). They can\nalso be exported to external issue trackers.\n\nYou can manage follow-ups in the incident Slack channel with \u003ccode\u003e/incident follow-ups\u003c/code\u003e, or on\nthe incident homepage.\n",
+      "description": "Manage incident follow-ups.\n\nThese endpoints have been deprecated in favour of Follow-ups V3, which returns the same\nfollow-up payload, and will be removed on 31 December 2026. The V3 List endpoint is\npaginated and supports filtering by created_at and updated_at, so use it instead of\nre-fetching the full list.\n\nIncidents can have follow-ups associated with them, which track work that should be done\nafter an incident (e.g. improving some documentation, or upgrading a dependency). They can\nalso be exported to external issue trackers.\n\nYou can manage follow-ups in the incident Slack channel with \u003ccode\u003e/incident follow-ups\u003c/code\u003e, or on\nthe incident homepage.\n",
       "name": "Follow-ups V2"
     },
     {
