@@ -10102,6 +10102,17 @@ type AlertV2 struct {
 // AlertV2Status Statuses of an alert
 type AlertV2Status string
 
+// AlertsAddTagsPayloadV2 defines model for AlertsAddTagsPayloadV2.
+type AlertsAddTagsPayloadV2 struct {
+	// Tags Tag names to add to this alert
+	Tags []string `json:"tags"`
+}
+
+// AlertsAddTagsResultV2 defines model for AlertsAddTagsResultV2.
+type AlertsAddTagsResultV2 struct {
+	Alert AlertV2 `json:"alert"`
+}
+
 // AlertsCreateIncidentAlertPayloadV2 defines model for AlertsCreateIncidentAlertPayloadV2.
 type AlertsCreateIncidentAlertPayloadV2 struct {
 	// AlertId Alert to attach to the incident
@@ -10119,6 +10130,12 @@ type AlertsCreateIncidentAlertResultV2 struct {
 	IncidentAlert IncidentAlertV2 `json:"incident_alert"`
 }
 
+// AlertsListAlertTagsResultV2 defines model for AlertsListAlertTagsResultV2.
+type AlertsListAlertTagsResultV2 struct {
+	AlertTags      []AlertTagV2           `json:"alert_tags"`
+	PaginationMeta PaginationMetaResultV2 `json:"pagination_meta"`
+}
+
 // AlertsListIncidentAlertsResultV2 defines model for AlertsListIncidentAlertsResultV2.
 type AlertsListIncidentAlertsResultV2 struct {
 	IncidentAlerts []IncidentAlertV2      `json:"incident_alerts"`
@@ -10131,8 +10148,30 @@ type AlertsListResultV2 struct {
 	PaginationMeta PaginationMetaResultV2 `json:"pagination_meta"`
 }
 
+// AlertsRemoveTagsPayloadV2 defines model for AlertsRemoveTagsPayloadV2.
+type AlertsRemoveTagsPayloadV2 struct {
+	// Tags Tag names to remove from this alert
+	Tags []string `json:"tags"`
+}
+
+// AlertsRemoveTagsResultV2 defines model for AlertsRemoveTagsResultV2.
+type AlertsRemoveTagsResultV2 struct {
+	Alert AlertV2 `json:"alert"`
+}
+
 // AlertsResolveResultV2 defines model for AlertsResolveResultV2.
 type AlertsResolveResultV2 struct {
+	Alert AlertV2 `json:"alert"`
+}
+
+// AlertsSetTagsPayloadV2 defines model for AlertsSetTagsPayloadV2.
+type AlertsSetTagsPayloadV2 struct {
+	// Tags The complete set of tag names for this alert
+	Tags []string `json:"tags"`
+}
+
+// AlertsSetTagsResultV2 defines model for AlertsSetTagsResultV2.
+type AlertsSetTagsResultV2 struct {
 	Alert AlertV2 `json:"alert"`
 }
 
@@ -19111,6 +19150,18 @@ type AlertRoutesV2ListParams struct {
 	After *string `form:"after,omitempty" json:"after,omitempty"`
 }
 
+// AlertsV2ListAlertTagsParams defines parameters for AlertsV2ListAlertTags.
+type AlertsV2ListAlertTagsParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After A tag's ID. This endpoint will return a list of tags after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+
+	// Search Filter to tags whose name contains this value (case-insensitive)
+	Search *string `form:"search,omitempty" json:"search,omitempty"`
+}
+
 // AlertsV2ListParams defines parameters for AlertsV2List.
 type AlertsV2ListParams struct {
 	// PageSize Number of alerts to return per page
@@ -19797,6 +19848,15 @@ type AlertSourcesV2ValidateJSONRequestBody = AlertSourcesValidatePayloadV2
 // AlertSourcesV2UpdateJSONRequestBody defines body for AlertSourcesV2Update for application/json ContentType.
 type AlertSourcesV2UpdateJSONRequestBody = AlertSourcesUpdatePayloadV2
 
+// AlertsV2AddTagsJSONRequestBody defines body for AlertsV2AddTags for application/json ContentType.
+type AlertsV2AddTagsJSONRequestBody = AlertsAddTagsPayloadV2
+
+// AlertsV2RemoveTagsJSONRequestBody defines body for AlertsV2RemoveTags for application/json ContentType.
+type AlertsV2RemoveTagsJSONRequestBody = AlertsRemoveTagsPayloadV2
+
+// AlertsV2SetTagsJSONRequestBody defines body for AlertsV2SetTags for application/json ContentType.
+type AlertsV2SetTagsJSONRequestBody = AlertsSetTagsPayloadV2
+
 // CallRoutesV2CreateAllowedCallerJSONRequestBody defines body for CallRoutesV2CreateAllowedCaller for application/json ContentType.
 type CallRoutesV2CreateAllowedCallerJSONRequestBody = CallRoutesCreateAllowedCallerPayloadV2
 
@@ -20442,14 +20502,32 @@ type ClientInterface interface {
 
 	AlertSourcesV2Update(ctx context.Context, id string, body AlertSourcesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// AlertsV2ListAlertTags request
+	AlertsV2ListAlertTags(ctx context.Context, params *AlertsV2ListAlertTagsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// AlertsV2List request
 	AlertsV2List(ctx context.Context, params *AlertsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// AlertsV2Show request
 	AlertsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// AlertsV2AddTagsWithBody request with any body
+	AlertsV2AddTagsWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AlertsV2AddTags(ctx context.Context, id string, body AlertsV2AddTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertsV2RemoveTagsWithBody request with any body
+	AlertsV2RemoveTagsWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AlertsV2RemoveTags(ctx context.Context, id string, body AlertsV2RemoveTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// AlertsV2Resolve request
 	AlertsV2Resolve(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertsV2SetTagsWithBody request with any body
+	AlertsV2SetTagsWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AlertsV2SetTags(ctx context.Context, id string, body AlertsV2SetTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CallRoutesV2List request
 	CallRoutesV2List(ctx context.Context, params *CallRoutesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -22752,6 +22830,18 @@ func (c *Client) AlertSourcesV2Update(ctx context.Context, id string, body Alert
 	return c.Client.Do(req)
 }
 
+func (c *Client) AlertsV2ListAlertTags(ctx context.Context, params *AlertsV2ListAlertTagsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertsV2ListAlertTagsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) AlertsV2List(ctx context.Context, params *AlertsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newAlertsV2ListRequest(c.Server, params)
 	if err != nil {
@@ -22776,8 +22866,80 @@ func (c *Client) AlertsV2Show(ctx context.Context, id string, reqEditors ...Requ
 	return c.Client.Do(req)
 }
 
+func (c *Client) AlertsV2AddTagsWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertsV2AddTagsRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertsV2AddTags(ctx context.Context, id string, body AlertsV2AddTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertsV2AddTagsRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertsV2RemoveTagsWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertsV2RemoveTagsRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertsV2RemoveTags(ctx context.Context, id string, body AlertsV2RemoveTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertsV2RemoveTagsRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) AlertsV2Resolve(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newAlertsV2ResolveRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertsV2SetTagsWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertsV2SetTagsRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertsV2SetTags(ctx context.Context, id string, body AlertsV2SetTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertsV2SetTagsRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -29897,6 +30059,87 @@ func newAlertSourcesV2UpdateRequestWithBody(server string, id string, contentTyp
 	return req, nil
 }
 
+// NewAlertsV2ListAlertTagsRequest generates requests for AlertsV2ListAlertTags
+func newAlertsV2ListAlertTagsRequest(server string, params *AlertsV2ListAlertTagsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/alert_tags")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Search != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "search", *params.Search, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewAlertsV2ListRequest generates requests for AlertsV2List
 func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Request, error) {
 	var err error
@@ -30152,6 +30395,100 @@ func newAlertsV2ShowRequest(server string, id string) (*http.Request, error) {
 	return req, nil
 }
 
+// NewAlertsV2AddTagsRequest calls the generic AlertsV2AddTags builder with application/json body
+func newAlertsV2AddTagsRequest(server string, id string, body AlertsV2AddTagsJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAlertsV2AddTagsRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewAlertsV2AddTagsRequestWithBody generates requests for AlertsV2AddTags with any type of body
+func newAlertsV2AddTagsRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/alerts/%s/actions/add_tags", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewAlertsV2RemoveTagsRequest calls the generic AlertsV2RemoveTags builder with application/json body
+func newAlertsV2RemoveTagsRequest(server string, id string, body AlertsV2RemoveTagsJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAlertsV2RemoveTagsRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewAlertsV2RemoveTagsRequestWithBody generates requests for AlertsV2RemoveTags with any type of body
+func newAlertsV2RemoveTagsRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/alerts/%s/actions/remove_tags", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewAlertsV2ResolveRequest generates requests for AlertsV2Resolve
 func newAlertsV2ResolveRequest(server string, id string) (*http.Request, error) {
 	var err error
@@ -30182,6 +30519,53 @@ func newAlertsV2ResolveRequest(server string, id string) (*http.Request, error) 
 	if err != nil {
 		return nil, err
 	}
+
+	return req, nil
+}
+
+// NewAlertsV2SetTagsRequest calls the generic AlertsV2SetTags builder with application/json body
+func newAlertsV2SetTagsRequest(server string, id string, body AlertsV2SetTagsJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAlertsV2SetTagsRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewAlertsV2SetTagsRequestWithBody generates requests for AlertsV2SetTags with any type of body
+func newAlertsV2SetTagsRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/alerts/%s/actions/set_tags", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -39569,14 +39953,32 @@ type ClientWithResponsesInterface interface {
 
 	AlertSourcesV2UpdateWithResponse(ctx context.Context, id string, body AlertSourcesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertSourcesV2UpdateResponse, error)
 
+	// AlertsV2ListAlertTagsWithResponse request
+	AlertsV2ListAlertTagsWithResponse(ctx context.Context, params *AlertsV2ListAlertTagsParams, reqEditors ...RequestEditorFn) (*AlertsV2ListAlertTagsResponse, error)
+
 	// AlertsV2ListWithResponse request
 	AlertsV2ListWithResponse(ctx context.Context, params *AlertsV2ListParams, reqEditors ...RequestEditorFn) (*AlertsV2ListResponse, error)
 
 	// AlertsV2ShowWithResponse request
 	AlertsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertsV2ShowResponse, error)
 
+	// AlertsV2AddTagsWithBodyWithResponse request with any body
+	AlertsV2AddTagsWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertsV2AddTagsResponse, error)
+
+	AlertsV2AddTagsWithResponse(ctx context.Context, id string, body AlertsV2AddTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertsV2AddTagsResponse, error)
+
+	// AlertsV2RemoveTagsWithBodyWithResponse request with any body
+	AlertsV2RemoveTagsWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertsV2RemoveTagsResponse, error)
+
+	AlertsV2RemoveTagsWithResponse(ctx context.Context, id string, body AlertsV2RemoveTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertsV2RemoveTagsResponse, error)
+
 	// AlertsV2ResolveWithResponse request
 	AlertsV2ResolveWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertsV2ResolveResponse, error)
+
+	// AlertsV2SetTagsWithBodyWithResponse request with any body
+	AlertsV2SetTagsWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertsV2SetTagsResponse, error)
+
+	AlertsV2SetTagsWithResponse(ctx context.Context, id string, body AlertsV2SetTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertsV2SetTagsResponse, error)
 
 	// CallRoutesV2ListWithResponse request
 	CallRoutesV2ListWithResponse(ctx context.Context, params *CallRoutesV2ListParams, reqEditors ...RequestEditorFn) (*CallRoutesV2ListResponse, error)
@@ -43504,6 +43906,41 @@ func (r AlertSourcesV2UpdateResponse) StatusCode() int {
 	return 0
 }
 
+type AlertsV2ListAlertTagsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AlertsListAlertTagsResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertsV2ListAlertTagsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertsV2ListAlertTagsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type AlertsV2ListResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -43574,6 +44011,76 @@ func (r AlertsV2ShowResponse) StatusCode() int {
 	return 0
 }
 
+type AlertsV2AddTagsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AlertsAddTagsResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertsV2AddTagsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertsV2AddTagsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AlertsV2RemoveTagsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AlertsRemoveTagsResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertsV2RemoveTagsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertsV2RemoveTagsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type AlertsV2ResolveResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -43603,6 +44110,41 @@ func (r AlertsV2ResolveResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r AlertsV2ResolveResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AlertsV2SetTagsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AlertsSetTagsResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertsV2SetTagsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertsV2SetTagsResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -51087,6 +51629,15 @@ func (c *ClientWithResponses) AlertSourcesV2UpdateWithResponse(ctx context.Conte
 	return parseAlertSourcesV2UpdateResponse(rsp)
 }
 
+// AlertsV2ListAlertTagsWithResponse request returning *AlertsV2ListAlertTagsResponse
+func (c *ClientWithResponses) AlertsV2ListAlertTagsWithResponse(ctx context.Context, params *AlertsV2ListAlertTagsParams, reqEditors ...RequestEditorFn) (*AlertsV2ListAlertTagsResponse, error) {
+	rsp, err := c.AlertsV2ListAlertTags(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertsV2ListAlertTagsResponse(rsp)
+}
+
 // AlertsV2ListWithResponse request returning *AlertsV2ListResponse
 func (c *ClientWithResponses) AlertsV2ListWithResponse(ctx context.Context, params *AlertsV2ListParams, reqEditors ...RequestEditorFn) (*AlertsV2ListResponse, error) {
 	rsp, err := c.AlertsV2List(ctx, params, reqEditors...)
@@ -51105,6 +51656,40 @@ func (c *ClientWithResponses) AlertsV2ShowWithResponse(ctx context.Context, id s
 	return parseAlertsV2ShowResponse(rsp)
 }
 
+// AlertsV2AddTagsWithBodyWithResponse request with arbitrary body returning *AlertsV2AddTagsResponse
+func (c *ClientWithResponses) AlertsV2AddTagsWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertsV2AddTagsResponse, error) {
+	rsp, err := c.AlertsV2AddTagsWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertsV2AddTagsResponse(rsp)
+}
+
+func (c *ClientWithResponses) AlertsV2AddTagsWithResponse(ctx context.Context, id string, body AlertsV2AddTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertsV2AddTagsResponse, error) {
+	rsp, err := c.AlertsV2AddTags(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertsV2AddTagsResponse(rsp)
+}
+
+// AlertsV2RemoveTagsWithBodyWithResponse request with arbitrary body returning *AlertsV2RemoveTagsResponse
+func (c *ClientWithResponses) AlertsV2RemoveTagsWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertsV2RemoveTagsResponse, error) {
+	rsp, err := c.AlertsV2RemoveTagsWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertsV2RemoveTagsResponse(rsp)
+}
+
+func (c *ClientWithResponses) AlertsV2RemoveTagsWithResponse(ctx context.Context, id string, body AlertsV2RemoveTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertsV2RemoveTagsResponse, error) {
+	rsp, err := c.AlertsV2RemoveTags(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertsV2RemoveTagsResponse(rsp)
+}
+
 // AlertsV2ResolveWithResponse request returning *AlertsV2ResolveResponse
 func (c *ClientWithResponses) AlertsV2ResolveWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertsV2ResolveResponse, error) {
 	rsp, err := c.AlertsV2Resolve(ctx, id, reqEditors...)
@@ -51112,6 +51697,23 @@ func (c *ClientWithResponses) AlertsV2ResolveWithResponse(ctx context.Context, i
 		return nil, err
 	}
 	return parseAlertsV2ResolveResponse(rsp)
+}
+
+// AlertsV2SetTagsWithBodyWithResponse request with arbitrary body returning *AlertsV2SetTagsResponse
+func (c *ClientWithResponses) AlertsV2SetTagsWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertsV2SetTagsResponse, error) {
+	rsp, err := c.AlertsV2SetTagsWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertsV2SetTagsResponse(rsp)
+}
+
+func (c *ClientWithResponses) AlertsV2SetTagsWithResponse(ctx context.Context, id string, body AlertsV2SetTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertsV2SetTagsResponse, error) {
+	rsp, err := c.AlertsV2SetTags(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertsV2SetTagsResponse(rsp)
 }
 
 // CallRoutesV2ListWithResponse request returning *CallRoutesV2ListResponse
@@ -64157,6 +64759,123 @@ func parseAlertSourcesV2UpdateResponse(rsp *http.Response) (*AlertSourcesV2Updat
 	return response, nil
 }
 
+// ParseAlertsV2ListAlertTagsResponse parses an HTTP response from a AlertsV2ListAlertTagsWithResponse call
+func parseAlertsV2ListAlertTagsResponse(rsp *http.Response) (*AlertsV2ListAlertTagsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertsV2ListAlertTagsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AlertsListAlertTagsResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseAlertsV2ListResponse parses an HTTP response from a AlertsV2ListWithResponse call
 func parseAlertsV2ListResponse(rsp *http.Response) (*AlertsV2ListResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -64391,6 +65110,240 @@ func parseAlertsV2ShowResponse(rsp *http.Response) (*AlertsV2ShowResponse, error
 	return response, nil
 }
 
+// ParseAlertsV2AddTagsResponse parses an HTTP response from a AlertsV2AddTagsWithResponse call
+func parseAlertsV2AddTagsResponse(rsp *http.Response) (*AlertsV2AddTagsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertsV2AddTagsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AlertsAddTagsResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAlertsV2RemoveTagsResponse parses an HTTP response from a AlertsV2RemoveTagsWithResponse call
+func parseAlertsV2RemoveTagsResponse(rsp *http.Response) (*AlertsV2RemoveTagsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertsV2RemoveTagsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AlertsRemoveTagsResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseAlertsV2ResolveResponse parses an HTTP response from a AlertsV2ResolveWithResponse call
 func parseAlertsV2ResolveResponse(rsp *http.Response) (*AlertsV2ResolveResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -64407,6 +65360,123 @@ func parseAlertsV2ResolveResponse(rsp *http.Response) (*AlertsV2ResolveResponse,
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest AlertsResolveResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAlertsV2SetTagsResponse parses an HTTP response from a AlertsV2SetTagsWithResponse call
+func parseAlertsV2SetTagsResponse(rsp *http.Response) (*AlertsV2SetTagsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertsV2SetTagsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AlertsSetTagsResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}

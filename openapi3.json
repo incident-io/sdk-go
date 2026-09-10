@@ -20156,6 +20156,99 @@
         ],
         "type": "object"
       },
+      "AlertsAddTagsPayloadV2": {
+        "example": {
+          "tags": [
+            "known issue",
+            "customer impacting"
+          ]
+        },
+        "properties": {
+          "tags": {
+            "description": "Tag names to add to this alert",
+            "example": [
+              "known issue",
+              "customer impacting"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "maxItems": 25,
+            "type": "array"
+          }
+        },
+        "required": [
+          "tags"
+        ],
+        "type": "object"
+      },
+      "AlertsAddTagsResultV2": {
+        "example": {
+          "alert": {
+            "alert_group_ids": [
+              "01GW2G3V0S59R238FAHPDS1R66"
+            ],
+            "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+            "attributes": [
+              {
+                "array_value": [
+                  {
+                    "catalog_entry": {
+                      "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Primary On-call"
+                    },
+                    "label": "Payments Team",
+                    "literal": "SEV123"
+                  }
+                ],
+                "attribute": {
+                  "array": false,
+                  "emoji": "fire",
+                  "id": "01GW2G3V0S59R238FAHPDS1R66",
+                  "name": "service",
+                  "required": false,
+                  "type": "CatalogEntry[\"01GW2G3V0S59R238FAHPDS1R67\"]"
+                },
+                "value": {
+                  "catalog_entry": {
+                    "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "Primary On-call"
+                  },
+                  "label": "Payments Team",
+                  "literal": "SEV123"
+                }
+              }
+            ],
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "deduplication_key": "4293868629",
+            "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+            "id": "01GW2G3V0S59R238FAHPDS1R66",
+            "resolved_at": "2021-08-17T14:28:57.801578Z",
+            "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+            "status": "firing",
+            "tags": [
+              {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "name": "noisy"
+              }
+            ],
+            "title": "*errors.withMessage: PG::Error failed to connect",
+            "updated_at": "2021-08-17T13:28:57.801578Z"
+          }
+        },
+        "properties": {
+          "alert": {
+            "$ref": "#/components/schemas/AlertV2"
+          }
+        },
+        "required": [
+          "alert"
+        ],
+        "type": "object"
+      },
       "AlertsCreateIncidentAlertPayloadV2": {
         "example": {
           "alert_id": "01FCNDV6P870EA6S7TK1DSYDG1",
@@ -20224,6 +20317,42 @@
         },
         "required": [
           "incident_alert"
+        ],
+        "type": "object"
+      },
+      "AlertsListAlertTagsResultV2": {
+        "example": {
+          "alert_tags": [
+            {
+              "id": "01GW2G3V0S59R238FAHPDS1R66",
+              "name": "noisy"
+            }
+          ],
+          "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25
+          }
+        },
+        "properties": {
+          "alert_tags": {
+            "example": [
+              {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "name": "noisy"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/AlertTagV2"
+            },
+            "type": "array"
+          },
+          "pagination_meta": {
+            "$ref": "#/components/schemas/PaginationMetaResultV2"
+          }
+        },
+        "required": [
+          "alert_tags",
+          "pagination_meta"
         ],
         "type": "object"
       },
@@ -20445,7 +20574,193 @@
         ],
         "type": "object"
       },
+      "AlertsRemoveTagsPayloadV2": {
+        "example": {
+          "tags": [
+            "known issue",
+            "customer impacting"
+          ]
+        },
+        "properties": {
+          "tags": {
+            "description": "Tag names to remove from this alert",
+            "example": [
+              "known issue",
+              "customer impacting"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "maxItems": 25,
+            "type": "array"
+          }
+        },
+        "required": [
+          "tags"
+        ],
+        "type": "object"
+      },
+      "AlertsRemoveTagsResultV2": {
+        "example": {
+          "alert": {
+            "alert_group_ids": [
+              "01GW2G3V0S59R238FAHPDS1R66"
+            ],
+            "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+            "attributes": [
+              {
+                "array_value": [
+                  {
+                    "catalog_entry": {
+                      "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Primary On-call"
+                    },
+                    "label": "Payments Team",
+                    "literal": "SEV123"
+                  }
+                ],
+                "attribute": {
+                  "array": false,
+                  "emoji": "fire",
+                  "id": "01GW2G3V0S59R238FAHPDS1R66",
+                  "name": "service",
+                  "required": false,
+                  "type": "CatalogEntry[\"01GW2G3V0S59R238FAHPDS1R67\"]"
+                },
+                "value": {
+                  "catalog_entry": {
+                    "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "Primary On-call"
+                  },
+                  "label": "Payments Team",
+                  "literal": "SEV123"
+                }
+              }
+            ],
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "deduplication_key": "4293868629",
+            "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+            "id": "01GW2G3V0S59R238FAHPDS1R66",
+            "resolved_at": "2021-08-17T14:28:57.801578Z",
+            "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+            "status": "firing",
+            "tags": [
+              {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "name": "noisy"
+              }
+            ],
+            "title": "*errors.withMessage: PG::Error failed to connect",
+            "updated_at": "2021-08-17T13:28:57.801578Z"
+          }
+        },
+        "properties": {
+          "alert": {
+            "$ref": "#/components/schemas/AlertV2"
+          }
+        },
+        "required": [
+          "alert"
+        ],
+        "type": "object"
+      },
       "AlertsResolveResultV2": {
+        "example": {
+          "alert": {
+            "alert_group_ids": [
+              "01GW2G3V0S59R238FAHPDS1R66"
+            ],
+            "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+            "attributes": [
+              {
+                "array_value": [
+                  {
+                    "catalog_entry": {
+                      "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Primary On-call"
+                    },
+                    "label": "Payments Team",
+                    "literal": "SEV123"
+                  }
+                ],
+                "attribute": {
+                  "array": false,
+                  "emoji": "fire",
+                  "id": "01GW2G3V0S59R238FAHPDS1R66",
+                  "name": "service",
+                  "required": false,
+                  "type": "CatalogEntry[\"01GW2G3V0S59R238FAHPDS1R67\"]"
+                },
+                "value": {
+                  "catalog_entry": {
+                    "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "Primary On-call"
+                  },
+                  "label": "Payments Team",
+                  "literal": "SEV123"
+                }
+              }
+            ],
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "deduplication_key": "4293868629",
+            "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+            "id": "01GW2G3V0S59R238FAHPDS1R66",
+            "resolved_at": "2021-08-17T14:28:57.801578Z",
+            "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+            "status": "firing",
+            "tags": [
+              {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "name": "noisy"
+              }
+            ],
+            "title": "*errors.withMessage: PG::Error failed to connect",
+            "updated_at": "2021-08-17T13:28:57.801578Z"
+          }
+        },
+        "properties": {
+          "alert": {
+            "$ref": "#/components/schemas/AlertV2"
+          }
+        },
+        "required": [
+          "alert"
+        ],
+        "type": "object"
+      },
+      "AlertsSetTagsPayloadV2": {
+        "example": {
+          "tags": [
+            "known issue",
+            "customer impacting"
+          ]
+        },
+        "properties": {
+          "tags": {
+            "description": "The complete set of tag names for this alert",
+            "example": [
+              "known issue",
+              "customer impacting"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "maxItems": 25,
+            "type": "array"
+          }
+        },
+        "required": [
+          "tags"
+        ],
+        "type": "object"
+      },
+      "AlertsSetTagsResultV2": {
         "example": {
           "alert": {
             "alert_group_ids": [
@@ -124715,6 +125030,226 @@
         ]
       }
     },
+    "/v2/alert_tags": {
+      "get": {
+        "description": "List the alert tags in your organisation's vocabulary.\n\nAlert tags are the reusable labels you can apply to alerts. This endpoint lists the\norganisation's active tags, ordered by name, and excludes archived tags.\n\nTo narrow the list, filter by search, which matches tags whose name contains the given\nvalue (case-insensitive):\n\n\t\tcurl --get 'https://api.incident.io/v2/alert_tags' \\\n\t\t\t--data 'search=noisy'\n",
+        "operationId": "Alerts V2#ListAlertTags",
+        "parameters": [
+          {
+            "allowEmptyValue": true,
+            "description": "Integer number of records to return",
+            "example": 25,
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "default": 25,
+              "description": "Integer number of records to return",
+              "example": 25,
+              "format": "int64",
+              "maximum": 250,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "A tag's ID. This endpoint will return a list of tags after this ID in relation to the API response order.",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01GW2G3V0S59R238FAHPDS1R66"
+              }
+            },
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "description": "A tag's ID. This endpoint will return a list of tags after this ID in relation to the API response order.",
+              "example": "01GW2G3V0S59R238FAHPDS1R66",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "Filter to tags whose name contains this value (case-insensitive)",
+            "example": "noisy",
+            "in": "query",
+            "name": "search",
+            "schema": {
+              "description": "Filter to tags whose name contains this value (case-insensitive)",
+              "example": "noisy",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "alert_tags": [
+                    {
+                      "id": "01GW2G3V0S59R238FAHPDS1R66",
+                      "name": "noisy"
+                    }
+                  ],
+                  "pagination_meta": {
+                    "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "page_size": 25
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AlertsListAlertTagsResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "ListAlertTags Alerts V2",
+        "tags": [
+          "Alerts V2"
+        ],
+        "x-docs-display-name": "List",
+        "x-docs-group-name": "Alert Tags V2",
+        "x-docs-resource-type": "AlertTagV2",
+        "x-mint": {
+          "content": "🔑 Requires the `alerts.view` scope."
+        },
+        "x-rbac-scopes": [
+          "alerts.view"
+        ]
+      }
+    },
     "/v2/alerts": {
       "get": {
         "description": "List all alerts for your account.\n\t\t\nThis endpoint supports a number of filters, which can help find alerts matching certain\ncriteria. These filters work similarly to the filters on the incidents endpoint, where \na field is specified alongside a comparison operator in the query string.\n\nNote that:\n- Filters may be used together, and the result will be alerts that match all filters.\n- All query parameters must be URI encoded.\n\n### By deduplication_key\n\nFind all alerts with deduplication_key ABC:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'deduplication_key[is]=ABC'\n\n### By status\n\nFind all alerts in a firing state:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'status[one_of]=firing'\n\n### By alert_source\n\nFind all alerts from a specific alert source (by alert source ID):\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_source[one_of]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\nFind all alerts not from a specific alert source:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_source[not_in]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\n### By alert_group_id\n\nFind all alerts in a specific alert group:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'alert_group_id[one_of]=01GBSQF3FHF7FWZQNWGHAVQ804'\n\n### By created_at\nFind all alerts that follow specified date parameters for created_at field.\nPossible values are \"gte\" (greater than or equal to), \"lte\" (less than or equal to), and \n\"date_range\" (between two dates). The following example finds all alerts created after \n2025-01-01:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'created_at[gte]=2025-01-01'\n\nTo find alerts created within a specific date range, use the date_range option with \ntilde-separated dates:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'created_at[date_range]=2024-12-02~2024-12-08'\n\n### By updated_at\nFind all alerts that follow specified date parameters for updated_at field, using the same\n\"gte\", \"lte\" and \"date_range\" operators as created_at. This is useful for incrementally\nsyncing alerts: poll with updated_at[gte] set to your last sync time instead of re-fetching\nthe full history. Note that updated_at moves whenever the alert row is written, which can\nhappen without a visible change to the alert payload, so treat matches as candidates to\nre-fetch rather than guaranteed changes — and overlap your sync window by a few minutes to\nallow for writes that commit out of timestamp order:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'updated_at[gte]=2025-01-01T00:00:00Z'\n\n### By has_notes\n\nFind all alerts that have notes attached:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'has_notes[is]=true'\n\nFind all alerts that have no notes attached:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'has_notes[is]=false'\n\n### By tags\n\nFilter by tag name, matched case-insensitively.\n\nFind all alerts that have any of the given tags:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'tags[one_of]=known issue'\n\nFind all alerts that have all of the given tags:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'tags[all_of]=known issue' \\\n\t\t\t--data 'tags[all_of]=customer impacting'\n\nFind all alerts that do not have any of the given tags. Untagged alerts are included:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'tags[not_in]=known issue'\n\n### By attributes\n\nAlerts can be filtered by their attribute values. Each filter is keyed by the alert\nattribute ID, followed by an operator and the values to match. The accepted operators\ndepend on the attribute's type.\n\nFind all alerts where attribute 01GBSQF3FHF7FWZQNWGHAVQ804 is one of two catalog entries:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'attributes[01GBSQF3FHF7FWZQNWGHAVQ804][one_of]=01GBSQF3FHF7FWZQNWGHAVQ804' \\\n\t\t\t--data 'attributes[01GBSQF3FHF7FWZQNWGHAVQ804][one_of]=01ET65M7ZARSFZ6TFDFVQDN9AA'\n\nYou can filter on multiple attributes at once, and the result will be alerts that match\nall of them.\n\n### Maintenance windows\nBy default, all alerts are returned including those held by a maintenance window.\nTo exclude alerts that are held by a maintenance window:\n\n\t\tcurl --get 'https://api.incident.io/v2/alerts' \\\n\t\t\t--data 'include_maintenance_window[is]=false'\n\t\t",
@@ -125512,6 +126047,498 @@
         ]
       }
     },
+    "/v2/alerts/{id}/actions/add_tags": {
+      "post": {
+        "description": "Add tags to an alert without changing its existing tags.\n\nEach tag is a name. A name that does not exist is created, except on private alerts,\nwhere only names already in the organisation's tag vocabulary can be used. Tags that are\nalready present are ignored.",
+        "operationId": "Alerts V2#AddTags",
+        "parameters": [
+          {
+            "description": "Unique identifier for the alert",
+            "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for the alert",
+              "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "tags": [
+                  "known issue",
+                  "customer impacting"
+                ]
+              },
+              "schema": {
+                "$ref": "#/components/schemas/AlertsAddTagsPayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "alert": {
+                    "alert_group_ids": [
+                      "01GW2G3V0S59R238FAHPDS1R66"
+                    ],
+                    "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "attributes": [
+                      {
+                        "array_value": [
+                          {
+                            "catalog_entry": {
+                              "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                              "name": "Primary On-call"
+                            },
+                            "label": "Payments Team",
+                            "literal": "SEV123"
+                          }
+                        ],
+                        "attribute": {
+                          "array": false,
+                          "emoji": "fire",
+                          "id": "01GW2G3V0S59R238FAHPDS1R66",
+                          "name": "service",
+                          "required": false,
+                          "type": "CatalogEntry[\"01GW2G3V0S59R238FAHPDS1R67\"]"
+                        },
+                        "value": {
+                          "catalog_entry": {
+                            "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                            "name": "Primary On-call"
+                          },
+                          "label": "Payments Team",
+                          "literal": "SEV123"
+                        }
+                      }
+                    ],
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "deduplication_key": "4293868629",
+                    "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+                    "id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "resolved_at": "2021-08-17T14:28:57.801578Z",
+                    "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+                    "status": "firing",
+                    "tags": [
+                      {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "name": "noisy"
+                      }
+                    ],
+                    "title": "*errors.withMessage: PG::Error failed to connect",
+                    "updated_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AlertsAddTagsResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "AddTags Alerts V2",
+        "tags": [
+          "Alerts V2"
+        ],
+        "x-docs-display-name": "Add tags",
+        "x-docs-group-name": "Alerts V2",
+        "x-docs-resource-type": "AlertV2",
+        "x-mint": {
+          "content": "🔑 Requires the `alerts.edit` scope."
+        },
+        "x-rbac-scopes": [
+          "alerts.edit"
+        ]
+      }
+    },
+    "/v2/alerts/{id}/actions/remove_tags": {
+      "post": {
+        "description": "Remove tags from an alert without changing its other tags.\n\nEach tag is a name. Tags that are not present on the alert are ignored.",
+        "operationId": "Alerts V2#RemoveTags",
+        "parameters": [
+          {
+            "description": "Unique identifier for the alert",
+            "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for the alert",
+              "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "tags": [
+                  "known issue",
+                  "customer impacting"
+                ]
+              },
+              "schema": {
+                "$ref": "#/components/schemas/AlertsRemoveTagsPayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "alert": {
+                    "alert_group_ids": [
+                      "01GW2G3V0S59R238FAHPDS1R66"
+                    ],
+                    "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "attributes": [
+                      {
+                        "array_value": [
+                          {
+                            "catalog_entry": {
+                              "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                              "name": "Primary On-call"
+                            },
+                            "label": "Payments Team",
+                            "literal": "SEV123"
+                          }
+                        ],
+                        "attribute": {
+                          "array": false,
+                          "emoji": "fire",
+                          "id": "01GW2G3V0S59R238FAHPDS1R66",
+                          "name": "service",
+                          "required": false,
+                          "type": "CatalogEntry[\"01GW2G3V0S59R238FAHPDS1R67\"]"
+                        },
+                        "value": {
+                          "catalog_entry": {
+                            "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                            "name": "Primary On-call"
+                          },
+                          "label": "Payments Team",
+                          "literal": "SEV123"
+                        }
+                      }
+                    ],
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "deduplication_key": "4293868629",
+                    "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+                    "id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "resolved_at": "2021-08-17T14:28:57.801578Z",
+                    "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+                    "status": "firing",
+                    "tags": [
+                      {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "name": "noisy"
+                      }
+                    ],
+                    "title": "*errors.withMessage: PG::Error failed to connect",
+                    "updated_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AlertsRemoveTagsResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "RemoveTags Alerts V2",
+        "tags": [
+          "Alerts V2"
+        ],
+        "x-docs-display-name": "Remove tags",
+        "x-docs-group-name": "Alerts V2",
+        "x-docs-resource-type": "AlertV2",
+        "x-mint": {
+          "content": "🔑 Requires the `alerts.edit` scope."
+        },
+        "x-rbac-scopes": [
+          "alerts.edit"
+        ]
+      }
+    },
     "/v2/alerts/{id}/actions/resolve": {
       "post": {
         "description": "Resolve a currently firing alert.\n\nThis marks the alert as resolved with the current time, attributing the resolution to the API key that made the request. Resolving an already-resolved alert is a no-op and returns the alert unchanged.\n\nSome alert sources are 'externally resolved' (for example, Datadog) — those alerts can only be resolved by the third-party system itself, and this endpoint will return a 422 explaining that.\n\nPrivate alerts: an API key without the 'view all alerts' scope can only resolve non-private alerts; private alerts will return a 404. Grant the API key a role that includes the global alerts access scope to resolve private alerts.\n",
@@ -125739,6 +126766,252 @@
         },
         "x-rbac-scopes": [
           "alerts.resolve"
+        ]
+      }
+    },
+    "/v2/alerts/{id}/actions/set_tags": {
+      "post": {
+        "description": "Replace all tags on an alert.\n\nEach tag is a name. A name that does not exist is created, except on private alerts,\nwhere only names already in the organisation's tag vocabulary can be used. Passing an\nempty list removes every tag.",
+        "operationId": "Alerts V2#SetTags",
+        "parameters": [
+          {
+            "description": "Unique identifier for the alert",
+            "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for the alert",
+              "example": "01FDAG4SAP5TYPT98WGR2N7W91",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "tags": [
+                  "known issue",
+                  "customer impacting"
+                ]
+              },
+              "schema": {
+                "$ref": "#/components/schemas/AlertsSetTagsPayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "alert": {
+                    "alert_group_ids": [
+                      "01GW2G3V0S59R238FAHPDS1R66"
+                    ],
+                    "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "attributes": [
+                      {
+                        "array_value": [
+                          {
+                            "catalog_entry": {
+                              "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                              "name": "Primary On-call"
+                            },
+                            "label": "Payments Team",
+                            "literal": "SEV123"
+                          }
+                        ],
+                        "attribute": {
+                          "array": false,
+                          "emoji": "fire",
+                          "id": "01GW2G3V0S59R238FAHPDS1R66",
+                          "name": "service",
+                          "required": false,
+                          "type": "CatalogEntry[\"01GW2G3V0S59R238FAHPDS1R67\"]"
+                        },
+                        "value": {
+                          "catalog_entry": {
+                            "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                            "name": "Primary On-call"
+                          },
+                          "label": "Payments Team",
+                          "literal": "SEV123"
+                        }
+                      }
+                    ],
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "deduplication_key": "4293868629",
+                    "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+                    "id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "resolved_at": "2021-08-17T14:28:57.801578Z",
+                    "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+                    "status": "firing",
+                    "tags": [
+                      {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "name": "noisy"
+                      }
+                    ],
+                    "title": "*errors.withMessage: PG::Error failed to connect",
+                    "updated_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/AlertsSetTagsResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "SetTags Alerts V2",
+        "tags": [
+          "Alerts V2"
+        ],
+        "x-docs-display-name": "Set tags",
+        "x-docs-group-name": "Alerts V2",
+        "x-docs-resource-type": "AlertV2",
+        "x-mint": {
+          "content": "🔑 Requires the `alerts.edit` scope."
+        },
+        "x-rbac-scopes": [
+          "alerts.edit"
         ]
       }
     },
