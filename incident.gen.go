@@ -4227,6 +4227,24 @@ func (e EscalationPathTemplateNodeV2Type) Valid() bool {
 	}
 }
 
+// Defines values for EscalationPathV2Kind.
+const (
+	EscalationPathV2KindStandalone EscalationPathV2Kind = "standalone"
+	EscalationPathV2KindTemplated  EscalationPathV2Kind = "templated"
+)
+
+// Valid indicates whether the value is a known member of the EscalationPathV2Kind enum.
+func (e EscalationPathV2Kind) Valid() bool {
+	switch e {
+	case EscalationPathV2KindStandalone:
+		return true
+	case EscalationPathV2KindTemplated:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for EscalationUserResponseOptionsV2AvailableActions.
 const (
 	EscalationUserResponseOptionsV2AvailableActionsAck    EscalationUserResponseOptionsV2AvailableActions = "ack"
@@ -4287,6 +4305,24 @@ func (e EscalationV2Status) Valid() bool {
 	}
 }
 
+// Defines values for EscalationsCreatePathPayloadV2Kind.
+const (
+	EscalationsCreatePathPayloadV2KindStandalone EscalationsCreatePathPayloadV2Kind = "standalone"
+	EscalationsCreatePathPayloadV2KindTemplated  EscalationsCreatePathPayloadV2Kind = "templated"
+)
+
+// Valid indicates whether the value is a known member of the EscalationsCreatePathPayloadV2Kind enum.
+func (e EscalationsCreatePathPayloadV2Kind) Valid() bool {
+	switch e {
+	case EscalationsCreatePathPayloadV2KindStandalone:
+		return true
+	case EscalationsCreatePathPayloadV2KindTemplated:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for EscalationsRespondEscalationPayloadV2Response.
 const (
 	EscalationsRespondEscalationPayloadV2ResponseAck    EscalationsRespondEscalationPayloadV2Response = "ack"
@@ -4302,6 +4338,24 @@ func (e EscalationsRespondEscalationPayloadV2Response) Valid() bool {
 	case EscalationsRespondEscalationPayloadV2ResponseNack:
 		return true
 	case EscalationsRespondEscalationPayloadV2ResponseSnooze:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for EscalationsUpdatePathPayloadV2Kind.
+const (
+	Standalone EscalationsUpdatePathPayloadV2Kind = "standalone"
+	Templated  EscalationsUpdatePathPayloadV2Kind = "templated"
+)
+
+// Valid indicates whether the value is a known member of the EscalationsUpdatePathPayloadV2Kind enum.
+func (e EscalationsUpdatePathPayloadV2Kind) Valid() bool {
+	switch e {
+	case Standalone:
+		return true
+	case Templated:
 		return true
 	default:
 		return false
@@ -12943,19 +12997,31 @@ type EscalationPathV2 struct {
 	// Id Unique identifier for this escalation path.
 	Id string `json:"id"`
 
+	// Kind Whether this path carries its own nodes, or is built from an escalation path template.
+	Kind EscalationPathV2Kind `json:"kind"`
+
 	// Name The name of this escalation path, for the user's reference.
 	Name string `json:"name"`
 
-	// Path The nodes that form the levels and branches of this escalation path.
+	// ParamBindings For a templated path, the values bound to the template's declared parameters, keyed by parameter name.
+	ParamBindings *map[string]EngineParamBindingV2 `json:"param_bindings,omitempty"`
+
+	// Path The nodes that form the levels and branches of this escalation path. Empty for a templated path, which takes them from its template.
 	Path         []EscalationPathNodeV2        `json:"path"`
 	RepeatConfig *EscalationPathRepeatConfigV2 `json:"repeat_config,omitempty"`
 
 	// TeamIds IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
 	TeamIds []string `json:"team_ids"`
 
-	// WorkingHours The working hours for this escalation path.
+	// TemplateId For a templated path, the template it is built from.
+	TemplateId *string `json:"template_id,omitempty"`
+
+	// WorkingHours The working hours for this escalation path. Absent for a templated path, which takes them from its template.
 	WorkingHours *[]WeekdayIntervalConfigV2 `json:"working_hours,omitempty"`
 }
+
+// EscalationPathV2Kind Whether this path carries its own nodes, or is built from an escalation path template.
+type EscalationPathV2Kind string
 
 // EscalationPriorityV2 The priority associated with this escalation.
 type EscalationPriorityV2 struct {
@@ -13040,8 +13106,14 @@ type EscalationsCheckEscalationPermissionsResultV2 struct {
 
 // EscalationsCreatePathPayloadV2 defines model for EscalationsCreatePathPayloadV2.
 type EscalationsCreatePathPayloadV2 struct {
+	// Kind Whether this path carries its own nodes, or is built from an escalation path template.
+	Kind *EscalationsCreatePathPayloadV2Kind `json:"kind,omitempty"`
+
 	// Name The name of this escalation path, for the user's reference.
 	Name string `json:"name"`
+
+	// ParamBindings For a templated path, the values to bind to the template's declared parameters, keyed by parameter name.
+	ParamBindings *map[string]EngineParamBindingPayloadV2 `json:"param_bindings,omitempty"`
 
 	// Path The nodes that form the levels and branches of this escalation path.
 	Path         []EscalationPathNodePayloadV2 `json:"path"`
@@ -13050,9 +13122,15 @@ type EscalationsCreatePathPayloadV2 struct {
 	// TeamIds IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
 	TeamIds *[]string `json:"team_ids,omitempty"`
 
+	// TemplateId For a templated path, the template to build it from. Required when kind is templated.
+	TemplateId *string `json:"template_id,omitempty"`
+
 	// WorkingHours The working hours for this escalation path.
 	WorkingHours *[]WeekdayIntervalConfigV2 `json:"working_hours,omitempty"`
 }
+
+// EscalationsCreatePathPayloadV2Kind Whether this path carries its own nodes, or is built from an escalation path template.
+type EscalationsCreatePathPayloadV2Kind string
 
 // EscalationsCreatePathResultV2 defines model for EscalationsCreatePathResultV2.
 type EscalationsCreatePathResultV2 struct {
@@ -13142,8 +13220,14 @@ type EscalationsShowResultV2 struct {
 
 // EscalationsUpdatePathPayloadV2 defines model for EscalationsUpdatePathPayloadV2.
 type EscalationsUpdatePathPayloadV2 struct {
+	// Kind Whether this path carries its own nodes, or is built from an escalation path template.
+	Kind *EscalationsUpdatePathPayloadV2Kind `json:"kind,omitempty"`
+
 	// Name The name of this escalation path, for the user's reference.
 	Name string `json:"name"`
+
+	// ParamBindings For a templated path, the values to bind to the template's declared parameters, keyed by parameter name.
+	ParamBindings *map[string]EngineParamBindingPayloadV2 `json:"param_bindings,omitempty"`
 
 	// Path The nodes that form the levels and branches of this escalation path.
 	Path         []EscalationPathNodePayloadV2 `json:"path"`
@@ -13152,9 +13236,15 @@ type EscalationsUpdatePathPayloadV2 struct {
 	// TeamIds IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
 	TeamIds *[]string `json:"team_ids,omitempty"`
 
+	// TemplateId For a templated path, the template to build it from. Required when kind is templated.
+	TemplateId *string `json:"template_id,omitempty"`
+
 	// WorkingHours The working hours for this escalation path.
 	WorkingHours *[]WeekdayIntervalConfigV2 `json:"working_hours,omitempty"`
 }
+
+// EscalationsUpdatePathPayloadV2Kind Whether this path carries its own nodes, or is built from an escalation path template.
+type EscalationsUpdatePathPayloadV2Kind string
 
 // EscalationsUpdatePathResultV2 defines model for EscalationsUpdatePathResultV2.
 type EscalationsUpdatePathResultV2 struct {

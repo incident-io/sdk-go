@@ -54604,7 +54604,24 @@
             }
           ],
           "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+          "kind": "templated",
           "name": "Urgent Support",
+          "param_bindings": {
+            "abc123": {
+              "array_value": [
+                {
+                  "label": "Lawrence Jones",
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              ],
+              "value": {
+                "label": "Lawrence Jones",
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            }
+          },
           "path": [
             {
               "delay": {
@@ -54703,6 +54720,7 @@
           "team_ids": [
             "01JPQA75EPNEES4479P16P4XAB"
           ],
+          "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "working_hours": [
             {
               "id": "abc123",
@@ -54740,13 +54758,45 @@
             "example": "01FCNDV6P870EA6S7TK1DSYDG0",
             "type": "string"
           },
+          "kind": {
+            "description": "Whether this path carries its own nodes, or is built from an escalation path template.",
+            "enum": [
+              "standalone",
+              "templated"
+            ],
+            "example": "templated",
+            "type": "string"
+          },
           "name": {
             "description": "The name of this escalation path, for the user's reference.",
             "example": "Urgent Support",
             "type": "string"
           },
+          "param_bindings": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EngineParamBindingV2"
+            },
+            "description": "For a templated path, the values bound to the template's declared parameters, keyed by parameter name.",
+            "example": {
+              "abc123": {
+                "array_value": [
+                  {
+                    "label": "Lawrence Jones",
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                ],
+                "value": {
+                  "label": "Lawrence Jones",
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              }
+            },
+            "type": "object"
+          },
           "path": {
-            "description": "The nodes that form the levels and branches of this escalation path.",
+            "description": "The nodes that form the levels and branches of this escalation path. Empty for a templated path, which takes them from its template.",
             "example": [
               {
                 "delay": {
@@ -54857,8 +54907,13 @@
             },
             "type": "array"
           },
+          "template_id": {
+            "description": "For a templated path, the template it is built from.",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
           "working_hours": {
-            "description": "The working hours for this escalation path.",
+            "description": "The working hours for this escalation path. Absent for a templated path, which takes them from its template.",
             "example": [
               {
                 "id": "abc123",
@@ -54883,6 +54938,7 @@
           "id",
           "name",
           "path",
+          "kind",
           "team_ids"
         ],
         "type": "object"
@@ -55414,7 +55470,22 @@
       },
       "EscalationsCreatePathPayloadV2": {
         "example": {
+          "kind": "templated",
           "name": "Urgent Support",
+          "param_bindings": {
+            "abc123": {
+              "array_value": [
+                {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              ],
+              "value": {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            }
+          },
           "path": [
             {
               "delay": {
@@ -55505,6 +55576,7 @@
           "team_ids": [
             "01JPQA75EPNEES4479P16P4XAB"
           ],
+          "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "working_hours": [
             {
               "id": "abc123",
@@ -55521,10 +55593,40 @@
           ]
         },
         "properties": {
+          "kind": {
+            "description": "Whether this path carries its own nodes, or is built from an escalation path template.",
+            "enum": [
+              "standalone",
+              "templated"
+            ],
+            "example": "templated",
+            "type": "string"
+          },
           "name": {
             "description": "The name of this escalation path, for the user's reference.",
             "example": "Urgent Support",
             "type": "string"
+          },
+          "param_bindings": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EngineParamBindingPayloadV2"
+            },
+            "description": "For a templated path, the values to bind to the template's declared parameters, keyed by parameter name.",
+            "example": {
+              "abc123": {
+                "array_value": [
+                  {
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                ],
+                "value": {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              }
+            },
+            "type": "object"
           },
           "path": {
             "description": "The nodes that form the levels and branches of this escalation path.",
@@ -55630,6 +55732,11 @@
             },
             "type": "array"
           },
+          "template_id": {
+            "description": "For a templated path, the template to build it from. Required when kind is templated.",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
           "working_hours": {
             "description": "The working hours for this escalation path.",
             "example": [
@@ -55671,7 +55778,24 @@
               }
             ],
             "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "kind": "templated",
             "name": "Urgent Support",
+            "param_bindings": {
+              "abc123": {
+                "array_value": [
+                  {
+                    "label": "Lawrence Jones",
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                ],
+                "value": {
+                  "label": "Lawrence Jones",
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              }
+            },
             "path": [
               {
                 "delay": {
@@ -55770,6 +55894,7 @@
             "team_ids": [
               "01JPQA75EPNEES4479P16P4XAB"
             ],
+            "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
             "working_hours": [
               {
                 "id": "abc123",
@@ -55962,7 +56087,24 @@
                 }
               ],
               "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "kind": "templated",
               "name": "Urgent Support",
+              "param_bindings": {
+                "abc123": {
+                  "array_value": [
+                    {
+                      "label": "Lawrence Jones",
+                      "literal": "SEV123",
+                      "reference": "incident.severity"
+                    }
+                  ],
+                  "value": {
+                    "label": "Lawrence Jones",
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                }
+              },
               "path": [
                 {
                   "delay": {
@@ -56061,6 +56203,7 @@
               "team_ids": [
                 "01JPQA75EPNEES4479P16P4XAB"
               ],
+              "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
               "working_hours": [
                 {
                   "id": "abc123",
@@ -56096,7 +56239,24 @@
                   }
                 ],
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "kind": "templated",
                 "name": "Urgent Support",
+                "param_bindings": {
+                  "abc123": {
+                    "array_value": [
+                      {
+                        "label": "Lawrence Jones",
+                        "literal": "SEV123",
+                        "reference": "incident.severity"
+                      }
+                    ],
+                    "value": {
+                      "label": "Lawrence Jones",
+                      "literal": "SEV123",
+                      "reference": "incident.severity"
+                    }
+                  }
+                },
                 "path": [
                   {
                     "delay": {
@@ -56195,6 +56355,7 @@
                 "team_ids": [
                   "01JPQA75EPNEES4479P16P4XAB"
                 ],
+                "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "working_hours": [
                   {
                     "id": "abc123",
@@ -56602,7 +56763,24 @@
               }
             ],
             "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "kind": "templated",
             "name": "Urgent Support",
+            "param_bindings": {
+              "abc123": {
+                "array_value": [
+                  {
+                    "label": "Lawrence Jones",
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                ],
+                "value": {
+                  "label": "Lawrence Jones",
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              }
+            },
             "path": [
               {
                 "delay": {
@@ -56701,6 +56879,7 @@
             "team_ids": [
               "01JPQA75EPNEES4479P16P4XAB"
             ],
+            "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
             "working_hours": [
               {
                 "id": "abc123",
@@ -56824,7 +57003,22 @@
       },
       "EscalationsUpdatePathPayloadV2": {
         "example": {
+          "kind": "templated",
           "name": "Urgent Support",
+          "param_bindings": {
+            "abc123": {
+              "array_value": [
+                {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              ],
+              "value": {
+                "literal": "SEV123",
+                "reference": "incident.severity"
+              }
+            }
+          },
           "path": [
             {
               "delay": {
@@ -56915,6 +57109,7 @@
           "team_ids": [
             "01JPQA75EPNEES4479P16P4XAB"
           ],
+          "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "working_hours": [
             {
               "id": "abc123",
@@ -56931,10 +57126,40 @@
           ]
         },
         "properties": {
+          "kind": {
+            "description": "Whether this path carries its own nodes, or is built from an escalation path template.",
+            "enum": [
+              "standalone",
+              "templated"
+            ],
+            "example": "templated",
+            "type": "string"
+          },
           "name": {
             "description": "The name of this escalation path, for the user's reference.",
             "example": "Urgent Support",
             "type": "string"
+          },
+          "param_bindings": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EngineParamBindingPayloadV2"
+            },
+            "description": "For a templated path, the values to bind to the template's declared parameters, keyed by parameter name.",
+            "example": {
+              "abc123": {
+                "array_value": [
+                  {
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                ],
+                "value": {
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              }
+            },
+            "type": "object"
           },
           "path": {
             "description": "The nodes that form the levels and branches of this escalation path.",
@@ -57040,6 +57265,11 @@
             },
             "type": "array"
           },
+          "template_id": {
+            "description": "For a templated path, the template to build it from. Required when kind is templated.",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
           "working_hours": {
             "description": "The working hours for this escalation path.",
             "example": [
@@ -57081,7 +57311,24 @@
               }
             ],
             "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "kind": "templated",
             "name": "Urgent Support",
+            "param_bindings": {
+              "abc123": {
+                "array_value": [
+                  {
+                    "label": "Lawrence Jones",
+                    "literal": "SEV123",
+                    "reference": "incident.severity"
+                  }
+                ],
+                "value": {
+                  "label": "Lawrence Jones",
+                  "literal": "SEV123",
+                  "reference": "incident.severity"
+                }
+              }
+            },
             "path": [
               {
                 "delay": {
@@ -57180,6 +57427,7 @@
             "team_ids": [
               "01JPQA75EPNEES4479P16P4XAB"
             ],
+            "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
             "working_hours": [
               {
                 "id": "abc123",
@@ -136875,7 +137123,24 @@
                         }
                       ],
                       "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "kind": "templated",
                       "name": "Urgent Support",
+                      "param_bindings": {
+                        "abc123": {
+                          "array_value": [
+                            {
+                              "label": "Lawrence Jones",
+                              "literal": "SEV123",
+                              "reference": "incident.severity"
+                            }
+                          ],
+                          "value": {
+                            "label": "Lawrence Jones",
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        }
+                      },
                       "path": [
                         {
                           "delay": {
@@ -136974,6 +137239,7 @@
                       "team_ids": [
                         "01JPQA75EPNEES4479P16P4XAB"
                       ],
+                      "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                       "working_hours": [
                         {
                           "id": "abc123",
@@ -137155,7 +137421,22 @@
           "content": {
             "application/json": {
               "example": {
+                "kind": "templated",
                 "name": "Urgent Support",
+                "param_bindings": {
+                  "abc123": {
+                    "array_value": [
+                      {
+                        "literal": "SEV123",
+                        "reference": "incident.severity"
+                      }
+                    ],
+                    "value": {
+                      "literal": "SEV123",
+                      "reference": "incident.severity"
+                    }
+                  }
+                },
                 "path": [
                   {
                     "delay": {
@@ -137246,6 +137527,7 @@
                 "team_ids": [
                   "01JPQA75EPNEES4479P16P4XAB"
                 ],
+                "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "working_hours": [
                   {
                     "id": "abc123",
@@ -137284,7 +137566,24 @@
                       }
                     ],
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "kind": "templated",
                     "name": "Urgent Support",
+                    "param_bindings": {
+                      "abc123": {
+                        "array_value": [
+                          {
+                            "label": "Lawrence Jones",
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "label": "Lawrence Jones",
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      }
+                    },
                     "path": [
                       {
                         "delay": {
@@ -137383,6 +137682,7 @@
                     "team_ids": [
                       "01JPQA75EPNEES4479P16P4XAB"
                     ],
+                    "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                     "working_hours": [
                       {
                         "id": "abc123",
@@ -137754,7 +138054,24 @@
                       }
                     ],
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "kind": "templated",
                     "name": "Urgent Support",
+                    "param_bindings": {
+                      "abc123": {
+                        "array_value": [
+                          {
+                            "label": "Lawrence Jones",
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "label": "Lawrence Jones",
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      }
+                    },
                     "path": [
                       {
                         "delay": {
@@ -137853,6 +138170,7 @@
                     "team_ids": [
                       "01JPQA75EPNEES4479P16P4XAB"
                     ],
+                    "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                     "working_hours": [
                       {
                         "id": "abc123",
@@ -138043,7 +138361,22 @@
           "content": {
             "application/json": {
               "example": {
+                "kind": "templated",
                 "name": "Urgent Support",
+                "param_bindings": {
+                  "abc123": {
+                    "array_value": [
+                      {
+                        "literal": "SEV123",
+                        "reference": "incident.severity"
+                      }
+                    ],
+                    "value": {
+                      "literal": "SEV123",
+                      "reference": "incident.severity"
+                    }
+                  }
+                },
                 "path": [
                   {
                     "delay": {
@@ -138134,6 +138467,7 @@
                 "team_ids": [
                   "01JPQA75EPNEES4479P16P4XAB"
                 ],
+                "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "working_hours": [
                   {
                     "id": "abc123",
@@ -138172,7 +138506,24 @@
                       }
                     ],
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "kind": "templated",
                     "name": "Urgent Support",
+                    "param_bindings": {
+                      "abc123": {
+                        "array_value": [
+                          {
+                            "label": "Lawrence Jones",
+                            "literal": "SEV123",
+                            "reference": "incident.severity"
+                          }
+                        ],
+                        "value": {
+                          "label": "Lawrence Jones",
+                          "literal": "SEV123",
+                          "reference": "incident.severity"
+                        }
+                      }
+                    },
                     "path": [
                       {
                         "delay": {
@@ -138271,6 +138622,7 @@
                     "team_ids": [
                       "01JPQA75EPNEES4479P16P4XAB"
                     ],
+                    "template_id": "01FCNDV6P870EA6S7TK1DSYDG0",
                     "working_hours": [
                       {
                         "id": "abc123",
