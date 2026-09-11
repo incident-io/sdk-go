@@ -98,7 +98,11 @@
               "telemetry_query_restricted",
               "telemetry_data_source_update",
               "policies_viewer",
-              "policy_findings_manage"
+              "policy_findings_manage",
+              "pay_reports_viewer",
+              "pay_reports_editor",
+              "pay_configs_viewer",
+              "pay_configs_editor"
             ],
             "example": "viewer",
             "type": "string",
@@ -352,7 +356,11 @@
                 "telemetry_query_restricted",
                 "telemetry_data_source_update",
                 "policies_viewer",
-                "policy_findings_manage"
+                "policy_findings_manage",
+                "pay_reports_viewer",
+                "pay_reports_editor",
+                "pay_configs_viewer",
+                "pay_configs_editor"
               ],
               "example": "viewer",
               "type": "string"
@@ -762,7 +770,11 @@
                 "telemetry_query_restricted",
                 "telemetry_data_source_update",
                 "policies_viewer",
-                "policy_findings_manage"
+                "policy_findings_manage",
+                "pay_reports_viewer",
+                "pay_reports_editor",
+                "pay_configs_viewer",
+                "pay_configs_editor"
               ],
               "example": "viewer",
               "type": "string"
@@ -62799,7 +62811,11 @@
                 "telemetry_query_restricted",
                 "telemetry_data_source_update",
                 "policies_viewer",
-                "policy_findings_manage"
+                "policy_findings_manage",
+                "pay_reports_viewer",
+                "pay_reports_editor",
+                "pay_configs_viewer",
+                "pay_configs_editor"
               ],
               "example": "viewer",
               "type": "string",

@@ -39,6 +39,10 @@ const (
 	APIKeyRoleV1NameNotificationMethodsUnredactedViewer APIKeyRoleV1Name = "notification_methods_unredacted_viewer"
 	APIKeyRoleV1NameOnCallEditor                        APIKeyRoleV1Name = "on_call_editor"
 	APIKeyRoleV1NameOnCallViewer                        APIKeyRoleV1Name = "on_call_viewer"
+	APIKeyRoleV1NamePayConfigsEditor                    APIKeyRoleV1Name = "pay_configs_editor"
+	APIKeyRoleV1NamePayConfigsViewer                    APIKeyRoleV1Name = "pay_configs_viewer"
+	APIKeyRoleV1NamePayReportsEditor                    APIKeyRoleV1Name = "pay_reports_editor"
+	APIKeyRoleV1NamePayReportsViewer                    APIKeyRoleV1Name = "pay_reports_viewer"
 	APIKeyRoleV1NamePoliciesViewer                      APIKeyRoleV1Name = "policies_viewer"
 	APIKeyRoleV1NamePolicyFindingsManage                APIKeyRoleV1Name = "policy_findings_manage"
 	APIKeyRoleV1NamePostIncidentFlowOptOut              APIKeyRoleV1Name = "post_incident_flow_opt_out"
@@ -100,6 +104,14 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameOnCallEditor:
 		return true
 	case APIKeyRoleV1NameOnCallViewer:
+		return true
+	case APIKeyRoleV1NamePayConfigsEditor:
+		return true
+	case APIKeyRoleV1NamePayConfigsViewer:
+		return true
+	case APIKeyRoleV1NamePayReportsEditor:
+		return true
+	case APIKeyRoleV1NamePayReportsViewer:
 		return true
 	case APIKeyRoleV1NamePoliciesViewer:
 		return true
@@ -219,6 +231,10 @@ const (
 	APIKeysCreatePayloadV1RoleNamesNotificationMethodsUnredactedViewer APIKeysCreatePayloadV1RoleNames = "notification_methods_unredacted_viewer"
 	APIKeysCreatePayloadV1RoleNamesOnCallEditor                        APIKeysCreatePayloadV1RoleNames = "on_call_editor"
 	APIKeysCreatePayloadV1RoleNamesOnCallViewer                        APIKeysCreatePayloadV1RoleNames = "on_call_viewer"
+	APIKeysCreatePayloadV1RoleNamesPayConfigsEditor                    APIKeysCreatePayloadV1RoleNames = "pay_configs_editor"
+	APIKeysCreatePayloadV1RoleNamesPayConfigsViewer                    APIKeysCreatePayloadV1RoleNames = "pay_configs_viewer"
+	APIKeysCreatePayloadV1RoleNamesPayReportsEditor                    APIKeysCreatePayloadV1RoleNames = "pay_reports_editor"
+	APIKeysCreatePayloadV1RoleNamesPayReportsViewer                    APIKeysCreatePayloadV1RoleNames = "pay_reports_viewer"
 	APIKeysCreatePayloadV1RoleNamesPoliciesViewer                      APIKeysCreatePayloadV1RoleNames = "policies_viewer"
 	APIKeysCreatePayloadV1RoleNamesPolicyFindingsManage                APIKeysCreatePayloadV1RoleNames = "policy_findings_manage"
 	APIKeysCreatePayloadV1RoleNamesPostIncidentFlowOptOut              APIKeysCreatePayloadV1RoleNames = "post_incident_flow_opt_out"
@@ -280,6 +296,14 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesOnCallEditor:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesOnCallViewer:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesPayConfigsEditor:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesPayConfigsViewer:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesPayReportsEditor:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesPayReportsViewer:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesPoliciesViewer:
 		return true
@@ -399,6 +423,10 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesNotificationMethodsUnredactedViewer APIKeysUpdatePayloadV1RoleNames = "notification_methods_unredacted_viewer"
 	APIKeysUpdatePayloadV1RoleNamesOnCallEditor                        APIKeysUpdatePayloadV1RoleNames = "on_call_editor"
 	APIKeysUpdatePayloadV1RoleNamesOnCallViewer                        APIKeysUpdatePayloadV1RoleNames = "on_call_viewer"
+	APIKeysUpdatePayloadV1RoleNamesPayConfigsEditor                    APIKeysUpdatePayloadV1RoleNames = "pay_configs_editor"
+	APIKeysUpdatePayloadV1RoleNamesPayConfigsViewer                    APIKeysUpdatePayloadV1RoleNames = "pay_configs_viewer"
+	APIKeysUpdatePayloadV1RoleNamesPayReportsEditor                    APIKeysUpdatePayloadV1RoleNames = "pay_reports_editor"
+	APIKeysUpdatePayloadV1RoleNamesPayReportsViewer                    APIKeysUpdatePayloadV1RoleNames = "pay_reports_viewer"
 	APIKeysUpdatePayloadV1RoleNamesPoliciesViewer                      APIKeysUpdatePayloadV1RoleNames = "policies_viewer"
 	APIKeysUpdatePayloadV1RoleNamesPolicyFindingsManage                APIKeysUpdatePayloadV1RoleNames = "policy_findings_manage"
 	APIKeysUpdatePayloadV1RoleNamesPostIncidentFlowOptOut              APIKeysUpdatePayloadV1RoleNames = "post_incident_flow_opt_out"
@@ -460,6 +488,14 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesOnCallEditor:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesOnCallViewer:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesPayConfigsEditor:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesPayConfigsViewer:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesPayReportsEditor:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesPayReportsViewer:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesPoliciesViewer:
 		return true
@@ -4956,6 +4992,10 @@ const (
 	IdentityV1RolesNotificationMethodsUnredactedViewer IdentityV1Roles = "notification_methods_unredacted_viewer"
 	IdentityV1RolesOnCallEditor                        IdentityV1Roles = "on_call_editor"
 	IdentityV1RolesOnCallViewer                        IdentityV1Roles = "on_call_viewer"
+	IdentityV1RolesPayConfigsEditor                    IdentityV1Roles = "pay_configs_editor"
+	IdentityV1RolesPayConfigsViewer                    IdentityV1Roles = "pay_configs_viewer"
+	IdentityV1RolesPayReportsEditor                    IdentityV1Roles = "pay_reports_editor"
+	IdentityV1RolesPayReportsViewer                    IdentityV1Roles = "pay_reports_viewer"
 	IdentityV1RolesPoliciesViewer                      IdentityV1Roles = "policies_viewer"
 	IdentityV1RolesPolicyFindingsManage                IdentityV1Roles = "policy_findings_manage"
 	IdentityV1RolesPostIncidentFlowOptOut              IdentityV1Roles = "post_incident_flow_opt_out"
@@ -5017,6 +5057,14 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesOnCallEditor:
 		return true
 	case IdentityV1RolesOnCallViewer:
+		return true
+	case IdentityV1RolesPayConfigsEditor:
+		return true
+	case IdentityV1RolesPayConfigsViewer:
+		return true
+	case IdentityV1RolesPayReportsEditor:
+		return true
+	case IdentityV1RolesPayReportsViewer:
 		return true
 	case IdentityV1RolesPoliciesViewer:
 		return true
