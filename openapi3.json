@@ -20967,6 +20967,7 @@
       },
       "AuditLogActorMetadataV2": {
         "example": {
+          "alert_source_id": "01FCNDV6P870EA6S7TK1DSYDG0",
           "api_key_roles": "abc123",
           "external_resource_external_id": "q1234",
           "external_resource_type": "pager_duty_incident",
@@ -20974,6 +20975,11 @@
           "user_custom_role_slugs": "engineering,security"
         },
         "properties": {
+          "alert_source_id": {
+            "description": "The alert source the alert fired on (if it's an alert actor)",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          },
           "api_key_roles": {
             "description": "The roles that the API key has, separated by commas (if it's an API key actor)",
             "example": "abc123",
