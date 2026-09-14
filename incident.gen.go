@@ -34,6 +34,7 @@ const (
 	APIKeyRoleV1NameIncidentWorkloadPrivateViewer       APIKeyRoleV1Name = "incident_workload_private_viewer"
 	APIKeyRoleV1NameIncidentWorkloadViewer              APIKeyRoleV1Name = "incident_workload_viewer"
 	APIKeyRoleV1NameInvestigationDownload               APIKeyRoleV1Name = "investigation_download"
+	APIKeyRoleV1NameInvestigationsEditor                APIKeyRoleV1Name = "investigations_editor"
 	APIKeyRoleV1NameManageSettings                      APIKeyRoleV1Name = "manage_settings"
 	APIKeyRoleV1NameNotificationMethodsManage           APIKeyRoleV1Name = "notification_methods_manage"
 	APIKeyRoleV1NameNotificationMethodsUnredactedViewer APIKeyRoleV1Name = "notification_methods_unredacted_viewer"
@@ -94,6 +95,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameIncidentWorkloadViewer:
 		return true
 	case APIKeyRoleV1NameInvestigationDownload:
+		return true
+	case APIKeyRoleV1NameInvestigationsEditor:
 		return true
 	case APIKeyRoleV1NameManageSettings:
 		return true
@@ -226,6 +229,7 @@ const (
 	APIKeysCreatePayloadV1RoleNamesIncidentWorkloadPrivateViewer       APIKeysCreatePayloadV1RoleNames = "incident_workload_private_viewer"
 	APIKeysCreatePayloadV1RoleNamesIncidentWorkloadViewer              APIKeysCreatePayloadV1RoleNames = "incident_workload_viewer"
 	APIKeysCreatePayloadV1RoleNamesInvestigationDownload               APIKeysCreatePayloadV1RoleNames = "investigation_download"
+	APIKeysCreatePayloadV1RoleNamesInvestigationsEditor                APIKeysCreatePayloadV1RoleNames = "investigations_editor"
 	APIKeysCreatePayloadV1RoleNamesManageSettings                      APIKeysCreatePayloadV1RoleNames = "manage_settings"
 	APIKeysCreatePayloadV1RoleNamesNotificationMethodsManage           APIKeysCreatePayloadV1RoleNames = "notification_methods_manage"
 	APIKeysCreatePayloadV1RoleNamesNotificationMethodsUnredactedViewer APIKeysCreatePayloadV1RoleNames = "notification_methods_unredacted_viewer"
@@ -286,6 +290,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesIncidentWorkloadViewer:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesInvestigationDownload:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesInvestigationsEditor:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesManageSettings:
 		return true
@@ -418,6 +424,7 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesIncidentWorkloadPrivateViewer       APIKeysUpdatePayloadV1RoleNames = "incident_workload_private_viewer"
 	APIKeysUpdatePayloadV1RoleNamesIncidentWorkloadViewer              APIKeysUpdatePayloadV1RoleNames = "incident_workload_viewer"
 	APIKeysUpdatePayloadV1RoleNamesInvestigationDownload               APIKeysUpdatePayloadV1RoleNames = "investigation_download"
+	APIKeysUpdatePayloadV1RoleNamesInvestigationsEditor                APIKeysUpdatePayloadV1RoleNames = "investigations_editor"
 	APIKeysUpdatePayloadV1RoleNamesManageSettings                      APIKeysUpdatePayloadV1RoleNames = "manage_settings"
 	APIKeysUpdatePayloadV1RoleNamesNotificationMethodsManage           APIKeysUpdatePayloadV1RoleNames = "notification_methods_manage"
 	APIKeysUpdatePayloadV1RoleNamesNotificationMethodsUnredactedViewer APIKeysUpdatePayloadV1RoleNames = "notification_methods_unredacted_viewer"
@@ -478,6 +485,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesIncidentWorkloadViewer:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesInvestigationDownload:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesInvestigationsEditor:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesManageSettings:
 		return true
@@ -4987,6 +4996,7 @@ const (
 	IdentityV1RolesIncidentWorkloadPrivateViewer       IdentityV1Roles = "incident_workload_private_viewer"
 	IdentityV1RolesIncidentWorkloadViewer              IdentityV1Roles = "incident_workload_viewer"
 	IdentityV1RolesInvestigationDownload               IdentityV1Roles = "investigation_download"
+	IdentityV1RolesInvestigationsEditor                IdentityV1Roles = "investigations_editor"
 	IdentityV1RolesManageSettings                      IdentityV1Roles = "manage_settings"
 	IdentityV1RolesNotificationMethodsManage           IdentityV1Roles = "notification_methods_manage"
 	IdentityV1RolesNotificationMethodsUnredactedViewer IdentityV1Roles = "notification_methods_unredacted_viewer"
@@ -5047,6 +5057,8 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesIncidentWorkloadViewer:
 		return true
 	case IdentityV1RolesInvestigationDownload:
+		return true
+	case IdentityV1RolesInvestigationsEditor:
 		return true
 	case IdentityV1RolesManageSettings:
 		return true
