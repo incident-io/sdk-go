@@ -25,6 +25,7 @@ const (
 	APIKeyRoleV1NameCallTranscriptsViewer               APIKeyRoleV1Name = "call_transcripts_viewer"
 	APIKeyRoleV1NameCatalogEditor                       APIKeyRoleV1Name = "catalog_editor"
 	APIKeyRoleV1NameCatalogViewer                       APIKeyRoleV1Name = "catalog_viewer"
+	APIKeyRoleV1NameDocumentsViewer                     APIKeyRoleV1Name = "documents_viewer"
 	APIKeyRoleV1NameEscalationCreator                   APIKeyRoleV1Name = "escalation_creator"
 	APIKeyRoleV1NameGlobalAccess                        APIKeyRoleV1Name = "global_access"
 	APIKeyRoleV1NameHeartbeatsPing                      APIKeyRoleV1Name = "heartbeats_ping"
@@ -60,6 +61,7 @@ const (
 	APIKeyRoleV1NameTeamMembershipsManage               APIKeyRoleV1Name = "team_memberships_manage"
 	APIKeyRoleV1NameTelemetryDataSourceUpdate           APIKeyRoleV1Name = "telemetry_data_source_update"
 	APIKeyRoleV1NameTelemetryQueryRestricted            APIKeyRoleV1Name = "telemetry_query_restricted"
+	APIKeyRoleV1NameTelemetryViewer                     APIKeyRoleV1Name = "telemetry_viewer"
 	APIKeyRoleV1NameViewer                              APIKeyRoleV1Name = "viewer"
 	APIKeyRoleV1NameWorkflowsEditor                     APIKeyRoleV1Name = "workflows_editor"
 	APIKeyRoleV1NameWorkflowsViewer                     APIKeyRoleV1Name = "workflows_viewer"
@@ -77,6 +79,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameCatalogEditor:
 		return true
 	case APIKeyRoleV1NameCatalogViewer:
+		return true
+	case APIKeyRoleV1NameDocumentsViewer:
 		return true
 	case APIKeyRoleV1NameEscalationCreator:
 		return true
@@ -147,6 +151,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameTelemetryDataSourceUpdate:
 		return true
 	case APIKeyRoleV1NameTelemetryQueryRestricted:
+		return true
+	case APIKeyRoleV1NameTelemetryViewer:
 		return true
 	case APIKeyRoleV1NameViewer:
 		return true
@@ -220,6 +226,7 @@ const (
 	APIKeysCreatePayloadV1RoleNamesCallTranscriptsViewer               APIKeysCreatePayloadV1RoleNames = "call_transcripts_viewer"
 	APIKeysCreatePayloadV1RoleNamesCatalogEditor                       APIKeysCreatePayloadV1RoleNames = "catalog_editor"
 	APIKeysCreatePayloadV1RoleNamesCatalogViewer                       APIKeysCreatePayloadV1RoleNames = "catalog_viewer"
+	APIKeysCreatePayloadV1RoleNamesDocumentsViewer                     APIKeysCreatePayloadV1RoleNames = "documents_viewer"
 	APIKeysCreatePayloadV1RoleNamesEscalationCreator                   APIKeysCreatePayloadV1RoleNames = "escalation_creator"
 	APIKeysCreatePayloadV1RoleNamesGlobalAccess                        APIKeysCreatePayloadV1RoleNames = "global_access"
 	APIKeysCreatePayloadV1RoleNamesHeartbeatsPing                      APIKeysCreatePayloadV1RoleNames = "heartbeats_ping"
@@ -255,6 +262,7 @@ const (
 	APIKeysCreatePayloadV1RoleNamesTeamMembershipsManage               APIKeysCreatePayloadV1RoleNames = "team_memberships_manage"
 	APIKeysCreatePayloadV1RoleNamesTelemetryDataSourceUpdate           APIKeysCreatePayloadV1RoleNames = "telemetry_data_source_update"
 	APIKeysCreatePayloadV1RoleNamesTelemetryQueryRestricted            APIKeysCreatePayloadV1RoleNames = "telemetry_query_restricted"
+	APIKeysCreatePayloadV1RoleNamesTelemetryViewer                     APIKeysCreatePayloadV1RoleNames = "telemetry_viewer"
 	APIKeysCreatePayloadV1RoleNamesViewer                              APIKeysCreatePayloadV1RoleNames = "viewer"
 	APIKeysCreatePayloadV1RoleNamesWorkflowsEditor                     APIKeysCreatePayloadV1RoleNames = "workflows_editor"
 	APIKeysCreatePayloadV1RoleNamesWorkflowsViewer                     APIKeysCreatePayloadV1RoleNames = "workflows_viewer"
@@ -272,6 +280,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesCatalogEditor:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesCatalogViewer:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesDocumentsViewer:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesEscalationCreator:
 		return true
@@ -342,6 +352,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesTelemetryDataSourceUpdate:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesTelemetryQueryRestricted:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesTelemetryViewer:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesViewer:
 		return true
@@ -415,6 +427,7 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesCallTranscriptsViewer               APIKeysUpdatePayloadV1RoleNames = "call_transcripts_viewer"
 	APIKeysUpdatePayloadV1RoleNamesCatalogEditor                       APIKeysUpdatePayloadV1RoleNames = "catalog_editor"
 	APIKeysUpdatePayloadV1RoleNamesCatalogViewer                       APIKeysUpdatePayloadV1RoleNames = "catalog_viewer"
+	APIKeysUpdatePayloadV1RoleNamesDocumentsViewer                     APIKeysUpdatePayloadV1RoleNames = "documents_viewer"
 	APIKeysUpdatePayloadV1RoleNamesEscalationCreator                   APIKeysUpdatePayloadV1RoleNames = "escalation_creator"
 	APIKeysUpdatePayloadV1RoleNamesGlobalAccess                        APIKeysUpdatePayloadV1RoleNames = "global_access"
 	APIKeysUpdatePayloadV1RoleNamesHeartbeatsPing                      APIKeysUpdatePayloadV1RoleNames = "heartbeats_ping"
@@ -450,6 +463,7 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesTeamMembershipsManage               APIKeysUpdatePayloadV1RoleNames = "team_memberships_manage"
 	APIKeysUpdatePayloadV1RoleNamesTelemetryDataSourceUpdate           APIKeysUpdatePayloadV1RoleNames = "telemetry_data_source_update"
 	APIKeysUpdatePayloadV1RoleNamesTelemetryQueryRestricted            APIKeysUpdatePayloadV1RoleNames = "telemetry_query_restricted"
+	APIKeysUpdatePayloadV1RoleNamesTelemetryViewer                     APIKeysUpdatePayloadV1RoleNames = "telemetry_viewer"
 	APIKeysUpdatePayloadV1RoleNamesViewer                              APIKeysUpdatePayloadV1RoleNames = "viewer"
 	APIKeysUpdatePayloadV1RoleNamesWorkflowsEditor                     APIKeysUpdatePayloadV1RoleNames = "workflows_editor"
 	APIKeysUpdatePayloadV1RoleNamesWorkflowsViewer                     APIKeysUpdatePayloadV1RoleNames = "workflows_viewer"
@@ -467,6 +481,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesCatalogEditor:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesCatalogViewer:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesDocumentsViewer:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesEscalationCreator:
 		return true
@@ -537,6 +553,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesTelemetryDataSourceUpdate:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesTelemetryQueryRestricted:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesTelemetryViewer:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesViewer:
 		return true
@@ -4987,6 +5005,7 @@ const (
 	IdentityV1RolesCallTranscriptsViewer               IdentityV1Roles = "call_transcripts_viewer"
 	IdentityV1RolesCatalogEditor                       IdentityV1Roles = "catalog_editor"
 	IdentityV1RolesCatalogViewer                       IdentityV1Roles = "catalog_viewer"
+	IdentityV1RolesDocumentsViewer                     IdentityV1Roles = "documents_viewer"
 	IdentityV1RolesEscalationCreator                   IdentityV1Roles = "escalation_creator"
 	IdentityV1RolesGlobalAccess                        IdentityV1Roles = "global_access"
 	IdentityV1RolesHeartbeatsPing                      IdentityV1Roles = "heartbeats_ping"
@@ -5022,6 +5041,7 @@ const (
 	IdentityV1RolesTeamMembershipsManage               IdentityV1Roles = "team_memberships_manage"
 	IdentityV1RolesTelemetryDataSourceUpdate           IdentityV1Roles = "telemetry_data_source_update"
 	IdentityV1RolesTelemetryQueryRestricted            IdentityV1Roles = "telemetry_query_restricted"
+	IdentityV1RolesTelemetryViewer                     IdentityV1Roles = "telemetry_viewer"
 	IdentityV1RolesViewer                              IdentityV1Roles = "viewer"
 	IdentityV1RolesWorkflowsEditor                     IdentityV1Roles = "workflows_editor"
 	IdentityV1RolesWorkflowsViewer                     IdentityV1Roles = "workflows_viewer"
@@ -5039,6 +5059,8 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesCatalogEditor:
 		return true
 	case IdentityV1RolesCatalogViewer:
+		return true
+	case IdentityV1RolesDocumentsViewer:
 		return true
 	case IdentityV1RolesEscalationCreator:
 		return true
@@ -5109,6 +5131,8 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesTelemetryDataSourceUpdate:
 		return true
 	case IdentityV1RolesTelemetryQueryRestricted:
+		return true
+	case IdentityV1RolesTelemetryViewer:
 		return true
 	case IdentityV1RolesViewer:
 		return true

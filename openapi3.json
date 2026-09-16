@@ -103,7 +103,9 @@
               "pay_reports_editor",
               "pay_configs_viewer",
               "pay_configs_editor",
-              "investigations_editor"
+              "investigations_editor",
+              "telemetry_viewer",
+              "documents_viewer"
             ],
             "example": "viewer",
             "type": "string",
@@ -362,7 +364,9 @@
                 "pay_reports_editor",
                 "pay_configs_viewer",
                 "pay_configs_editor",
-                "investigations_editor"
+                "investigations_editor",
+                "telemetry_viewer",
+                "documents_viewer"
               ],
               "example": "viewer",
               "type": "string"
@@ -777,7 +781,9 @@
                 "pay_reports_editor",
                 "pay_configs_viewer",
                 "pay_configs_editor",
-                "investigations_editor"
+                "investigations_editor",
+                "telemetry_viewer",
+                "documents_viewer"
               ],
               "example": "viewer",
               "type": "string"
@@ -63393,7 +63399,9 @@
                 "pay_reports_editor",
                 "pay_configs_viewer",
                 "pay_configs_editor",
-                "investigations_editor"
+                "investigations_editor",
+                "telemetry_viewer",
+                "documents_viewer"
               ],
               "example": "viewer",
               "type": "string",
