@@ -6204,6 +6204,192 @@ func (e OnCallNotificationRulePublicV2RuleType) Valid() bool {
 	}
 }
 
+// Defines values for PayConfigV2RateTimeUnit.
+const (
+	PayConfigV2RateTimeUnitDay  PayConfigV2RateTimeUnit = "day"
+	PayConfigV2RateTimeUnitHour PayConfigV2RateTimeUnit = "hour"
+)
+
+// Valid indicates whether the value is a known member of the PayConfigV2RateTimeUnit enum.
+func (e PayConfigV2RateTimeUnit) Valid() bool {
+	switch e {
+	case PayConfigV2RateTimeUnitDay:
+		return true
+	case PayConfigV2RateTimeUnitHour:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PayConfigWeeklyRulePayloadV2Weekdays.
+const (
+	PayConfigWeeklyRulePayloadV2WeekdaysFriday    PayConfigWeeklyRulePayloadV2Weekdays = "friday"
+	PayConfigWeeklyRulePayloadV2WeekdaysMonday    PayConfigWeeklyRulePayloadV2Weekdays = "monday"
+	PayConfigWeeklyRulePayloadV2WeekdaysSaturday  PayConfigWeeklyRulePayloadV2Weekdays = "saturday"
+	PayConfigWeeklyRulePayloadV2WeekdaysSunday    PayConfigWeeklyRulePayloadV2Weekdays = "sunday"
+	PayConfigWeeklyRulePayloadV2WeekdaysThursday  PayConfigWeeklyRulePayloadV2Weekdays = "thursday"
+	PayConfigWeeklyRulePayloadV2WeekdaysTuesday   PayConfigWeeklyRulePayloadV2Weekdays = "tuesday"
+	PayConfigWeeklyRulePayloadV2WeekdaysWednesday PayConfigWeeklyRulePayloadV2Weekdays = "wednesday"
+)
+
+// Valid indicates whether the value is a known member of the PayConfigWeeklyRulePayloadV2Weekdays enum.
+func (e PayConfigWeeklyRulePayloadV2Weekdays) Valid() bool {
+	switch e {
+	case PayConfigWeeklyRulePayloadV2WeekdaysFriday:
+		return true
+	case PayConfigWeeklyRulePayloadV2WeekdaysMonday:
+		return true
+	case PayConfigWeeklyRulePayloadV2WeekdaysSaturday:
+		return true
+	case PayConfigWeeklyRulePayloadV2WeekdaysSunday:
+		return true
+	case PayConfigWeeklyRulePayloadV2WeekdaysThursday:
+		return true
+	case PayConfigWeeklyRulePayloadV2WeekdaysTuesday:
+		return true
+	case PayConfigWeeklyRulePayloadV2WeekdaysWednesday:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PayConfigWeeklyRuleV2Weekdays.
+const (
+	PayConfigWeeklyRuleV2WeekdaysFriday    PayConfigWeeklyRuleV2Weekdays = "friday"
+	PayConfigWeeklyRuleV2WeekdaysMonday    PayConfigWeeklyRuleV2Weekdays = "monday"
+	PayConfigWeeklyRuleV2WeekdaysSaturday  PayConfigWeeklyRuleV2Weekdays = "saturday"
+	PayConfigWeeklyRuleV2WeekdaysSunday    PayConfigWeeklyRuleV2Weekdays = "sunday"
+	PayConfigWeeklyRuleV2WeekdaysThursday  PayConfigWeeklyRuleV2Weekdays = "thursday"
+	PayConfigWeeklyRuleV2WeekdaysTuesday   PayConfigWeeklyRuleV2Weekdays = "tuesday"
+	PayConfigWeeklyRuleV2WeekdaysWednesday PayConfigWeeklyRuleV2Weekdays = "wednesday"
+)
+
+// Valid indicates whether the value is a known member of the PayConfigWeeklyRuleV2Weekdays enum.
+func (e PayConfigWeeklyRuleV2Weekdays) Valid() bool {
+	switch e {
+	case PayConfigWeeklyRuleV2WeekdaysFriday:
+		return true
+	case PayConfigWeeklyRuleV2WeekdaysMonday:
+		return true
+	case PayConfigWeeklyRuleV2WeekdaysSaturday:
+		return true
+	case PayConfigWeeklyRuleV2WeekdaysSunday:
+		return true
+	case PayConfigWeeklyRuleV2WeekdaysThursday:
+		return true
+	case PayConfigWeeklyRuleV2WeekdaysTuesday:
+		return true
+	case PayConfigWeeklyRuleV2WeekdaysWednesday:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PayConfigsCreatePayloadV2RateTimeUnit.
+const (
+	PayConfigsCreatePayloadV2RateTimeUnitDay  PayConfigsCreatePayloadV2RateTimeUnit = "day"
+	PayConfigsCreatePayloadV2RateTimeUnitHour PayConfigsCreatePayloadV2RateTimeUnit = "hour"
+)
+
+// Valid indicates whether the value is a known member of the PayConfigsCreatePayloadV2RateTimeUnit enum.
+func (e PayConfigsCreatePayloadV2RateTimeUnit) Valid() bool {
+	switch e {
+	case PayConfigsCreatePayloadV2RateTimeUnitDay:
+		return true
+	case PayConfigsCreatePayloadV2RateTimeUnitHour:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PayConfigsCreateWeeklyRulePayloadV2Weekdays.
+const (
+	PayConfigsCreateWeeklyRulePayloadV2WeekdaysFriday    PayConfigsCreateWeeklyRulePayloadV2Weekdays = "friday"
+	PayConfigsCreateWeeklyRulePayloadV2WeekdaysMonday    PayConfigsCreateWeeklyRulePayloadV2Weekdays = "monday"
+	PayConfigsCreateWeeklyRulePayloadV2WeekdaysSaturday  PayConfigsCreateWeeklyRulePayloadV2Weekdays = "saturday"
+	PayConfigsCreateWeeklyRulePayloadV2WeekdaysSunday    PayConfigsCreateWeeklyRulePayloadV2Weekdays = "sunday"
+	PayConfigsCreateWeeklyRulePayloadV2WeekdaysThursday  PayConfigsCreateWeeklyRulePayloadV2Weekdays = "thursday"
+	PayConfigsCreateWeeklyRulePayloadV2WeekdaysTuesday   PayConfigsCreateWeeklyRulePayloadV2Weekdays = "tuesday"
+	PayConfigsCreateWeeklyRulePayloadV2WeekdaysWednesday PayConfigsCreateWeeklyRulePayloadV2Weekdays = "wednesday"
+)
+
+// Valid indicates whether the value is a known member of the PayConfigsCreateWeeklyRulePayloadV2Weekdays enum.
+func (e PayConfigsCreateWeeklyRulePayloadV2Weekdays) Valid() bool {
+	switch e {
+	case PayConfigsCreateWeeklyRulePayloadV2WeekdaysFriday:
+		return true
+	case PayConfigsCreateWeeklyRulePayloadV2WeekdaysMonday:
+		return true
+	case PayConfigsCreateWeeklyRulePayloadV2WeekdaysSaturday:
+		return true
+	case PayConfigsCreateWeeklyRulePayloadV2WeekdaysSunday:
+		return true
+	case PayConfigsCreateWeeklyRulePayloadV2WeekdaysThursday:
+		return true
+	case PayConfigsCreateWeeklyRulePayloadV2WeekdaysTuesday:
+		return true
+	case PayConfigsCreateWeeklyRulePayloadV2WeekdaysWednesday:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PayConfigsUpdatePayloadV2RateTimeUnit.
+const (
+	Day  PayConfigsUpdatePayloadV2RateTimeUnit = "day"
+	Hour PayConfigsUpdatePayloadV2RateTimeUnit = "hour"
+)
+
+// Valid indicates whether the value is a known member of the PayConfigsUpdatePayloadV2RateTimeUnit enum.
+func (e PayConfigsUpdatePayloadV2RateTimeUnit) Valid() bool {
+	switch e {
+	case Day:
+		return true
+	case Hour:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PayConfigsUpdateWeeklyRulePayloadV2Weekdays.
+const (
+	PayConfigsUpdateWeeklyRulePayloadV2WeekdaysFriday    PayConfigsUpdateWeeklyRulePayloadV2Weekdays = "friday"
+	PayConfigsUpdateWeeklyRulePayloadV2WeekdaysMonday    PayConfigsUpdateWeeklyRulePayloadV2Weekdays = "monday"
+	PayConfigsUpdateWeeklyRulePayloadV2WeekdaysSaturday  PayConfigsUpdateWeeklyRulePayloadV2Weekdays = "saturday"
+	PayConfigsUpdateWeeklyRulePayloadV2WeekdaysSunday    PayConfigsUpdateWeeklyRulePayloadV2Weekdays = "sunday"
+	PayConfigsUpdateWeeklyRulePayloadV2WeekdaysThursday  PayConfigsUpdateWeeklyRulePayloadV2Weekdays = "thursday"
+	PayConfigsUpdateWeeklyRulePayloadV2WeekdaysTuesday   PayConfigsUpdateWeeklyRulePayloadV2Weekdays = "tuesday"
+	PayConfigsUpdateWeeklyRulePayloadV2WeekdaysWednesday PayConfigsUpdateWeeklyRulePayloadV2Weekdays = "wednesday"
+)
+
+// Valid indicates whether the value is a known member of the PayConfigsUpdateWeeklyRulePayloadV2Weekdays enum.
+func (e PayConfigsUpdateWeeklyRulePayloadV2Weekdays) Valid() bool {
+	switch e {
+	case PayConfigsUpdateWeeklyRulePayloadV2WeekdaysFriday:
+		return true
+	case PayConfigsUpdateWeeklyRulePayloadV2WeekdaysMonday:
+		return true
+	case PayConfigsUpdateWeeklyRulePayloadV2WeekdaysSaturday:
+		return true
+	case PayConfigsUpdateWeeklyRulePayloadV2WeekdaysSunday:
+		return true
+	case PayConfigsUpdateWeeklyRulePayloadV2WeekdaysThursday:
+		return true
+	case PayConfigsUpdateWeeklyRulePayloadV2WeekdaysTuesday:
+		return true
+	case PayConfigsUpdateWeeklyRulePayloadV2WeekdaysWednesday:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for PoliciesCreatePayloadV2PolicyType.
 const (
 	PoliciesCreatePayloadV2PolicyTypeDebrief          PoliciesCreatePayloadV2PolicyType = "debrief"
@@ -13866,6 +14052,20 @@ type FollowUpsConnectExternalIssueResultV3 struct {
 	FollowUp FollowUpV3 `json:"follow_up"`
 }
 
+// FollowUpsCreateFromLinkPayloadV3 defines model for FollowUpsCreateFromLinkPayloadV3.
+type FollowUpsCreateFromLinkPayloadV3 struct {
+	// IncidentId Unique identifier of the incident the follow-up belongs to
+	IncidentId string `json:"incident_id"`
+
+	// Url URL of the issue in the external provider
+	Url string `json:"url"`
+}
+
+// FollowUpsCreateFromLinkResultV3 defines model for FollowUpsCreateFromLinkResultV3.
+type FollowUpsCreateFromLinkResultV3 struct {
+	FollowUp FollowUpV3 `json:"follow_up"`
+}
+
 // FollowUpsCreatePayloadV2 defines model for FollowUpsCreatePayloadV2.
 type FollowUpsCreatePayloadV2 struct {
 	// AssigneeId ID of the user this follow-up is assigned to
@@ -15975,6 +16175,323 @@ type PartialEntryPayloadV3 struct {
 
 	// Rank If specified, will update the rank of the entry. When omitted, rank will be set to null (allowing rank removal).
 	Rank *int32 `json:"rank,omitempty"`
+}
+
+// PayConfigOneOffRulePayloadV2 A one-off rule to write. Send an existing rule's ID to keep it stable, and omit it for a rule you are adding.
+type PayConfigOneOffRulePayloadV2 struct {
+	// EndAt When this rule stops applying
+	EndAt time.Time `json:"end_at"`
+
+	// Id An existing rule's ID, to keep it stable. Omit for a new rule.
+	Id *string `json:"id,omitempty"`
+
+	// Name Human readable name for this rule
+	Name string `json:"name"`
+
+	// RateCents Rate paid while this rule applies, in the lowest denomination of the config's currency
+	RateCents int64 `json:"rate_cents"`
+
+	// StartAt When this rule starts applying
+	StartAt time.Time `json:"start_at"`
+}
+
+// PayConfigOneOffRuleV2 A rule that applies over a single window of time, such as a public holiday. One-off rules take precedence over weekly rules, and may not overlap each other.
+type PayConfigOneOffRuleV2 struct {
+	// EndAt When this rule stops applying
+	EndAt time.Time `json:"end_at"`
+
+	// Id Unique identifier for this rule, stable across edits to the config
+	Id string `json:"id"`
+
+	// Name Human readable name for this rule
+	Name string `json:"name"`
+
+	// RateCents Rate paid while this rule applies, in the lowest denomination of the config's currency
+	RateCents int64 `json:"rate_cents"`
+
+	// StartAt When this rule starts applying
+	StartAt time.Time `json:"start_at"`
+}
+
+// PayConfigV2 A pay config sets what someone is paid for being on call: a base rate,
+// plus rules that override it at particular times. An on-call pay report prices
+// each person's shifts against one.
+//
+// Rules are evaluated in the order they are returned, and the first one that
+// covers a shift wins. Any time no rule covers is paid at the base rate.
+type PayConfigV2 struct {
+	// BaseRateCents Rate paid for any time no rule covers, in the lowest denomination of the currency
+	BaseRateCents int64     `json:"base_rate_cents"`
+	CreatedAt     time.Time `json:"created_at"`
+
+	// Currency Currency this config pays in, in ISO 4217 format
+	Currency string `json:"currency"`
+
+	// Id Unique identifier for this pay config
+	Id string `json:"id"`
+
+	// Name Human readable name for this pay config
+	Name string `json:"name"`
+
+	// OneOffRules Rules that apply over a single window of time, such as a public holiday
+	OneOffRules []PayConfigOneOffRuleV2 `json:"one_off_rules"`
+
+	// PublishedAt When a published report first priced against this config. Once set, editing the config needs the schedule_pay_configs.update_published scope.
+	PublishedAt *time.Time `json:"published_at,omitempty"`
+
+	// RateTimeUnit The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way.
+	RateTimeUnit PayConfigV2RateTimeUnit `json:"rate_time_unit"`
+
+	// Timezone IANA timezone this config's rules are interpreted in
+	Timezone  string    `json:"timezone"`
+	UpdatedAt time.Time `json:"updated_at"`
+
+	// WeeklyRules Rules that apply every week, by day of week and time of day, in evaluation order
+	WeeklyRules []PayConfigWeeklyRuleV2 `json:"weekly_rules"`
+}
+
+// PayConfigV2RateTimeUnit The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way.
+type PayConfigV2RateTimeUnit string
+
+// PayConfigWeeklyRulePayloadV2 A weekly rule to write. Send an existing rule's ID to keep it stable, and omit it for a rule you are adding.
+type PayConfigWeeklyRulePayloadV2 struct {
+	// EndTime Time of day this rule ends, in 24 hour format. Equal to start_time means it runs for the whole day.
+	EndTime string `json:"end_time"`
+
+	// Id An existing rule's ID, to keep it stable. Omit for a new rule.
+	Id *string `json:"id,omitempty"`
+
+	// RateCents Rate paid while this rule applies, in the lowest denomination of the config's currency
+	RateCents int64 `json:"rate_cents"`
+
+	// StartTime Time of day this rule starts, in 24 hour format
+	StartTime string `json:"start_time"`
+
+	// Weekdays Days of the week this rule applies on
+	Weekdays []PayConfigWeeklyRulePayloadV2Weekdays `json:"weekdays"`
+}
+
+// PayConfigWeeklyRulePayloadV2Weekdays Weekdays for use within a schedule or escalation path
+type PayConfigWeeklyRulePayloadV2Weekdays string
+
+// PayConfigWeeklyRuleV2 A rule that applies every week, over the same days and hours.
+type PayConfigWeeklyRuleV2 struct {
+	// EndTime Time of day this rule ends, in 24 hour format. Equal to start_time means it runs for the whole day.
+	EndTime string `json:"end_time"`
+
+	// Id Unique identifier for this rule, stable across edits to the config
+	Id string `json:"id"`
+
+	// RateCents Rate paid while this rule applies, in the lowest denomination of the config's currency
+	RateCents int64 `json:"rate_cents"`
+
+	// StartTime Time of day this rule starts, in 24 hour format
+	StartTime string `json:"start_time"`
+
+	// Weekdays Days of the week this rule applies on
+	Weekdays []PayConfigWeeklyRuleV2Weekdays `json:"weekdays"`
+}
+
+// PayConfigWeeklyRuleV2Weekdays Weekdays for use within a schedule or escalation path
+type PayConfigWeeklyRuleV2Weekdays string
+
+// PayConfigsCreateOneOffRulePayloadV2 defines model for PayConfigsCreateOneOffRulePayloadV2.
+type PayConfigsCreateOneOffRulePayloadV2 struct {
+	// EndAt When this rule stops applying
+	EndAt time.Time `json:"end_at"`
+
+	// Name Human readable name for this rule
+	Name string `json:"name"`
+
+	// RateCents Rate paid while this rule applies, in the lowest denomination of the config's currency
+	RateCents int64 `json:"rate_cents"`
+
+	// StartAt When this rule starts applying
+	StartAt time.Time `json:"start_at"`
+}
+
+// PayConfigsCreateOneOffRuleResultV2 defines model for PayConfigsCreateOneOffRuleResultV2.
+type PayConfigsCreateOneOffRuleResultV2 struct {
+	// OneOffRule A rule that applies over a single window of time, such as a public holiday. One-off rules take precedence over weekly rules, and may not overlap each other.
+	OneOffRule PayConfigOneOffRuleV2 `json:"one_off_rule"`
+}
+
+// PayConfigsCreatePayloadV2 defines model for PayConfigsCreatePayloadV2.
+type PayConfigsCreatePayloadV2 struct {
+	// BaseRateCents Rate paid for any time no rule covers, in the lowest denomination of the currency
+	BaseRateCents int64 `json:"base_rate_cents"`
+
+	// Currency Currency this config pays in, in ISO 4217 format
+	Currency string `json:"currency"`
+
+	// Name Human readable name for this pay config
+	Name string `json:"name"`
+
+	// OneOffRules Rules that apply over a single window of time
+	OneOffRules *[]PayConfigOneOffRulePayloadV2 `json:"one_off_rules,omitempty"`
+
+	// RateTimeUnit The unit of time every rate on this config is quoted per
+	RateTimeUnit PayConfigsCreatePayloadV2RateTimeUnit `json:"rate_time_unit"`
+
+	// Timezone IANA timezone this config's rules are interpreted in
+	Timezone string `json:"timezone"`
+
+	// WeeklyRules Rules that apply every week, in the order they should be evaluated
+	WeeklyRules *[]PayConfigWeeklyRulePayloadV2 `json:"weekly_rules,omitempty"`
+}
+
+// PayConfigsCreatePayloadV2RateTimeUnit The unit of time every rate on this config is quoted per
+type PayConfigsCreatePayloadV2RateTimeUnit string
+
+// PayConfigsCreateResultV2 defines model for PayConfigsCreateResultV2.
+type PayConfigsCreateResultV2 struct {
+	// PayConfig A pay config sets what someone is paid for being on call: a base rate,
+	// plus rules that override it at particular times. An on-call pay report prices
+	// each person's shifts against one.
+	//
+	// Rules are evaluated in the order they are returned, and the first one that
+	// covers a shift wins. Any time no rule covers is paid at the base rate.
+	PayConfig PayConfigV2 `json:"pay_config"`
+}
+
+// PayConfigsCreateWeeklyRulePayloadV2 defines model for PayConfigsCreateWeeklyRulePayloadV2.
+type PayConfigsCreateWeeklyRulePayloadV2 struct {
+	// EndTime Time of day this rule ends, in 24 hour format. Equal to start_time means it runs for the whole day.
+	EndTime string `json:"end_time"`
+
+	// RateCents Rate paid while this rule applies, in the lowest denomination of the config's currency
+	RateCents int64 `json:"rate_cents"`
+
+	// StartTime Time of day this rule starts, in 24 hour format
+	StartTime string `json:"start_time"`
+
+	// Weekdays Days of the week this rule applies on
+	Weekdays []PayConfigsCreateWeeklyRulePayloadV2Weekdays `json:"weekdays"`
+}
+
+// PayConfigsCreateWeeklyRulePayloadV2Weekdays defines model for PayConfigsCreateWeeklyRulePayloadV2.Weekdays.
+type PayConfigsCreateWeeklyRulePayloadV2Weekdays string
+
+// PayConfigsCreateWeeklyRuleResultV2 defines model for PayConfigsCreateWeeklyRuleResultV2.
+type PayConfigsCreateWeeklyRuleResultV2 struct {
+	// WeeklyRule A rule that applies every week, over the same days and hours.
+	WeeklyRule PayConfigWeeklyRuleV2 `json:"weekly_rule"`
+}
+
+// PayConfigsListOneOffRulesResultV2 defines model for PayConfigsListOneOffRulesResultV2.
+type PayConfigsListOneOffRulesResultV2 struct {
+	OneOffRules []PayConfigOneOffRuleV2 `json:"one_off_rules"`
+}
+
+// PayConfigsListResultV2 defines model for PayConfigsListResultV2.
+type PayConfigsListResultV2 struct {
+	PaginationMeta PaginationMetaResultV2 `json:"pagination_meta"`
+	PayConfigs     []PayConfigV2          `json:"pay_configs"`
+}
+
+// PayConfigsListWeeklyRulesResultV2 defines model for PayConfigsListWeeklyRulesResultV2.
+type PayConfigsListWeeklyRulesResultV2 struct {
+	WeeklyRules []PayConfigWeeklyRuleV2 `json:"weekly_rules"`
+}
+
+// PayConfigsShowOneOffRuleResultV2 defines model for PayConfigsShowOneOffRuleResultV2.
+type PayConfigsShowOneOffRuleResultV2 struct {
+	// OneOffRule A rule that applies over a single window of time, such as a public holiday. One-off rules take precedence over weekly rules, and may not overlap each other.
+	OneOffRule PayConfigOneOffRuleV2 `json:"one_off_rule"`
+}
+
+// PayConfigsShowResultV2 defines model for PayConfigsShowResultV2.
+type PayConfigsShowResultV2 struct {
+	// PayConfig A pay config sets what someone is paid for being on call: a base rate,
+	// plus rules that override it at particular times. An on-call pay report prices
+	// each person's shifts against one.
+	//
+	// Rules are evaluated in the order they are returned, and the first one that
+	// covers a shift wins. Any time no rule covers is paid at the base rate.
+	PayConfig PayConfigV2 `json:"pay_config"`
+}
+
+// PayConfigsShowWeeklyRuleResultV2 defines model for PayConfigsShowWeeklyRuleResultV2.
+type PayConfigsShowWeeklyRuleResultV2 struct {
+	// WeeklyRule A rule that applies every week, over the same days and hours.
+	WeeklyRule PayConfigWeeklyRuleV2 `json:"weekly_rule"`
+}
+
+// PayConfigsUpdateOneOffRulePayloadV2 defines model for PayConfigsUpdateOneOffRulePayloadV2.
+type PayConfigsUpdateOneOffRulePayloadV2 struct {
+	// EndAt When this rule stops applying
+	EndAt time.Time `json:"end_at"`
+
+	// Name Human readable name for this rule
+	Name string `json:"name"`
+
+	// RateCents Rate paid while this rule applies, in the lowest denomination of the config's currency
+	RateCents int64 `json:"rate_cents"`
+
+	// StartAt When this rule starts applying
+	StartAt time.Time `json:"start_at"`
+}
+
+// PayConfigsUpdateOneOffRuleResultV2 defines model for PayConfigsUpdateOneOffRuleResultV2.
+type PayConfigsUpdateOneOffRuleResultV2 struct {
+	// OneOffRule A rule that applies over a single window of time, such as a public holiday. One-off rules take precedence over weekly rules, and may not overlap each other.
+	OneOffRule PayConfigOneOffRuleV2 `json:"one_off_rule"`
+}
+
+// PayConfigsUpdatePayloadV2 defines model for PayConfigsUpdatePayloadV2.
+type PayConfigsUpdatePayloadV2 struct {
+	// BaseRateCents Rate paid for any time no rule covers, in the lowest denomination of the currency
+	BaseRateCents int64 `json:"base_rate_cents"`
+
+	// Currency Currency this config pays in, in ISO 4217 format
+	Currency string `json:"currency"`
+
+	// Name Human readable name for this pay config
+	Name string `json:"name"`
+
+	// RateTimeUnit The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way.
+	RateTimeUnit PayConfigsUpdatePayloadV2RateTimeUnit `json:"rate_time_unit"`
+
+	// Timezone IANA timezone this config's rules are interpreted in
+	Timezone string `json:"timezone"`
+}
+
+// PayConfigsUpdatePayloadV2RateTimeUnit The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way.
+type PayConfigsUpdatePayloadV2RateTimeUnit string
+
+// PayConfigsUpdateResultV2 defines model for PayConfigsUpdateResultV2.
+type PayConfigsUpdateResultV2 struct {
+	// PayConfig A pay config sets what someone is paid for being on call: a base rate,
+	// plus rules that override it at particular times. An on-call pay report prices
+	// each person's shifts against one.
+	//
+	// Rules are evaluated in the order they are returned, and the first one that
+	// covers a shift wins. Any time no rule covers is paid at the base rate.
+	PayConfig PayConfigV2 `json:"pay_config"`
+}
+
+// PayConfigsUpdateWeeklyRulePayloadV2 defines model for PayConfigsUpdateWeeklyRulePayloadV2.
+type PayConfigsUpdateWeeklyRulePayloadV2 struct {
+	// EndTime Time of day this rule ends, in 24 hour format. Equal to start_time means it runs for the whole day.
+	EndTime string `json:"end_time"`
+
+	// RateCents Rate paid while this rule applies, in the lowest denomination of the config's currency
+	RateCents int64 `json:"rate_cents"`
+
+	// StartTime Time of day this rule starts, in 24 hour format
+	StartTime string `json:"start_time"`
+
+	// Weekdays Days of the week this rule applies on
+	Weekdays []PayConfigsUpdateWeeklyRulePayloadV2Weekdays `json:"weekdays"`
+}
+
+// PayConfigsUpdateWeeklyRulePayloadV2Weekdays defines model for PayConfigsUpdateWeeklyRulePayloadV2.Weekdays.
+type PayConfigsUpdateWeeklyRulePayloadV2Weekdays string
+
+// PayConfigsUpdateWeeklyRuleResultV2 defines model for PayConfigsUpdateWeeklyRuleResultV2.
+type PayConfigsUpdateWeeklyRuleResultV2 struct {
+	// WeeklyRule A rule that applies every week, over the same days and hours.
+	WeeklyRule PayConfigWeeklyRuleV2 `json:"weekly_rule"`
 }
 
 // PoliciesCreatePayloadV2 defines model for PoliciesCreatePayloadV2.
@@ -19618,6 +20135,15 @@ type IncidentsV2ListParamsSortBy string
 // IncidentsV2ListParamsFilterMode defines parameters for IncidentsV2List.
 type IncidentsV2ListParamsFilterMode string
 
+// PayConfigsV2ListParams defines parameters for PayConfigsV2List.
+type PayConfigsV2ListParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After A pay config's ID. This endpoint will return a list of pay configs after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+}
+
 // PoliciesV2ListParams defines parameters for PoliciesV2List.
 type PoliciesV2ListParams struct {
 	// PageSize Number of policies to return per page
@@ -20130,6 +20656,24 @@ type IncidentsV2EditJSONRequestBody = IncidentsEditPayloadV2
 // IncidentsV2ImportPostmortemDocumentJSONRequestBody defines body for IncidentsV2ImportPostmortemDocument for application/json ContentType.
 type IncidentsV2ImportPostmortemDocumentJSONRequestBody = IncidentsImportPostmortemDocumentPayloadV2
 
+// PayConfigsV2CreateJSONRequestBody defines body for PayConfigsV2Create for application/json ContentType.
+type PayConfigsV2CreateJSONRequestBody = PayConfigsCreatePayloadV2
+
+// PayConfigsV2UpdateJSONRequestBody defines body for PayConfigsV2Update for application/json ContentType.
+type PayConfigsV2UpdateJSONRequestBody = PayConfigsUpdatePayloadV2
+
+// PayConfigsV2CreateOneOffRuleJSONRequestBody defines body for PayConfigsV2CreateOneOffRule for application/json ContentType.
+type PayConfigsV2CreateOneOffRuleJSONRequestBody = PayConfigsCreateOneOffRulePayloadV2
+
+// PayConfigsV2UpdateOneOffRuleJSONRequestBody defines body for PayConfigsV2UpdateOneOffRule for application/json ContentType.
+type PayConfigsV2UpdateOneOffRuleJSONRequestBody = PayConfigsUpdateOneOffRulePayloadV2
+
+// PayConfigsV2CreateWeeklyRuleJSONRequestBody defines body for PayConfigsV2CreateWeeklyRule for application/json ContentType.
+type PayConfigsV2CreateWeeklyRuleJSONRequestBody = PayConfigsCreateWeeklyRulePayloadV2
+
+// PayConfigsV2UpdateWeeklyRuleJSONRequestBody defines body for PayConfigsV2UpdateWeeklyRule for application/json ContentType.
+type PayConfigsV2UpdateWeeklyRuleJSONRequestBody = PayConfigsUpdateWeeklyRulePayloadV2
+
 // PoliciesV2CreateJSONRequestBody defines body for PoliciesV2Create for application/json ContentType.
 type PoliciesV2CreateJSONRequestBody = PoliciesCreatePayloadV2
 
@@ -20243,6 +20787,9 @@ type CatalogV3UpdateTypeSchemaJSONRequestBody = CatalogUpdateTypeSchemaPayloadV3
 
 // FollowUpsV3CreateJSONRequestBody defines body for FollowUpsV3Create for application/json ContentType.
 type FollowUpsV3CreateJSONRequestBody = FollowUpsCreatePayloadV3
+
+// FollowUpsV3CreateFromLinkJSONRequestBody defines body for FollowUpsV3CreateFromLink for application/json ContentType.
+type FollowUpsV3CreateFromLinkJSONRequestBody = FollowUpsCreateFromLinkPayloadV3
 
 // FollowUpsV3UpdateJSONRequestBody defines body for FollowUpsV3Update for application/json ContentType.
 type FollowUpsV3UpdateJSONRequestBody = FollowUpsUpdatePayloadV3
@@ -21009,6 +21556,63 @@ type ClientInterface interface {
 
 	IncidentsV2ImportPostmortemDocument(ctx context.Context, id string, body IncidentsV2ImportPostmortemDocumentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// PayConfigsV2List request
+	PayConfigsV2List(ctx context.Context, params *PayConfigsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2CreateWithBody request with any body
+	PayConfigsV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	PayConfigsV2Create(ctx context.Context, body PayConfigsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2Destroy request
+	PayConfigsV2Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2Show request
+	PayConfigsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2UpdateWithBody request with any body
+	PayConfigsV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	PayConfigsV2Update(ctx context.Context, id string, body PayConfigsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2ListOneOffRules request
+	PayConfigsV2ListOneOffRules(ctx context.Context, payConfigId string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2CreateOneOffRuleWithBody request with any body
+	PayConfigsV2CreateOneOffRuleWithBody(ctx context.Context, payConfigId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	PayConfigsV2CreateOneOffRule(ctx context.Context, payConfigId string, body PayConfigsV2CreateOneOffRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2DestroyOneOffRule request
+	PayConfigsV2DestroyOneOffRule(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2ShowOneOffRule request
+	PayConfigsV2ShowOneOffRule(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2UpdateOneOffRuleWithBody request with any body
+	PayConfigsV2UpdateOneOffRuleWithBody(ctx context.Context, payConfigId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	PayConfigsV2UpdateOneOffRule(ctx context.Context, payConfigId string, id string, body PayConfigsV2UpdateOneOffRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2ListWeeklyRules request
+	PayConfigsV2ListWeeklyRules(ctx context.Context, payConfigId string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2CreateWeeklyRuleWithBody request with any body
+	PayConfigsV2CreateWeeklyRuleWithBody(ctx context.Context, payConfigId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	PayConfigsV2CreateWeeklyRule(ctx context.Context, payConfigId string, body PayConfigsV2CreateWeeklyRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2DestroyWeeklyRule request
+	PayConfigsV2DestroyWeeklyRule(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2ShowWeeklyRule request
+	PayConfigsV2ShowWeeklyRule(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayConfigsV2UpdateWeeklyRuleWithBody request with any body
+	PayConfigsV2UpdateWeeklyRuleWithBody(ctx context.Context, payConfigId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	PayConfigsV2UpdateWeeklyRule(ctx context.Context, payConfigId string, id string, body PayConfigsV2UpdateWeeklyRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// PoliciesV2List request
 	PoliciesV2List(ctx context.Context, params *PoliciesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -21366,6 +21970,11 @@ type ClientInterface interface {
 	FollowUpsV3CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	FollowUpsV3Create(ctx context.Context, body FollowUpsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// FollowUpsV3CreateFromLinkWithBody request with any body
+	FollowUpsV3CreateFromLinkWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	FollowUpsV3CreateFromLink(ctx context.Context, body FollowUpsV3CreateFromLinkJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// FollowUpsV3Delete request
 	FollowUpsV3Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -24532,6 +25141,258 @@ func (c *Client) IncidentsV2ImportPostmortemDocument(ctx context.Context, id str
 	return c.Client.Do(req)
 }
 
+func (c *Client) PayConfigsV2List(ctx context.Context, params *PayConfigsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2Create(ctx context.Context, body PayConfigsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2DestroyRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2Update(ctx context.Context, id string, body PayConfigsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2UpdateRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2ListOneOffRules(ctx context.Context, payConfigId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2ListOneOffRulesRequest(c.Server, payConfigId)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2CreateOneOffRuleWithBody(ctx context.Context, payConfigId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2CreateOneOffRuleRequestWithBody(c.Server, payConfigId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2CreateOneOffRule(ctx context.Context, payConfigId string, body PayConfigsV2CreateOneOffRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2CreateOneOffRuleRequest(c.Server, payConfigId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2DestroyOneOffRule(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2DestroyOneOffRuleRequest(c.Server, payConfigId, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2ShowOneOffRule(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2ShowOneOffRuleRequest(c.Server, payConfigId, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2UpdateOneOffRuleWithBody(ctx context.Context, payConfigId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2UpdateOneOffRuleRequestWithBody(c.Server, payConfigId, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2UpdateOneOffRule(ctx context.Context, payConfigId string, id string, body PayConfigsV2UpdateOneOffRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2UpdateOneOffRuleRequest(c.Server, payConfigId, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2ListWeeklyRules(ctx context.Context, payConfigId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2ListWeeklyRulesRequest(c.Server, payConfigId)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2CreateWeeklyRuleWithBody(ctx context.Context, payConfigId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2CreateWeeklyRuleRequestWithBody(c.Server, payConfigId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2CreateWeeklyRule(ctx context.Context, payConfigId string, body PayConfigsV2CreateWeeklyRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2CreateWeeklyRuleRequest(c.Server, payConfigId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2DestroyWeeklyRule(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2DestroyWeeklyRuleRequest(c.Server, payConfigId, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2ShowWeeklyRule(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2ShowWeeklyRuleRequest(c.Server, payConfigId, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2UpdateWeeklyRuleWithBody(ctx context.Context, payConfigId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2UpdateWeeklyRuleRequestWithBody(c.Server, payConfigId, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayConfigsV2UpdateWeeklyRule(ctx context.Context, payConfigId string, id string, body PayConfigsV2UpdateWeeklyRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayConfigsV2UpdateWeeklyRuleRequest(c.Server, payConfigId, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) PoliciesV2List(ctx context.Context, params *PoliciesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newPoliciesV2ListRequest(c.Server, params)
 	if err != nil {
@@ -26106,6 +26967,30 @@ func (c *Client) FollowUpsV3CreateWithBody(ctx context.Context, contentType stri
 
 func (c *Client) FollowUpsV3Create(ctx context.Context, body FollowUpsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV3CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV3CreateFromLinkWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV3CreateFromLinkRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) FollowUpsV3CreateFromLink(ctx context.Context, body FollowUpsV3CreateFromLinkJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newFollowUpsV3CreateFromLinkRequest(c.Server, body)
 	if err != nil {
 		return nil, err
 	}
@@ -34755,6 +35640,660 @@ func newIncidentsV2ImportPostmortemDocumentRequestWithBody(server string, id str
 	return req, nil
 }
 
+// NewPayConfigsV2ListRequest generates requests for PayConfigsV2List
+func newPayConfigsV2ListRequest(server string, params *PayConfigsV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPayConfigsV2CreateRequest calls the generic PayConfigsV2Create builder with application/json body
+func newPayConfigsV2CreateRequest(server string, body PayConfigsV2CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newPayConfigsV2CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewPayConfigsV2CreateRequestWithBody generates requests for PayConfigsV2Create with any type of body
+func newPayConfigsV2CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewPayConfigsV2DestroyRequest generates requests for PayConfigsV2Destroy
+func newPayConfigsV2DestroyRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPayConfigsV2ShowRequest generates requests for PayConfigsV2Show
+func newPayConfigsV2ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPayConfigsV2UpdateRequest calls the generic PayConfigsV2Update builder with application/json body
+func newPayConfigsV2UpdateRequest(server string, id string, body PayConfigsV2UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newPayConfigsV2UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewPayConfigsV2UpdateRequestWithBody generates requests for PayConfigsV2Update with any type of body
+func newPayConfigsV2UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewPayConfigsV2ListOneOffRulesRequest generates requests for PayConfigsV2ListOneOffRules
+func newPayConfigsV2ListOneOffRulesRequest(server string, payConfigId string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "pay_config_id", payConfigId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s/one_off_rules", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPayConfigsV2CreateOneOffRuleRequest calls the generic PayConfigsV2CreateOneOffRule builder with application/json body
+func newPayConfigsV2CreateOneOffRuleRequest(server string, payConfigId string, body PayConfigsV2CreateOneOffRuleJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newPayConfigsV2CreateOneOffRuleRequestWithBody(server, payConfigId, "application/json", bodyReader)
+}
+
+// NewPayConfigsV2CreateOneOffRuleRequestWithBody generates requests for PayConfigsV2CreateOneOffRule with any type of body
+func newPayConfigsV2CreateOneOffRuleRequestWithBody(server string, payConfigId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "pay_config_id", payConfigId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s/one_off_rules", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewPayConfigsV2DestroyOneOffRuleRequest generates requests for PayConfigsV2DestroyOneOffRule
+func newPayConfigsV2DestroyOneOffRuleRequest(server string, payConfigId string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "pay_config_id", payConfigId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s/one_off_rules/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPayConfigsV2ShowOneOffRuleRequest generates requests for PayConfigsV2ShowOneOffRule
+func newPayConfigsV2ShowOneOffRuleRequest(server string, payConfigId string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "pay_config_id", payConfigId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s/one_off_rules/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPayConfigsV2UpdateOneOffRuleRequest calls the generic PayConfigsV2UpdateOneOffRule builder with application/json body
+func newPayConfigsV2UpdateOneOffRuleRequest(server string, payConfigId string, id string, body PayConfigsV2UpdateOneOffRuleJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newPayConfigsV2UpdateOneOffRuleRequestWithBody(server, payConfigId, id, "application/json", bodyReader)
+}
+
+// NewPayConfigsV2UpdateOneOffRuleRequestWithBody generates requests for PayConfigsV2UpdateOneOffRule with any type of body
+func newPayConfigsV2UpdateOneOffRuleRequestWithBody(server string, payConfigId string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "pay_config_id", payConfigId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s/one_off_rules/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewPayConfigsV2ListWeeklyRulesRequest generates requests for PayConfigsV2ListWeeklyRules
+func newPayConfigsV2ListWeeklyRulesRequest(server string, payConfigId string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "pay_config_id", payConfigId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s/weekly_rules", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPayConfigsV2CreateWeeklyRuleRequest calls the generic PayConfigsV2CreateWeeklyRule builder with application/json body
+func newPayConfigsV2CreateWeeklyRuleRequest(server string, payConfigId string, body PayConfigsV2CreateWeeklyRuleJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newPayConfigsV2CreateWeeklyRuleRequestWithBody(server, payConfigId, "application/json", bodyReader)
+}
+
+// NewPayConfigsV2CreateWeeklyRuleRequestWithBody generates requests for PayConfigsV2CreateWeeklyRule with any type of body
+func newPayConfigsV2CreateWeeklyRuleRequestWithBody(server string, payConfigId string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "pay_config_id", payConfigId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s/weekly_rules", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewPayConfigsV2DestroyWeeklyRuleRequest generates requests for PayConfigsV2DestroyWeeklyRule
+func newPayConfigsV2DestroyWeeklyRuleRequest(server string, payConfigId string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "pay_config_id", payConfigId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s/weekly_rules/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPayConfigsV2ShowWeeklyRuleRequest generates requests for PayConfigsV2ShowWeeklyRule
+func newPayConfigsV2ShowWeeklyRuleRequest(server string, payConfigId string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "pay_config_id", payConfigId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s/weekly_rules/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPayConfigsV2UpdateWeeklyRuleRequest calls the generic PayConfigsV2UpdateWeeklyRule builder with application/json body
+func newPayConfigsV2UpdateWeeklyRuleRequest(server string, payConfigId string, id string, body PayConfigsV2UpdateWeeklyRuleJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newPayConfigsV2UpdateWeeklyRuleRequestWithBody(server, payConfigId, id, "application/json", bodyReader)
+}
+
+// NewPayConfigsV2UpdateWeeklyRuleRequestWithBody generates requests for PayConfigsV2UpdateWeeklyRule with any type of body
+func newPayConfigsV2UpdateWeeklyRuleRequestWithBody(server string, payConfigId string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "pay_config_id", payConfigId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_configs/%s/weekly_rules/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewPoliciesV2ListRequest generates requests for PoliciesV2List
 func newPoliciesV2ListRequest(server string, params *PoliciesV2ListParams) (*http.Request, error) {
 	var err error
@@ -39470,6 +41009,46 @@ func newFollowUpsV3CreateRequestWithBody(server string, contentType string, body
 	return req, nil
 }
 
+// NewFollowUpsV3CreateFromLinkRequest calls the generic FollowUpsV3CreateFromLink builder with application/json body
+func newFollowUpsV3CreateFromLinkRequest(server string, body FollowUpsV3CreateFromLinkJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newFollowUpsV3CreateFromLinkRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewFollowUpsV3CreateFromLinkRequestWithBody generates requests for FollowUpsV3CreateFromLink with any type of body
+func newFollowUpsV3CreateFromLinkRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/follow_ups/actions/create_from_link")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewFollowUpsV3DeleteRequest generates requests for FollowUpsV3Delete
 func newFollowUpsV3DeleteRequest(server string, id string) (*http.Request, error) {
 	var err error
@@ -40460,6 +42039,63 @@ type ClientWithResponsesInterface interface {
 
 	IncidentsV2ImportPostmortemDocumentWithResponse(ctx context.Context, id string, body IncidentsV2ImportPostmortemDocumentJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentsV2ImportPostmortemDocumentResponse, error)
 
+	// PayConfigsV2ListWithResponse request
+	PayConfigsV2ListWithResponse(ctx context.Context, params *PayConfigsV2ListParams, reqEditors ...RequestEditorFn) (*PayConfigsV2ListResponse, error)
+
+	// PayConfigsV2CreateWithBodyWithResponse request with any body
+	PayConfigsV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2CreateResponse, error)
+
+	PayConfigsV2CreateWithResponse(ctx context.Context, body PayConfigsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2CreateResponse, error)
+
+	// PayConfigsV2DestroyWithResponse request
+	PayConfigsV2DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PayConfigsV2DestroyResponse, error)
+
+	// PayConfigsV2ShowWithResponse request
+	PayConfigsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PayConfigsV2ShowResponse, error)
+
+	// PayConfigsV2UpdateWithBodyWithResponse request with any body
+	PayConfigsV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateResponse, error)
+
+	PayConfigsV2UpdateWithResponse(ctx context.Context, id string, body PayConfigsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateResponse, error)
+
+	// PayConfigsV2ListOneOffRulesWithResponse request
+	PayConfigsV2ListOneOffRulesWithResponse(ctx context.Context, payConfigId string, reqEditors ...RequestEditorFn) (*PayConfigsV2ListOneOffRulesResponse, error)
+
+	// PayConfigsV2CreateOneOffRuleWithBodyWithResponse request with any body
+	PayConfigsV2CreateOneOffRuleWithBodyWithResponse(ctx context.Context, payConfigId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2CreateOneOffRuleResponse, error)
+
+	PayConfigsV2CreateOneOffRuleWithResponse(ctx context.Context, payConfigId string, body PayConfigsV2CreateOneOffRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2CreateOneOffRuleResponse, error)
+
+	// PayConfigsV2DestroyOneOffRuleWithResponse request
+	PayConfigsV2DestroyOneOffRuleWithResponse(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*PayConfigsV2DestroyOneOffRuleResponse, error)
+
+	// PayConfigsV2ShowOneOffRuleWithResponse request
+	PayConfigsV2ShowOneOffRuleWithResponse(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*PayConfigsV2ShowOneOffRuleResponse, error)
+
+	// PayConfigsV2UpdateOneOffRuleWithBodyWithResponse request with any body
+	PayConfigsV2UpdateOneOffRuleWithBodyWithResponse(ctx context.Context, payConfigId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateOneOffRuleResponse, error)
+
+	PayConfigsV2UpdateOneOffRuleWithResponse(ctx context.Context, payConfigId string, id string, body PayConfigsV2UpdateOneOffRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateOneOffRuleResponse, error)
+
+	// PayConfigsV2ListWeeklyRulesWithResponse request
+	PayConfigsV2ListWeeklyRulesWithResponse(ctx context.Context, payConfigId string, reqEditors ...RequestEditorFn) (*PayConfigsV2ListWeeklyRulesResponse, error)
+
+	// PayConfigsV2CreateWeeklyRuleWithBodyWithResponse request with any body
+	PayConfigsV2CreateWeeklyRuleWithBodyWithResponse(ctx context.Context, payConfigId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2CreateWeeklyRuleResponse, error)
+
+	PayConfigsV2CreateWeeklyRuleWithResponse(ctx context.Context, payConfigId string, body PayConfigsV2CreateWeeklyRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2CreateWeeklyRuleResponse, error)
+
+	// PayConfigsV2DestroyWeeklyRuleWithResponse request
+	PayConfigsV2DestroyWeeklyRuleWithResponse(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*PayConfigsV2DestroyWeeklyRuleResponse, error)
+
+	// PayConfigsV2ShowWeeklyRuleWithResponse request
+	PayConfigsV2ShowWeeklyRuleWithResponse(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*PayConfigsV2ShowWeeklyRuleResponse, error)
+
+	// PayConfigsV2UpdateWeeklyRuleWithBodyWithResponse request with any body
+	PayConfigsV2UpdateWeeklyRuleWithBodyWithResponse(ctx context.Context, payConfigId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateWeeklyRuleResponse, error)
+
+	PayConfigsV2UpdateWeeklyRuleWithResponse(ctx context.Context, payConfigId string, id string, body PayConfigsV2UpdateWeeklyRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateWeeklyRuleResponse, error)
+
 	// PoliciesV2ListWithResponse request
 	PoliciesV2ListWithResponse(ctx context.Context, params *PoliciesV2ListParams, reqEditors ...RequestEditorFn) (*PoliciesV2ListResponse, error)
 
@@ -40817,6 +42453,11 @@ type ClientWithResponsesInterface interface {
 	FollowUpsV3CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV3CreateResponse, error)
 
 	FollowUpsV3CreateWithResponse(ctx context.Context, body FollowUpsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV3CreateResponse, error)
+
+	// FollowUpsV3CreateFromLinkWithBodyWithResponse request with any body
+	FollowUpsV3CreateFromLinkWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV3CreateFromLinkResponse, error)
+
+	FollowUpsV3CreateFromLinkWithResponse(ctx context.Context, body FollowUpsV3CreateFromLinkJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV3CreateFromLinkResponse, error)
 
 	// FollowUpsV3DeleteWithResponse request
 	FollowUpsV3DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*FollowUpsV3DeleteResponse, error)
@@ -47112,6 +48753,528 @@ func (r IncidentsV2ImportPostmortemDocumentResponse) StatusCode() int {
 	return 0
 }
 
+type PayConfigsV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayConfigsListResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *PayConfigsCreateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2DestroyResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2DestroyResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2DestroyResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayConfigsShowResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayConfigsUpdateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2UpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2ListOneOffRulesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayConfigsListOneOffRulesResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2ListOneOffRulesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2ListOneOffRulesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2CreateOneOffRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *PayConfigsCreateOneOffRuleResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2CreateOneOffRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2CreateOneOffRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2DestroyOneOffRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2DestroyOneOffRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2DestroyOneOffRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2ShowOneOffRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayConfigsShowOneOffRuleResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2ShowOneOffRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2ShowOneOffRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2UpdateOneOffRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayConfigsUpdateOneOffRuleResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2UpdateOneOffRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2UpdateOneOffRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2ListWeeklyRulesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayConfigsListWeeklyRulesResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2ListWeeklyRulesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2ListWeeklyRulesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2CreateWeeklyRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *PayConfigsCreateWeeklyRuleResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2CreateWeeklyRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2CreateWeeklyRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2DestroyWeeklyRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2DestroyWeeklyRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2DestroyWeeklyRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2ShowWeeklyRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayConfigsShowWeeklyRuleResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2ShowWeeklyRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2ShowWeeklyRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayConfigsV2UpdateWeeklyRuleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayConfigsUpdateWeeklyRuleResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayConfigsV2UpdateWeeklyRuleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayConfigsV2UpdateWeeklyRuleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type PoliciesV2ListResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -50387,6 +52550,41 @@ func (r FollowUpsV3CreateResponse) StatusCode() int {
 	return 0
 }
 
+type FollowUpsV3CreateFromLinkResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *FollowUpsCreateFromLinkResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r FollowUpsV3CreateFromLinkResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r FollowUpsV3CreateFromLinkResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type FollowUpsV3DeleteResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -52944,6 +55142,189 @@ func (c *ClientWithResponses) IncidentsV2ImportPostmortemDocumentWithResponse(ct
 	return parseIncidentsV2ImportPostmortemDocumentResponse(rsp)
 }
 
+// PayConfigsV2ListWithResponse request returning *PayConfigsV2ListResponse
+func (c *ClientWithResponses) PayConfigsV2ListWithResponse(ctx context.Context, params *PayConfigsV2ListParams, reqEditors ...RequestEditorFn) (*PayConfigsV2ListResponse, error) {
+	rsp, err := c.PayConfigsV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2ListResponse(rsp)
+}
+
+// PayConfigsV2CreateWithBodyWithResponse request with arbitrary body returning *PayConfigsV2CreateResponse
+func (c *ClientWithResponses) PayConfigsV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2CreateResponse, error) {
+	rsp, err := c.PayConfigsV2CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) PayConfigsV2CreateWithResponse(ctx context.Context, body PayConfigsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2CreateResponse, error) {
+	rsp, err := c.PayConfigsV2Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2CreateResponse(rsp)
+}
+
+// PayConfigsV2DestroyWithResponse request returning *PayConfigsV2DestroyResponse
+func (c *ClientWithResponses) PayConfigsV2DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PayConfigsV2DestroyResponse, error) {
+	rsp, err := c.PayConfigsV2Destroy(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2DestroyResponse(rsp)
+}
+
+// PayConfigsV2ShowWithResponse request returning *PayConfigsV2ShowResponse
+func (c *ClientWithResponses) PayConfigsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PayConfigsV2ShowResponse, error) {
+	rsp, err := c.PayConfigsV2Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2ShowResponse(rsp)
+}
+
+// PayConfigsV2UpdateWithBodyWithResponse request with arbitrary body returning *PayConfigsV2UpdateResponse
+func (c *ClientWithResponses) PayConfigsV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateResponse, error) {
+	rsp, err := c.PayConfigsV2UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) PayConfigsV2UpdateWithResponse(ctx context.Context, id string, body PayConfigsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateResponse, error) {
+	rsp, err := c.PayConfigsV2Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2UpdateResponse(rsp)
+}
+
+// PayConfigsV2ListOneOffRulesWithResponse request returning *PayConfigsV2ListOneOffRulesResponse
+func (c *ClientWithResponses) PayConfigsV2ListOneOffRulesWithResponse(ctx context.Context, payConfigId string, reqEditors ...RequestEditorFn) (*PayConfigsV2ListOneOffRulesResponse, error) {
+	rsp, err := c.PayConfigsV2ListOneOffRules(ctx, payConfigId, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2ListOneOffRulesResponse(rsp)
+}
+
+// PayConfigsV2CreateOneOffRuleWithBodyWithResponse request with arbitrary body returning *PayConfigsV2CreateOneOffRuleResponse
+func (c *ClientWithResponses) PayConfigsV2CreateOneOffRuleWithBodyWithResponse(ctx context.Context, payConfigId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2CreateOneOffRuleResponse, error) {
+	rsp, err := c.PayConfigsV2CreateOneOffRuleWithBody(ctx, payConfigId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2CreateOneOffRuleResponse(rsp)
+}
+
+func (c *ClientWithResponses) PayConfigsV2CreateOneOffRuleWithResponse(ctx context.Context, payConfigId string, body PayConfigsV2CreateOneOffRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2CreateOneOffRuleResponse, error) {
+	rsp, err := c.PayConfigsV2CreateOneOffRule(ctx, payConfigId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2CreateOneOffRuleResponse(rsp)
+}
+
+// PayConfigsV2DestroyOneOffRuleWithResponse request returning *PayConfigsV2DestroyOneOffRuleResponse
+func (c *ClientWithResponses) PayConfigsV2DestroyOneOffRuleWithResponse(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*PayConfigsV2DestroyOneOffRuleResponse, error) {
+	rsp, err := c.PayConfigsV2DestroyOneOffRule(ctx, payConfigId, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2DestroyOneOffRuleResponse(rsp)
+}
+
+// PayConfigsV2ShowOneOffRuleWithResponse request returning *PayConfigsV2ShowOneOffRuleResponse
+func (c *ClientWithResponses) PayConfigsV2ShowOneOffRuleWithResponse(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*PayConfigsV2ShowOneOffRuleResponse, error) {
+	rsp, err := c.PayConfigsV2ShowOneOffRule(ctx, payConfigId, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2ShowOneOffRuleResponse(rsp)
+}
+
+// PayConfigsV2UpdateOneOffRuleWithBodyWithResponse request with arbitrary body returning *PayConfigsV2UpdateOneOffRuleResponse
+func (c *ClientWithResponses) PayConfigsV2UpdateOneOffRuleWithBodyWithResponse(ctx context.Context, payConfigId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateOneOffRuleResponse, error) {
+	rsp, err := c.PayConfigsV2UpdateOneOffRuleWithBody(ctx, payConfigId, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2UpdateOneOffRuleResponse(rsp)
+}
+
+func (c *ClientWithResponses) PayConfigsV2UpdateOneOffRuleWithResponse(ctx context.Context, payConfigId string, id string, body PayConfigsV2UpdateOneOffRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateOneOffRuleResponse, error) {
+	rsp, err := c.PayConfigsV2UpdateOneOffRule(ctx, payConfigId, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2UpdateOneOffRuleResponse(rsp)
+}
+
+// PayConfigsV2ListWeeklyRulesWithResponse request returning *PayConfigsV2ListWeeklyRulesResponse
+func (c *ClientWithResponses) PayConfigsV2ListWeeklyRulesWithResponse(ctx context.Context, payConfigId string, reqEditors ...RequestEditorFn) (*PayConfigsV2ListWeeklyRulesResponse, error) {
+	rsp, err := c.PayConfigsV2ListWeeklyRules(ctx, payConfigId, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2ListWeeklyRulesResponse(rsp)
+}
+
+// PayConfigsV2CreateWeeklyRuleWithBodyWithResponse request with arbitrary body returning *PayConfigsV2CreateWeeklyRuleResponse
+func (c *ClientWithResponses) PayConfigsV2CreateWeeklyRuleWithBodyWithResponse(ctx context.Context, payConfigId string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2CreateWeeklyRuleResponse, error) {
+	rsp, err := c.PayConfigsV2CreateWeeklyRuleWithBody(ctx, payConfigId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2CreateWeeklyRuleResponse(rsp)
+}
+
+func (c *ClientWithResponses) PayConfigsV2CreateWeeklyRuleWithResponse(ctx context.Context, payConfigId string, body PayConfigsV2CreateWeeklyRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2CreateWeeklyRuleResponse, error) {
+	rsp, err := c.PayConfigsV2CreateWeeklyRule(ctx, payConfigId, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2CreateWeeklyRuleResponse(rsp)
+}
+
+// PayConfigsV2DestroyWeeklyRuleWithResponse request returning *PayConfigsV2DestroyWeeklyRuleResponse
+func (c *ClientWithResponses) PayConfigsV2DestroyWeeklyRuleWithResponse(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*PayConfigsV2DestroyWeeklyRuleResponse, error) {
+	rsp, err := c.PayConfigsV2DestroyWeeklyRule(ctx, payConfigId, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2DestroyWeeklyRuleResponse(rsp)
+}
+
+// PayConfigsV2ShowWeeklyRuleWithResponse request returning *PayConfigsV2ShowWeeklyRuleResponse
+func (c *ClientWithResponses) PayConfigsV2ShowWeeklyRuleWithResponse(ctx context.Context, payConfigId string, id string, reqEditors ...RequestEditorFn) (*PayConfigsV2ShowWeeklyRuleResponse, error) {
+	rsp, err := c.PayConfigsV2ShowWeeklyRule(ctx, payConfigId, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2ShowWeeklyRuleResponse(rsp)
+}
+
+// PayConfigsV2UpdateWeeklyRuleWithBodyWithResponse request with arbitrary body returning *PayConfigsV2UpdateWeeklyRuleResponse
+func (c *ClientWithResponses) PayConfigsV2UpdateWeeklyRuleWithBodyWithResponse(ctx context.Context, payConfigId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateWeeklyRuleResponse, error) {
+	rsp, err := c.PayConfigsV2UpdateWeeklyRuleWithBody(ctx, payConfigId, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2UpdateWeeklyRuleResponse(rsp)
+}
+
+func (c *ClientWithResponses) PayConfigsV2UpdateWeeklyRuleWithResponse(ctx context.Context, payConfigId string, id string, body PayConfigsV2UpdateWeeklyRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateWeeklyRuleResponse, error) {
+	rsp, err := c.PayConfigsV2UpdateWeeklyRule(ctx, payConfigId, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayConfigsV2UpdateWeeklyRuleResponse(rsp)
+}
+
 // PoliciesV2ListWithResponse request returning *PoliciesV2ListResponse
 func (c *ClientWithResponses) PoliciesV2ListWithResponse(ctx context.Context, params *PoliciesV2ListParams, reqEditors ...RequestEditorFn) (*PoliciesV2ListResponse, error) {
 	rsp, err := c.PoliciesV2List(ctx, params, reqEditors...)
@@ -54092,6 +56473,23 @@ func (c *ClientWithResponses) FollowUpsV3CreateWithResponse(ctx context.Context,
 		return nil, err
 	}
 	return parseFollowUpsV3CreateResponse(rsp)
+}
+
+// FollowUpsV3CreateFromLinkWithBodyWithResponse request with arbitrary body returning *FollowUpsV3CreateFromLinkResponse
+func (c *ClientWithResponses) FollowUpsV3CreateFromLinkWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV3CreateFromLinkResponse, error) {
+	rsp, err := c.FollowUpsV3CreateFromLinkWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV3CreateFromLinkResponse(rsp)
+}
+
+func (c *ClientWithResponses) FollowUpsV3CreateFromLinkWithResponse(ctx context.Context, body FollowUpsV3CreateFromLinkJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV3CreateFromLinkResponse, error) {
+	rsp, err := c.FollowUpsV3CreateFromLink(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseFollowUpsV3CreateFromLinkResponse(rsp)
 }
 
 // FollowUpsV3DeleteWithResponse request returning *FollowUpsV3DeleteResponse
@@ -75021,6 +77419,1740 @@ func parseIncidentsV2ImportPostmortemDocumentResponse(rsp *http.Response) (*Inci
 	return response, nil
 }
 
+// ParsePayConfigsV2ListResponse parses an HTTP response from a PayConfigsV2ListWithResponse call
+func parsePayConfigsV2ListResponse(rsp *http.Response) (*PayConfigsV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayConfigsListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2CreateResponse parses an HTTP response from a PayConfigsV2CreateWithResponse call
+func parsePayConfigsV2CreateResponse(rsp *http.Response) (*PayConfigsV2CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest PayConfigsCreateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2DestroyResponse parses an HTTP response from a PayConfigsV2DestroyWithResponse call
+func parsePayConfigsV2DestroyResponse(rsp *http.Response) (*PayConfigsV2DestroyResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2DestroyResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2ShowResponse parses an HTTP response from a PayConfigsV2ShowWithResponse call
+func parsePayConfigsV2ShowResponse(rsp *http.Response) (*PayConfigsV2ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayConfigsShowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2UpdateResponse parses an HTTP response from a PayConfigsV2UpdateWithResponse call
+func parsePayConfigsV2UpdateResponse(rsp *http.Response) (*PayConfigsV2UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayConfigsUpdateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2ListOneOffRulesResponse parses an HTTP response from a PayConfigsV2ListOneOffRulesWithResponse call
+func parsePayConfigsV2ListOneOffRulesResponse(rsp *http.Response) (*PayConfigsV2ListOneOffRulesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2ListOneOffRulesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayConfigsListOneOffRulesResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2CreateOneOffRuleResponse parses an HTTP response from a PayConfigsV2CreateOneOffRuleWithResponse call
+func parsePayConfigsV2CreateOneOffRuleResponse(rsp *http.Response) (*PayConfigsV2CreateOneOffRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2CreateOneOffRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest PayConfigsCreateOneOffRuleResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2DestroyOneOffRuleResponse parses an HTTP response from a PayConfigsV2DestroyOneOffRuleWithResponse call
+func parsePayConfigsV2DestroyOneOffRuleResponse(rsp *http.Response) (*PayConfigsV2DestroyOneOffRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2DestroyOneOffRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2ShowOneOffRuleResponse parses an HTTP response from a PayConfigsV2ShowOneOffRuleWithResponse call
+func parsePayConfigsV2ShowOneOffRuleResponse(rsp *http.Response) (*PayConfigsV2ShowOneOffRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2ShowOneOffRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayConfigsShowOneOffRuleResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2UpdateOneOffRuleResponse parses an HTTP response from a PayConfigsV2UpdateOneOffRuleWithResponse call
+func parsePayConfigsV2UpdateOneOffRuleResponse(rsp *http.Response) (*PayConfigsV2UpdateOneOffRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2UpdateOneOffRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayConfigsUpdateOneOffRuleResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2ListWeeklyRulesResponse parses an HTTP response from a PayConfigsV2ListWeeklyRulesWithResponse call
+func parsePayConfigsV2ListWeeklyRulesResponse(rsp *http.Response) (*PayConfigsV2ListWeeklyRulesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2ListWeeklyRulesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayConfigsListWeeklyRulesResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2CreateWeeklyRuleResponse parses an HTTP response from a PayConfigsV2CreateWeeklyRuleWithResponse call
+func parsePayConfigsV2CreateWeeklyRuleResponse(rsp *http.Response) (*PayConfigsV2CreateWeeklyRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2CreateWeeklyRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest PayConfigsCreateWeeklyRuleResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2DestroyWeeklyRuleResponse parses an HTTP response from a PayConfigsV2DestroyWeeklyRuleWithResponse call
+func parsePayConfigsV2DestroyWeeklyRuleResponse(rsp *http.Response) (*PayConfigsV2DestroyWeeklyRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2DestroyWeeklyRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2ShowWeeklyRuleResponse parses an HTTP response from a PayConfigsV2ShowWeeklyRuleWithResponse call
+func parsePayConfigsV2ShowWeeklyRuleResponse(rsp *http.Response) (*PayConfigsV2ShowWeeklyRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2ShowWeeklyRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayConfigsShowWeeklyRuleResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayConfigsV2UpdateWeeklyRuleResponse parses an HTTP response from a PayConfigsV2UpdateWeeklyRuleWithResponse call
+func parsePayConfigsV2UpdateWeeklyRuleResponse(rsp *http.Response) (*PayConfigsV2UpdateWeeklyRuleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayConfigsV2UpdateWeeklyRuleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayConfigsUpdateWeeklyRuleResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParsePoliciesV2ListResponse parses an HTTP response from a PoliciesV2ListWithResponse call
 func parsePoliciesV2ListResponse(rsp *http.Response) (*PoliciesV2ListResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -85813,6 +89945,123 @@ func parseFollowUpsV3CreateResponse(rsp *http.Response) (*FollowUpsV3CreateRespo
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
 		var dest FollowUpsCreateResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseFollowUpsV3CreateFromLinkResponse parses an HTTP response from a FollowUpsV3CreateFromLinkWithResponse call
+func parseFollowUpsV3CreateFromLinkResponse(rsp *http.Response) (*FollowUpsV3CreateFromLinkResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &FollowUpsV3CreateFromLinkResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest FollowUpsCreateFromLinkResultV3
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}

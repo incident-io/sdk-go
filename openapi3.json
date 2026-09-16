@@ -61999,6 +61999,105 @@
         ],
         "type": "object"
       },
+      "FollowUpsCreateFromLinkPayloadV3": {
+        "example": {
+          "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H",
+          "url": "https://linear.app/incident/issue/INC-123"
+        },
+        "properties": {
+          "incident_id": {
+            "description": "Unique identifier of the incident the follow-up belongs to",
+            "example": "01FCNDV6P870EA6S7TK1DSYD5H",
+            "type": "string"
+          },
+          "url": {
+            "description": "URL of the issue in the external provider",
+            "example": "https://linear.app/incident/issue/INC-123",
+            "type": "string"
+          }
+        },
+        "required": [
+          "incident_id",
+          "url"
+        ],
+        "type": "object"
+      },
+      "FollowUpsCreateFromLinkResultV3": {
+        "example": {
+          "follow_up": {
+            "assignee": {
+              "email": "lisa@incident.io",
+              "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "name": "Lisa Karlin Curtis",
+              "role": "owner",
+              "slack_user_id": "U02AYNF2XJM"
+            },
+            "assignee_team": {
+              "id": "abc123",
+              "name": "abc123"
+            },
+            "category": {
+              "description": "Follow-ups related to infrastructure changes.",
+              "id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
+              "name": "Infrastructure",
+              "rank": 10
+            },
+            "completed_at": "2021-08-17T13:28:57.801578Z",
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "creator": {
+              "alert": {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "title": "*errors.withMessage: PG::Error failed to connect"
+              },
+              "api_key": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My test API key"
+              },
+              "user": {
+                "email": "lisa@incident.io",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Lisa Karlin Curtis",
+                "role": "owner",
+                "slack_user_id": "U02AYNF2XJM"
+              },
+              "workflow": {
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "My little workflow"
+              }
+            },
+            "description": "Call the fire brigade",
+            "external_issue_reference": {
+              "issue_name": "INC-123",
+              "issue_permalink": "https://linear.app/incident-io/issue/INC-1609/find-copywriter-to-write-up",
+              "provider": "asana"
+            },
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "labels": [
+              "bug",
+              "urgent"
+            ],
+            "priority": {
+              "description": "A follow-up that requires immediate attention.",
+              "id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
+              "name": "Urgent",
+              "rank": 10
+            },
+            "status": "outstanding",
+            "title": "Cat is stuck in the tree",
+            "updated_at": "2021-08-17T13:28:57.801578Z"
+          }
+        },
+        "properties": {
+          "follow_up": {
+            "$ref": "#/components/schemas/FollowUpV3"
+          }
+        },
+        "required": [
+          "follow_up"
+        ],
+        "type": "object"
+      },
       "FollowUpsCreatePayloadV2": {
         "example": {
           "assignee_id": "01FCNDV6P870EA6S7TK1DSYDG0",
@@ -77909,6 +78008,1126 @@
         "required": [
           "entry_id",
           "attribute_values"
+        ],
+        "type": "object"
+      },
+      "PayConfigOneOffRulePayloadV2": {
+        "description": "A one-off rule to write. Send an existing rule's ID to keep it stable, and omit it for a rule you are adding.",
+        "example": {
+          "end_at": "2021-08-17T13:28:57.801578Z",
+          "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+          "name": "Christmas day",
+          "rate_cents": 4800,
+          "start_at": "2021-08-17T13:28:57.801578Z"
+        },
+        "properties": {
+          "end_at": {
+            "description": "When this rule stops applying",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "description": "An existing rule's ID, to keep it stable. Omit for a new rule.",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human readable name for this rule",
+            "example": "Christmas day",
+            "type": "string"
+          },
+          "rate_cents": {
+            "description": "Rate paid while this rule applies, in the lowest denomination of the config's currency",
+            "example": 4800,
+            "format": "int64",
+            "type": "integer"
+          },
+          "start_at": {
+            "description": "When this rule starts applying",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "start_at",
+          "end_at",
+          "rate_cents"
+        ],
+        "type": "object"
+      },
+      "PayConfigOneOffRuleV2": {
+        "description": "A rule that applies over a single window of time, such as a public holiday. One-off rules take precedence over weekly rules, and may not overlap each other.",
+        "example": {
+          "end_at": "2021-08-17T13:28:57.801578Z",
+          "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+          "name": "Christmas day",
+          "rate_cents": 4800,
+          "start_at": "2021-08-17T13:28:57.801578Z"
+        },
+        "properties": {
+          "end_at": {
+            "description": "When this rule stops applying",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "description": "Unique identifier for this rule, stable across edits to the config",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human readable name for this rule",
+            "example": "Christmas day",
+            "type": "string"
+          },
+          "rate_cents": {
+            "description": "Rate paid while this rule applies, in the lowest denomination of the config's currency",
+            "example": 4800,
+            "format": "int64",
+            "type": "integer"
+          },
+          "start_at": {
+            "description": "When this rule starts applying",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "start_at",
+          "end_at",
+          "rate_cents"
+        ],
+        "type": "object"
+      },
+      "PayConfigV2": {
+        "description": "A pay config sets what someone is paid for being on call: a base rate,\nplus rules that override it at particular times. An on-call pay report prices\neach person's shifts against one.\n\nRules are evaluated in the order they are returned, and the first one that\ncovers a shift wins. Any time no rule covers is paid at the base rate.",
+        "example": {
+          "base_rate_cents": 1200,
+          "created_at": "2021-08-17T13:28:57.801578Z",
+          "currency": "GBP",
+          "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+          "name": "Engineering on-call",
+          "one_off_rules": [
+            {
+              "end_at": "2021-08-17T13:28:57.801578Z",
+              "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "name": "Christmas day",
+              "rate_cents": 4800,
+              "start_at": "2021-08-17T13:28:57.801578Z"
+            }
+          ],
+          "published_at": "2021-08-17T13:28:57.801578Z",
+          "rate_time_unit": "hour",
+          "timezone": "Europe/London",
+          "updated_at": "2021-08-17T13:28:57.801578Z",
+          "weekly_rules": [
+            {
+              "end_time": "17:00",
+              "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "rate_cents": 2400,
+              "start_time": "09:00",
+              "weekdays": [
+                "monday"
+              ]
+            }
+          ]
+        },
+        "properties": {
+          "base_rate_cents": {
+            "description": "Rate paid for any time no rule covers, in the lowest denomination of the currency",
+            "example": 1200,
+            "format": "int64",
+            "type": "integer"
+          },
+          "created_at": {
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "currency": {
+            "description": "Currency this config pays in, in ISO 4217 format",
+            "example": "GBP",
+            "type": "string"
+          },
+          "id": {
+            "description": "Unique identifier for this pay config",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human readable name for this pay config",
+            "example": "Engineering on-call",
+            "type": "string"
+          },
+          "one_off_rules": {
+            "description": "Rules that apply over a single window of time, such as a public holiday",
+            "example": [
+              {
+                "end_at": "2021-08-17T13:28:57.801578Z",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "name": "Christmas day",
+                "rate_cents": 4800,
+                "start_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/PayConfigOneOffRuleV2"
+            },
+            "type": "array"
+          },
+          "published_at": {
+            "description": "When a published report first priced against this config. Once set, editing the config needs the schedule_pay_configs.update_published scope.",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "rate_time_unit": {
+            "description": "The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way.",
+            "enum": [
+              "hour",
+              "day"
+            ],
+            "example": "hour",
+            "type": "string"
+          },
+          "timezone": {
+            "description": "IANA timezone this config's rules are interpreted in",
+            "example": "Europe/London",
+            "type": "string"
+          },
+          "updated_at": {
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "weekly_rules": {
+            "description": "Rules that apply every week, by day of week and time of day, in evaluation order",
+            "example": [
+              {
+                "end_time": "17:00",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "rate_cents": 2400,
+                "start_time": "09:00",
+                "weekdays": [
+                  "monday"
+                ]
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/PayConfigWeeklyRuleV2"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "timezone",
+          "currency",
+          "base_rate_cents",
+          "rate_time_unit",
+          "weekly_rules",
+          "one_off_rules",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object"
+      },
+      "PayConfigWeeklyRulePayloadV2": {
+        "description": "A weekly rule to write. Send an existing rule's ID to keep it stable, and omit it for a rule you are adding.",
+        "example": {
+          "end_time": "17:00",
+          "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+          "rate_cents": 2400,
+          "start_time": "09:00",
+          "weekdays": [
+            "monday"
+          ]
+        },
+        "properties": {
+          "end_time": {
+            "description": "Time of day this rule ends, in 24 hour format. Equal to start_time means it runs for the whole day.",
+            "example": "17:00",
+            "type": "string"
+          },
+          "id": {
+            "description": "An existing rule's ID, to keep it stable. Omit for a new rule.",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "type": "string"
+          },
+          "rate_cents": {
+            "description": "Rate paid while this rule applies, in the lowest denomination of the config's currency",
+            "example": 2400,
+            "format": "int64",
+            "type": "integer"
+          },
+          "start_time": {
+            "description": "Time of day this rule starts, in 24 hour format",
+            "example": "09:00",
+            "type": "string"
+          },
+          "weekdays": {
+            "description": "Days of the week this rule applies on",
+            "example": [
+              "monday"
+            ],
+            "items": {
+              "description": "Weekdays for use within a schedule or escalation path",
+              "enum": [
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "friday",
+                "saturday",
+                "sunday"
+              ],
+              "example": "monday",
+              "type": "string",
+              "x-public-api-version": "v2"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "weekdays",
+          "start_time",
+          "end_time",
+          "rate_cents"
+        ],
+        "type": "object"
+      },
+      "PayConfigWeeklyRuleV2": {
+        "description": "A rule that applies every week, over the same days and hours.",
+        "example": {
+          "end_time": "17:00",
+          "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+          "rate_cents": 2400,
+          "start_time": "09:00",
+          "weekdays": [
+            "monday"
+          ]
+        },
+        "properties": {
+          "end_time": {
+            "description": "Time of day this rule ends, in 24 hour format. Equal to start_time means it runs for the whole day.",
+            "example": "17:00",
+            "type": "string"
+          },
+          "id": {
+            "description": "Unique identifier for this rule, stable across edits to the config",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "type": "string"
+          },
+          "rate_cents": {
+            "description": "Rate paid while this rule applies, in the lowest denomination of the config's currency",
+            "example": 2400,
+            "format": "int64",
+            "type": "integer"
+          },
+          "start_time": {
+            "description": "Time of day this rule starts, in 24 hour format",
+            "example": "09:00",
+            "type": "string"
+          },
+          "weekdays": {
+            "description": "Days of the week this rule applies on",
+            "example": [
+              "monday"
+            ],
+            "items": {
+              "description": "Weekdays for use within a schedule or escalation path",
+              "enum": [
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "friday",
+                "saturday",
+                "sunday"
+              ],
+              "example": "monday",
+              "type": "string",
+              "x-public-api-version": "v2"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "weekdays",
+          "start_time",
+          "end_time",
+          "rate_cents"
+        ],
+        "type": "object"
+      },
+      "PayConfigsCreateOneOffRulePayloadV2": {
+        "example": {
+          "end_at": "2021-08-17T13:28:57.801578Z",
+          "name": "Christmas day",
+          "rate_cents": 4800,
+          "start_at": "2021-08-17T13:28:57.801578Z"
+        },
+        "properties": {
+          "end_at": {
+            "description": "When this rule stops applying",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human readable name for this rule",
+            "example": "Christmas day",
+            "type": "string"
+          },
+          "rate_cents": {
+            "description": "Rate paid while this rule applies, in the lowest denomination of the config's currency",
+            "example": 4800,
+            "format": "int64",
+            "type": "integer"
+          },
+          "start_at": {
+            "description": "When this rule starts applying",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "start_at",
+          "end_at",
+          "rate_cents"
+        ],
+        "type": "object"
+      },
+      "PayConfigsCreateOneOffRuleResultV2": {
+        "example": {
+          "one_off_rule": {
+            "end_at": "2021-08-17T13:28:57.801578Z",
+            "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "name": "Christmas day",
+            "rate_cents": 4800,
+            "start_at": "2021-08-17T13:28:57.801578Z"
+          }
+        },
+        "properties": {
+          "one_off_rule": {
+            "$ref": "#/components/schemas/PayConfigOneOffRuleV2"
+          }
+        },
+        "required": [
+          "one_off_rule"
+        ],
+        "type": "object"
+      },
+      "PayConfigsCreatePayloadV2": {
+        "example": {
+          "base_rate_cents": 1200,
+          "currency": "GBP",
+          "name": "Engineering on-call",
+          "one_off_rules": [
+            {
+              "end_at": "2021-08-17T13:28:57.801578Z",
+              "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "name": "Christmas day",
+              "rate_cents": 4800,
+              "start_at": "2021-08-17T13:28:57.801578Z"
+            }
+          ],
+          "rate_time_unit": "hour",
+          "timezone": "Europe/London",
+          "weekly_rules": [
+            {
+              "end_time": "17:00",
+              "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "rate_cents": 2400,
+              "start_time": "09:00",
+              "weekdays": [
+                "monday"
+              ]
+            }
+          ]
+        },
+        "properties": {
+          "base_rate_cents": {
+            "description": "Rate paid for any time no rule covers, in the lowest denomination of the currency",
+            "example": 1200,
+            "format": "int64",
+            "type": "integer"
+          },
+          "currency": {
+            "description": "Currency this config pays in, in ISO 4217 format",
+            "example": "GBP",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human readable name for this pay config",
+            "example": "Engineering on-call",
+            "type": "string"
+          },
+          "one_off_rules": {
+            "description": "Rules that apply over a single window of time",
+            "example": [
+              {
+                "end_at": "2021-08-17T13:28:57.801578Z",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "name": "Christmas day",
+                "rate_cents": 4800,
+                "start_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/PayConfigOneOffRulePayloadV2"
+            },
+            "type": "array"
+          },
+          "rate_time_unit": {
+            "description": "The unit of time every rate on this config is quoted per",
+            "enum": [
+              "hour",
+              "day"
+            ],
+            "example": "hour",
+            "type": "string"
+          },
+          "timezone": {
+            "description": "IANA timezone this config's rules are interpreted in",
+            "example": "Europe/London",
+            "type": "string"
+          },
+          "weekly_rules": {
+            "description": "Rules that apply every week, in the order they should be evaluated",
+            "example": [
+              {
+                "end_time": "17:00",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "rate_cents": 2400,
+                "start_time": "09:00",
+                "weekdays": [
+                  "monday"
+                ]
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/PayConfigWeeklyRulePayloadV2"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "name",
+          "timezone",
+          "currency",
+          "base_rate_cents",
+          "rate_time_unit"
+        ],
+        "type": "object"
+      },
+      "PayConfigsCreateResultV2": {
+        "example": {
+          "pay_config": {
+            "base_rate_cents": 1200,
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "currency": "GBP",
+            "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "name": "Engineering on-call",
+            "one_off_rules": [
+              {
+                "end_at": "2021-08-17T13:28:57.801578Z",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "name": "Christmas day",
+                "rate_cents": 4800,
+                "start_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "published_at": "2021-08-17T13:28:57.801578Z",
+            "rate_time_unit": "hour",
+            "timezone": "Europe/London",
+            "updated_at": "2021-08-17T13:28:57.801578Z",
+            "weekly_rules": [
+              {
+                "end_time": "17:00",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "rate_cents": 2400,
+                "start_time": "09:00",
+                "weekdays": [
+                  "monday"
+                ]
+              }
+            ]
+          }
+        },
+        "properties": {
+          "pay_config": {
+            "$ref": "#/components/schemas/PayConfigV2"
+          }
+        },
+        "required": [
+          "pay_config"
+        ],
+        "type": "object"
+      },
+      "PayConfigsCreateWeeklyRulePayloadV2": {
+        "example": {
+          "end_time": "17:00",
+          "rate_cents": 2400,
+          "start_time": "09:00",
+          "weekdays": [
+            "monday"
+          ]
+        },
+        "properties": {
+          "end_time": {
+            "description": "Time of day this rule ends, in 24 hour format. Equal to start_time means it runs for the whole day.",
+            "example": "17:00",
+            "type": "string"
+          },
+          "rate_cents": {
+            "description": "Rate paid while this rule applies, in the lowest denomination of the config's currency",
+            "example": 2400,
+            "format": "int64",
+            "type": "integer"
+          },
+          "start_time": {
+            "description": "Time of day this rule starts, in 24 hour format",
+            "example": "09:00",
+            "type": "string"
+          },
+          "weekdays": {
+            "description": "Days of the week this rule applies on",
+            "example": [
+              "monday"
+            ],
+            "items": {
+              "enum": [
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "friday",
+                "saturday",
+                "sunday"
+              ],
+              "example": "monday",
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "weekdays",
+          "start_time",
+          "end_time",
+          "rate_cents"
+        ],
+        "type": "object"
+      },
+      "PayConfigsCreateWeeklyRuleResultV2": {
+        "example": {
+          "weekly_rule": {
+            "end_time": "17:00",
+            "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "rate_cents": 2400,
+            "start_time": "09:00",
+            "weekdays": [
+              "monday"
+            ]
+          }
+        },
+        "properties": {
+          "weekly_rule": {
+            "$ref": "#/components/schemas/PayConfigWeeklyRuleV2"
+          }
+        },
+        "required": [
+          "weekly_rule"
+        ],
+        "type": "object"
+      },
+      "PayConfigsListOneOffRulesResultV2": {
+        "example": {
+          "one_off_rules": [
+            {
+              "end_at": "2021-08-17T13:28:57.801578Z",
+              "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "name": "Christmas day",
+              "rate_cents": 4800,
+              "start_at": "2021-08-17T13:28:57.801578Z"
+            }
+          ]
+        },
+        "properties": {
+          "one_off_rules": {
+            "example": [
+              {
+                "end_at": "2021-08-17T13:28:57.801578Z",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "name": "Christmas day",
+                "rate_cents": 4800,
+                "start_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/PayConfigOneOffRuleV2"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "one_off_rules"
+        ],
+        "type": "object"
+      },
+      "PayConfigsListResultV2": {
+        "example": {
+          "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25
+          },
+          "pay_configs": [
+            {
+              "base_rate_cents": 1200,
+              "created_at": "2021-08-17T13:28:57.801578Z",
+              "currency": "GBP",
+              "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "name": "Engineering on-call",
+              "one_off_rules": [
+                {
+                  "end_at": "2021-08-17T13:28:57.801578Z",
+                  "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                  "name": "Christmas day",
+                  "rate_cents": 4800,
+                  "start_at": "2021-08-17T13:28:57.801578Z"
+                }
+              ],
+              "published_at": "2021-08-17T13:28:57.801578Z",
+              "rate_time_unit": "hour",
+              "timezone": "Europe/London",
+              "updated_at": "2021-08-17T13:28:57.801578Z",
+              "weekly_rules": [
+                {
+                  "end_time": "17:00",
+                  "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                  "rate_cents": 2400,
+                  "start_time": "09:00",
+                  "weekdays": [
+                    "monday"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "properties": {
+          "pagination_meta": {
+            "$ref": "#/components/schemas/PaginationMetaResultV2"
+          },
+          "pay_configs": {
+            "example": [
+              {
+                "base_rate_cents": 1200,
+                "created_at": "2021-08-17T13:28:57.801578Z",
+                "currency": "GBP",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "name": "Engineering on-call",
+                "one_off_rules": [
+                  {
+                    "end_at": "2021-08-17T13:28:57.801578Z",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "name": "Christmas day",
+                    "rate_cents": 4800,
+                    "start_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                ],
+                "published_at": "2021-08-17T13:28:57.801578Z",
+                "rate_time_unit": "hour",
+                "timezone": "Europe/London",
+                "updated_at": "2021-08-17T13:28:57.801578Z",
+                "weekly_rules": [
+                  {
+                    "end_time": "17:00",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "rate_cents": 2400,
+                    "start_time": "09:00",
+                    "weekdays": [
+                      "monday"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/PayConfigV2"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "pay_configs",
+          "pagination_meta"
+        ],
+        "type": "object"
+      },
+      "PayConfigsListWeeklyRulesResultV2": {
+        "example": {
+          "weekly_rules": [
+            {
+              "end_time": "17:00",
+              "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "rate_cents": 2400,
+              "start_time": "09:00",
+              "weekdays": [
+                "monday"
+              ]
+            }
+          ]
+        },
+        "properties": {
+          "weekly_rules": {
+            "example": [
+              {
+                "end_time": "17:00",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "rate_cents": 2400,
+                "start_time": "09:00",
+                "weekdays": [
+                  "monday"
+                ]
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/PayConfigWeeklyRuleV2"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "weekly_rules"
+        ],
+        "type": "object"
+      },
+      "PayConfigsShowOneOffRuleResultV2": {
+        "example": {
+          "one_off_rule": {
+            "end_at": "2021-08-17T13:28:57.801578Z",
+            "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "name": "Christmas day",
+            "rate_cents": 4800,
+            "start_at": "2021-08-17T13:28:57.801578Z"
+          }
+        },
+        "properties": {
+          "one_off_rule": {
+            "$ref": "#/components/schemas/PayConfigOneOffRuleV2"
+          }
+        },
+        "required": [
+          "one_off_rule"
+        ],
+        "type": "object"
+      },
+      "PayConfigsShowResultV2": {
+        "example": {
+          "pay_config": {
+            "base_rate_cents": 1200,
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "currency": "GBP",
+            "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "name": "Engineering on-call",
+            "one_off_rules": [
+              {
+                "end_at": "2021-08-17T13:28:57.801578Z",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "name": "Christmas day",
+                "rate_cents": 4800,
+                "start_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "published_at": "2021-08-17T13:28:57.801578Z",
+            "rate_time_unit": "hour",
+            "timezone": "Europe/London",
+            "updated_at": "2021-08-17T13:28:57.801578Z",
+            "weekly_rules": [
+              {
+                "end_time": "17:00",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "rate_cents": 2400,
+                "start_time": "09:00",
+                "weekdays": [
+                  "monday"
+                ]
+              }
+            ]
+          }
+        },
+        "properties": {
+          "pay_config": {
+            "$ref": "#/components/schemas/PayConfigV2"
+          }
+        },
+        "required": [
+          "pay_config"
+        ],
+        "type": "object"
+      },
+      "PayConfigsShowWeeklyRuleResultV2": {
+        "example": {
+          "weekly_rule": {
+            "end_time": "17:00",
+            "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "rate_cents": 2400,
+            "start_time": "09:00",
+            "weekdays": [
+              "monday"
+            ]
+          }
+        },
+        "properties": {
+          "weekly_rule": {
+            "$ref": "#/components/schemas/PayConfigWeeklyRuleV2"
+          }
+        },
+        "required": [
+          "weekly_rule"
+        ],
+        "type": "object"
+      },
+      "PayConfigsUpdateOneOffRulePayloadV2": {
+        "example": {
+          "end_at": "2021-08-17T13:28:57.801578Z",
+          "name": "Christmas day",
+          "rate_cents": 4800,
+          "start_at": "2021-08-17T13:28:57.801578Z"
+        },
+        "properties": {
+          "end_at": {
+            "description": "When this rule stops applying",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human readable name for this rule",
+            "example": "Christmas day",
+            "type": "string"
+          },
+          "rate_cents": {
+            "description": "Rate paid while this rule applies, in the lowest denomination of the config's currency",
+            "example": 4800,
+            "format": "int64",
+            "type": "integer"
+          },
+          "start_at": {
+            "description": "When this rule starts applying",
+            "example": "2021-08-17T13:28:57.801578Z",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "start_at",
+          "end_at",
+          "rate_cents"
+        ],
+        "type": "object"
+      },
+      "PayConfigsUpdateOneOffRuleResultV2": {
+        "example": {
+          "one_off_rule": {
+            "end_at": "2021-08-17T13:28:57.801578Z",
+            "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "name": "Christmas day",
+            "rate_cents": 4800,
+            "start_at": "2021-08-17T13:28:57.801578Z"
+          }
+        },
+        "properties": {
+          "one_off_rule": {
+            "$ref": "#/components/schemas/PayConfigOneOffRuleV2"
+          }
+        },
+        "required": [
+          "one_off_rule"
+        ],
+        "type": "object"
+      },
+      "PayConfigsUpdatePayloadV2": {
+        "example": {
+          "base_rate_cents": 1200,
+          "currency": "GBP",
+          "name": "Engineering on-call",
+          "rate_time_unit": "hour",
+          "timezone": "Europe/London"
+        },
+        "properties": {
+          "base_rate_cents": {
+            "description": "Rate paid for any time no rule covers, in the lowest denomination of the currency",
+            "example": 1200,
+            "format": "int64",
+            "type": "integer"
+          },
+          "currency": {
+            "description": "Currency this config pays in, in ISO 4217 format",
+            "example": "GBP",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human readable name for this pay config",
+            "example": "Engineering on-call",
+            "type": "string"
+          },
+          "rate_time_unit": {
+            "description": "The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way.",
+            "enum": [
+              "hour",
+              "day"
+            ],
+            "example": "hour",
+            "type": "string"
+          },
+          "timezone": {
+            "description": "IANA timezone this config's rules are interpreted in",
+            "example": "Europe/London",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "timezone",
+          "currency",
+          "base_rate_cents",
+          "rate_time_unit"
+        ],
+        "type": "object"
+      },
+      "PayConfigsUpdateResultV2": {
+        "example": {
+          "pay_config": {
+            "base_rate_cents": 1200,
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "currency": "GBP",
+            "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "name": "Engineering on-call",
+            "one_off_rules": [
+              {
+                "end_at": "2021-08-17T13:28:57.801578Z",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "name": "Christmas day",
+                "rate_cents": 4800,
+                "start_at": "2021-08-17T13:28:57.801578Z"
+              }
+            ],
+            "published_at": "2021-08-17T13:28:57.801578Z",
+            "rate_time_unit": "hour",
+            "timezone": "Europe/London",
+            "updated_at": "2021-08-17T13:28:57.801578Z",
+            "weekly_rules": [
+              {
+                "end_time": "17:00",
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "rate_cents": 2400,
+                "start_time": "09:00",
+                "weekdays": [
+                  "monday"
+                ]
+              }
+            ]
+          }
+        },
+        "properties": {
+          "pay_config": {
+            "$ref": "#/components/schemas/PayConfigV2"
+          }
+        },
+        "required": [
+          "pay_config"
+        ],
+        "type": "object"
+      },
+      "PayConfigsUpdateWeeklyRulePayloadV2": {
+        "example": {
+          "end_time": "17:00",
+          "rate_cents": 2400,
+          "start_time": "09:00",
+          "weekdays": [
+            "monday"
+          ]
+        },
+        "properties": {
+          "end_time": {
+            "description": "Time of day this rule ends, in 24 hour format. Equal to start_time means it runs for the whole day.",
+            "example": "17:00",
+            "type": "string"
+          },
+          "rate_cents": {
+            "description": "Rate paid while this rule applies, in the lowest denomination of the config's currency",
+            "example": 2400,
+            "format": "int64",
+            "type": "integer"
+          },
+          "start_time": {
+            "description": "Time of day this rule starts, in 24 hour format",
+            "example": "09:00",
+            "type": "string"
+          },
+          "weekdays": {
+            "description": "Days of the week this rule applies on",
+            "example": [
+              "monday"
+            ],
+            "items": {
+              "enum": [
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "friday",
+                "saturday",
+                "sunday"
+              ],
+              "example": "monday",
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "weekdays",
+          "start_time",
+          "end_time",
+          "rate_cents"
+        ],
+        "type": "object"
+      },
+      "PayConfigsUpdateWeeklyRuleResultV2": {
+        "example": {
+          "weekly_rule": {
+            "end_time": "17:00",
+            "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "rate_cents": 2400,
+            "start_time": "09:00",
+            "weekdays": [
+              "monday"
+            ]
+          }
+        },
+        "properties": {
+          "weekly_rule": {
+            "$ref": "#/components/schemas/PayConfigWeeklyRuleV2"
+          }
+        },
+        "required": [
+          "weekly_rule"
         ],
         "type": "object"
       },
@@ -149464,6 +150683,3015 @@
         ]
       }
     },
+    "/v2/pay_configs": {
+      "get": {
+        "description": "List pay configs for this organisation.\n\nReturns published configs, and drafts created through the API, which belong to\nnobody and so are visible to everyone. A draft a person created in the\ndashboard stays private to them. Archived configs are never returned.",
+        "operationId": "Pay Configs V2#List",
+        "parameters": [
+          {
+            "allowEmptyValue": true,
+            "description": "Integer number of records to return",
+            "example": 25,
+            "in": "query",
+            "name": "page_size",
+            "schema": {
+              "default": 25,
+              "description": "Integer number of records to return",
+              "example": 25,
+              "format": "int64",
+              "maximum": 250,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "A pay config's ID. This endpoint will return a list of pay configs after this ID in relation to the API response order.",
+            "examples": {
+              "default": {
+                "summary": "default",
+                "value": "01G0J1EXE7AXZ2C93K61WBPYEH"
+              }
+            },
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "description": "A pay config's ID. This endpoint will return a list of pay configs after this ID in relation to the API response order.",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "pagination_meta": {
+                    "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "page_size": 25
+                  },
+                  "pay_configs": [
+                    {
+                      "base_rate_cents": 1200,
+                      "created_at": "2021-08-17T13:28:57.801578Z",
+                      "currency": "GBP",
+                      "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                      "name": "Engineering on-call",
+                      "one_off_rules": [
+                        {
+                          "end_at": "2021-08-17T13:28:57.801578Z",
+                          "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                          "name": "Christmas day",
+                          "rate_cents": 4800,
+                          "start_at": "2021-08-17T13:28:57.801578Z"
+                        }
+                      ],
+                      "published_at": "2021-08-17T13:28:57.801578Z",
+                      "rate_time_unit": "hour",
+                      "timezone": "Europe/London",
+                      "updated_at": "2021-08-17T13:28:57.801578Z",
+                      "weekly_rules": [
+                        {
+                          "end_time": "17:00",
+                          "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                          "rate_cents": 2400,
+                          "start_time": "09:00",
+                          "weekdays": [
+                            "monday"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PayConfigsListResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "List Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "List",
+        "x-docs-group-name": "Pay Configs V2",
+        "x-docs-resource-type": "PayConfigV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.view` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.view"
+        ]
+      },
+      "post": {
+        "description": "Create a pay config.\n\nThe config is created as a draft, and becomes visible to everyone in the\norganisation once a report that prices against it is published.",
+        "operationId": "Pay Configs V2#Create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "base_rate_cents": 1200,
+                "currency": "GBP",
+                "name": "Engineering on-call",
+                "one_off_rules": [
+                  {
+                    "end_at": "2021-08-17T13:28:57.801578Z",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "name": "Christmas day",
+                    "rate_cents": 4800,
+                    "start_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                ],
+                "rate_time_unit": "hour",
+                "timezone": "Europe/London",
+                "weekly_rules": [
+                  {
+                    "end_time": "17:00",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "rate_cents": 2400,
+                    "start_time": "09:00",
+                    "weekdays": [
+                      "monday"
+                    ]
+                  }
+                ]
+              },
+              "schema": {
+                "$ref": "#/components/schemas/PayConfigsCreatePayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "pay_config": {
+                    "base_rate_cents": 1200,
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "currency": "GBP",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "name": "Engineering on-call",
+                    "one_off_rules": [
+                      {
+                        "end_at": "2021-08-17T13:28:57.801578Z",
+                        "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "name": "Christmas day",
+                        "rate_cents": 4800,
+                        "start_at": "2021-08-17T13:28:57.801578Z"
+                      }
+                    ],
+                    "published_at": "2021-08-17T13:28:57.801578Z",
+                    "rate_time_unit": "hour",
+                    "timezone": "Europe/London",
+                    "updated_at": "2021-08-17T13:28:57.801578Z",
+                    "weekly_rules": [
+                      {
+                        "end_time": "17:00",
+                        "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "rate_cents": 2400,
+                        "start_time": "09:00",
+                        "weekdays": [
+                          "monday"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PayConfigsCreateResultV2"
+                }
+              }
+            },
+            "description": "Created response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "Create Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "Create",
+        "x-docs-group-name": "Pay Configs V2",
+        "x-docs-resource-type": "PayConfigV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.create` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.create"
+        ]
+      }
+    },
+    "/v2/pay_configs/{id}": {
+      "delete": {
+        "description": "Delete a pay config.\n\nReports already published against this config keep their own copy of it, so\ntheir figures do not change. Any schedule using it as a default loses that\ndefault.",
+        "operationId": "Pay Configs V2#Destroy",
+        "parameters": [
+          {
+            "description": "Unique identifier for this pay config",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for this pay config",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "Destroy Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "Delete",
+        "x-docs-group-name": "Pay Configs V2",
+        "x-docs-resource-type": "PayConfigV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.destroy` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.destroy"
+        ]
+      },
+      "get": {
+        "description": "Show a single pay config.",
+        "operationId": "Pay Configs V2#Show",
+        "parameters": [
+          {
+            "description": "Unique identifier for this pay config",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for this pay config",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "pay_config": {
+                    "base_rate_cents": 1200,
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "currency": "GBP",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "name": "Engineering on-call",
+                    "one_off_rules": [
+                      {
+                        "end_at": "2021-08-17T13:28:57.801578Z",
+                        "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "name": "Christmas day",
+                        "rate_cents": 4800,
+                        "start_at": "2021-08-17T13:28:57.801578Z"
+                      }
+                    ],
+                    "published_at": "2021-08-17T13:28:57.801578Z",
+                    "rate_time_unit": "hour",
+                    "timezone": "Europe/London",
+                    "updated_at": "2021-08-17T13:28:57.801578Z",
+                    "weekly_rules": [
+                      {
+                        "end_time": "17:00",
+                        "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "rate_cents": 2400,
+                        "start_time": "09:00",
+                        "weekdays": [
+                          "monday"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PayConfigsShowResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "Show Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "Show",
+        "x-docs-group-name": "Pay Configs V2",
+        "x-docs-resource-type": "PayConfigV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.view` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.view"
+        ]
+      },
+      "put": {
+        "description": "Update a pay config's attributes.\n\nThis changes the config's name, timezone, currency and base rate. It does not\ntouch the config's rules, which are set when the config is created.\n\nUpdating a config that a published report priced against additionally requires\nthe schedule_pay_configs.update_published scope, because it changes the\nexplanation of pay someone has already been sent.",
+        "operationId": "Pay Configs V2#Update",
+        "parameters": [
+          {
+            "description": "Unique identifier for this pay config",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for this pay config",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "base_rate_cents": 1200,
+                "currency": "GBP",
+                "name": "Engineering on-call",
+                "rate_time_unit": "hour",
+                "timezone": "Europe/London"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/PayConfigsUpdatePayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "pay_config": {
+                    "base_rate_cents": 1200,
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "currency": "GBP",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "name": "Engineering on-call",
+                    "one_off_rules": [
+                      {
+                        "end_at": "2021-08-17T13:28:57.801578Z",
+                        "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "name": "Christmas day",
+                        "rate_cents": 4800,
+                        "start_at": "2021-08-17T13:28:57.801578Z"
+                      }
+                    ],
+                    "published_at": "2021-08-17T13:28:57.801578Z",
+                    "rate_time_unit": "hour",
+                    "timezone": "Europe/London",
+                    "updated_at": "2021-08-17T13:28:57.801578Z",
+                    "weekly_rules": [
+                      {
+                        "end_time": "17:00",
+                        "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "rate_cents": 2400,
+                        "start_time": "09:00",
+                        "weekdays": [
+                          "monday"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PayConfigsUpdateResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "Update Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "Update",
+        "x-docs-group-name": "Pay Configs V2",
+        "x-docs-resource-type": "PayConfigV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.update` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.update"
+        ]
+      }
+    },
+    "/v2/pay_configs/{pay_config_id}/one_off_rules": {
+      "get": {
+        "description": "List a pay config's one-off rules, in no particular order. They take precedence over weekly rules, and may not overlap, so at most one applies to any moment.",
+        "operationId": "Pay Configs V2#ListOneOffRules",
+        "parameters": [
+          {
+            "description": "The pay config's ID",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "pay_config_id",
+            "required": true,
+            "schema": {
+              "description": "The pay config's ID",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "one_off_rules": [
+                    {
+                      "end_at": "2021-08-17T13:28:57.801578Z",
+                      "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                      "name": "Christmas day",
+                      "rate_cents": 4800,
+                      "start_at": "2021-08-17T13:28:57.801578Z"
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PayConfigsListOneOffRulesResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "ListOneOffRules Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "List",
+        "x-docs-group-name": "Pay Config One-off Rules V2",
+        "x-docs-resource-type": "PayConfigOneOffRuleV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.view` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.view"
+        ]
+      },
+      "post": {
+        "description": "Add a one-off rule to a pay config. It may not overlap a rule the config already has. Where it lands in the list has no effect on pricing.",
+        "operationId": "Pay Configs V2#CreateOneOffRule",
+        "parameters": [
+          {
+            "description": "The pay config's ID",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "pay_config_id",
+            "required": true,
+            "schema": {
+              "description": "The pay config's ID",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "end_at": "2021-08-17T13:28:57.801578Z",
+                "name": "Christmas day",
+                "rate_cents": 4800,
+                "start_at": "2021-08-17T13:28:57.801578Z"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/PayConfigsCreateOneOffRulePayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "one_off_rule": {
+                    "end_at": "2021-08-17T13:28:57.801578Z",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "name": "Christmas day",
+                    "rate_cents": 4800,
+                    "start_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PayConfigsCreateOneOffRuleResultV2"
+                }
+              }
+            },
+            "description": "Created response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "CreateOneOffRule Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "Create",
+        "x-docs-group-name": "Pay Config One-off Rules V2",
+        "x-docs-resource-type": "PayConfigOneOffRuleV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.update` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.update"
+        ]
+      }
+    },
+    "/v2/pay_configs/{pay_config_id}/one_off_rules/{id}": {
+      "delete": {
+        "description": "Remove a one-off rule from a pay config. Time it covered falls back to the weekly rules.",
+        "operationId": "Pay Configs V2#DestroyOneOffRule",
+        "parameters": [
+          {
+            "description": "The pay config's ID",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "pay_config_id",
+            "required": true,
+            "schema": {
+              "description": "The pay config's ID",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Unique identifier for this rule, stable across edits to the config",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for this rule, stable across edits to the config",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "DestroyOneOffRule Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "Delete",
+        "x-docs-group-name": "Pay Config One-off Rules V2",
+        "x-docs-resource-type": "PayConfigOneOffRuleV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.update` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.update"
+        ]
+      },
+      "get": {
+        "description": "Show a single one-off rule.",
+        "operationId": "Pay Configs V2#ShowOneOffRule",
+        "parameters": [
+          {
+            "description": "The pay config's ID",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "pay_config_id",
+            "required": true,
+            "schema": {
+              "description": "The pay config's ID",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Unique identifier for this rule, stable across edits to the config",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for this rule, stable across edits to the config",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "one_off_rule": {
+                    "end_at": "2021-08-17T13:28:57.801578Z",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "name": "Christmas day",
+                    "rate_cents": 4800,
+                    "start_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PayConfigsShowOneOffRuleResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "ShowOneOffRule Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "Show",
+        "x-docs-group-name": "Pay Config One-off Rules V2",
+        "x-docs-resource-type": "PayConfigOneOffRuleV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.view` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.view"
+        ]
+      },
+      "put": {
+        "description": "Update a one-off rule. It may not be moved to overlap another rule on the same config.",
+        "operationId": "Pay Configs V2#UpdateOneOffRule",
+        "parameters": [
+          {
+            "description": "The pay config's ID",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "pay_config_id",
+            "required": true,
+            "schema": {
+              "description": "The pay config's ID",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Unique identifier for this rule, stable across edits to the config",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for this rule, stable across edits to the config",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "end_at": "2021-08-17T13:28:57.801578Z",
+                "name": "Christmas day",
+                "rate_cents": 4800,
+                "start_at": "2021-08-17T13:28:57.801578Z"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/PayConfigsUpdateOneOffRulePayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "one_off_rule": {
+                    "end_at": "2021-08-17T13:28:57.801578Z",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "name": "Christmas day",
+                    "rate_cents": 4800,
+                    "start_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PayConfigsUpdateOneOffRuleResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "UpdateOneOffRule Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "Update",
+        "x-docs-group-name": "Pay Config One-off Rules V2",
+        "x-docs-resource-type": "PayConfigOneOffRuleV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.update` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.update"
+        ]
+      }
+    },
+    "/v2/pay_configs/{pay_config_id}/weekly_rules": {
+      "get": {
+        "description": "List a pay config's weekly rules, in evaluation order.\n\nA shift is priced by the first rule that covers it, so order is meaningful. A\ncreated rule goes last, and there is no way to reorder rules once set: to put\none earlier, replace the config through its own create endpoint.",
+        "operationId": "Pay Configs V2#ListWeeklyRules",
+        "parameters": [
+          {
+            "description": "The pay config's ID",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "pay_config_id",
+            "required": true,
+            "schema": {
+              "description": "The pay config's ID",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "weekly_rules": [
+                    {
+                      "end_time": "17:00",
+                      "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                      "rate_cents": 2400,
+                      "start_time": "09:00",
+                      "weekdays": [
+                        "monday"
+                      ]
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PayConfigsListWeeklyRulesResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "ListWeeklyRules Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "List",
+        "x-docs-group-name": "Pay Config Weekly Rules V2",
+        "x-docs-resource-type": "PayConfigWeeklyRuleV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.view` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.view"
+        ]
+      },
+      "post": {
+        "description": "Add a weekly rule to a pay config.\n\nThe rule is added last, so it is evaluated after every rule already on the\nconfig.",
+        "operationId": "Pay Configs V2#CreateWeeklyRule",
+        "parameters": [
+          {
+            "description": "The pay config's ID",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "pay_config_id",
+            "required": true,
+            "schema": {
+              "description": "The pay config's ID",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "end_time": "17:00",
+                "rate_cents": 2400,
+                "start_time": "09:00",
+                "weekdays": [
+                  "monday"
+                ]
+              },
+              "schema": {
+                "$ref": "#/components/schemas/PayConfigsCreateWeeklyRulePayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "weekly_rule": {
+                    "end_time": "17:00",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "rate_cents": 2400,
+                    "start_time": "09:00",
+                    "weekdays": [
+                      "monday"
+                    ]
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PayConfigsCreateWeeklyRuleResultV2"
+                }
+              }
+            },
+            "description": "Created response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "CreateWeeklyRule Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "Create",
+        "x-docs-group-name": "Pay Config Weekly Rules V2",
+        "x-docs-resource-type": "PayConfigWeeklyRuleV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.update` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.update"
+        ]
+      }
+    },
+    "/v2/pay_configs/{pay_config_id}/weekly_rules/{id}": {
+      "delete": {
+        "description": "Remove a weekly rule from a pay config. Time it covered falls back to the base rate, or to a later rule that also covers it.",
+        "operationId": "Pay Configs V2#DestroyWeeklyRule",
+        "parameters": [
+          {
+            "description": "The pay config's ID",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "pay_config_id",
+            "required": true,
+            "schema": {
+              "description": "The pay config's ID",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Unique identifier for this rule, stable across edits to the config",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for this rule, stable across edits to the config",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "DestroyWeeklyRule Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "Delete",
+        "x-docs-group-name": "Pay Config Weekly Rules V2",
+        "x-docs-resource-type": "PayConfigWeeklyRuleV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.update` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.update"
+        ]
+      },
+      "get": {
+        "description": "Show a single weekly rule.",
+        "operationId": "Pay Configs V2#ShowWeeklyRule",
+        "parameters": [
+          {
+            "description": "The pay config's ID",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "pay_config_id",
+            "required": true,
+            "schema": {
+              "description": "The pay config's ID",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Unique identifier for this rule, stable across edits to the config",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for this rule, stable across edits to the config",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "weekly_rule": {
+                    "end_time": "17:00",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "rate_cents": 2400,
+                    "start_time": "09:00",
+                    "weekdays": [
+                      "monday"
+                    ]
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PayConfigsShowWeeklyRuleResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "ShowWeeklyRule Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "Show",
+        "x-docs-group-name": "Pay Config Weekly Rules V2",
+        "x-docs-resource-type": "PayConfigWeeklyRuleV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.view` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.view"
+        ]
+      },
+      "put": {
+        "description": "Update a weekly rule, leaving its position in the evaluation order alone.",
+        "operationId": "Pay Configs V2#UpdateWeeklyRule",
+        "parameters": [
+          {
+            "description": "The pay config's ID",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "pay_config_id",
+            "required": true,
+            "schema": {
+              "description": "The pay config's ID",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Unique identifier for this rule, stable across edits to the config",
+            "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "Unique identifier for this rule, stable across edits to the config",
+              "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "end_time": "17:00",
+                "rate_cents": 2400,
+                "start_time": "09:00",
+                "weekdays": [
+                  "monday"
+                ]
+              },
+              "schema": {
+                "$ref": "#/components/schemas/PayConfigsUpdateWeeklyRulePayloadV2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "weekly_rule": {
+                    "end_time": "17:00",
+                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                    "rate_cents": 2400,
+                    "start_time": "09:00",
+                    "weekdays": [
+                      "monday"
+                    ]
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/PayConfigsUpdateWeeklyRuleResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "UpdateWeeklyRule Pay Configs V2",
+        "tags": [
+          "Pay Configs V2"
+        ],
+        "x-docs-display-name": "Update",
+        "x-docs-group-name": "Pay Config Weekly Rules V2",
+        "x-docs-resource-type": "PayConfigWeeklyRuleV2",
+        "x-mint": {
+          "content": "🔑 Requires the `schedule_pay_configs.update` scope."
+        },
+        "x-rbac-scopes": [
+          "schedule_pay_configs.update"
+        ]
+      }
+    },
     "/v2/policies": {
       "get": {
         "description": "List all policies for an organisation.",
@@ -176522,6 +180750,246 @@
         ]
       }
     },
+    "/v3/follow_ups/actions/create_from_link": {
+      "post": {
+        "description": "Create a follow-up from the URL of an issue that already exists in an issue tracker.\n\nThe follow-up is created already connected to that issue, so it will not also be exported to\na new one. Prefer this over creating a follow-up and then connecting it: that sequence races\nthe automatic export, which can leave you with a duplicate issue or a connect call that\nfails because the export won.\n\nThe follow-up's title, description and assignee are taken from the issue, and it is\nbackdated to the issue's creation time. Its priority is taken from the issue only if your\norganisation has priority sync enabled, and otherwise falls back to your default priority.\n\nIssues that are already closed are accepted: the follow-up records the issue's completion\ntime, though it is still created with an \u003ccode\u003eoutstanding\u003c/code\u003e status until the next\nsync from the issue tracker.\n\nIf your organisation requires a follow-up owner and the issue is unassigned, the incident\nlead is used instead. Where there is no incident lead either, this returns a validation\nerror rather than creating an unowned follow-up.\n",
+        "operationId": "Follow-ups V3#CreateFromLink",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H",
+                "url": "https://linear.app/incident/issue/INC-123"
+              },
+              "schema": {
+                "$ref": "#/components/schemas/FollowUpsCreateFromLinkPayloadV3"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "follow_up": {
+                    "assignee": {
+                      "email": "lisa@incident.io",
+                      "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                      "name": "Lisa Karlin Curtis",
+                      "role": "owner",
+                      "slack_user_id": "U02AYNF2XJM"
+                    },
+                    "assignee_team": {
+                      "id": "abc123",
+                      "name": "abc123"
+                    },
+                    "category": {
+                      "description": "Follow-ups related to infrastructure changes.",
+                      "id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
+                      "name": "Infrastructure",
+                      "rank": 10
+                    },
+                    "completed_at": "2021-08-17T13:28:57.801578Z",
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "creator": {
+                      "alert": {
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "title": "*errors.withMessage: PG::Error failed to connect"
+                      },
+                      "api_key": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My test API key"
+                      },
+                      "user": {
+                        "email": "lisa@incident.io",
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "Lisa Karlin Curtis",
+                        "role": "owner",
+                        "slack_user_id": "U02AYNF2XJM"
+                      },
+                      "workflow": {
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "My little workflow"
+                      }
+                    },
+                    "description": "Call the fire brigade",
+                    "external_issue_reference": {
+                      "issue_name": "INC-123",
+                      "issue_permalink": "https://linear.app/incident-io/issue/INC-1609/find-copywriter-to-write-up",
+                      "provider": "asana"
+                    },
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "labels": [
+                      "bug",
+                      "urgent"
+                    ],
+                    "priority": {
+                      "description": "A follow-up that requires immediate attention.",
+                      "id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
+                      "name": "Urgent",
+                      "rank": 10
+                    },
+                    "status": "outstanding",
+                    "title": "Cat is stuck in the tree",
+                    "updated_at": "2021-08-17T13:28:57.801578Z"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/FollowUpsCreateFromLinkResultV3"
+                }
+              }
+            },
+            "description": "Created response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "CreateFromLink Follow-ups V3",
+        "tags": [
+          "Follow-ups V3"
+        ],
+        "x-docs-display-name": "Create from link",
+        "x-docs-group-name": "Follow-ups V3",
+        "x-docs-resource-type": "FollowUpV3",
+        "x-mint": {
+          "content": "🔑 Requires the `follow_ups.create_from_link` scope."
+        },
+        "x-rbac-scopes": [
+          "follow_ups.create_from_link"
+        ]
+      }
+    },
     "/v3/follow_ups/{id}": {
       "delete": {
         "description": "Delete an incident follow-up.",
@@ -178038,6 +182506,10 @@
     {
       "description": "Manage maintenance windows for temporarily overriding alert routing during planned maintenance.\n\nMaintenance windows allow you to suppress or redirect alerts during scheduled maintenance periods, preventing unnecessary escalations and noise.",
       "name": "MaintenanceWindows V1"
+    },
+    {
+      "description": "Manage on-call pay configs: the rates that pay reports price on-call shifts against.",
+      "name": "Pay Configs V2"
     },
     {
       "description": "Manage the policies that encode how your organisation should handle incidents.\n\nA policy scopes itself to a set of resources with conditions, states the requirements\nthose resources must meet, and describes who to chase when they don't.\n\nEvery policy has a \u003ccode\u003epolicy_type\u003c/code\u003e, which selects exactly one matching\nconfiguration block: a \u003ccode\u003efollow_up\u003c/code\u003e policy carries \u003ccode\u003efollow_up\u003c/code\u003e\nconfig, a \u003ccode\u003eschedule\u003c/code\u003e policy carries \u003ccode\u003eschedule\u003c/code\u003e config, and so\non. Sending a block that doesn't match the policy type is rejected.\n",
