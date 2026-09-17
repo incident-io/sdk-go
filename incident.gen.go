@@ -16652,6 +16652,10 @@ type PayReportRotationFilterV2 struct {
 
 // PayReportV2 A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.
 //
+// This is a summary: the headline totals, and the parameters the report was generated
+// with. The shifts behind those totals, and the per-user and per-schedule breakdowns, come
+// from downloading the report as CSV.
+//
 // Reports are immutable snapshots: once generated, changing the pay config or the
 // schedules behind it will not change the report. Generate a new one instead.
 //
@@ -16729,7 +16733,7 @@ type PayReportsCreatePayloadV2 struct {
 	// Name Human readable name for this report
 	Name string `json:"name"`
 
-	// OverlappingShifts How to pay time spent on more than one of these schedules at once. paid_once requires the advanced on-call plan.
+	// OverlappingShifts Time on more than one of these schedules at once can be paid once or per schedule. Paying it once requires the advanced on-call plan.
 	OverlappingShifts   *PayReportsCreatePayloadV2OverlappingShifts `json:"overlapping_shifts,omitempty"`
 	PayConfigExpression *ExpressionPayloadV2                        `json:"pay_config_expression,omitempty"`
 
@@ -16749,7 +16753,7 @@ type PayReportsCreatePayloadV2 struct {
 	UnpaidShifts *PayReportsCreatePayloadV2UnpaidShifts `json:"unpaid_shifts,omitempty"`
 }
 
-// PayReportsCreatePayloadV2OverlappingShifts How to pay time spent on more than one of these schedules at once. paid_once requires the advanced on-call plan.
+// PayReportsCreatePayloadV2OverlappingShifts Time on more than one of these schedules at once can be paid once or per schedule. Paying it once requires the advanced on-call plan.
 type PayReportsCreatePayloadV2OverlappingShifts string
 
 // PayReportsCreatePayloadV2UnpaidShifts Whether shifts that price to zero count towards total_duration_seconds
@@ -16758,6 +16762,10 @@ type PayReportsCreatePayloadV2UnpaidShifts string
 // PayReportsCreateResultV2 defines model for PayReportsCreateResultV2.
 type PayReportsCreateResultV2 struct {
 	// PayReport A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.
+	//
+	// This is a summary: the headline totals, and the parameters the report was generated
+	// with. The shifts behind those totals, and the per-user and per-schedule breakdowns, come
+	// from downloading the report as CSV.
 	//
 	// Reports are immutable snapshots: once generated, changing the pay config or the
 	// schedules behind it will not change the report. Generate a new one instead.
@@ -16793,6 +16801,10 @@ type PayReportsPublishPayloadV2SendUserBreakdowns string
 type PayReportsPublishResultV2 struct {
 	// PayReport A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.
 	//
+	// This is a summary: the headline totals, and the parameters the report was generated
+	// with. The shifts behind those totals, and the per-user and per-schedule breakdowns, come
+	// from downloading the report as CSV.
+	//
 	// Reports are immutable snapshots: once generated, changing the pay config or the
 	// schedules behind it will not change the report. Generate a new one instead.
 	//
@@ -16808,6 +16820,10 @@ type PayReportsPublishResultV2 struct {
 // PayReportsShowResultV2 defines model for PayReportsShowResultV2.
 type PayReportsShowResultV2 struct {
 	// PayReport A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.
+	//
+	// This is a summary: the headline totals, and the parameters the report was generated
+	// with. The shifts behind those totals, and the per-user and per-schedule breakdowns, come
+	// from downloading the report as CSV.
 	//
 	// Reports are immutable snapshots: once generated, changing the pay config or the
 	// schedules behind it will not change the report. Generate a new one instead.
@@ -16830,6 +16846,10 @@ type PayReportsUnpublishPayloadV2 struct {
 // PayReportsUnpublishResultV2 defines model for PayReportsUnpublishResultV2.
 type PayReportsUnpublishResultV2 struct {
 	// PayReport A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.
+	//
+	// This is a summary: the headline totals, and the parameters the report was generated
+	// with. The shifts behind those totals, and the per-user and per-schedule breakdowns, come
+	// from downloading the report as CSV.
 	//
 	// Reports are immutable snapshots: once generated, changing the pay config or the
 	// schedules behind it will not change the report. Generate a new one instead.

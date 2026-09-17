@@ -79165,7 +79165,7 @@
         "type": "object"
       },
       "PayReportV2": {
-        "description": "A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.\n\nReports are immutable snapshots: once generated, changing the pay config or the\nschedules behind it will not change the report. Generate a new one instead.\n\nA report starts as a draft and becomes visible to everyone in your organisation when\nyou publish it.\n\nReports are generated in the background, so a report you have just asked for has no\ntotals yet. Its status says whether they are still coming, and a report that failed\ncarries the reason it will never have them.",
+        "description": "A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.\n\nThis is a summary: the headline totals, and the parameters the report was generated\nwith. The shifts behind those totals, and the per-user and per-schedule breakdowns, come\nfrom downloading the report as CSV.\n\nReports are immutable snapshots: once generated, changing the pay config or the\nschedules behind it will not change the report. Generate a new one instead.\n\nA report starts as a draft and becomes visible to everyone in your organisation when\nyou publish it.\n\nReports are generated in the background, so a report you have just asked for has no\ntotals yet. Its status says whether they are still coming, and a report that failed\ncarries the reason it will never have them.",
         "example": {
           "created_at": "2026-04-01T09:00:00Z",
           "creator": {
@@ -79488,7 +79488,7 @@
             "type": "string"
           },
           "overlapping_shifts": {
-            "description": "How to pay time spent on more than one of these schedules at once. paid_once requires the advanced on-call plan.",
+            "description": "Time on more than one of these schedules at once can be paid once or per schedule. Paying it once requires the advanced on-call plan.",
             "enum": [
               "paid_once",
               "paid_per_schedule"
@@ -154505,7 +154505,7 @@
     },
     "/v2/pay_reports": {
       "get": {
-        "description": "List pay reports, newest first.\n\nOnly reports that have finished generating are listed, so everything here has totals. A\nreport you have just asked for shows up once it is complete; until then, and if it fails,\nfetch it by ID.\n\nDrafts are returned alongside published reports. Check published_at to tell them apart.\n\nOnly the headline totals are returned: the shifts behind them, and the per-user and\nper-schedule breakdowns, come from downloading the report.",
+        "description": "List pay reports, newest first.\n\nOnly reports that have finished generating are listed. A report you have just asked for\nappears once it is complete. Fetch it by ID to follow its progress, or to see why it\nfailed.\n\nReports created before the current pay report format have no totals, so check that\ntotal_duration_seconds is set before reading either total.\n\nDrafts are returned alongside published reports. Check published_at to tell them apart.\n\nOnly the headline totals are returned: the shifts behind them, and the per-user and\nper-schedule breakdowns, come from downloading the report.",
         "operationId": "Pay Reports V2#List",
         "parameters": [
           {
@@ -154749,7 +154749,7 @@
         ]
       },
       "post": {
-        "description": "Ask for a pay report to be generated.\n\nGenerating a report can take minutes for a wide date window, so this returns as soon as\nwe have accepted the request, with a report that has a status of pending and no totals.\nFetch the report to find out how it went: it ends up either complete, with its totals\nfilled in, or failed, with error_code and error_message saying why.\n\nReports are created as drafts.",
+        "description": "Request a pay report.\n\nGenerating a report can take minutes for a wide date window, so this returns as soon as\nthe request is accepted, with a report that has a status of pending and no totals. Fetch\nthe report to find out how it went: it ends up either complete, with its totals filled\nin, or failed, with error_code and error_message saying why.\n\nReports are created as drafts.",
         "operationId": "Pay Reports V2#Create",
         "requestBody": {
           "content": {
@@ -155483,7 +155483,7 @@
     },
     "/v2/pay_reports/{id}/actions/publish": {
       "post": {
-        "description": "Publish a draft pay report, making it visible to everyone in the organisation.\n\nPublishing emails the report to cc_emails. Set send_user_breakdowns to send to also\nemail each user their own pay breakdown. Set it to skip to omit those emails.",
+        "description": "Publish a draft pay report, making it visible to everyone in the organisation.\n\nPublishing emails the report to cc_emails. Set send_user_breakdowns to send if each user\nshould also get their own pay breakdown, or skip if not.",
         "operationId": "Pay Reports V2#Publish",
         "parameters": [
           {
@@ -155718,7 +155718,7 @@
     },
     "/v2/pay_reports/{id}/actions/unpublish": {
       "post": {
-        "description": "Unpublish a published pay report, marking it as inaccurate.\n\nA draft cannot be unpublished: delete it instead.\n\nUnpublishing is terminal: the report leaves list and show, and cannot be published\nagain. The reason is shown to anyone who still has a permalink.",
+        "description": "Unpublish a published pay report, recording a reason it should not be used.\n\nA draft cannot be unpublished: delete it instead.\n\nUnpublishing is terminal: the report no longer appears in List or Show, and cannot be\npublished again. The reason is shown to anyone who still has a permalink.",
         "operationId": "Pay Reports V2#Unpublish",
         "parameters": [
           {
@@ -155950,7 +155950,7 @@
     },
     "/v2/pay_reports/{id}/download": {
       "get": {
-        "description": "Download a pay report as CSV.\n\nOne row per user, carrying what they earned over the report's window and how long they\nwere on-call for it. Values come twice over: once formatted for a person to read, and\nonce as an integer for whatever you are feeding.\n\nOnly a report that has finished generating can be downloaded, since an incomplete one has\nno totals to write. Check status on the report first.",
+        "description": "Download a pay report as CSV.\n\nOne row per user, carrying what they earned over the report's window and how long they\nwere on-call for it. Each value appears twice: once formatted for a person to read, and\nonce as an integer for a system to parse.\n\nOnly a report that has finished generating can be downloaded, since an incomplete one has\nno totals to write. Check the report's status first.",
         "operationId": "Pay Reports V2#Download",
         "parameters": [
           {
