@@ -6390,6 +6390,138 @@ func (e PayConfigsUpdateWeeklyRulePayloadV2Weekdays) Valid() bool {
 	}
 }
 
+// Defines values for PayReportV2ErrorCode.
+const (
+	InvalidRequest PayReportV2ErrorCode = "invalid_request"
+	TimedOut       PayReportV2ErrorCode = "timed_out"
+)
+
+// Valid indicates whether the value is a known member of the PayReportV2ErrorCode enum.
+func (e PayReportV2ErrorCode) Valid() bool {
+	switch e {
+	case InvalidRequest:
+		return true
+	case TimedOut:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PayReportV2OverlappingShifts.
+const (
+	PayReportV2OverlappingShiftsPaidOnce        PayReportV2OverlappingShifts = "paid_once"
+	PayReportV2OverlappingShiftsPaidPerSchedule PayReportV2OverlappingShifts = "paid_per_schedule"
+)
+
+// Valid indicates whether the value is a known member of the PayReportV2OverlappingShifts enum.
+func (e PayReportV2OverlappingShifts) Valid() bool {
+	switch e {
+	case PayReportV2OverlappingShiftsPaidOnce:
+		return true
+	case PayReportV2OverlappingShiftsPaidPerSchedule:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PayReportV2Status.
+const (
+	PayReportV2StatusComplete   PayReportV2Status = "complete"
+	PayReportV2StatusFailed     PayReportV2Status = "failed"
+	PayReportV2StatusGenerating PayReportV2Status = "generating"
+	PayReportV2StatusPending    PayReportV2Status = "pending"
+)
+
+// Valid indicates whether the value is a known member of the PayReportV2Status enum.
+func (e PayReportV2Status) Valid() bool {
+	switch e {
+	case PayReportV2StatusComplete:
+		return true
+	case PayReportV2StatusFailed:
+		return true
+	case PayReportV2StatusGenerating:
+		return true
+	case PayReportV2StatusPending:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PayReportV2UnpaidShifts.
+const (
+	PayReportV2UnpaidShiftsExcluded PayReportV2UnpaidShifts = "excluded"
+	PayReportV2UnpaidShiftsIncluded PayReportV2UnpaidShifts = "included"
+)
+
+// Valid indicates whether the value is a known member of the PayReportV2UnpaidShifts enum.
+func (e PayReportV2UnpaidShifts) Valid() bool {
+	switch e {
+	case PayReportV2UnpaidShiftsExcluded:
+		return true
+	case PayReportV2UnpaidShiftsIncluded:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PayReportsCreatePayloadV2OverlappingShifts.
+const (
+	PayReportsCreatePayloadV2OverlappingShiftsPaidOnce        PayReportsCreatePayloadV2OverlappingShifts = "paid_once"
+	PayReportsCreatePayloadV2OverlappingShiftsPaidPerSchedule PayReportsCreatePayloadV2OverlappingShifts = "paid_per_schedule"
+)
+
+// Valid indicates whether the value is a known member of the PayReportsCreatePayloadV2OverlappingShifts enum.
+func (e PayReportsCreatePayloadV2OverlappingShifts) Valid() bool {
+	switch e {
+	case PayReportsCreatePayloadV2OverlappingShiftsPaidOnce:
+		return true
+	case PayReportsCreatePayloadV2OverlappingShiftsPaidPerSchedule:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PayReportsCreatePayloadV2UnpaidShifts.
+const (
+	PayReportsCreatePayloadV2UnpaidShiftsExcluded PayReportsCreatePayloadV2UnpaidShifts = "excluded"
+	PayReportsCreatePayloadV2UnpaidShiftsIncluded PayReportsCreatePayloadV2UnpaidShifts = "included"
+)
+
+// Valid indicates whether the value is a known member of the PayReportsCreatePayloadV2UnpaidShifts enum.
+func (e PayReportsCreatePayloadV2UnpaidShifts) Valid() bool {
+	switch e {
+	case PayReportsCreatePayloadV2UnpaidShiftsExcluded:
+		return true
+	case PayReportsCreatePayloadV2UnpaidShiftsIncluded:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PayReportsPublishPayloadV2SendUserBreakdowns.
+const (
+	Send PayReportsPublishPayloadV2SendUserBreakdowns = "send"
+	Skip PayReportsPublishPayloadV2SendUserBreakdowns = "skip"
+)
+
+// Valid indicates whether the value is a known member of the PayReportsPublishPayloadV2SendUserBreakdowns enum.
+func (e PayReportsPublishPayloadV2SendUserBreakdowns) Valid() bool {
+	switch e {
+	case Send:
+		return true
+	case Skip:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for PoliciesCreatePayloadV2PolicyType.
 const (
 	PoliciesCreatePayloadV2PolicyTypeDebrief          PoliciesCreatePayloadV2PolicyType = "debrief"
@@ -6397,6 +6529,7 @@ const (
 	PoliciesCreatePayloadV2PolicyTypeOnCallReadiness  PoliciesCreatePayloadV2PolicyType = "on_call_readiness"
 	PoliciesCreatePayloadV2PolicyTypePostMortem       PoliciesCreatePayloadV2PolicyType = "post_mortem"
 	PoliciesCreatePayloadV2PolicyTypeSchedule         PoliciesCreatePayloadV2PolicyType = "schedule"
+	PoliciesCreatePayloadV2PolicyTypeShiftConflict    PoliciesCreatePayloadV2PolicyType = "shift_conflict"
 	PoliciesCreatePayloadV2PolicyTypeVacationConflict PoliciesCreatePayloadV2PolicyType = "vacation_conflict"
 )
 
@@ -6412,6 +6545,8 @@ func (e PoliciesCreatePayloadV2PolicyType) Valid() bool {
 	case PoliciesCreatePayloadV2PolicyTypePostMortem:
 		return true
 	case PoliciesCreatePayloadV2PolicyTypeSchedule:
+		return true
+	case PoliciesCreatePayloadV2PolicyTypeShiftConflict:
 		return true
 	case PoliciesCreatePayloadV2PolicyTypeVacationConflict:
 		return true
@@ -6445,6 +6580,7 @@ const (
 	PoliciesUpdatePayloadV2PolicyTypeOnCallReadiness  PoliciesUpdatePayloadV2PolicyType = "on_call_readiness"
 	PoliciesUpdatePayloadV2PolicyTypePostMortem       PoliciesUpdatePayloadV2PolicyType = "post_mortem"
 	PoliciesUpdatePayloadV2PolicyTypeSchedule         PoliciesUpdatePayloadV2PolicyType = "schedule"
+	PoliciesUpdatePayloadV2PolicyTypeShiftConflict    PoliciesUpdatePayloadV2PolicyType = "shift_conflict"
 	PoliciesUpdatePayloadV2PolicyTypeVacationConflict PoliciesUpdatePayloadV2PolicyType = "vacation_conflict"
 )
 
@@ -6460,6 +6596,8 @@ func (e PoliciesUpdatePayloadV2PolicyType) Valid() bool {
 	case PoliciesUpdatePayloadV2PolicyTypePostMortem:
 		return true
 	case PoliciesUpdatePayloadV2PolicyTypeSchedule:
+		return true
+	case PoliciesUpdatePayloadV2PolicyTypeShiftConflict:
 		return true
 	case PoliciesUpdatePayloadV2PolicyTypeVacationConflict:
 		return true
@@ -6610,6 +6748,7 @@ const (
 	PolicyFindingV2PolicyTypeOnCallReadiness  PolicyFindingV2PolicyType = "on_call_readiness"
 	PolicyFindingV2PolicyTypePostMortem       PolicyFindingV2PolicyType = "post_mortem"
 	PolicyFindingV2PolicyTypeSchedule         PolicyFindingV2PolicyType = "schedule"
+	PolicyFindingV2PolicyTypeShiftConflict    PolicyFindingV2PolicyType = "shift_conflict"
 	PolicyFindingV2PolicyTypeVacationConflict PolicyFindingV2PolicyType = "vacation_conflict"
 )
 
@@ -6625,6 +6764,8 @@ func (e PolicyFindingV2PolicyType) Valid() bool {
 	case PolicyFindingV2PolicyTypePostMortem:
 		return true
 	case PolicyFindingV2PolicyTypeSchedule:
+		return true
+	case PolicyFindingV2PolicyTypeShiftConflict:
 		return true
 	case PolicyFindingV2PolicyTypeVacationConflict:
 		return true
@@ -6778,6 +6919,7 @@ const (
 	PolicyV2PolicyTypeOnCallReadiness  PolicyV2PolicyType = "on_call_readiness"
 	PolicyV2PolicyTypePostMortem       PolicyV2PolicyType = "post_mortem"
 	PolicyV2PolicyTypeSchedule         PolicyV2PolicyType = "schedule"
+	PolicyV2PolicyTypeShiftConflict    PolicyV2PolicyType = "shift_conflict"
 	PolicyV2PolicyTypeVacationConflict PolicyV2PolicyType = "vacation_conflict"
 )
 
@@ -6793,6 +6935,8 @@ func (e PolicyV2PolicyType) Valid() bool {
 	case PolicyV2PolicyTypePostMortem:
 		return true
 	case PolicyV2PolicyTypeSchedule:
+		return true
+	case PolicyV2PolicyTypeShiftConflict:
 		return true
 	case PolicyV2PolicyTypeVacationConflict:
 		return true
@@ -8216,19 +8360,19 @@ func (e IncidentAttachmentsV1ListParamsResourceType) Valid() bool {
 
 // Defines values for MaintenanceWindowsV1ListParamsStatus.
 const (
-	Active   MaintenanceWindowsV1ListParamsStatus = "active"
-	Past     MaintenanceWindowsV1ListParamsStatus = "past"
-	Upcoming MaintenanceWindowsV1ListParamsStatus = "upcoming"
+	MaintenanceWindowsV1ListParamsStatusActive   MaintenanceWindowsV1ListParamsStatus = "active"
+	MaintenanceWindowsV1ListParamsStatusPast     MaintenanceWindowsV1ListParamsStatus = "past"
+	MaintenanceWindowsV1ListParamsStatusUpcoming MaintenanceWindowsV1ListParamsStatus = "upcoming"
 )
 
 // Valid indicates whether the value is a known member of the MaintenanceWindowsV1ListParamsStatus enum.
 func (e MaintenanceWindowsV1ListParamsStatus) Valid() bool {
 	switch e {
-	case Active:
+	case MaintenanceWindowsV1ListParamsStatusActive:
 		return true
-	case Past:
+	case MaintenanceWindowsV1ListParamsStatusPast:
 		return true
-	case Upcoming:
+	case MaintenanceWindowsV1ListParamsStatusUpcoming:
 		return true
 	default:
 		return false
@@ -8350,6 +8494,7 @@ const (
 	OnCallReadiness  PoliciesV2ListParamsPolicyType = "on_call_readiness"
 	PostMortem       PoliciesV2ListParamsPolicyType = "post_mortem"
 	Schedule         PoliciesV2ListParamsPolicyType = "schedule"
+	ShiftConflict    PoliciesV2ListParamsPolicyType = "shift_conflict"
 	VacationConflict PoliciesV2ListParamsPolicyType = "vacation_conflict"
 )
 
@@ -8365,6 +8510,8 @@ func (e PoliciesV2ListParamsPolicyType) Valid() bool {
 	case PostMortem:
 		return true
 	case Schedule:
+		return true
+	case ShiftConflict:
 		return true
 	case VacationConflict:
 		return true
@@ -16494,6 +16641,208 @@ type PayConfigsUpdateWeeklyRuleResultV2 struct {
 	WeeklyRule PayConfigWeeklyRuleV2 `json:"weekly_rule"`
 }
 
+// PayReportRotationFilterV2 Narrows one of a report's schedules to some of its rotations.
+type PayReportRotationFilterV2 struct {
+	// RotationIds Which of the schedule's rotations to include. To include all of them, leave this schedule out of rotation_filters rather than listing every rotation here.
+	RotationIds []string `json:"rotation_ids"`
+
+	// ScheduleId The schedule to narrow. Must also appear in schedule_ids.
+	ScheduleId string `json:"schedule_id"`
+}
+
+// PayReportV2 A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.
+//
+// Reports are immutable snapshots: once generated, changing the pay config or the
+// schedules behind it will not change the report. Generate a new one instead.
+//
+// A report starts as a draft and becomes visible to everyone in your organisation when
+// you publish it.
+//
+// Reports are generated in the background, so a report you have just asked for has no
+// totals yet. Its status says whether they are still coming, and a report that failed
+// carries the reason it will never have them.
+type PayReportV2 struct {
+	// CreatedAt When this report was created
+	CreatedAt time.Time `json:"created_at"`
+	Creator   *ActorV2  `json:"creator,omitempty"`
+
+	// EndDate Last date (YYYY-MM-DD) this report includes shifts from, inclusive
+	EndDate string `json:"end_date"`
+
+	// ErrorCode Why a report could not be generated
+	ErrorCode *PayReportV2ErrorCode `json:"error_code,omitempty"`
+
+	// ErrorMessage What went wrong, written for whoever asked for the report. Only set on a failed report.
+	ErrorMessage *string `json:"error_message,omitempty"`
+
+	// Id Unique identifier for this pay report
+	Id string `json:"id"`
+
+	// Name Human readable name for this report
+	Name string `json:"name"`
+
+	// OverlappingShifts How time spent on more than one schedule at once was paid
+	OverlappingShifts PayReportV2OverlappingShifts `json:"overlapping_shifts"`
+
+	// PublishedAt When this report was published. Unset while the report is still a draft.
+	PublishedAt *time.Time `json:"published_at,omitempty"`
+
+	// ScheduleIds The schedules this report covers
+	ScheduleIds []string `json:"schedule_ids"`
+
+	// StartDate First date (YYYY-MM-DD) this report includes shifts from, inclusive
+	StartDate string `json:"start_date"`
+
+	// Status How far a report has got through being generated
+	Status PayReportV2Status `json:"status"`
+
+	// TotalDurationSeconds Total time spent on-call across every shift in this report, in seconds. Unset until the report is complete, and for a legacy report, which we do not summarise.
+	TotalDurationSeconds *int64 `json:"total_duration_seconds,omitempty"`
+
+	// TotalPayByCurrency Total owed for this report, keyed by ISO 4217 currency code, in the lowest denomination of that currency. Reports spanning pay configs with different currencies have an entry per currency, and those totals must not be summed. Unset until the report is complete, and for a legacy report, which we do not summarise.
+	TotalPayByCurrency *map[string]int64 `json:"total_pay_by_currency,omitempty"`
+
+	// UnpaidShifts Whether shifts that priced to zero are part of the report
+	UnpaidShifts PayReportV2UnpaidShifts `json:"unpaid_shifts"`
+
+	// UpdatedAt When this report was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
+// PayReportV2ErrorCode Why a report could not be generated
+type PayReportV2ErrorCode string
+
+// PayReportV2OverlappingShifts How time spent on more than one schedule at once was paid
+type PayReportV2OverlappingShifts string
+
+// PayReportV2Status How far a report has got through being generated
+type PayReportV2Status string
+
+// PayReportV2UnpaidShifts Whether shifts that priced to zero are part of the report
+type PayReportV2UnpaidShifts string
+
+// PayReportsCreatePayloadV2 defines model for PayReportsCreatePayloadV2.
+type PayReportsCreatePayloadV2 struct {
+	// EndDate Last date (YYYY-MM-DD) to include shifts from, inclusive
+	EndDate string `json:"end_date"`
+
+	// Name Human readable name for this report
+	Name string `json:"name"`
+
+	// OverlappingShifts How to pay time spent on more than one of these schedules at once. paid_once requires the advanced on-call plan.
+	OverlappingShifts   *PayReportsCreatePayloadV2OverlappingShifts `json:"overlapping_shifts,omitempty"`
+	PayConfigExpression *ExpressionPayloadV2                        `json:"pay_config_expression,omitempty"`
+
+	// PayConfigId The pay config to price every shift with. Provide this or pay_config_expression, and not both.
+	PayConfigId *string `json:"pay_config_id,omitempty"`
+
+	// RotationFilters Narrows some of these schedules to a subset of their rotations. A schedule that does not appear here includes every rotation.
+	RotationFilters *[]PayReportRotationFilterV2 `json:"rotation_filters,omitempty"`
+
+	// ScheduleIds Which schedules to report on
+	ScheduleIds []string `json:"schedule_ids"`
+
+	// StartDate First date (YYYY-MM-DD) to include shifts from, inclusive
+	StartDate string `json:"start_date"`
+
+	// UnpaidShifts Whether shifts that price to zero count towards total_duration_seconds
+	UnpaidShifts *PayReportsCreatePayloadV2UnpaidShifts `json:"unpaid_shifts,omitempty"`
+}
+
+// PayReportsCreatePayloadV2OverlappingShifts How to pay time spent on more than one of these schedules at once. paid_once requires the advanced on-call plan.
+type PayReportsCreatePayloadV2OverlappingShifts string
+
+// PayReportsCreatePayloadV2UnpaidShifts Whether shifts that price to zero count towards total_duration_seconds
+type PayReportsCreatePayloadV2UnpaidShifts string
+
+// PayReportsCreateResultV2 defines model for PayReportsCreateResultV2.
+type PayReportsCreateResultV2 struct {
+	// PayReport A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.
+	//
+	// Reports are immutable snapshots: once generated, changing the pay config or the
+	// schedules behind it will not change the report. Generate a new one instead.
+	//
+	// A report starts as a draft and becomes visible to everyone in your organisation when
+	// you publish it.
+	//
+	// Reports are generated in the background, so a report you have just asked for has no
+	// totals yet. Its status says whether they are still coming, and a report that failed
+	// carries the reason it will never have them.
+	PayReport PayReportV2 `json:"pay_report"`
+}
+
+// PayReportsListResultV2 defines model for PayReportsListResultV2.
+type PayReportsListResultV2 struct {
+	PaginationMeta PaginationMetaResultV2 `json:"pagination_meta"`
+	PayReports     []PayReportV2          `json:"pay_reports"`
+}
+
+// PayReportsPublishPayloadV2 defines model for PayReportsPublishPayloadV2.
+type PayReportsPublishPayloadV2 struct {
+	// CcEmails Email addresses to send a copy of the report to
+	CcEmails []string `json:"cc_emails"`
+
+	// SendUserBreakdowns Whether each user in the report is emailed their own pay breakdown
+	SendUserBreakdowns PayReportsPublishPayloadV2SendUserBreakdowns `json:"send_user_breakdowns"`
+}
+
+// PayReportsPublishPayloadV2SendUserBreakdowns Whether each user in the report is emailed their own pay breakdown
+type PayReportsPublishPayloadV2SendUserBreakdowns string
+
+// PayReportsPublishResultV2 defines model for PayReportsPublishResultV2.
+type PayReportsPublishResultV2 struct {
+	// PayReport A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.
+	//
+	// Reports are immutable snapshots: once generated, changing the pay config or the
+	// schedules behind it will not change the report. Generate a new one instead.
+	//
+	// A report starts as a draft and becomes visible to everyone in your organisation when
+	// you publish it.
+	//
+	// Reports are generated in the background, so a report you have just asked for has no
+	// totals yet. Its status says whether they are still coming, and a report that failed
+	// carries the reason it will never have them.
+	PayReport PayReportV2 `json:"pay_report"`
+}
+
+// PayReportsShowResultV2 defines model for PayReportsShowResultV2.
+type PayReportsShowResultV2 struct {
+	// PayReport A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.
+	//
+	// Reports are immutable snapshots: once generated, changing the pay config or the
+	// schedules behind it will not change the report. Generate a new one instead.
+	//
+	// A report starts as a draft and becomes visible to everyone in your organisation when
+	// you publish it.
+	//
+	// Reports are generated in the background, so a report you have just asked for has no
+	// totals yet. Its status says whether they are still coming, and a report that failed
+	// carries the reason it will never have them.
+	PayReport PayReportV2 `json:"pay_report"`
+}
+
+// PayReportsUnpublishPayloadV2 defines model for PayReportsUnpublishPayloadV2.
+type PayReportsUnpublishPayloadV2 struct {
+	// UnpublishReason Why this report is being unpublished
+	UnpublishReason string `json:"unpublish_reason"`
+}
+
+// PayReportsUnpublishResultV2 defines model for PayReportsUnpublishResultV2.
+type PayReportsUnpublishResultV2 struct {
+	// PayReport A pay report values the time a set of users spent on-call over a date window, using the rates from a pay config.
+	//
+	// Reports are immutable snapshots: once generated, changing the pay config or the
+	// schedules behind it will not change the report. Generate a new one instead.
+	//
+	// A report starts as a draft and becomes visible to everyone in your organisation when
+	// you publish it.
+	//
+	// Reports are generated in the background, so a report you have just asked for has no
+	// totals yet. Its status says whether they are still coming, and a report that failed
+	// carries the reason it will never have them.
+	PayReport PayReportV2 `json:"pay_report"`
+}
+
 // PoliciesCreatePayloadV2 defines model for PoliciesCreatePayloadV2.
 type PoliciesCreatePayloadV2 struct {
 	AssignmentRules *PolicyAssignmentRulesPayloadV2 `json:"assignment_rules,omitempty"`
@@ -20144,6 +20493,15 @@ type PayConfigsV2ListParams struct {
 	After *string `form:"after,omitempty" json:"after,omitempty"`
 }
 
+// PayReportsV2ListParams defines parameters for PayReportsV2List.
+type PayReportsV2ListParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After A pay report's ID. This endpoint will return a list of pay reports after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+}
+
 // PoliciesV2ListParams defines parameters for PoliciesV2List.
 type PoliciesV2ListParams struct {
 	// PageSize Number of policies to return per page
@@ -20673,6 +21031,15 @@ type PayConfigsV2CreateWeeklyRuleJSONRequestBody = PayConfigsCreateWeeklyRulePay
 
 // PayConfigsV2UpdateWeeklyRuleJSONRequestBody defines body for PayConfigsV2UpdateWeeklyRule for application/json ContentType.
 type PayConfigsV2UpdateWeeklyRuleJSONRequestBody = PayConfigsUpdateWeeklyRulePayloadV2
+
+// PayReportsV2CreateJSONRequestBody defines body for PayReportsV2Create for application/json ContentType.
+type PayReportsV2CreateJSONRequestBody = PayReportsCreatePayloadV2
+
+// PayReportsV2PublishJSONRequestBody defines body for PayReportsV2Publish for application/json ContentType.
+type PayReportsV2PublishJSONRequestBody = PayReportsPublishPayloadV2
+
+// PayReportsV2UnpublishJSONRequestBody defines body for PayReportsV2Unpublish for application/json ContentType.
+type PayReportsV2UnpublishJSONRequestBody = PayReportsUnpublishPayloadV2
 
 // PoliciesV2CreateJSONRequestBody defines body for PoliciesV2Create for application/json ContentType.
 type PoliciesV2CreateJSONRequestBody = PoliciesCreatePayloadV2
@@ -21612,6 +21979,33 @@ type ClientInterface interface {
 	PayConfigsV2UpdateWeeklyRuleWithBody(ctx context.Context, payConfigId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	PayConfigsV2UpdateWeeklyRule(ctx context.Context, payConfigId string, id string, body PayConfigsV2UpdateWeeklyRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayReportsV2List request
+	PayReportsV2List(ctx context.Context, params *PayReportsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayReportsV2CreateWithBody request with any body
+	PayReportsV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	PayReportsV2Create(ctx context.Context, body PayReportsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayReportsV2Destroy request
+	PayReportsV2Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayReportsV2Show request
+	PayReportsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayReportsV2PublishWithBody request with any body
+	PayReportsV2PublishWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	PayReportsV2Publish(ctx context.Context, id string, body PayReportsV2PublishJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayReportsV2UnpublishWithBody request with any body
+	PayReportsV2UnpublishWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	PayReportsV2Unpublish(ctx context.Context, id string, body PayReportsV2UnpublishJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// PayReportsV2Download request
+	PayReportsV2Download(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// PoliciesV2List request
 	PoliciesV2List(ctx context.Context, params *PoliciesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -25383,6 +25777,126 @@ func (c *Client) PayConfigsV2UpdateWeeklyRuleWithBody(ctx context.Context, payCo
 
 func (c *Client) PayConfigsV2UpdateWeeklyRule(ctx context.Context, payConfigId string, id string, body PayConfigsV2UpdateWeeklyRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newPayConfigsV2UpdateWeeklyRuleRequest(c.Server, payConfigId, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayReportsV2List(ctx context.Context, params *PayReportsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayReportsV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayReportsV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayReportsV2CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayReportsV2Create(ctx context.Context, body PayReportsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayReportsV2CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayReportsV2Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayReportsV2DestroyRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayReportsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayReportsV2ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayReportsV2PublishWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayReportsV2PublishRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayReportsV2Publish(ctx context.Context, id string, body PayReportsV2PublishJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayReportsV2PublishRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayReportsV2UnpublishWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayReportsV2UnpublishRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayReportsV2Unpublish(ctx context.Context, id string, body PayReportsV2UnpublishJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayReportsV2UnpublishRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) PayReportsV2Download(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newPayReportsV2DownloadRequest(c.Server, id)
 	if err != nil {
 		return nil, err
 	}
@@ -36294,6 +36808,307 @@ func newPayConfigsV2UpdateWeeklyRuleRequestWithBody(server string, payConfigId s
 	return req, nil
 }
 
+// NewPayReportsV2ListRequest generates requests for PayReportsV2List
+func newPayReportsV2ListRequest(server string, params *PayReportsV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_reports")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPayReportsV2CreateRequest calls the generic PayReportsV2Create builder with application/json body
+func newPayReportsV2CreateRequest(server string, body PayReportsV2CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newPayReportsV2CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewPayReportsV2CreateRequestWithBody generates requests for PayReportsV2Create with any type of body
+func newPayReportsV2CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_reports")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewPayReportsV2DestroyRequest generates requests for PayReportsV2Destroy
+func newPayReportsV2DestroyRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_reports/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPayReportsV2ShowRequest generates requests for PayReportsV2Show
+func newPayReportsV2ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_reports/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewPayReportsV2PublishRequest calls the generic PayReportsV2Publish builder with application/json body
+func newPayReportsV2PublishRequest(server string, id string, body PayReportsV2PublishJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newPayReportsV2PublishRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewPayReportsV2PublishRequestWithBody generates requests for PayReportsV2Publish with any type of body
+func newPayReportsV2PublishRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_reports/%s/actions/publish", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewPayReportsV2UnpublishRequest calls the generic PayReportsV2Unpublish builder with application/json body
+func newPayReportsV2UnpublishRequest(server string, id string, body PayReportsV2UnpublishJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newPayReportsV2UnpublishRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewPayReportsV2UnpublishRequestWithBody generates requests for PayReportsV2Unpublish with any type of body
+func newPayReportsV2UnpublishRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_reports/%s/actions/unpublish", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewPayReportsV2DownloadRequest generates requests for PayReportsV2Download
+func newPayReportsV2DownloadRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/pay_reports/%s/download", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewPoliciesV2ListRequest generates requests for PoliciesV2List
 func newPoliciesV2ListRequest(server string, params *PoliciesV2ListParams) (*http.Request, error) {
 	var err error
@@ -42095,6 +42910,33 @@ type ClientWithResponsesInterface interface {
 	PayConfigsV2UpdateWeeklyRuleWithBodyWithResponse(ctx context.Context, payConfigId string, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateWeeklyRuleResponse, error)
 
 	PayConfigsV2UpdateWeeklyRuleWithResponse(ctx context.Context, payConfigId string, id string, body PayConfigsV2UpdateWeeklyRuleJSONRequestBody, reqEditors ...RequestEditorFn) (*PayConfigsV2UpdateWeeklyRuleResponse, error)
+
+	// PayReportsV2ListWithResponse request
+	PayReportsV2ListWithResponse(ctx context.Context, params *PayReportsV2ListParams, reqEditors ...RequestEditorFn) (*PayReportsV2ListResponse, error)
+
+	// PayReportsV2CreateWithBodyWithResponse request with any body
+	PayReportsV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayReportsV2CreateResponse, error)
+
+	PayReportsV2CreateWithResponse(ctx context.Context, body PayReportsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*PayReportsV2CreateResponse, error)
+
+	// PayReportsV2DestroyWithResponse request
+	PayReportsV2DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PayReportsV2DestroyResponse, error)
+
+	// PayReportsV2ShowWithResponse request
+	PayReportsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PayReportsV2ShowResponse, error)
+
+	// PayReportsV2PublishWithBodyWithResponse request with any body
+	PayReportsV2PublishWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayReportsV2PublishResponse, error)
+
+	PayReportsV2PublishWithResponse(ctx context.Context, id string, body PayReportsV2PublishJSONRequestBody, reqEditors ...RequestEditorFn) (*PayReportsV2PublishResponse, error)
+
+	// PayReportsV2UnpublishWithBodyWithResponse request with any body
+	PayReportsV2UnpublishWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayReportsV2UnpublishResponse, error)
+
+	PayReportsV2UnpublishWithResponse(ctx context.Context, id string, body PayReportsV2UnpublishJSONRequestBody, reqEditors ...RequestEditorFn) (*PayReportsV2UnpublishResponse, error)
+
+	// PayReportsV2DownloadWithResponse request
+	PayReportsV2DownloadWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PayReportsV2DownloadResponse, error)
 
 	// PoliciesV2ListWithResponse request
 	PoliciesV2ListWithResponse(ctx context.Context, params *PoliciesV2ListParams, reqEditors ...RequestEditorFn) (*PoliciesV2ListResponse, error)
@@ -49275,6 +50117,249 @@ func (r PayConfigsV2UpdateWeeklyRuleResponse) StatusCode() int {
 	return 0
 }
 
+type PayReportsV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayReportsListResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayReportsV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayReportsV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayReportsV2CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON202      *PayReportsCreateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayReportsV2CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayReportsV2CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayReportsV2DestroyResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayReportsV2DestroyResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayReportsV2DestroyResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayReportsV2ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayReportsShowResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayReportsV2ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayReportsV2ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayReportsV2PublishResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayReportsPublishResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayReportsV2PublishResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayReportsV2PublishResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayReportsV2UnpublishResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *PayReportsUnpublishResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayReportsV2UnpublishResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayReportsV2UnpublishResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type PayReportsV2DownloadResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r PayReportsV2DownloadResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r PayReportsV2DownloadResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type PoliciesV2ListResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -55323,6 +56408,93 @@ func (c *ClientWithResponses) PayConfigsV2UpdateWeeklyRuleWithResponse(ctx conte
 		return nil, err
 	}
 	return parsePayConfigsV2UpdateWeeklyRuleResponse(rsp)
+}
+
+// PayReportsV2ListWithResponse request returning *PayReportsV2ListResponse
+func (c *ClientWithResponses) PayReportsV2ListWithResponse(ctx context.Context, params *PayReportsV2ListParams, reqEditors ...RequestEditorFn) (*PayReportsV2ListResponse, error) {
+	rsp, err := c.PayReportsV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayReportsV2ListResponse(rsp)
+}
+
+// PayReportsV2CreateWithBodyWithResponse request with arbitrary body returning *PayReportsV2CreateResponse
+func (c *ClientWithResponses) PayReportsV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayReportsV2CreateResponse, error) {
+	rsp, err := c.PayReportsV2CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayReportsV2CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) PayReportsV2CreateWithResponse(ctx context.Context, body PayReportsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*PayReportsV2CreateResponse, error) {
+	rsp, err := c.PayReportsV2Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayReportsV2CreateResponse(rsp)
+}
+
+// PayReportsV2DestroyWithResponse request returning *PayReportsV2DestroyResponse
+func (c *ClientWithResponses) PayReportsV2DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PayReportsV2DestroyResponse, error) {
+	rsp, err := c.PayReportsV2Destroy(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayReportsV2DestroyResponse(rsp)
+}
+
+// PayReportsV2ShowWithResponse request returning *PayReportsV2ShowResponse
+func (c *ClientWithResponses) PayReportsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PayReportsV2ShowResponse, error) {
+	rsp, err := c.PayReportsV2Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayReportsV2ShowResponse(rsp)
+}
+
+// PayReportsV2PublishWithBodyWithResponse request with arbitrary body returning *PayReportsV2PublishResponse
+func (c *ClientWithResponses) PayReportsV2PublishWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayReportsV2PublishResponse, error) {
+	rsp, err := c.PayReportsV2PublishWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayReportsV2PublishResponse(rsp)
+}
+
+func (c *ClientWithResponses) PayReportsV2PublishWithResponse(ctx context.Context, id string, body PayReportsV2PublishJSONRequestBody, reqEditors ...RequestEditorFn) (*PayReportsV2PublishResponse, error) {
+	rsp, err := c.PayReportsV2Publish(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayReportsV2PublishResponse(rsp)
+}
+
+// PayReportsV2UnpublishWithBodyWithResponse request with arbitrary body returning *PayReportsV2UnpublishResponse
+func (c *ClientWithResponses) PayReportsV2UnpublishWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*PayReportsV2UnpublishResponse, error) {
+	rsp, err := c.PayReportsV2UnpublishWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayReportsV2UnpublishResponse(rsp)
+}
+
+func (c *ClientWithResponses) PayReportsV2UnpublishWithResponse(ctx context.Context, id string, body PayReportsV2UnpublishJSONRequestBody, reqEditors ...RequestEditorFn) (*PayReportsV2UnpublishResponse, error) {
+	rsp, err := c.PayReportsV2Unpublish(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayReportsV2UnpublishResponse(rsp)
+}
+
+// PayReportsV2DownloadWithResponse request returning *PayReportsV2DownloadResponse
+func (c *ClientWithResponses) PayReportsV2DownloadWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*PayReportsV2DownloadResponse, error) {
+	rsp, err := c.PayReportsV2Download(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parsePayReportsV2DownloadResponse(rsp)
 }
 
 // PoliciesV2ListWithResponse request returning *PoliciesV2ListResponse
@@ -79057,6 +80229,811 @@ func parsePayConfigsV2UpdateWeeklyRuleResponse(rsp *http.Response) (*PayConfigsV
 		}
 		response.JSON200 = &dest
 
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayReportsV2ListResponse parses an HTTP response from a PayReportsV2ListWithResponse call
+func parsePayReportsV2ListResponse(rsp *http.Response) (*PayReportsV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayReportsV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayReportsListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayReportsV2CreateResponse parses an HTTP response from a PayReportsV2CreateWithResponse call
+func parsePayReportsV2CreateResponse(rsp *http.Response) (*PayReportsV2CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayReportsV2CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 202:
+		var dest PayReportsCreateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON202 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayReportsV2DestroyResponse parses an HTTP response from a PayReportsV2DestroyWithResponse call
+func parsePayReportsV2DestroyResponse(rsp *http.Response) (*PayReportsV2DestroyResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayReportsV2DestroyResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayReportsV2ShowResponse parses an HTTP response from a PayReportsV2ShowWithResponse call
+func parsePayReportsV2ShowResponse(rsp *http.Response) (*PayReportsV2ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayReportsV2ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayReportsShowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayReportsV2PublishResponse parses an HTTP response from a PayReportsV2PublishWithResponse call
+func parsePayReportsV2PublishResponse(rsp *http.Response) (*PayReportsV2PublishResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayReportsV2PublishResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayReportsPublishResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayReportsV2UnpublishResponse parses an HTTP response from a PayReportsV2UnpublishWithResponse call
+func parsePayReportsV2UnpublishResponse(rsp *http.Response) (*PayReportsV2UnpublishResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayReportsV2UnpublishResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest PayReportsUnpublishResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParsePayReportsV2DownloadResponse parses an HTTP response from a PayReportsV2DownloadWithResponse call
+func parsePayReportsV2DownloadResponse(rsp *http.Response) (*PayReportsV2DownloadResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &PayReportsV2DownloadResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest ErrorResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
