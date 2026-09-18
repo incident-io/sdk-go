@@ -79559,43 +79559,21 @@
           "pay_report": {
             "created_at": "2026-04-01T09:00:00Z",
             "creator": {
-              "alert": {
-                "id": "01GW2G3V0S59R238FAHPDS1R66",
-                "title": "*errors.withMessage: PG::Error failed to connect"
-              },
               "api_key": {
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "name": "My test API key"
-              },
-              "user": {
-                "email": "lisa@incident.io",
-                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                "name": "Lisa Karlin Curtis",
-                "role": "owner",
-                "slack_user_id": "U02AYNF2XJM"
-              },
-              "workflow": {
-                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                "name": "My little workflow"
               }
             },
             "end_date": "2026-03-31",
-            "error_code": "timed_out",
-            "error_message": "Schedule 'Primary Support' has no pay config to price its shifts with",
             "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "name": "March 2026",
             "overlapping_shifts": "paid_per_schedule",
-            "published_at": "2026-04-01T09:00:00Z",
             "schedule_ids": [
               "01FCNDV6P870EA6S7TK1DSYDG0"
             ],
             "start_date": "2026-03-01",
-            "status": "generating",
-            "total_duration_seconds": 3600,
-            "total_pay_by_currency": {
-              "GBP": 2400
-            },
-            "unpaid_shifts": "excluded",
+            "status": "pending",
+            "unpaid_shifts": "included",
             "updated_at": "2026-04-01T09:00:00Z"
           }
         },
@@ -79619,29 +79597,12 @@
             {
               "created_at": "2026-04-01T09:00:00Z",
               "creator": {
-                "alert": {
-                  "id": "01GW2G3V0S59R238FAHPDS1R66",
-                  "title": "*errors.withMessage: PG::Error failed to connect"
-                },
                 "api_key": {
                   "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                   "name": "My test API key"
-                },
-                "user": {
-                  "email": "lisa@incident.io",
-                  "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                  "name": "Lisa Karlin Curtis",
-                  "role": "owner",
-                  "slack_user_id": "U02AYNF2XJM"
-                },
-                "workflow": {
-                  "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                  "name": "My little workflow"
                 }
               },
               "end_date": "2026-03-31",
-              "error_code": "timed_out",
-              "error_message": "Schedule 'Primary Support' has no pay config to price its shifts with",
               "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "name": "March 2026",
               "overlapping_shifts": "paid_per_schedule",
@@ -79650,12 +79611,12 @@
                 "01FCNDV6P870EA6S7TK1DSYDG0"
               ],
               "start_date": "2026-03-01",
-              "status": "generating",
+              "status": "complete",
               "total_duration_seconds": 3600,
               "total_pay_by_currency": {
                 "GBP": 2400
               },
-              "unpaid_shifts": "excluded",
+              "unpaid_shifts": "included",
               "updated_at": "2026-04-01T09:00:00Z"
             }
           ]
@@ -79669,29 +79630,12 @@
               {
                 "created_at": "2026-04-01T09:00:00Z",
                 "creator": {
-                  "alert": {
-                    "id": "01GW2G3V0S59R238FAHPDS1R66",
-                    "title": "*errors.withMessage: PG::Error failed to connect"
-                  },
                   "api_key": {
                     "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                     "name": "My test API key"
-                  },
-                  "user": {
-                    "email": "lisa@incident.io",
-                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                    "name": "Lisa Karlin Curtis",
-                    "role": "owner",
-                    "slack_user_id": "U02AYNF2XJM"
-                  },
-                  "workflow": {
-                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                    "name": "My little workflow"
                   }
                 },
                 "end_date": "2026-03-31",
-                "error_code": "timed_out",
-                "error_message": "Schedule 'Primary Support' has no pay config to price its shifts with",
                 "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "name": "March 2026",
                 "overlapping_shifts": "paid_per_schedule",
@@ -79700,12 +79644,12 @@
                   "01FCNDV6P870EA6S7TK1DSYDG0"
                 ],
                 "start_date": "2026-03-01",
-                "status": "generating",
+                "status": "complete",
                 "total_duration_seconds": 3600,
                 "total_pay_by_currency": {
                   "GBP": 2400
                 },
-                "unpaid_shifts": "excluded",
+                "unpaid_shifts": "included",
                 "updated_at": "2026-04-01T09:00:00Z"
               }
             ],
@@ -79761,29 +79705,12 @@
           "pay_report": {
             "created_at": "2026-04-01T09:00:00Z",
             "creator": {
-              "alert": {
-                "id": "01GW2G3V0S59R238FAHPDS1R66",
-                "title": "*errors.withMessage: PG::Error failed to connect"
-              },
               "api_key": {
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "name": "My test API key"
-              },
-              "user": {
-                "email": "lisa@incident.io",
-                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                "name": "Lisa Karlin Curtis",
-                "role": "owner",
-                "slack_user_id": "U02AYNF2XJM"
-              },
-              "workflow": {
-                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                "name": "My little workflow"
               }
             },
             "end_date": "2026-03-31",
-            "error_code": "timed_out",
-            "error_message": "Schedule 'Primary Support' has no pay config to price its shifts with",
             "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "name": "March 2026",
             "overlapping_shifts": "paid_per_schedule",
@@ -79792,12 +79719,12 @@
               "01FCNDV6P870EA6S7TK1DSYDG0"
             ],
             "start_date": "2026-03-01",
-            "status": "generating",
+            "status": "complete",
             "total_duration_seconds": 3600,
             "total_pay_by_currency": {
               "GBP": 2400
             },
-            "unpaid_shifts": "excluded",
+            "unpaid_shifts": "included",
             "updated_at": "2026-04-01T09:00:00Z"
           }
         },
@@ -79816,29 +79743,12 @@
           "pay_report": {
             "created_at": "2026-04-01T09:00:00Z",
             "creator": {
-              "alert": {
-                "id": "01GW2G3V0S59R238FAHPDS1R66",
-                "title": "*errors.withMessage: PG::Error failed to connect"
-              },
               "api_key": {
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "name": "My test API key"
-              },
-              "user": {
-                "email": "lisa@incident.io",
-                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                "name": "Lisa Karlin Curtis",
-                "role": "owner",
-                "slack_user_id": "U02AYNF2XJM"
-              },
-              "workflow": {
-                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                "name": "My little workflow"
               }
             },
             "end_date": "2026-03-31",
-            "error_code": "timed_out",
-            "error_message": "Schedule 'Primary Support' has no pay config to price its shifts with",
             "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "name": "March 2026",
             "overlapping_shifts": "paid_per_schedule",
@@ -79847,12 +79757,12 @@
               "01FCNDV6P870EA6S7TK1DSYDG0"
             ],
             "start_date": "2026-03-01",
-            "status": "generating",
+            "status": "complete",
             "total_duration_seconds": 3600,
             "total_pay_by_currency": {
               "GBP": 2400
             },
-            "unpaid_shifts": "excluded",
+            "unpaid_shifts": "included",
             "updated_at": "2026-04-01T09:00:00Z"
           }
         },
@@ -79888,29 +79798,12 @@
           "pay_report": {
             "created_at": "2026-04-01T09:00:00Z",
             "creator": {
-              "alert": {
-                "id": "01GW2G3V0S59R238FAHPDS1R66",
-                "title": "*errors.withMessage: PG::Error failed to connect"
-              },
               "api_key": {
                 "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                 "name": "My test API key"
-              },
-              "user": {
-                "email": "lisa@incident.io",
-                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                "name": "Lisa Karlin Curtis",
-                "role": "owner",
-                "slack_user_id": "U02AYNF2XJM"
-              },
-              "workflow": {
-                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                "name": "My little workflow"
               }
             },
             "end_date": "2026-03-31",
-            "error_code": "timed_out",
-            "error_message": "Schedule 'Primary Support' has no pay config to price its shifts with",
             "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
             "name": "March 2026",
             "overlapping_shifts": "paid_per_schedule",
@@ -79919,12 +79812,12 @@
               "01FCNDV6P870EA6S7TK1DSYDG0"
             ],
             "start_date": "2026-03-01",
-            "status": "generating",
+            "status": "complete",
             "total_duration_seconds": 3600,
             "total_pay_by_currency": {
               "GBP": 2400
             },
-            "unpaid_shifts": "excluded",
+            "unpaid_shifts": "included",
             "updated_at": "2026-04-01T09:00:00Z"
           }
         },
@@ -154555,29 +154448,12 @@
                     {
                       "created_at": "2026-04-01T09:00:00Z",
                       "creator": {
-                        "alert": {
-                          "id": "01GW2G3V0S59R238FAHPDS1R66",
-                          "title": "*errors.withMessage: PG::Error failed to connect"
-                        },
                         "api_key": {
                           "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                           "name": "My test API key"
-                        },
-                        "user": {
-                          "email": "lisa@incident.io",
-                          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                          "name": "Lisa Karlin Curtis",
-                          "role": "owner",
-                          "slack_user_id": "U02AYNF2XJM"
-                        },
-                        "workflow": {
-                          "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                          "name": "My little workflow"
                         }
                       },
                       "end_date": "2026-03-31",
-                      "error_code": "timed_out",
-                      "error_message": "Schedule 'Primary Support' has no pay config to price its shifts with",
                       "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                       "name": "March 2026",
                       "overlapping_shifts": "paid_per_schedule",
@@ -154586,12 +154462,12 @@
                         "01FCNDV6P870EA6S7TK1DSYDG0"
                       ],
                       "start_date": "2026-03-01",
-                      "status": "generating",
+                      "status": "complete",
                       "total_duration_seconds": 3600,
                       "total_pay_by_currency": {
                         "GBP": 2400
                       },
-                      "unpaid_shifts": "excluded",
+                      "unpaid_shifts": "included",
                       "updated_at": "2026-04-01T09:00:00Z"
                     }
                   ]
@@ -154903,43 +154779,21 @@
                   "pay_report": {
                     "created_at": "2026-04-01T09:00:00Z",
                     "creator": {
-                      "alert": {
-                        "id": "01GW2G3V0S59R238FAHPDS1R66",
-                        "title": "*errors.withMessage: PG::Error failed to connect"
-                      },
                       "api_key": {
                         "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                         "name": "My test API key"
-                      },
-                      "user": {
-                        "email": "lisa@incident.io",
-                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                        "name": "Lisa Karlin Curtis",
-                        "role": "owner",
-                        "slack_user_id": "U02AYNF2XJM"
-                      },
-                      "workflow": {
-                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                        "name": "My little workflow"
                       }
                     },
                     "end_date": "2026-03-31",
-                    "error_code": "timed_out",
-                    "error_message": "Schedule 'Primary Support' has no pay config to price its shifts with",
                     "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "name": "March 2026",
                     "overlapping_shifts": "paid_per_schedule",
-                    "published_at": "2026-04-01T09:00:00Z",
                     "schedule_ids": [
                       "01FCNDV6P870EA6S7TK1DSYDG0"
                     ],
                     "start_date": "2026-03-01",
-                    "status": "generating",
-                    "total_duration_seconds": 3600,
-                    "total_pay_by_currency": {
-                      "GBP": 2400
-                    },
-                    "unpaid_shifts": "excluded",
+                    "status": "pending",
+                    "unpaid_shifts": "included",
                     "updated_at": "2026-04-01T09:00:00Z"
                   }
                 },
@@ -155288,29 +155142,12 @@
                   "pay_report": {
                     "created_at": "2026-04-01T09:00:00Z",
                     "creator": {
-                      "alert": {
-                        "id": "01GW2G3V0S59R238FAHPDS1R66",
-                        "title": "*errors.withMessage: PG::Error failed to connect"
-                      },
                       "api_key": {
                         "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                         "name": "My test API key"
-                      },
-                      "user": {
-                        "email": "lisa@incident.io",
-                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                        "name": "Lisa Karlin Curtis",
-                        "role": "owner",
-                        "slack_user_id": "U02AYNF2XJM"
-                      },
-                      "workflow": {
-                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                        "name": "My little workflow"
                       }
                     },
                     "end_date": "2026-03-31",
-                    "error_code": "timed_out",
-                    "error_message": "Schedule 'Primary Support' has no pay config to price its shifts with",
                     "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "name": "March 2026",
                     "overlapping_shifts": "paid_per_schedule",
@@ -155319,12 +155156,12 @@
                       "01FCNDV6P870EA6S7TK1DSYDG0"
                     ],
                     "start_date": "2026-03-01",
-                    "status": "generating",
+                    "status": "complete",
                     "total_duration_seconds": 3600,
                     "total_pay_by_currency": {
                       "GBP": 2400
                     },
-                    "unpaid_shifts": "excluded",
+                    "unpaid_shifts": "included",
                     "updated_at": "2026-04-01T09:00:00Z"
                   }
                 },
@@ -155523,29 +155360,12 @@
                   "pay_report": {
                     "created_at": "2026-04-01T09:00:00Z",
                     "creator": {
-                      "alert": {
-                        "id": "01GW2G3V0S59R238FAHPDS1R66",
-                        "title": "*errors.withMessage: PG::Error failed to connect"
-                      },
                       "api_key": {
                         "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                         "name": "My test API key"
-                      },
-                      "user": {
-                        "email": "lisa@incident.io",
-                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                        "name": "Lisa Karlin Curtis",
-                        "role": "owner",
-                        "slack_user_id": "U02AYNF2XJM"
-                      },
-                      "workflow": {
-                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                        "name": "My little workflow"
                       }
                     },
                     "end_date": "2026-03-31",
-                    "error_code": "timed_out",
-                    "error_message": "Schedule 'Primary Support' has no pay config to price its shifts with",
                     "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "name": "March 2026",
                     "overlapping_shifts": "paid_per_schedule",
@@ -155554,12 +155374,12 @@
                       "01FCNDV6P870EA6S7TK1DSYDG0"
                     ],
                     "start_date": "2026-03-01",
-                    "status": "generating",
+                    "status": "complete",
                     "total_duration_seconds": 3600,
                     "total_pay_by_currency": {
                       "GBP": 2400
                     },
-                    "unpaid_shifts": "excluded",
+                    "unpaid_shifts": "included",
                     "updated_at": "2026-04-01T09:00:00Z"
                   }
                 },
@@ -155755,29 +155575,12 @@
                   "pay_report": {
                     "created_at": "2026-04-01T09:00:00Z",
                     "creator": {
-                      "alert": {
-                        "id": "01GW2G3V0S59R238FAHPDS1R66",
-                        "title": "*errors.withMessage: PG::Error failed to connect"
-                      },
                       "api_key": {
                         "id": "01FCNDV6P870EA6S7TK1DSYDG0",
                         "name": "My test API key"
-                      },
-                      "user": {
-                        "email": "lisa@incident.io",
-                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                        "name": "Lisa Karlin Curtis",
-                        "role": "owner",
-                        "slack_user_id": "U02AYNF2XJM"
-                      },
-                      "workflow": {
-                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
-                        "name": "My little workflow"
                       }
                     },
                     "end_date": "2026-03-31",
-                    "error_code": "timed_out",
-                    "error_message": "Schedule 'Primary Support' has no pay config to price its shifts with",
                     "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "name": "March 2026",
                     "overlapping_shifts": "paid_per_schedule",
@@ -155786,12 +155589,12 @@
                       "01FCNDV6P870EA6S7TK1DSYDG0"
                     ],
                     "start_date": "2026-03-01",
-                    "status": "generating",
+                    "status": "complete",
                     "total_duration_seconds": 3600,
                     "total_pay_by_currency": {
                       "GBP": 2400
                     },
-                    "unpaid_shifts": "excluded",
+                    "unpaid_shifts": "included",
                     "updated_at": "2026-04-01T09:00:00Z"
                   }
                 },
