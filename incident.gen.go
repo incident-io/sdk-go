@@ -1193,6 +1193,7 @@ const (
 	AlertSourceV2SourceTypeExpel             AlertSourceV2SourceType = "expel"
 	AlertSourceV2SourceTypeGithubIssue       AlertSourceV2SourceType = "github_issue"
 	AlertSourceV2SourceTypeGoogleCloud       AlertSourceV2SourceType = "google_cloud"
+	AlertSourceV2SourceTypeGoogleSecops      AlertSourceV2SourceType = "google_secops"
 	AlertSourceV2SourceTypeGrafana           AlertSourceV2SourceType = "grafana"
 	AlertSourceV2SourceTypeHeartbeat         AlertSourceV2SourceType = "heartbeat"
 	AlertSourceV2SourceTypeHoneycomb         AlertSourceV2SourceType = "honeycomb"
@@ -1270,6 +1271,8 @@ func (e AlertSourceV2SourceType) Valid() bool {
 	case AlertSourceV2SourceTypeGithubIssue:
 		return true
 	case AlertSourceV2SourceTypeGoogleCloud:
+		return true
+	case AlertSourceV2SourceTypeGoogleSecops:
 		return true
 	case AlertSourceV2SourceTypeGrafana:
 		return true
@@ -1361,6 +1364,7 @@ const (
 	AlertSourcesCreatePayloadV2SourceTypeExpel             AlertSourcesCreatePayloadV2SourceType = "expel"
 	AlertSourcesCreatePayloadV2SourceTypeGithubIssue       AlertSourcesCreatePayloadV2SourceType = "github_issue"
 	AlertSourcesCreatePayloadV2SourceTypeGoogleCloud       AlertSourcesCreatePayloadV2SourceType = "google_cloud"
+	AlertSourcesCreatePayloadV2SourceTypeGoogleSecops      AlertSourcesCreatePayloadV2SourceType = "google_secops"
 	AlertSourcesCreatePayloadV2SourceTypeGrafana           AlertSourcesCreatePayloadV2SourceType = "grafana"
 	AlertSourcesCreatePayloadV2SourceTypeHeartbeat         AlertSourcesCreatePayloadV2SourceType = "heartbeat"
 	AlertSourcesCreatePayloadV2SourceTypeHoneycomb         AlertSourcesCreatePayloadV2SourceType = "honeycomb"
@@ -1438,6 +1442,8 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesCreatePayloadV2SourceTypeGithubIssue:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeGoogleCloud:
+		return true
+	case AlertSourcesCreatePayloadV2SourceTypeGoogleSecops:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeGrafana:
 		return true
@@ -1529,6 +1535,7 @@ const (
 	AlertSourcesValidatePayloadV2SourceTypeExpel             AlertSourcesValidatePayloadV2SourceType = "expel"
 	AlertSourcesValidatePayloadV2SourceTypeGithubIssue       AlertSourcesValidatePayloadV2SourceType = "github_issue"
 	AlertSourcesValidatePayloadV2SourceTypeGoogleCloud       AlertSourcesValidatePayloadV2SourceType = "google_cloud"
+	AlertSourcesValidatePayloadV2SourceTypeGoogleSecops      AlertSourcesValidatePayloadV2SourceType = "google_secops"
 	AlertSourcesValidatePayloadV2SourceTypeGrafana           AlertSourcesValidatePayloadV2SourceType = "grafana"
 	AlertSourcesValidatePayloadV2SourceTypeHeartbeat         AlertSourcesValidatePayloadV2SourceType = "heartbeat"
 	AlertSourcesValidatePayloadV2SourceTypeHoneycomb         AlertSourcesValidatePayloadV2SourceType = "honeycomb"
@@ -1606,6 +1613,8 @@ func (e AlertSourcesValidatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesValidatePayloadV2SourceTypeGithubIssue:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeGoogleCloud:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeGoogleSecops:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeGrafana:
 		return true
