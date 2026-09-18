@@ -76176,6 +76176,9 @@
           ],
           "notify_end_minutes_before": 5,
           "notify_start_minutes_before": 15,
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
           "reroute_on_end": false,
           "resolve_on_end": false,
           "show_in_sidebar": true,
@@ -76329,6 +76332,17 @@
             "format": "int64",
             "type": "integer"
           },
+          "owning_team_ids": {
+            "description": "IDs of teams that own this maintenance window. Owning teams control who can manage the window, and restrict it to holding alerts belonging to those teams or their descendants in the team hierarchy.",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
+          },
           "reroute_on_end": {
             "description": "Whether to retrigger firing alerts through alert routing when the window ends",
             "example": false,
@@ -76444,6 +76458,9 @@
           ],
           "notify_end_minutes_before": 5,
           "notify_start_minutes_before": 15,
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
           "reroute_on_end": false,
           "resolve_on_end": false,
           "show_in_sidebar": true,
@@ -76565,6 +76582,17 @@
             "example": 15,
             "format": "int64",
             "type": "integer"
+          },
+          "owning_team_ids": {
+            "description": "IDs of teams that own this maintenance window. Omit to leave ownership unchanged, or pass an empty list to clear it.",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
           },
           "reroute_on_end": {
             "description": "Whether to retrigger firing alerts through alert routing when the window ends",
@@ -76703,6 +76731,9 @@
             ],
             "notify_end_minutes_before": 5,
             "notify_start_minutes_before": 15,
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "reroute_on_end": false,
             "resolve_on_end": false,
             "show_in_sidebar": true,
@@ -76826,6 +76857,9 @@
               ],
               "notify_end_minutes_before": 5,
               "notify_start_minutes_before": 15,
+              "owning_team_ids": [
+                "01G0J1EXE7AXZ2C93K61WBPYEH"
+              ],
               "reroute_on_end": false,
               "resolve_on_end": false,
               "show_in_sidebar": true,
@@ -76944,6 +76978,9 @@
                 ],
                 "notify_end_minutes_before": 5,
                 "notify_start_minutes_before": 15,
+                "owning_team_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ],
                 "reroute_on_end": false,
                 "resolve_on_end": false,
                 "show_in_sidebar": true,
@@ -77071,6 +77108,9 @@
             ],
             "notify_end_minutes_before": 5,
             "notify_start_minutes_before": 15,
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "reroute_on_end": false,
             "resolve_on_end": false,
             "show_in_sidebar": true,
@@ -77160,6 +77200,9 @@
           ],
           "notify_end_minutes_before": 5,
           "notify_start_minutes_before": 15,
+          "owning_team_ids": [
+            "01G0J1EXE7AXZ2C93K61WBPYEH"
+          ],
           "reroute_on_end": false,
           "resolve_on_end": false,
           "show_in_sidebar": true,
@@ -77281,6 +77324,17 @@
             "example": 15,
             "format": "int64",
             "type": "integer"
+          },
+          "owning_team_ids": {
+            "description": "IDs of teams that own this maintenance window. Omit to leave ownership unchanged, or pass an empty list to clear it.",
+            "example": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "items": {
+              "example": "abc123",
+              "type": "string"
+            },
+            "type": "array"
           },
           "reroute_on_end": {
             "description": "Whether to retrigger firing alerts through alert routing when the window ends",
@@ -77419,6 +77473,9 @@
             ],
             "notify_end_minutes_before": 5,
             "notify_start_minutes_before": 15,
+            "owning_team_ids": [
+              "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
             "reroute_on_end": false,
             "resolve_on_end": false,
             "show_in_sidebar": true,
@@ -115755,6 +115812,9 @@
                       ],
                       "notify_end_minutes_before": 5,
                       "notify_start_minutes_before": 15,
+                      "owning_team_ids": [
+                        "01G0J1EXE7AXZ2C93K61WBPYEH"
+                      ],
                       "reroute_on_end": false,
                       "resolve_on_end": false,
                       "show_in_sidebar": true,
@@ -115996,6 +116056,9 @@
                 ],
                 "notify_end_minutes_before": 5,
                 "notify_start_minutes_before": 15,
+                "owning_team_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ],
                 "reroute_on_end": false,
                 "resolve_on_end": false,
                 "show_in_sidebar": true,
@@ -116116,6 +116179,9 @@
                     ],
                     "notify_end_minutes_before": 5,
                     "notify_start_minutes_before": 15,
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "reroute_on_end": false,
                     "resolve_on_end": false,
                     "show_in_sidebar": true,
@@ -116581,6 +116647,9 @@
                     ],
                     "notify_end_minutes_before": 5,
                     "notify_start_minutes_before": 15,
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "reroute_on_end": false,
                     "resolve_on_end": false,
                     "show_in_sidebar": true,
@@ -116836,6 +116905,9 @@
                 ],
                 "notify_end_minutes_before": 5,
                 "notify_start_minutes_before": 15,
+                "owning_team_ids": [
+                  "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ],
                 "reroute_on_end": false,
                 "resolve_on_end": false,
                 "show_in_sidebar": true,
@@ -116956,6 +117028,9 @@
                     ],
                     "notify_end_minutes_before": 5,
                     "notify_start_minutes_before": 15,
+                    "owning_team_ids": [
+                      "01G0J1EXE7AXZ2C93K61WBPYEH"
+                    ],
                     "reroute_on_end": false,
                     "resolve_on_end": false,
                     "show_in_sidebar": true,

@@ -15995,6 +15995,9 @@ type MaintenanceWindowV1 struct {
 	// NotifyStartMinutesBefore Minutes before the start to send a notification to the configured channels
 	NotifyStartMinutesBefore *int64 `json:"notify_start_minutes_before,omitempty"`
 
+	// OwningTeamIds IDs of teams that own this maintenance window. Owning teams control who can manage the window, and restrict it to holding alerts belonging to those teams or their descendants in the team hierarchy.
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
 	// RerouteOnEnd Whether to retrigger firing alerts through alert routing when the window ends
 	RerouteOnEnd bool `json:"reroute_on_end"`
 
@@ -16040,6 +16043,9 @@ type MaintenanceWindowsCreatePayloadV1 struct {
 
 	// NotifyStartMinutesBefore Minutes before the start to send a notification to the configured channels
 	NotifyStartMinutesBefore *int64 `json:"notify_start_minutes_before,omitempty"`
+
+	// OwningTeamIds IDs of teams that own this maintenance window. Omit to leave ownership unchanged, or pass an empty list to clear it.
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
 
 	// RerouteOnEnd Whether to retrigger firing alerts through alert routing when the window ends
 	RerouteOnEnd *bool `json:"reroute_on_end,omitempty"`
@@ -16099,6 +16105,9 @@ type MaintenanceWindowsUpdatePayloadV1 struct {
 
 	// NotifyStartMinutesBefore Minutes before the start to send a notification to the configured channels
 	NotifyStartMinutesBefore *int64 `json:"notify_start_minutes_before,omitempty"`
+
+	// OwningTeamIds IDs of teams that own this maintenance window. Omit to leave ownership unchanged, or pass an empty list to clear it.
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
 
 	// RerouteOnEnd Whether to retrigger firing alerts through alert routing when the window ends
 	RerouteOnEnd *bool `json:"reroute_on_end,omitempty"`
