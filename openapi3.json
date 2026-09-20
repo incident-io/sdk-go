@@ -91460,6 +91460,60 @@
         ],
         "type": "object"
       },
+      "StatusPageComponentAvailabilityV2": {
+        "description": "Availability of a status page component over a requested time window.",
+        "example": {
+          "availability_percent": "99.94",
+          "component_id": "01FCNDV6P870EA6S7TK1DSYDG1",
+          "data_available_since": "2025-06-01T00:00:00Z",
+          "end_at": "2026-02-01T00:00:00Z",
+          "start_at": "2026-01-01T00:00:00Z",
+          "status_page_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+        },
+        "properties": {
+          "availability_percent": {
+            "description": "Availability over the window as a percentage, floored (for example \"99.94\"). Omitted when we have no data covering the window.",
+            "example": "99.94",
+            "type": "string"
+          },
+          "component_id": {
+            "description": "ID of the component. This may be found by calling the ShowStatusPageStructure endpoint.",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG1",
+            "type": "string"
+          },
+          "data_available_since": {
+            "description": "Earliest time we have status data for this component. Before this, availability is unknown rather than assumed operational.",
+            "example": "2025-06-01T00:00:00Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "end_at": {
+            "description": "End of the requested availability window",
+            "example": "2026-02-01T00:00:00Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "start_at": {
+            "description": "Start of the requested availability window",
+            "example": "2026-01-01T00:00:00Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "status_page_id": {
+            "description": "ID of the status page",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status_page_id",
+          "component_id",
+          "start_at",
+          "end_at",
+          "data_available_since"
+        ],
+        "type": "object"
+      },
       "StatusPageIncidentAffectedComponentV2": {
         "example": {
           "component_id": "01FCNDV6P870EA6S7TK1DSYDG2",
@@ -93223,6 +93277,27 @@
         "required": [
           "status_pages",
           "pagination_meta"
+        ],
+        "type": "object"
+      },
+      "StatusPagesShowStatusPageComponentAvailabilityResultV2": {
+        "example": {
+          "availability": {
+            "availability_percent": "99.94",
+            "component_id": "01FCNDV6P870EA6S7TK1DSYDG1",
+            "data_available_since": "2025-06-01T00:00:00Z",
+            "end_at": "2026-02-01T00:00:00Z",
+            "start_at": "2026-01-01T00:00:00Z",
+            "status_page_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+          }
+        },
+        "properties": {
+          "availability": {
+            "$ref": "#/components/schemas/StatusPageComponentAvailabilityV2"
+          }
+        },
+        "required": [
+          "availability"
         ],
         "type": "object"
       },
@@ -170656,6 +170731,226 @@
         "x-docs-resource-type": "StatusPageV2"
       }
     },
+    "/v2/status_pages/{status_page_id}/components/{component_id}/availability": {
+      "get": {
+        "description": "Show availability for a status page component over a time window.\n\nPass start_at and end_at as RFC3339 timestamps. The window cannot be longer than 366 days. Availability uses the same rules as the public status page: full and partial outages count as downtime, overlapping impacts are merged, and time before we have data for the component is excluded rather than counted as up.\n\nThis endpoint requires a valid API key but no specific scopes. Use ListStatusPages and ShowStatusPageStructure to find status page and component IDs.",
+        "operationId": "Status Pages V2#ShowStatusPageComponentAvailability",
+        "parameters": [
+          {
+            "allowEmptyValue": true,
+            "description": "Start of the availability window",
+            "example": "2026-01-01T00:00:00Z",
+            "in": "query",
+            "name": "start_at",
+            "required": true,
+            "schema": {
+              "description": "Start of the availability window",
+              "example": "2026-01-01T00:00:00Z",
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "allowEmptyValue": true,
+            "description": "End of the availability window",
+            "example": "2026-02-01T00:00:00Z",
+            "in": "query",
+            "name": "end_at",
+            "required": true,
+            "schema": {
+              "description": "End of the availability window",
+              "example": "2026-02-01T00:00:00Z",
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "ID of the status page. You can find this by calling the ListStatusPages endpoint.",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "in": "path",
+            "name": "status_page_id",
+            "required": true,
+            "schema": {
+              "description": "ID of the status page. You can find this by calling the ListStatusPages endpoint.",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG0",
+              "type": "string"
+            }
+          },
+          {
+            "description": "ID of the component. You can find this by calling the ShowStatusPageStructure endpoint.",
+            "example": "01FCNDV6P870EA6S7TK1DSYDG1",
+            "in": "path",
+            "name": "component_id",
+            "required": true,
+            "schema": {
+              "description": "ID of the component. You can find this by calling the ShowStatusPageStructure endpoint.",
+              "example": "01FCNDV6P870EA6S7TK1DSYDG1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "availability": {
+                    "availability_percent": "99.94",
+                    "component_id": "01FCNDV6P870EA6S7TK1DSYDG1",
+                    "data_available_since": "2025-06-01T00:00:00Z",
+                    "end_at": "2026-02-01T00:00:00Z",
+                    "start_at": "2026-01-01T00:00:00Z",
+                    "status_page_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/StatusPagesShowStatusPageComponentAvailabilityResultV2"
+                }
+              }
+            },
+            "description": "OK response."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "invalid_request_error: There was a problem with the request, like a missing header or querying a resource that doesn't exist."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "authentication_error: Authentication failed."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "resource_forbidden: Access to this resource is forbidden for the authenticated user."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_found: The referenced resource could not be found."
+          },
+          "405": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "method_not_allowed: The endpoint does not support this operation for the specified resource."
+          },
+          "406": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "not_acceptable: Requested a media type this endpoint does not support."
+          },
+          "408": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "request_timeout: The request took too long to process.\n\nclient_timeout: The request was cancelled by the client."
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "conflict: Request conflicted with current state of the resource, likely a concurrent update."
+          },
+          "412": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "precondition_failed: A required condition hasn't been met."
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "payload_too_large: The request payload is too large."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "validation_error: A required field was not provided, or the provided data was invalid."
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "too_many_requests: Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.\n\nrate_limit_reached: The rate limit associated with this resource or API key has been exceeded. Try again later."
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "api_error: Something went wrong and has been reported internally."
+          }
+        },
+        "summary": "ShowStatusPageComponentAvailability Status Pages V2",
+        "tags": [
+          "Status Pages V2"
+        ],
+        "x-display-name": "Show",
+        "x-docs-display-name": "Show",
+        "x-docs-group-name": "Status Page Component Availability V2",
+        "x-docs-resource-type": "StatusPageComponentAvailabilityV2"
+      }
+    },
     "/v2/telemetry/data_sources/{id}": {
       "put": {
         "description": "Update the credentials or configuration of a telemetry data source. Provide only the config block that matches your data source type (e.g. grafana_config for Grafana, datadog_config for Datadog). New credentials are validated against the provider before being saved.",
@@ -184882,7 +185177,7 @@
       "name": "Status Pages V1"
     },
     {
-      "description": "Manage and publish to status pages.\n\nBefore using these endpoints, you must create a status page in the incident.io dashboard (find Status Pages in the left navigation bar). You can then use the ListStatusPages endpoint to find your status page IDs, and the ShowStatusPageStructure endpoint to find component IDs and group IDs for your status page.\n\nFor read-only access (listing status pages, viewing structure, incidents, and maintenance windows), any valid API key will work. For write requests (creating incidents, maintenance windows, and publishing updates), you will need an API key with the \"Create status page incidents, status page maintenance windows, and publish status page updates\" scope.\n",
+      "description": "Manage and publish to status pages.\n\nBefore using these endpoints, you must create a status page in the incident.io dashboard (find Status Pages in the left navigation bar). You can then use the ListStatusPages endpoint to find your status page IDs, and the ShowStatusPageStructure endpoint to find component IDs and group IDs for your status page.\n\nFor read-only access (listing status pages, viewing structure, incidents, maintenance windows, and component availability), any valid API key will work. For write requests (creating incidents, maintenance windows, and publishing updates), you will need an API key with the \"Create status page incidents, status page maintenance windows, and publish status page updates\" scope.\n",
       "name": "Status Pages V2"
     },
     {

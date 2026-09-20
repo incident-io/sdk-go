@@ -18617,6 +18617,27 @@ type SeverityV2 struct {
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
+// StatusPageComponentAvailabilityV2 Availability of a status page component over a requested time window.
+type StatusPageComponentAvailabilityV2 struct {
+	// AvailabilityPercent Availability over the window as a percentage, floored (for example "99.94"). Omitted when we have no data covering the window.
+	AvailabilityPercent *string `json:"availability_percent,omitempty"`
+
+	// ComponentId ID of the component. This may be found by calling the ShowStatusPageStructure endpoint.
+	ComponentId string `json:"component_id"`
+
+	// DataAvailableSince Earliest time we have status data for this component. Before this, availability is unknown rather than assumed operational.
+	DataAvailableSince time.Time `json:"data_available_since"`
+
+	// EndAt End of the requested availability window
+	EndAt time.Time `json:"end_at"`
+
+	// StartAt Start of the requested availability window
+	StartAt time.Time `json:"start_at"`
+
+	// StatusPageId ID of the status page
+	StatusPageId string `json:"status_page_id"`
+}
+
 // StatusPageIncidentAffectedComponentV2 defines model for StatusPageIncidentAffectedComponentV2.
 type StatusPageIncidentAffectedComponentV2 struct {
 	// ComponentId The ID of the affected component. This may be found by calling the ShowStatusPageStructure endpoint.
@@ -19036,6 +19057,12 @@ type StatusPagesListStatusPageMaintenancesResultV2 struct {
 type StatusPagesListStatusPagesResultV2 struct {
 	PaginationMeta PaginationMetaResultV2 `json:"pagination_meta"`
 	StatusPages    []StatusPageV2         `json:"status_pages"`
+}
+
+// StatusPagesShowStatusPageComponentAvailabilityResultV2 defines model for StatusPagesShowStatusPageComponentAvailabilityResultV2.
+type StatusPagesShowStatusPageComponentAvailabilityResultV2 struct {
+	// Availability Availability of a status page component over a requested time window.
+	Availability StatusPageComponentAvailabilityV2 `json:"availability"`
 }
 
 // StatusPagesShowStatusPageIncidentResultV2 defines model for StatusPagesShowStatusPageIncidentResultV2.
@@ -20699,6 +20726,15 @@ type StatusPagesV2ListStatusPagesParams struct {
 	After *string `form:"after,omitempty" json:"after,omitempty"`
 }
 
+// StatusPagesV2ShowStatusPageComponentAvailabilityParams defines parameters for StatusPagesV2ShowStatusPageComponentAvailability.
+type StatusPagesV2ShowStatusPageComponentAvailabilityParams struct {
+	// StartAt Start of the availability window
+	StartAt time.Time `form:"start_at" json:"start_at"`
+
+	// EndAt End of the availability window
+	EndAt time.Time `form:"end_at" json:"end_at"`
+}
+
 // UsersV2ListParams defines parameters for UsersV2List.
 type UsersV2ListParams struct {
 	// Email Filter by email address
@@ -22255,6 +22291,9 @@ type ClientInterface interface {
 
 	// StatusPagesV2ListStatusPages request
 	StatusPagesV2ListStatusPages(ctx context.Context, params *StatusPagesV2ListStatusPagesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// StatusPagesV2ShowStatusPageComponentAvailability request
+	StatusPagesV2ShowStatusPageComponentAvailability(ctx context.Context, statusPageId string, componentId string, params *StatusPagesV2ShowStatusPageComponentAvailabilityParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// TelemetryV2UpdateDataSourceWithBody request with any body
 	TelemetryV2UpdateDataSourceWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -26871,6 +26910,18 @@ func (c *Client) StatusPagesV2ShowStatusPageStructure(ctx context.Context, statu
 
 func (c *Client) StatusPagesV2ListStatusPages(ctx context.Context, params *StatusPagesV2ListStatusPagesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newStatusPagesV2ListStatusPagesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) StatusPagesV2ShowStatusPageComponentAvailability(ctx context.Context, statusPageId string, componentId string, params *StatusPagesV2ShowStatusPageComponentAvailabilityParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newStatusPagesV2ShowStatusPageComponentAvailabilityRequest(c.Server, statusPageId, componentId, params)
 	if err != nil {
 		return nil, err
 	}
@@ -39917,6 +39968,77 @@ func newStatusPagesV2ListStatusPagesRequest(server string, params *StatusPagesV2
 	return req, nil
 }
 
+// NewStatusPagesV2ShowStatusPageComponentAvailabilityRequest generates requests for StatusPagesV2ShowStatusPageComponentAvailability
+func newStatusPagesV2ShowStatusPageComponentAvailabilityRequest(server string, statusPageId string, componentId string, params *StatusPagesV2ShowStatusPageComponentAvailabilityParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "status_page_id", statusPageId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "component_id", componentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/status_pages/%s/components/%s/availability", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "start_at", params.StartAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: "date-time"}); err != nil {
+			return nil, err
+		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+			return nil, err
+		} else {
+			for k, v := range parsed {
+				for _, v2 := range v {
+					queryValues.Add(k, v2)
+				}
+			}
+		}
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "end_at", params.EndAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: "date-time"}); err != nil {
+			return nil, err
+		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+			return nil, err
+		} else {
+			for k, v := range parsed {
+				for _, v2 := range v {
+					queryValues.Add(k, v2)
+				}
+			}
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewTelemetryV2UpdateDataSourceRequest calls the generic TelemetryV2UpdateDataSource builder with application/json body
 func newTelemetryV2UpdateDataSourceRequest(server string, id string, body TelemetryV2UpdateDataSourceJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -43186,6 +43308,9 @@ type ClientWithResponsesInterface interface {
 
 	// StatusPagesV2ListStatusPagesWithResponse request
 	StatusPagesV2ListStatusPagesWithResponse(ctx context.Context, params *StatusPagesV2ListStatusPagesParams, reqEditors ...RequestEditorFn) (*StatusPagesV2ListStatusPagesResponse, error)
+
+	// StatusPagesV2ShowStatusPageComponentAvailabilityWithResponse request
+	StatusPagesV2ShowStatusPageComponentAvailabilityWithResponse(ctx context.Context, statusPageId string, componentId string, params *StatusPagesV2ShowStatusPageComponentAvailabilityParams, reqEditors ...RequestEditorFn) (*StatusPagesV2ShowStatusPageComponentAvailabilityResponse, error)
 
 	// TelemetryV2UpdateDataSourceWithBodyWithResponse request with any body
 	TelemetryV2UpdateDataSourceWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*TelemetryV2UpdateDataSourceResponse, error)
@@ -52315,6 +52440,41 @@ func (r StatusPagesV2ListStatusPagesResponse) StatusCode() int {
 	return 0
 }
 
+type StatusPagesV2ShowStatusPageComponentAvailabilityResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *StatusPagesShowStatusPageComponentAvailabilityResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r StatusPagesV2ShowStatusPageComponentAvailabilityResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r StatusPagesV2ShowStatusPageComponentAvailabilityResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type TelemetryV2UpdateDataSourceResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -57212,6 +57372,15 @@ func (c *ClientWithResponses) StatusPagesV2ListStatusPagesWithResponse(ctx conte
 		return nil, err
 	}
 	return parseStatusPagesV2ListStatusPagesResponse(rsp)
+}
+
+// StatusPagesV2ShowStatusPageComponentAvailabilityWithResponse request returning *StatusPagesV2ShowStatusPageComponentAvailabilityResponse
+func (c *ClientWithResponses) StatusPagesV2ShowStatusPageComponentAvailabilityWithResponse(ctx context.Context, statusPageId string, componentId string, params *StatusPagesV2ShowStatusPageComponentAvailabilityParams, reqEditors ...RequestEditorFn) (*StatusPagesV2ShowStatusPageComponentAvailabilityResponse, error) {
+	rsp, err := c.StatusPagesV2ShowStatusPageComponentAvailability(ctx, statusPageId, componentId, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseStatusPagesV2ShowStatusPageComponentAvailabilityResponse(rsp)
 }
 
 // TelemetryV2UpdateDataSourceWithBodyWithResponse request with arbitrary body returning *TelemetryV2UpdateDataSourceResponse
@@ -87446,6 +87615,123 @@ func parseStatusPagesV2ListStatusPagesResponse(rsp *http.Response) (*StatusPages
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest StatusPagesListStatusPagesResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseStatusPagesV2ShowStatusPageComponentAvailabilityResponse parses an HTTP response from a StatusPagesV2ShowStatusPageComponentAvailabilityWithResponse call
+func parseStatusPagesV2ShowStatusPageComponentAvailabilityResponse(rsp *http.Response) (*StatusPagesV2ShowStatusPageComponentAvailabilityResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &StatusPagesV2ShowStatusPageComponentAvailabilityResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest StatusPagesShowStatusPageComponentAvailabilityResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
