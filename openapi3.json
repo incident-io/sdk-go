@@ -170945,10 +170945,10 @@
         "tags": [
           "Status Pages V2"
         ],
-        "x-display-name": "Show",
-        "x-docs-display-name": "Show",
-        "x-docs-group-name": "Status Page Component Availability V2",
-        "x-docs-resource-type": "StatusPageComponentAvailabilityV2"
+        "x-display-name": "Show Component Availability",
+        "x-docs-display-name": "Show Component Availability",
+        "x-docs-group-name": "Status Pages V2",
+        "x-docs-resource-type": "StatusPageV2"
       }
     },
     "/v2/telemetry/data_sources/{id}": {
