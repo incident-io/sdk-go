@@ -1210,6 +1210,7 @@ const (
 	AlertSourceV2SourceTypePagerDuty         AlertSourceV2SourceType = "pager_duty"
 	AlertSourceV2SourceTypePanther           AlertSourceV2SourceType = "panther"
 	AlertSourceV2SourceTypePingdom           AlertSourceV2SourceType = "pingdom"
+	AlertSourceV2SourceTypePosthog           AlertSourceV2SourceType = "posthog"
 	AlertSourceV2SourceTypePrtg              AlertSourceV2SourceType = "prtg"
 	AlertSourceV2SourceTypeRunscope          AlertSourceV2SourceType = "runscope"
 	AlertSourceV2SourceTypeSalesforceCase    AlertSourceV2SourceType = "salesforce_case"
@@ -1306,6 +1307,8 @@ func (e AlertSourceV2SourceType) Valid() bool {
 		return true
 	case AlertSourceV2SourceTypePingdom:
 		return true
+	case AlertSourceV2SourceTypePosthog:
+		return true
 	case AlertSourceV2SourceTypePrtg:
 		return true
 	case AlertSourceV2SourceTypeRunscope:
@@ -1381,6 +1384,7 @@ const (
 	AlertSourcesCreatePayloadV2SourceTypePagerDuty         AlertSourcesCreatePayloadV2SourceType = "pager_duty"
 	AlertSourcesCreatePayloadV2SourceTypePanther           AlertSourcesCreatePayloadV2SourceType = "panther"
 	AlertSourcesCreatePayloadV2SourceTypePingdom           AlertSourcesCreatePayloadV2SourceType = "pingdom"
+	AlertSourcesCreatePayloadV2SourceTypePosthog           AlertSourcesCreatePayloadV2SourceType = "posthog"
 	AlertSourcesCreatePayloadV2SourceTypePrtg              AlertSourcesCreatePayloadV2SourceType = "prtg"
 	AlertSourcesCreatePayloadV2SourceTypeRunscope          AlertSourcesCreatePayloadV2SourceType = "runscope"
 	AlertSourcesCreatePayloadV2SourceTypeSalesforceCase    AlertSourcesCreatePayloadV2SourceType = "salesforce_case"
@@ -1477,6 +1481,8 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypePingdom:
 		return true
+	case AlertSourcesCreatePayloadV2SourceTypePosthog:
+		return true
 	case AlertSourcesCreatePayloadV2SourceTypePrtg:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeRunscope:
@@ -1552,6 +1558,7 @@ const (
 	AlertSourcesValidatePayloadV2SourceTypePagerDuty         AlertSourcesValidatePayloadV2SourceType = "pager_duty"
 	AlertSourcesValidatePayloadV2SourceTypePanther           AlertSourcesValidatePayloadV2SourceType = "panther"
 	AlertSourcesValidatePayloadV2SourceTypePingdom           AlertSourcesValidatePayloadV2SourceType = "pingdom"
+	AlertSourcesValidatePayloadV2SourceTypePosthog           AlertSourcesValidatePayloadV2SourceType = "posthog"
 	AlertSourcesValidatePayloadV2SourceTypePrtg              AlertSourcesValidatePayloadV2SourceType = "prtg"
 	AlertSourcesValidatePayloadV2SourceTypeRunscope          AlertSourcesValidatePayloadV2SourceType = "runscope"
 	AlertSourcesValidatePayloadV2SourceTypeSalesforceCase    AlertSourcesValidatePayloadV2SourceType = "salesforce_case"
@@ -1647,6 +1654,8 @@ func (e AlertSourcesValidatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesValidatePayloadV2SourceTypePanther:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypePingdom:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypePosthog:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypePrtg:
 		return true
