@@ -21333,7 +21333,7 @@
         },
         "properties": {
           "access_source": {
-            "description": "What decided: the connector's access policy, a decision pinned on this tool, or the write grant that preceded access policies on a connector that has none yet (policy, override, write_grant)",
+            "description": "What decided: the connector's access policy, or a decision pinned on this tool (policy, override)",
             "example": "policy",
             "type": "string"
           },
