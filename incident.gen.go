@@ -1216,6 +1216,7 @@ const (
 	AlertSourceV2SourceTypeIncomingCalls     AlertSourceV2SourceType = "incoming_calls"
 	AlertSourceV2SourceTypeJira              AlertSourceV2SourceType = "jira"
 	AlertSourceV2SourceTypeJsm               AlertSourceV2SourceType = "jsm"
+	AlertSourceV2SourceTypeLogzio            AlertSourceV2SourceType = "logzio"
 	AlertSourceV2SourceTypeMonteCarlo        AlertSourceV2SourceType = "monte_carlo"
 	AlertSourceV2SourceTypeNagios            AlertSourceV2SourceType = "nagios"
 	AlertSourceV2SourceTypeNewRelic          AlertSourceV2SourceType = "new_relic"
@@ -1306,6 +1307,8 @@ func (e AlertSourceV2SourceType) Valid() bool {
 		return true
 	case AlertSourceV2SourceTypeJsm:
 		return true
+	case AlertSourceV2SourceTypeLogzio:
+		return true
 	case AlertSourceV2SourceTypeMonteCarlo:
 		return true
 	case AlertSourceV2SourceTypeNagios:
@@ -1390,6 +1393,7 @@ const (
 	AlertSourcesCreatePayloadV2SourceTypeIncomingCalls     AlertSourcesCreatePayloadV2SourceType = "incoming_calls"
 	AlertSourcesCreatePayloadV2SourceTypeJira              AlertSourcesCreatePayloadV2SourceType = "jira"
 	AlertSourcesCreatePayloadV2SourceTypeJsm               AlertSourcesCreatePayloadV2SourceType = "jsm"
+	AlertSourcesCreatePayloadV2SourceTypeLogzio            AlertSourcesCreatePayloadV2SourceType = "logzio"
 	AlertSourcesCreatePayloadV2SourceTypeMonteCarlo        AlertSourcesCreatePayloadV2SourceType = "monte_carlo"
 	AlertSourcesCreatePayloadV2SourceTypeNagios            AlertSourcesCreatePayloadV2SourceType = "nagios"
 	AlertSourcesCreatePayloadV2SourceTypeNewRelic          AlertSourcesCreatePayloadV2SourceType = "new_relic"
@@ -1480,6 +1484,8 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeJsm:
 		return true
+	case AlertSourcesCreatePayloadV2SourceTypeLogzio:
+		return true
 	case AlertSourcesCreatePayloadV2SourceTypeMonteCarlo:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeNagios:
@@ -1564,6 +1570,7 @@ const (
 	AlertSourcesValidatePayloadV2SourceTypeIncomingCalls     AlertSourcesValidatePayloadV2SourceType = "incoming_calls"
 	AlertSourcesValidatePayloadV2SourceTypeJira              AlertSourcesValidatePayloadV2SourceType = "jira"
 	AlertSourcesValidatePayloadV2SourceTypeJsm               AlertSourcesValidatePayloadV2SourceType = "jsm"
+	AlertSourcesValidatePayloadV2SourceTypeLogzio            AlertSourcesValidatePayloadV2SourceType = "logzio"
 	AlertSourcesValidatePayloadV2SourceTypeMonteCarlo        AlertSourcesValidatePayloadV2SourceType = "monte_carlo"
 	AlertSourcesValidatePayloadV2SourceTypeNagios            AlertSourcesValidatePayloadV2SourceType = "nagios"
 	AlertSourcesValidatePayloadV2SourceTypeNewRelic          AlertSourcesValidatePayloadV2SourceType = "new_relic"
@@ -1653,6 +1660,8 @@ func (e AlertSourcesValidatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesValidatePayloadV2SourceTypeJira:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeJsm:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeLogzio:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeMonteCarlo:
 		return true
