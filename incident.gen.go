@@ -58,6 +58,7 @@ const (
 	APIKeyRoleV1NameSecretsUse                          APIKeyRoleV1Name = "secrets_use"
 	APIKeyRoleV1NameSecuritySettingsEditor              APIKeyRoleV1Name = "security_settings_editor"
 	APIKeyRoleV1NameStatusPagePublisher                 APIKeyRoleV1Name = "status_page_publisher"
+	APIKeyRoleV1NameStatusPageViewer                    APIKeyRoleV1Name = "status_page_viewer"
 	APIKeyRoleV1NameTeamMembershipsManage               APIKeyRoleV1Name = "team_memberships_manage"
 	APIKeyRoleV1NameTelemetryDataSourceUpdate           APIKeyRoleV1Name = "telemetry_data_source_update"
 	APIKeyRoleV1NameTelemetryQueryRestricted            APIKeyRoleV1Name = "telemetry_query_restricted"
@@ -145,6 +146,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameSecuritySettingsEditor:
 		return true
 	case APIKeyRoleV1NameStatusPagePublisher:
+		return true
+	case APIKeyRoleV1NameStatusPageViewer:
 		return true
 	case APIKeyRoleV1NameTeamMembershipsManage:
 		return true
@@ -259,6 +262,7 @@ const (
 	APIKeysCreatePayloadV1RoleNamesSecretsUse                          APIKeysCreatePayloadV1RoleNames = "secrets_use"
 	APIKeysCreatePayloadV1RoleNamesSecuritySettingsEditor              APIKeysCreatePayloadV1RoleNames = "security_settings_editor"
 	APIKeysCreatePayloadV1RoleNamesStatusPagePublisher                 APIKeysCreatePayloadV1RoleNames = "status_page_publisher"
+	APIKeysCreatePayloadV1RoleNamesStatusPageViewer                    APIKeysCreatePayloadV1RoleNames = "status_page_viewer"
 	APIKeysCreatePayloadV1RoleNamesTeamMembershipsManage               APIKeysCreatePayloadV1RoleNames = "team_memberships_manage"
 	APIKeysCreatePayloadV1RoleNamesTelemetryDataSourceUpdate           APIKeysCreatePayloadV1RoleNames = "telemetry_data_source_update"
 	APIKeysCreatePayloadV1RoleNamesTelemetryQueryRestricted            APIKeysCreatePayloadV1RoleNames = "telemetry_query_restricted"
@@ -346,6 +350,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesSecuritySettingsEditor:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesStatusPagePublisher:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesStatusPageViewer:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesTeamMembershipsManage:
 		return true
@@ -460,6 +466,7 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesSecretsUse                          APIKeysUpdatePayloadV1RoleNames = "secrets_use"
 	APIKeysUpdatePayloadV1RoleNamesSecuritySettingsEditor              APIKeysUpdatePayloadV1RoleNames = "security_settings_editor"
 	APIKeysUpdatePayloadV1RoleNamesStatusPagePublisher                 APIKeysUpdatePayloadV1RoleNames = "status_page_publisher"
+	APIKeysUpdatePayloadV1RoleNamesStatusPageViewer                    APIKeysUpdatePayloadV1RoleNames = "status_page_viewer"
 	APIKeysUpdatePayloadV1RoleNamesTeamMembershipsManage               APIKeysUpdatePayloadV1RoleNames = "team_memberships_manage"
 	APIKeysUpdatePayloadV1RoleNamesTelemetryDataSourceUpdate           APIKeysUpdatePayloadV1RoleNames = "telemetry_data_source_update"
 	APIKeysUpdatePayloadV1RoleNamesTelemetryQueryRestricted            APIKeysUpdatePayloadV1RoleNames = "telemetry_query_restricted"
@@ -547,6 +554,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesSecuritySettingsEditor:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesStatusPagePublisher:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesStatusPageViewer:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesTeamMembershipsManage:
 		return true
@@ -5056,6 +5065,7 @@ const (
 	IdentityV1RolesSecretsUse                          IdentityV1Roles = "secrets_use"
 	IdentityV1RolesSecuritySettingsEditor              IdentityV1Roles = "security_settings_editor"
 	IdentityV1RolesStatusPagePublisher                 IdentityV1Roles = "status_page_publisher"
+	IdentityV1RolesStatusPageViewer                    IdentityV1Roles = "status_page_viewer"
 	IdentityV1RolesTeamMembershipsManage               IdentityV1Roles = "team_memberships_manage"
 	IdentityV1RolesTelemetryDataSourceUpdate           IdentityV1Roles = "telemetry_data_source_update"
 	IdentityV1RolesTelemetryQueryRestricted            IdentityV1Roles = "telemetry_query_restricted"
@@ -5143,6 +5153,8 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesSecuritySettingsEditor:
 		return true
 	case IdentityV1RolesStatusPagePublisher:
+		return true
+	case IdentityV1RolesStatusPageViewer:
 		return true
 	case IdentityV1RolesTeamMembershipsManage:
 		return true
