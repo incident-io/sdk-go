@@ -26,13 +26,19 @@
 package incident
 
 import (
+	"cmp"
 	"context"
 	"fmt"
 	"net/http"
+	"net/url"
 	"runtime/debug"
+	"slices"
+	"strconv"
+	"strings"
 	"time"
 
 	"github.com/hashicorp/go-retryablehttp"
+	"github.com/oapi-codegen/runtime"
 )
 
 // DefaultEndpoint is the base URL of the incident.io public API.
@@ -106,4 +112,57 @@ func sdkVersion() string {
 		}
 	}
 	return "dev"
+}
+
+// styleParamDeepObject serialises a deepObject query parameter, such as a list
+// filter, in the form the incident.io API parses. internal/postgen points every
+// generated deepObject call here instead of at the runtime.
+//
+// The runtime writes each array element with an index, so a filter with two
+// values becomes status[one_of][0]=a&status[one_of][1]=b. The API reads only
+// the first bracket pair of each key, so those two keys overwrite each other
+// and it filters on just one of the values. Dropping the index repeats the
+// key instead, status[one_of]=a&status[one_of]=b, which the API reads as a
+// list.
+func styleParamDeepObject(explode bool, paramName string, value any, opts runtime.StyleParamOptions) (string, error) {
+	frag, err := runtime.StyleParamWithOptions("deepObject", explode, paramName, value, opts)
+	if err != nil {
+		return "", err
+	}
+	parsed, err := url.ParseQuery(frag)
+	if err != nil {
+		return "", err
+	}
+
+	type entry struct {
+		key    string
+		index  int
+		values []string
+	}
+	entries := make([]entry, 0, len(parsed))
+	for key, values := range parsed {
+		key, index := splitArrayIndex(key)
+		entries = append(entries, entry{key, index, values})
+	}
+
+	// Encode sorts the keys, so only the order of each key's values matters.
+	// Sorting by index keeps the order the caller gave them.
+	slices.SortFunc(entries, func(a, b entry) int { return cmp.Compare(a.index, b.index) })
+
+	out := url.Values{}
+	for _, e := range entries {
+		out[e.key] = append(out[e.key], e.values...)
+	}
+	return out.Encode(), nil
+}
+
+// splitArrayIndex splits status[one_of][1] into status[one_of] and 1. A key
+// with no trailing index is returned as-is, with index 0.
+func splitArrayIndex(key string) (string, int) {
+	if i := strings.LastIndexByte(key, '['); i >= 0 && strings.HasSuffix(key, "]") {
+		if index, err := strconv.Atoi(key[i+1 : len(key)-1]); err == nil {
+			return key[:i], index
+		}
+	}
+	return key, 0
 }

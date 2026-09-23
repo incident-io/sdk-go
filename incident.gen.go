@@ -32314,7 +32314,7 @@ func newAlertEventsV2CreateHTTPRequestWithBody(server string, alertSourceConfigI
 
 		if params.Query != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("deepObject", true, "query", *params.Query, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "query", *params.Query, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
