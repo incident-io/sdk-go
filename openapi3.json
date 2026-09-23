@@ -130392,6 +130392,7 @@
                 "01GBSQF3FHF7FWZQNWGHAVQ804"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "deduplication_key",
             "schema": {
@@ -130412,7 +130413,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -130422,6 +130424,7 @@
                 "firing"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "status",
             "schema": {
@@ -130442,7 +130445,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -130452,6 +130456,7 @@
                 "01GBSQF3FHF7FWZQNWGHAVQ804"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "alert_source",
             "schema": {
@@ -130472,7 +130477,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -130482,6 +130488,7 @@
                 "01GBSQF3FHF7FWZQNWGHAVQ804"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "alert_group_id",
             "schema": {
@@ -130502,7 +130509,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -130512,6 +130520,7 @@
                 "2025-01-01"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "created_at",
             "schema": {
@@ -130532,7 +130541,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -130542,6 +130552,7 @@
                 "2025-01-01"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "updated_at",
             "schema": {
@@ -130562,7 +130573,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -130575,6 +130587,7 @@
                 ]
               }
             },
+            "explode": true,
             "in": "query",
             "name": "attributes",
             "schema": {
@@ -130606,7 +130619,8 @@
                 }
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -130616,6 +130630,7 @@
                 "true"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "has_notes",
             "schema": {
@@ -130636,7 +130651,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -130646,6 +130662,7 @@
                 "known issue"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "tags",
             "schema": {
@@ -130666,7 +130683,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -130676,6 +130694,7 @@
                 "true"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "include_maintenance_window",
             "schema": {
@@ -130696,7 +130715,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           }
         ],
         "responses": {
@@ -145921,6 +145941,7 @@
                 "01J479052SSQAA4531ASFPR3BF"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "escalation_path",
             "schema": {
@@ -145941,7 +145962,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -145951,6 +145973,7 @@
                 "triggered"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "status",
             "schema": {
@@ -145971,7 +145994,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -145981,6 +146005,7 @@
                 "01J479052SSQAA4531ASFPR3BF"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "alert",
             "schema": {
@@ -146001,7 +146026,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -146011,6 +146037,7 @@
                 "01J479052SSQAA4531ASFPR3BF"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "incident",
             "schema": {
@@ -146031,7 +146058,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -146041,6 +146069,7 @@
                 "2021-08-17"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "created_at",
             "schema": {
@@ -146061,7 +146090,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -146071,6 +146101,7 @@
                 "2021-08-17"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "updated_at",
             "schema": {
@@ -146091,7 +146122,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -146101,6 +146133,7 @@
                 "team-a:"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "idempotency_key",
             "schema": {
@@ -146121,7 +146154,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           }
         ],
         "responses": {
@@ -153979,6 +154013,7 @@
                 "01GBSQF3FHF7FWZQNWGHAVQ804"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "status",
             "schema": {
@@ -153999,7 +154034,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -154009,6 +154045,7 @@
                 "active"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "status_category",
             "schema": {
@@ -154029,16 +154066,18 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
             "description": "Filter on incident created at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.",
             "example": {
-              "created_at[gte]": [
+              "gte": [
                 "2024-05-01"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "created_at",
             "schema": {
@@ -154054,21 +154093,23 @@
               },
               "description": "Filter on incident created at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.",
               "example": {
-                "created_at[gte]": [
+                "gte": [
                   "2024-05-01"
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
             "description": "Filter on incident updated at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.",
             "example": {
-              "updated_at[gte]": [
+              "gte": [
                 "2024-05-01"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "updated_at",
             "schema": {
@@ -154084,12 +154125,13 @@
               },
               "description": "Filter on incident updated at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.",
               "example": {
-                "updated_at[gte]": [
+                "gte": [
                   "2024-05-01"
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -154099,6 +154141,7 @@
                 "01GBSQF3FHF7FWZQNWGHAVQ804"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "severity",
             "schema": {
@@ -154119,7 +154162,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -154129,6 +154173,7 @@
                 "01GBSQF3FHF7FWZQNWGHAVQ804"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "incident_type",
             "schema": {
@@ -154149,7 +154194,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -154162,6 +154208,7 @@
                 ]
               }
             },
+            "explode": true,
             "in": "query",
             "name": "incident_role",
             "schema": {
@@ -154193,7 +154240,8 @@
                 }
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -154206,6 +154254,7 @@
                 ]
               }
             },
+            "explode": true,
             "in": "query",
             "name": "custom_field",
             "schema": {
@@ -154237,7 +154286,8 @@
                 }
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -154247,6 +154297,7 @@
                 "retrospective"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "mode",
             "schema": {
@@ -154267,7 +154318,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           }
         ],
         "responses": {
@@ -176817,6 +176869,7 @@
                 "2026-07-01~2026-07-31"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "created_at",
             "schema": {
@@ -176837,7 +176890,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -179664,6 +179718,7 @@
                 "2025-01-01"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "created_at",
             "schema": {
@@ -179684,7 +179739,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -179694,6 +179750,7 @@
                 "2025-01-01"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "updated_at",
             "schema": {
@@ -179714,7 +179771,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           }
         ],
         "responses": {
@@ -187260,6 +187318,7 @@
                 "2025-01-01"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "created_at",
             "schema": {
@@ -187280,7 +187339,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           },
           {
             "allowEmptyValue": true,
@@ -187290,6 +187350,7 @@
                 "2025-01-01"
               ]
             },
+            "explode": true,
             "in": "query",
             "name": "updated_at",
             "schema": {
@@ -187310,7 +187371,8 @@
                 ]
               },
               "type": "object"
-            }
+            },
+            "style": "deepObject"
           }
         ],
         "responses": {

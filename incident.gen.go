@@ -21122,34 +21122,34 @@ type AlertsV2ListParams struct {
 	After *string `form:"after,omitempty" json:"after,omitempty"`
 
 	// DeduplicationKey Filter on alert deduplication key. The accepted operator is 'is'.
-	DeduplicationKey *map[string][]string `form:"deduplication_key,omitempty" json:"deduplication_key,omitempty"`
+	DeduplicationKey *map[string][]string `json:"deduplication_key,omitempty"`
 
 	// Status Filter on alert status. The accepted operators are 'one_of', or 'not_in'.
-	Status *map[string][]string `form:"status,omitempty" json:"status,omitempty"`
+	Status *map[string][]string `json:"status,omitempty"`
 
 	// AlertSource Filter on alert source by ID. The accepted operators are 'one_of', or 'not_in'.
-	AlertSource *map[string][]string `form:"alert_source,omitempty" json:"alert_source,omitempty"`
+	AlertSource *map[string][]string `json:"alert_source,omitempty"`
 
 	// AlertGroupId Filter on alert group ID. Returns alerts that belong to any of the specified groups. The accepted operator is 'one_of'.
-	AlertGroupId *map[string][]string `form:"alert_group_id,omitempty" json:"alert_group_id,omitempty"`
+	AlertGroupId *map[string][]string `json:"alert_group_id,omitempty"`
 
 	// CreatedAt Filter on alert created at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
-	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
+	CreatedAt *map[string][]string `json:"created_at,omitempty"`
 
 	// UpdatedAt Filter on alert updated at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
-	UpdatedAt *map[string][]string `form:"updated_at,omitempty" json:"updated_at,omitempty"`
+	UpdatedAt *map[string][]string `json:"updated_at,omitempty"`
 
 	// Attributes Filter on an alerts attributes. Alert attribute ID should be sent, followed by the operator and values. Accepted operator will depend on the attribute type.
-	Attributes *map[string]map[string][]string `form:"attributes,omitempty" json:"attributes,omitempty"`
+	Attributes *map[string]map[string][]string `json:"attributes,omitempty"`
 
 	// HasNotes Filter on whether an alert has notes. The accepted operator is 'is'.
-	HasNotes *map[string][]string `form:"has_notes,omitempty" json:"has_notes,omitempty"`
+	HasNotes *map[string][]string `json:"has_notes,omitempty"`
 
 	// Tags Filter on the tags applied to an alert, by tag name. The accepted operators are 'one_of', 'all_of' and 'not_in'.
-	Tags *map[string][]string `form:"tags,omitempty" json:"tags,omitempty"`
+	Tags *map[string][]string `json:"tags,omitempty"`
 
 	// IncludeMaintenanceWindow Filter on whether to include maintenance window alerts. The accepted operator is 'is'.
-	IncludeMaintenanceWindow *map[string][]string `form:"include_maintenance_window,omitempty" json:"include_maintenance_window,omitempty"`
+	IncludeMaintenanceWindow *map[string][]string `json:"include_maintenance_window,omitempty"`
 }
 
 // AnnouncementRulesV2ListParams defines parameters for AnnouncementRulesV2List.
@@ -21236,25 +21236,25 @@ type EscalationsV2ListParams struct {
 	After *string `form:"after,omitempty" json:"after,omitempty"`
 
 	// EscalationPath Filter on the escalation path for which the escalation was triggered. Accepted operators are 'one_of' and 'not_in'.
-	EscalationPath *map[string][]string `form:"escalation_path,omitempty" json:"escalation_path,omitempty"`
+	EscalationPath *map[string][]string `json:"escalation_path,omitempty"`
 
 	// Status Filter on the status of the escalation. Accepted operators are 'one_of' and 'not_in'.
-	Status *map[string][]string `form:"status,omitempty" json:"status,omitempty"`
+	Status *map[string][]string `json:"status,omitempty"`
 
 	// Alert Filter on the alert that created an escalation. Accepted operators are 'one_of' and 'not_in'.
-	Alert *map[string][]string `form:"alert,omitempty" json:"alert,omitempty"`
+	Alert *map[string][]string `json:"alert,omitempty"`
 
 	// Incident Filter on the incident that the escalation is connected to. Accepted operators are 'one_of' and 'not_in'.
-	Incident *map[string][]string `form:"incident,omitempty" json:"incident,omitempty"`
+	Incident *map[string][]string `json:"incident,omitempty"`
 
 	// CreatedAt Filter on the created_at timestamp of the escalation. Accepted operators are 'gte', 'lte' and 'date_range'.
-	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
+	CreatedAt *map[string][]string `json:"created_at,omitempty"`
 
 	// UpdatedAt Filter on the updated_at timestamp of the escalation. Accepted operators are 'gte', 'lte' and 'date_range'.
-	UpdatedAt *map[string][]string `form:"updated_at,omitempty" json:"updated_at,omitempty"`
+	UpdatedAt *map[string][]string `json:"updated_at,omitempty"`
 
 	// IdempotencyKey Filter on the idempotency key of the escalation. This is the key set when creating escalations via the API, and is distinct from alert deduplication keys. Accepted operators are 'is' for exact matches and 'starts_with' for prefix matching.
-	IdempotencyKey *map[string][]string `form:"idempotency_key,omitempty" json:"idempotency_key,omitempty"`
+	IdempotencyKey *map[string][]string `json:"idempotency_key,omitempty"`
 }
 
 // FollowUpsV2ListParams defines parameters for FollowUpsV2List.
@@ -21371,31 +21371,31 @@ type IncidentsV2ListParams struct {
 	FilterMode *IncidentsV2ListParamsFilterMode `form:"filter_mode,omitempty" json:"filter_mode,omitempty"`
 
 	// Status Filter on incident status. The accepted operators are 'one_of', or 'not_in'.
-	Status *map[string][]string `form:"status,omitempty" json:"status,omitempty"`
+	Status *map[string][]string `json:"status,omitempty"`
 
 	// StatusCategory Filter on the category of the incidents status. The accepted operators are 'one_of', or 'not_in'.
-	StatusCategory *map[string][]string `form:"status_category,omitempty" json:"status_category,omitempty"`
+	StatusCategory *map[string][]string `json:"status_category,omitempty"`
 
 	// CreatedAt Filter on incident created at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.
-	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
+	CreatedAt *map[string][]string `json:"created_at,omitempty"`
 
 	// UpdatedAt Filter on incident updated at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.
-	UpdatedAt *map[string][]string `form:"updated_at,omitempty" json:"updated_at,omitempty"`
+	UpdatedAt *map[string][]string `json:"updated_at,omitempty"`
 
 	// Severity Filter on incident severity. The accepted operators are 'one_of', 'not_in', 'gte', 'lte'.
-	Severity *map[string][]string `form:"severity,omitempty" json:"severity,omitempty"`
+	Severity *map[string][]string `json:"severity,omitempty"`
 
 	// IncidentType Filter on incident type. The accepted operators are 'one_of, or 'not_in'.
-	IncidentType *map[string][]string `form:"incident_type,omitempty" json:"incident_type,omitempty"`
+	IncidentType *map[string][]string `json:"incident_type,omitempty"`
 
 	// IncidentRole Filter on an incident role. Role ID should be sent, along with backlink attribute ID (if needed) followed by the operator and values. The accepted operators are 'one_of', 'is_blank'.
-	IncidentRole *map[string]map[string][]string `form:"incident_role,omitempty" json:"incident_role,omitempty"`
+	IncidentRole *map[string]map[string][]string `json:"incident_role,omitempty"`
 
 	// CustomField Filter on an incident custom field. Custom field ID should be sent, followed by the operator and values. Accepted operator will depend on the custom field type.
-	CustomField *map[string]map[string][]string `form:"custom_field,omitempty" json:"custom_field,omitempty"`
+	CustomField *map[string]map[string][]string `json:"custom_field,omitempty"`
 
 	// Mode Filter on incident mode. The accepted operator is 'one_of'.  If this is not provided, this value defaults to `{"one_of": ["standard", "retrospective"] }`, meaning that test and tutorial incidents are not included.
-	Mode *map[string][]string `form:"mode,omitempty" json:"mode,omitempty"`
+	Mode *map[string][]string `json:"mode,omitempty"`
 }
 
 // IncidentsV2ListParamsSortBy defines parameters for IncidentsV2List.
@@ -21617,7 +21617,7 @@ type WorkflowRunsV2ListParams struct {
 	IncidentId *string `form:"incident_id,omitempty" json:"incident_id,omitempty"`
 
 	// CreatedAt Filter on workflow run created at timestamp. The accepted operators are 'gte', 'lte' and 'date_range'.
-	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
+	CreatedAt *map[string][]string `json:"created_at,omitempty"`
 
 	// PageSize Number of workflow runs to return per page
 	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
@@ -21647,10 +21647,10 @@ type ActionsV3ListParams struct {
 	IncidentMode *ActionsV3ListParamsIncidentMode `form:"incident_mode,omitempty" json:"incident_mode,omitempty"`
 
 	// CreatedAt Filter on action created at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
-	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
+	CreatedAt *map[string][]string `json:"created_at,omitempty"`
 
 	// UpdatedAt Filter on action updated at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
-	UpdatedAt *map[string][]string `form:"updated_at,omitempty" json:"updated_at,omitempty"`
+	UpdatedAt *map[string][]string `json:"updated_at,omitempty"`
 }
 
 // ActionsV3ListParamsIncidentMode defines parameters for ActionsV3List.
@@ -21706,10 +21706,10 @@ type FollowUpsV3ListParams struct {
 	AssigneeTeamId *string `form:"assignee_team_id,omitempty" json:"assignee_team_id,omitempty"`
 
 	// CreatedAt Filter on follow-up created at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
-	CreatedAt *map[string][]string `form:"created_at,omitempty" json:"created_at,omitempty"`
+	CreatedAt *map[string][]string `json:"created_at,omitempty"`
 
 	// UpdatedAt Filter on follow-up updated at timestamp. Accepted operators are 'gte', 'lte' and 'date_range'.
-	UpdatedAt *map[string][]string `form:"updated_at,omitempty" json:"updated_at,omitempty"`
+	UpdatedAt *map[string][]string `json:"updated_at,omitempty"`
 }
 
 // FollowUpsV3ListParamsIncidentMode defines parameters for FollowUpsV3List.
@@ -32927,7 +32927,7 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 
 		if params.DeduplicationKey != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "deduplication_key", *params.DeduplicationKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "deduplication_key", *params.DeduplicationKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -32943,7 +32943,7 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 
 		if params.Status != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -32959,7 +32959,7 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 
 		if params.AlertSource != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "alert_source", *params.AlertSource, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "alert_source", *params.AlertSource, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -32975,7 +32975,7 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 
 		if params.AlertGroupId != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "alert_group_id", *params.AlertGroupId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "alert_group_id", *params.AlertGroupId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -32991,7 +32991,7 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 
 		if params.CreatedAt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -33007,7 +33007,7 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 
 		if params.UpdatedAt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -33023,7 +33023,7 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 
 		if params.Attributes != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "attributes", *params.Attributes, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "attributes", *params.Attributes, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -33039,7 +33039,7 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 
 		if params.HasNotes != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "has_notes", *params.HasNotes, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "has_notes", *params.HasNotes, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -33055,7 +33055,7 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 
 		if params.Tags != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "tags", *params.Tags, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "tags", *params.Tags, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -33071,7 +33071,7 @@ func newAlertsV2ListRequest(server string, params *AlertsV2ListParams) (*http.Re
 
 		if params.IncludeMaintenanceWindow != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "include_maintenance_window", *params.IncludeMaintenanceWindow, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "include_maintenance_window", *params.IncludeMaintenanceWindow, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -35623,7 +35623,7 @@ func newEscalationsV2ListRequest(server string, params *EscalationsV2ListParams)
 
 		if params.EscalationPath != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "escalation_path", *params.EscalationPath, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "escalation_path", *params.EscalationPath, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -35639,7 +35639,7 @@ func newEscalationsV2ListRequest(server string, params *EscalationsV2ListParams)
 
 		if params.Status != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -35655,7 +35655,7 @@ func newEscalationsV2ListRequest(server string, params *EscalationsV2ListParams)
 
 		if params.Alert != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "alert", *params.Alert, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "alert", *params.Alert, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -35671,7 +35671,7 @@ func newEscalationsV2ListRequest(server string, params *EscalationsV2ListParams)
 
 		if params.Incident != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident", *params.Incident, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "incident", *params.Incident, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -35687,7 +35687,7 @@ func newEscalationsV2ListRequest(server string, params *EscalationsV2ListParams)
 
 		if params.CreatedAt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -35703,7 +35703,7 @@ func newEscalationsV2ListRequest(server string, params *EscalationsV2ListParams)
 
 		if params.UpdatedAt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -35719,7 +35719,7 @@ func newEscalationsV2ListRequest(server string, params *EscalationsV2ListParams)
 
 		if params.IdempotencyKey != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "idempotency_key", *params.IdempotencyKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "idempotency_key", *params.IdempotencyKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -37397,7 +37397,7 @@ func newIncidentsV2ListRequest(server string, params *IncidentsV2ListParams) (*h
 
 		if params.Status != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -37413,7 +37413,7 @@ func newIncidentsV2ListRequest(server string, params *IncidentsV2ListParams) (*h
 
 		if params.StatusCategory != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status_category", *params.StatusCategory, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "status_category", *params.StatusCategory, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -37429,7 +37429,7 @@ func newIncidentsV2ListRequest(server string, params *IncidentsV2ListParams) (*h
 
 		if params.CreatedAt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -37445,7 +37445,7 @@ func newIncidentsV2ListRequest(server string, params *IncidentsV2ListParams) (*h
 
 		if params.UpdatedAt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -37461,7 +37461,7 @@ func newIncidentsV2ListRequest(server string, params *IncidentsV2ListParams) (*h
 
 		if params.Severity != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "severity", *params.Severity, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "severity", *params.Severity, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -37477,7 +37477,7 @@ func newIncidentsV2ListRequest(server string, params *IncidentsV2ListParams) (*h
 
 		if params.IncidentType != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident_type", *params.IncidentType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "incident_type", *params.IncidentType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -37493,7 +37493,7 @@ func newIncidentsV2ListRequest(server string, params *IncidentsV2ListParams) (*h
 
 		if params.IncidentRole != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident_role", *params.IncidentRole, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "incident_role", *params.IncidentRole, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -37509,7 +37509,7 @@ func newIncidentsV2ListRequest(server string, params *IncidentsV2ListParams) (*h
 
 		if params.CustomField != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "custom_field", *params.CustomField, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "custom_field", *params.CustomField, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -37525,7 +37525,7 @@ func newIncidentsV2ListRequest(server string, params *IncidentsV2ListParams) (*h
 
 		if params.Mode != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "mode", *params.Mode, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "mode", *params.Mode, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -41913,7 +41913,7 @@ func newWorkflowRunsV2ListRequest(server string, params *WorkflowRunsV2ListParam
 
 		if params.CreatedAt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -42296,7 +42296,7 @@ func newActionsV3ListRequest(server string, params *ActionsV3ListParams) (*http.
 
 		if params.CreatedAt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -42312,7 +42312,7 @@ func newActionsV3ListRequest(server string, params *ActionsV3ListParams) (*http.
 
 		if params.UpdatedAt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -43378,7 +43378,7 @@ func newFollowUpsV3ListRequest(server string, params *FollowUpsV3ListParams) (*h
 
 		if params.CreatedAt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "created_at", *params.CreatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -43394,7 +43394,7 @@ func newFollowUpsV3ListRequest(server string, params *FollowUpsV3ListParams) (*h
 
 		if params.UpdatedAt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
+			if queryFrag, err := styleParamDeepObject(true, "updated_at", *params.UpdatedAt, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "object", Format: ""}); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
