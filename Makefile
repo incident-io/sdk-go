@@ -1,4 +1,4 @@
-.PHONY: generate test tidy
+.PHONY: fetch generate test tidy
 
 generate: incident.gen.go
 
@@ -23,3 +23,11 @@ test:
 
 tidy:
 	go mod tidy
+
+SCHEMA_URL := https://api.incident.io/v1/openapiV3.json
+
+# OUT lets the release workflow keep the old schema to diff against.
+OUT ?= openapi3.json
+
+fetch:
+	curl -sfSL $(SCHEMA_URL) -o $(OUT)

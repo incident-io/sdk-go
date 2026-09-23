@@ -90,10 +90,12 @@ them so you can migrate to the current version.
 ## Versioning
 
 Releases are cut automatically whenever the API schema changes. We use
-[SemVer](https://semver.org/): additive API changes bump the minor version and
-backwards-compatible fixes bump the patch version. Changes that would break Go
-consumers are never released automatically — they require a deliberate major
-version.
+[SemVer](https://semver.org/): each automatic release bumps the minor version,
+and patch versions are reserved for hand-cut fixes. Before releasing, the schema
+is compared with the previous one using [oasdiff](https://github.com/oasdiff/oasdiff).
+A change that would break Go consumers stops the release and opens an issue, and
+is never released automatically. It needs a deliberate major version, which for
+a Go module means moving the module path to `/v2`.
 
 ## Support
 
