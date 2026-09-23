@@ -8,6 +8,9 @@
 //   - Methods for operations marked `deprecated: true` in the OpenAPI schema get
 //     a `// Deprecated:` doc comment, which pkg.go.dev renders prominently and
 //     staticcheck (SA1019) flags at call sites.
+//   - deepObject query parameters (list filters) are serialised through
+//     styleParamDeepObject in incident.go, which sends repeated keys rather than
+//     the runtime's indexed ones. The API keeps only one value of an indexed key.
 //
 // It edits the source as text (using AST positions) so it needs no third-party
 // dependencies and can't perturb comment placement.
@@ -132,6 +135,15 @@ func run(genPath, schemaPath string) error {
 		b.Write(out[e.offset+e.del:])
 		out = b.Bytes()
 	}
+
+	// Route deepObject serialisation through styleParamDeepObject. The schema always
+	// has deepObject parameters, so finding none means oapi-codegen changed the call
+	// it generates, and filters would silently go back to losing values.
+	deepObjectCall := []byte(`runtime.StyleParamWithOptions("deepObject", `)
+	if !bytes.Contains(out, deepObjectCall) {
+		return fmt.Errorf("no deepObject query parameters found: has oapi-codegen changed how it serialises them?")
+	}
+	out = bytes.ReplaceAll(out, deepObjectCall, []byte("styleParamDeepObject("))
 
 	return os.WriteFile(genPath, out, 0o644)
 }
