@@ -6,3 +6,5 @@
 go.work
 go.work.sum
 .env
+
+openapi3.json.new
