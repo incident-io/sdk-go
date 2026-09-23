@@ -1804,6 +1804,474 @@ func (e AlertsTransitionIncidentAlertPayloadV2State) Valid() bool {
 	}
 }
 
+// Defines values for AnnouncementRuleV2ConditionsNoLongerApplyBehaviour.
+const (
+	AnnouncementRuleV2ConditionsNoLongerApplyBehaviourLeaveInPlace AnnouncementRuleV2ConditionsNoLongerApplyBehaviour = "leave_in_place"
+	AnnouncementRuleV2ConditionsNoLongerApplyBehaviourRemove       AnnouncementRuleV2ConditionsNoLongerApplyBehaviour = "remove"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementRuleV2ConditionsNoLongerApplyBehaviour enum.
+func (e AnnouncementRuleV2ConditionsNoLongerApplyBehaviour) Valid() bool {
+	switch e {
+	case AnnouncementRuleV2ConditionsNoLongerApplyBehaviourLeaveInPlace:
+		return true
+	case AnnouncementRuleV2ConditionsNoLongerApplyBehaviourRemove:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementRuleV2Mode.
+const (
+	AnnouncementRuleV2ModeIncludeAll               AnnouncementRuleV2Mode = "include_all"
+	AnnouncementRuleV2ModeIncludeDeclinedAndMerged AnnouncementRuleV2Mode = "include_declined_and_merged"
+	AnnouncementRuleV2ModeIncludeTriage            AnnouncementRuleV2Mode = "include_triage"
+	AnnouncementRuleV2ModeIncludeTriageAndMerged   AnnouncementRuleV2Mode = "include_triage_and_merged"
+	AnnouncementRuleV2ModeLiveAndClosed            AnnouncementRuleV2Mode = "live_and_closed"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementRuleV2Mode enum.
+func (e AnnouncementRuleV2Mode) Valid() bool {
+	switch e {
+	case AnnouncementRuleV2ModeIncludeAll:
+		return true
+	case AnnouncementRuleV2ModeIncludeDeclinedAndMerged:
+		return true
+	case AnnouncementRuleV2ModeIncludeTriage:
+		return true
+	case AnnouncementRuleV2ModeIncludeTriageAndMerged:
+		return true
+	case AnnouncementRuleV2ModeLiveAndClosed:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementRuleV2PrivateIncidentScope.
+const (
+	AnnouncementRuleV2PrivateIncidentScopeAll         AnnouncementRuleV2PrivateIncidentScope = "all"
+	AnnouncementRuleV2PrivateIncidentScopeNone        AnnouncementRuleV2PrivateIncidentScope = "none"
+	AnnouncementRuleV2PrivateIncidentScopeOwningTeams AnnouncementRuleV2PrivateIncidentScope = "owning_teams"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementRuleV2PrivateIncidentScope enum.
+func (e AnnouncementRuleV2PrivateIncidentScope) Valid() bool {
+	switch e {
+	case AnnouncementRuleV2PrivateIncidentScopeAll:
+		return true
+	case AnnouncementRuleV2PrivateIncidentScopeNone:
+		return true
+	case AnnouncementRuleV2PrivateIncidentScopeOwningTeams:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementRuleV2UpdateSharingMode.
+const (
+	AnnouncementRuleV2UpdateSharingModeNone             AnnouncementRuleV2UpdateSharingMode = "none"
+	AnnouncementRuleV2UpdateSharingModeThread           AnnouncementRuleV2UpdateSharingMode = "thread"
+	AnnouncementRuleV2UpdateSharingModeThreadAndChannel AnnouncementRuleV2UpdateSharingMode = "thread_and_channel"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementRuleV2UpdateSharingMode enum.
+func (e AnnouncementRuleV2UpdateSharingMode) Valid() bool {
+	switch e {
+	case AnnouncementRuleV2UpdateSharingModeNone:
+		return true
+	case AnnouncementRuleV2UpdateSharingModeThread:
+		return true
+	case AnnouncementRuleV2UpdateSharingModeThreadAndChannel:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementRulesCreatePayloadV2ConditionsNoLongerApplyBehaviour.
+const (
+	AnnouncementRulesCreatePayloadV2ConditionsNoLongerApplyBehaviourLeaveInPlace AnnouncementRulesCreatePayloadV2ConditionsNoLongerApplyBehaviour = "leave_in_place"
+	AnnouncementRulesCreatePayloadV2ConditionsNoLongerApplyBehaviourRemove       AnnouncementRulesCreatePayloadV2ConditionsNoLongerApplyBehaviour = "remove"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementRulesCreatePayloadV2ConditionsNoLongerApplyBehaviour enum.
+func (e AnnouncementRulesCreatePayloadV2ConditionsNoLongerApplyBehaviour) Valid() bool {
+	switch e {
+	case AnnouncementRulesCreatePayloadV2ConditionsNoLongerApplyBehaviourLeaveInPlace:
+		return true
+	case AnnouncementRulesCreatePayloadV2ConditionsNoLongerApplyBehaviourRemove:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementRulesCreatePayloadV2Mode.
+const (
+	AnnouncementRulesCreatePayloadV2ModeIncludeAll               AnnouncementRulesCreatePayloadV2Mode = "include_all"
+	AnnouncementRulesCreatePayloadV2ModeIncludeDeclinedAndMerged AnnouncementRulesCreatePayloadV2Mode = "include_declined_and_merged"
+	AnnouncementRulesCreatePayloadV2ModeIncludeTriage            AnnouncementRulesCreatePayloadV2Mode = "include_triage"
+	AnnouncementRulesCreatePayloadV2ModeIncludeTriageAndMerged   AnnouncementRulesCreatePayloadV2Mode = "include_triage_and_merged"
+	AnnouncementRulesCreatePayloadV2ModeLiveAndClosed            AnnouncementRulesCreatePayloadV2Mode = "live_and_closed"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementRulesCreatePayloadV2Mode enum.
+func (e AnnouncementRulesCreatePayloadV2Mode) Valid() bool {
+	switch e {
+	case AnnouncementRulesCreatePayloadV2ModeIncludeAll:
+		return true
+	case AnnouncementRulesCreatePayloadV2ModeIncludeDeclinedAndMerged:
+		return true
+	case AnnouncementRulesCreatePayloadV2ModeIncludeTriage:
+		return true
+	case AnnouncementRulesCreatePayloadV2ModeIncludeTriageAndMerged:
+		return true
+	case AnnouncementRulesCreatePayloadV2ModeLiveAndClosed:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementRulesCreatePayloadV2PrivateIncidentScope.
+const (
+	AnnouncementRulesCreatePayloadV2PrivateIncidentScopeAll         AnnouncementRulesCreatePayloadV2PrivateIncidentScope = "all"
+	AnnouncementRulesCreatePayloadV2PrivateIncidentScopeNone        AnnouncementRulesCreatePayloadV2PrivateIncidentScope = "none"
+	AnnouncementRulesCreatePayloadV2PrivateIncidentScopeOwningTeams AnnouncementRulesCreatePayloadV2PrivateIncidentScope = "owning_teams"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementRulesCreatePayloadV2PrivateIncidentScope enum.
+func (e AnnouncementRulesCreatePayloadV2PrivateIncidentScope) Valid() bool {
+	switch e {
+	case AnnouncementRulesCreatePayloadV2PrivateIncidentScopeAll:
+		return true
+	case AnnouncementRulesCreatePayloadV2PrivateIncidentScopeNone:
+		return true
+	case AnnouncementRulesCreatePayloadV2PrivateIncidentScopeOwningTeams:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementRulesCreatePayloadV2UpdateSharingMode.
+const (
+	AnnouncementRulesCreatePayloadV2UpdateSharingModeNone             AnnouncementRulesCreatePayloadV2UpdateSharingMode = "none"
+	AnnouncementRulesCreatePayloadV2UpdateSharingModeThread           AnnouncementRulesCreatePayloadV2UpdateSharingMode = "thread"
+	AnnouncementRulesCreatePayloadV2UpdateSharingModeThreadAndChannel AnnouncementRulesCreatePayloadV2UpdateSharingMode = "thread_and_channel"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementRulesCreatePayloadV2UpdateSharingMode enum.
+func (e AnnouncementRulesCreatePayloadV2UpdateSharingMode) Valid() bool {
+	switch e {
+	case AnnouncementRulesCreatePayloadV2UpdateSharingModeNone:
+		return true
+	case AnnouncementRulesCreatePayloadV2UpdateSharingModeThread:
+		return true
+	case AnnouncementRulesCreatePayloadV2UpdateSharingModeThreadAndChannel:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementRulesUpdatePayloadV2ConditionsNoLongerApplyBehaviour.
+const (
+	LeaveInPlace AnnouncementRulesUpdatePayloadV2ConditionsNoLongerApplyBehaviour = "leave_in_place"
+	Remove       AnnouncementRulesUpdatePayloadV2ConditionsNoLongerApplyBehaviour = "remove"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementRulesUpdatePayloadV2ConditionsNoLongerApplyBehaviour enum.
+func (e AnnouncementRulesUpdatePayloadV2ConditionsNoLongerApplyBehaviour) Valid() bool {
+	switch e {
+	case LeaveInPlace:
+		return true
+	case Remove:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementRulesUpdatePayloadV2Mode.
+const (
+	IncludeAll               AnnouncementRulesUpdatePayloadV2Mode = "include_all"
+	IncludeDeclinedAndMerged AnnouncementRulesUpdatePayloadV2Mode = "include_declined_and_merged"
+	IncludeTriage            AnnouncementRulesUpdatePayloadV2Mode = "include_triage"
+	IncludeTriageAndMerged   AnnouncementRulesUpdatePayloadV2Mode = "include_triage_and_merged"
+	LiveAndClosed            AnnouncementRulesUpdatePayloadV2Mode = "live_and_closed"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementRulesUpdatePayloadV2Mode enum.
+func (e AnnouncementRulesUpdatePayloadV2Mode) Valid() bool {
+	switch e {
+	case IncludeAll:
+		return true
+	case IncludeDeclinedAndMerged:
+		return true
+	case IncludeTriage:
+		return true
+	case IncludeTriageAndMerged:
+		return true
+	case LiveAndClosed:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementRulesUpdatePayloadV2PrivateIncidentScope.
+const (
+	AnnouncementRulesUpdatePayloadV2PrivateIncidentScopeAll         AnnouncementRulesUpdatePayloadV2PrivateIncidentScope = "all"
+	AnnouncementRulesUpdatePayloadV2PrivateIncidentScopeNone        AnnouncementRulesUpdatePayloadV2PrivateIncidentScope = "none"
+	AnnouncementRulesUpdatePayloadV2PrivateIncidentScopeOwningTeams AnnouncementRulesUpdatePayloadV2PrivateIncidentScope = "owning_teams"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementRulesUpdatePayloadV2PrivateIncidentScope enum.
+func (e AnnouncementRulesUpdatePayloadV2PrivateIncidentScope) Valid() bool {
+	switch e {
+	case AnnouncementRulesUpdatePayloadV2PrivateIncidentScopeAll:
+		return true
+	case AnnouncementRulesUpdatePayloadV2PrivateIncidentScopeNone:
+		return true
+	case AnnouncementRulesUpdatePayloadV2PrivateIncidentScopeOwningTeams:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementRulesUpdatePayloadV2UpdateSharingMode.
+const (
+	AnnouncementRulesUpdatePayloadV2UpdateSharingModeNone             AnnouncementRulesUpdatePayloadV2UpdateSharingMode = "none"
+	AnnouncementRulesUpdatePayloadV2UpdateSharingModeThread           AnnouncementRulesUpdatePayloadV2UpdateSharingMode = "thread"
+	AnnouncementRulesUpdatePayloadV2UpdateSharingModeThreadAndChannel AnnouncementRulesUpdatePayloadV2UpdateSharingMode = "thread_and_channel"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementRulesUpdatePayloadV2UpdateSharingMode enum.
+func (e AnnouncementRulesUpdatePayloadV2UpdateSharingMode) Valid() bool {
+	switch e {
+	case AnnouncementRulesUpdatePayloadV2UpdateSharingModeNone:
+		return true
+	case AnnouncementRulesUpdatePayloadV2UpdateSharingModeThread:
+		return true
+	case AnnouncementRulesUpdatePayloadV2UpdateSharingModeThreadAndChannel:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementTemplateActionPayloadV2ActionType.
+const (
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsCreateChannel      AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_create_channel"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsEscalate           AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_escalate"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsHomepage           AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_homepage"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsInternalStatusPage AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_internal_status_page"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsJiraTicket         AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_jira_ticket"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsJoinCall           AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_join_call"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsPostmortem         AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_postmortem"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsPublicStatusPage   AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_public_status_page"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsRequestAccess      AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_request_access"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsShareUpdate        AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_share_update"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsSubscribe          AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_subscribe"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsTriage             AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_triage"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsUpdateStatus       AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_update_status"
+	AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsViewAlert          AnnouncementTemplateActionPayloadV2ActionType = "announcement_post_actions_view_alert"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementTemplateActionPayloadV2ActionType enum.
+func (e AnnouncementTemplateActionPayloadV2ActionType) Valid() bool {
+	switch e {
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsCreateChannel:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsEscalate:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsHomepage:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsInternalStatusPage:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsJiraTicket:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsJoinCall:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsPostmortem:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsPublicStatusPage:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsRequestAccess:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsShareUpdate:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsSubscribe:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsTriage:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsUpdateStatus:
+		return true
+	case AnnouncementTemplateActionPayloadV2ActionTypeAnnouncementPostActionsViewAlert:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementTemplateActionV2ActionType.
+const (
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsCreateChannel      AnnouncementTemplateActionV2ActionType = "announcement_post_actions_create_channel"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsEscalate           AnnouncementTemplateActionV2ActionType = "announcement_post_actions_escalate"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsHomepage           AnnouncementTemplateActionV2ActionType = "announcement_post_actions_homepage"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsInternalStatusPage AnnouncementTemplateActionV2ActionType = "announcement_post_actions_internal_status_page"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsJiraTicket         AnnouncementTemplateActionV2ActionType = "announcement_post_actions_jira_ticket"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsJoinCall           AnnouncementTemplateActionV2ActionType = "announcement_post_actions_join_call"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsPostmortem         AnnouncementTemplateActionV2ActionType = "announcement_post_actions_postmortem"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsPublicStatusPage   AnnouncementTemplateActionV2ActionType = "announcement_post_actions_public_status_page"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsRequestAccess      AnnouncementTemplateActionV2ActionType = "announcement_post_actions_request_access"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsShareUpdate        AnnouncementTemplateActionV2ActionType = "announcement_post_actions_share_update"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsSubscribe          AnnouncementTemplateActionV2ActionType = "announcement_post_actions_subscribe"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsTriage             AnnouncementTemplateActionV2ActionType = "announcement_post_actions_triage"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsUpdateStatus       AnnouncementTemplateActionV2ActionType = "announcement_post_actions_update_status"
+	AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsViewAlert          AnnouncementTemplateActionV2ActionType = "announcement_post_actions_view_alert"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementTemplateActionV2ActionType enum.
+func (e AnnouncementTemplateActionV2ActionType) Valid() bool {
+	switch e {
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsCreateChannel:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsEscalate:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsHomepage:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsInternalStatusPage:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsJiraTicket:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsJoinCall:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsPostmortem:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsPublicStatusPage:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsRequestAccess:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsShareUpdate:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsSubscribe:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsTriage:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsUpdateStatus:
+		return true
+	case AnnouncementTemplateActionV2ActionTypeAnnouncementPostActionsViewAlert:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementTemplateFieldPayloadV2FieldType.
+const (
+	AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsCreator      AnnouncementTemplateFieldPayloadV2FieldType = "announcement_post_fields_creator"
+	AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsCustomField  AnnouncementTemplateFieldPayloadV2FieldType = "announcement_post_fields_custom_field"
+	AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsDescription  AnnouncementTemplateFieldPayloadV2FieldType = "announcement_post_fields_description"
+	AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsIncidentType AnnouncementTemplateFieldPayloadV2FieldType = "announcement_post_fields_incident_type"
+	AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsRichText     AnnouncementTemplateFieldPayloadV2FieldType = "announcement_post_fields_rich_text"
+	AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsRole         AnnouncementTemplateFieldPayloadV2FieldType = "announcement_post_fields_role"
+	AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsSeverity     AnnouncementTemplateFieldPayloadV2FieldType = "announcement_post_fields_severity"
+	AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsSlack        AnnouncementTemplateFieldPayloadV2FieldType = "announcement_post_fields_slack"
+	AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsStatus       AnnouncementTemplateFieldPayloadV2FieldType = "announcement_post_fields_status"
+	AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsTimestamp    AnnouncementTemplateFieldPayloadV2FieldType = "announcement_post_fields_timestamp"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementTemplateFieldPayloadV2FieldType enum.
+func (e AnnouncementTemplateFieldPayloadV2FieldType) Valid() bool {
+	switch e {
+	case AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsCreator:
+		return true
+	case AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsCustomField:
+		return true
+	case AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsDescription:
+		return true
+	case AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsIncidentType:
+		return true
+	case AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsRichText:
+		return true
+	case AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsRole:
+		return true
+	case AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsSeverity:
+		return true
+	case AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsSlack:
+		return true
+	case AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsStatus:
+		return true
+	case AnnouncementTemplateFieldPayloadV2FieldTypeAnnouncementPostFieldsTimestamp:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementTemplateFieldV2FieldType.
+const (
+	AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsCreator      AnnouncementTemplateFieldV2FieldType = "announcement_post_fields_creator"
+	AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsCustomField  AnnouncementTemplateFieldV2FieldType = "announcement_post_fields_custom_field"
+	AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsDescription  AnnouncementTemplateFieldV2FieldType = "announcement_post_fields_description"
+	AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsIncidentType AnnouncementTemplateFieldV2FieldType = "announcement_post_fields_incident_type"
+	AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsRichText     AnnouncementTemplateFieldV2FieldType = "announcement_post_fields_rich_text"
+	AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsRole         AnnouncementTemplateFieldV2FieldType = "announcement_post_fields_role"
+	AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsSeverity     AnnouncementTemplateFieldV2FieldType = "announcement_post_fields_severity"
+	AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsSlack        AnnouncementTemplateFieldV2FieldType = "announcement_post_fields_slack"
+	AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsStatus       AnnouncementTemplateFieldV2FieldType = "announcement_post_fields_status"
+	AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsTimestamp    AnnouncementTemplateFieldV2FieldType = "announcement_post_fields_timestamp"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementTemplateFieldV2FieldType enum.
+func (e AnnouncementTemplateFieldV2FieldType) Valid() bool {
+	switch e {
+	case AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsCreator:
+		return true
+	case AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsCustomField:
+		return true
+	case AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsDescription:
+		return true
+	case AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsIncidentType:
+		return true
+	case AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsRichText:
+		return true
+	case AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsRole:
+		return true
+	case AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsSeverity:
+		return true
+	case AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsSlack:
+		return true
+	case AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsStatus:
+		return true
+	case AnnouncementTemplateFieldV2FieldTypeAnnouncementPostFieldsTimestamp:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AnnouncementTemplateRichTextV2Type.
+const (
+	Markdown AnnouncementTemplateRichTextV2Type = "markdown"
+)
+
+// Valid indicates whether the value is a known member of the AnnouncementTemplateRichTextV2Type enum.
+func (e AnnouncementTemplateRichTextV2Type) Valid() bool {
+	switch e {
+	case Markdown:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for CallRouteOptionV2Digit.
 const (
 	CallRouteOptionV2DigitN1 CallRouteOptionV2Digit = "1"
@@ -10706,6 +11174,350 @@ type AlertsTransitionIncidentAlertPayloadV2State string
 // AlertsTransitionIncidentAlertResultV2 defines model for AlertsTransitionIncidentAlertResultV2.
 type AlertsTransitionIncidentAlertResultV2 struct {
 	IncidentAlert IncidentAlertV2 `json:"incident_alert"`
+}
+
+// AnnouncementRuleV2 An announcement rule posts an announcement of matching incidents into one or more channels.
+type AnnouncementRuleV2 struct {
+	// ConditionGroups Incidents are announced when they match any of these condition groups
+	ConditionGroups []ConditionGroupV2 `json:"condition_groups"`
+
+	// ConditionsNoLongerApplyBehaviour Whether to remove announcement posts when the incident no longer matches this rule's conditions
+	ConditionsNoLongerApplyBehaviour AnnouncementRuleV2ConditionsNoLongerApplyBehaviour `json:"conditions_no_longer_apply_behaviour"`
+
+	// CreatedAt When the rule was created
+	CreatedAt time.Time `json:"created_at"`
+
+	// Id Unique identifier for this announcement rule
+	Id string `json:"id"`
+
+	// MicrosoftTeamsChannelIds Microsoft Teams channels to post announcements into, as team_id/channel_id, when the organisation uses Microsoft Teams
+	MicrosoftTeamsChannelIds []string `json:"microsoft_teams_channel_ids"`
+
+	// Mode Which incidents are announced: live incidents only, or triage incidents too
+	Mode AnnouncementRuleV2Mode `json:"mode"`
+
+	// Name Human readable name for the rule
+	Name string `json:"name"`
+
+	// OwningTeamIds IDs of the teams that own this rule
+	OwningTeamIds []string `json:"owning_team_ids"`
+
+	// PrivateIncidentScope Which private incidents this rule announces: every private incident (all), those an owning team can see (owning_teams), or none
+	PrivateIncidentScope *AnnouncementRuleV2PrivateIncidentScope `json:"private_incident_scope,omitempty"`
+
+	// SlackChannelIds IDs of the Slack channels to post announcements into, when the organisation uses Slack
+	SlackChannelIds []string `json:"slack_channel_ids"`
+
+	// TemplateId ID of the announcement template used to render this rule's posts
+	TemplateId *string `json:"template_id,omitempty"`
+
+	// UpdateSharingMode Where incident updates are shared once the incident is announced
+	UpdateSharingMode AnnouncementRuleV2UpdateSharingMode `json:"update_sharing_mode"`
+
+	// UpdatedAt When the rule was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
+// AnnouncementRuleV2ConditionsNoLongerApplyBehaviour Whether to remove announcement posts when the incident no longer matches this rule's conditions
+type AnnouncementRuleV2ConditionsNoLongerApplyBehaviour string
+
+// AnnouncementRuleV2Mode Which incidents are announced: live incidents only, or triage incidents too
+type AnnouncementRuleV2Mode string
+
+// AnnouncementRuleV2PrivateIncidentScope Which private incidents this rule announces: every private incident (all), those an owning team can see (owning_teams), or none
+type AnnouncementRuleV2PrivateIncidentScope string
+
+// AnnouncementRuleV2UpdateSharingMode Where incident updates are shared once the incident is announced
+type AnnouncementRuleV2UpdateSharingMode string
+
+// AnnouncementRulesCreatePayloadV2 defines model for AnnouncementRulesCreatePayloadV2.
+type AnnouncementRulesCreatePayloadV2 struct {
+	// ConditionGroups Incidents are announced when they match any of these condition groups
+	ConditionGroups []ConditionGroupPayloadV2 `json:"condition_groups"`
+
+	// ConditionsNoLongerApplyBehaviour Whether to remove announcement posts when the incident no longer matches this rule's conditions. Defaults to leaving them in place.
+	ConditionsNoLongerApplyBehaviour *AnnouncementRulesCreatePayloadV2ConditionsNoLongerApplyBehaviour `json:"conditions_no_longer_apply_behaviour,omitempty"`
+
+	// MicrosoftTeamsChannelIds Microsoft Teams channels to post announcements into, as team_id/channel_id. Required when the organisation uses Microsoft Teams.
+	MicrosoftTeamsChannelIds *[]string `json:"microsoft_teams_channel_ids,omitempty"`
+
+	// Mode Which incidents are announced: live incidents only, or triage incidents too
+	Mode AnnouncementRulesCreatePayloadV2Mode `json:"mode"`
+
+	// Name Human readable name for the rule
+	Name string `json:"name"`
+
+	// OwningTeamIds IDs of the teams that own this rule
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// PrivateIncidentScope Which private incidents this rule announces: every private incident (all), those an owning team can see (owning_teams), or none. Defaults to none on create, and is left unchanged on update when omitted.
+	PrivateIncidentScope *AnnouncementRulesCreatePayloadV2PrivateIncidentScope `json:"private_incident_scope,omitempty"`
+
+	// SlackChannelIds IDs of the Slack channels to post announcements into. Required when the organisation uses Slack.
+	SlackChannelIds *[]string `json:"slack_channel_ids,omitempty"`
+
+	// TemplateId ID of the announcement template used to render this rule's posts. Defaults to the organisation's default template when omitted.
+	TemplateId *string `json:"template_id,omitempty"`
+
+	// UpdateSharingMode Where incident updates are shared once the incident is announced
+	UpdateSharingMode AnnouncementRulesCreatePayloadV2UpdateSharingMode `json:"update_sharing_mode"`
+}
+
+// AnnouncementRulesCreatePayloadV2ConditionsNoLongerApplyBehaviour Whether to remove announcement posts when the incident no longer matches this rule's conditions. Defaults to leaving them in place.
+type AnnouncementRulesCreatePayloadV2ConditionsNoLongerApplyBehaviour string
+
+// AnnouncementRulesCreatePayloadV2Mode Which incidents are announced: live incidents only, or triage incidents too
+type AnnouncementRulesCreatePayloadV2Mode string
+
+// AnnouncementRulesCreatePayloadV2PrivateIncidentScope Which private incidents this rule announces: every private incident (all), those an owning team can see (owning_teams), or none. Defaults to none on create, and is left unchanged on update when omitted.
+type AnnouncementRulesCreatePayloadV2PrivateIncidentScope string
+
+// AnnouncementRulesCreatePayloadV2UpdateSharingMode Where incident updates are shared once the incident is announced
+type AnnouncementRulesCreatePayloadV2UpdateSharingMode string
+
+// AnnouncementRulesCreateResultV2 defines model for AnnouncementRulesCreateResultV2.
+type AnnouncementRulesCreateResultV2 struct {
+	// AnnouncementRule An announcement rule posts an announcement of matching incidents into one or more channels.
+	AnnouncementRule AnnouncementRuleV2 `json:"announcement_rule"`
+}
+
+// AnnouncementRulesListResultV2 defines model for AnnouncementRulesListResultV2.
+type AnnouncementRulesListResultV2 struct {
+	AnnouncementRules []AnnouncementRuleV2   `json:"announcement_rules"`
+	PaginationMeta    PaginationMetaResultV2 `json:"pagination_meta"`
+}
+
+// AnnouncementRulesShowResultV2 defines model for AnnouncementRulesShowResultV2.
+type AnnouncementRulesShowResultV2 struct {
+	// AnnouncementRule An announcement rule posts an announcement of matching incidents into one or more channels.
+	AnnouncementRule AnnouncementRuleV2 `json:"announcement_rule"`
+}
+
+// AnnouncementRulesUpdatePayloadV2 defines model for AnnouncementRulesUpdatePayloadV2.
+type AnnouncementRulesUpdatePayloadV2 struct {
+	// ConditionGroups Incidents are announced when they match any of these condition groups
+	ConditionGroups []ConditionGroupPayloadV2 `json:"condition_groups"`
+
+	// ConditionsNoLongerApplyBehaviour Whether to remove announcement posts when the incident no longer matches this rule's conditions. Defaults to leaving them in place.
+	ConditionsNoLongerApplyBehaviour *AnnouncementRulesUpdatePayloadV2ConditionsNoLongerApplyBehaviour `json:"conditions_no_longer_apply_behaviour,omitempty"`
+
+	// MicrosoftTeamsChannelIds Microsoft Teams channels to post announcements into, as team_id/channel_id. Required when the organisation uses Microsoft Teams.
+	MicrosoftTeamsChannelIds *[]string `json:"microsoft_teams_channel_ids,omitempty"`
+
+	// Mode Which incidents are announced: live incidents only, or triage incidents too
+	Mode AnnouncementRulesUpdatePayloadV2Mode `json:"mode"`
+
+	// Name Human readable name for the rule
+	Name string `json:"name"`
+
+	// OwningTeamIds IDs of the teams that own this rule. The existing owning teams are kept when omitted.
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+
+	// PrivateIncidentScope Which private incidents this rule announces: every private incident (all), those an owning team can see (owning_teams), or none. Defaults to none on create, and is left unchanged on update when omitted.
+	PrivateIncidentScope *AnnouncementRulesUpdatePayloadV2PrivateIncidentScope `json:"private_incident_scope,omitempty"`
+
+	// SlackChannelIds IDs of the Slack channels to post announcements into. Required when the organisation uses Slack.
+	SlackChannelIds *[]string `json:"slack_channel_ids,omitempty"`
+
+	// TemplateId ID of the announcement template used to render this rule's posts. The existing template is kept when omitted.
+	TemplateId *string `json:"template_id,omitempty"`
+
+	// UpdateSharingMode Where incident updates are shared once the incident is announced
+	UpdateSharingMode AnnouncementRulesUpdatePayloadV2UpdateSharingMode `json:"update_sharing_mode"`
+}
+
+// AnnouncementRulesUpdatePayloadV2ConditionsNoLongerApplyBehaviour Whether to remove announcement posts when the incident no longer matches this rule's conditions. Defaults to leaving them in place.
+type AnnouncementRulesUpdatePayloadV2ConditionsNoLongerApplyBehaviour string
+
+// AnnouncementRulesUpdatePayloadV2Mode Which incidents are announced: live incidents only, or triage incidents too
+type AnnouncementRulesUpdatePayloadV2Mode string
+
+// AnnouncementRulesUpdatePayloadV2PrivateIncidentScope Which private incidents this rule announces: every private incident (all), those an owning team can see (owning_teams), or none. Defaults to none on create, and is left unchanged on update when omitted.
+type AnnouncementRulesUpdatePayloadV2PrivateIncidentScope string
+
+// AnnouncementRulesUpdatePayloadV2UpdateSharingMode Where incident updates are shared once the incident is announced
+type AnnouncementRulesUpdatePayloadV2UpdateSharingMode string
+
+// AnnouncementRulesUpdateResultV2 defines model for AnnouncementRulesUpdateResultV2.
+type AnnouncementRulesUpdateResultV2 struct {
+	// AnnouncementRule An announcement rule posts an announcement of matching incidents into one or more channels.
+	AnnouncementRule AnnouncementRuleV2 `json:"announcement_rule"`
+}
+
+// AnnouncementTemplateActionPayloadV2 defines model for AnnouncementTemplateActionPayloadV2.
+type AnnouncementTemplateActionPayloadV2 struct {
+	// ActionType Type of this action
+	ActionType AnnouncementTemplateActionPayloadV2ActionType `json:"action_type"`
+
+	// Emoji Emoji shown on this action's button, as a Slack emoji name
+	Emoji *string `json:"emoji,omitempty"`
+
+	// Rank Position of this action on the post, lowest first
+	Rank int64 `json:"rank"`
+}
+
+// AnnouncementTemplateActionPayloadV2ActionType Type of this action
+type AnnouncementTemplateActionPayloadV2ActionType string
+
+// AnnouncementTemplateActionV2 defines model for AnnouncementTemplateActionV2.
+type AnnouncementTemplateActionV2 struct {
+	// ActionType Type of this action
+	ActionType AnnouncementTemplateActionV2ActionType `json:"action_type"`
+
+	// Emoji Emoji shown on this action's button
+	Emoji *string `json:"emoji,omitempty"`
+
+	// Rank Position of this action on the post, lowest first
+	Rank int64 `json:"rank"`
+
+	// Title Label shown on this action's button, derived from its type
+	Title string `json:"title"`
+}
+
+// AnnouncementTemplateActionV2ActionType Type of this action
+type AnnouncementTemplateActionV2ActionType string
+
+// AnnouncementTemplateFieldPayloadV2 defines model for AnnouncementTemplateFieldPayloadV2.
+type AnnouncementTemplateFieldPayloadV2 struct {
+	// CustomFieldId ID of the custom field to show. Required for custom field fields.
+	CustomFieldId *string `json:"custom_field_id,omitempty"`
+
+	// Emoji Emoji shown next to this field, as a Slack emoji name
+	Emoji *string `json:"emoji,omitempty"`
+
+	// FieldType Type of this field
+	FieldType AnnouncementTemplateFieldPayloadV2FieldType `json:"field_type"`
+
+	// IncidentRoleId ID of the incident role to show. Required for incident role fields.
+	IncidentRoleId *string `json:"incident_role_id,omitempty"`
+
+	// IncidentTimestampId ID of the incident timestamp to show. Required for incident timestamp fields.
+	IncidentTimestampId *string `json:"incident_timestamp_id,omitempty"`
+
+	// Rank Position of this field on the post, lowest first
+	Rank int64 `json:"rank"`
+
+	// RichText Content of a rich text field. The type says how contents is written.
+	RichText *AnnouncementTemplateRichTextV2 `json:"rich_text,omitempty"`
+}
+
+// AnnouncementTemplateFieldPayloadV2FieldType Type of this field
+type AnnouncementTemplateFieldPayloadV2FieldType string
+
+// AnnouncementTemplateFieldV2 defines model for AnnouncementTemplateFieldV2.
+type AnnouncementTemplateFieldV2 struct {
+	// CustomFieldId ID of the custom field to show, for custom field fields
+	CustomFieldId *string `json:"custom_field_id,omitempty"`
+
+	// Emoji Emoji shown next to this field
+	Emoji *string `json:"emoji,omitempty"`
+
+	// FieldType Type of this field
+	FieldType AnnouncementTemplateFieldV2FieldType `json:"field_type"`
+
+	// IncidentRoleId ID of the incident role to show, for incident role fields
+	IncidentRoleId *string `json:"incident_role_id,omitempty"`
+
+	// IncidentTimestampId ID of the incident timestamp to show, for incident timestamp fields
+	IncidentTimestampId *string `json:"incident_timestamp_id,omitempty"`
+
+	// Rank Position of this field on the post, lowest first
+	Rank int64 `json:"rank"`
+
+	// RichText Content of a rich text field. The type says how contents is written.
+	RichText *AnnouncementTemplateRichTextV2 `json:"rich_text,omitempty"`
+
+	// Title Title shown next to this field, derived from its type
+	Title string `json:"title"`
+}
+
+// AnnouncementTemplateFieldV2FieldType Type of this field
+type AnnouncementTemplateFieldV2FieldType string
+
+// AnnouncementTemplateRichTextV2 Content of a rich text field. The type says how contents is written.
+type AnnouncementTemplateRichTextV2 struct {
+	// Contents The content, as markdown. Write incident variables as {{name}}, e.g. {{incident.reference}}.
+	Contents string `json:"contents"`
+
+	// Type How contents is written. Only markdown is supported today.
+	Type AnnouncementTemplateRichTextV2Type `json:"type"`
+}
+
+// AnnouncementTemplateRichTextV2Type How contents is written. Only markdown is supported today.
+type AnnouncementTemplateRichTextV2Type string
+
+// AnnouncementTemplateV2 An announcement template controls which fields and actions appear on an announcement post.
+type AnnouncementTemplateV2 struct {
+	// Actions Actions shown on the announcement post, in rank order
+	Actions []AnnouncementTemplateActionV2 `json:"actions"`
+
+	// Fields Fields shown on the announcement post, in rank order
+	Fields []AnnouncementTemplateFieldV2 `json:"fields"`
+
+	// Id Unique identifier for this announcement template
+	Id string `json:"id"`
+
+	// IsDefault Whether this is the organisation's default template, used by rules that don't choose one
+	IsDefault bool `json:"is_default"`
+
+	// Name Name of this announcement template
+	Name string `json:"name"`
+
+	// OwningTeamIds IDs of the teams that own this template
+	OwningTeamIds []string `json:"owning_team_ids"`
+}
+
+// AnnouncementTemplatesCreatePayloadV2 defines model for AnnouncementTemplatesCreatePayloadV2.
+type AnnouncementTemplatesCreatePayloadV2 struct {
+	// Actions Actions shown on the announcement post
+	Actions *[]AnnouncementTemplateActionPayloadV2 `json:"actions,omitempty"`
+
+	// Fields Fields shown on the announcement post
+	Fields *[]AnnouncementTemplateFieldPayloadV2 `json:"fields,omitempty"`
+
+	// Name Name of this announcement template, unique within the organisation
+	Name string `json:"name"`
+
+	// OwningTeamIds IDs of the teams that own this template
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+}
+
+// AnnouncementTemplatesCreateResultV2 defines model for AnnouncementTemplatesCreateResultV2.
+type AnnouncementTemplatesCreateResultV2 struct {
+	// AnnouncementTemplate An announcement template controls which fields and actions appear on an announcement post.
+	AnnouncementTemplate AnnouncementTemplateV2 `json:"announcement_template"`
+}
+
+// AnnouncementTemplatesListResultV2 defines model for AnnouncementTemplatesListResultV2.
+type AnnouncementTemplatesListResultV2 struct {
+	AnnouncementTemplates []AnnouncementTemplateV2 `json:"announcement_templates"`
+}
+
+// AnnouncementTemplatesShowResultV2 defines model for AnnouncementTemplatesShowResultV2.
+type AnnouncementTemplatesShowResultV2 struct {
+	// AnnouncementTemplate An announcement template controls which fields and actions appear on an announcement post.
+	AnnouncementTemplate AnnouncementTemplateV2 `json:"announcement_template"`
+}
+
+// AnnouncementTemplatesUpdatePayloadV2 defines model for AnnouncementTemplatesUpdatePayloadV2.
+type AnnouncementTemplatesUpdatePayloadV2 struct {
+	// Actions Actions shown on the announcement post. Send an empty array to remove them all.
+	Actions []AnnouncementTemplateActionPayloadV2 `json:"actions"`
+
+	// Fields Fields shown on the announcement post. Send an empty array to remove them all.
+	Fields []AnnouncementTemplateFieldPayloadV2 `json:"fields"`
+
+	// Name Name of this announcement template, unique within the organisation
+	Name string `json:"name"`
+
+	// OwningTeamIds IDs of the teams that own this template. The existing owning teams are kept when omitted.
+	OwningTeamIds *[]string `json:"owning_team_ids,omitempty"`
+}
+
+// AnnouncementTemplatesUpdateResultV2 defines model for AnnouncementTemplatesUpdateResultV2.
+type AnnouncementTemplatesUpdateResultV2 struct {
+	// AnnouncementTemplate An announcement template controls which fields and actions appear on an announcement post.
+	AnnouncementTemplate AnnouncementTemplateV2 `json:"announcement_template"`
 }
 
 // CallRouteAllowedCallerV2 A phone number allowed to reach a call route.
@@ -20340,6 +21152,15 @@ type AlertsV2ListParams struct {
 	IncludeMaintenanceWindow *map[string][]string `form:"include_maintenance_window,omitempty" json:"include_maintenance_window,omitempty"`
 }
 
+// AnnouncementRulesV2ListParams defines parameters for AnnouncementRulesV2List.
+type AnnouncementRulesV2ListParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After An announcement rule's ID.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+}
+
 // CallRoutesV2ListParams defines parameters for CallRoutesV2List.
 type CallRoutesV2ListParams struct {
 	// PageSize Integer number of records to return
@@ -21022,6 +21843,18 @@ type AlertsV2RemoveTagsJSONRequestBody = AlertsRemoveTagsPayloadV2
 
 // AlertsV2SetTagsJSONRequestBody defines body for AlertsV2SetTags for application/json ContentType.
 type AlertsV2SetTagsJSONRequestBody = AlertsSetTagsPayloadV2
+
+// AnnouncementRulesV2CreateJSONRequestBody defines body for AnnouncementRulesV2Create for application/json ContentType.
+type AnnouncementRulesV2CreateJSONRequestBody = AnnouncementRulesCreatePayloadV2
+
+// AnnouncementRulesV2UpdateJSONRequestBody defines body for AnnouncementRulesV2Update for application/json ContentType.
+type AnnouncementRulesV2UpdateJSONRequestBody = AnnouncementRulesUpdatePayloadV2
+
+// AnnouncementTemplatesV2CreateJSONRequestBody defines body for AnnouncementTemplatesV2Create for application/json ContentType.
+type AnnouncementTemplatesV2CreateJSONRequestBody = AnnouncementTemplatesCreatePayloadV2
+
+// AnnouncementTemplatesV2UpdateJSONRequestBody defines body for AnnouncementTemplatesV2Update for application/json ContentType.
+type AnnouncementTemplatesV2UpdateJSONRequestBody = AnnouncementTemplatesUpdatePayloadV2
 
 // CallRoutesV2CreateAllowedCallerJSONRequestBody defines body for CallRoutesV2CreateAllowedCaller for application/json ContentType.
 type CallRoutesV2CreateAllowedCallerJSONRequestBody = CallRoutesCreateAllowedCallerPayloadV2
@@ -21724,6 +22557,44 @@ type ClientInterface interface {
 	AlertsV2SetTagsWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	AlertsV2SetTags(ctx context.Context, id string, body AlertsV2SetTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AnnouncementRulesV2List request
+	AnnouncementRulesV2List(ctx context.Context, params *AnnouncementRulesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AnnouncementRulesV2CreateWithBody request with any body
+	AnnouncementRulesV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AnnouncementRulesV2Create(ctx context.Context, body AnnouncementRulesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AnnouncementRulesV2Destroy request
+	AnnouncementRulesV2Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AnnouncementRulesV2Show request
+	AnnouncementRulesV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AnnouncementRulesV2UpdateWithBody request with any body
+	AnnouncementRulesV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AnnouncementRulesV2Update(ctx context.Context, id string, body AnnouncementRulesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AnnouncementTemplatesV2List request
+	AnnouncementTemplatesV2List(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AnnouncementTemplatesV2CreateWithBody request with any body
+	AnnouncementTemplatesV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AnnouncementTemplatesV2Create(ctx context.Context, body AnnouncementTemplatesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AnnouncementTemplatesV2Destroy request
+	AnnouncementTemplatesV2Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AnnouncementTemplatesV2Show request
+	AnnouncementTemplatesV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AnnouncementTemplatesV2UpdateWithBody request with any body
+	AnnouncementTemplatesV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AnnouncementTemplatesV2Update(ctx context.Context, id string, body AnnouncementTemplatesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CallRoutesV2List request
 	CallRoutesV2List(ctx context.Context, params *CallRoutesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -24228,6 +25099,174 @@ func (c *Client) AlertsV2SetTagsWithBody(ctx context.Context, id string, content
 
 func (c *Client) AlertsV2SetTags(ctx context.Context, id string, body AlertsV2SetTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newAlertsV2SetTagsRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementRulesV2List(ctx context.Context, params *AnnouncementRulesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementRulesV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementRulesV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementRulesV2CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementRulesV2Create(ctx context.Context, body AnnouncementRulesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementRulesV2CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementRulesV2Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementRulesV2DestroyRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementRulesV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementRulesV2ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementRulesV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementRulesV2UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementRulesV2Update(ctx context.Context, id string, body AnnouncementRulesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementRulesV2UpdateRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementTemplatesV2List(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementTemplatesV2ListRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementTemplatesV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementTemplatesV2CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementTemplatesV2Create(ctx context.Context, body AnnouncementTemplatesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementTemplatesV2CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementTemplatesV2Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementTemplatesV2DestroyRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementTemplatesV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementTemplatesV2ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementTemplatesV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementTemplatesV2UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AnnouncementTemplatesV2Update(ctx context.Context, id string, body AnnouncementTemplatesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAnnouncementTemplatesV2UpdateRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -32257,6 +33296,408 @@ func newAlertsV2SetTagsRequestWithBody(server string, id string, contentType str
 	}
 
 	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewAnnouncementRulesV2ListRequest generates requests for AnnouncementRulesV2List
+func newAnnouncementRulesV2ListRequest(server string, params *AnnouncementRulesV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/announcement_rules")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewAnnouncementRulesV2CreateRequest calls the generic AnnouncementRulesV2Create builder with application/json body
+func newAnnouncementRulesV2CreateRequest(server string, body AnnouncementRulesV2CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAnnouncementRulesV2CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewAnnouncementRulesV2CreateRequestWithBody generates requests for AnnouncementRulesV2Create with any type of body
+func newAnnouncementRulesV2CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/announcement_rules")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewAnnouncementRulesV2DestroyRequest generates requests for AnnouncementRulesV2Destroy
+func newAnnouncementRulesV2DestroyRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/announcement_rules/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewAnnouncementRulesV2ShowRequest generates requests for AnnouncementRulesV2Show
+func newAnnouncementRulesV2ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/announcement_rules/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewAnnouncementRulesV2UpdateRequest calls the generic AnnouncementRulesV2Update builder with application/json body
+func newAnnouncementRulesV2UpdateRequest(server string, id string, body AnnouncementRulesV2UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAnnouncementRulesV2UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewAnnouncementRulesV2UpdateRequestWithBody generates requests for AnnouncementRulesV2Update with any type of body
+func newAnnouncementRulesV2UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/announcement_rules/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewAnnouncementTemplatesV2ListRequest generates requests for AnnouncementTemplatesV2List
+func newAnnouncementTemplatesV2ListRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/announcement_templates")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewAnnouncementTemplatesV2CreateRequest calls the generic AnnouncementTemplatesV2Create builder with application/json body
+func newAnnouncementTemplatesV2CreateRequest(server string, body AnnouncementTemplatesV2CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAnnouncementTemplatesV2CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewAnnouncementTemplatesV2CreateRequestWithBody generates requests for AnnouncementTemplatesV2Create with any type of body
+func newAnnouncementTemplatesV2CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/announcement_templates")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewAnnouncementTemplatesV2DestroyRequest generates requests for AnnouncementTemplatesV2Destroy
+func newAnnouncementTemplatesV2DestroyRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/announcement_templates/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewAnnouncementTemplatesV2ShowRequest generates requests for AnnouncementTemplatesV2Show
+func newAnnouncementTemplatesV2ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/announcement_templates/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewAnnouncementTemplatesV2UpdateRequest calls the generic AnnouncementTemplatesV2Update builder with application/json body
+func newAnnouncementTemplatesV2UpdateRequest(server string, id string, body AnnouncementTemplatesV2UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAnnouncementTemplatesV2UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewAnnouncementTemplatesV2UpdateRequestWithBody generates requests for AnnouncementTemplatesV2Update with any type of body
+func newAnnouncementTemplatesV2UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/announcement_templates/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
@@ -42742,6 +44183,44 @@ type ClientWithResponsesInterface interface {
 
 	AlertsV2SetTagsWithResponse(ctx context.Context, id string, body AlertsV2SetTagsJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertsV2SetTagsResponse, error)
 
+	// AnnouncementRulesV2ListWithResponse request
+	AnnouncementRulesV2ListWithResponse(ctx context.Context, params *AnnouncementRulesV2ListParams, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2ListResponse, error)
+
+	// AnnouncementRulesV2CreateWithBodyWithResponse request with any body
+	AnnouncementRulesV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2CreateResponse, error)
+
+	AnnouncementRulesV2CreateWithResponse(ctx context.Context, body AnnouncementRulesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2CreateResponse, error)
+
+	// AnnouncementRulesV2DestroyWithResponse request
+	AnnouncementRulesV2DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2DestroyResponse, error)
+
+	// AnnouncementRulesV2ShowWithResponse request
+	AnnouncementRulesV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2ShowResponse, error)
+
+	// AnnouncementRulesV2UpdateWithBodyWithResponse request with any body
+	AnnouncementRulesV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2UpdateResponse, error)
+
+	AnnouncementRulesV2UpdateWithResponse(ctx context.Context, id string, body AnnouncementRulesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2UpdateResponse, error)
+
+	// AnnouncementTemplatesV2ListWithResponse request
+	AnnouncementTemplatesV2ListWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2ListResponse, error)
+
+	// AnnouncementTemplatesV2CreateWithBodyWithResponse request with any body
+	AnnouncementTemplatesV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2CreateResponse, error)
+
+	AnnouncementTemplatesV2CreateWithResponse(ctx context.Context, body AnnouncementTemplatesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2CreateResponse, error)
+
+	// AnnouncementTemplatesV2DestroyWithResponse request
+	AnnouncementTemplatesV2DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2DestroyResponse, error)
+
+	// AnnouncementTemplatesV2ShowWithResponse request
+	AnnouncementTemplatesV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2ShowResponse, error)
+
+	// AnnouncementTemplatesV2UpdateWithBodyWithResponse request with any body
+	AnnouncementTemplatesV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2UpdateResponse, error)
+
+	AnnouncementTemplatesV2UpdateWithResponse(ctx context.Context, id string, body AnnouncementTemplatesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2UpdateResponse, error)
+
 	// CallRoutesV2ListWithResponse request
 	CallRoutesV2ListWithResponse(ctx context.Context, params *CallRoutesV2ListParams, reqEditors ...RequestEditorFn) (*CallRoutesV2ListResponse, error)
 
@@ -46999,6 +48478,354 @@ func (r AlertsV2SetTagsResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r AlertsV2SetTagsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AnnouncementRulesV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AnnouncementRulesListResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AnnouncementRulesV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AnnouncementRulesV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AnnouncementRulesV2CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *AnnouncementRulesCreateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AnnouncementRulesV2CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AnnouncementRulesV2CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AnnouncementRulesV2DestroyResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AnnouncementRulesV2DestroyResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AnnouncementRulesV2DestroyResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AnnouncementRulesV2ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AnnouncementRulesShowResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AnnouncementRulesV2ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AnnouncementRulesV2ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AnnouncementRulesV2UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AnnouncementRulesUpdateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AnnouncementRulesV2UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AnnouncementRulesV2UpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AnnouncementTemplatesV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AnnouncementTemplatesListResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AnnouncementTemplatesV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AnnouncementTemplatesV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AnnouncementTemplatesV2CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *AnnouncementTemplatesCreateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AnnouncementTemplatesV2CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AnnouncementTemplatesV2CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AnnouncementTemplatesV2DestroyResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AnnouncementTemplatesV2DestroyResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AnnouncementTemplatesV2DestroyResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AnnouncementTemplatesV2ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AnnouncementTemplatesShowResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AnnouncementTemplatesV2ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AnnouncementTemplatesV2ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AnnouncementTemplatesV2UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AnnouncementTemplatesUpdateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AnnouncementTemplatesV2UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AnnouncementTemplatesV2UpdateResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -55403,6 +57230,128 @@ func (c *ClientWithResponses) AlertsV2SetTagsWithResponse(ctx context.Context, i
 		return nil, err
 	}
 	return parseAlertsV2SetTagsResponse(rsp)
+}
+
+// AnnouncementRulesV2ListWithResponse request returning *AnnouncementRulesV2ListResponse
+func (c *ClientWithResponses) AnnouncementRulesV2ListWithResponse(ctx context.Context, params *AnnouncementRulesV2ListParams, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2ListResponse, error) {
+	rsp, err := c.AnnouncementRulesV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementRulesV2ListResponse(rsp)
+}
+
+// AnnouncementRulesV2CreateWithBodyWithResponse request with arbitrary body returning *AnnouncementRulesV2CreateResponse
+func (c *ClientWithResponses) AnnouncementRulesV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2CreateResponse, error) {
+	rsp, err := c.AnnouncementRulesV2CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementRulesV2CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) AnnouncementRulesV2CreateWithResponse(ctx context.Context, body AnnouncementRulesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2CreateResponse, error) {
+	rsp, err := c.AnnouncementRulesV2Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementRulesV2CreateResponse(rsp)
+}
+
+// AnnouncementRulesV2DestroyWithResponse request returning *AnnouncementRulesV2DestroyResponse
+func (c *ClientWithResponses) AnnouncementRulesV2DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2DestroyResponse, error) {
+	rsp, err := c.AnnouncementRulesV2Destroy(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementRulesV2DestroyResponse(rsp)
+}
+
+// AnnouncementRulesV2ShowWithResponse request returning *AnnouncementRulesV2ShowResponse
+func (c *ClientWithResponses) AnnouncementRulesV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2ShowResponse, error) {
+	rsp, err := c.AnnouncementRulesV2Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementRulesV2ShowResponse(rsp)
+}
+
+// AnnouncementRulesV2UpdateWithBodyWithResponse request with arbitrary body returning *AnnouncementRulesV2UpdateResponse
+func (c *ClientWithResponses) AnnouncementRulesV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2UpdateResponse, error) {
+	rsp, err := c.AnnouncementRulesV2UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementRulesV2UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) AnnouncementRulesV2UpdateWithResponse(ctx context.Context, id string, body AnnouncementRulesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*AnnouncementRulesV2UpdateResponse, error) {
+	rsp, err := c.AnnouncementRulesV2Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementRulesV2UpdateResponse(rsp)
+}
+
+// AnnouncementTemplatesV2ListWithResponse request returning *AnnouncementTemplatesV2ListResponse
+func (c *ClientWithResponses) AnnouncementTemplatesV2ListWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2ListResponse, error) {
+	rsp, err := c.AnnouncementTemplatesV2List(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementTemplatesV2ListResponse(rsp)
+}
+
+// AnnouncementTemplatesV2CreateWithBodyWithResponse request with arbitrary body returning *AnnouncementTemplatesV2CreateResponse
+func (c *ClientWithResponses) AnnouncementTemplatesV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2CreateResponse, error) {
+	rsp, err := c.AnnouncementTemplatesV2CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementTemplatesV2CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) AnnouncementTemplatesV2CreateWithResponse(ctx context.Context, body AnnouncementTemplatesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2CreateResponse, error) {
+	rsp, err := c.AnnouncementTemplatesV2Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementTemplatesV2CreateResponse(rsp)
+}
+
+// AnnouncementTemplatesV2DestroyWithResponse request returning *AnnouncementTemplatesV2DestroyResponse
+func (c *ClientWithResponses) AnnouncementTemplatesV2DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2DestroyResponse, error) {
+	rsp, err := c.AnnouncementTemplatesV2Destroy(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementTemplatesV2DestroyResponse(rsp)
+}
+
+// AnnouncementTemplatesV2ShowWithResponse request returning *AnnouncementTemplatesV2ShowResponse
+func (c *ClientWithResponses) AnnouncementTemplatesV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2ShowResponse, error) {
+	rsp, err := c.AnnouncementTemplatesV2Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementTemplatesV2ShowResponse(rsp)
+}
+
+// AnnouncementTemplatesV2UpdateWithBodyWithResponse request with arbitrary body returning *AnnouncementTemplatesV2UpdateResponse
+func (c *ClientWithResponses) AnnouncementTemplatesV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2UpdateResponse, error) {
+	rsp, err := c.AnnouncementTemplatesV2UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementTemplatesV2UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) AnnouncementTemplatesV2UpdateWithResponse(ctx context.Context, id string, body AnnouncementTemplatesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*AnnouncementTemplatesV2UpdateResponse, error) {
+	rsp, err := c.AnnouncementTemplatesV2Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAnnouncementTemplatesV2UpdateResponse(rsp)
 }
 
 // CallRoutesV2ListWithResponse request returning *CallRoutesV2ListResponse
@@ -69462,6 +71411,1162 @@ func parseAlertsV2SetTagsResponse(rsp *http.Response) (*AlertsV2SetTagsResponse,
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest AlertsSetTagsResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAnnouncementRulesV2ListResponse parses an HTTP response from a AnnouncementRulesV2ListWithResponse call
+func parseAnnouncementRulesV2ListResponse(rsp *http.Response) (*AnnouncementRulesV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AnnouncementRulesV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AnnouncementRulesListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAnnouncementRulesV2CreateResponse parses an HTTP response from a AnnouncementRulesV2CreateWithResponse call
+func parseAnnouncementRulesV2CreateResponse(rsp *http.Response) (*AnnouncementRulesV2CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AnnouncementRulesV2CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest AnnouncementRulesCreateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAnnouncementRulesV2DestroyResponse parses an HTTP response from a AnnouncementRulesV2DestroyWithResponse call
+func parseAnnouncementRulesV2DestroyResponse(rsp *http.Response) (*AnnouncementRulesV2DestroyResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AnnouncementRulesV2DestroyResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAnnouncementRulesV2ShowResponse parses an HTTP response from a AnnouncementRulesV2ShowWithResponse call
+func parseAnnouncementRulesV2ShowResponse(rsp *http.Response) (*AnnouncementRulesV2ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AnnouncementRulesV2ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AnnouncementRulesShowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAnnouncementRulesV2UpdateResponse parses an HTTP response from a AnnouncementRulesV2UpdateWithResponse call
+func parseAnnouncementRulesV2UpdateResponse(rsp *http.Response) (*AnnouncementRulesV2UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AnnouncementRulesV2UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AnnouncementRulesUpdateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAnnouncementTemplatesV2ListResponse parses an HTTP response from a AnnouncementTemplatesV2ListWithResponse call
+func parseAnnouncementTemplatesV2ListResponse(rsp *http.Response) (*AnnouncementTemplatesV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AnnouncementTemplatesV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AnnouncementTemplatesListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAnnouncementTemplatesV2CreateResponse parses an HTTP response from a AnnouncementTemplatesV2CreateWithResponse call
+func parseAnnouncementTemplatesV2CreateResponse(rsp *http.Response) (*AnnouncementTemplatesV2CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AnnouncementTemplatesV2CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest AnnouncementTemplatesCreateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAnnouncementTemplatesV2DestroyResponse parses an HTTP response from a AnnouncementTemplatesV2DestroyWithResponse call
+func parseAnnouncementTemplatesV2DestroyResponse(rsp *http.Response) (*AnnouncementTemplatesV2DestroyResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AnnouncementTemplatesV2DestroyResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAnnouncementTemplatesV2ShowResponse parses an HTTP response from a AnnouncementTemplatesV2ShowWithResponse call
+func parseAnnouncementTemplatesV2ShowResponse(rsp *http.Response) (*AnnouncementTemplatesV2ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AnnouncementTemplatesV2ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AnnouncementTemplatesShowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAnnouncementTemplatesV2UpdateResponse parses an HTTP response from a AnnouncementTemplatesV2UpdateWithResponse call
+func parseAnnouncementTemplatesV2UpdateResponse(rsp *http.Response) (*AnnouncementTemplatesV2UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AnnouncementTemplatesV2UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AnnouncementTemplatesUpdateResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
