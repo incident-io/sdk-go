@@ -7215,14 +7215,17 @@ func (e PolicyFindingReadinessRuleV2MethodTypes) Valid() bool {
 
 // Defines values for PolicyFindingScheduleImpactedUserV2Cause.
 const (
-	PolicyFindingScheduleImpactedUserV2CauseNoOnCallSeat    PolicyFindingScheduleImpactedUserV2Cause = "no_on_call_seat"
-	PolicyFindingScheduleImpactedUserV2CauseUserDeactivated PolicyFindingScheduleImpactedUserV2Cause = "user_deactivated"
+	PolicyFindingScheduleImpactedUserV2CauseNoOnCallSeat        PolicyFindingScheduleImpactedUserV2Cause = "no_on_call_seat"
+	PolicyFindingScheduleImpactedUserV2CauseNotificationsPaused PolicyFindingScheduleImpactedUserV2Cause = "notifications_paused"
+	PolicyFindingScheduleImpactedUserV2CauseUserDeactivated     PolicyFindingScheduleImpactedUserV2Cause = "user_deactivated"
 )
 
 // Valid indicates whether the value is a known member of the PolicyFindingScheduleImpactedUserV2Cause enum.
 func (e PolicyFindingScheduleImpactedUserV2Cause) Valid() bool {
 	switch e {
 	case PolicyFindingScheduleImpactedUserV2CauseNoOnCallSeat:
+		return true
+	case PolicyFindingScheduleImpactedUserV2CauseNotificationsPaused:
 		return true
 	case PolicyFindingScheduleImpactedUserV2CauseUserDeactivated:
 		return true
@@ -7233,9 +7236,10 @@ func (e PolicyFindingScheduleImpactedUserV2Cause) Valid() bool {
 
 // Defines values for PolicyFindingScheduleV2Cause.
 const (
-	PolicyFindingScheduleV2CauseNoOnCallSeat    PolicyFindingScheduleV2Cause = "no_on_call_seat"
-	PolicyFindingScheduleV2CauseNobodyScheduled PolicyFindingScheduleV2Cause = "nobody_scheduled"
-	PolicyFindingScheduleV2CauseUserDeactivated PolicyFindingScheduleV2Cause = "user_deactivated"
+	PolicyFindingScheduleV2CauseNoOnCallSeat        PolicyFindingScheduleV2Cause = "no_on_call_seat"
+	PolicyFindingScheduleV2CauseNobodyScheduled     PolicyFindingScheduleV2Cause = "nobody_scheduled"
+	PolicyFindingScheduleV2CauseNotificationsPaused PolicyFindingScheduleV2Cause = "notifications_paused"
+	PolicyFindingScheduleV2CauseUserDeactivated     PolicyFindingScheduleV2Cause = "user_deactivated"
 )
 
 // Valid indicates whether the value is a known member of the PolicyFindingScheduleV2Cause enum.
@@ -7244,6 +7248,8 @@ func (e PolicyFindingScheduleV2Cause) Valid() bool {
 	case PolicyFindingScheduleV2CauseNoOnCallSeat:
 		return true
 	case PolicyFindingScheduleV2CauseNobodyScheduled:
+		return true
+	case PolicyFindingScheduleV2CauseNotificationsPaused:
 		return true
 	case PolicyFindingScheduleV2CauseUserDeactivated:
 		return true
