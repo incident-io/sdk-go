@@ -19927,6 +19927,11 @@ type StatusPagesShowStatusPageMaintenanceResultV2 struct {
 	StatusPageMaintenance *StatusPageMaintenanceV2 `json:"status_page_maintenance,omitempty"`
 }
 
+// StatusPagesShowStatusPageResultV2 defines model for StatusPagesShowStatusPageResultV2.
+type StatusPagesShowStatusPageResultV2 struct {
+	StatusPage StatusPageV2 `json:"status_page"`
+}
+
 // StatusPagesShowStatusPageStructureResultV2 defines model for StatusPagesShowStatusPageStructureResultV2.
 type StatusPagesShowStatusPageStructureResultV2 struct {
 	CurrentStructure StatusPageStructureV2 `json:"current_structure"`
@@ -23202,6 +23207,9 @@ type ClientInterface interface {
 
 	// StatusPagesV2ListStatusPages request
 	StatusPagesV2ListStatusPages(ctx context.Context, params *StatusPagesV2ListStatusPagesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// StatusPagesV2ShowStatusPage request
+	StatusPagesV2ShowStatusPage(ctx context.Context, statusPageId string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// StatusPagesV2ShowStatusPageComponentAvailability request
 	StatusPagesV2ShowStatusPageComponentAvailability(ctx context.Context, statusPageId string, componentId string, params *StatusPagesV2ShowStatusPageComponentAvailabilityParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -27989,6 +27997,18 @@ func (c *Client) StatusPagesV2ShowStatusPageStructure(ctx context.Context, statu
 
 func (c *Client) StatusPagesV2ListStatusPages(ctx context.Context, params *StatusPagesV2ListStatusPagesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newStatusPagesV2ListStatusPagesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) StatusPagesV2ShowStatusPage(ctx context.Context, statusPageId string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newStatusPagesV2ShowStatusPageRequest(c.Server, statusPageId)
 	if err != nil {
 		return nil, err
 	}
@@ -41449,6 +41469,40 @@ func newStatusPagesV2ListStatusPagesRequest(server string, params *StatusPagesV2
 	return req, nil
 }
 
+// NewStatusPagesV2ShowStatusPageRequest generates requests for StatusPagesV2ShowStatusPage
+func newStatusPagesV2ShowStatusPageRequest(server string, statusPageId string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "status_page_id", statusPageId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/status_pages/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewStatusPagesV2ShowStatusPageComponentAvailabilityRequest generates requests for StatusPagesV2ShowStatusPageComponentAvailability
 func newStatusPagesV2ShowStatusPageComponentAvailabilityRequest(server string, statusPageId string, componentId string, params *StatusPagesV2ShowStatusPageComponentAvailabilityParams) (*http.Request, error) {
 	var err error
@@ -44827,6 +44881,9 @@ type ClientWithResponsesInterface interface {
 
 	// StatusPagesV2ListStatusPagesWithResponse request
 	StatusPagesV2ListStatusPagesWithResponse(ctx context.Context, params *StatusPagesV2ListStatusPagesParams, reqEditors ...RequestEditorFn) (*StatusPagesV2ListStatusPagesResponse, error)
+
+	// StatusPagesV2ShowStatusPageWithResponse request
+	StatusPagesV2ShowStatusPageWithResponse(ctx context.Context, statusPageId string, reqEditors ...RequestEditorFn) (*StatusPagesV2ShowStatusPageResponse, error)
 
 	// StatusPagesV2ShowStatusPageComponentAvailabilityWithResponse request
 	StatusPagesV2ShowStatusPageComponentAvailabilityWithResponse(ctx context.Context, statusPageId string, componentId string, params *StatusPagesV2ShowStatusPageComponentAvailabilityParams, reqEditors ...RequestEditorFn) (*StatusPagesV2ShowStatusPageComponentAvailabilityResponse, error)
@@ -54307,6 +54364,41 @@ func (r StatusPagesV2ListStatusPagesResponse) StatusCode() int {
 	return 0
 }
 
+type StatusPagesV2ShowStatusPageResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *StatusPagesShowStatusPageResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r StatusPagesV2ShowStatusPageResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r StatusPagesV2ShowStatusPageResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type StatusPagesV2ShowStatusPageComponentAvailabilityResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -59361,6 +59453,15 @@ func (c *ClientWithResponses) StatusPagesV2ListStatusPagesWithResponse(ctx conte
 		return nil, err
 	}
 	return parseStatusPagesV2ListStatusPagesResponse(rsp)
+}
+
+// StatusPagesV2ShowStatusPageWithResponse request returning *StatusPagesV2ShowStatusPageResponse
+func (c *ClientWithResponses) StatusPagesV2ShowStatusPageWithResponse(ctx context.Context, statusPageId string, reqEditors ...RequestEditorFn) (*StatusPagesV2ShowStatusPageResponse, error) {
+	rsp, err := c.StatusPagesV2ShowStatusPage(ctx, statusPageId, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseStatusPagesV2ShowStatusPageResponse(rsp)
 }
 
 // StatusPagesV2ShowStatusPageComponentAvailabilityWithResponse request returning *StatusPagesV2ShowStatusPageComponentAvailabilityResponse
@@ -90760,6 +90861,123 @@ func parseStatusPagesV2ListStatusPagesResponse(rsp *http.Response) (*StatusPages
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest StatusPagesListStatusPagesResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseStatusPagesV2ShowStatusPageResponse parses an HTTP response from a StatusPagesV2ShowStatusPageWithResponse call
+func parseStatusPagesV2ShowStatusPageResponse(rsp *http.Response) (*StatusPagesV2ShowStatusPageResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &StatusPagesV2ShowStatusPageResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest StatusPagesShowStatusPageResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
