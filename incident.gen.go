@@ -18453,11 +18453,10 @@ type ScheduleEntriesListPayloadV2 struct {
 }
 
 // ScheduleEntryV2 A single shift on a schedule, representing who is on-call between a start
-// and end time. When present, `rotation_id` and `layer_id` tell you which
-// rotation and which layer within that rotation the entry belongs to. A
-// schedule may have multiple rotations (for example, a primary and a secondary
-// rotation) and each rotation can be made up of several layers — entries are
-// returned for every rotation and layer on the schedule.
+// and end time. When present, `rotation_id` tells you which rotation the
+// entry belongs to. A schedule may have multiple rotations (for example, a
+// primary and a secondary rotation) and each rotation can be made up of several
+// layers — entries are returned for every rotation and layer on the schedule.
 //
 // Entries come from two places: they are either generated from a schedule's
 // rotation configuration (the regular pattern of who is on-call) or created by
@@ -18479,9 +18478,6 @@ type ScheduleEntryV2 struct {
 
 	// Fingerprint A unique identifier for this entry, used to determine a unique shift
 	Fingerprint *string `json:"fingerprint,omitempty"`
-
-	// LayerId If present, the layer this entry applies to on the rotation
-	LayerId *string `json:"layer_id,omitempty"`
 
 	// RotationId If present, the rotation this entry applies to on the schedule
 	RotationId *string   `json:"rotation_id,omitempty"`

@@ -89655,7 +89655,6 @@
               "end_at": "2021-08-17T13:28:57.801578Z",
               "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-              "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
               "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "start_at": "2021-08-17T13:28:57.801578Z",
               "user": {
@@ -89672,7 +89671,6 @@
               "end_at": "2021-08-17T13:28:57.801578Z",
               "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-              "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
               "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "start_at": "2021-08-17T13:28:57.801578Z",
               "user": {
@@ -89689,7 +89687,6 @@
               "end_at": "2021-08-17T13:28:57.801578Z",
               "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-              "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
               "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "start_at": "2021-08-17T13:28:57.801578Z",
               "user": {
@@ -89710,7 +89707,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -89734,7 +89730,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -89758,7 +89753,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -89784,12 +89778,11 @@
         "type": "object"
       },
       "ScheduleEntryV2": {
-        "description": "A single shift on a schedule, representing who is on-call between a start\nand end time. When present, `rotation_id` and `layer_id` tell you which\nrotation and which layer within that rotation the entry belongs to. A\nschedule may have multiple rotations (for example, a primary and a secondary\nrotation) and each rotation can be made up of several layers — entries are\nreturned for every rotation and layer on the schedule.\n\nEntries come from two places: they are either generated from a schedule's\nrotation configuration (the regular pattern of who is on-call) or created by\nan override (a one-off change that replaces the normal rotation for a period\nof time). When you call the List schedule entries endpoint we return both\nkinds separately, along with the merged `final` schedule that reflects what\nwill actually happen.\n\n`entry_id` is only populated for entries that correspond to a stored\nrecord. Scheduled entries are projections computed from the rotation rules\non the fly and don't have a persisted ID, so `entry_id` will be absent for\nthose. Use `fingerprint` if you need a stable identifier to deduplicate or\ndiff a shift across requests.",
+        "description": "A single shift on a schedule, representing who is on-call between a start\nand end time. When present, `rotation_id` tells you which rotation the\nentry belongs to. A schedule may have multiple rotations (for example, a\nprimary and a secondary rotation) and each rotation can be made up of several\nlayers — entries are returned for every rotation and layer on the schedule.\n\nEntries come from two places: they are either generated from a schedule's\nrotation configuration (the regular pattern of who is on-call) or created by\nan override (a one-off change that replaces the normal rotation for a period\nof time). When you call the List schedule entries endpoint we return both\nkinds separately, along with the merged `final` schedule that reflects what\nwill actually happen.\n\n`entry_id` is only populated for entries that correspond to a stored\nrecord. Scheduled entries are projections computed from the rotation rules\non the fly and don't have a persisted ID, so `entry_id` will be absent for\nthose. Use `fingerprint` if you need a stable identifier to deduplicate or\ndiff a shift across requests.",
         "example": {
           "end_at": "2021-08-17T13:28:57.801578Z",
           "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
           "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-          "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
           "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
           "start_at": "2021-08-17T13:28:57.801578Z",
           "user": {
@@ -89814,11 +89807,6 @@
           "fingerprint": {
             "description": "A unique identifier for this entry, used to determine a unique shift",
             "example": "01G0J1EXE7AXZ2C93K61WBPYEH",
-            "type": "string"
-          },
-          "layer_id": {
-            "description": "If present, the layer this entry applies to on the rotation",
-            "example": "01G0J1EXE7AXZ2C93K61WBPYNH",
             "type": "string"
           },
           "rotation_id": {
@@ -91602,7 +91590,6 @@
               "end_at": "2021-08-17T13:28:57.801578Z",
               "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-              "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
               "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "start_at": "2021-08-17T13:28:57.801578Z",
               "user": {
@@ -91627,7 +91614,6 @@
               "end_at": "2021-08-17T13:28:57.801578Z",
               "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-              "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
               "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
               "start_at": "2021-08-17T13:28:57.801578Z",
               "user": {
@@ -91673,7 +91659,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -91710,7 +91695,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -91981,7 +91965,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -92006,7 +91989,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -92289,7 +92271,6 @@
                   "end_at": "2021-08-17T13:28:57.801578Z",
                   "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                   "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                  "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                   "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                   "start_at": "2021-08-17T13:28:57.801578Z",
                   "user": {
@@ -92314,7 +92295,6 @@
                   "end_at": "2021-08-17T13:28:57.801578Z",
                   "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                   "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                  "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                   "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                   "start_at": "2021-08-17T13:28:57.801578Z",
                   "user": {
@@ -92397,7 +92377,6 @@
                     "end_at": "2021-08-17T13:28:57.801578Z",
                     "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                    "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                     "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "start_at": "2021-08-17T13:28:57.801578Z",
                     "user": {
@@ -92422,7 +92401,6 @@
                     "end_at": "2021-08-17T13:28:57.801578Z",
                     "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                    "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                     "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                     "start_at": "2021-08-17T13:28:57.801578Z",
                     "user": {
@@ -92465,7 +92443,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -92482,7 +92459,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -92499,7 +92475,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -92773,7 +92748,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -92790,7 +92764,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -92807,7 +92780,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -92919,7 +92891,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -92944,7 +92915,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -93261,7 +93231,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -93286,7 +93255,6 @@
                 "end_at": "2021-08-17T13:28:57.801578Z",
                 "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                 "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                 "start_at": "2021-08-17T13:28:57.801578Z",
                 "user": {
@@ -165473,7 +165441,7 @@
     },
     "/v2/schedule_entries": {
       "get": {
-        "description": "List the schedule entries for a schedule over a window of time.\n\nUse this endpoint to find out who is on-call for a schedule, either right now or\nat any point in the future. Common uses include:\n\n- Building a calendar or timeline view of who is on-call.\n- Looking up who was on-call at a particular moment (for example, when an\n  incident fired).\n- Exporting upcoming shifts into another system, such as a payroll or\n  scheduling tool.\n\nThe response groups entries into three lists: `scheduled` (the entries the\nrotation rules produce, before any overrides), `overrides` (any one-off\noverrides that apply in the window) and `final` (the effective schedule\nafter overrides have been merged in — this is normally the list you want).\n\nEach entry includes the `rotation_id` and `layer_id` it belongs to.\nSchedules can be made up of multiple rotations (for example, a primary and\na secondary rotation) and each rotation can have several layers, and we\nreturn entries for every rotation and layer on the schedule.\n\nThe endpoint returns all entries that overlap with the given window. If no\nwindow is provided we default to a sensible range starting from now.\n\n## Pagination\n\nResponses are paginated. When more entries are available than fit on a single\npage, the response includes a `pagination_meta` block with two fields:\n\n- `after_url` — a fully-formed URL for the next page. The simplest way\n  to paginate is to keep following this URL until it is no longer present.\n- `after` — an opaque cursor token. To fetch the next page manually,\n  re-issue the request with `entry_window_start` set to this value and\n  `entry_window_end` left unchanged from the original request. Treat\n  the token as opaque — do not parse or modify it.\n\nKeep paginating until `pagination_meta` is absent from the response, at\nwhich point you have received every entry in the window.",
+        "description": "List the schedule entries for a schedule over a window of time.\n\nUse this endpoint to find out who is on-call for a schedule, either right now or\nat any point in the future. Common uses include:\n\n- Building a calendar or timeline view of who is on-call.\n- Looking up who was on-call at a particular moment (for example, when an\n  incident fired).\n- Exporting upcoming shifts into another system, such as a payroll or\n  scheduling tool.\n\nThe response groups entries into three lists: `scheduled` (the entries the\nrotation rules produce, before any overrides), `overrides` (any one-off\noverrides that apply in the window) and `final` (the effective schedule\nafter overrides have been merged in — this is normally the list you want).\n\nEach entry includes the `rotation_id` it belongs to.\nSchedules can be made up of multiple rotations (for example, a primary and\na secondary rotation) and each rotation can have several layers, and we\nreturn entries for every rotation and layer on the schedule.\n\nThe endpoint returns all entries that overlap with the given window. If no\nwindow is provided we default to a sensible range starting from now.\n\n## Pagination\n\nResponses are paginated. When more entries are available than fit on a single\npage, the response includes a `pagination_meta` block with two fields:\n\n- `after_url` — a fully-formed URL for the next page. The simplest way\n  to paginate is to keep following this URL until it is no longer present.\n- `after` — an opaque cursor token. To fetch the next page manually,\n  re-issue the request with `entry_window_start` set to this value and\n  `entry_window_end` left unchanged from the original request. Treat\n  the token as opaque — do not parse or modify it.\n\nKeep paginating until `pagination_meta` is absent from the response, at\nwhich point you have received every entry in the window.",
         "operationId": "Schedules V2#ListScheduleEntries",
         "parameters": [
           {
@@ -165530,7 +165498,6 @@
                         "end_at": "2021-08-17T13:28:57.801578Z",
                         "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                         "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "start_at": "2021-08-17T13:28:57.801578Z",
                         "user": {
@@ -165547,7 +165514,6 @@
                         "end_at": "2021-08-17T13:28:57.801578Z",
                         "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                         "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "start_at": "2021-08-17T13:28:57.801578Z",
                         "user": {
@@ -165564,7 +165530,6 @@
                         "end_at": "2021-08-17T13:28:57.801578Z",
                         "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                         "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "start_at": "2021-08-17T13:28:57.801578Z",
                         "user": {
@@ -167866,7 +167831,6 @@
                           "end_at": "2021-08-17T13:28:57.801578Z",
                           "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                           "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                          "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                           "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                           "start_at": "2021-08-17T13:28:57.801578Z",
                           "user": {
@@ -167891,7 +167855,6 @@
                           "end_at": "2021-08-17T13:28:57.801578Z",
                           "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                           "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                          "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                           "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                           "start_at": "2021-08-17T13:28:57.801578Z",
                           "user": {
@@ -168199,7 +168162,6 @@
                         "end_at": "2021-08-17T13:28:57.801578Z",
                         "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                         "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "start_at": "2021-08-17T13:28:57.801578Z",
                         "user": {
@@ -168224,7 +168186,6 @@
                         "end_at": "2021-08-17T13:28:57.801578Z",
                         "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                         "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "start_at": "2021-08-17T13:28:57.801578Z",
                         "user": {
@@ -168642,7 +168603,6 @@
                         "end_at": "2021-08-17T13:28:57.801578Z",
                         "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                         "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "start_at": "2021-08-17T13:28:57.801578Z",
                         "user": {
@@ -168667,7 +168627,6 @@
                         "end_at": "2021-08-17T13:28:57.801578Z",
                         "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                         "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "start_at": "2021-08-17T13:28:57.801578Z",
                         "user": {
@@ -168988,7 +168947,6 @@
                         "end_at": "2021-08-17T13:28:57.801578Z",
                         "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                         "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "start_at": "2021-08-17T13:28:57.801578Z",
                         "user": {
@@ -169013,7 +168971,6 @@
                         "end_at": "2021-08-17T13:28:57.801578Z",
                         "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                         "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "start_at": "2021-08-17T13:28:57.801578Z",
                         "user": {
@@ -169288,7 +169245,6 @@
                         "end_at": "2021-08-17T13:28:57.801578Z",
                         "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                         "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "start_at": "2021-08-17T13:28:57.801578Z",
                         "user": {
@@ -169305,7 +169261,6 @@
                         "end_at": "2021-08-17T13:28:57.801578Z",
                         "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                         "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "start_at": "2021-08-17T13:28:57.801578Z",
                         "user": {
@@ -169322,7 +169277,6 @@
                         "end_at": "2021-08-17T13:28:57.801578Z",
                         "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
-                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
                         "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
                         "start_at": "2021-08-17T13:28:57.801578Z",
                         "user": {
