@@ -18070,6 +18070,39 @@ type PolicyFindingScheduleV2 struct {
 // PolicyFindingScheduleV2Cause Why the gap exists
 type PolicyFindingScheduleV2Cause string
 
+// PolicyFindingShiftConflictShiftV2 defines model for PolicyFindingShiftConflictShiftV2.
+type PolicyFindingShiftConflictShiftV2 struct {
+	// EndAt When this shift ends, which can be after the conflict does
+	EndAt time.Time `json:"end_at"`
+
+	// LayerId The layer this shift belongs to
+	LayerId *string `json:"layer_id,omitempty"`
+
+	// RotationId The rotation this shift belongs to
+	RotationId *string `json:"rotation_id,omitempty"`
+
+	// ScheduleId The schedule this shift belongs to
+	ScheduleId string `json:"schedule_id"`
+
+	// StartAt When this shift starts, which can be before the conflict does
+	StartAt time.Time `json:"start_at"`
+}
+
+// PolicyFindingShiftConflictV2 Set when policy_type is shift_conflict. Someone is on call in two or more places at once.
+type PolicyFindingShiftConflictV2 struct {
+	// EndAt When the conflict ends
+	EndAt time.Time `json:"end_at"`
+
+	// Shifts Every shift that overlaps the conflict
+	Shifts []PolicyFindingShiftConflictShiftV2 `json:"shifts"`
+
+	// StartAt When the conflict starts
+	StartAt time.Time `json:"start_at"`
+
+	// UserId The user with overlapping shifts
+	UserId string `json:"user_id"`
+}
+
 // PolicyFindingV2 defines model for PolicyFindingV2.
 type PolicyFindingV2 struct {
 	CreatedAt time.Time `json:"created_at"`
@@ -18110,6 +18143,9 @@ type PolicyFindingV2 struct {
 
 	// Schedule Set when policy_type is schedule. Describes a gap in on-call cover.
 	Schedule *PolicyFindingScheduleV2 `json:"schedule,omitempty"`
+
+	// ShiftConflict Set when policy_type is shift_conflict. Someone is on call in two or more places at once.
+	ShiftConflict *PolicyFindingShiftConflictV2 `json:"shift_conflict,omitempty"`
 
 	// State Where this finding is in its lifecycle
 	State     PolicyFindingV2State `json:"state"`
