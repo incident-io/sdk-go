@@ -15488,6 +15488,18 @@ type IncidentAttachmentsListResultV1 struct {
 	IncidentAttachments []IncidentAttachmentV1 `json:"incident_attachments"`
 }
 
+// IncidentDebriefV2 defines model for IncidentDebriefV2.
+type IncidentDebriefV2 struct {
+	// EndAt When the debrief is scheduled to end
+	EndAt time.Time `json:"end_at"`
+
+	// Id Unique ID of the incident debrief
+	Id string `json:"id"`
+
+	// StartAt When the debrief is scheduled to start
+	StartAt time.Time `json:"start_at"`
+}
+
 // IncidentDurationMetricV2 defines model for IncidentDurationMetricV2.
 type IncidentDurationMetricV2 struct {
 	// Id Unique ID of this incident duration metric
@@ -16566,6 +16578,9 @@ type IncidentV2 struct {
 
 	// CustomFieldEntries Custom field entries for this incident
 	CustomFieldEntries []CustomFieldEntryV2 `json:"custom_field_entries"`
+
+	// Debriefs Debriefs scheduled for this incident, ordered by start time. Excludes cancelled calendar events.
+	Debriefs *[]IncidentDebriefV2 `json:"debriefs,omitempty"`
 
 	// DurationMetrics Incident duration metrics and their measurements for this incident
 	DurationMetrics        *[]IncidentDurationMetricWithValueV2 `json:"duration_metrics,omitempty"`
