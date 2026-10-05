@@ -15249,7 +15249,7 @@ type GroupingKeyV3 struct {
 
 // GroupingSettingsV3 defines model for GroupingSettingsV3.
 type GroupingSettingsV3 struct {
-	// AiEnabled Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are grouped by key alone unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+	// AiEnabled Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
 	AiEnabled *bool `json:"ai_enabled,omitempty"`
 
 	// Enabled Whether grouping is enabled
