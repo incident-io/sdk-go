@@ -20067,6 +20067,7 @@ type StatusPagesShowStatusPageStructureResultV2 struct {
 
 	// DisplayUptimeMode How the page shows uptime against its components
 	DisplayUptimeMode StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode `json:"display_uptime_mode"`
+	ManagementMeta    ManagementMetaV2                                            `json:"management_meta"`
 }
 
 // StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode How the page shows uptime against its components
