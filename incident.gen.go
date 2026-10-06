@@ -8107,6 +8107,27 @@ func (e StatusPagesCreateStatusPageMaintenanceUpdatePayloadV2MaintenanceStatus) 
 	}
 }
 
+// Defines values for StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode.
+const (
+	ChartAndPercentage StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode = "chart_and_percentage"
+	ChartOnly          StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode = "chart_only"
+	Nothing            StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode = "nothing"
+)
+
+// Valid indicates whether the value is a known member of the StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode enum.
+func (e StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode) Valid() bool {
+	switch e {
+	case ChartAndPercentage:
+		return true
+	case ChartOnly:
+		return true
+	case Nothing:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for StepProgressSlimV2Status.
 const (
 	StepProgressSlimV2StatusComplete StepProgressSlimV2Status = "complete"
@@ -19774,6 +19795,12 @@ type StatusPageStructureComponentV2 struct {
 	// ComponentId The ID of the affected component. This may be found by calling the ShowStatusPageStructure endpoint.
 	ComponentId string `json:"component_id"`
 
+	// DisplayUptime Whether the page shows this component's uptime
+	DisplayUptime bool `json:"display_uptime"`
+
+	// Hidden Whether the component is hidden from the page
+	Hidden bool `json:"hidden"`
+
 	// Name The name of this component
 	Name string `json:"name"`
 }
@@ -19782,6 +19809,15 @@ type StatusPageStructureComponentV2 struct {
 type StatusPageStructureGroupV2 struct {
 	// Components Array of components belonging to this group
 	Components []StatusPageStructureComponentV2 `json:"components"`
+
+	// Description A description shown under the group's name
+	Description *string `json:"description,omitempty"`
+
+	// DisplayAggregatedUptime Whether the page shows uptime aggregated across the group's components
+	DisplayAggregatedUptime bool `json:"display_aggregated_uptime"`
+
+	// Hidden Whether the group is hidden from the page
+	Hidden bool `json:"hidden"`
 
 	// Id Unique ID of this component group
 	Id string `json:"id"`
@@ -20028,7 +20064,13 @@ type StatusPagesShowStatusPageResultV2 struct {
 // StatusPagesShowStatusPageStructureResultV2 defines model for StatusPagesShowStatusPageStructureResultV2.
 type StatusPagesShowStatusPageStructureResultV2 struct {
 	CurrentStructure StatusPageStructureV2 `json:"current_structure"`
+
+	// DisplayUptimeMode How the page shows uptime against its components
+	DisplayUptimeMode StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode `json:"display_uptime_mode"`
 }
+
+// StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode How the page shows uptime against its components
+type StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode string
 
 // StatusPagesUpdateStatusPageIncidentPayloadV2 defines model for StatusPagesUpdateStatusPageIncidentPayloadV2.
 type StatusPagesUpdateStatusPageIncidentPayloadV2 struct {
