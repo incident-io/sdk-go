@@ -5998,6 +5998,276 @@ func (e IncidentDurationMetricWithValueV2Status) Valid() bool {
 	}
 }
 
+// Defines values for IncidentFormLifecycleElementPayloadV3ElementType.
+const (
+	IncidentFormLifecycleElementPayloadV3ElementTypeAnnounceRetroIncident IncidentFormLifecycleElementPayloadV3ElementType = "announce_retro_incident"
+	IncidentFormLifecycleElementPayloadV3ElementTypeCustomField           IncidentFormLifecycleElementPayloadV3ElementType = "custom_field"
+	IncidentFormLifecycleElementPayloadV3ElementTypeDivider               IncidentFormLifecycleElementPayloadV3ElementType = "divider"
+	IncidentFormLifecycleElementPayloadV3ElementTypeEnterPostIncidentFlow IncidentFormLifecycleElementPayloadV3ElementType = "enter_post_incident_flow"
+	IncidentFormLifecycleElementPayloadV3ElementTypeIncidentAttachments   IncidentFormLifecycleElementPayloadV3ElementType = "incident_attachments"
+	IncidentFormLifecycleElementPayloadV3ElementTypeIncidentRole          IncidentFormLifecycleElementPayloadV3ElementType = "incident_role"
+	IncidentFormLifecycleElementPayloadV3ElementTypeIncidentType          IncidentFormLifecycleElementPayloadV3ElementType = "incident_type"
+	IncidentFormLifecycleElementPayloadV3ElementTypeInvestigationFeedback IncidentFormLifecycleElementPayloadV3ElementType = "investigation_feedback"
+	IncidentFormLifecycleElementPayloadV3ElementTypeName                  IncidentFormLifecycleElementPayloadV3ElementType = "name"
+	IncidentFormLifecycleElementPayloadV3ElementTypeNextUpdateIn          IncidentFormLifecycleElementPayloadV3ElementType = "next_update_in"
+	IncidentFormLifecycleElementPayloadV3ElementTypeSeverity              IncidentFormLifecycleElementPayloadV3ElementType = "severity"
+	IncidentFormLifecycleElementPayloadV3ElementTypeSlackChannel          IncidentFormLifecycleElementPayloadV3ElementType = "slack_channel"
+	IncidentFormLifecycleElementPayloadV3ElementTypeStatus                IncidentFormLifecycleElementPayloadV3ElementType = "status"
+	IncidentFormLifecycleElementPayloadV3ElementTypeSummary               IncidentFormLifecycleElementPayloadV3ElementType = "summary"
+	IncidentFormLifecycleElementPayloadV3ElementTypeText                  IncidentFormLifecycleElementPayloadV3ElementType = "text"
+	IncidentFormLifecycleElementPayloadV3ElementTypeTimestamp             IncidentFormLifecycleElementPayloadV3ElementType = "timestamp"
+	IncidentFormLifecycleElementPayloadV3ElementTypeTriage                IncidentFormLifecycleElementPayloadV3ElementType = "triage"
+	IncidentFormLifecycleElementPayloadV3ElementTypeUpdateMessage         IncidentFormLifecycleElementPayloadV3ElementType = "update_message"
+	IncidentFormLifecycleElementPayloadV3ElementTypeVisibility            IncidentFormLifecycleElementPayloadV3ElementType = "visibility"
+)
+
+// Valid indicates whether the value is a known member of the IncidentFormLifecycleElementPayloadV3ElementType enum.
+func (e IncidentFormLifecycleElementPayloadV3ElementType) Valid() bool {
+	switch e {
+	case IncidentFormLifecycleElementPayloadV3ElementTypeAnnounceRetroIncident:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeCustomField:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeDivider:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeEnterPostIncidentFlow:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeIncidentAttachments:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeIncidentRole:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeIncidentType:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeInvestigationFeedback:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeName:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeNextUpdateIn:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeSeverity:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeSlackChannel:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeStatus:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeSummary:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeText:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeTimestamp:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeTriage:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeUpdateMessage:
+		return true
+	case IncidentFormLifecycleElementPayloadV3ElementTypeVisibility:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IncidentFormLifecycleElementPayloadV3RequiredIf.
+const (
+	IncidentFormLifecycleElementPayloadV3RequiredIfAlwaysRequire     IncidentFormLifecycleElementPayloadV3RequiredIf = "always_require"
+	IncidentFormLifecycleElementPayloadV3RequiredIfCheckEngineConfig IncidentFormLifecycleElementPayloadV3RequiredIf = "check_engine_config"
+	IncidentFormLifecycleElementPayloadV3RequiredIfNeverRequire      IncidentFormLifecycleElementPayloadV3RequiredIf = "never_require"
+)
+
+// Valid indicates whether the value is a known member of the IncidentFormLifecycleElementPayloadV3RequiredIf enum.
+func (e IncidentFormLifecycleElementPayloadV3RequiredIf) Valid() bool {
+	switch e {
+	case IncidentFormLifecycleElementPayloadV3RequiredIfAlwaysRequire:
+		return true
+	case IncidentFormLifecycleElementPayloadV3RequiredIfCheckEngineConfig:
+		return true
+	case IncidentFormLifecycleElementPayloadV3RequiredIfNeverRequire:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IncidentFormLifecycleElementV3ElementType.
+const (
+	IncidentFormLifecycleElementV3ElementTypeAnnounceRetroIncident IncidentFormLifecycleElementV3ElementType = "announce_retro_incident"
+	IncidentFormLifecycleElementV3ElementTypeCustomField           IncidentFormLifecycleElementV3ElementType = "custom_field"
+	IncidentFormLifecycleElementV3ElementTypeDivider               IncidentFormLifecycleElementV3ElementType = "divider"
+	IncidentFormLifecycleElementV3ElementTypeEnterPostIncidentFlow IncidentFormLifecycleElementV3ElementType = "enter_post_incident_flow"
+	IncidentFormLifecycleElementV3ElementTypeIncidentAttachments   IncidentFormLifecycleElementV3ElementType = "incident_attachments"
+	IncidentFormLifecycleElementV3ElementTypeIncidentRole          IncidentFormLifecycleElementV3ElementType = "incident_role"
+	IncidentFormLifecycleElementV3ElementTypeIncidentType          IncidentFormLifecycleElementV3ElementType = "incident_type"
+	IncidentFormLifecycleElementV3ElementTypeInvestigationFeedback IncidentFormLifecycleElementV3ElementType = "investigation_feedback"
+	IncidentFormLifecycleElementV3ElementTypeName                  IncidentFormLifecycleElementV3ElementType = "name"
+	IncidentFormLifecycleElementV3ElementTypeNextUpdateIn          IncidentFormLifecycleElementV3ElementType = "next_update_in"
+	IncidentFormLifecycleElementV3ElementTypeSeverity              IncidentFormLifecycleElementV3ElementType = "severity"
+	IncidentFormLifecycleElementV3ElementTypeSlackChannel          IncidentFormLifecycleElementV3ElementType = "slack_channel"
+	IncidentFormLifecycleElementV3ElementTypeStatus                IncidentFormLifecycleElementV3ElementType = "status"
+	IncidentFormLifecycleElementV3ElementTypeSummary               IncidentFormLifecycleElementV3ElementType = "summary"
+	IncidentFormLifecycleElementV3ElementTypeText                  IncidentFormLifecycleElementV3ElementType = "text"
+	IncidentFormLifecycleElementV3ElementTypeTimestamp             IncidentFormLifecycleElementV3ElementType = "timestamp"
+	IncidentFormLifecycleElementV3ElementTypeTriage                IncidentFormLifecycleElementV3ElementType = "triage"
+	IncidentFormLifecycleElementV3ElementTypeUpdateMessage         IncidentFormLifecycleElementV3ElementType = "update_message"
+	IncidentFormLifecycleElementV3ElementTypeVisibility            IncidentFormLifecycleElementV3ElementType = "visibility"
+)
+
+// Valid indicates whether the value is a known member of the IncidentFormLifecycleElementV3ElementType enum.
+func (e IncidentFormLifecycleElementV3ElementType) Valid() bool {
+	switch e {
+	case IncidentFormLifecycleElementV3ElementTypeAnnounceRetroIncident:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeCustomField:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeDivider:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeEnterPostIncidentFlow:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeIncidentAttachments:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeIncidentRole:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeIncidentType:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeInvestigationFeedback:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeName:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeNextUpdateIn:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeSeverity:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeSlackChannel:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeStatus:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeSummary:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeText:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeTimestamp:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeTriage:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeUpdateMessage:
+		return true
+	case IncidentFormLifecycleElementV3ElementTypeVisibility:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IncidentFormLifecycleElementV3RequiredIf.
+const (
+	IncidentFormLifecycleElementV3RequiredIfAlwaysRequire     IncidentFormLifecycleElementV3RequiredIf = "always_require"
+	IncidentFormLifecycleElementV3RequiredIfCheckEngineConfig IncidentFormLifecycleElementV3RequiredIf = "check_engine_config"
+	IncidentFormLifecycleElementV3RequiredIfNeverRequire      IncidentFormLifecycleElementV3RequiredIf = "never_require"
+)
+
+// Valid indicates whether the value is a known member of the IncidentFormLifecycleElementV3RequiredIf enum.
+func (e IncidentFormLifecycleElementV3RequiredIf) Valid() bool {
+	switch e {
+	case IncidentFormLifecycleElementV3RequiredIfAlwaysRequire:
+		return true
+	case IncidentFormLifecycleElementV3RequiredIfCheckEngineConfig:
+		return true
+	case IncidentFormLifecycleElementV3RequiredIfNeverRequire:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IncidentFormV3FormType.
+const (
+	IncidentFormV3FormTypeAccept        IncidentFormV3FormType = "accept"
+	IncidentFormV3FormTypeCustomFields  IncidentFormV3FormType = "custom-fields"
+	IncidentFormV3FormTypeDeclare       IncidentFormV3FormType = "declare"
+	IncidentFormV3FormTypeResolve       IncidentFormV3FormType = "resolve"
+	IncidentFormV3FormTypeRetrospective IncidentFormV3FormType = "retrospective"
+	IncidentFormV3FormTypeUpdate        IncidentFormV3FormType = "update"
+)
+
+// Valid indicates whether the value is a known member of the IncidentFormV3FormType enum.
+func (e IncidentFormV3FormType) Valid() bool {
+	switch e {
+	case IncidentFormV3FormTypeAccept:
+		return true
+	case IncidentFormV3FormTypeCustomFields:
+		return true
+	case IncidentFormV3FormTypeDeclare:
+		return true
+	case IncidentFormV3FormTypeResolve:
+		return true
+	case IncidentFormV3FormTypeRetrospective:
+		return true
+	case IncidentFormV3FormTypeUpdate:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IncidentFormsCreatePayloadV3FormType.
+const (
+	IncidentFormsCreatePayloadV3FormTypeAccept        IncidentFormsCreatePayloadV3FormType = "accept"
+	IncidentFormsCreatePayloadV3FormTypeCustomFields  IncidentFormsCreatePayloadV3FormType = "custom-fields"
+	IncidentFormsCreatePayloadV3FormTypeDeclare       IncidentFormsCreatePayloadV3FormType = "declare"
+	IncidentFormsCreatePayloadV3FormTypeResolve       IncidentFormsCreatePayloadV3FormType = "resolve"
+	IncidentFormsCreatePayloadV3FormTypeRetrospective IncidentFormsCreatePayloadV3FormType = "retrospective"
+	IncidentFormsCreatePayloadV3FormTypeUpdate        IncidentFormsCreatePayloadV3FormType = "update"
+)
+
+// Valid indicates whether the value is a known member of the IncidentFormsCreatePayloadV3FormType enum.
+func (e IncidentFormsCreatePayloadV3FormType) Valid() bool {
+	switch e {
+	case IncidentFormsCreatePayloadV3FormTypeAccept:
+		return true
+	case IncidentFormsCreatePayloadV3FormTypeCustomFields:
+		return true
+	case IncidentFormsCreatePayloadV3FormTypeDeclare:
+		return true
+	case IncidentFormsCreatePayloadV3FormTypeResolve:
+		return true
+	case IncidentFormsCreatePayloadV3FormTypeRetrospective:
+		return true
+	case IncidentFormsCreatePayloadV3FormTypeUpdate:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IncidentFormsUpdatePayloadV3FormType.
+const (
+	IncidentFormsUpdatePayloadV3FormTypeAccept        IncidentFormsUpdatePayloadV3FormType = "accept"
+	IncidentFormsUpdatePayloadV3FormTypeCustomFields  IncidentFormsUpdatePayloadV3FormType = "custom-fields"
+	IncidentFormsUpdatePayloadV3FormTypeDeclare       IncidentFormsUpdatePayloadV3FormType = "declare"
+	IncidentFormsUpdatePayloadV3FormTypeResolve       IncidentFormsUpdatePayloadV3FormType = "resolve"
+	IncidentFormsUpdatePayloadV3FormTypeRetrospective IncidentFormsUpdatePayloadV3FormType = "retrospective"
+	IncidentFormsUpdatePayloadV3FormTypeUpdate        IncidentFormsUpdatePayloadV3FormType = "update"
+)
+
+// Valid indicates whether the value is a known member of the IncidentFormsUpdatePayloadV3FormType enum.
+func (e IncidentFormsUpdatePayloadV3FormType) Valid() bool {
+	switch e {
+	case IncidentFormsUpdatePayloadV3FormTypeAccept:
+		return true
+	case IncidentFormsUpdatePayloadV3FormTypeCustomFields:
+		return true
+	case IncidentFormsUpdatePayloadV3FormTypeDeclare:
+		return true
+	case IncidentFormsUpdatePayloadV3FormTypeResolve:
+		return true
+	case IncidentFormsUpdatePayloadV3FormTypeRetrospective:
+		return true
+	case IncidentFormsUpdatePayloadV3FormTypeUpdate:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for IncidentParticipantV2ParticipantType.
 const (
 	IncidentParticipantV2ParticipantTypeCollaborator IncidentParticipantV2ParticipantType = "collaborator"
@@ -8043,22 +8313,22 @@ func (e StatusPagesCreateStatusPageIncidentPayloadV2IncidentStatus) Valid() bool
 
 // Defines values for StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus.
 const (
-	Identified    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "identified"
-	Investigating StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "investigating"
-	Monitoring    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "monitoring"
-	Resolved      StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "resolved"
+	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusIdentified    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "identified"
+	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusInvestigating StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "investigating"
+	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusMonitoring    StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "monitoring"
+	StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusResolved      StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus = "resolved"
 )
 
 // Valid indicates whether the value is a known member of the StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus enum.
 func (e StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatus) Valid() bool {
 	switch e {
-	case Identified:
+	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusIdentified:
 		return true
-	case Investigating:
+	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusInvestigating:
 		return true
-	case Monitoring:
+	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusMonitoring:
 		return true
-	case Resolved:
+	case StatusPagesCreateStatusPageIncidentUpdatePayloadV2IncidentStatusResolved:
 		return true
 	default:
 		return false
@@ -9027,31 +9297,31 @@ func (e IncidentsV2ListParamsFilterMode) Valid() bool {
 
 // Defines values for PoliciesV2ListParamsPolicyType.
 const (
-	Debrief          PoliciesV2ListParamsPolicyType = "debrief"
-	FollowUp         PoliciesV2ListParamsPolicyType = "follow_up"
-	OnCallReadiness  PoliciesV2ListParamsPolicyType = "on_call_readiness"
-	PostMortem       PoliciesV2ListParamsPolicyType = "post_mortem"
-	Schedule         PoliciesV2ListParamsPolicyType = "schedule"
-	ShiftConflict    PoliciesV2ListParamsPolicyType = "shift_conflict"
-	VacationConflict PoliciesV2ListParamsPolicyType = "vacation_conflict"
+	PoliciesV2ListParamsPolicyTypeDebrief          PoliciesV2ListParamsPolicyType = "debrief"
+	PoliciesV2ListParamsPolicyTypeFollowUp         PoliciesV2ListParamsPolicyType = "follow_up"
+	PoliciesV2ListParamsPolicyTypeOnCallReadiness  PoliciesV2ListParamsPolicyType = "on_call_readiness"
+	PoliciesV2ListParamsPolicyTypePostMortem       PoliciesV2ListParamsPolicyType = "post_mortem"
+	PoliciesV2ListParamsPolicyTypeSchedule         PoliciesV2ListParamsPolicyType = "schedule"
+	PoliciesV2ListParamsPolicyTypeShiftConflict    PoliciesV2ListParamsPolicyType = "shift_conflict"
+	PoliciesV2ListParamsPolicyTypeVacationConflict PoliciesV2ListParamsPolicyType = "vacation_conflict"
 )
 
 // Valid indicates whether the value is a known member of the PoliciesV2ListParamsPolicyType enum.
 func (e PoliciesV2ListParamsPolicyType) Valid() bool {
 	switch e {
-	case Debrief:
+	case PoliciesV2ListParamsPolicyTypeDebrief:
 		return true
-	case FollowUp:
+	case PoliciesV2ListParamsPolicyTypeFollowUp:
 		return true
-	case OnCallReadiness:
+	case PoliciesV2ListParamsPolicyTypeOnCallReadiness:
 		return true
-	case PostMortem:
+	case PoliciesV2ListParamsPolicyTypePostMortem:
 		return true
-	case Schedule:
+	case PoliciesV2ListParamsPolicyTypeSchedule:
 		return true
-	case ShiftConflict:
+	case PoliciesV2ListParamsPolicyTypeShiftConflict:
 		return true
-	case VacationConflict:
+	case PoliciesV2ListParamsPolicyTypeVacationConflict:
 		return true
 	default:
 		return false
@@ -9087,25 +9357,25 @@ func (e ActionsV3ListParamsIncidentMode) Valid() bool {
 
 // Defines values for FollowUpsV3ListParamsIncidentMode.
 const (
-	Retrospective FollowUpsV3ListParamsIncidentMode = "retrospective"
-	Standard      FollowUpsV3ListParamsIncidentMode = "standard"
-	Stream        FollowUpsV3ListParamsIncidentMode = "stream"
-	Test          FollowUpsV3ListParamsIncidentMode = "test"
-	Tutorial      FollowUpsV3ListParamsIncidentMode = "tutorial"
+	FollowUpsV3ListParamsIncidentModeRetrospective FollowUpsV3ListParamsIncidentMode = "retrospective"
+	FollowUpsV3ListParamsIncidentModeStandard      FollowUpsV3ListParamsIncidentMode = "standard"
+	FollowUpsV3ListParamsIncidentModeStream        FollowUpsV3ListParamsIncidentMode = "stream"
+	FollowUpsV3ListParamsIncidentModeTest          FollowUpsV3ListParamsIncidentMode = "test"
+	FollowUpsV3ListParamsIncidentModeTutorial      FollowUpsV3ListParamsIncidentMode = "tutorial"
 )
 
 // Valid indicates whether the value is a known member of the FollowUpsV3ListParamsIncidentMode enum.
 func (e FollowUpsV3ListParamsIncidentMode) Valid() bool {
 	switch e {
-	case Retrospective:
+	case FollowUpsV3ListParamsIncidentModeRetrospective:
 		return true
-	case Standard:
+	case FollowUpsV3ListParamsIncidentModeStandard:
 		return true
-	case Stream:
+	case FollowUpsV3ListParamsIncidentModeStream:
 		return true
-	case Test:
+	case FollowUpsV3ListParamsIncidentModeTest:
 		return true
-	case Tutorial:
+	case FollowUpsV3ListParamsIncidentModeTutorial:
 		return true
 	default:
 		return false
@@ -15584,6 +15854,184 @@ type IncidentEditPayloadV2 struct {
 	Summary *string `json:"summary,omitempty"`
 }
 
+// IncidentFormLifecycleElementConfigV3 defines model for IncidentFormLifecycleElementConfigV3.
+type IncidentFormLifecycleElementConfigV3 struct {
+	// RequireComment Whether the free-text comment must be filled in, for anyone giving investigation feedback
+	RequireComment *bool `json:"require_comment,omitempty"`
+}
+
+// IncidentFormLifecycleElementPayloadV3 defines model for IncidentFormLifecycleElementPayloadV3.
+type IncidentFormLifecycleElementPayloadV3 struct {
+	// CanSelectNoValue Whether the user can explicitly choose no value. Only meaningful for custom field elements.
+	CanSelectNoValue *bool                                 `json:"can_select_no_value,omitempty"`
+	Config           *IncidentFormLifecycleElementConfigV3 `json:"config,omitempty"`
+
+	// CustomFieldId The custom field this element edits. Set only when element_type is custom_field.
+	CustomFieldId *string                      `json:"custom_field_id,omitempty"`
+	DefaultValue  *EngineParamBindingPayloadV3 `json:"default_value,omitempty"`
+
+	// Description Description shown beside this element, as markdown
+	Description *string `json:"description,omitempty"`
+
+	// ElementType What this element captures
+	ElementType IncidentFormLifecycleElementPayloadV3ElementType `json:"element_type"`
+
+	// Id Identifier of an existing divider or text element. Omit when adding an element.
+	Id *string `json:"id,omitempty"`
+
+	// IncidentRoleId The incident role this element assigns. Set only when element_type is incident_role.
+	IncidentRoleId *string `json:"incident_role_id,omitempty"`
+
+	// IncidentTimestampId The incident timestamp this element sets. Set only when element_type is timestamp.
+	IncidentTimestampId *string `json:"incident_timestamp_id,omitempty"`
+
+	// Placeholder Placeholder text shown in the empty field
+	Placeholder *string `json:"placeholder,omitempty"`
+
+	// RequiredIf When this element must be filled in
+	RequiredIf *IncidentFormLifecycleElementPayloadV3RequiredIf `json:"required_if,omitempty"`
+
+	// RequiredIfConditionGroups Condition groups that make this element required. Used when required_if is check_engine_config.
+	RequiredIfConditionGroups *[]ConditionGroupPayloadV3 `json:"required_if_condition_groups,omitempty"`
+
+	// ShowIfConditionGroups The element is shown when any of these condition groups match. Unset means it is always shown.
+	ShowIfConditionGroups *[]ConditionGroupPayloadV3 `json:"show_if_condition_groups,omitempty"`
+}
+
+// IncidentFormLifecycleElementPayloadV3ElementType What this element captures
+type IncidentFormLifecycleElementPayloadV3ElementType string
+
+// IncidentFormLifecycleElementPayloadV3RequiredIf When this element must be filled in
+type IncidentFormLifecycleElementPayloadV3RequiredIf string
+
+// IncidentFormLifecycleElementV3 defines model for IncidentFormLifecycleElementV3.
+type IncidentFormLifecycleElementV3 struct {
+	// CanSelectNoValue Whether the user can explicitly choose no value. Only meaningful for custom field elements.
+	CanSelectNoValue *bool                                 `json:"can_select_no_value,omitempty"`
+	Config           *IncidentFormLifecycleElementConfigV3 `json:"config,omitempty"`
+
+	// CustomFieldId The custom field this element edits. Set only when element_type is custom_field.
+	CustomFieldId *string               `json:"custom_field_id,omitempty"`
+	DefaultValue  *EngineParamBindingV3 `json:"default_value,omitempty"`
+
+	// Description Description shown beside this element, as markdown
+	Description *string `json:"description,omitempty"`
+
+	// ElementType What this element captures
+	ElementType IncidentFormLifecycleElementV3ElementType `json:"element_type"`
+
+	// Id Unique identifier for this element. divider and text elements are matched on this, because they have no natural key.
+	Id *string `json:"id,omitempty"`
+
+	// IncidentRoleId The incident role this element assigns. Set only when element_type is incident_role.
+	IncidentRoleId *string `json:"incident_role_id,omitempty"`
+
+	// IncidentTimestampId The incident timestamp this element sets. Set only when element_type is timestamp.
+	IncidentTimestampId *string `json:"incident_timestamp_id,omitempty"`
+
+	// Placeholder Placeholder text shown in the empty field
+	Placeholder *string `json:"placeholder,omitempty"`
+
+	// RequiredIf When this element must be filled in
+	RequiredIf *IncidentFormLifecycleElementV3RequiredIf `json:"required_if,omitempty"`
+
+	// RequiredIfConditionGroups Condition groups that make this element required. Used when required_if is check_engine_config.
+	RequiredIfConditionGroups *[]ConditionGroupV3 `json:"required_if_condition_groups,omitempty"`
+
+	// ShowIfConditionGroups The element is shown when any of these condition groups match. Unset means it is always shown.
+	ShowIfConditionGroups *[]ConditionGroupV3 `json:"show_if_condition_groups,omitempty"`
+}
+
+// IncidentFormLifecycleElementV3ElementType What this element captures
+type IncidentFormLifecycleElementV3ElementType string
+
+// IncidentFormLifecycleElementV3RequiredIf When this element must be filled in
+type IncidentFormLifecycleElementV3RequiredIf string
+
+// IncidentFormV3 defines model for IncidentFormV3.
+type IncidentFormV3 struct {
+	// CreatedAt When this incident form was created
+	CreatedAt time.Time `json:"created_at"`
+
+	// Expressions Expressions available to every element's conditions and defaults. Referenced by reference, not by ID.
+	Expressions []ExpressionV3 `json:"expressions"`
+
+	// FormType Which form this is. Escalate forms are not part of this API.
+	FormType IncidentFormV3FormType `json:"form_type"`
+
+	// Id Unique identifier for this incident form
+	Id string `json:"id"`
+
+	// IncidentTypeId The incident type this form belongs to. Unset for the organisation's default form of this type.
+	IncidentTypeId *string `json:"incident_type_id,omitempty"`
+
+	// LifecycleElements Elements on this form, in display order. List position is the order: there is no separate rank.
+	LifecycleElements *[]IncidentFormLifecycleElementV3 `json:"lifecycle_elements,omitempty"`
+
+	// UpdatedAt When this incident form was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
+// IncidentFormV3FormType Which form this is. Escalate forms are not part of this API.
+type IncidentFormV3FormType string
+
+// IncidentFormsCreatePayloadV3 defines model for IncidentFormsCreatePayloadV3.
+type IncidentFormsCreatePayloadV3 struct {
+	// Expressions Expressions available to every element's conditions and defaults. Referenced by reference, not by ID.
+	Expressions []ExpressionPayloadV3 `json:"expressions"`
+
+	// FormType Which form this is. Escalate forms are not part of this API.
+	FormType IncidentFormsCreatePayloadV3FormType `json:"form_type"`
+
+	// IncidentTypeId The incident type this form belongs to. Leave unset for the organisation's default form of this type.
+	IncidentTypeId *string `json:"incident_type_id,omitempty"`
+
+	// LifecycleElements Elements on this form, in display order. List position is the order: there is no separate rank.
+	LifecycleElements *[]IncidentFormLifecycleElementPayloadV3 `json:"lifecycle_elements,omitempty"`
+}
+
+// IncidentFormsCreatePayloadV3FormType Which form this is. Escalate forms are not part of this API.
+type IncidentFormsCreatePayloadV3FormType string
+
+// IncidentFormsCreateResultV3 defines model for IncidentFormsCreateResultV3.
+type IncidentFormsCreateResultV3 struct {
+	IncidentForm IncidentFormV3 `json:"incident_form"`
+}
+
+// IncidentFormsListResultV3 defines model for IncidentFormsListResultV3.
+type IncidentFormsListResultV3 struct {
+	IncidentForms  []IncidentFormV3       `json:"incident_forms"`
+	PaginationMeta PaginationMetaResultV3 `json:"pagination_meta"`
+}
+
+// IncidentFormsShowResultV3 defines model for IncidentFormsShowResultV3.
+type IncidentFormsShowResultV3 struct {
+	IncidentForm IncidentFormV3 `json:"incident_form"`
+}
+
+// IncidentFormsUpdatePayloadV3 defines model for IncidentFormsUpdatePayloadV3.
+type IncidentFormsUpdatePayloadV3 struct {
+	// Expressions Expressions available to every element's conditions and defaults. Referenced by reference, not by ID.
+	Expressions []ExpressionPayloadV3 `json:"expressions"`
+
+	// FormType Which form this is. Escalate forms are not part of this API.
+	FormType IncidentFormsUpdatePayloadV3FormType `json:"form_type"`
+
+	// IncidentTypeId The incident type this form belongs to. Leave unset for the organisation's default form of this type.
+	IncidentTypeId *string `json:"incident_type_id,omitempty"`
+
+	// LifecycleElements Elements on this form, in display order. List position is the order: there is no separate rank.
+	LifecycleElements *[]IncidentFormLifecycleElementPayloadV3 `json:"lifecycle_elements,omitempty"`
+}
+
+// IncidentFormsUpdatePayloadV3FormType Which form this is. Escalate forms are not part of this API.
+type IncidentFormsUpdatePayloadV3FormType string
+
+// IncidentFormsUpdateResultV3 defines model for IncidentFormsUpdateResultV3.
+type IncidentFormsUpdateResultV3 struct {
+	IncidentForm IncidentFormV3 `json:"incident_form"`
+}
+
 // IncidentMembershipV1 defines model for IncidentMembershipV1.
 type IncidentMembershipV1 struct {
 	// CreatedAt When the membership was created
@@ -21928,6 +22376,15 @@ type FollowUpsV3ListParams struct {
 // FollowUpsV3ListParamsIncidentMode defines parameters for FollowUpsV3List.
 type FollowUpsV3ListParamsIncidentMode string
 
+// IncidentFormsV3ListParams defines parameters for IncidentFormsV3List.
+type IncidentFormsV3ListParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After An incident form's ID. This endpoint will return a list of forms after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+}
+
 // TeamsV3ListParams defines parameters for TeamsV3List.
 type TeamsV3ListParams struct {
 	// PageSize Integer number of records to return
@@ -22329,6 +22786,12 @@ type FollowUpsV3UpdateJSONRequestBody = FollowUpsUpdatePayloadV3
 
 // FollowUpsV3ConnectExternalIssueJSONRequestBody defines body for FollowUpsV3ConnectExternalIssue for application/json ContentType.
 type FollowUpsV3ConnectExternalIssueJSONRequestBody = FollowUpsConnectExternalIssuePayloadV3
+
+// IncidentFormsV3CreateJSONRequestBody defines body for IncidentFormsV3Create for application/json ContentType.
+type IncidentFormsV3CreateJSONRequestBody = IncidentFormsCreatePayloadV3
+
+// IncidentFormsV3UpdateJSONRequestBody defines body for IncidentFormsV3Update for application/json ContentType.
+type IncidentFormsV3UpdateJSONRequestBody = IncidentFormsUpdatePayloadV3
 
 // RequestEditorFn  is the function signature for the RequestEditor callback function
 type RequestEditorFn func(ctx context.Context, req *http.Request) error
@@ -23624,6 +24087,25 @@ type ClientInterface interface {
 	FollowUpsV3ConnectExternalIssueWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	FollowUpsV3ConnectExternalIssue(ctx context.Context, id string, body FollowUpsV3ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentFormsV3List request
+	IncidentFormsV3List(ctx context.Context, params *IncidentFormsV3ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentFormsV3CreateWithBody request with any body
+	IncidentFormsV3CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	IncidentFormsV3Create(ctx context.Context, body IncidentFormsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentFormsV3Delete request
+	IncidentFormsV3Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentFormsV3Show request
+	IncidentFormsV3Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentFormsV3UpdateWithBody request with any body
+	IncidentFormsV3UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	IncidentFormsV3Update(ctx context.Context, id string, body IncidentFormsV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// TeamsV3List request
 	TeamsV3List(ctx context.Context, params *TeamsV3ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -29140,6 +29622,90 @@ func (c *Client) FollowUpsV3ConnectExternalIssueWithBody(ctx context.Context, id
 
 func (c *Client) FollowUpsV3ConnectExternalIssue(ctx context.Context, id string, body FollowUpsV3ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV3ConnectExternalIssueRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentFormsV3List(ctx context.Context, params *IncidentFormsV3ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentFormsV3ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentFormsV3CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentFormsV3CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentFormsV3Create(ctx context.Context, body IncidentFormsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentFormsV3CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentFormsV3Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentFormsV3DeleteRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentFormsV3Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentFormsV3ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentFormsV3UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentFormsV3UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentFormsV3Update(ctx context.Context, id string, body IncidentFormsV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentFormsV3UpdateRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -44358,6 +44924,226 @@ func newFollowUpsV3ConnectExternalIssueRequestWithBody(server string, id string,
 	return req, nil
 }
 
+// NewIncidentFormsV3ListRequest generates requests for IncidentFormsV3List
+func newIncidentFormsV3ListRequest(server string, params *IncidentFormsV3ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/incident_forms")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewIncidentFormsV3CreateRequest calls the generic IncidentFormsV3Create builder with application/json body
+func newIncidentFormsV3CreateRequest(server string, body IncidentFormsV3CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newIncidentFormsV3CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewIncidentFormsV3CreateRequestWithBody generates requests for IncidentFormsV3Create with any type of body
+func newIncidentFormsV3CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/incident_forms")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewIncidentFormsV3DeleteRequest generates requests for IncidentFormsV3Delete
+func newIncidentFormsV3DeleteRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/incident_forms/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewIncidentFormsV3ShowRequest generates requests for IncidentFormsV3Show
+func newIncidentFormsV3ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/incident_forms/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewIncidentFormsV3UpdateRequest calls the generic IncidentFormsV3Update builder with application/json body
+func newIncidentFormsV3UpdateRequest(server string, id string, body IncidentFormsV3UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newIncidentFormsV3UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewIncidentFormsV3UpdateRequestWithBody generates requests for IncidentFormsV3Update with any type of body
+func newIncidentFormsV3UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v3/incident_forms/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewTeamsV3ListRequest generates requests for TeamsV3List
 func newTeamsV3ListRequest(server string, params *TeamsV3ListParams) (*http.Request, error) {
 	var err error
@@ -45721,6 +46507,25 @@ type ClientWithResponsesInterface interface {
 	FollowUpsV3ConnectExternalIssueWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*FollowUpsV3ConnectExternalIssueResponse, error)
 
 	FollowUpsV3ConnectExternalIssueWithResponse(ctx context.Context, id string, body FollowUpsV3ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV3ConnectExternalIssueResponse, error)
+
+	// IncidentFormsV3ListWithResponse request
+	IncidentFormsV3ListWithResponse(ctx context.Context, params *IncidentFormsV3ListParams, reqEditors ...RequestEditorFn) (*IncidentFormsV3ListResponse, error)
+
+	// IncidentFormsV3CreateWithBodyWithResponse request with any body
+	IncidentFormsV3CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentFormsV3CreateResponse, error)
+
+	IncidentFormsV3CreateWithResponse(ctx context.Context, body IncidentFormsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentFormsV3CreateResponse, error)
+
+	// IncidentFormsV3DeleteWithResponse request
+	IncidentFormsV3DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*IncidentFormsV3DeleteResponse, error)
+
+	// IncidentFormsV3ShowWithResponse request
+	IncidentFormsV3ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*IncidentFormsV3ShowResponse, error)
+
+	// IncidentFormsV3UpdateWithBodyWithResponse request with any body
+	IncidentFormsV3UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentFormsV3UpdateResponse, error)
+
+	IncidentFormsV3UpdateWithResponse(ctx context.Context, id string, body IncidentFormsV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentFormsV3UpdateResponse, error)
 
 	// TeamsV3ListWithResponse request
 	TeamsV3ListWithResponse(ctx context.Context, params *TeamsV3ListParams, reqEditors ...RequestEditorFn) (*TeamsV3ListResponse, error)
@@ -56875,6 +57680,180 @@ func (r FollowUpsV3ConnectExternalIssueResponse) StatusCode() int {
 	return 0
 }
 
+type IncidentFormsV3ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *IncidentFormsListResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentFormsV3ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentFormsV3ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentFormsV3CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *IncidentFormsCreateResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentFormsV3CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentFormsV3CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentFormsV3DeleteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentFormsV3DeleteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentFormsV3DeleteResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentFormsV3ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *IncidentFormsShowResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentFormsV3ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentFormsV3ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentFormsV3UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *IncidentFormsUpdateResultV3
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentFormsV3UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentFormsV3UpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type TeamsV3ListResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -61015,6 +61994,67 @@ func (c *ClientWithResponses) FollowUpsV3ConnectExternalIssueWithResponse(ctx co
 		return nil, err
 	}
 	return parseFollowUpsV3ConnectExternalIssueResponse(rsp)
+}
+
+// IncidentFormsV3ListWithResponse request returning *IncidentFormsV3ListResponse
+func (c *ClientWithResponses) IncidentFormsV3ListWithResponse(ctx context.Context, params *IncidentFormsV3ListParams, reqEditors ...RequestEditorFn) (*IncidentFormsV3ListResponse, error) {
+	rsp, err := c.IncidentFormsV3List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentFormsV3ListResponse(rsp)
+}
+
+// IncidentFormsV3CreateWithBodyWithResponse request with arbitrary body returning *IncidentFormsV3CreateResponse
+func (c *ClientWithResponses) IncidentFormsV3CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentFormsV3CreateResponse, error) {
+	rsp, err := c.IncidentFormsV3CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentFormsV3CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) IncidentFormsV3CreateWithResponse(ctx context.Context, body IncidentFormsV3CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentFormsV3CreateResponse, error) {
+	rsp, err := c.IncidentFormsV3Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentFormsV3CreateResponse(rsp)
+}
+
+// IncidentFormsV3DeleteWithResponse request returning *IncidentFormsV3DeleteResponse
+func (c *ClientWithResponses) IncidentFormsV3DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*IncidentFormsV3DeleteResponse, error) {
+	rsp, err := c.IncidentFormsV3Delete(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentFormsV3DeleteResponse(rsp)
+}
+
+// IncidentFormsV3ShowWithResponse request returning *IncidentFormsV3ShowResponse
+func (c *ClientWithResponses) IncidentFormsV3ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*IncidentFormsV3ShowResponse, error) {
+	rsp, err := c.IncidentFormsV3Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentFormsV3ShowResponse(rsp)
+}
+
+// IncidentFormsV3UpdateWithBodyWithResponse request with arbitrary body returning *IncidentFormsV3UpdateResponse
+func (c *ClientWithResponses) IncidentFormsV3UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentFormsV3UpdateResponse, error) {
+	rsp, err := c.IncidentFormsV3UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentFormsV3UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) IncidentFormsV3UpdateWithResponse(ctx context.Context, id string, body IncidentFormsV3UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentFormsV3UpdateResponse, error) {
+	rsp, err := c.IncidentFormsV3Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentFormsV3UpdateResponse(rsp)
 }
 
 // TeamsV3ListWithResponse request returning *TeamsV3ListResponse
@@ -97996,6 +99036,584 @@ func parseFollowUpsV3ConnectExternalIssueResponse(rsp *http.Response) (*FollowUp
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest FollowUpsConnectExternalIssueResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentFormsV3ListResponse parses an HTTP response from a IncidentFormsV3ListWithResponse call
+func parseIncidentFormsV3ListResponse(rsp *http.Response) (*IncidentFormsV3ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentFormsV3ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IncidentFormsListResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentFormsV3CreateResponse parses an HTTP response from a IncidentFormsV3CreateWithResponse call
+func parseIncidentFormsV3CreateResponse(rsp *http.Response) (*IncidentFormsV3CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentFormsV3CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest IncidentFormsCreateResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentFormsV3DeleteResponse parses an HTTP response from a IncidentFormsV3DeleteWithResponse call
+func parseIncidentFormsV3DeleteResponse(rsp *http.Response) (*IncidentFormsV3DeleteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentFormsV3DeleteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentFormsV3ShowResponse parses an HTTP response from a IncidentFormsV3ShowWithResponse call
+func parseIncidentFormsV3ShowResponse(rsp *http.Response) (*IncidentFormsV3ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentFormsV3ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IncidentFormsShowResultV3
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentFormsV3UpdateResponse parses an HTTP response from a IncidentFormsV3UpdateWithResponse call
+func parseIncidentFormsV3UpdateResponse(rsp *http.Response) (*IncidentFormsV3UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentFormsV3UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IncidentFormsUpdateResultV3
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
