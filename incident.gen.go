@@ -8746,6 +8746,24 @@ func (e WeekdayIntervalV2Weekday) Valid() bool {
 	}
 }
 
+// Defines values for WorkflowSlimV2AutoRunMode.
+const (
+	WorkflowSlimV2AutoRunModeConfirmBeforeRunning WorkflowSlimV2AutoRunMode = "confirm_before_running"
+	WorkflowSlimV2AutoRunModeRunAutomatically     WorkflowSlimV2AutoRunMode = "run_automatically"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowSlimV2AutoRunMode enum.
+func (e WorkflowSlimV2AutoRunMode) Valid() bool {
+	switch e {
+	case WorkflowSlimV2AutoRunModeConfirmBeforeRunning:
+		return true
+	case WorkflowSlimV2AutoRunModeRunAutomatically:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for WorkflowSlimV2PrivateIncidentScope.
 const (
 	WorkflowSlimV2PrivateIncidentScopeAll         WorkflowSlimV2PrivateIncidentScope = "all"
@@ -8824,6 +8842,24 @@ func (e WorkflowSlimV2State) Valid() bool {
 	case WorkflowSlimV2StateDraft:
 		return true
 	case WorkflowSlimV2StateError:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WorkflowV2AutoRunMode.
+const (
+	WorkflowV2AutoRunModeConfirmBeforeRunning WorkflowV2AutoRunMode = "confirm_before_running"
+	WorkflowV2AutoRunModeRunAutomatically     WorkflowV2AutoRunMode = "run_automatically"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowV2AutoRunMode enum.
+func (e WorkflowV2AutoRunMode) Valid() bool {
+	switch e {
+	case WorkflowV2AutoRunModeConfirmBeforeRunning:
+		return true
+	case WorkflowV2AutoRunModeRunAutomatically:
 		return true
 	default:
 		return false
@@ -8914,6 +8950,24 @@ func (e WorkflowV2State) Valid() bool {
 	}
 }
 
+// Defines values for WorkflowsCreateWorkflowPayloadV2AutoRunMode.
+const (
+	WorkflowsCreateWorkflowPayloadV2AutoRunModeConfirmBeforeRunning WorkflowsCreateWorkflowPayloadV2AutoRunMode = "confirm_before_running"
+	WorkflowsCreateWorkflowPayloadV2AutoRunModeRunAutomatically     WorkflowsCreateWorkflowPayloadV2AutoRunMode = "run_automatically"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowsCreateWorkflowPayloadV2AutoRunMode enum.
+func (e WorkflowsCreateWorkflowPayloadV2AutoRunMode) Valid() bool {
+	switch e {
+	case WorkflowsCreateWorkflowPayloadV2AutoRunModeConfirmBeforeRunning:
+		return true
+	case WorkflowsCreateWorkflowPayloadV2AutoRunModeRunAutomatically:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope.
 const (
 	WorkflowsCreateWorkflowPayloadV2PrivateIncidentScopeAll         WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope = "all"
@@ -8992,6 +9046,24 @@ func (e WorkflowsCreateWorkflowPayloadV2State) Valid() bool {
 	case WorkflowsCreateWorkflowPayloadV2StateDraft:
 		return true
 	case WorkflowsCreateWorkflowPayloadV2StateError:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for WorkflowsUpdateWorkflowPayloadV2AutoRunMode.
+const (
+	WorkflowsUpdateWorkflowPayloadV2AutoRunModeConfirmBeforeRunning WorkflowsUpdateWorkflowPayloadV2AutoRunMode = "confirm_before_running"
+	WorkflowsUpdateWorkflowPayloadV2AutoRunModeRunAutomatically     WorkflowsUpdateWorkflowPayloadV2AutoRunMode = "run_automatically"
+)
+
+// Valid indicates whether the value is a known member of the WorkflowsUpdateWorkflowPayloadV2AutoRunMode enum.
+func (e WorkflowsUpdateWorkflowPayloadV2AutoRunMode) Valid() bool {
+	switch e {
+	case WorkflowsUpdateWorkflowPayloadV2AutoRunModeConfirmBeforeRunning:
+		return true
+	case WorkflowsUpdateWorkflowPayloadV2AutoRunModeRunAutomatically:
 		return true
 	default:
 		return false
@@ -21264,6 +21336,9 @@ type WorkflowRunsShowResultV2 struct {
 
 // WorkflowSlimV2 defines model for WorkflowSlimV2.
 type WorkflowSlimV2 struct {
+	// AutoRunMode Whether the workflow is configured to run immediately or ask for confirmation in the incident channel
+	AutoRunMode WorkflowSlimV2AutoRunMode `json:"auto_run_mode"`
+
 	// ConditionGroups Conditions that apply to the workflow trigger
 	ConditionGroups []ConditionGroupV2 `json:"condition_groups"`
 
@@ -21321,6 +21396,9 @@ type WorkflowSlimV2 struct {
 	Version int64 `json:"version"`
 }
 
+// WorkflowSlimV2AutoRunMode Whether the workflow is configured to run immediately or ask for confirmation in the incident channel
+type WorkflowSlimV2AutoRunMode string
+
 // WorkflowSlimV2PrivateIncidentScope Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none
 type WorkflowSlimV2PrivateIncidentScope string
 
@@ -21335,6 +21413,9 @@ type WorkflowSlimV2State string
 
 // WorkflowV2 defines model for WorkflowV2.
 type WorkflowV2 struct {
+	// AutoRunMode Whether the workflow is configured to run immediately or ask for confirmation in the incident channel
+	AutoRunMode WorkflowV2AutoRunMode `json:"auto_run_mode"`
+
 	// ConditionGroups Conditions that apply to the workflow trigger
 	ConditionGroups []ConditionGroupV2 `json:"condition_groups"`
 
@@ -21348,7 +21429,7 @@ type WorkflowV2 struct {
 	// Folder Folder to display the workflow in
 	Folder *string `json:"folder,omitempty"`
 
-	// FormFields User-configured form fields available in the workflow scope (manual triggers only)
+	// FormFields User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
 	FormFields *[]WorkflowFormFieldV2 `json:"form_fields,omitempty"`
 
 	// Id Unique identifier for the workflow
@@ -21395,6 +21476,9 @@ type WorkflowV2 struct {
 	Version int64 `json:"version"`
 }
 
+// WorkflowV2AutoRunMode Whether the workflow is configured to run immediately or ask for confirmation in the incident channel
+type WorkflowV2AutoRunMode string
+
 // WorkflowV2PrivateIncidentScope Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none
 type WorkflowV2PrivateIncidentScope string
 
@@ -21412,6 +21496,9 @@ type WorkflowsCreateWorkflowPayloadV2 struct {
 	// Annotations Annotations that track metadata about this resource
 	Annotations *map[string]string `json:"annotations,omitempty"`
 
+	// AutoRunMode Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on update, the workflow keeps its current mode.
+	AutoRunMode *WorkflowsCreateWorkflowPayloadV2AutoRunMode `json:"auto_run_mode,omitempty"`
+
 	// ConditionGroups Conditions that apply to the workflow trigger
 	ConditionGroups []ConditionGroupPayloadV2 `json:"condition_groups"`
 
@@ -21425,7 +21512,7 @@ type WorkflowsCreateWorkflowPayloadV2 struct {
 	// Folder Folder to display the workflow in
 	Folder *string `json:"folder,omitempty"`
 
-	// FormFields User-configured form fields available in the workflow scope (manual triggers only)
+	// FormFields User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
 	FormFields *[]WorkflowFormFieldPayloadV2 `json:"form_fields,omitempty"`
 
 	// IncludePrivateEscalations Whether to include private escalations
@@ -21465,6 +21552,9 @@ type WorkflowsCreateWorkflowPayloadV2 struct {
 	Trigger string `json:"trigger"`
 }
 
+// WorkflowsCreateWorkflowPayloadV2AutoRunMode Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on update, the workflow keeps its current mode.
+type WorkflowsCreateWorkflowPayloadV2AutoRunMode string
+
 // WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none
 type WorkflowsCreateWorkflowPayloadV2PrivateIncidentScope string
 
@@ -21499,6 +21589,9 @@ type WorkflowsUpdateWorkflowPayloadV2 struct {
 	// Annotations Annotations that track metadata about this resource
 	Annotations *map[string]string `json:"annotations,omitempty"`
 
+	// AutoRunMode Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on update, the workflow keeps its current mode.
+	AutoRunMode *WorkflowsUpdateWorkflowPayloadV2AutoRunMode `json:"auto_run_mode,omitempty"`
+
 	// ConditionGroups Conditions that apply to the workflow trigger
 	ConditionGroups []ConditionGroupPayloadV2 `json:"condition_groups"`
 
@@ -21512,7 +21605,7 @@ type WorkflowsUpdateWorkflowPayloadV2 struct {
 	// Folder Folder to display the workflow in
 	Folder *string `json:"folder,omitempty"`
 
-	// FormFields User-configured form fields available in the workflow scope (manual triggers only)
+	// FormFields User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
 	FormFields *[]WorkflowFormFieldPayloadV2 `json:"form_fields,omitempty"`
 
 	// IncludePrivateEscalations Whether to include private escalations
@@ -21551,6 +21644,9 @@ type WorkflowsUpdateWorkflowPayloadV2 struct {
 	// Steps Steps that are executed as part of the workflow
 	Steps []StepConfigPayloadV2 `json:"steps"`
 }
+
+// WorkflowsUpdateWorkflowPayloadV2AutoRunMode Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on update, the workflow keeps its current mode.
+type WorkflowsUpdateWorkflowPayloadV2AutoRunMode string
 
 // WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none
 type WorkflowsUpdateWorkflowPayloadV2PrivateIncidentScope string
