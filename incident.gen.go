@@ -5240,6 +5240,7 @@ const (
 	ExternalResourceV1ResourceTypeOpsgenieAlert               ExternalResourceV1ResourceType = "opsgenie_alert"
 	ExternalResourceV1ResourceTypeOutlookCalendarEvent        ExternalResourceV1ResourceType = "outlook_calendar_event"
 	ExternalResourceV1ResourceTypePagerDutyIncident           ExternalResourceV1ResourceType = "pager_duty_incident"
+	ExternalResourceV1ResourceTypePylonIssue                  ExternalResourceV1ResourceType = "pylon_issue"
 	ExternalResourceV1ResourceTypeSalesforceCase              ExternalResourceV1ResourceType = "salesforce_case"
 	ExternalResourceV1ResourceTypeScrubbed                    ExternalResourceV1ResourceType = "scrubbed"
 	ExternalResourceV1ResourceTypeSentryIssue                 ExternalResourceV1ResourceType = "sentry_issue"
@@ -5272,6 +5273,8 @@ func (e ExternalResourceV1ResourceType) Valid() bool {
 	case ExternalResourceV1ResourceTypeOutlookCalendarEvent:
 		return true
 	case ExternalResourceV1ResourceTypePagerDutyIncident:
+		return true
+	case ExternalResourceV1ResourceTypePylonIssue:
 		return true
 	case ExternalResourceV1ResourceTypeSalesforceCase:
 		return true
@@ -5924,6 +5927,7 @@ const (
 	IncidentAttachmentsCreatePayloadV1ResourceResourceTypeOpsgenieAlert               IncidentAttachmentsCreatePayloadV1ResourceResourceType = "opsgenie_alert"
 	IncidentAttachmentsCreatePayloadV1ResourceResourceTypeOutlookCalendarEvent        IncidentAttachmentsCreatePayloadV1ResourceResourceType = "outlook_calendar_event"
 	IncidentAttachmentsCreatePayloadV1ResourceResourceTypePagerDutyIncident           IncidentAttachmentsCreatePayloadV1ResourceResourceType = "pager_duty_incident"
+	IncidentAttachmentsCreatePayloadV1ResourceResourceTypePylonIssue                  IncidentAttachmentsCreatePayloadV1ResourceResourceType = "pylon_issue"
 	IncidentAttachmentsCreatePayloadV1ResourceResourceTypeSalesforceCase              IncidentAttachmentsCreatePayloadV1ResourceResourceType = "salesforce_case"
 	IncidentAttachmentsCreatePayloadV1ResourceResourceTypeScrubbed                    IncidentAttachmentsCreatePayloadV1ResourceResourceType = "scrubbed"
 	IncidentAttachmentsCreatePayloadV1ResourceResourceTypeSentryIssue                 IncidentAttachmentsCreatePayloadV1ResourceResourceType = "sentry_issue"
@@ -5956,6 +5960,8 @@ func (e IncidentAttachmentsCreatePayloadV1ResourceResourceType) Valid() bool {
 	case IncidentAttachmentsCreatePayloadV1ResourceResourceTypeOutlookCalendarEvent:
 		return true
 	case IncidentAttachmentsCreatePayloadV1ResourceResourceTypePagerDutyIncident:
+		return true
+	case IncidentAttachmentsCreatePayloadV1ResourceResourceTypePylonIssue:
 		return true
 	case IncidentAttachmentsCreatePayloadV1ResourceResourceTypeSalesforceCase:
 		return true
@@ -9188,6 +9194,7 @@ const (
 	OpsgenieAlert               IncidentAttachmentsV1ListParamsResourceType = "opsgenie_alert"
 	OutlookCalendarEvent        IncidentAttachmentsV1ListParamsResourceType = "outlook_calendar_event"
 	PagerDutyIncident           IncidentAttachmentsV1ListParamsResourceType = "pager_duty_incident"
+	PylonIssue                  IncidentAttachmentsV1ListParamsResourceType = "pylon_issue"
 	SalesforceCase              IncidentAttachmentsV1ListParamsResourceType = "salesforce_case"
 	Scrubbed                    IncidentAttachmentsV1ListParamsResourceType = "scrubbed"
 	SentryIssue                 IncidentAttachmentsV1ListParamsResourceType = "sentry_issue"
@@ -9220,6 +9227,8 @@ func (e IncidentAttachmentsV1ListParamsResourceType) Valid() bool {
 	case OutlookCalendarEvent:
 		return true
 	case PagerDutyIncident:
+		return true
+	case PylonIssue:
 		return true
 	case SalesforceCase:
 		return true
