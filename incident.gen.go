@@ -8406,9 +8406,10 @@ func (e StatusPagesShowStatusPageStructureResultV2DisplayUptimeMode) Valid() boo
 
 // Defines values for StepProgressSlimV2Status.
 const (
-	StepProgressSlimV2StatusComplete StepProgressSlimV2Status = "complete"
-	StepProgressSlimV2StatusError    StepProgressSlimV2Status = "error"
-	StepProgressSlimV2StatusPending  StepProgressSlimV2Status = "pending"
+	StepProgressSlimV2StatusComplete  StepProgressSlimV2Status = "complete"
+	StepProgressSlimV2StatusError     StepProgressSlimV2Status = "error"
+	StepProgressSlimV2StatusPending   StepProgressSlimV2Status = "pending"
+	StepProgressSlimV2StatusSuspended StepProgressSlimV2Status = "suspended"
 )
 
 // Valid indicates whether the value is a known member of the StepProgressSlimV2Status enum.
@@ -8419,6 +8420,8 @@ func (e StepProgressSlimV2Status) Valid() bool {
 	case StepProgressSlimV2StatusError:
 		return true
 	case StepProgressSlimV2StatusPending:
+		return true
+	case StepProgressSlimV2StatusSuspended:
 		return true
 	default:
 		return false
@@ -8448,9 +8451,10 @@ func (e StepProgressSlimV2WebhookDeliveryState) Valid() bool {
 
 // Defines values for StepProgressV2Status.
 const (
-	StepProgressV2StatusComplete StepProgressV2Status = "complete"
-	StepProgressV2StatusError    StepProgressV2Status = "error"
-	StepProgressV2StatusPending  StepProgressV2Status = "pending"
+	StepProgressV2StatusComplete  StepProgressV2Status = "complete"
+	StepProgressV2StatusError     StepProgressV2Status = "error"
+	StepProgressV2StatusPending   StepProgressV2Status = "pending"
+	StepProgressV2StatusSuspended StepProgressV2Status = "suspended"
 )
 
 // Valid indicates whether the value is a known member of the StepProgressV2Status enum.
@@ -8461,6 +8465,8 @@ func (e StepProgressV2Status) Valid() bool {
 	case StepProgressV2StatusError:
 		return true
 	case StepProgressV2StatusPending:
+		return true
+	case StepProgressV2StatusSuspended:
 		return true
 	default:
 		return false
