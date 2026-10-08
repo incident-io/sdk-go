@@ -18945,7 +18945,7 @@ type PostmortemDocumentV1Type string
 
 // PostmortemDocumentsAttachPayloadV1 defines model for PostmortemDocumentsAttachPayloadV1.
 type PostmortemDocumentsAttachPayloadV1 struct {
-	// DocumentProvider The provider hosting the document. Set this when it can't be inferred from the permalink so the link renders correctly.
+	// DocumentProvider The provider hosting the document. This is informational only: the document is always stored as a link to the permalink.
 	DocumentProvider *PostmortemDocumentsAttachPayloadV1DocumentProvider `json:"document_provider,omitempty"`
 
 	// IncidentId The unique identifier of the incident to attach the post-mortem document to
@@ -18955,7 +18955,7 @@ type PostmortemDocumentsAttachPayloadV1 struct {
 	Permalink string `json:"permalink"`
 }
 
-// PostmortemDocumentsAttachPayloadV1DocumentProvider The provider hosting the document. Set this when it can't be inferred from the permalink so the link renders correctly.
+// PostmortemDocumentsAttachPayloadV1DocumentProvider The provider hosting the document. This is informational only: the document is always stored as a link to the permalink.
 type PostmortemDocumentsAttachPayloadV1DocumentProvider string
 
 // PostmortemDocumentsAttachResultV1 defines model for PostmortemDocumentsAttachResultV1.
