@@ -17663,6 +17663,40 @@ type OnCallNotificationMethodPublicV2 struct {
 // OnCallNotificationMethodPublicV2MethodType The high-level type of notification method. Phone rules include phone details that distinguish SMS from voice calls.
 type OnCallNotificationMethodPublicV2MethodType string
 
+// OnCallNotificationPauseV2 A window in which a user's on-call notifications are paused: while it's active, escalations skip the user instead of paging them.
+type OnCallNotificationPauseV2 struct {
+	CreatedAt time.Time `json:"created_at"`
+
+	// EndsAt When notifications resume
+	EndsAt time.Time `json:"ends_at"`
+
+	// Id Unique identifier for this notification pause
+	Id string `json:"id"`
+
+	// Reason Free text reason for why notifications are paused, shown to teammates
+	Reason *string `json:"reason,omitempty"`
+
+	// StartsAt When notifications stop being sent to the user
+	StartsAt  time.Time `json:"starts_at"`
+	UpdatedAt time.Time `json:"updated_at"`
+
+	// UserId The user whose on-call notifications are paused in this time window
+	UserId string `json:"user_id"`
+}
+
+// OnCallNotificationPausesListResultV2 defines model for OnCallNotificationPausesListResultV2.
+type OnCallNotificationPausesListResultV2 struct {
+	// OnCallNotificationPauses Pauses ordered by when they start
+	OnCallNotificationPauses []OnCallNotificationPauseV2 `json:"on_call_notification_pauses"`
+	PaginationMeta           PaginationMetaResultV2      `json:"pagination_meta"`
+}
+
+// OnCallNotificationPausesShowResultV2 defines model for OnCallNotificationPausesShowResultV2.
+type OnCallNotificationPausesShowResultV2 struct {
+	// OnCallNotificationPause A window in which a user's on-call notifications are paused: while it's active, escalations skip the user instead of paging them.
+	OnCallNotificationPause OnCallNotificationPauseV2 `json:"on_call_notification_pause"`
+}
+
 // OnCallNotificationRuleAppDetailsPublicV2 defines model for OnCallNotificationRuleAppDetailsPublicV2.
 type OnCallNotificationRuleAppDetailsPublicV2 struct {
 	// PushNotificationCriticality Controls the interruption level of push notifications. 'critical' bypasses Do Not Disturb, 'active' respects it.
@@ -22176,6 +22210,21 @@ type IncidentsV2ListParamsSortBy string
 // IncidentsV2ListParamsFilterMode defines parameters for IncidentsV2List.
 type IncidentsV2ListParamsFilterMode string
 
+// OnCallNotificationPausesV2ListParams defines parameters for OnCallNotificationPausesV2List.
+type OnCallNotificationPausesV2ListParams struct {
+	// From Only return pauses that end after this time. Defaults to now, so by default only active and upcoming pauses are returned.
+	From *time.Time `form:"from,omitempty" json:"from,omitempty"`
+
+	// To Only return pauses that start before this time
+	To *time.Time `form:"to,omitempty" json:"to,omitempty"`
+
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After A pause's ID. This endpoint will return a list of pauses after this ID in relation to the API response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+}
+
 // PayConfigsV2ListParams defines parameters for PayConfigsV2List.
 type PayConfigsV2ListParams struct {
 	// PageSize Integer number of records to return
@@ -23710,6 +23759,12 @@ type ClientInterface interface {
 	IncidentsV2ImportPostmortemDocumentWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	IncidentsV2ImportPostmortemDocument(ctx context.Context, id string, body IncidentsV2ImportPostmortemDocumentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// OnCallNotificationPausesV2List request
+	OnCallNotificationPausesV2List(ctx context.Context, params *OnCallNotificationPausesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// OnCallNotificationPausesV2Show request
+	OnCallNotificationPausesV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// PayConfigsV2List request
 	PayConfigsV2List(ctx context.Context, params *PayConfigsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -27573,6 +27628,30 @@ func (c *Client) IncidentsV2ImportPostmortemDocumentWithBody(ctx context.Context
 
 func (c *Client) IncidentsV2ImportPostmortemDocument(ctx context.Context, id string, body IncidentsV2ImportPostmortemDocumentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newIncidentsV2ImportPostmortemDocumentRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) OnCallNotificationPausesV2List(ctx context.Context, params *OnCallNotificationPausesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newOnCallNotificationPausesV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) OnCallNotificationPausesV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newOnCallNotificationPausesV2ShowRequest(c.Server, id)
 	if err != nil {
 		return nil, err
 	}
@@ -38876,6 +38955,137 @@ func newIncidentsV2ImportPostmortemDocumentRequestWithBody(server string, id str
 	return req, nil
 }
 
+// NewOnCallNotificationPausesV2ListRequest generates requests for OnCallNotificationPausesV2List
+func newOnCallNotificationPausesV2ListRequest(server string, params *OnCallNotificationPausesV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/on_call_notification_pauses")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.From != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "from", *params.From, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: "date-time"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.To != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "to", *params.To, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: "date-time"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewOnCallNotificationPausesV2ShowRequest generates requests for OnCallNotificationPausesV2Show
+func newOnCallNotificationPausesV2ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/on_call_notification_pauses/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewPayConfigsV2ListRequest generates requests for PayConfigsV2List
 func newPayConfigsV2ListRequest(server string, params *PayConfigsV2ListParams) (*http.Request, error) {
 	var err error
@@ -46131,6 +46341,12 @@ type ClientWithResponsesInterface interface {
 
 	IncidentsV2ImportPostmortemDocumentWithResponse(ctx context.Context, id string, body IncidentsV2ImportPostmortemDocumentJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentsV2ImportPostmortemDocumentResponse, error)
 
+	// OnCallNotificationPausesV2ListWithResponse request
+	OnCallNotificationPausesV2ListWithResponse(ctx context.Context, params *OnCallNotificationPausesV2ListParams, reqEditors ...RequestEditorFn) (*OnCallNotificationPausesV2ListResponse, error)
+
+	// OnCallNotificationPausesV2ShowWithResponse request
+	OnCallNotificationPausesV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*OnCallNotificationPausesV2ShowResponse, error)
+
 	// PayConfigsV2ListWithResponse request
 	PayConfigsV2ListWithResponse(ctx context.Context, params *PayConfigsV2ListParams, reqEditors ...RequestEditorFn) (*PayConfigsV2ListResponse, error)
 
@@ -53327,6 +53543,76 @@ func (r IncidentsV2ImportPostmortemDocumentResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r IncidentsV2ImportPostmortemDocumentResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type OnCallNotificationPausesV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *OnCallNotificationPausesListResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r OnCallNotificationPausesV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r OnCallNotificationPausesV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type OnCallNotificationPausesV2ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *OnCallNotificationPausesShowResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r OnCallNotificationPausesV2ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r OnCallNotificationPausesV2ShowResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -60537,6 +60823,24 @@ func (c *ClientWithResponses) IncidentsV2ImportPostmortemDocumentWithResponse(ct
 		return nil, err
 	}
 	return parseIncidentsV2ImportPostmortemDocumentResponse(rsp)
+}
+
+// OnCallNotificationPausesV2ListWithResponse request returning *OnCallNotificationPausesV2ListResponse
+func (c *ClientWithResponses) OnCallNotificationPausesV2ListWithResponse(ctx context.Context, params *OnCallNotificationPausesV2ListParams, reqEditors ...RequestEditorFn) (*OnCallNotificationPausesV2ListResponse, error) {
+	rsp, err := c.OnCallNotificationPausesV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseOnCallNotificationPausesV2ListResponse(rsp)
+}
+
+// OnCallNotificationPausesV2ShowWithResponse request returning *OnCallNotificationPausesV2ShowResponse
+func (c *ClientWithResponses) OnCallNotificationPausesV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*OnCallNotificationPausesV2ShowResponse, error) {
+	rsp, err := c.OnCallNotificationPausesV2Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseOnCallNotificationPausesV2ShowResponse(rsp)
 }
 
 // PayConfigsV2ListWithResponse request returning *PayConfigsV2ListResponse
@@ -84329,6 +84633,240 @@ func parseIncidentsV2ImportPostmortemDocumentResponse(rsp *http.Response) (*Inci
 			return nil, err
 		}
 		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseOnCallNotificationPausesV2ListResponse parses an HTTP response from a OnCallNotificationPausesV2ListWithResponse call
+func parseOnCallNotificationPausesV2ListResponse(rsp *http.Response) (*OnCallNotificationPausesV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &OnCallNotificationPausesV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest OnCallNotificationPausesListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseOnCallNotificationPausesV2ShowResponse parses an HTTP response from a OnCallNotificationPausesV2ShowWithResponse call
+func parseOnCallNotificationPausesV2ShowResponse(rsp *http.Response) (*OnCallNotificationPausesV2ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &OnCallNotificationPausesV2ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest OnCallNotificationPausesShowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest ErrorResponse
