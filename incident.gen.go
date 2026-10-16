@@ -20524,7 +20524,7 @@ type StatusPagesCreateStatusPageIncidentPayloadV2 struct {
 	// Name A title for the incident
 	Name string `json:"name"`
 
-	// NotifySubscribers Whether to notify subscribers about this status page incident. This will not work if your status page has more than 1000 subscribers.
+	// NotifySubscribers Whether to notify subscribers about this status page incident. If your status page has more than 1000 subscribers, requests that set this to true are rejected. This limit applies only to the public API: publishing from the incident.io dashboard or Slack always notifies every subscriber.
 	NotifySubscribers bool `json:"notify_subscribers"`
 
 	// StatusPageId ID of the status page. You can find this by calling the ListStatusPages endpoint.
@@ -20550,7 +20550,7 @@ type StatusPagesCreateStatusPageIncidentUpdatePayloadV2 struct {
 	// Message Markdown update on what's changed about this status page incident
 	Message string `json:"message"`
 
-	// NotifySubscribers Whether to notify subscribers about this incident update. This will not work if your status page has more than 1000 subscribers.
+	// NotifySubscribers Whether to notify subscribers about this incident update. If your status page has more than 1000 subscribers, requests that set this to true are rejected. This limit applies only to the public API: publishing from the incident.io dashboard or Slack always notifies every subscriber.
 	NotifySubscribers bool `json:"notify_subscribers"`
 
 	// StatusPageIncidentId ID of the status page incident
@@ -20588,7 +20588,7 @@ type StatusPagesCreateStatusPageMaintenancePayloadV2 struct {
 	// Name A title for the maintenance window
 	Name string `json:"name"`
 
-	// NotifySubscribers Whether to notify subscribers about this status page maintenance. This will not work if your status page has more than 1000 subscribers.
+	// NotifySubscribers Whether to notify subscribers about this status page maintenance. If your status page has more than 1000 subscribers, requests that set this to true are rejected. This limit applies only to the public API: publishing from the incident.io dashboard or Slack always notifies every subscriber.
 	NotifySubscribers bool `json:"notify_subscribers"`
 
 	// StartAt The time the maintenance window starts
@@ -20617,7 +20617,7 @@ type StatusPagesCreateStatusPageMaintenanceUpdatePayloadV2 struct {
 	// Message Markdown update on what's changed about this status page maintenance window
 	Message string `json:"message"`
 
-	// NotifySubscribers Whether to notify subscribers about this status page maintenance update. This will not work if your status page has more than 1000 subscribers.
+	// NotifySubscribers Whether to notify subscribers about this status page maintenance update. If your status page has more than 1000 subscribers, requests that set this to true are rejected. This limit applies only to the public API: publishing from the incident.io dashboard or Slack always notifies every subscriber.
 	NotifySubscribers bool `json:"notify_subscribers"`
 
 	// StatusPageMaintenanceId ID of the status page maintenance window
