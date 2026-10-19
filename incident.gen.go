@@ -1204,6 +1204,7 @@ const (
 	AlertSourceV2SourceTypeElasticsearch     AlertSourceV2SourceType = "elasticsearch"
 	AlertSourceV2SourceTypeEmail             AlertSourceV2SourceType = "email"
 	AlertSourceV2SourceTypeExpel             AlertSourceV2SourceType = "expel"
+	AlertSourceV2SourceTypeGitGuardian       AlertSourceV2SourceType = "git_guardian"
 	AlertSourceV2SourceTypeGithubIssue       AlertSourceV2SourceType = "github_issue"
 	AlertSourceV2SourceTypeGoogleCloud       AlertSourceV2SourceType = "google_cloud"
 	AlertSourceV2SourceTypeGoogleSecops      AlertSourceV2SourceType = "google_secops"
@@ -1282,6 +1283,8 @@ func (e AlertSourceV2SourceType) Valid() bool {
 	case AlertSourceV2SourceTypeEmail:
 		return true
 	case AlertSourceV2SourceTypeExpel:
+		return true
+	case AlertSourceV2SourceTypeGitGuardian:
 		return true
 	case AlertSourceV2SourceTypeGithubIssue:
 		return true
@@ -1381,6 +1384,7 @@ const (
 	AlertSourcesCreatePayloadV2SourceTypeElasticsearch     AlertSourcesCreatePayloadV2SourceType = "elasticsearch"
 	AlertSourcesCreatePayloadV2SourceTypeEmail             AlertSourcesCreatePayloadV2SourceType = "email"
 	AlertSourcesCreatePayloadV2SourceTypeExpel             AlertSourcesCreatePayloadV2SourceType = "expel"
+	AlertSourcesCreatePayloadV2SourceTypeGitGuardian       AlertSourcesCreatePayloadV2SourceType = "git_guardian"
 	AlertSourcesCreatePayloadV2SourceTypeGithubIssue       AlertSourcesCreatePayloadV2SourceType = "github_issue"
 	AlertSourcesCreatePayloadV2SourceTypeGoogleCloud       AlertSourcesCreatePayloadV2SourceType = "google_cloud"
 	AlertSourcesCreatePayloadV2SourceTypeGoogleSecops      AlertSourcesCreatePayloadV2SourceType = "google_secops"
@@ -1459,6 +1463,8 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesCreatePayloadV2SourceTypeEmail:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeExpel:
+		return true
+	case AlertSourcesCreatePayloadV2SourceTypeGitGuardian:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeGithubIssue:
 		return true
@@ -1558,6 +1564,7 @@ const (
 	AlertSourcesValidatePayloadV2SourceTypeElasticsearch     AlertSourcesValidatePayloadV2SourceType = "elasticsearch"
 	AlertSourcesValidatePayloadV2SourceTypeEmail             AlertSourcesValidatePayloadV2SourceType = "email"
 	AlertSourcesValidatePayloadV2SourceTypeExpel             AlertSourcesValidatePayloadV2SourceType = "expel"
+	AlertSourcesValidatePayloadV2SourceTypeGitGuardian       AlertSourcesValidatePayloadV2SourceType = "git_guardian"
 	AlertSourcesValidatePayloadV2SourceTypeGithubIssue       AlertSourcesValidatePayloadV2SourceType = "github_issue"
 	AlertSourcesValidatePayloadV2SourceTypeGoogleCloud       AlertSourcesValidatePayloadV2SourceType = "google_cloud"
 	AlertSourcesValidatePayloadV2SourceTypeGoogleSecops      AlertSourcesValidatePayloadV2SourceType = "google_secops"
@@ -1636,6 +1643,8 @@ func (e AlertSourcesValidatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesValidatePayloadV2SourceTypeEmail:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeExpel:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeGitGuardian:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeGithubIssue:
 		return true
