@@ -32,6 +32,7 @@ const (
 	APIKeyRoleV1NameDocumentsViewer                     APIKeyRoleV1Name = "documents_viewer"
 	APIKeyRoleV1NameEscalationCreator                   APIKeyRoleV1Name = "escalation_creator"
 	APIKeyRoleV1NameGlobalAccess                        APIKeyRoleV1Name = "global_access"
+	APIKeyRoleV1NameGlossaryEntriesManage               APIKeyRoleV1Name = "glossary_entries_manage"
 	APIKeyRoleV1NameHeartbeatsPing                      APIKeyRoleV1Name = "heartbeats_ping"
 	APIKeyRoleV1NameIncidentCreator                     APIKeyRoleV1Name = "incident_creator"
 	APIKeyRoleV1NameIncidentEditor                      APIKeyRoleV1Name = "incident_editor"
@@ -90,6 +91,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameEscalationCreator:
 		return true
 	case APIKeyRoleV1NameGlobalAccess:
+		return true
+	case APIKeyRoleV1NameGlossaryEntriesManage:
 		return true
 	case APIKeyRoleV1NameHeartbeatsPing:
 		return true
@@ -236,6 +239,7 @@ const (
 	APIKeysCreatePayloadV1RoleNamesDocumentsViewer                     APIKeysCreatePayloadV1RoleNames = "documents_viewer"
 	APIKeysCreatePayloadV1RoleNamesEscalationCreator                   APIKeysCreatePayloadV1RoleNames = "escalation_creator"
 	APIKeysCreatePayloadV1RoleNamesGlobalAccess                        APIKeysCreatePayloadV1RoleNames = "global_access"
+	APIKeysCreatePayloadV1RoleNamesGlossaryEntriesManage               APIKeysCreatePayloadV1RoleNames = "glossary_entries_manage"
 	APIKeysCreatePayloadV1RoleNamesHeartbeatsPing                      APIKeysCreatePayloadV1RoleNames = "heartbeats_ping"
 	APIKeysCreatePayloadV1RoleNamesIncidentCreator                     APIKeysCreatePayloadV1RoleNames = "incident_creator"
 	APIKeysCreatePayloadV1RoleNamesIncidentEditor                      APIKeysCreatePayloadV1RoleNames = "incident_editor"
@@ -294,6 +298,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesEscalationCreator:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesGlobalAccess:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesGlossaryEntriesManage:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesHeartbeatsPing:
 		return true
@@ -440,6 +446,7 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesDocumentsViewer                     APIKeysUpdatePayloadV1RoleNames = "documents_viewer"
 	APIKeysUpdatePayloadV1RoleNamesEscalationCreator                   APIKeysUpdatePayloadV1RoleNames = "escalation_creator"
 	APIKeysUpdatePayloadV1RoleNamesGlobalAccess                        APIKeysUpdatePayloadV1RoleNames = "global_access"
+	APIKeysUpdatePayloadV1RoleNamesGlossaryEntriesManage               APIKeysUpdatePayloadV1RoleNames = "glossary_entries_manage"
 	APIKeysUpdatePayloadV1RoleNamesHeartbeatsPing                      APIKeysUpdatePayloadV1RoleNames = "heartbeats_ping"
 	APIKeysUpdatePayloadV1RoleNamesIncidentCreator                     APIKeysUpdatePayloadV1RoleNames = "incident_creator"
 	APIKeysUpdatePayloadV1RoleNamesIncidentEditor                      APIKeysUpdatePayloadV1RoleNames = "incident_editor"
@@ -498,6 +505,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesEscalationCreator:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesGlobalAccess:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesGlossaryEntriesManage:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesHeartbeatsPing:
 		return true
@@ -5528,6 +5537,7 @@ const (
 	IdentityV1RolesDocumentsViewer                     IdentityV1Roles = "documents_viewer"
 	IdentityV1RolesEscalationCreator                   IdentityV1Roles = "escalation_creator"
 	IdentityV1RolesGlobalAccess                        IdentityV1Roles = "global_access"
+	IdentityV1RolesGlossaryEntriesManage               IdentityV1Roles = "glossary_entries_manage"
 	IdentityV1RolesHeartbeatsPing                      IdentityV1Roles = "heartbeats_ping"
 	IdentityV1RolesIncidentCreator                     IdentityV1Roles = "incident_creator"
 	IdentityV1RolesIncidentEditor                      IdentityV1Roles = "incident_editor"
@@ -5586,6 +5596,8 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesEscalationCreator:
 		return true
 	case IdentityV1RolesGlobalAccess:
+		return true
+	case IdentityV1RolesGlossaryEntriesManage:
 		return true
 	case IdentityV1RolesHeartbeatsPing:
 		return true
