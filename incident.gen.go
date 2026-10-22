@@ -6859,6 +6859,147 @@ func (e IncidentsCreatePayloadV2Visibility) Valid() bool {
 	}
 }
 
+// Defines values for ManagedResourceV2ManagedBy.
+const (
+	ManagedResourceV2ManagedByDashboard ManagedResourceV2ManagedBy = "dashboard"
+	ManagedResourceV2ManagedByExternal  ManagedResourceV2ManagedBy = "external"
+	ManagedResourceV2ManagedByTerraform ManagedResourceV2ManagedBy = "terraform"
+)
+
+// Valid indicates whether the value is a known member of the ManagedResourceV2ManagedBy enum.
+func (e ManagedResourceV2ManagedBy) Valid() bool {
+	switch e {
+	case ManagedResourceV2ManagedByDashboard:
+		return true
+	case ManagedResourceV2ManagedByExternal:
+		return true
+	case ManagedResourceV2ManagedByTerraform:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ManagedResourceV2ResourceType.
+const (
+	ManagedResourceV2ResourceTypeAlertRoute             ManagedResourceV2ResourceType = "alert_route"
+	ManagedResourceV2ResourceTypeAlertSource            ManagedResourceV2ResourceType = "alert_source"
+	ManagedResourceV2ResourceTypeApiKey                 ManagedResourceV2ResourceType = "api_key"
+	ManagedResourceV2ResourceTypeEscalationPath         ManagedResourceV2ResourceType = "escalation_path"
+	ManagedResourceV2ResourceTypeEscalationPathTemplate ManagedResourceV2ResourceType = "escalation_path_template"
+	ManagedResourceV2ResourceTypeIncidentForm           ManagedResourceV2ResourceType = "incident_form"
+	ManagedResourceV2ResourceTypeIncidentTemplate       ManagedResourceV2ResourceType = "incident_template"
+	ManagedResourceV2ResourceTypePolicy                 ManagedResourceV2ResourceType = "policy"
+	ManagedResourceV2ResourceTypeSchedule               ManagedResourceV2ResourceType = "schedule"
+	ManagedResourceV2ResourceTypeScheduleSyncRule       ManagedResourceV2ResourceType = "schedule_sync_rule"
+	ManagedResourceV2ResourceTypeScheduleSyncTarget     ManagedResourceV2ResourceType = "schedule_sync_target"
+	ManagedResourceV2ResourceTypeSecret                 ManagedResourceV2ResourceType = "secret"
+	ManagedResourceV2ResourceTypeStatusPageComponent    ManagedResourceV2ResourceType = "status_page_component"
+	ManagedResourceV2ResourceTypeStatusPageStructure    ManagedResourceV2ResourceType = "status_page_structure"
+	ManagedResourceV2ResourceTypeTeamGroupingPreference ManagedResourceV2ResourceType = "team_grouping_preference"
+	ManagedResourceV2ResourceTypeWorkflow               ManagedResourceV2ResourceType = "workflow"
+)
+
+// Valid indicates whether the value is a known member of the ManagedResourceV2ResourceType enum.
+func (e ManagedResourceV2ResourceType) Valid() bool {
+	switch e {
+	case ManagedResourceV2ResourceTypeAlertRoute:
+		return true
+	case ManagedResourceV2ResourceTypeAlertSource:
+		return true
+	case ManagedResourceV2ResourceTypeApiKey:
+		return true
+	case ManagedResourceV2ResourceTypeEscalationPath:
+		return true
+	case ManagedResourceV2ResourceTypeEscalationPathTemplate:
+		return true
+	case ManagedResourceV2ResourceTypeIncidentForm:
+		return true
+	case ManagedResourceV2ResourceTypeIncidentTemplate:
+		return true
+	case ManagedResourceV2ResourceTypePolicy:
+		return true
+	case ManagedResourceV2ResourceTypeSchedule:
+		return true
+	case ManagedResourceV2ResourceTypeScheduleSyncRule:
+		return true
+	case ManagedResourceV2ResourceTypeScheduleSyncTarget:
+		return true
+	case ManagedResourceV2ResourceTypeSecret:
+		return true
+	case ManagedResourceV2ResourceTypeStatusPageComponent:
+		return true
+	case ManagedResourceV2ResourceTypeStatusPageStructure:
+		return true
+	case ManagedResourceV2ResourceTypeTeamGroupingPreference:
+		return true
+	case ManagedResourceV2ResourceTypeWorkflow:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ManagedResourcesCreateManagedResourcePayloadV2ResourceType.
+const (
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRoute             ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_route"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertSource            ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_source"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeApiKey                 ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "api_key"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeEscalationPath         ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "escalation_path"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeEscalationPathTemplate ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "escalation_path_template"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeIncidentForm           ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "incident_form"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeIncidentTemplate       ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "incident_template"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypePolicy                 ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "policy"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeSchedule               ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "schedule"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeScheduleSyncRule       ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "schedule_sync_rule"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeScheduleSyncTarget     ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "schedule_sync_target"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeSecret                 ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "secret"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeStatusPageComponent    ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "status_page_component"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeStatusPageStructure    ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "status_page_structure"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeTeamGroupingPreference ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "team_grouping_preference"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeWorkflow               ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "workflow"
+)
+
+// Valid indicates whether the value is a known member of the ManagedResourcesCreateManagedResourcePayloadV2ResourceType enum.
+func (e ManagedResourcesCreateManagedResourcePayloadV2ResourceType) Valid() bool {
+	switch e {
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRoute:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertSource:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeApiKey:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeEscalationPath:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeEscalationPathTemplate:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeIncidentForm:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeIncidentTemplate:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypePolicy:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeSchedule:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeScheduleSyncRule:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeScheduleSyncTarget:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeSecret:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeStatusPageComponent:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeStatusPageStructure:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeTeamGroupingPreference:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeWorkflow:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ManagementMetaV2ManagedBy.
 const (
 	ManagementMetaV2ManagedByDashboard ManagementMetaV2ManagedBy = "dashboard"
@@ -7800,16 +7941,16 @@ func (e PostmortemDocumentV1Status) Valid() bool {
 
 // Defines values for PostmortemDocumentV1Type.
 const (
-	PostmortemDocumentV1TypeExternal PostmortemDocumentV1Type = "external"
-	PostmortemDocumentV1TypeInApp    PostmortemDocumentV1Type = "in_app"
+	External PostmortemDocumentV1Type = "external"
+	InApp    PostmortemDocumentV1Type = "in_app"
 )
 
 // Valid indicates whether the value is a known member of the PostmortemDocumentV1Type enum.
 func (e PostmortemDocumentV1Type) Valid() bool {
 	switch e {
-	case PostmortemDocumentV1TypeExternal:
+	case External:
 		return true
-	case PostmortemDocumentV1TypeInApp:
+	case InApp:
 		return true
 	default:
 		return false
@@ -17626,6 +17767,48 @@ type MaintenanceWindowsUpdateResultV1 struct {
 	MaintenanceWindow MaintenanceWindowV1 `json:"maintenance_window"`
 }
 
+// ManagedResourceV2 defines model for ManagedResourceV2.
+type ManagedResourceV2 struct {
+	// Annotations Annotations that track metadata about this resource
+	Annotations map[string]string `json:"annotations"`
+
+	// ManagedBy How is this resource managed
+	ManagedBy ManagedResourceV2ManagedBy `json:"managed_by"`
+
+	// ResourceId The ID of the resource that this relates to
+	ResourceId   string                        `json:"resource_id"`
+	ResourceType ManagedResourceV2ResourceType `json:"resource_type"`
+
+	// SourceUrl The url of the external repository where this resource is managed (if there is one)
+	SourceUrl *string `json:"source_url,omitempty"`
+}
+
+// ManagedResourceV2ManagedBy How is this resource managed
+type ManagedResourceV2ManagedBy string
+
+// ManagedResourceV2ResourceType defines model for ManagedResourceV2.ResourceType.
+type ManagedResourceV2ResourceType string
+
+// ManagedResourcesCreateManagedResourcePayloadV2 defines model for ManagedResourcesCreateManagedResourcePayloadV2.
+type ManagedResourcesCreateManagedResourcePayloadV2 struct {
+	// Annotations Annotations that track metadata about this resource
+	Annotations map[string]string `json:"annotations"`
+
+	// ResourceId The ID of the resource that this relates to
+	ResourceId string `json:"resource_id"`
+
+	// ResourceType The type of the related resource
+	ResourceType ManagedResourcesCreateManagedResourcePayloadV2ResourceType `json:"resource_type"`
+}
+
+// ManagedResourcesCreateManagedResourcePayloadV2ResourceType The type of the related resource
+type ManagedResourcesCreateManagedResourcePayloadV2ResourceType string
+
+// ManagedResourcesCreateManagedResourceResultV2 defines model for ManagedResourcesCreateManagedResourceResultV2.
+type ManagedResourcesCreateManagedResourceResultV2 struct {
+	ManagedResource ManagedResourceV2 `json:"managed_resource"`
+}
+
 // ManagementMetaV2 defines model for ManagementMetaV2.
 type ManagementMetaV2 struct {
 	// Annotations Annotations that track metadata about this resource
@@ -22812,6 +22995,9 @@ type IncidentsV2EditJSONRequestBody = IncidentsEditPayloadV2
 // IncidentsV2ImportPostmortemDocumentJSONRequestBody defines body for IncidentsV2ImportPostmortemDocument for application/json ContentType.
 type IncidentsV2ImportPostmortemDocumentJSONRequestBody = IncidentsImportPostmortemDocumentPayloadV2
 
+// ManagedResourcesV2CreateManagedResourceJSONRequestBody defines body for ManagedResourcesV2CreateManagedResource for application/json ContentType.
+type ManagedResourcesV2CreateManagedResourceJSONRequestBody = ManagedResourcesCreateManagedResourcePayloadV2
+
 // PayConfigsV2CreateJSONRequestBody defines body for PayConfigsV2Create for application/json ContentType.
 type PayConfigsV2CreateJSONRequestBody = PayConfigsCreatePayloadV2
 
@@ -23780,6 +23966,11 @@ type ClientInterface interface {
 	IncidentsV2ImportPostmortemDocumentWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	IncidentsV2ImportPostmortemDocument(ctx context.Context, id string, body IncidentsV2ImportPostmortemDocumentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ManagedResourcesV2CreateManagedResourceWithBody request with any body
+	ManagedResourcesV2CreateManagedResourceWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	ManagedResourcesV2CreateManagedResource(ctx context.Context, body ManagedResourcesV2CreateManagedResourceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// OnCallNotificationPausesV2List request
 	OnCallNotificationPausesV2List(ctx context.Context, params *OnCallNotificationPausesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -27649,6 +27840,30 @@ func (c *Client) IncidentsV2ImportPostmortemDocumentWithBody(ctx context.Context
 
 func (c *Client) IncidentsV2ImportPostmortemDocument(ctx context.Context, id string, body IncidentsV2ImportPostmortemDocumentJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newIncidentsV2ImportPostmortemDocumentRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ManagedResourcesV2CreateManagedResourceWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newManagedResourcesV2CreateManagedResourceRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ManagedResourcesV2CreateManagedResource(ctx context.Context, body ManagedResourcesV2CreateManagedResourceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newManagedResourcesV2CreateManagedResourceRequest(c.Server, body)
 	if err != nil {
 		return nil, err
 	}
@@ -38976,6 +39191,46 @@ func newIncidentsV2ImportPostmortemDocumentRequestWithBody(server string, id str
 	return req, nil
 }
 
+// NewManagedResourcesV2CreateManagedResourceRequest calls the generic ManagedResourcesV2CreateManagedResource builder with application/json body
+func newManagedResourcesV2CreateManagedResourceRequest(server string, body ManagedResourcesV2CreateManagedResourceJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newManagedResourcesV2CreateManagedResourceRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewManagedResourcesV2CreateManagedResourceRequestWithBody generates requests for ManagedResourcesV2CreateManagedResource with any type of body
+func newManagedResourcesV2CreateManagedResourceRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/managed_resources")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewOnCallNotificationPausesV2ListRequest generates requests for OnCallNotificationPausesV2List
 func newOnCallNotificationPausesV2ListRequest(server string, params *OnCallNotificationPausesV2ListParams) (*http.Request, error) {
 	var err error
@@ -46362,6 +46617,11 @@ type ClientWithResponsesInterface interface {
 
 	IncidentsV2ImportPostmortemDocumentWithResponse(ctx context.Context, id string, body IncidentsV2ImportPostmortemDocumentJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentsV2ImportPostmortemDocumentResponse, error)
 
+	// ManagedResourcesV2CreateManagedResourceWithBodyWithResponse request with any body
+	ManagedResourcesV2CreateManagedResourceWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ManagedResourcesV2CreateManagedResourceResponse, error)
+
+	ManagedResourcesV2CreateManagedResourceWithResponse(ctx context.Context, body ManagedResourcesV2CreateManagedResourceJSONRequestBody, reqEditors ...RequestEditorFn) (*ManagedResourcesV2CreateManagedResourceResponse, error)
+
 	// OnCallNotificationPausesV2ListWithResponse request
 	OnCallNotificationPausesV2ListWithResponse(ctx context.Context, params *OnCallNotificationPausesV2ListParams, reqEditors ...RequestEditorFn) (*OnCallNotificationPausesV2ListResponse, error)
 
@@ -53564,6 +53824,41 @@ func (r IncidentsV2ImportPostmortemDocumentResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r IncidentsV2ImportPostmortemDocumentResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type ManagedResourcesV2CreateManagedResourceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *ManagedResourcesCreateManagedResourceResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r ManagedResourcesV2CreateManagedResourceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ManagedResourcesV2CreateManagedResourceResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -60844,6 +61139,23 @@ func (c *ClientWithResponses) IncidentsV2ImportPostmortemDocumentWithResponse(ct
 		return nil, err
 	}
 	return parseIncidentsV2ImportPostmortemDocumentResponse(rsp)
+}
+
+// ManagedResourcesV2CreateManagedResourceWithBodyWithResponse request with arbitrary body returning *ManagedResourcesV2CreateManagedResourceResponse
+func (c *ClientWithResponses) ManagedResourcesV2CreateManagedResourceWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ManagedResourcesV2CreateManagedResourceResponse, error) {
+	rsp, err := c.ManagedResourcesV2CreateManagedResourceWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseManagedResourcesV2CreateManagedResourceResponse(rsp)
+}
+
+func (c *ClientWithResponses) ManagedResourcesV2CreateManagedResourceWithResponse(ctx context.Context, body ManagedResourcesV2CreateManagedResourceJSONRequestBody, reqEditors ...RequestEditorFn) (*ManagedResourcesV2CreateManagedResourceResponse, error) {
+	rsp, err := c.ManagedResourcesV2CreateManagedResource(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseManagedResourcesV2CreateManagedResourceResponse(rsp)
 }
 
 // OnCallNotificationPausesV2ListWithResponse request returning *OnCallNotificationPausesV2ListResponse
@@ -84654,6 +84966,123 @@ func parseIncidentsV2ImportPostmortemDocumentResponse(rsp *http.Response) (*Inci
 			return nil, err
 		}
 		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseManagedResourcesV2CreateManagedResourceResponse parses an HTTP response from a ManagedResourcesV2CreateManagedResourceWithResponse call
+func parseManagedResourcesV2CreateManagedResourceResponse(rsp *http.Response) (*ManagedResourcesV2CreateManagedResourceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ManagedResourcesV2CreateManagedResourceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ManagedResourcesCreateManagedResourceResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest ErrorResponse
