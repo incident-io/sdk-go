@@ -8622,6 +8622,7 @@ const (
 	StepProgressSlimV2StatusComplete  StepProgressSlimV2Status = "complete"
 	StepProgressSlimV2StatusError     StepProgressSlimV2Status = "error"
 	StepProgressSlimV2StatusPending   StepProgressSlimV2Status = "pending"
+	StepProgressSlimV2StatusSkipped   StepProgressSlimV2Status = "skipped"
 	StepProgressSlimV2StatusSuspended StepProgressSlimV2Status = "suspended"
 )
 
@@ -8633,6 +8634,8 @@ func (e StepProgressSlimV2Status) Valid() bool {
 	case StepProgressSlimV2StatusError:
 		return true
 	case StepProgressSlimV2StatusPending:
+		return true
+	case StepProgressSlimV2StatusSkipped:
 		return true
 	case StepProgressSlimV2StatusSuspended:
 		return true
@@ -8667,6 +8670,7 @@ const (
 	StepProgressV2StatusComplete  StepProgressV2Status = "complete"
 	StepProgressV2StatusError     StepProgressV2Status = "error"
 	StepProgressV2StatusPending   StepProgressV2Status = "pending"
+	StepProgressV2StatusSkipped   StepProgressV2Status = "skipped"
 	StepProgressV2StatusSuspended StepProgressV2Status = "suspended"
 )
 
@@ -8678,6 +8682,8 @@ func (e StepProgressV2Status) Valid() bool {
 	case StepProgressV2StatusError:
 		return true
 	case StepProgressV2StatusPending:
+		return true
+	case StepProgressV2StatusSkipped:
 		return true
 	case StepProgressV2StatusSuspended:
 		return true
