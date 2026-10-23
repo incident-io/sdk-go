@@ -15826,6 +15826,112 @@ type FollowUpsUpdateResultV3 struct {
 	FollowUp FollowUpV3 `json:"follow_up"`
 }
 
+// GlossaryEntriesCreatePayloadV2 defines model for GlossaryEntriesCreatePayloadV2.
+type GlossaryEntriesCreatePayloadV2 struct {
+	// After ID of a live glossary entry. The new entry is inserted immediately after it. Omit to append the entry to the end.
+	After *string `json:"after,omitempty"`
+
+	// Description What the term means
+	Description string `json:"description"`
+
+	// Item The term, for example an acronym or service name. Unique among live entries, ignoring case.
+	Item string `json:"item"`
+}
+
+// GlossaryEntriesCreateResultV2 defines model for GlossaryEntriesCreateResultV2.
+type GlossaryEntriesCreateResultV2 struct {
+	// GlossaryEntry A glossary entry is one term an organisation has coined — an acronym, a
+	// service name, or a piece of internal jargon — and the description of what it means.
+	//
+	// AI features use the glossary, in rank order, so they understand those terms. Lower
+	// ranks come first. Deleting an entry archives it, which frees the term so it can be
+	// coined again as a new entry.
+	GlossaryEntry GlossaryEntryV2 `json:"glossary_entry"`
+}
+
+// GlossaryEntriesListResultV2 defines model for GlossaryEntriesListResultV2.
+type GlossaryEntriesListResultV2 struct {
+	GlossaryEntries []GlossaryEntryV2       `json:"glossary_entries"`
+	PaginationMeta  *PaginationMetaResultV2 `json:"pagination_meta,omitempty"`
+}
+
+// GlossaryEntriesShowResultV2 defines model for GlossaryEntriesShowResultV2.
+type GlossaryEntriesShowResultV2 struct {
+	// GlossaryEntry A glossary entry is one term an organisation has coined — an acronym, a
+	// service name, or a piece of internal jargon — and the description of what it means.
+	//
+	// AI features use the glossary, in rank order, so they understand those terms. Lower
+	// ranks come first. Deleting an entry archives it, which frees the term so it can be
+	// coined again as a new entry.
+	GlossaryEntry GlossaryEntryV2 `json:"glossary_entry"`
+}
+
+// GlossaryEntriesUpdatePayloadV2 defines model for GlossaryEntriesUpdatePayloadV2.
+type GlossaryEntriesUpdatePayloadV2 struct {
+	// Description What the term means
+	Description string `json:"description"`
+
+	// Item The term, e.g. an acronym or service name
+	Item string `json:"item"`
+}
+
+// GlossaryEntriesUpdateRanksPayloadV2 defines model for GlossaryEntriesUpdateRanksPayloadV2.
+type GlossaryEntriesUpdateRanksPayloadV2 struct {
+	// RankUpdates The new rank of every live glossary entry
+	RankUpdates []GlossaryEntryRankUpdateV2 `json:"rank_updates"`
+}
+
+// GlossaryEntriesUpdateRanksResultV2 defines model for GlossaryEntriesUpdateRanksResultV2.
+type GlossaryEntriesUpdateRanksResultV2 struct {
+	GlossaryEntries []GlossaryEntryV2 `json:"glossary_entries"`
+}
+
+// GlossaryEntriesUpdateResultV2 defines model for GlossaryEntriesUpdateResultV2.
+type GlossaryEntriesUpdateResultV2 struct {
+	// GlossaryEntry A glossary entry is one term an organisation has coined — an acronym, a
+	// service name, or a piece of internal jargon — and the description of what it means.
+	//
+	// AI features use the glossary, in rank order, so they understand those terms. Lower
+	// ranks come first. Deleting an entry archives it, which frees the term so it can be
+	// coined again as a new entry.
+	GlossaryEntry GlossaryEntryV2 `json:"glossary_entry"`
+}
+
+// GlossaryEntryRankUpdateV2 The new rank for one live glossary entry.
+type GlossaryEntryRankUpdateV2 struct {
+	// Rank Desired rank for this resource
+	Rank int64 `json:"rank"`
+
+	// ResourceId ID of the resource
+	ResourceId string `json:"resource_id"`
+}
+
+// GlossaryEntryV2 A glossary entry is one term an organisation has coined — an acronym, a
+// service name, or a piece of internal jargon — and the description of what it means.
+//
+// AI features use the glossary, in rank order, so they understand those terms. Lower
+// ranks come first. Deleting an entry archives it, which frees the term so it can be
+// coined again as a new entry.
+type GlossaryEntryV2 struct {
+	// CreatedAt When the entry was created
+	CreatedAt time.Time `json:"created_at"`
+
+	// Description What the term means
+	Description string `json:"description"`
+
+	// Id Unique identifier for this glossary entry
+	Id string `json:"id"`
+
+	// Item The term, e.g. an acronym or service name
+	Item string `json:"item"`
+
+	// Rank The entry's position in the glossary
+	Rank int64 `json:"rank"`
+
+	// UpdatedAt When the entry was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
 // GroupingKeyV2 defines model for GroupingKeyV2.
 type GroupingKeyV2 struct {
 	// Reference A reference to a property of the alert to group on
@@ -22351,6 +22457,18 @@ type FollowUpsV2ListParams struct {
 // FollowUpsV2ListParamsIncidentMode defines parameters for FollowUpsV2List.
 type FollowUpsV2ListParamsIncidentMode string
 
+// GlossaryEntriesV2ListParams defines parameters for GlossaryEntriesV2List.
+type GlossaryEntriesV2ListParams struct {
+	// PageSize Number of glossary entries to return per page
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After A glossary entry's ID. This endpoint returns entries after this one. Without search, that is later in rank order. With search, it is the next hit after this entry.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+
+	// Search Filter to entries whose term or description contains this value (case-insensitive)
+	Search *string `form:"search,omitempty" json:"search,omitempty"`
+}
+
 // HeartbeatV2Ping1Params defines parameters for HeartbeatV2Ping1.
 type HeartbeatV2Ping1Params struct {
 	// Token Token provided via the token query parameter
@@ -23033,6 +23151,15 @@ type FollowUpsV2UpdateJSONRequestBody = FollowUpsUpdatePayloadV2
 
 // FollowUpsV2ConnectExternalIssueJSONRequestBody defines body for FollowUpsV2ConnectExternalIssue for application/json ContentType.
 type FollowUpsV2ConnectExternalIssueJSONRequestBody = FollowUpsConnectExternalIssuePayloadV2
+
+// GlossaryEntriesV2CreateJSONRequestBody defines body for GlossaryEntriesV2Create for application/json ContentType.
+type GlossaryEntriesV2CreateJSONRequestBody = GlossaryEntriesCreatePayloadV2
+
+// GlossaryEntriesV2UpdateRanksJSONRequestBody defines body for GlossaryEntriesV2UpdateRanks for application/json ContentType.
+type GlossaryEntriesV2UpdateRanksJSONRequestBody = GlossaryEntriesUpdateRanksPayloadV2
+
+// GlossaryEntriesV2UpdateJSONRequestBody defines body for GlossaryEntriesV2Update for application/json ContentType.
+type GlossaryEntriesV2UpdateJSONRequestBody = GlossaryEntriesUpdatePayloadV2
 
 // AlertsV2CreateIncidentAlertJSONRequestBody defines body for AlertsV2CreateIncidentAlert for application/json ContentType.
 type AlertsV2CreateIncidentAlertJSONRequestBody = AlertsCreateIncidentAlertPayloadV2
@@ -23943,6 +24070,30 @@ type ClientInterface interface {
 	FollowUpsV2ConnectExternalIssueWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	FollowUpsV2ConnectExternalIssue(ctx context.Context, id string, body FollowUpsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GlossaryEntriesV2List request
+	GlossaryEntriesV2List(ctx context.Context, params *GlossaryEntriesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GlossaryEntriesV2CreateWithBody request with any body
+	GlossaryEntriesV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	GlossaryEntriesV2Create(ctx context.Context, body GlossaryEntriesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GlossaryEntriesV2UpdateRanksWithBody request with any body
+	GlossaryEntriesV2UpdateRanksWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	GlossaryEntriesV2UpdateRanks(ctx context.Context, body GlossaryEntriesV2UpdateRanksJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GlossaryEntriesV2Destroy request
+	GlossaryEntriesV2Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GlossaryEntriesV2Show request
+	GlossaryEntriesV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GlossaryEntriesV2UpdateWithBody request with any body
+	GlossaryEntriesV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	GlossaryEntriesV2Update(ctx context.Context, id string, body GlossaryEntriesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// HeartbeatV2Ping1 request
 	HeartbeatV2Ping1(ctx context.Context, alertSourceConfigId string, params *HeartbeatV2Ping1Params, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -27497,6 +27648,114 @@ func (c *Client) FollowUpsV2ConnectExternalIssueWithBody(ctx context.Context, id
 // https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) FollowUpsV2ConnectExternalIssue(ctx context.Context, id string, body FollowUpsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newFollowUpsV2ConnectExternalIssueRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GlossaryEntriesV2List(ctx context.Context, params *GlossaryEntriesV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newGlossaryEntriesV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GlossaryEntriesV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newGlossaryEntriesV2CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GlossaryEntriesV2Create(ctx context.Context, body GlossaryEntriesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newGlossaryEntriesV2CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GlossaryEntriesV2UpdateRanksWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newGlossaryEntriesV2UpdateRanksRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GlossaryEntriesV2UpdateRanks(ctx context.Context, body GlossaryEntriesV2UpdateRanksJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newGlossaryEntriesV2UpdateRanksRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GlossaryEntriesV2Destroy(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newGlossaryEntriesV2DestroyRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GlossaryEntriesV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newGlossaryEntriesV2ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GlossaryEntriesV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newGlossaryEntriesV2UpdateRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GlossaryEntriesV2Update(ctx context.Context, id string, body GlossaryEntriesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newGlossaryEntriesV2UpdateRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -37850,6 +38109,282 @@ func newFollowUpsV2ConnectExternalIssueRequestWithBody(server string, id string,
 	return req, nil
 }
 
+// NewGlossaryEntriesV2ListRequest generates requests for GlossaryEntriesV2List
+func newGlossaryEntriesV2ListRequest(server string, params *GlossaryEntriesV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/glossary_entries")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Search != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "search", *params.Search, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGlossaryEntriesV2CreateRequest calls the generic GlossaryEntriesV2Create builder with application/json body
+func newGlossaryEntriesV2CreateRequest(server string, body GlossaryEntriesV2CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newGlossaryEntriesV2CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewGlossaryEntriesV2CreateRequestWithBody generates requests for GlossaryEntriesV2Create with any type of body
+func newGlossaryEntriesV2CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/glossary_entries")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewGlossaryEntriesV2UpdateRanksRequest calls the generic GlossaryEntriesV2UpdateRanks builder with application/json body
+func newGlossaryEntriesV2UpdateRanksRequest(server string, body GlossaryEntriesV2UpdateRanksJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newGlossaryEntriesV2UpdateRanksRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewGlossaryEntriesV2UpdateRanksRequestWithBody generates requests for GlossaryEntriesV2UpdateRanks with any type of body
+func newGlossaryEntriesV2UpdateRanksRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/glossary_entries/actions/update_ranks")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewGlossaryEntriesV2DestroyRequest generates requests for GlossaryEntriesV2Destroy
+func newGlossaryEntriesV2DestroyRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/glossary_entries/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGlossaryEntriesV2ShowRequest generates requests for GlossaryEntriesV2Show
+func newGlossaryEntriesV2ShowRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/glossary_entries/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGlossaryEntriesV2UpdateRequest calls the generic GlossaryEntriesV2Update builder with application/json body
+func newGlossaryEntriesV2UpdateRequest(server string, id string, body GlossaryEntriesV2UpdateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newGlossaryEntriesV2UpdateRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewGlossaryEntriesV2UpdateRequestWithBody generates requests for GlossaryEntriesV2Update with any type of body
+func newGlossaryEntriesV2UpdateRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/glossary_entries/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("PUT", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewHeartbeatV2Ping1Request generates requests for HeartbeatV2Ping1
 func newHeartbeatV2Ping1Request(server string, alertSourceConfigId string, params *HeartbeatV2Ping1Params) (*http.Request, error) {
 	var err error
@@ -46670,6 +47205,30 @@ type ClientWithResponsesInterface interface {
 
 	FollowUpsV2ConnectExternalIssueWithResponse(ctx context.Context, id string, body FollowUpsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*FollowUpsV2ConnectExternalIssueResponse, error)
 
+	// GlossaryEntriesV2ListWithResponse request
+	GlossaryEntriesV2ListWithResponse(ctx context.Context, params *GlossaryEntriesV2ListParams, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2ListResponse, error)
+
+	// GlossaryEntriesV2CreateWithBodyWithResponse request with any body
+	GlossaryEntriesV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2CreateResponse, error)
+
+	GlossaryEntriesV2CreateWithResponse(ctx context.Context, body GlossaryEntriesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2CreateResponse, error)
+
+	// GlossaryEntriesV2UpdateRanksWithBodyWithResponse request with any body
+	GlossaryEntriesV2UpdateRanksWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2UpdateRanksResponse, error)
+
+	GlossaryEntriesV2UpdateRanksWithResponse(ctx context.Context, body GlossaryEntriesV2UpdateRanksJSONRequestBody, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2UpdateRanksResponse, error)
+
+	// GlossaryEntriesV2DestroyWithResponse request
+	GlossaryEntriesV2DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2DestroyResponse, error)
+
+	// GlossaryEntriesV2ShowWithResponse request
+	GlossaryEntriesV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2ShowResponse, error)
+
+	// GlossaryEntriesV2UpdateWithBodyWithResponse request with any body
+	GlossaryEntriesV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2UpdateResponse, error)
+
+	GlossaryEntriesV2UpdateWithResponse(ctx context.Context, id string, body GlossaryEntriesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2UpdateResponse, error)
+
 	// HeartbeatV2Ping1WithResponse request
 	HeartbeatV2Ping1WithResponse(ctx context.Context, alertSourceConfigId string, params *HeartbeatV2Ping1Params, reqEditors ...RequestEditorFn) (*HeartbeatV2Ping1Response, error)
 
@@ -53105,6 +53664,215 @@ func (r FollowUpsV2ConnectExternalIssueResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r FollowUpsV2ConnectExternalIssueResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GlossaryEntriesV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *GlossaryEntriesListResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r GlossaryEntriesV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GlossaryEntriesV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GlossaryEntriesV2CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *GlossaryEntriesCreateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r GlossaryEntriesV2CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GlossaryEntriesV2CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GlossaryEntriesV2UpdateRanksResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *GlossaryEntriesUpdateRanksResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r GlossaryEntriesV2UpdateRanksResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GlossaryEntriesV2UpdateRanksResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GlossaryEntriesV2DestroyResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r GlossaryEntriesV2DestroyResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GlossaryEntriesV2DestroyResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GlossaryEntriesV2ShowResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *GlossaryEntriesShowResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r GlossaryEntriesV2ShowResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GlossaryEntriesV2ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GlossaryEntriesV2UpdateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *GlossaryEntriesUpdateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r GlossaryEntriesV2UpdateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GlossaryEntriesV2UpdateResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -61021,6 +61789,84 @@ func (c *ClientWithResponses) FollowUpsV2ConnectExternalIssueWithResponse(ctx co
 		return nil, err
 	}
 	return parseFollowUpsV2ConnectExternalIssueResponse(rsp)
+}
+
+// GlossaryEntriesV2ListWithResponse request returning *GlossaryEntriesV2ListResponse
+func (c *ClientWithResponses) GlossaryEntriesV2ListWithResponse(ctx context.Context, params *GlossaryEntriesV2ListParams, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2ListResponse, error) {
+	rsp, err := c.GlossaryEntriesV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseGlossaryEntriesV2ListResponse(rsp)
+}
+
+// GlossaryEntriesV2CreateWithBodyWithResponse request with arbitrary body returning *GlossaryEntriesV2CreateResponse
+func (c *ClientWithResponses) GlossaryEntriesV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2CreateResponse, error) {
+	rsp, err := c.GlossaryEntriesV2CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseGlossaryEntriesV2CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) GlossaryEntriesV2CreateWithResponse(ctx context.Context, body GlossaryEntriesV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2CreateResponse, error) {
+	rsp, err := c.GlossaryEntriesV2Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseGlossaryEntriesV2CreateResponse(rsp)
+}
+
+// GlossaryEntriesV2UpdateRanksWithBodyWithResponse request with arbitrary body returning *GlossaryEntriesV2UpdateRanksResponse
+func (c *ClientWithResponses) GlossaryEntriesV2UpdateRanksWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2UpdateRanksResponse, error) {
+	rsp, err := c.GlossaryEntriesV2UpdateRanksWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseGlossaryEntriesV2UpdateRanksResponse(rsp)
+}
+
+func (c *ClientWithResponses) GlossaryEntriesV2UpdateRanksWithResponse(ctx context.Context, body GlossaryEntriesV2UpdateRanksJSONRequestBody, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2UpdateRanksResponse, error) {
+	rsp, err := c.GlossaryEntriesV2UpdateRanks(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseGlossaryEntriesV2UpdateRanksResponse(rsp)
+}
+
+// GlossaryEntriesV2DestroyWithResponse request returning *GlossaryEntriesV2DestroyResponse
+func (c *ClientWithResponses) GlossaryEntriesV2DestroyWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2DestroyResponse, error) {
+	rsp, err := c.GlossaryEntriesV2Destroy(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseGlossaryEntriesV2DestroyResponse(rsp)
+}
+
+// GlossaryEntriesV2ShowWithResponse request returning *GlossaryEntriesV2ShowResponse
+func (c *ClientWithResponses) GlossaryEntriesV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2ShowResponse, error) {
+	rsp, err := c.GlossaryEntriesV2Show(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseGlossaryEntriesV2ShowResponse(rsp)
+}
+
+// GlossaryEntriesV2UpdateWithBodyWithResponse request with arbitrary body returning *GlossaryEntriesV2UpdateResponse
+func (c *ClientWithResponses) GlossaryEntriesV2UpdateWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2UpdateResponse, error) {
+	rsp, err := c.GlossaryEntriesV2UpdateWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseGlossaryEntriesV2UpdateResponse(rsp)
+}
+
+func (c *ClientWithResponses) GlossaryEntriesV2UpdateWithResponse(ctx context.Context, id string, body GlossaryEntriesV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*GlossaryEntriesV2UpdateResponse, error) {
+	rsp, err := c.GlossaryEntriesV2Update(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseGlossaryEntriesV2UpdateResponse(rsp)
 }
 
 // HeartbeatV2Ping1WithResponse request returning *HeartbeatV2Ping1Response
@@ -82262,6 +83108,701 @@ func parseFollowUpsV2ConnectExternalIssueResponse(rsp *http.Response) (*FollowUp
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest FollowUpsConnectExternalIssueResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGlossaryEntriesV2ListResponse parses an HTTP response from a GlossaryEntriesV2ListWithResponse call
+func parseGlossaryEntriesV2ListResponse(rsp *http.Response) (*GlossaryEntriesV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GlossaryEntriesV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GlossaryEntriesListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGlossaryEntriesV2CreateResponse parses an HTTP response from a GlossaryEntriesV2CreateWithResponse call
+func parseGlossaryEntriesV2CreateResponse(rsp *http.Response) (*GlossaryEntriesV2CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GlossaryEntriesV2CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest GlossaryEntriesCreateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGlossaryEntriesV2UpdateRanksResponse parses an HTTP response from a GlossaryEntriesV2UpdateRanksWithResponse call
+func parseGlossaryEntriesV2UpdateRanksResponse(rsp *http.Response) (*GlossaryEntriesV2UpdateRanksResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GlossaryEntriesV2UpdateRanksResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GlossaryEntriesUpdateRanksResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGlossaryEntriesV2DestroyResponse parses an HTTP response from a GlossaryEntriesV2DestroyWithResponse call
+func parseGlossaryEntriesV2DestroyResponse(rsp *http.Response) (*GlossaryEntriesV2DestroyResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GlossaryEntriesV2DestroyResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGlossaryEntriesV2ShowResponse parses an HTTP response from a GlossaryEntriesV2ShowWithResponse call
+func parseGlossaryEntriesV2ShowResponse(rsp *http.Response) (*GlossaryEntriesV2ShowResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GlossaryEntriesV2ShowResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GlossaryEntriesShowResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGlossaryEntriesV2UpdateResponse parses an HTTP response from a GlossaryEntriesV2UpdateWithResponse call
+func parseGlossaryEntriesV2UpdateResponse(rsp *http.Response) (*GlossaryEntriesV2UpdateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GlossaryEntriesV2UpdateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest GlossaryEntriesUpdateResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
