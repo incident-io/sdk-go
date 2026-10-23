@@ -6751,6 +6751,57 @@ func (e IncidentV2Visibility) Valid() bool {
 	}
 }
 
+// Defines values for IncidentsConnectExternalIssuePayloadV2Provider.
+const (
+	IncidentsConnectExternalIssuePayloadV2ProviderAsana        IncidentsConnectExternalIssuePayloadV2Provider = "asana"
+	IncidentsConnectExternalIssuePayloadV2ProviderAzureDevops  IncidentsConnectExternalIssuePayloadV2Provider = "azure_devops"
+	IncidentsConnectExternalIssuePayloadV2ProviderClickUp      IncidentsConnectExternalIssuePayloadV2Provider = "click_up"
+	IncidentsConnectExternalIssuePayloadV2ProviderFreshservice IncidentsConnectExternalIssuePayloadV2Provider = "freshservice"
+	IncidentsConnectExternalIssuePayloadV2ProviderGithub       IncidentsConnectExternalIssuePayloadV2Provider = "github"
+	IncidentsConnectExternalIssuePayloadV2ProviderGitlab       IncidentsConnectExternalIssuePayloadV2Provider = "gitlab"
+	IncidentsConnectExternalIssuePayloadV2ProviderJira         IncidentsConnectExternalIssuePayloadV2Provider = "jira"
+	IncidentsConnectExternalIssuePayloadV2ProviderJiraServer   IncidentsConnectExternalIssuePayloadV2Provider = "jira_server"
+	IncidentsConnectExternalIssuePayloadV2ProviderLinear       IncidentsConnectExternalIssuePayloadV2Provider = "linear"
+	IncidentsConnectExternalIssuePayloadV2ProviderNotion       IncidentsConnectExternalIssuePayloadV2Provider = "notion"
+	IncidentsConnectExternalIssuePayloadV2ProviderSalesforce   IncidentsConnectExternalIssuePayloadV2Provider = "salesforce"
+	IncidentsConnectExternalIssuePayloadV2ProviderServiceNow   IncidentsConnectExternalIssuePayloadV2Provider = "service_now"
+	IncidentsConnectExternalIssuePayloadV2ProviderShortcut     IncidentsConnectExternalIssuePayloadV2Provider = "shortcut"
+)
+
+// Valid indicates whether the value is a known member of the IncidentsConnectExternalIssuePayloadV2Provider enum.
+func (e IncidentsConnectExternalIssuePayloadV2Provider) Valid() bool {
+	switch e {
+	case IncidentsConnectExternalIssuePayloadV2ProviderAsana:
+		return true
+	case IncidentsConnectExternalIssuePayloadV2ProviderAzureDevops:
+		return true
+	case IncidentsConnectExternalIssuePayloadV2ProviderClickUp:
+		return true
+	case IncidentsConnectExternalIssuePayloadV2ProviderFreshservice:
+		return true
+	case IncidentsConnectExternalIssuePayloadV2ProviderGithub:
+		return true
+	case IncidentsConnectExternalIssuePayloadV2ProviderGitlab:
+		return true
+	case IncidentsConnectExternalIssuePayloadV2ProviderJira:
+		return true
+	case IncidentsConnectExternalIssuePayloadV2ProviderJiraServer:
+		return true
+	case IncidentsConnectExternalIssuePayloadV2ProviderLinear:
+		return true
+	case IncidentsConnectExternalIssuePayloadV2ProviderNotion:
+		return true
+	case IncidentsConnectExternalIssuePayloadV2ProviderSalesforce:
+		return true
+	case IncidentsConnectExternalIssuePayloadV2ProviderServiceNow:
+		return true
+	case IncidentsConnectExternalIssuePayloadV2ProviderShortcut:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for IncidentsCreatePayloadV1Mode.
 const (
 	IncidentsCreatePayloadV1ModeReal IncidentsCreatePayloadV1Mode = "real"
@@ -7959,46 +8010,46 @@ func (e PostmortemDocumentV1Type) Valid() bool {
 
 // Defines values for PostmortemDocumentsAttachPayloadV1DocumentProvider.
 const (
-	Confluence          PostmortemDocumentsAttachPayloadV1DocumentProvider = "confluence"
-	CopyPasteBasecamp   PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_basecamp"
-	CopyPasteConfluence PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_confluence"
-	CopyPasteGithubWiki PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_github_wiki"
-	CopyPasteGoogleDocs PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_google_docs"
-	CopyPasteNotion     PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_notion"
-	CopyPasteQuip       PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_quip"
-	Empty               PostmortemDocumentsAttachPayloadV1DocumentProvider = ""
-	GoogleDocs          PostmortemDocumentsAttachPayloadV1DocumentProvider = "google_docs"
-	IncidentIo          PostmortemDocumentsAttachPayloadV1DocumentProvider = "incident_io"
-	Notion              PostmortemDocumentsAttachPayloadV1DocumentProvider = "notion"
-	Sharepoint          PostmortemDocumentsAttachPayloadV1DocumentProvider = "sharepoint"
+	PostmortemDocumentsAttachPayloadV1DocumentProviderConfluence          PostmortemDocumentsAttachPayloadV1DocumentProvider = "confluence"
+	PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteBasecamp   PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_basecamp"
+	PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteConfluence PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_confluence"
+	PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteGithubWiki PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_github_wiki"
+	PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteGoogleDocs PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_google_docs"
+	PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteNotion     PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_notion"
+	PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteQuip       PostmortemDocumentsAttachPayloadV1DocumentProvider = "copy_paste_quip"
+	PostmortemDocumentsAttachPayloadV1DocumentProviderEmpty               PostmortemDocumentsAttachPayloadV1DocumentProvider = ""
+	PostmortemDocumentsAttachPayloadV1DocumentProviderGoogleDocs          PostmortemDocumentsAttachPayloadV1DocumentProvider = "google_docs"
+	PostmortemDocumentsAttachPayloadV1DocumentProviderIncidentIo          PostmortemDocumentsAttachPayloadV1DocumentProvider = "incident_io"
+	PostmortemDocumentsAttachPayloadV1DocumentProviderNotion              PostmortemDocumentsAttachPayloadV1DocumentProvider = "notion"
+	PostmortemDocumentsAttachPayloadV1DocumentProviderSharepoint          PostmortemDocumentsAttachPayloadV1DocumentProvider = "sharepoint"
 )
 
 // Valid indicates whether the value is a known member of the PostmortemDocumentsAttachPayloadV1DocumentProvider enum.
 func (e PostmortemDocumentsAttachPayloadV1DocumentProvider) Valid() bool {
 	switch e {
-	case Confluence:
+	case PostmortemDocumentsAttachPayloadV1DocumentProviderConfluence:
 		return true
-	case CopyPasteBasecamp:
+	case PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteBasecamp:
 		return true
-	case CopyPasteConfluence:
+	case PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteConfluence:
 		return true
-	case CopyPasteGithubWiki:
+	case PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteGithubWiki:
 		return true
-	case CopyPasteGoogleDocs:
+	case PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteGoogleDocs:
 		return true
-	case CopyPasteNotion:
+	case PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteNotion:
 		return true
-	case CopyPasteQuip:
+	case PostmortemDocumentsAttachPayloadV1DocumentProviderCopyPasteQuip:
 		return true
-	case Empty:
+	case PostmortemDocumentsAttachPayloadV1DocumentProviderEmpty:
 		return true
-	case GoogleDocs:
+	case PostmortemDocumentsAttachPayloadV1DocumentProviderGoogleDocs:
 		return true
-	case IncidentIo:
+	case PostmortemDocumentsAttachPayloadV1DocumentProviderIncidentIo:
 		return true
-	case Notion:
+	case PostmortemDocumentsAttachPayloadV1DocumentProviderNotion:
 		return true
-	case Sharepoint:
+	case PostmortemDocumentsAttachPayloadV1DocumentProviderSharepoint:
 		return true
 	default:
 		return false
@@ -17386,6 +17437,24 @@ type IncidentV2Mode string
 // IncidentV2Visibility Whether the incident should be open to anyone in your Slack workspace (public), or invite-only (private). For more information on Private Incidents see our [docs](https://docs.incident.io/incidents/sensitive-incidents).
 type IncidentV2Visibility string
 
+// IncidentsConnectExternalIssuePayloadV2 defines model for IncidentsConnectExternalIssuePayloadV2.
+type IncidentsConnectExternalIssuePayloadV2 struct {
+	// IssueTemplateId ID of the incident ticket template to sync the issue with
+	IssueTemplateId string `json:"issue_template_id"`
+
+	// Provider The issue tracker provider the issue belongs to. It must match the provider of the incident ticket template.
+	Provider IncidentsConnectExternalIssuePayloadV2Provider `json:"provider"`
+
+	// Replace Whether to replace the incident's current external issue, if it has a different one
+	Replace *bool `json:"replace,omitempty"`
+
+	// Url URL of the issue in the issue tracker
+	Url string `json:"url"`
+}
+
+// IncidentsConnectExternalIssuePayloadV2Provider The issue tracker provider the issue belongs to. It must match the provider of the incident ticket template.
+type IncidentsConnectExternalIssuePayloadV2Provider string
+
 // IncidentsCreatePayloadV1 defines model for IncidentsCreatePayloadV1.
 type IncidentsCreatePayloadV1 struct {
 	// CustomFieldEntries Set the incident's custom fields to these values
@@ -22989,6 +23058,9 @@ type IncidentUpdatesV2CreateJSONRequestBody = IncidentUpdatesCreatePayloadV2
 // IncidentsV2CreateJSONRequestBody defines body for IncidentsV2Create for application/json ContentType.
 type IncidentsV2CreateJSONRequestBody = IncidentsCreatePayloadV2
 
+// IncidentsV2ConnectExternalIssueJSONRequestBody defines body for IncidentsV2ConnectExternalIssue for application/json ContentType.
+type IncidentsV2ConnectExternalIssueJSONRequestBody = IncidentsConnectExternalIssuePayloadV2
+
 // IncidentsV2EditJSONRequestBody defines body for IncidentsV2Edit for application/json ContentType.
 type IncidentsV2EditJSONRequestBody = IncidentsEditPayloadV2
 
@@ -23956,6 +24028,11 @@ type ClientInterface interface {
 
 	// IncidentsV2Show request
 	IncidentsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentsV2ConnectExternalIssueWithBody request with any body
+	IncidentsV2ConnectExternalIssueWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	IncidentsV2ConnectExternalIssue(ctx context.Context, id string, body IncidentsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// IncidentsV2EditWithBody request with any body
 	IncidentsV2EditWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -27792,6 +27869,30 @@ func (c *Client) IncidentsV2Create(ctx context.Context, body IncidentsV2CreateJS
 
 func (c *Client) IncidentsV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newIncidentsV2ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentsV2ConnectExternalIssueWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentsV2ConnectExternalIssueRequestWithBody(c.Server, id, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentsV2ConnectExternalIssue(ctx context.Context, id string, body IncidentsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentsV2ConnectExternalIssueRequest(c.Server, id, body)
 	if err != nil {
 		return nil, err
 	}
@@ -39097,6 +39198,53 @@ func newIncidentsV2ShowRequest(server string, id string) (*http.Request, error) 
 	return req, nil
 }
 
+// NewIncidentsV2ConnectExternalIssueRequest calls the generic IncidentsV2ConnectExternalIssue builder with application/json body
+func newIncidentsV2ConnectExternalIssueRequest(server string, id string, body IncidentsV2ConnectExternalIssueJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newIncidentsV2ConnectExternalIssueRequestWithBody(server, id, "application/json", bodyReader)
+}
+
+// NewIncidentsV2ConnectExternalIssueRequestWithBody generates requests for IncidentsV2ConnectExternalIssue with any type of body
+func newIncidentsV2ConnectExternalIssueRequestWithBody(server string, id string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/incidents/%s/actions/connect_external_issue", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewIncidentsV2EditRequest calls the generic IncidentsV2Edit builder with application/json body
 func newIncidentsV2EditRequest(server string, id string, body IncidentsV2EditJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -46607,6 +46755,11 @@ type ClientWithResponsesInterface interface {
 	// IncidentsV2ShowWithResponse request
 	IncidentsV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*IncidentsV2ShowResponse, error)
 
+	// IncidentsV2ConnectExternalIssueWithBodyWithResponse request with any body
+	IncidentsV2ConnectExternalIssueWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentsV2ConnectExternalIssueResponse, error)
+
+	IncidentsV2ConnectExternalIssueWithResponse(ctx context.Context, id string, body IncidentsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentsV2ConnectExternalIssueResponse, error)
+
 	// IncidentsV2EditWithBodyWithResponse request with any body
 	IncidentsV2EditWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentsV2EditResponse, error)
 
@@ -53754,6 +53907,40 @@ func (r IncidentsV2ShowResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r IncidentsV2ShowResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentsV2ConnectExternalIssueResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentsV2ConnectExternalIssueResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentsV2ConnectExternalIssueResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -61105,6 +61292,23 @@ func (c *ClientWithResponses) IncidentsV2ShowWithResponse(ctx context.Context, i
 		return nil, err
 	}
 	return parseIncidentsV2ShowResponse(rsp)
+}
+
+// IncidentsV2ConnectExternalIssueWithBodyWithResponse request with arbitrary body returning *IncidentsV2ConnectExternalIssueResponse
+func (c *ClientWithResponses) IncidentsV2ConnectExternalIssueWithBodyWithResponse(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*IncidentsV2ConnectExternalIssueResponse, error) {
+	rsp, err := c.IncidentsV2ConnectExternalIssueWithBody(ctx, id, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentsV2ConnectExternalIssueResponse(rsp)
+}
+
+func (c *ClientWithResponses) IncidentsV2ConnectExternalIssueWithResponse(ctx context.Context, id string, body IncidentsV2ConnectExternalIssueJSONRequestBody, reqEditors ...RequestEditorFn) (*IncidentsV2ConnectExternalIssueResponse, error) {
+	rsp, err := c.IncidentsV2ConnectExternalIssue(ctx, id, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentsV2ConnectExternalIssueResponse(rsp)
 }
 
 // IncidentsV2EditWithBodyWithResponse request with arbitrary body returning *IncidentsV2EditResponse
@@ -84733,6 +84937,116 @@ func parseIncidentsV2ShowResponse(rsp *http.Response) (*IncidentsV2ShowResponse,
 		}
 		response.JSON200 = &dest
 
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentsV2ConnectExternalIssueResponse parses an HTTP response from a IncidentsV2ConnectExternalIssueWithResponse call
+func parseIncidentsV2ConnectExternalIssueResponse(rsp *http.Response) (*IncidentsV2ConnectExternalIssueResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentsV2ConnectExternalIssueResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest ErrorResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
