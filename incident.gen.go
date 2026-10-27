@@ -5784,6 +5784,7 @@ const (
 	IncidentTypeChanged                         IncidentActivityLogEntryV2Type = "incident_type_changed"
 	IncidentUpdate                              IncidentActivityLogEntryV2Type = "incident_update"
 	IncidentVisibilityChanged                   IncidentActivityLogEntryV2Type = "incident_visibility_changed"
+	InvestigationHeadsUp                        IncidentActivityLogEntryV2Type = "investigation_heads_up"
 	InvestigationHypothesisUpdate               IncidentActivityLogEntryV2Type = "investigation_hypothesis_update"
 	MicrosoftTeamsAnnouncementReply             IncidentActivityLogEntryV2Type = "microsoft_teams_announcement_reply"
 	MicrosoftTeamsImage                         IncidentActivityLogEntryV2Type = "microsoft_teams_image"
@@ -5890,6 +5891,8 @@ func (e IncidentActivityLogEntryV2Type) Valid() bool {
 	case IncidentUpdate:
 		return true
 	case IncidentVisibilityChanged:
+		return true
+	case InvestigationHeadsUp:
 		return true
 	case InvestigationHypothesisUpdate:
 		return true
@@ -10303,6 +10306,56 @@ type AlertActorV2 struct {
 
 	// Title The title of the alert, parsed from the alert payload according to the alert source configuration
 	Title string `json:"title"`
+}
+
+// AlertAttachmentV2 Something attached to an alert or alert group, such as a ticket, a pull request or
+// a link.
+type AlertAttachmentV2 struct {
+	// AlertGroupId ID of the alert group this is attached to. Exactly one of alert_id or alert_group_id is set.
+	AlertGroupId *string `json:"alert_group_id,omitempty"`
+
+	// AlertId ID of the alert this is attached to. Exactly one of alert_id or alert_group_id is set.
+	AlertId *string `json:"alert_id,omitempty"`
+
+	// CreatedAt When it was attached
+	CreatedAt time.Time `json:"created_at"`
+
+	// Id Unique identifier for the alert attachment
+	Id string `json:"id"`
+
+	// Title The ticket or pull request's title, or the link's title
+	Title string `json:"title"`
+
+	// Url URL of the attached ticket, pull request or link
+	Url string `json:"url"`
+}
+
+// AlertAttachmentsCreatePayloadV2 defines model for AlertAttachmentsCreatePayloadV2.
+type AlertAttachmentsCreatePayloadV2 struct {
+	// AlertGroupId ID of the alert group to attach to. Provide exactly one of alert_id or alert_group_id.
+	AlertGroupId *string `json:"alert_group_id,omitempty"`
+
+	// AlertId ID of the alert to attach to. Provide exactly one of alert_id or alert_group_id.
+	AlertId *string `json:"alert_id,omitempty"`
+
+	// Title Title for a link. Tickets and pull requests use their own title, so we ignore this for them.
+	Title *string `json:"title,omitempty"`
+
+	// Url The URL to attach
+	Url string `json:"url"`
+}
+
+// AlertAttachmentsCreateResultV2 defines model for AlertAttachmentsCreateResultV2.
+type AlertAttachmentsCreateResultV2 struct {
+	// AlertAttachment Something attached to an alert or alert group, such as a ticket, a pull request or
+	// a link.
+	AlertAttachment AlertAttachmentV2 `json:"alert_attachment"`
+}
+
+// AlertAttachmentsListResultV2 defines model for AlertAttachmentsListResultV2.
+type AlertAttachmentsListResultV2 struct {
+	AlertAttachments []AlertAttachmentV2     `json:"alert_attachments"`
+	PaginationMeta   *PaginationMetaResultV2 `json:"pagination_meta,omitempty"`
 }
 
 // AlertAttributeCatalogEntryV2 defines model for AlertAttributeCatalogEntryV2.
@@ -22280,6 +22333,21 @@ type ActionsV2ListParams struct {
 // ActionsV2ListParamsIncidentMode defines parameters for ActionsV2List.
 type ActionsV2ListParamsIncidentMode string
 
+// AlertAttachmentsV2ListParams defines parameters for AlertAttachmentsV2List.
+type AlertAttachmentsV2ListParams struct {
+	// AlertId ID of the alert to list attachments for. Provide exactly one of alert_id or alert_group_id.
+	AlertId *string `form:"alert_id,omitempty" json:"alert_id,omitempty"`
+
+	// AlertGroupId ID of the alert group to list attachments for. Provide exactly one of alert_id or alert_group_id.
+	AlertGroupId *string `form:"alert_group_id,omitempty" json:"alert_group_id,omitempty"`
+
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After An alert attachment's ID. This endpoint will return the attachments after this one in the response order.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+}
+
 // AlertEventsV2CreateHTTPParams defines parameters for AlertEventsV2CreateHTTP.
 type AlertEventsV2CreateHTTPParams struct {
 	// Token Token used to authenticate the request, generated when configuring the alert source. Will be consumed via a URL query string parameter
@@ -23053,6 +23121,9 @@ type ActionsV2CreateJSONRequestBody = ActionsCreatePayloadV2
 // ActionsV2UpdateJSONRequestBody defines body for ActionsV2Update for application/json ContentType.
 type ActionsV2UpdateJSONRequestBody = ActionsUpdatePayloadV2
 
+// AlertAttachmentsV2CreateJSONRequestBody defines body for AlertAttachmentsV2Create for application/json ContentType.
+type AlertAttachmentsV2CreateJSONRequestBody = AlertAttachmentsCreatePayloadV2
+
 // AlertAttributesV2CreateJSONRequestBody defines body for AlertAttributesV2Create for application/json ContentType.
 type AlertAttributesV2CreateJSONRequestBody = AlertAttributesCreatePayloadV2
 
@@ -23742,6 +23813,17 @@ type ClientInterface interface {
 	ActionsV2UpdateWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	ActionsV2Update(ctx context.Context, id string, body ActionsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertAttachmentsV2List request
+	AlertAttachmentsV2List(ctx context.Context, params *AlertAttachmentsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertAttachmentsV2CreateWithBody request with any body
+	AlertAttachmentsV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	AlertAttachmentsV2Create(ctx context.Context, body AlertAttachmentsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AlertAttachmentsV2Delete request
+	AlertAttachmentsV2Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// AlertAttributesV2List request
 	AlertAttributesV2List(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -26087,6 +26169,54 @@ func (c *Client) ActionsV2UpdateWithBody(ctx context.Context, id string, content
 // https://api-docs.incident.io/ for the recommended replacement.
 func (c *Client) ActionsV2Update(ctx context.Context, id string, body ActionsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newActionsV2UpdateRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertAttachmentsV2List(ctx context.Context, params *AlertAttachmentsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertAttachmentsV2ListRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertAttachmentsV2CreateWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertAttachmentsV2CreateRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertAttachmentsV2Create(ctx context.Context, body AlertAttachmentsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertAttachmentsV2CreateRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) AlertAttachmentsV2Delete(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newAlertAttachmentsV2DeleteRequest(c.Server, id)
 	if err != nil {
 		return nil, err
 	}
@@ -33918,6 +34048,177 @@ func newActionsV2UpdateRequestWithBody(server string, id string, contentType str
 	}
 
 	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewAlertAttachmentsV2ListRequest generates requests for AlertAttachmentsV2List
+func newAlertAttachmentsV2ListRequest(server string, params *AlertAttachmentsV2ListParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/alert_attachments")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.AlertId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "alert_id", *params.AlertId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.AlertGroupId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "alert_group_id", *params.AlertGroupId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewAlertAttachmentsV2CreateRequest calls the generic AlertAttachmentsV2Create builder with application/json body
+func newAlertAttachmentsV2CreateRequest(server string, body AlertAttachmentsV2CreateJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return newAlertAttachmentsV2CreateRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewAlertAttachmentsV2CreateRequestWithBody generates requests for AlertAttachmentsV2Create with any type of body
+func newAlertAttachmentsV2CreateRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/alert_attachments")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewAlertAttachmentsV2DeleteRequest generates requests for AlertAttachmentsV2Delete
+func newAlertAttachmentsV2DeleteRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/alert_attachments/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("DELETE", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
 
 	return req, nil
 }
@@ -46877,6 +47178,17 @@ type ClientWithResponsesInterface interface {
 
 	ActionsV2UpdateWithResponse(ctx context.Context, id string, body ActionsV2UpdateJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionsV2UpdateResponse, error)
 
+	// AlertAttachmentsV2ListWithResponse request
+	AlertAttachmentsV2ListWithResponse(ctx context.Context, params *AlertAttachmentsV2ListParams, reqEditors ...RequestEditorFn) (*AlertAttachmentsV2ListResponse, error)
+
+	// AlertAttachmentsV2CreateWithBodyWithResponse request with any body
+	AlertAttachmentsV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertAttachmentsV2CreateResponse, error)
+
+	AlertAttachmentsV2CreateWithResponse(ctx context.Context, body AlertAttachmentsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertAttachmentsV2CreateResponse, error)
+
+	// AlertAttachmentsV2DeleteWithResponse request
+	AlertAttachmentsV2DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertAttachmentsV2DeleteResponse, error)
+
 	// AlertAttributesV2ListWithResponse request
 	AlertAttributesV2ListWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*AlertAttributesV2ListResponse, error)
 
@@ -50580,6 +50892,110 @@ func (r ActionsV2UpdateResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r ActionsV2UpdateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AlertAttachmentsV2ListResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AlertAttachmentsListResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertAttachmentsV2ListResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertAttachmentsV2ListResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AlertAttachmentsV2CreateResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON201      *AlertAttachmentsCreateResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertAttachmentsV2CreateResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertAttachmentsV2CreateResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type AlertAttachmentsV2DeleteResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r AlertAttachmentsV2DeleteResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AlertAttachmentsV2DeleteResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -60629,6 +61045,41 @@ func (c *ClientWithResponses) ActionsV2UpdateWithResponse(ctx context.Context, i
 		return nil, err
 	}
 	return parseActionsV2UpdateResponse(rsp)
+}
+
+// AlertAttachmentsV2ListWithResponse request returning *AlertAttachmentsV2ListResponse
+func (c *ClientWithResponses) AlertAttachmentsV2ListWithResponse(ctx context.Context, params *AlertAttachmentsV2ListParams, reqEditors ...RequestEditorFn) (*AlertAttachmentsV2ListResponse, error) {
+	rsp, err := c.AlertAttachmentsV2List(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertAttachmentsV2ListResponse(rsp)
+}
+
+// AlertAttachmentsV2CreateWithBodyWithResponse request with arbitrary body returning *AlertAttachmentsV2CreateResponse
+func (c *ClientWithResponses) AlertAttachmentsV2CreateWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AlertAttachmentsV2CreateResponse, error) {
+	rsp, err := c.AlertAttachmentsV2CreateWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertAttachmentsV2CreateResponse(rsp)
+}
+
+func (c *ClientWithResponses) AlertAttachmentsV2CreateWithResponse(ctx context.Context, body AlertAttachmentsV2CreateJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertAttachmentsV2CreateResponse, error) {
+	rsp, err := c.AlertAttachmentsV2Create(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertAttachmentsV2CreateResponse(rsp)
+}
+
+// AlertAttachmentsV2DeleteWithResponse request returning *AlertAttachmentsV2DeleteResponse
+func (c *ClientWithResponses) AlertAttachmentsV2DeleteWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*AlertAttachmentsV2DeleteResponse, error) {
+	rsp, err := c.AlertAttachmentsV2Delete(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseAlertAttachmentsV2DeleteResponse(rsp)
 }
 
 // AlertAttributesV2ListWithResponse request returning *AlertAttributesV2ListResponse
@@ -72827,6 +73278,350 @@ func parseActionsV2UpdateResponse(rsp *http.Response) (*ActionsV2UpdateResponse,
 		}
 		response.JSON200 = &dest
 
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAlertAttachmentsV2ListResponse parses an HTTP response from a AlertAttachmentsV2ListWithResponse call
+func parseAlertAttachmentsV2ListResponse(rsp *http.Response) (*AlertAttachmentsV2ListResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertAttachmentsV2ListResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AlertAttachmentsListResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAlertAttachmentsV2CreateResponse parses an HTTP response from a AlertAttachmentsV2CreateWithResponse call
+func parseAlertAttachmentsV2CreateResponse(rsp *http.Response) (*AlertAttachmentsV2CreateResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertAttachmentsV2CreateResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest AlertAttachmentsCreateResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAlertAttachmentsV2DeleteResponse parses an HTTP response from a AlertAttachmentsV2DeleteWithResponse call
+func parseAlertAttachmentsV2DeleteResponse(rsp *http.Response) (*AlertAttachmentsV2DeleteResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AlertAttachmentsV2DeleteResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest ErrorResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
