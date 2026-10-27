@@ -1247,6 +1247,7 @@ const (
 	AlertSourceV2SourceTypeStatusPageViews   AlertSourceV2SourceType = "status_page_views"
 	AlertSourceV2SourceTypeSumoLogic         AlertSourceV2SourceType = "sumo_logic"
 	AlertSourceV2SourceTypeUptime            AlertSourceV2SourceType = "uptime"
+	AlertSourceV2SourceTypeUpwind            AlertSourceV2SourceType = "upwind"
 	AlertSourceV2SourceTypeVercel            AlertSourceV2SourceType = "vercel"
 	AlertSourceV2SourceTypeWiz               AlertSourceV2SourceType = "wiz"
 	AlertSourceV2SourceTypeZendesk           AlertSourceV2SourceType = "zendesk"
@@ -1361,6 +1362,8 @@ func (e AlertSourceV2SourceType) Valid() bool {
 		return true
 	case AlertSourceV2SourceTypeUptime:
 		return true
+	case AlertSourceV2SourceTypeUpwind:
+		return true
 	case AlertSourceV2SourceTypeVercel:
 		return true
 	case AlertSourceV2SourceTypeWiz:
@@ -1427,6 +1430,7 @@ const (
 	AlertSourcesCreatePayloadV2SourceTypeStatusPageViews   AlertSourcesCreatePayloadV2SourceType = "status_page_views"
 	AlertSourcesCreatePayloadV2SourceTypeSumoLogic         AlertSourcesCreatePayloadV2SourceType = "sumo_logic"
 	AlertSourcesCreatePayloadV2SourceTypeUptime            AlertSourcesCreatePayloadV2SourceType = "uptime"
+	AlertSourcesCreatePayloadV2SourceTypeUpwind            AlertSourcesCreatePayloadV2SourceType = "upwind"
 	AlertSourcesCreatePayloadV2SourceTypeVercel            AlertSourcesCreatePayloadV2SourceType = "vercel"
 	AlertSourcesCreatePayloadV2SourceTypeWiz               AlertSourcesCreatePayloadV2SourceType = "wiz"
 	AlertSourcesCreatePayloadV2SourceTypeZendesk           AlertSourcesCreatePayloadV2SourceType = "zendesk"
@@ -1541,6 +1545,8 @@ func (e AlertSourcesCreatePayloadV2SourceType) Valid() bool {
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeUptime:
 		return true
+	case AlertSourcesCreatePayloadV2SourceTypeUpwind:
+		return true
 	case AlertSourcesCreatePayloadV2SourceTypeVercel:
 		return true
 	case AlertSourcesCreatePayloadV2SourceTypeWiz:
@@ -1607,6 +1613,7 @@ const (
 	AlertSourcesValidatePayloadV2SourceTypeStatusPageViews   AlertSourcesValidatePayloadV2SourceType = "status_page_views"
 	AlertSourcesValidatePayloadV2SourceTypeSumoLogic         AlertSourcesValidatePayloadV2SourceType = "sumo_logic"
 	AlertSourcesValidatePayloadV2SourceTypeUptime            AlertSourcesValidatePayloadV2SourceType = "uptime"
+	AlertSourcesValidatePayloadV2SourceTypeUpwind            AlertSourcesValidatePayloadV2SourceType = "upwind"
 	AlertSourcesValidatePayloadV2SourceTypeVercel            AlertSourcesValidatePayloadV2SourceType = "vercel"
 	AlertSourcesValidatePayloadV2SourceTypeWiz               AlertSourcesValidatePayloadV2SourceType = "wiz"
 	AlertSourcesValidatePayloadV2SourceTypeZendesk           AlertSourcesValidatePayloadV2SourceType = "zendesk"
@@ -1720,6 +1727,8 @@ func (e AlertSourcesValidatePayloadV2SourceType) Valid() bool {
 	case AlertSourcesValidatePayloadV2SourceTypeSumoLogic:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeUptime:
+		return true
+	case AlertSourcesValidatePayloadV2SourceTypeUpwind:
 		return true
 	case AlertSourcesValidatePayloadV2SourceTypeVercel:
 		return true
