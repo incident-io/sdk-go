@@ -199631,7 +199631,7 @@
         "x-docs-resource-type": "StatusPageComponentV2"
       },
       "post": {
-        "description": "Create a status page component. Placement on a page is controlled separately via status page structures.",
+        "description": "Create a status page component. Placement on a page is controlled separately via status page structures.\n\nThis endpoint requires an API key with the \"Manage organization settings (e.g. custom fields)\" scope.",
         "operationId": "Status Page Components V2#Create",
         "requestBody": {
           "content": {
@@ -199820,7 +199820,7 @@
     },
     "/v2/status_page_components/{id}": {
       "delete": {
-        "description": "Archive a status page component.",
+        "description": "Archive a status page component.\n\nThis endpoint requires an API key with the \"Manage organization settings (e.g. custom fields)\" scope.",
         "operationId": "Status Page Components V2#Destroy",
         "parameters": [
           {
@@ -200167,7 +200167,7 @@
         "x-docs-resource-type": "StatusPageComponentV2"
       },
       "put": {
-        "description": "Update a status page component's name and description.",
+        "description": "Update a status page component's name and description.\n\nThis endpoint requires an API key with the \"Manage organization settings (e.g. custom fields)\" scope.",
         "operationId": "Status Page Components V2#Update",
         "parameters": [
           {
