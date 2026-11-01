@@ -12906,6 +12906,9 @@ type CatalogEntryV3 struct {
 	// CreatedAt When this entry was created
 	CreatedAt time.Time `json:"created_at"`
 
+	// CustomAliases Aliases your organisation has added to an entry of a catalog type that incident.io syncs, such as a schedule or escalation path, which you can't change aliases on directly. Syncs keep them, and they are also listed in aliases. When you update an entry, omit this or send null to keep its current custom aliases, send an empty list to clear them, or send a list to replace them.
+	CustomAliases []string `json:"custom_aliases"`
+
 	// ExternalId An optional alternative ID for this entry, which is ensured to be unique for the type
 	ExternalId *string `json:"external_id,omitempty"`
 
@@ -13309,6 +13312,9 @@ type CatalogTypeV3 struct {
 	// SourceRepoUrl The url of the external repository where this type is managed
 	SourceRepoUrl *string `json:"source_repo_url,omitempty"`
 
+	// SupportsCustomAliases Whether entries of this type take custom_aliases. Only catalog types that incident.io syncs do, as you can't change their aliases directly, and not those whose aliases you edit elsewhere, such as alert priorities.
+	SupportsCustomAliases bool `json:"supports_custom_aliases"`
+
 	// TypeName The type name of this catalog type, to be used when defining attributes. This is immutable once a CatalogType has been created. For non-externally sync types, it must follow the pattern Custom["SomeName"]
 	TypeName string `json:"type_name"`
 
@@ -13353,6 +13359,9 @@ type CatalogUpdateEntryPayloadV3 struct {
 
 	// AttributeValues Values of this entry
 	AttributeValues map[string]CatalogEngineParamBindingPayloadV3 `json:"attribute_values"`
+
+	// CustomAliases Aliases your organisation has added to an entry of a catalog type that incident.io syncs, such as a schedule or escalation path, which you can't change aliases on directly. Syncs keep them, and they are also listed in aliases. When you update an entry, omit this or send null to keep its current custom aliases, send an empty list to clear them, or send a list to replace them.
+	CustomAliases *[]string `json:"custom_aliases,omitempty"`
 
 	// ExternalId An optional alternative ID for this entry, which is ensured to be unique for the type
 	ExternalId *string `json:"external_id,omitempty"`
@@ -18279,6 +18288,9 @@ type PartialEntryPayloadV3 struct {
 	// AttributeValues The attribute values to apply to this entry
 	AttributeValues map[string]CatalogEngineParamBindingPayloadV3 `json:"attribute_values"`
 
+	// CustomAliases Aliases your organisation adds to an entry of a catalog type that incident.io syncs, such as a schedule or escalation path, which you can't change aliases on directly. Omit this or send null to keep the entry's current custom aliases, send an empty list to clear them, or send a list to replace them. Only available on catalog types where supports_custom_aliases is true.
+	CustomAliases *[]string `json:"custom_aliases,omitempty"`
+
 	// EntryId ID of the relevant catalog entry
 	EntryId string `json:"entry_id"`
 
@@ -18288,7 +18300,7 @@ type PartialEntryPayloadV3 struct {
 	// Name If specified, will update the name of the entry. When omitted, preserves the existing name.
 	Name *string `json:"name,omitempty"`
 
-	// Rank If specified, will update the rank of the entry. When omitted, rank will be set to null (allowing rank removal).
+	// Rank If specified, will update the rank of the entry. When omitted, rank will be set to null (allowing rank removal), unless incident.io syncs the catalog type, in which case the existing rank is preserved.
 	Rank *int32 `json:"rank,omitempty"`
 }
 
