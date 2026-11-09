@@ -20667,7 +20667,7 @@ type SeverityV2 struct {
 
 // StatusPageComponentAvailabilityV2 Availability of a status page component over a requested time window.
 type StatusPageComponentAvailabilityV2 struct {
-	// AvailabilityPercent Availability over the window as a percentage, floored (for example "99.94"). Omitted when we have no data covering the window.
+	// AvailabilityPercent Availability over the window as a percentage, floored (for example "99.94"). It has at least as many decimal places as the status page's uptime decimal places setting. Above 99.99%, it can have more decimal places, up to six. Omitted when we have no data covering the window.
 	AvailabilityPercent *string `json:"availability_percent,omitempty"`
 
 	// ComponentId ID of the component. This may be found by calling the ShowStatusPageStructure endpoint.
