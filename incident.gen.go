@@ -7220,6 +7220,7 @@ func (e OnCallNotificationRulePublicV2RuleType) Valid() bool {
 const (
 	PayConfigV2RateTimeUnitDay  PayConfigV2RateTimeUnit = "day"
 	PayConfigV2RateTimeUnitHour PayConfigV2RateTimeUnit = "hour"
+	PayConfigV2RateTimeUnitWeek PayConfigV2RateTimeUnit = "week"
 )
 
 // Valid indicates whether the value is a known member of the PayConfigV2RateTimeUnit enum.
@@ -7228,6 +7229,8 @@ func (e PayConfigV2RateTimeUnit) Valid() bool {
 	case PayConfigV2RateTimeUnitDay:
 		return true
 	case PayConfigV2RateTimeUnitHour:
+		return true
+	case PayConfigV2RateTimeUnitWeek:
 		return true
 	default:
 		return false
@@ -7304,6 +7307,7 @@ func (e PayConfigWeeklyRuleV2Weekdays) Valid() bool {
 const (
 	PayConfigsCreatePayloadV2RateTimeUnitDay  PayConfigsCreatePayloadV2RateTimeUnit = "day"
 	PayConfigsCreatePayloadV2RateTimeUnitHour PayConfigsCreatePayloadV2RateTimeUnit = "hour"
+	PayConfigsCreatePayloadV2RateTimeUnitWeek PayConfigsCreatePayloadV2RateTimeUnit = "week"
 )
 
 // Valid indicates whether the value is a known member of the PayConfigsCreatePayloadV2RateTimeUnit enum.
@@ -7312,6 +7316,8 @@ func (e PayConfigsCreatePayloadV2RateTimeUnit) Valid() bool {
 	case PayConfigsCreatePayloadV2RateTimeUnitDay:
 		return true
 	case PayConfigsCreatePayloadV2RateTimeUnitHour:
+		return true
+	case PayConfigsCreatePayloadV2RateTimeUnitWeek:
 		return true
 	default:
 		return false
@@ -7355,6 +7361,7 @@ func (e PayConfigsCreateWeeklyRulePayloadV2Weekdays) Valid() bool {
 const (
 	Day  PayConfigsUpdatePayloadV2RateTimeUnit = "day"
 	Hour PayConfigsUpdatePayloadV2RateTimeUnit = "hour"
+	Week PayConfigsUpdatePayloadV2RateTimeUnit = "week"
 )
 
 // Valid indicates whether the value is a known member of the PayConfigsUpdatePayloadV2RateTimeUnit enum.
@@ -7363,6 +7370,8 @@ func (e PayConfigsUpdatePayloadV2RateTimeUnit) Valid() bool {
 	case Day:
 		return true
 	case Hour:
+		return true
+	case Week:
 		return true
 	default:
 		return false
@@ -18401,7 +18410,7 @@ type PayConfigOneOffRuleV2 struct {
 // Rules are evaluated in the order they are returned, and the first one that
 // covers a shift wins. Any time no rule covers is paid at the base rate.
 type PayConfigV2 struct {
-	// BaseRateCents Rate paid for any time no rule covers, in the lowest denomination of the currency
+	// BaseRateCents Rate paid for one unit of rate_time_unit, for any time no rule covers, in the lowest denomination of the currency
 	BaseRateCents int64     `json:"base_rate_cents"`
 	CreatedAt     time.Time `json:"created_at"`
 
@@ -18420,18 +18429,18 @@ type PayConfigV2 struct {
 	// PublishedAt When a published report first priced against this config. Once set, editing the config needs the schedule_pay_configs.update_published scope.
 	PublishedAt *time.Time `json:"published_at,omitempty"`
 
-	// RateTimeUnit The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way.
+	// RateTimeUnit The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second.
 	RateTimeUnit PayConfigV2RateTimeUnit `json:"rate_time_unit"`
 
 	// Timezone IANA timezone this config's rules are interpreted in
 	Timezone  string    `json:"timezone"`
 	UpdatedAt time.Time `json:"updated_at"`
 
-	// WeeklyRules Rules that apply every week, by day of week and time of day, in evaluation order
+	// WeeklyRules Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate_time_unit is week.
 	WeeklyRules []PayConfigWeeklyRuleV2 `json:"weekly_rules"`
 }
 
-// PayConfigV2RateTimeUnit The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way.
+// PayConfigV2RateTimeUnit The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second.
 type PayConfigV2RateTimeUnit string
 
 // PayConfigWeeklyRulePayloadV2 A weekly rule to write. Send an existing rule's ID to keep it stable, and omit it for a rule you are adding.
@@ -18499,7 +18508,7 @@ type PayConfigsCreateOneOffRuleResultV2 struct {
 
 // PayConfigsCreatePayloadV2 defines model for PayConfigsCreatePayloadV2.
 type PayConfigsCreatePayloadV2 struct {
-	// BaseRateCents Rate paid for any time no rule covers, in the lowest denomination of the currency
+	// BaseRateCents Rate paid for one unit of rate_time_unit, for any time no rule covers, in the lowest denomination of the currency
 	BaseRateCents int64 `json:"base_rate_cents"`
 
 	// Currency Currency this config pays in, in ISO 4217 format
@@ -18511,7 +18520,7 @@ type PayConfigsCreatePayloadV2 struct {
 	// OneOffRules Rules that apply over a single window of time
 	OneOffRules *[]PayConfigOneOffRulePayloadV2 `json:"one_off_rules,omitempty"`
 
-	// RateTimeUnit The unit of time every rate on this config is quoted per
+	// RateTimeUnit The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second.
 	RateTimeUnit PayConfigsCreatePayloadV2RateTimeUnit `json:"rate_time_unit"`
 
 	// Timezone IANA timezone this config's rules are interpreted in
@@ -18521,7 +18530,7 @@ type PayConfigsCreatePayloadV2 struct {
 	WeeklyRules *[]PayConfigWeeklyRulePayloadV2 `json:"weekly_rules,omitempty"`
 }
 
-// PayConfigsCreatePayloadV2RateTimeUnit The unit of time every rate on this config is quoted per
+// PayConfigsCreatePayloadV2RateTimeUnit The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second.
 type PayConfigsCreatePayloadV2RateTimeUnit string
 
 // PayConfigsCreateResultV2 defines model for PayConfigsCreateResultV2.
@@ -18621,7 +18630,7 @@ type PayConfigsUpdateOneOffRuleResultV2 struct {
 
 // PayConfigsUpdatePayloadV2 defines model for PayConfigsUpdatePayloadV2.
 type PayConfigsUpdatePayloadV2 struct {
-	// BaseRateCents Rate paid for any time no rule covers, in the lowest denomination of the currency
+	// BaseRateCents Rate paid for one unit of rate_time_unit, for any time no rule covers, in the lowest denomination of the currency
 	BaseRateCents int64 `json:"base_rate_cents"`
 
 	// Currency Currency this config pays in, in ISO 4217 format
@@ -18630,14 +18639,14 @@ type PayConfigsUpdatePayloadV2 struct {
 	// Name Human readable name for this pay config
 	Name string `json:"name"`
 
-	// RateTimeUnit The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way.
+	// RateTimeUnit The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second.
 	RateTimeUnit PayConfigsUpdatePayloadV2RateTimeUnit `json:"rate_time_unit"`
 
 	// Timezone IANA timezone this config's rules are interpreted in
 	Timezone string `json:"timezone"`
 }
 
-// PayConfigsUpdatePayloadV2RateTimeUnit The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way.
+// PayConfigsUpdatePayloadV2RateTimeUnit The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second.
 type PayConfigsUpdatePayloadV2RateTimeUnit string
 
 // PayConfigsUpdateResultV2 defines model for PayConfigsUpdateResultV2.
