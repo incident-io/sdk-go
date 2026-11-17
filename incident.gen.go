@@ -6946,6 +6946,7 @@ func (e ManagedResourceV2ManagedBy) Valid() bool {
 // Defines values for ManagedResourceV2ResourceType.
 const (
 	ManagedResourceV2ResourceTypeAlertRoute             ManagedResourceV2ResourceType = "alert_route"
+	ManagedResourceV2ResourceTypeAlertRule              ManagedResourceV2ResourceType = "alert_rule"
 	ManagedResourceV2ResourceTypeAlertSource            ManagedResourceV2ResourceType = "alert_source"
 	ManagedResourceV2ResourceTypeApiKey                 ManagedResourceV2ResourceType = "api_key"
 	ManagedResourceV2ResourceTypeEscalationPath         ManagedResourceV2ResourceType = "escalation_path"
@@ -6967,6 +6968,8 @@ const (
 func (e ManagedResourceV2ResourceType) Valid() bool {
 	switch e {
 	case ManagedResourceV2ResourceTypeAlertRoute:
+		return true
+	case ManagedResourceV2ResourceTypeAlertRule:
 		return true
 	case ManagedResourceV2ResourceTypeAlertSource:
 		return true
@@ -7006,6 +7009,7 @@ func (e ManagedResourceV2ResourceType) Valid() bool {
 // Defines values for ManagedResourcesCreateManagedResourcePayloadV2ResourceType.
 const (
 	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRoute             ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_route"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRule              ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_rule"
 	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertSource            ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_source"
 	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeApiKey                 ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "api_key"
 	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeEscalationPath         ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "escalation_path"
@@ -7027,6 +7031,8 @@ const (
 func (e ManagedResourcesCreateManagedResourcePayloadV2ResourceType) Valid() bool {
 	switch e {
 	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRoute:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRule:
 		return true
 	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertSource:
 		return true
