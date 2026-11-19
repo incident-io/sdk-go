@@ -68,6 +68,7 @@ const (
 	APIKeyRoleV1NameTelemetryDataSourceUpdate           APIKeyRoleV1Name = "telemetry_data_source_update"
 	APIKeyRoleV1NameTelemetryQueryRestricted            APIKeyRoleV1Name = "telemetry_query_restricted"
 	APIKeyRoleV1NameTelemetryViewer                     APIKeyRoleV1Name = "telemetry_viewer"
+	APIKeyRoleV1NameUserSessionsRevoke                  APIKeyRoleV1Name = "user_sessions_revoke"
 	APIKeyRoleV1NameViewer                              APIKeyRoleV1Name = "viewer"
 	APIKeyRoleV1NameWorkflowsEditor                     APIKeyRoleV1Name = "workflows_editor"
 	APIKeyRoleV1NameWorkflowsViewer                     APIKeyRoleV1Name = "workflows_viewer"
@@ -163,6 +164,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameTelemetryQueryRestricted:
 		return true
 	case APIKeyRoleV1NameTelemetryViewer:
+		return true
+	case APIKeyRoleV1NameUserSessionsRevoke:
 		return true
 	case APIKeyRoleV1NameViewer:
 		return true
@@ -275,6 +278,7 @@ const (
 	APIKeysCreatePayloadV1RoleNamesTelemetryDataSourceUpdate           APIKeysCreatePayloadV1RoleNames = "telemetry_data_source_update"
 	APIKeysCreatePayloadV1RoleNamesTelemetryQueryRestricted            APIKeysCreatePayloadV1RoleNames = "telemetry_query_restricted"
 	APIKeysCreatePayloadV1RoleNamesTelemetryViewer                     APIKeysCreatePayloadV1RoleNames = "telemetry_viewer"
+	APIKeysCreatePayloadV1RoleNamesUserSessionsRevoke                  APIKeysCreatePayloadV1RoleNames = "user_sessions_revoke"
 	APIKeysCreatePayloadV1RoleNamesViewer                              APIKeysCreatePayloadV1RoleNames = "viewer"
 	APIKeysCreatePayloadV1RoleNamesWorkflowsEditor                     APIKeysCreatePayloadV1RoleNames = "workflows_editor"
 	APIKeysCreatePayloadV1RoleNamesWorkflowsViewer                     APIKeysCreatePayloadV1RoleNames = "workflows_viewer"
@@ -370,6 +374,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesTelemetryQueryRestricted:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesTelemetryViewer:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesUserSessionsRevoke:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesViewer:
 		return true
@@ -482,6 +488,7 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesTelemetryDataSourceUpdate           APIKeysUpdatePayloadV1RoleNames = "telemetry_data_source_update"
 	APIKeysUpdatePayloadV1RoleNamesTelemetryQueryRestricted            APIKeysUpdatePayloadV1RoleNames = "telemetry_query_restricted"
 	APIKeysUpdatePayloadV1RoleNamesTelemetryViewer                     APIKeysUpdatePayloadV1RoleNames = "telemetry_viewer"
+	APIKeysUpdatePayloadV1RoleNamesUserSessionsRevoke                  APIKeysUpdatePayloadV1RoleNames = "user_sessions_revoke"
 	APIKeysUpdatePayloadV1RoleNamesViewer                              APIKeysUpdatePayloadV1RoleNames = "viewer"
 	APIKeysUpdatePayloadV1RoleNamesWorkflowsEditor                     APIKeysUpdatePayloadV1RoleNames = "workflows_editor"
 	APIKeysUpdatePayloadV1RoleNamesWorkflowsViewer                     APIKeysUpdatePayloadV1RoleNames = "workflows_viewer"
@@ -577,6 +584,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesTelemetryQueryRestricted:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesTelemetryViewer:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesUserSessionsRevoke:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesViewer:
 		return true
@@ -5582,6 +5591,7 @@ const (
 	IdentityV1RolesTelemetryDataSourceUpdate           IdentityV1Roles = "telemetry_data_source_update"
 	IdentityV1RolesTelemetryQueryRestricted            IdentityV1Roles = "telemetry_query_restricted"
 	IdentityV1RolesTelemetryViewer                     IdentityV1Roles = "telemetry_viewer"
+	IdentityV1RolesUserSessionsRevoke                  IdentityV1Roles = "user_sessions_revoke"
 	IdentityV1RolesViewer                              IdentityV1Roles = "viewer"
 	IdentityV1RolesWorkflowsEditor                     IdentityV1Roles = "workflows_editor"
 	IdentityV1RolesWorkflowsViewer                     IdentityV1Roles = "workflows_viewer"
@@ -5677,6 +5687,8 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesTelemetryQueryRestricted:
 		return true
 	case IdentityV1RolesTelemetryViewer:
+		return true
+	case IdentityV1RolesUserSessionsRevoke:
 		return true
 	case IdentityV1RolesViewer:
 		return true
@@ -24796,6 +24808,9 @@ type ClientInterface interface {
 	// UsersV2Show request
 	UsersV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// UsersV2RevokeSessions request
+	UsersV2RevokeSessions(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// UsersV2ListNotificationMethods request
 	UsersV2ListNotificationMethods(ctx context.Context, userId string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -30031,6 +30046,18 @@ func (c *Client) UsersV2List(ctx context.Context, params *UsersV2ListParams, req
 
 func (c *Client) UsersV2Show(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newUsersV2ShowRequest(c.Server, id)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) UsersV2RevokeSessions(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newUsersV2RevokeSessionsRequest(c.Server, id)
 	if err != nil {
 		return nil, err
 	}
@@ -44782,6 +44809,40 @@ func newUsersV2ShowRequest(server string, id string) (*http.Request, error) {
 	return req, nil
 }
 
+// NewUsersV2RevokeSessionsRequest generates requests for UsersV2RevokeSessions
+func newUsersV2RevokeSessionsRequest(server string, id string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "id", id, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/users/%s/actions/revoke_sessions", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewUsersV2ListNotificationMethodsRequest generates requests for UsersV2ListNotificationMethods
 func newUsersV2ListNotificationMethodsRequest(server string, userId string) (*http.Request, error) {
 	var err error
@@ -48215,6 +48276,9 @@ type ClientWithResponsesInterface interface {
 
 	// UsersV2ShowWithResponse request
 	UsersV2ShowWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*UsersV2ShowResponse, error)
+
+	// UsersV2RevokeSessionsWithResponse request
+	UsersV2RevokeSessionsWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*UsersV2RevokeSessionsResponse, error)
 
 	// UsersV2ListNotificationMethodsWithResponse request
 	UsersV2ListNotificationMethodsWithResponse(ctx context.Context, userId string, reqEditors ...RequestEditorFn) (*UsersV2ListNotificationMethodsResponse, error)
@@ -58605,6 +58669,40 @@ func (r UsersV2ShowResponse) StatusCode() int {
 	return 0
 }
 
+type UsersV2RevokeSessionsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r UsersV2RevokeSessionsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UsersV2RevokeSessionsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type UsersV2ListNotificationMethodsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -64015,6 +64113,15 @@ func (c *ClientWithResponses) UsersV2ShowWithResponse(ctx context.Context, id st
 		return nil, err
 	}
 	return parseUsersV2ShowResponse(rsp)
+}
+
+// UsersV2RevokeSessionsWithResponse request returning *UsersV2RevokeSessionsResponse
+func (c *ClientWithResponses) UsersV2RevokeSessionsWithResponse(ctx context.Context, id string, reqEditors ...RequestEditorFn) (*UsersV2RevokeSessionsResponse, error) {
+	rsp, err := c.UsersV2RevokeSessions(ctx, id, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseUsersV2RevokeSessionsResponse(rsp)
 }
 
 // UsersV2ListNotificationMethodsWithResponse request returning *UsersV2ListNotificationMethodsResponse
@@ -98443,6 +98550,116 @@ func parseUsersV2ShowResponse(rsp *http.Response) (*UsersV2ShowResponse, error) 
 		}
 		response.JSON200 = &dest
 
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseUsersV2RevokeSessionsResponse parses an HTTP response from a UsersV2RevokeSessionsWithResponse call
+func parseUsersV2RevokeSessionsResponse(rsp *http.Response) (*UsersV2RevokeSessionsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UsersV2RevokeSessionsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest ErrorResponse
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
