@@ -19064,7 +19064,7 @@ type PolicyDebriefPayloadV2 struct {
 	// Requirements Conditions a debrief must satisfy to be compliant
 	Requirements []ConditionGroupPayloadV2 `json:"requirements"`
 
-	// RunOnPrivateIncidents Requires the policies.run_on_private scope
+	// RunOnPrivateIncidents Requires the policies.run.private_incidents scope
 	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
 }
 
@@ -19075,7 +19075,7 @@ type PolicyDebriefV2 struct {
 	// Requirements Conditions a debrief must satisfy to be compliant
 	Requirements []ConditionGroupV2 `json:"requirements"`
 
-	// RunOnPrivateIncidents Requires the policies.run_on_private scope
+	// RunOnPrivateIncidents Requires the policies.run.private_incidents scope
 	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
 }
 
@@ -19352,7 +19352,7 @@ type PolicyFollowUpPayloadV2 struct {
 	// Requirements Conditions a follow-up must satisfy to be compliant, e.g. 'is exported to Jira'
 	Requirements []ConditionGroupPayloadV2 `json:"requirements"`
 
-	// RunOnPrivateIncidents Requires the policies.run_on_private scope
+	// RunOnPrivateIncidents Requires the policies.run.private_incidents scope
 	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
 }
 
@@ -19363,7 +19363,7 @@ type PolicyFollowUpV2 struct {
 	// Requirements Conditions a follow-up must satisfy to be compliant, e.g. 'is exported to Jira'
 	Requirements []ConditionGroupV2 `json:"requirements"`
 
-	// RunOnPrivateIncidents Requires the policies.run_on_private scope
+	// RunOnPrivateIncidents Requires the policies.run.private_incidents scope
 	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
 }
 
@@ -19385,7 +19385,7 @@ type PolicyPostMortemPayloadV2 struct {
 	// Requirements Conditions a post-mortem must satisfy to be compliant
 	Requirements []ConditionGroupPayloadV2 `json:"requirements"`
 
-	// RunOnPrivateIncidents Requires the policies.run_on_private scope
+	// RunOnPrivateIncidents Requires the policies.run.private_incidents scope
 	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
 }
 
@@ -19396,7 +19396,7 @@ type PolicyPostMortemV2 struct {
 	// Requirements Conditions a post-mortem must satisfy to be compliant
 	Requirements []ConditionGroupV2 `json:"requirements"`
 
-	// RunOnPrivateIncidents Requires the policies.run_on_private scope
+	// RunOnPrivateIncidents Requires the policies.run.private_incidents scope
 	RunOnPrivateIncidents *bool `json:"run_on_private_incidents,omitempty"`
 }
 
