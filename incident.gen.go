@@ -69,6 +69,7 @@ const (
 	APIKeyRoleV1NameTelemetryQueryRestricted            APIKeyRoleV1Name = "telemetry_query_restricted"
 	APIKeyRoleV1NameTelemetryViewer                     APIKeyRoleV1Name = "telemetry_viewer"
 	APIKeyRoleV1NameUserSessionsRevoke                  APIKeyRoleV1Name = "user_sessions_revoke"
+	APIKeyRoleV1NameUsersViewer                         APIKeyRoleV1Name = "users_viewer"
 	APIKeyRoleV1NameViewer                              APIKeyRoleV1Name = "viewer"
 	APIKeyRoleV1NameWorkflowsEditor                     APIKeyRoleV1Name = "workflows_editor"
 	APIKeyRoleV1NameWorkflowsViewer                     APIKeyRoleV1Name = "workflows_viewer"
@@ -166,6 +167,8 @@ func (e APIKeyRoleV1Name) Valid() bool {
 	case APIKeyRoleV1NameTelemetryViewer:
 		return true
 	case APIKeyRoleV1NameUserSessionsRevoke:
+		return true
+	case APIKeyRoleV1NameUsersViewer:
 		return true
 	case APIKeyRoleV1NameViewer:
 		return true
@@ -279,6 +282,7 @@ const (
 	APIKeysCreatePayloadV1RoleNamesTelemetryQueryRestricted            APIKeysCreatePayloadV1RoleNames = "telemetry_query_restricted"
 	APIKeysCreatePayloadV1RoleNamesTelemetryViewer                     APIKeysCreatePayloadV1RoleNames = "telemetry_viewer"
 	APIKeysCreatePayloadV1RoleNamesUserSessionsRevoke                  APIKeysCreatePayloadV1RoleNames = "user_sessions_revoke"
+	APIKeysCreatePayloadV1RoleNamesUsersViewer                         APIKeysCreatePayloadV1RoleNames = "users_viewer"
 	APIKeysCreatePayloadV1RoleNamesViewer                              APIKeysCreatePayloadV1RoleNames = "viewer"
 	APIKeysCreatePayloadV1RoleNamesWorkflowsEditor                     APIKeysCreatePayloadV1RoleNames = "workflows_editor"
 	APIKeysCreatePayloadV1RoleNamesWorkflowsViewer                     APIKeysCreatePayloadV1RoleNames = "workflows_viewer"
@@ -376,6 +380,8 @@ func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	case APIKeysCreatePayloadV1RoleNamesTelemetryViewer:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesUserSessionsRevoke:
+		return true
+	case APIKeysCreatePayloadV1RoleNamesUsersViewer:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesViewer:
 		return true
@@ -489,6 +495,7 @@ const (
 	APIKeysUpdatePayloadV1RoleNamesTelemetryQueryRestricted            APIKeysUpdatePayloadV1RoleNames = "telemetry_query_restricted"
 	APIKeysUpdatePayloadV1RoleNamesTelemetryViewer                     APIKeysUpdatePayloadV1RoleNames = "telemetry_viewer"
 	APIKeysUpdatePayloadV1RoleNamesUserSessionsRevoke                  APIKeysUpdatePayloadV1RoleNames = "user_sessions_revoke"
+	APIKeysUpdatePayloadV1RoleNamesUsersViewer                         APIKeysUpdatePayloadV1RoleNames = "users_viewer"
 	APIKeysUpdatePayloadV1RoleNamesViewer                              APIKeysUpdatePayloadV1RoleNames = "viewer"
 	APIKeysUpdatePayloadV1RoleNamesWorkflowsEditor                     APIKeysUpdatePayloadV1RoleNames = "workflows_editor"
 	APIKeysUpdatePayloadV1RoleNamesWorkflowsViewer                     APIKeysUpdatePayloadV1RoleNames = "workflows_viewer"
@@ -586,6 +593,8 @@ func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	case APIKeysUpdatePayloadV1RoleNamesTelemetryViewer:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesUserSessionsRevoke:
+		return true
+	case APIKeysUpdatePayloadV1RoleNamesUsersViewer:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesViewer:
 		return true
@@ -5592,6 +5601,7 @@ const (
 	IdentityV1RolesTelemetryQueryRestricted            IdentityV1Roles = "telemetry_query_restricted"
 	IdentityV1RolesTelemetryViewer                     IdentityV1Roles = "telemetry_viewer"
 	IdentityV1RolesUserSessionsRevoke                  IdentityV1Roles = "user_sessions_revoke"
+	IdentityV1RolesUsersViewer                         IdentityV1Roles = "users_viewer"
 	IdentityV1RolesViewer                              IdentityV1Roles = "viewer"
 	IdentityV1RolesWorkflowsEditor                     IdentityV1Roles = "workflows_editor"
 	IdentityV1RolesWorkflowsViewer                     IdentityV1Roles = "workflows_viewer"
@@ -5689,6 +5699,8 @@ func (e IdentityV1Roles) Valid() bool {
 	case IdentityV1RolesTelemetryViewer:
 		return true
 	case IdentityV1RolesUserSessionsRevoke:
+		return true
+	case IdentityV1RolesUsersViewer:
 		return true
 	case IdentityV1RolesViewer:
 		return true
