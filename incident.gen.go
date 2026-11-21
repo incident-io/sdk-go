@@ -9844,6 +9844,9 @@ type APIKeyV1 struct {
 	CreatedAt time.Time `json:"created_at"`
 	Creator   ActorV1   `json:"creator"`
 
+	// ExpiresAt When this API key stops working. If it's not set, the key never expires.
+	ExpiresAt *time.Time `json:"expires_at,omitempty"`
+
 	// Id Unique identifier for this API key
 	Id string `json:"id"`
 
@@ -9870,6 +9873,9 @@ type APIKeyV1 struct {
 type APIKeysCreatePayloadV1 struct {
 	// Comments Freeform notes about the API key
 	Comments *string `json:"comments,omitempty"`
+
+	// ExpiresAt When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+	ExpiresAt *time.Time `json:"expires_at,omitempty"`
 
 	// Name Human-readable name for the new API key
 	Name string `json:"name"`
@@ -9906,6 +9912,9 @@ type APIKeysListResultV1 struct {
 
 // APIKeysRotatePayloadV1 defines model for APIKeysRotatePayloadV1.
 type APIKeysRotatePayloadV1 struct {
+	// ExpiresAt A new expiry for the API key. Leave it blank to keep its current expiry. It must be in the future and within your organization's maximum lifetime for API keys.
+	ExpiresAt *time.Time `json:"expires_at,omitempty"`
+
 	// GracePeriodMinutes How many minutes to keep the old access token alive.
 	GracePeriodMinutes int64 `json:"grace_period_minutes"`
 }
