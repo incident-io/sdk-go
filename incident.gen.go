@@ -24,6 +24,7 @@ const (
 
 // Defines values for APIKeyRoleV1Name.
 const (
+	APIKeyRoleV1NameAccessControlManage                 APIKeyRoleV1Name = "access_control_manage"
 	APIKeyRoleV1NameActOnBehalfOfUsers                  APIKeyRoleV1Name = "act_on_behalf_of_users"
 	APIKeyRoleV1NameApiKeysManage                       APIKeyRoleV1Name = "api_keys_manage"
 	APIKeyRoleV1NameCallTranscriptsViewer               APIKeyRoleV1Name = "call_transcripts_viewer"
@@ -78,6 +79,8 @@ const (
 // Valid indicates whether the value is a known member of the APIKeyRoleV1Name enum.
 func (e APIKeyRoleV1Name) Valid() bool {
 	switch e {
+	case APIKeyRoleV1NameAccessControlManage:
+		return true
 	case APIKeyRoleV1NameActOnBehalfOfUsers:
 		return true
 	case APIKeyRoleV1NameApiKeysManage:
@@ -237,6 +240,7 @@ func (e APIKeyTeamRoleV1Name) Valid() bool {
 
 // Defines values for APIKeysCreatePayloadV1RoleNames.
 const (
+	APIKeysCreatePayloadV1RoleNamesAccessControlManage                 APIKeysCreatePayloadV1RoleNames = "access_control_manage"
 	APIKeysCreatePayloadV1RoleNamesActOnBehalfOfUsers                  APIKeysCreatePayloadV1RoleNames = "act_on_behalf_of_users"
 	APIKeysCreatePayloadV1RoleNamesApiKeysManage                       APIKeysCreatePayloadV1RoleNames = "api_keys_manage"
 	APIKeysCreatePayloadV1RoleNamesCallTranscriptsViewer               APIKeysCreatePayloadV1RoleNames = "call_transcripts_viewer"
@@ -291,6 +295,8 @@ const (
 // Valid indicates whether the value is a known member of the APIKeysCreatePayloadV1RoleNames enum.
 func (e APIKeysCreatePayloadV1RoleNames) Valid() bool {
 	switch e {
+	case APIKeysCreatePayloadV1RoleNamesAccessControlManage:
+		return true
 	case APIKeysCreatePayloadV1RoleNamesActOnBehalfOfUsers:
 		return true
 	case APIKeysCreatePayloadV1RoleNamesApiKeysManage:
@@ -450,6 +456,7 @@ func (e APIKeysCreatePayloadV1TeamRoleNames) Valid() bool {
 
 // Defines values for APIKeysUpdatePayloadV1RoleNames.
 const (
+	APIKeysUpdatePayloadV1RoleNamesAccessControlManage                 APIKeysUpdatePayloadV1RoleNames = "access_control_manage"
 	APIKeysUpdatePayloadV1RoleNamesActOnBehalfOfUsers                  APIKeysUpdatePayloadV1RoleNames = "act_on_behalf_of_users"
 	APIKeysUpdatePayloadV1RoleNamesApiKeysManage                       APIKeysUpdatePayloadV1RoleNames = "api_keys_manage"
 	APIKeysUpdatePayloadV1RoleNamesCallTranscriptsViewer               APIKeysUpdatePayloadV1RoleNames = "call_transcripts_viewer"
@@ -504,6 +511,8 @@ const (
 // Valid indicates whether the value is a known member of the APIKeysUpdatePayloadV1RoleNames enum.
 func (e APIKeysUpdatePayloadV1RoleNames) Valid() bool {
 	switch e {
+	case APIKeysUpdatePayloadV1RoleNamesAccessControlManage:
+		return true
 	case APIKeysUpdatePayloadV1RoleNamesActOnBehalfOfUsers:
 		return true
 	case APIKeysUpdatePayloadV1RoleNamesApiKeysManage:
@@ -5556,6 +5565,7 @@ func (e GroupingSettingsV3WindowType) Valid() bool {
 
 // Defines values for IdentityV1Roles.
 const (
+	IdentityV1RolesAccessControlManage                 IdentityV1Roles = "access_control_manage"
 	IdentityV1RolesActOnBehalfOfUsers                  IdentityV1Roles = "act_on_behalf_of_users"
 	IdentityV1RolesApiKeysManage                       IdentityV1Roles = "api_keys_manage"
 	IdentityV1RolesCallTranscriptsViewer               IdentityV1Roles = "call_transcripts_viewer"
@@ -5610,6 +5620,8 @@ const (
 // Valid indicates whether the value is a known member of the IdentityV1Roles enum.
 func (e IdentityV1Roles) Valid() bool {
 	switch e {
+	case IdentityV1RolesAccessControlManage:
+		return true
 	case IdentityV1RolesActOnBehalfOfUsers:
 		return true
 	case IdentityV1RolesApiKeysManage:
@@ -6969,6 +6981,8 @@ func (e ManagedResourceV2ManagedBy) Valid() bool {
 
 // Defines values for ManagedResourceV2ResourceType.
 const (
+	ManagedResourceV2ResourceTypeAccessGrant            ManagedResourceV2ResourceType = "access_grant"
+	ManagedResourceV2ResourceTypeAccessGroup            ManagedResourceV2ResourceType = "access_group"
 	ManagedResourceV2ResourceTypeAlertRoute             ManagedResourceV2ResourceType = "alert_route"
 	ManagedResourceV2ResourceTypeAlertRule              ManagedResourceV2ResourceType = "alert_rule"
 	ManagedResourceV2ResourceTypeAlertSource            ManagedResourceV2ResourceType = "alert_source"
@@ -6991,6 +7005,10 @@ const (
 // Valid indicates whether the value is a known member of the ManagedResourceV2ResourceType enum.
 func (e ManagedResourceV2ResourceType) Valid() bool {
 	switch e {
+	case ManagedResourceV2ResourceTypeAccessGrant:
+		return true
+	case ManagedResourceV2ResourceTypeAccessGroup:
+		return true
 	case ManagedResourceV2ResourceTypeAlertRoute:
 		return true
 	case ManagedResourceV2ResourceTypeAlertRule:
@@ -7032,6 +7050,8 @@ func (e ManagedResourceV2ResourceType) Valid() bool {
 
 // Defines values for ManagedResourcesCreateManagedResourcePayloadV2ResourceType.
 const (
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAccessGrant            ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "access_grant"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAccessGroup            ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "access_group"
 	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRoute             ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_route"
 	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRule              ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_rule"
 	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertSource            ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_source"
@@ -7054,6 +7074,10 @@ const (
 // Valid indicates whether the value is a known member of the ManagedResourcesCreateManagedResourcePayloadV2ResourceType enum.
 func (e ManagedResourcesCreateManagedResourcePayloadV2ResourceType) Valid() bool {
 	switch e {
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAccessGrant:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAccessGroup:
+		return true
 	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRoute:
 		return true
 	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRule:
