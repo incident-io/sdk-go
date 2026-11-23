@@ -6981,25 +6981,26 @@ func (e ManagedResourceV2ManagedBy) Valid() bool {
 
 // Defines values for ManagedResourceV2ResourceType.
 const (
-	ManagedResourceV2ResourceTypeAccessGrant            ManagedResourceV2ResourceType = "access_grant"
-	ManagedResourceV2ResourceTypeAccessGroup            ManagedResourceV2ResourceType = "access_group"
-	ManagedResourceV2ResourceTypeAlertRoute             ManagedResourceV2ResourceType = "alert_route"
-	ManagedResourceV2ResourceTypeAlertRule              ManagedResourceV2ResourceType = "alert_rule"
-	ManagedResourceV2ResourceTypeAlertSource            ManagedResourceV2ResourceType = "alert_source"
-	ManagedResourceV2ResourceTypeApiKey                 ManagedResourceV2ResourceType = "api_key"
-	ManagedResourceV2ResourceTypeEscalationPath         ManagedResourceV2ResourceType = "escalation_path"
-	ManagedResourceV2ResourceTypeEscalationPathTemplate ManagedResourceV2ResourceType = "escalation_path_template"
-	ManagedResourceV2ResourceTypeIncidentForm           ManagedResourceV2ResourceType = "incident_form"
-	ManagedResourceV2ResourceTypeIncidentTemplate       ManagedResourceV2ResourceType = "incident_template"
-	ManagedResourceV2ResourceTypePolicy                 ManagedResourceV2ResourceType = "policy"
-	ManagedResourceV2ResourceTypeSchedule               ManagedResourceV2ResourceType = "schedule"
-	ManagedResourceV2ResourceTypeScheduleSyncRule       ManagedResourceV2ResourceType = "schedule_sync_rule"
-	ManagedResourceV2ResourceTypeScheduleSyncTarget     ManagedResourceV2ResourceType = "schedule_sync_target"
-	ManagedResourceV2ResourceTypeSecret                 ManagedResourceV2ResourceType = "secret"
-	ManagedResourceV2ResourceTypeStatusPageComponent    ManagedResourceV2ResourceType = "status_page_component"
-	ManagedResourceV2ResourceTypeStatusPageStructure    ManagedResourceV2ResourceType = "status_page_structure"
-	ManagedResourceV2ResourceTypeTeamGroupingPreference ManagedResourceV2ResourceType = "team_grouping_preference"
-	ManagedResourceV2ResourceTypeWorkflow               ManagedResourceV2ResourceType = "workflow"
+	ManagedResourceV2ResourceTypeAccessGrant             ManagedResourceV2ResourceType = "access_grant"
+	ManagedResourceV2ResourceTypeAccessGroup             ManagedResourceV2ResourceType = "access_group"
+	ManagedResourceV2ResourceTypeAlertGroupingPreference ManagedResourceV2ResourceType = "alert_grouping_preference"
+	ManagedResourceV2ResourceTypeAlertRoute              ManagedResourceV2ResourceType = "alert_route"
+	ManagedResourceV2ResourceTypeAlertRule               ManagedResourceV2ResourceType = "alert_rule"
+	ManagedResourceV2ResourceTypeAlertSource             ManagedResourceV2ResourceType = "alert_source"
+	ManagedResourceV2ResourceTypeApiKey                  ManagedResourceV2ResourceType = "api_key"
+	ManagedResourceV2ResourceTypeEscalationPath          ManagedResourceV2ResourceType = "escalation_path"
+	ManagedResourceV2ResourceTypeEscalationPathTemplate  ManagedResourceV2ResourceType = "escalation_path_template"
+	ManagedResourceV2ResourceTypeIncidentForm            ManagedResourceV2ResourceType = "incident_form"
+	ManagedResourceV2ResourceTypeIncidentTemplate        ManagedResourceV2ResourceType = "incident_template"
+	ManagedResourceV2ResourceTypePolicy                  ManagedResourceV2ResourceType = "policy"
+	ManagedResourceV2ResourceTypeSchedule                ManagedResourceV2ResourceType = "schedule"
+	ManagedResourceV2ResourceTypeScheduleSyncRule        ManagedResourceV2ResourceType = "schedule_sync_rule"
+	ManagedResourceV2ResourceTypeScheduleSyncTarget      ManagedResourceV2ResourceType = "schedule_sync_target"
+	ManagedResourceV2ResourceTypeSecret                  ManagedResourceV2ResourceType = "secret"
+	ManagedResourceV2ResourceTypeStatusPageComponent     ManagedResourceV2ResourceType = "status_page_component"
+	ManagedResourceV2ResourceTypeStatusPageStructure     ManagedResourceV2ResourceType = "status_page_structure"
+	ManagedResourceV2ResourceTypeTeamGroupingPreference  ManagedResourceV2ResourceType = "team_grouping_preference"
+	ManagedResourceV2ResourceTypeWorkflow                ManagedResourceV2ResourceType = "workflow"
 )
 
 // Valid indicates whether the value is a known member of the ManagedResourceV2ResourceType enum.
@@ -7008,6 +7009,8 @@ func (e ManagedResourceV2ResourceType) Valid() bool {
 	case ManagedResourceV2ResourceTypeAccessGrant:
 		return true
 	case ManagedResourceV2ResourceTypeAccessGroup:
+		return true
+	case ManagedResourceV2ResourceTypeAlertGroupingPreference:
 		return true
 	case ManagedResourceV2ResourceTypeAlertRoute:
 		return true
@@ -7050,25 +7053,26 @@ func (e ManagedResourceV2ResourceType) Valid() bool {
 
 // Defines values for ManagedResourcesCreateManagedResourcePayloadV2ResourceType.
 const (
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAccessGrant            ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "access_grant"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAccessGroup            ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "access_group"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRoute             ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_route"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRule              ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_rule"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertSource            ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_source"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeApiKey                 ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "api_key"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeEscalationPath         ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "escalation_path"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeEscalationPathTemplate ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "escalation_path_template"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeIncidentForm           ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "incident_form"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeIncidentTemplate       ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "incident_template"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypePolicy                 ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "policy"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeSchedule               ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "schedule"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeScheduleSyncRule       ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "schedule_sync_rule"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeScheduleSyncTarget     ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "schedule_sync_target"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeSecret                 ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "secret"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeStatusPageComponent    ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "status_page_component"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeStatusPageStructure    ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "status_page_structure"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeTeamGroupingPreference ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "team_grouping_preference"
-	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeWorkflow               ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "workflow"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAccessGrant             ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "access_grant"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAccessGroup             ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "access_group"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertGroupingPreference ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_grouping_preference"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRoute              ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_route"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRule               ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_rule"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertSource             ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "alert_source"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeApiKey                  ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "api_key"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeEscalationPath          ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "escalation_path"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeEscalationPathTemplate  ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "escalation_path_template"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeIncidentForm            ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "incident_form"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeIncidentTemplate        ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "incident_template"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypePolicy                  ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "policy"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeSchedule                ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "schedule"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeScheduleSyncRule        ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "schedule_sync_rule"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeScheduleSyncTarget      ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "schedule_sync_target"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeSecret                  ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "secret"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeStatusPageComponent     ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "status_page_component"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeStatusPageStructure     ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "status_page_structure"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeTeamGroupingPreference  ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "team_grouping_preference"
+	ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeWorkflow                ManagedResourcesCreateManagedResourcePayloadV2ResourceType = "workflow"
 )
 
 // Valid indicates whether the value is a known member of the ManagedResourcesCreateManagedResourcePayloadV2ResourceType enum.
@@ -7077,6 +7081,8 @@ func (e ManagedResourcesCreateManagedResourcePayloadV2ResourceType) Valid() bool
 	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAccessGrant:
 		return true
 	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAccessGroup:
+		return true
+	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertGroupingPreference:
 		return true
 	case ManagedResourcesCreateManagedResourcePayloadV2ResourceTypeAlertRoute:
 		return true
