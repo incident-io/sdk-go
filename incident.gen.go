@@ -16695,6 +16695,17 @@ type IncidentParticipantV2 struct {
 // IncidentParticipantV2ParticipantType The role they took in the incident
 type IncidentParticipantV2ParticipantType string
 
+// IncidentParticipantWorkloadHourV2 defines model for IncidentParticipantWorkloadHourV2.
+type IncidentParticipantWorkloadHourV2 struct {
+	// ActivityHour The start of the hour this workload is for
+	ActivityHour time.Time `json:"activity_hour"`
+
+	// IncidentId The incident the user worked on
+	IncidentId string            `json:"incident_id"`
+	User       UserV2            `json:"user"`
+	Workload   WorkloadMinutesV2 `json:"workload"`
+}
+
 // IncidentParticipantWorkloadV2 defines model for IncidentParticipantWorkloadV2.
 type IncidentParticipantWorkloadV2 struct {
 	// ArchivedAt When the user left the incident, if they are no longer an active participant
@@ -16708,6 +16719,13 @@ type IncidentParticipantWorkloadV2 struct {
 
 // IncidentParticipantWorkloadV2ParticipantType The role they had in the incident
 type IncidentParticipantWorkloadV2ParticipantType string
+
+// IncidentParticipantWorkloadsListHoursResultV2 defines model for IncidentParticipantWorkloadsListHoursResultV2.
+type IncidentParticipantWorkloadsListHoursResultV2 struct {
+	IncidentParticipantWorkloadHours []IncidentParticipantWorkloadHourV2 `json:"incident_participant_workload_hours"`
+	Metadata                         WorkloadMetadataV2                  `json:"metadata"`
+	PaginationMeta                   PaginationMetaResultV2              `json:"pagination_meta"`
+}
 
 // IncidentParticipantWorkloadsListResultV2 defines model for IncidentParticipantWorkloadsListResultV2.
 type IncidentParticipantWorkloadsListResultV2 struct {
@@ -22825,6 +22843,24 @@ type AlertsV2ListIncidentAlertsParams struct {
 	IncidentId *string `form:"incident_id,omitempty" json:"incident_id,omitempty"`
 }
 
+// IncidentParticipantWorkloadsV2ListHoursParams defines parameters for IncidentParticipantWorkloadsV2ListHours.
+type IncidentParticipantWorkloadsV2ListHoursParams struct {
+	// PageSize Integer number of records to return
+	PageSize *int64 `form:"page_size,omitempty" json:"page_size,omitempty"`
+
+	// After The cursor from a previous response's `pagination_meta.after`. Returns the rows older than that page.
+	After *string `form:"after,omitempty" json:"after,omitempty"`
+
+	// Before Only return hours that start before this time
+	Before *time.Time `form:"before,omitempty" json:"before,omitempty"`
+
+	// IncidentId Only return workload on this incident
+	IncidentId *string `form:"incident_id,omitempty" json:"incident_id,omitempty"`
+
+	// UserId Only return workload for this user
+	UserId *string `form:"user_id,omitempty" json:"user_id,omitempty"`
+}
+
 // IncidentParticipantWorkloadsV2ListParams defines parameters for IncidentParticipantWorkloadsV2List.
 type IncidentParticipantWorkloadsV2ListParams struct {
 	// IncidentId Find participant workload for this incident
@@ -24438,6 +24474,9 @@ type ClientInterface interface {
 	AlertsV2TransitionIncidentAlertWithBody(ctx context.Context, id string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	AlertsV2TransitionIncidentAlert(ctx context.Context, id string, body AlertsV2TransitionIncidentAlertJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// IncidentParticipantWorkloadsV2ListHours request
+	IncidentParticipantWorkloadsV2ListHours(ctx context.Context, params *IncidentParticipantWorkloadsV2ListHoursParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// IncidentParticipantWorkloadsV2List request
 	IncidentParticipantWorkloadsV2List(ctx context.Context, params *IncidentParticipantWorkloadsV2ListParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -28228,6 +28267,18 @@ func (c *Client) AlertsV2TransitionIncidentAlertWithBody(ctx context.Context, id
 
 func (c *Client) AlertsV2TransitionIncidentAlert(ctx context.Context, id string, body AlertsV2TransitionIncidentAlertJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := newAlertsV2TransitionIncidentAlertRequest(c.Server, id, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) IncidentParticipantWorkloadsV2ListHours(ctx context.Context, params *IncidentParticipantWorkloadsV2ListHoursParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := newIncidentParticipantWorkloadsV2ListHoursRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -39371,6 +39422,119 @@ func newAlertsV2TransitionIncidentAlertRequestWithBody(server string, id string,
 	return req, nil
 }
 
+// NewIncidentParticipantWorkloadsV2ListHoursRequest generates requests for IncidentParticipantWorkloadsV2ListHours
+func newIncidentParticipantWorkloadsV2ListHoursRequest(server string, params *IncidentParticipantWorkloadsV2ListHoursParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/v2/incident_participant_workload_hours")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.PageSize != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page_size", *params.PageSize, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: "int64"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.After != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "after", *params.After, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Before != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "before", *params.Before, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: "date-time"}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IncidentId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "incident_id", *params.IncidentId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UserId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "user_id", *params.UserId, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewIncidentParticipantWorkloadsV2ListRequest generates requests for IncidentParticipantWorkloadsV2List
 func newIncidentParticipantWorkloadsV2ListRequest(server string, params *IncidentParticipantWorkloadsV2ListParams) (*http.Request, error) {
 	var err error
@@ -47908,6 +48072,9 @@ type ClientWithResponsesInterface interface {
 
 	AlertsV2TransitionIncidentAlertWithResponse(ctx context.Context, id string, body AlertsV2TransitionIncidentAlertJSONRequestBody, reqEditors ...RequestEditorFn) (*AlertsV2TransitionIncidentAlertResponse, error)
 
+	// IncidentParticipantWorkloadsV2ListHoursWithResponse request
+	IncidentParticipantWorkloadsV2ListHoursWithResponse(ctx context.Context, params *IncidentParticipantWorkloadsV2ListHoursParams, reqEditors ...RequestEditorFn) (*IncidentParticipantWorkloadsV2ListHoursResponse, error)
+
 	// IncidentParticipantWorkloadsV2ListWithResponse request
 	IncidentParticipantWorkloadsV2ListWithResponse(ctx context.Context, params *IncidentParticipantWorkloadsV2ListParams, reqEditors ...RequestEditorFn) (*IncidentParticipantWorkloadsV2ListResponse, error)
 
@@ -54848,6 +55015,41 @@ func (r AlertsV2TransitionIncidentAlertResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r AlertsV2TransitionIncidentAlertResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type IncidentParticipantWorkloadsV2ListHoursResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *IncidentParticipantWorkloadsListHoursResultV2
+	JSON400      *ErrorResponse
+	JSON401      *ErrorResponse
+	JSON403      *ErrorResponse
+	JSON404      *ErrorResponse
+	JSON405      *ErrorResponse
+	JSON406      *ErrorResponse
+	JSON408      *ErrorResponse
+	JSON409      *ErrorResponse
+	JSON412      *ErrorResponse
+	JSON413      *ErrorResponse
+	JSON422      *ErrorResponse
+	JSON429      *ErrorResponse
+	JSON500      *ErrorResponse
+}
+
+// Status returns HTTPResponse.Status
+func (r IncidentParticipantWorkloadsV2ListHoursResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r IncidentParticipantWorkloadsV2ListHoursResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -62808,6 +63010,15 @@ func (c *ClientWithResponses) AlertsV2TransitionIncidentAlertWithResponse(ctx co
 		return nil, err
 	}
 	return parseAlertsV2TransitionIncidentAlertResponse(rsp)
+}
+
+// IncidentParticipantWorkloadsV2ListHoursWithResponse request returning *IncidentParticipantWorkloadsV2ListHoursResponse
+func (c *ClientWithResponses) IncidentParticipantWorkloadsV2ListHoursWithResponse(ctx context.Context, params *IncidentParticipantWorkloadsV2ListHoursParams, reqEditors ...RequestEditorFn) (*IncidentParticipantWorkloadsV2ListHoursResponse, error) {
+	rsp, err := c.IncidentParticipantWorkloadsV2ListHours(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return parseIncidentParticipantWorkloadsV2ListHoursResponse(rsp)
 }
 
 // IncidentParticipantWorkloadsV2ListWithResponse request returning *IncidentParticipantWorkloadsV2ListResponse
@@ -85724,6 +85935,123 @@ func parseAlertsV2TransitionIncidentAlertResponse(rsp *http.Response) (*AlertsV2
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest AlertsTransitionIncidentAlertResultV2
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON403 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 405:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON405 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 406:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON406 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 408:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON408 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 412:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON412 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 413:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON413 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 429:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 500:
+		var dest ErrorResponse
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON500 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseIncidentParticipantWorkloadsV2ListHoursResponse parses an HTTP response from a IncidentParticipantWorkloadsV2ListHoursWithResponse call
+func parseIncidentParticipantWorkloadsV2ListHoursResponse(rsp *http.Response) (*IncidentParticipantWorkloadsV2ListHoursResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &IncidentParticipantWorkloadsV2ListHoursResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IncidentParticipantWorkloadsListHoursResultV2
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
