@@ -16158,6 +16158,9 @@ type GroupingSettingsV3 struct {
 	// AiEnabled Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
 	AiEnabled *bool `json:"ai_enabled,omitempty"`
 
+	// AiInstructions Optional instructions the model follows when AI groups alerts on this route, such as how the systems you run relate to each other. Up to 2000 characters.
+	AiInstructions *string `json:"ai_instructions,omitempty"`
+
 	// Enabled Whether grouping is enabled
 	Enabled bool `json:"enabled"`
 
